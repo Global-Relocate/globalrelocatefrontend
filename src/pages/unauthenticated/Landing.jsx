@@ -7,8 +7,10 @@ export default function Landing() {
       <div className="flex flex-col items-center justify-center">
         <div className="bg-black min-h-[100vh] w-full flex items-center justify-center">
           <div className="flex flex-col items-center justify-center max-w-[600px] text-white">
-            <h1 className="text-7xl font-bold">Global.Relocate</h1>
-            <p className="text-center my-8 text-3xl line-clamp-3">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold uppercase">
+              Global.Relocate
+            </h1>
+            <p className="text-center my-8 text-xl md:text-3xl line-clamp-3">
               Your companion for immigration, company formation, and living in
               new companies.
             </p>
@@ -18,7 +20,7 @@ export default function Landing() {
           </div>
         </div>
         <h2 className="text-3xl my-4 font-semibold">Features</h2>
-        <div className="flex items-start justify-between  py-10 w-[90%]">
+        <div className="flex items-start justify-between flex-wrap  py-10 w-[90%]">
           <div className="flex flex-col items-start w-[300px]">
             <h3 className="font-bold text-lg">Countries Information</h3>
             <p className="mt-2">

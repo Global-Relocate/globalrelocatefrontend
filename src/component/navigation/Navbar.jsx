@@ -26,10 +26,10 @@ const Navbar = () => {
         isScrolled ? "bg-black shadow-md" : "bg-transparent"
       } transition-colors duration-300`}
     >
-      <nav className="container mx-auto px-10 py-4 flex justify-between items-center">
+      <nav className="container mx-auto px-5 md:px-10 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl gap-2 flex items-center justify-center font-bold text-white">
-          <div className="w-[45px] h-[45px] bg-white rounded-full "></div>
+        <div className="text-lg md:text-xl lg:text-2xl gap-2 flex items-center justify-center font-bold text-white">
+          <div className="w-[30px] md:w-[45px] h-[30px] md:h-[45px] bg-white rounded-full "></div>
           <div className="flex flex-col gap-0 items-start">
             <span>Global</span>
             <span>Relocate</span>
@@ -147,7 +147,7 @@ const Navbar = () => {
           >
             Contact
           </a>
-          <div className="space-y-4">
+          <div className="space-y-4 space-x-3">
             <button className="px-4 py-2 border rounded-xl text-white hover:bg-gray-700">
               Sign In
             </button>
