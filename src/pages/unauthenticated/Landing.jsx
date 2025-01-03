@@ -1,7 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import MainLayout from "../../component/layouts/MainLayout";
 
 export default function Landing() {
+  const navigate = useNavigate();
+
+  const handleStartNow = () => {
+    navigate("/login");
+  };
+
+  const handleSignUp = () => {
+    navigate("/signup");
+  };
+
   return (
     <MainLayout>
       <div className="flex flex-col items-center justify-center">
@@ -14,7 +25,10 @@ export default function Landing() {
               Your companion for immigration, company formation, and living in
               new companies.
             </p>
-            <button className="bg-[#fca311] py-2 px-14 rounded-3xl text-2xl font-semibold">
+            <button
+              className="bg-[#fca311] py-2 px-14 rounded-3xl text-2xl font-semibold"
+              onClick={handleStartNow}
+            >
               Start Now
             </button>
           </div>
@@ -52,6 +66,12 @@ export default function Landing() {
               Connect with Lawyers, tax advisors, relocation services and
               more...
             </p>
+            <button
+              className="bg-[#fca311] text-white mt-2 py-1 px-6 rounded-2xl text-md font-semibold"
+              onClick={handleSignUp}
+            >
+              Sign Up
+            </button>
           </div>
         </div>
       </div>
