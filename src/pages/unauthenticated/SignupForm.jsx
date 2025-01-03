@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { EyeOff, Eye, ChevronDown } from 'lucide-react';
+import { EyeOff, Eye } from 'lucide-react';
 import logo from '../../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
 
 export default function SignupForm() {
   const [showPassword, setShowPassword] = useState(false);
+  const [country, setCountry] = useState(null);
   const navigate = useNavigate();
+  const options = countryList().getData();
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
@@ -13,6 +17,51 @@ export default function SignupForm() {
 
   const handleLogin = () => {
     navigate('/login');
+  };
+
+  const handleCountryChange = (selectedOption) => {
+    setCountry(selectedOption);
+  };
+
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      backgroundColor: '#E5E5E5',
+      borderColor: 'black',
+      borderRadius: '12px',
+      padding: '0.2rem',
+      minHeight: 'auto',
+      boxShadow: 'none',
+      '&:hover': {
+        borderColor: '#FCA311',
+      },
+    }),
+    input: (provided) => ({
+      ...provided,
+      color: 'black',
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: 'black',
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: 'black',
+    }),
+    menu: (provided) => ({
+      ...provided,
+      backgroundColor: '#E5E5E5',
+      borderRadius: '12px',
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isFocused ? '#FCA311' : '#E5E5E5',
+      color: 'black',
+      '&:hover': {
+        backgroundColor: '#FCA311',
+        color: 'white',
+      },
+    }),
   };
 
   return (
@@ -98,16 +147,12 @@ export default function SignupForm() {
             {/* Country select */}
             <div>
               <label className="block text-black mb-2">Country</label>
-              <div className="relative">
-                <select
-                  className="w-full px-4 py-2 rounded-[12px] bg-[#E5E5E5] border border-black text-black text-base focus:outline-none focus:border-[#FCA311] appearance-none"
-                  defaultValue="France"
-                >
-                  <option value="France">France</option>
-                  {/* Add more countries as needed */}
-                </select>
-                <ChevronDown className="w-5 h-5 text-black absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none" />
-              </div>
+              <Select
+                options={options}
+                value={country}
+                onChange={handleCountryChange}
+                styles={customStyles}
+              />
             </div>
 
             {/* Checkboxes */}
@@ -142,7 +187,7 @@ export default function SignupForm() {
           <button
             onClick={handleLogin}
             className="absolute right-8 text-black text-sm font-medium hover:text-[#FCA311] transition-colors"
-            style={{ bottom: '4rem' }}
+            style={{ bottom: '3rem' }}
           >
             Next
           </button>
