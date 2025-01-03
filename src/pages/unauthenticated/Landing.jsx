@@ -7,6 +7,7 @@ import { RiBriefcase2Line } from "react-icons/ri";
 import { AiOutlineDollar } from "react-icons/ai";
 import { FaCentSign } from "react-icons/fa6";
 import { ImCoinYen } from "react-icons/im";
+import landing_image from "../../assets/images/cad_image.png";
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -143,6 +144,7 @@ export default function Landing() {
             </div>
           </div>
         </div>
+        <img src={landing_image} alt="landing" className="w-full" />
       </div>
     </MainLayout>
   );
