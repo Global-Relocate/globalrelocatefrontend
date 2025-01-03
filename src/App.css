@@ -1,0 +1,7 @@
+/* Hero Section  */
+.hero-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.695), rgba(0, 0, 0, 0)), url("./assets/herobg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

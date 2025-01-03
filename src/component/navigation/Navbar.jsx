@@ -70,7 +70,7 @@ const Navbar = () => {
           <button className="px-4 py-2 border rounded-xl text-white hover:bg-gray-700">
             Sign In
           </button>
-          <button className="px-4 py-2 bg-[#fca311] text-white rounded-xl hover:bg-yellow-700">
+          <button className="px-4 py-2 bg-white text-black rounded-xl ">
             Sign Up
           </button>
         </div>

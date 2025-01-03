@@ -5,7 +5,7 @@ export default function Landing() {
   return (
     <MainLayout>
       <div className="flex flex-col items-center justify-center">
-        <div className="bg-black min-h-[100vh] w-full flex items-center justify-center">
+        <div className="hero-bg min-h-[100vh] w-full flex items-center justify-center">
           <div className="flex flex-col items-center justify-center max-w-[600px] text-white">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold uppercase">
               Global.Relocate
@@ -14,7 +14,7 @@ export default function Landing() {
               Your companion for immigration, company formation, and living in
               new companies.
             </p>
-            <button className="bg-[#fca311] py-2 px-14 rounded-2xl text-2xl font-semibold">
+            <button className="bg-[#fca311] py-2 px-14 rounded-3xl text-2xl font-semibold">
               Start Now
             </button>
           </div>
