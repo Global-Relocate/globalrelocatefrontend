@@ -18,9 +18,9 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen h-full w-full flex">
-      {/* Left side with logo */}
-      <div className="w-[35%] bg-[#14213D] p-12">
+    <div className="min-h-screen h-full w-full flex flex-col md:flex-row">
+      {/* Left side with logo - hidden on mobile, visible on md and up */}
+      <div className="hidden md:flex md:w-1/4 lg:w-[25%] bg-[#14213D] p-6 md:p-12">
         <div className="flex items-start gap-3">
           <img src={logo} alt="Global Relocate Logo" className="w-10 h-10" />
           <div className="text-white font-semibold text-xl leading-tight">
@@ -30,13 +30,13 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Right side with login form */}
-      <div className="w-[65%] bg-[#E5E5E5] flex items-center justify-center py-16">
-        <div className="w-full max-w-[460px] px-8">
-          <h1 className="text-4xl font-semibold mb-3 text-center">
+      {/* Right side with login form - full width on mobile */}
+      <div className="flex-1 md:w-3/4 lg:w-[75%] bg-[#E5E5E5] flex items-center justify-center px-4 py-8 md:py-16">
+        <div className="w-full max-w-[460px] px-4 md:px-8">
+          <h1 className="text-3xl md:text-4xl font-semibold mb-3 text-center">
             Access your dashboard
           </h1>
-          <p className="text-xs font-light text-black mb-12 text-center">
+          <p className="text-xs font-light text-black mb-8 md:mb-12 text-center">
             Please sign in to access your personalized dashboard
             <br />
             manage your relocation plans and connect with our resources
@@ -48,7 +48,7 @@ export default function Login() {
               <input
                 type="text"
                 placeholder="Username"
-                className="w-full px-6 py-4 rounded-full bg-[#E5E5E5] border border-black text-black placeholder-black text-base focus:outline-none focus:border-[#FCA311]"
+                className="w-full px-4 md:px-6 py-3 md:py-4 rounded-full bg-[#E5E5E5] border border-black text-black placeholder-black text-base focus:outline-none focus:border-[#FCA311]"
               />
             </div>
 
@@ -57,7 +57,7 @@ export default function Login() {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                className="w-full px-6 py-4 rounded-full bg-[#E5E5E5] border border-black text-black placeholder-black text-base focus:outline-none focus:border-[#FCA311]"
+                className="w-full px-4 md:px-6 py-3 md:py-4 rounded-full bg-[#E5E5E5] border border-black text-black placeholder-black text-base focus:outline-none focus:border-[#FCA311]"
               />
               <button
                 type="button"
