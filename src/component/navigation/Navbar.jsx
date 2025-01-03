@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   // Handle scroll effect
   useEffect(() => {
@@ -18,6 +20,14 @@ const Navbar = () => {
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
+  };
+
+  const handleSignIn = () => {
+    navigate("/login");
+  };
+
+  const handleSignUp = () => {
+    navigate("/signup");
   };
 
   return (
@@ -67,10 +77,16 @@ const Navbar = () => {
 
         {/* Sign Up and Sign In Buttons */}
         <div className="hidden md:flex space-x-4">
-          <button className="px-4 py-2 border rounded-xl text-white hover:bg-gray-700">
+          <button
+            className="px-4 py-2 border rounded-xl text-white hover:bg-gray-700"
+            onClick={handleSignIn}
+          >
             Sign In
           </button>
-          <button className="px-4 py-2 bg-white text-black rounded-xl ">
+          <button
+            className="px-4 py-2 bg-white text-black rounded-xl"
+            onClick={handleSignUp}
+          >
             Sign Up
           </button>
         </div>
