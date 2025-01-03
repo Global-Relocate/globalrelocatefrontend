@@ -16,9 +16,9 @@ export default function SignupForm() {
   };
 
   return (
-    <div className="min-h-screen h-full w-full flex">
-      {/* Left side with logo */}
-      <div className="w-[35%] bg-[#14213D] p-12">
+    <div className="min-h-screen h-full w-full flex flex-col md:flex-row">
+      {/* Left side with logo - hidden on mobile, visible on md and up */}
+      <div className="hidden md:flex md:w-1/4 lg:w-[25%] bg-[#14213D] p-6 md:p-12">
         <div className="flex items-start gap-3">
           <img src={logo} alt="Global Relocate Logo" className="w-10 h-10" />
           <div className="text-white font-semibold text-xl leading-tight">
@@ -28,10 +28,10 @@ export default function SignupForm() {
         </div>
       </div>
 
-      {/* Right side with signup form */}
-      <div className="w-[65%] bg-[#E5E5E5] flex items-center justify-center py-16">
-        <div className="w-full max-w-[460px] px-8 relative">
-          <h1 className="text-4xl font-medium mb-3 text-center">
+      {/* Right side with signup form - full width on mobile */}
+      <div className="flex-1 md:w-3/4 lg:w-[75%] bg-[#E5E5E5] flex items-center justify-center px-4 py-8 md:py-16">
+        <div className="w-full max-w-[460px] px-4 md:px-8 relative">
+          <h1 className="text-3xl md:text-4xl font-medium mb-3 text-center">
             Sign up for an account
           </h1>
 
@@ -53,6 +53,7 @@ export default function SignupForm() {
                 />
               </div>
             </div>
+
             {/* Username input */}
             <div>
               <label className="block text-black mb-2">Username</label>
@@ -93,6 +94,7 @@ export default function SignupForm() {
                 </button>
               </div>
             </div>
+
             {/* Country select */}
             <div>
               <label className="block text-black mb-2">Country</label>
