@@ -1,7 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 /* Hero Section  */
 .hero-bg {
-  background: linear-gradient(rgba(0, 49, 134, 0.503), rgba(37, 109, 255, 0)), url("./assets/herobg.jpg");
-  background-size: cover;
+  background: url("./assets/images/bg_illustration.png");
+  background-size: 75%;
   background-position: center;
   background-repeat: no-repeat;
+}
+@media screen and (max-width: 900px) {
+  .hero-bg {
+    background-size: 100%;
+  }
 }

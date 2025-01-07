@@ -5,7 +5,7 @@ import { FaFacebook } from "react-icons/fa";
 export default function Footer() {
   return (
     <div className="text-[#7E7E7E] w-full flex items-center flex-col">
-      <div className="w-[90%] flex items-start justify-between p-4">
+      <div className="w-[90%] flex-wrap flex items-start justify-between p-4">
         <ul className="flex flex-col gap-2">
           <li>
             <a href="#">Home</a>
@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <span className="text-center py-3">Ⓒ 2023 GlobalRelocate</span>
+      <span className="text-center py-3">Ⓒ 2024 GlobalRelocate</span>
     </div>
   );
 }
