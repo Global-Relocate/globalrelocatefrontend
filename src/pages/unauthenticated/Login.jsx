@@ -1,120 +1,203 @@
-import React, { useState } from 'react';
-import { EyeOff, Eye } from 'lucide-react';
-import logo from '../../assets/logo.png';
-import googleLogo from '../../assets/google.svg';
-import appleLogo from '../../assets/apple.svg';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { IoCloseCircleOutline } from "react-icons/io5";
+import { BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
+import logo from "../../assets/logo.svg";
 
 export default function Login() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
   const [showPassword, setShowPassword] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
 
-  const togglePassword = () => {
-    setShowPassword(!showPassword);
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
-  const handleSignUp = () => {
-    navigate('/signup');
+  const validatePassword = (password) => {
+    return password.length >= 6;
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    if (name === "email") {
+      if (value && !validateEmail(value)) {
+        setEmailError("Email Address not valid");
+      } else {
+        setEmailError("");
+      }
+    }
+
+    if (name === "password") {
+      if (value && !validatePassword(value)) {
+        setPasswordError("Password must be at least 6 characters");
+      } else {
+        setPasswordError("");
+      }
+    }
+  };
+
+  const handleClose = () => {
+    navigate(-1);
+  };
+
+  const isFormValid = formData.email && formData.password && !emailError && !passwordError;
 
   return (
-    <div className="min-h-screen h-full w-full flex flex-col md:flex-row">
-      {/* Left side with logo - hidden on mobile, visible on md and up */}
-      <div className="hidden md:flex md:w-1/4 lg:w-[25%] bg-[#14213D] p-6 md:p-12">
-        <div className="flex items-start gap-3">
-          <img src={logo} alt="Global Relocate Logo" className="w-10 h-10" />
-          <div className="text-white font-semibold text-xl leading-tight">
-            <div>Global</div>
-            <div>Relocate</div>
-          </div>
-        </div>
+    <div className="min-h-screen bg-white">
+      {/* Mobile Header */}
+      <div className="md:hidden flex items-center justify-between p-4">
+        <Link to="/">
+          <img src={logo} alt="Global Relocate Logo" className="h-10" />
+        </Link>
+        <button onClick={handleClose} className="flex items-center">
+          <IoCloseCircleOutline className="text-2xl mr-2" />
+          <span>Close</span>
+        </button>
       </div>
 
-      {/* Right side with login form - full width on mobile */}
-      <div className="flex-1 md:w-3/4 lg:w-[75%] bg-[#E5E5E5] flex items-center justify-center px-4 py-8 md:py-16">
-        <div className="w-full max-w-[460px] px-4 md:px-8">
-          <h1 className="text-3xl md:text-4xl font-semibold mb-3 text-center">
-            Access your dashboard
-          </h1>
-          <p className="text-xs font-light text-black mb-8 md:mb-12 text-center">
-            Please sign in to access your personalized dashboard
-            <br />
-            manage your relocation plans and connect with our resources
-          </p>
+      {/* Desktop Header */}
+      <div className="hidden md:flex items-center justify-between p-6">
+        <Link to="/">
+          <img src={logo} alt="Global Relocate Logo" className="h-10" />
+        </Link>
+        <Link
+          to="/signup"
+          className="text-sm font-medium hover:text-gray-600"
+        >
+          Create account
+        </Link>
+      </div>
 
-          <form className="space-y-6">
-            {/* Username input */}
-            <div>
-              <input
-                type="text"
-                placeholder="Username"
-                className="w-full px-4 md:px-6 py-3 md:py-4 rounded-full bg-[#E5E5E5] border border-black text-black placeholder-black text-base focus:outline-none focus:border-[#FCA311]"
-              />
-            </div>
+      {/* Main Content */}
+      <div className="max-w-6xl mx-auto px-6 pt-8 md:pt-16">
+        <h1 className="text-3xl font-medium mb-12 text-center">
+          Log into Global Relocate
+        </h1>
 
-            {/* Password input */}
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                className="w-full px-4 md:px-6 py-3 md:py-4 rounded-full bg-[#E5E5E5] border border-black text-black placeholder-black text-base focus:outline-none focus:border-[#FCA311]"
-              />
-              <button
-                type="button"
-                onClick={togglePassword}
-                className="absolute right-6 top-1/2 transform -translate-y-1/2"
-              >
-                {showPassword ? (
-                  <Eye className="w-5 h-5 text-black" />
-                ) : (
-                  <EyeOff className="w-5 h-5 text-black" />
+        <div className="flex flex-col md:flex-row md:space-x-12 justify-center">
+          {/* Form Section */}
+          <div className="w-full md:w-[320px]">
+              <form className="space-y-6">
+              <div className="relative">
+                <label className="block text-sm mb-2">
+                  Email Address
+                </label>
+                {emailError && (
+                  <p className="absolute right-0 top-0 text-red-500 text-xs">{emailError}</p>
                 )}
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className={`w-full px-4 py-3 rounded-lg border ${
+                    emailError ? 'border-red-500' : 'border-gray-300'
+                  } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
+                  placeholder="myaccount@gmail.com"
+                />
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm mb-2">Password</label>
+                {passwordError && (
+                  <p className="absolute right-0 top-0 text-red-500 text-xs">{passwordError}</p>
+                )}
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-3 rounded-lg border ${
+                      passwordError ? 'border-red-500' : 'border-gray-300'
+                    } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
+                    placeholder="Enter your password"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                  >
+                    {showPassword ? (
+                      <BsEyeSlash className="h-5 w-5 text-gray-500" />
+                    ) : (
+                      <BsEye className="h-5 w-5 text-gray-500" />
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className={`w-full py-3 rounded-lg text-center transition-colors ${
+                  isFormValid
+                    ? "bg-[#FCA311] hover:bg-[#e5940c] text-black"
+                    : "bg-[#FCA31180] text-black cursor-not-allowed"
+                }`}
+                disabled={!isFormValid}
+              >
+                Continue
               </button>
-            </div>
+            </form>
+          </div>
 
-            {/* Forget Password link */}
-            <div className="text-right">
-              <a href="#" className="text-base font-semibold text-black hover:text-[#FCA311]">
-                Forget Password?
-              </a>
-            </div>
+          {/* Divider */}
+          <div className="my-8 md:my-0 flex md:flex-col items-center justify-center md:mt-15">
+            <div className="flex-1 md:h-full md:w-px border-t md:border-l border-gray-300"></div>
+            <span className="px-4 text-gray-500">OR</span>
+            <div className="flex-1 md:h-full md:w-px border-t md:border-l border-gray-300"></div>
+          </div>
 
-            {/* Login button */}
-            <button
-              type="submit"
-              className="w-full bg-[#FCA311] text-white py-4 rounded-full text-lg font-bold hover:bg-opacity-90 transition-colors mt-8"
-            >
-              Login
+          {/* Social Login Section */}
+          <div className="w-full md:w-[320px] space-y-4 md:mt-5">
+            <button className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200">
+              <div className="flex items-center">
+                <FcGoogle className="h-5 w-5 mr-3" />
+                <span>Continue with Google</span>
+              </div>
+              <BsArrowLeft className="rotate-180" />
             </button>
 
-            {/* Or continue with section */}
-            <div className="flex items-center justify-center gap-4 my-12">
-              <div className="h-px bg-black flex-1"></div>
-              <span className="text-sm font-light text-black">or continue with</span>
-              <div className="h-px bg-black flex-1"></div>
-            </div>
-
-            {/* Social login buttons */}
-            <div className="flex justify-center gap-16">
-              <button type="button">
-                <img src={googleLogo} alt="Google login" className="w-8 h-8" />
-              </button>
-              <button type="button">
-                <img src={appleLogo} alt="Apple login" className="w-8 h-8" />
-              </button>
-            </div>
-
-            {/* Sign up link */}
-            <div className="text-center mt-24">
-              <span className="text-base font-light text-black">
-                Don't have an account yet?{' '}
-              </span>
-              <button onClick={handleSignUp} className="text-base font-medium text-[#FCA311] hover:underline">
-                Sign up
-              </button>
-            </div>
-          </form>
+            <button className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200">
+              <div className="flex items-center">
+                <FaApple className="h-5 w-5 mr-3" />
+                <span>Continue with Apple</span>
+              </div>
+              <BsArrowLeft className="rotate-180" />
+            </button>
+          </div>
         </div>
+
+        <div className="mt-6 text-center">
+          <Link to="/forgotpassword" className="text-sm text-gray-600">
+            Can't log in?
+          </Link>
+        </div>
+
+        <p className="mt-8 text-sm text-gray-600 text-center">
+          By clicking creating an account, you agree to our{" "}
+          <Link to="/terms" className="underline">
+            Terms of Service
+          </Link>{" "}
+          and{" "}
+          <Link to="/privacy" className="underline">
+            Privacy Policy.
+          </Link>
+        </p>
+        <div className="mb-20"></div>
       </div>
     </div>
   );
