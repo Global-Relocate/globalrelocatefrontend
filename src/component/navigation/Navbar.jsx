@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import logo from "../../assets/images/logo_main.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -33,21 +34,21 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 w-full z-50 ${
-        isScrolled ? "bg-black shadow-md" : "bg-transparent"
+        isScrolled ? "bg-white shadow-sm" : "bg-transperant"
       } transition-colors duration-300`}
     >
+      {/* className={`fixed top-0 w-full z-50 ${
+        isScrolled ? "bg-black shadow-md" : "bg-white"
+      } transition-colors duration-300`}
+    > */}
       <nav className="container mx-auto px-5 md:px-10 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-lg md:text-xl lg:text-2xl gap-2 flex items-center justify-center font-bold text-white">
-          <div className="w-[30px] md:w-[45px] h-[30px] md:h-[45px] bg-white rounded-full "></div>
-          <div className="flex flex-col gap-0 items-start">
-            <span>Global</span>
-            <span>Relocate</span>
-          </div>
+          <img src={logo} alt="logo" />
         </div>
 
         {/* Nav Links (Desktop) */}
-        <ul className="hidden md:flex space-x-8 text-white">
+        <ul className="hidden md:flex space-x-8 text-black">
           <li>
             <a href="#home" className="hover:text-gray-300">
               Home
@@ -77,24 +78,29 @@ const Navbar = () => {
 
         {/* Sign Up and Sign In Buttons */}
         <div className="hidden md:flex space-x-4">
-          <button
-            className="px-4 py-2 border rounded-xl text-white hover:bg-gray-700"
-            onClick={handleSignIn}
-          >
-            Sign In
+          <div className="flex items-center space-x-1 cursor-pointer">
+            <img
+              src="https://uk.usembassy.gov/wp-content/uploads/sites/16/US_Flag_Color_72DPI_750x450.jpg"
+              className="w-7 h-7 rounded-full"
+              alt="logo"
+            />
+            <span className="text-sm">EN</span>
+          </div>
+          <button className="px-4 py-2 text-black" onClick={handleSignIn}>
+            Log In
           </button>
           <button
-            className="px-4 py-2 bg-white text-black rounded-xl"
+            className="bg-[#fca311] text-black py-2 px-4 rounded-xl text-sm font-medium"
             onClick={handleSignUp}
           >
-            Sign Up
+            Get Started
           </button>
         </div>
 
         {/* Hamburger Menu (Mobile) */}
         <button
           onClick={toggleDrawer}
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-black focus:outline-none"
         >
           <svg
             className="w-6 h-6"
