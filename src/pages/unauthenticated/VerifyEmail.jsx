@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import logo from "../../assets/logo.svg";
-import mail from "../../assets/mail.svg";
+import logo from "../../assets/svg/logo.svg";
+import mail from "../../assets/svg/mail.svg";
 
 export default function VerifyEmail() {
   const [loginCode, setLoginCode] = useState("");

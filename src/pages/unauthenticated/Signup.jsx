@@ -9,7 +9,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import Select from 'react-select';
 import countries from 'country-list';
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/svg/logo.svg";
 
 export default function Signup() {
   const [selectedAccountType, setSelectedAccountType] = useState(null);

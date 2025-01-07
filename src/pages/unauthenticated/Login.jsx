@@ -4,7 +4,7 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/svg/logo.svg";
 
 export default function Login() {
   const [formData, setFormData] = useState({
