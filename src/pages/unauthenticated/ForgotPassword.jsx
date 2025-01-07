@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/svg/logo.svg";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
