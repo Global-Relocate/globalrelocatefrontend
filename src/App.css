@@ -1,6 +1,6 @@
 /* Hero Section  */
 .hero-bg {
-  background: linear-gradient(rgba(0, 0, 0, 0.695), rgba(0, 0, 0, 0)), url("./assets/herobg.jpg");
+  background: linear-gradient(rgba(0, 49, 134, 0.503), rgba(37, 109, 255, 0)), url("./assets/herobg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
