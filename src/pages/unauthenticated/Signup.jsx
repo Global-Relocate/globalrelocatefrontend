@@ -187,9 +187,10 @@ export default function Signup() {
             </span>
           </div>
           <div
-            className={`h-4 w-4 rounded-full flex items-center justify-center ${
+            className={`h-3 w-3 flex items-center justify-center rounded-full ${
               selectedAccountType === "personal" ? "bg-green-600" : "bg-[#E5E5E5]"
             }`}
+            style={{ minWidth: '1rem', minHeight: '1rem' }}
           >
             {selectedAccountType === "personal" && (
               <BsCheck className="h-5 w-5 text-white" />
@@ -212,9 +213,10 @@ export default function Signup() {
             </span>
           </div>
           <div
-            className={`h-4 w-4 rounded-full flex items-center justify-center ${
+            className={`h-3 w-3 flex items-center justify-center rounded-full ${
               selectedAccountType === "corporate" ? "bg-green-600" : "bg-[#E5E5E5]"
             }`}
+            style={{ minWidth: '1rem', minHeight: '1rem' }}
           >
             {selectedAccountType === "corporate" && (
               <BsCheck className="h-5 w-5 text-white" />
