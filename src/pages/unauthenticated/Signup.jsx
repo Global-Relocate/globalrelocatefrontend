@@ -163,7 +163,7 @@ export default function Signup() {
 
   const AccountTypeSelection = () => (
     <>
-      <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[90%]">
+      <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
         Let's create your account
       </h1>
 
@@ -173,7 +173,7 @@ export default function Signup() {
 
       <div className="space-y-4 px-6">
         <button
-          className={`w-[90%] flex items-center justify-between p-6 rounded-lg transition-all ${
+          className={`w-[100%] flex items-center justify-between p-6 rounded-lg transition-all ${
             selectedAccountType === "personal"
               ? "border-[1px] border-black bg-[#F5F5F5]"
               : "bg-[#F5F5F5]"
@@ -198,7 +198,7 @@ export default function Signup() {
         </button>
 
         <button
-          className={`w-[90%] flex items-center justify-between p-6 rounded-lg transition-all ${
+          className={`w-[100%] flex items-center justify-between p-6 rounded-lg transition-all ${
             selectedAccountType === "corporate"
               ? "border-[1px] border-black bg-[#F5F5F5]"
               : "bg-[#F5F5F5]"
@@ -225,7 +225,7 @@ export default function Signup() {
 
       <div className="px-6">
         <button
-          className={`w-[90%] py-2 mt-8 text-black rounded-lg ${
+          className={`w-[100%] py-2 mt-8 text-black rounded-lg ${
             selectedAccountType ? "bg-[#FCA311] hover:bg-[#e5940c]" : "bg-[#FCA31180] cursor-not-allowed"
           }`}
           disabled={!selectedAccountType}
@@ -239,7 +239,7 @@ export default function Signup() {
 
   const SignupMethods = () => (
     <>
-      <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[90%]">
+      <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
         Let's create your account
       </h1>
 
@@ -248,7 +248,7 @@ export default function Signup() {
       </p>
 
       <div className="space-y-4 px-6">
-        <button className="w-[90%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5]">
+        <button className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5]">
           <div className="flex items-center">
             <FcGoogle className="h-5 w-5 mr-3" />
             <span className="text-gray-700">Continue with Google</span>
@@ -256,7 +256,7 @@ export default function Signup() {
           <BsArrowLeft className="rotate-180" />
         </button>
 
-        <button className="w-[90%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5]">
+        <button className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5]">
           <div className="flex items-center">
             <FaApple className="h-5 w-5 mr-3" />
             <span className="text-gray-700">Continue with Apple</span>
@@ -265,7 +265,7 @@ export default function Signup() {
         </button>
 
         <button 
-          className="w-[90%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5]"
+          className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5]"
           onClick={handleEmailSignup}
         >
           <div className="flex items-center">
@@ -280,7 +280,7 @@ export default function Signup() {
 
   const EmailSignupForm = () => (
     <>
-      <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[90%]">
+      <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
         Let's create your account
       </h1>
 
@@ -452,7 +452,7 @@ export default function Signup() {
 
         {!showEmailForm && (
           <div className="px-6">
-            <p className="mt-4 text-sm text-gray-600 text-left w-[90%]">
+            <p className="mt-4 text-sm text-gray-600 text-left w-[100%]">
               Already have an account?{" "}
               <Link to="/login" className="text-blue-600 font-medium">
                 Log In
@@ -461,7 +461,7 @@ export default function Signup() {
           </div>
         )}
 
-        <p className="text-left mt-8 text-xs text-gray-500 px-6 w-[90%]">
+        <p className="text-left mt-8 text-xs text-gray-500 px-6 w-[100%]">
           By clicking "Continue", you agree to our{" "}
           <Link to="/terms" className="text-black underline">
             Terms of Service
