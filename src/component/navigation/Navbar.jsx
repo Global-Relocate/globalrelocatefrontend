@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../assets/images/logo_main.png";
+import logo from "../../assets/svg/logo.svg";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -43,7 +43,7 @@ const Navbar = () => {
     > */}
       <nav className="container mx-auto px-5 md:px-10 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-lg md:text-xl lg:text-2xl gap-2 flex items-center justify-center font-bold text-white">
+        <div className="text-lg md:text-xl lg:text-2xl z-20 gap-2 flex items-center justify-center font-bold text-white">
           <img src={logo} alt="logo" />
         </div>
 
@@ -121,10 +121,10 @@ const Navbar = () => {
 
       {/* Mobile Drawer */}
       {isDrawerOpen && (
-        <div className="absolute top-0 left-0 w-full h-screen bg-black text-white flex flex-col items-center space-y-8 pt-20 md:hidden">
+        <div className="absolute top-0 left-0 w-full h-screen bg-white text-black flex flex-col items-start justify-between pb-8 px-8 space-y-8 pt-20 md:hidden">
           <button
             onClick={toggleDrawer}
-            className="absolute top-5 right-5 text-white"
+            className="absolute top-6 right-6 text-black"
           >
             <svg
               className="w-6 h-6"
@@ -141,39 +141,58 @@ const Navbar = () => {
               />
             </svg>
           </button>
-          <a
-            href="#home"
-            className="hover:text-gray-300"
-            onClick={toggleDrawer}
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            className="hover:text-gray-300"
-            onClick={toggleDrawer}
-          >
-            About
-          </a>
-          <a
-            href="#services"
-            className="hover:text-gray-300"
-            onClick={toggleDrawer}
-          >
-            Services
-          </a>
-          <a
-            href="#contact"
-            className="hover:text-gray-300"
-            onClick={toggleDrawer}
-          >
-            Contact
-          </a>
-          <div className="space-y-4 space-x-3">
-            <button className="px-4 py-2 border rounded-xl text-white hover:bg-gray-700">
+          <div className="flex flex-col gap-5 text-[#404040] text-lg items-start">
+            <a href="#home" className="hover:text-black" onClick={toggleDrawer}>
+              Home
+            </a>
+            <a
+              href="#about"
+              className="hover:text-black"
+              onClick={toggleDrawer}
+            >
+              Countries & Data
+            </a>
+            <a
+              href="#services"
+              className="hover:text-black"
+              onClick={toggleDrawer}
+            >
+              Communities
+            </a>
+            <a
+              href="#contact"
+              className="hover:text-black"
+              onClick={toggleDrawer}
+            >
+              Tools
+            </a>
+            <a
+              href="#contact"
+              className="hover:text-black"
+              onClick={toggleDrawer}
+            >
+              Contact
+            </a>
+            <div className="flex items-center space-x-1 cursor-pointer">
+              <img
+                src="https://uk.usembassy.gov/wp-content/uploads/sites/16/US_Flag_Color_72DPI_750x450.jpg"
+                className="w-7 h-7 rounded-full"
+                alt="logo"
+              />
+              <span className="text-sm">EN</span>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4 w-full">
+            <button
+              onClick={handleSignIn}
+              className="w-full px-4 py-3 rounded-xl text-sm text-black border hover:bg-gray-100"
+            >
               Sign In
             </button>
-            <button className="px-4 py-2 bg-yellow-600 text-white rounded-xl hover:bg-yellow-700">
+            <button
+              onClick={handleSignUp}
+              className="w-full px-4 py-3 bg-[#FCA311] text-sm text-black rounded-xl hover:bg-yellow-400"
+            >
               Sign Up
             </button>
           </div>
