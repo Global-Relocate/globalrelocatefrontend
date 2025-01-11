@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import Select from 'react-select';
 import countries from 'country-list';
+import { useNavigate } from "react-router-dom";
 
-const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }) => {
+const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
+  const navigate = useNavigate();
 
   const countryOptions = countries.getData().map(country => ({
     value: country.code,
@@ -43,7 +45,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
     })
   };
 
-  // Handle input change and validate in real-time
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -51,7 +52,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
       [name]: value
     }));
 
-    // Real-time validation
     let error = "";
     if (name === "email") {
       if (!value) {
@@ -85,7 +85,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
     }));
   };
 
-  // Handle country selection change
   const handleCountryChange = (selectedOption) => {
     setFormData(prev => ({
       ...prev,
@@ -99,7 +98,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
     }
   };
 
-  // Check if the form is valid
   useEffect(() => {
     const isValid = !Object.values(errors).some(error => error) &&
       formData.email &&
@@ -110,6 +108,12 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
     setIsFormValid(isValid);
   }, [errors, formData]);
 
+  const handleContinue = () => {
+    if (isFormValid) {
+      navigate("/verifymail", { state: { email: formData.email } });
+    }
+  };
+
   return (
     <>
       <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
@@ -117,7 +121,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
       </h1>
 
       <div className="px-6 space-y-4 w-full">
-        {/* Email Address Field */}
         <div className="relative">
           <label className="text-sm text-gray-700 mb-1 block">
             Email Address <span className="text-red-500">*</span>
@@ -137,7 +140,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
           />
         </div>
 
-        {/* Full Name Field */}
         <div>
           <label className="text-sm text-gray-700 mb-1 block">
             Full Name <span className="text-red-500">*</span>
@@ -157,7 +159,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
           )}
         </div>
 
-        {/* Password Field */}
         <div>
           <label className="text-sm text-gray-700 mb-1 block">
             Password <span className="text-red-500">*</span>
@@ -194,7 +195,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
           )}
         </div>
 
-        {/* Confirm Password Field */}
         <div>
           <label className="text-sm text-gray-700 mb-1 block">
             Confirm Password <span className="text-red-500">*</span>
@@ -227,7 +227,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
           )}
         </div>
 
-        {/* Country Selection Field */}
         <div>
           <label className="text-sm text-gray-700 mb-1 block">
             Country <span className="text-red-500">*</span>
@@ -246,7 +245,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors, handleContinue }
         </div>
       </div>
 
-      {/* Continue Button */}
       <div className="px-6 mt-6">
         <button
           className={`w-full py-3 text-black rounded-lg ${
