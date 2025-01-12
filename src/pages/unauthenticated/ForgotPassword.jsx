@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import logo from "../../assets/svg/logo.svg";
+import { forgotPassword } from "../../services/api";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [emailSent, setEmailSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState("");
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -25,10 +29,20 @@ export default function ForgotPassword() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isFormValid) {
-      setEmailSent(true);
+      setIsLoading(true);
+      setApiError("");
+      
+      try {
+        await forgotPassword(email);
+        setEmailSent(true);
+      } catch (error) {
+        setApiError(error.message || "Failed to send password reset email. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -36,9 +50,17 @@ export default function ForgotPassword() {
     navigate(-1);
   };
 
-  const handleResendEmail = () => {
-    // Logic to resend email
-    console.log("Resend email");
+  const handleResendEmail = async () => {
+    setIsLoading(true);
+    setApiError("");
+    
+    try {
+      await forgotPassword(email);
+    } catch (error) {
+      setApiError(error.message || "Failed to resend password reset email. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleDone = () => {
@@ -82,7 +104,7 @@ export default function ForgotPassword() {
             </h1>
             <div className="flex justify-center">
               <p className="text-base text-gray-700 mb-12 text-center w-full md:w-1/3">
-                Enter your account’s email and we’ll send you an email to reset the password.
+                Enter your account's email and we'll send you an email to reset the password.
               </p>
             </div>
 
@@ -94,8 +116,10 @@ export default function ForgotPassword() {
                     <label className="block text-sm mb-2">
                       Email Address
                     </label>
-                    {emailError && (
-                      <p className="absolute right-0 top-0 text-red-500 text-xs">{emailError}</p>
+                    {(emailError || apiError) && (
+                      <p className="absolute right-0 top-0 text-red-500 text-xs">
+                        {emailError || apiError}
+                      </p>
                     )}
                     <input
                       type="email"
@@ -103,7 +127,7 @@ export default function ForgotPassword() {
                       value={email}
                       onChange={handleInputChange}
                       className={`w-full px-4 py-3 rounded-lg border ${
-                        emailError ? 'border-red-500' : 'border-gray-300'
+                        emailError || apiError ? 'border-red-500' : 'border-gray-300'
                       } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                       placeholder="myaccount@gmail.com"
                     />
@@ -116,9 +140,9 @@ export default function ForgotPassword() {
                         ? "bg-[#FCA311] hover:bg-[#e5940c] text-black"
                         : "bg-[#FCA31180] text-black cursor-not-allowed"
                     }`}
-                    disabled={!isFormValid}
+                    disabled={!isFormValid || isLoading}
                   >
-                    Send email
+                    {isLoading ? "Sending..." : "Send email"}
                   </button>
                 </form>
               </div>
@@ -151,9 +175,13 @@ export default function ForgotPassword() {
                 <button
                   onClick={handleResendEmail}
                   className="w-full py-3 rounded-lg text-blue-600 text-center hover:underline"
+                  disabled={isLoading}
                 >
-                  Resend Email
+                  {isLoading ? "Sending..." : "Resend Email"}
                 </button>
+                {apiError && (
+                  <p className="text-red-500 text-sm text-center">{apiError}</p>
+                )}
               </div>
             </div>
           </>
