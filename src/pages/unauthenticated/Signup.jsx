@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
-import SignupForm from "../../component/forms/SignupForm";
+import SignupForm from "../../components/forms/SignupForm";
 import logo from "../../assets/svg/logo.svg";
 
 export default function Signup() {
