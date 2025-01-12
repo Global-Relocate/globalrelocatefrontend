@@ -21,7 +21,8 @@ export default function Signup() {
     fullName: "",
     password: "",
     confirmPassword: "",
-    country: null
+    country: null,
+    userType: null
   });
 
   const [errors, setErrors] = useState({
@@ -99,6 +100,10 @@ export default function Signup() {
   // Handle account type selection
   const handleAccountTypeSelect = (type) => {
     setSelectedAccountType(type);
+    setFormData(prev => ({
+      ...prev,
+      userType: type === "personal" ? "INDIVIDUAL" : "CORPORATE"
+    }));
   };
 
   // Account type selection component
