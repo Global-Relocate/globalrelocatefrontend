@@ -7,7 +7,8 @@ import mail from "../../assets/svg/mail.svg";
 export default function VerifyEmail() {
   const [loginCode, setLoginCode] = useState("");
   const location = useLocation();
-  const email = location.state?.email || "myaccount@gmail.com"; // Default to hardcoded value if state is not available
+  const email = location.state?.email || "myaccount@gmail.com";
+  console.log("Email received in VerifyEmail:", email);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
