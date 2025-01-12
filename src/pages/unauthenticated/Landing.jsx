@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import MainLayout from "../../component/layouts/MainLayout";
-import FeaturesCard from "../../component/cards/FeaturesCard";
-import CountriesCard from "../../component/cards/CountriesCard";
+import MainLayout from "../../components/layouts/MainLayout";
+import FeaturesCard from "../../components/cards/FeaturesCard";
+import CountriesCard from "../../components/cards/CountriesCard";
 
 // countries imports
 import nigeria from "../../assets/images/nigeria.png";
