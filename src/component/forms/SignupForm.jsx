@@ -3,11 +3,13 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 import Select from 'react-select';
 import countries from 'country-list';
 import { useNavigate } from "react-router-dom";
+import { registerNewUser } from '../../services/api';
 
 const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const countryOptions = countries.getData().map(country => ({
@@ -108,9 +110,31 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
     setIsFormValid(isValid);
   }, [errors, formData]);
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     if (isFormValid) {
-      navigate("/verifymail", { state: { email: formData.email } });
+      setLoading(true);
+      const requestBody = {
+        firstName: formData.fullName.split(" ")[0],
+        lastName: formData.fullName.split(" ")[1] || "",
+        username: formData.email.split("@")[0],
+        email: formData.email,
+        password: formData.password,
+        country: formData.country.label,
+        userType: formData.userType
+      };
+
+      try {
+        const response = await registerNewUser(requestBody);
+        console.log("Signup successful:", response);
+        navigate("/verifymail", { state: { email: formData.email } });
+      } catch (error) {
+        console.error("Error during signup:", error);
+        alert(error.message);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      alert("Fill in the Required Field");
     }
   };
 
@@ -247,13 +271,17 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
 
       <div className="px-6 mt-6">
         <button
-          className={`w-full py-3 text-black rounded-lg ${
-            isFormValid ? "bg-[#FCA311] hover:bg-[#e5940c]" : "bg-[#FCA31180] cursor-not-allowed"
+          className={`w-full py-3 rounded-lg transition-colors duration-200 ${
+            loading 
+              ? "bg-[#FCA31180] text-black/50 cursor-not-allowed" 
+              : isFormValid 
+                ? "bg-[#FCA311] hover:bg-[#e5940c] text-black" 
+                : "bg-[#FCA31180] text-black/50 cursor-not-allowed"
           }`}
           onClick={handleContinue}
-          disabled={!isFormValid}
+          disabled={!isFormValid || loading}
         >
-          Continue
+          {loading ? "Processing..." : "Continue"}
         </button>
       </div>
     </>
