@@ -4,6 +4,7 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import logo from "../../assets/svg/logo.svg";
 import { forgotPassword } from "../../services/api";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { CheckCircle2 } from "lucide-react";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ export default function ForgotPassword() {
   const [emailSent, setEmailSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -34,13 +36,13 @@ export default function ForgotPassword() {
     if (isFormValid) {
       setIsLoading(true);
       setApiError("");
+      setSuccessMessage("");
       
       try {
         await forgotPassword(email);
         setEmailSent(true);
-        setApiError("");
       } catch (error) {
-        setApiError(error.message || "Failed to send password reset email. Please try again.");
+        setApiError(error.message || "Failed to send OTP. Please try again.");
       } finally {
         setIsLoading(false);
       }
@@ -54,18 +56,20 @@ export default function ForgotPassword() {
   const handleResendEmail = async () => {
     setIsLoading(true);
     setApiError("");
+    setSuccessMessage("");
     
     try {
       await forgotPassword(email);
+      setSuccessMessage("OTP has been resent successfully!");
     } catch (error) {
-      setApiError(error.message || "Failed to resend password reset email. Please try again.");
+      setApiError(error.message || "Failed to resend OTP. Please try again.");
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleDone = () => {
-    navigate("/login");
+  const handleContinue = () => {
+    navigate("/resetpassword");
   };
 
   const isFormValid = email && !emailError;
@@ -105,7 +109,7 @@ export default function ForgotPassword() {
                 Forgot Password?
               </h1>
               <p className="text-base text-gray-700 mb-12 text-center">
-                Enter your account's email and we'll send you an email to reset the password.
+                Enter your account's email and we'll send you an OTP to reset your password.
               </p>
 
               {/* Form Section */}
@@ -155,7 +159,7 @@ export default function ForgotPassword() {
                     }`}
                     disabled={!isFormValid || isLoading}
                   >
-                    {isLoading ? "Sending..." : "Send email"}
+                    {isLoading ? "Sending..." : "Send OTP"}
                   </button>
                 </form>
               </div>
@@ -163,29 +167,60 @@ export default function ForgotPassword() {
           ) : (
             <>
               <h1 className="text-3xl font-medium mb-4">
-                Reset Password
+                Verify OTP
               </h1>
               <div className="w-full">
+                {apiError && (
+                  <Alert variant="destructive" className="mb-4">
+                    <div className="flex justify-between items-start w-full">
+                      <AlertDescription>{apiError}</AlertDescription>
+                      <button 
+                        onClick={() => setApiError("")}
+                        className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
+                      >
+                        <IoCloseCircleOutline size={16} />
+                      </button>
+                    </div>
+                  </Alert>
+                )}
+
+                {successMessage && (
+                  <Alert className="mb-4 bg-green-50 border-green-200 text-green-800">
+                    <div className="flex justify-between items-start w-full">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4" />
+                        <AlertDescription>{successMessage}</AlertDescription>
+                      </div>
+                      <button 
+                        onClick={() => setSuccessMessage("")}
+                        className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
+                      >
+                        <IoCloseCircleOutline size={16} />
+                      </button>
+                    </div>
+                  </Alert>
+                )}
+
                 <p className="text-base text-gray-700 mb-4 text-center">
-                  If an account matching <span className="font-bold">{email}</span> exists, you will receive an email.
+                  An OTP has been sent to <span className="font-bold">{email}</span>
                 </p>
                 <p className="text-base text-gray-700 mb-12 text-center">
-                  Click the link in the email to reset your password.
+                  Click the Continue button below to create a new password.
                 </p>
 
                 <div className="space-y-4">
                   <button
-                    onClick={handleDone}
+                    onClick={handleContinue}
                     className="w-full py-3 rounded-lg bg-[#FCA311] hover:bg-[#e5940c] text-black text-center transition-colors"
                   >
-                    Done
+                    Continue
                   </button>
                   <button
                     onClick={handleResendEmail}
                     className="w-full py-3 rounded-lg text-blue-600 text-center hover:underline"
                     disabled={isLoading}
                   >
-                    {isLoading ? "Sending..." : "Resend Email"}
+                    {isLoading ? "Sending..." : "Resend OTP"}
                   </button>
                 </div>
               </div>
