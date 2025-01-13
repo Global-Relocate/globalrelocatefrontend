@@ -286,15 +286,6 @@ export default function ResetPassword() {
               </button>
             </div>
           )}
-
-          <div className="mt-6 mb-4">
-            <span className="text-sm text-gray-600">
-              Remembered your password?{" "}
-            </span>
-            <Link to="/login" className="text-sm text-blue-600 hover:underline">
-              Log in
-            </Link>
-          </div>
         </div>
       </div>
     </div>
