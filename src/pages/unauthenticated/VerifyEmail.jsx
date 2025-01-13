@@ -96,7 +96,7 @@ export default function VerifyEmail() {
                 Privacy Policy.
               </Link>
             </div>
-            <div className="mb-20"></div>
+            <div className="mb-2"></div>
           </div>
         </div>
       </div>

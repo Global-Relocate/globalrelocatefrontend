@@ -116,8 +116,144 @@ export const registerNewUser = async (userData) => {
   }
 };
 
-export const verifyEmail = async (userId, token) => {
-  return api.post('/v1/auth/verify-email', { userId, token });
+export const loginUser = async (email, password) => {
+  const endpoint = '/v1/auth/login';
+  console.log('Starting login request to:', `${API_URL}${endpoint}`);
+
+  try {
+    const response = await api.post(endpoint, { email, password });
+    console.log('Login successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to log in. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const verifyEmail = async (token) => {
+  const endpoint = `/v1/auth/verify/${token}`;
+  console.log('Starting email verification request to:', `${API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Email verification successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to verify email. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const forgotPassword = async (email) => {
+  const endpoint = '/v1/auth/forgot-password';
+  console.log('Starting forgot password request to:', `${API_URL}${endpoint}`);
+
+  try {
+    const response = await api.post(endpoint, { email });
+    console.log('Forgot password request successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to request password reset. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const resetPassword = async (token, password) => {
+  const endpoint = `/v1/auth/reset-password/${token}`;
+  console.log('Starting reset password request to:', `${API_URL}${endpoint}`);
+
+  try {
+    const response = await api.post(endpoint, { password });
+    console.log('Password reset successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to reset password. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
 };
 
 export const resendVerificationEmail = async (userId) => {
@@ -131,3 +267,5 @@ export const setAuthToken = (token) => {
     delete api.defaults.headers.common['Authorization'];
   }
 };
+
+export default api;
