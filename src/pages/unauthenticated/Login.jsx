@@ -4,6 +4,7 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import logo from "../../assets/svg/logo.svg";
 import { loginUser } from "../../services/api";
 
@@ -161,13 +162,23 @@ export default function Login() {
               </div>
 
               {errorMessage && (
-                <p className="text-red-500 text-xs text-center">{errorMessage}</p>
+                <Alert variant="destructive" className="mt-4">
+                  <div className="flex items-start justify-between">
+                    <AlertDescription>{errorMessage}</AlertDescription>
+                    <button 
+                      onClick={() => setErrorMessage("")} 
+                      className="ml-4 text-sm hover:text-gray-900"
+                    >
+                      <IoCloseCircleOutline className="h-5 w-5" />
+                    </button>
+                  </div>
+                </Alert>
               )}
 
               <button
                 type="submit"
                 className={`w-full py-3 rounded-lg text-center transition-colors ${
-                  isFormValid
+                  isFormValid && !loading
                     ? "bg-[#FCA311] hover:bg-[#e5940c] text-black"
                     : "bg-[#FCA31180] text-black cursor-not-allowed"
                 }`}
