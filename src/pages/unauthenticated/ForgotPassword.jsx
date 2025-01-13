@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import logo from "../../assets/svg/logo.svg";
+import { forgotPassword } from "../../services/api";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [emailSent, setEmailSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState("");
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -25,10 +29,21 @@ export default function ForgotPassword() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isFormValid) {
-      setEmailSent(true);
+      setIsLoading(true);
+      setApiError("");
+      
+      try {
+        await forgotPassword(email);
+        setEmailSent(true);
+        setApiError("");
+      } catch (error) {
+        setApiError(error.message || "Failed to send password reset email. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -36,9 +51,17 @@ export default function ForgotPassword() {
     navigate(-1);
   };
 
-  const handleResendEmail = () => {
-    // Logic to resend email
-    console.log("Resend email");
+  const handleResendEmail = async () => {
+    setIsLoading(true);
+    setApiError("");
+    
+    try {
+      await forgotPassword(email);
+    } catch (error) {
+      setApiError(error.message || "Failed to resend password reset email. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleDone = () => {
@@ -75,28 +98,37 @@ export default function ForgotPassword() {
 
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-6 pt-8 md:pt-16">
-        {!emailSent ? (
-          <>
-            <h1 className="text-3xl font-medium mb-4 text-center">
-              Forgot Password?
-            </h1>
-            <div className="flex justify-center">
-              <p className="text-base text-gray-700 mb-12 text-center w-full md:w-1/3">
-                Enter your account’s email and we’ll send you an email to reset the password.
+        <div className="flex flex-col items-center max-w-md mx-auto w-full">
+          {!emailSent ? (
+            <>
+              <h1 className="text-3xl font-medium mb-4">
+                Forgot Password?
+              </h1>
+              <p className="text-base text-gray-700 mb-12 text-center">
+                Enter your account's email and we'll send you an email to reset the password.
               </p>
-            </div>
 
-            <div className="flex justify-center">
               {/* Form Section */}
-              <div className="w-full md:w-1/3">
+              <div className="w-full">
+                {apiError && (
+                  <Alert variant="destructive" className="mb-4">
+                    <div className="flex justify-between items-start w-full">
+                      <AlertDescription>{apiError}</AlertDescription>
+                      <button 
+                        onClick={() => setApiError("")}
+                        className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
+                      >
+                        <IoCloseCircleOutline size={16} />
+                      </button>
+                    </div>
+                  </Alert>
+                )}
+                
                 <form className="space-y-6" onSubmit={handleSubmit}>
-                  <div className="relative">
+                  <div>
                     <label className="block text-sm mb-2">
                       Email Address
                     </label>
-                    {emailError && (
-                      <p className="absolute right-0 top-0 text-red-500 text-xs">{emailError}</p>
-                    )}
                     <input
                       type="email"
                       name="email"
@@ -107,65 +139,67 @@ export default function ForgotPassword() {
                       } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                       placeholder="myaccount@gmail.com"
                     />
+                    {emailError && (
+                      <p className="mt-1 text-red-500 text-xs">
+                        {emailError}
+                      </p>
+                    )}
                   </div>
 
                   <button
                     type="submit"
                     className={`w-full py-3 rounded-lg text-center transition-colors ${
-                      isFormValid
+                      isFormValid && !isLoading
                         ? "bg-[#FCA311] hover:bg-[#e5940c] text-black"
                         : "bg-[#FCA31180] text-black cursor-not-allowed"
                     }`}
-                    disabled={!isFormValid}
+                    disabled={!isFormValid || isLoading}
                   >
-                    Send email
+                    {isLoading ? "Sending..." : "Send email"}
                   </button>
                 </form>
               </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <h1 className="text-3xl font-medium mb-4 text-center">
-              Reset Password
-            </h1>
-            <div className="flex justify-center">
-              <p className="text-base text-gray-700 mb-4 text-center w-full md:w-1/3">
-                If an account matching <span className="font-bold">{email}</span> exists, you will receive an email.
-              </p>
-            </div>
-            <div className="flex justify-center">
-              <p className="text-base text-gray-700 mb-12 text-center w-full md:w-1/3">
-                Click the link in the email to reset your password.
-              </p>
-            </div>
+            </>
+          ) : (
+            <>
+              <h1 className="text-3xl font-medium mb-4">
+                Reset Password
+              </h1>
+              <div className="w-full">
+                <p className="text-base text-gray-700 mb-4 text-center">
+                  If an account matching <span className="font-bold">{email}</span> exists, you will receive an email.
+                </p>
+                <p className="text-base text-gray-700 mb-12 text-center">
+                  Click the link in the email to reset your password.
+                </p>
 
-            <div className="flex justify-center">
-              <div className="w-full md:w-1/3 space-y-4">
-                <button
-                  onClick={handleDone}
-                  className="w-full py-3 rounded-lg bg-[#FCA311] hover:bg-[#e5940c] text-black text-center transition-colors"
-                >
-                  Done
-                </button>
-                <button
-                  onClick={handleResendEmail}
-                  className="w-full py-3 rounded-lg text-blue-600 text-center hover:underline"
-                >
-                  Resend Email
-                </button>
+                <div className="space-y-4">
+                  <button
+                    onClick={handleDone}
+                    className="w-full py-3 rounded-lg bg-[#FCA311] hover:bg-[#e5940c] text-black text-center transition-colors"
+                  >
+                    Done
+                  </button>
+                  <button
+                    onClick={handleResendEmail}
+                    className="w-full py-3 rounded-lg text-blue-600 text-center hover:underline"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Sending..." : "Resend Email"}
+                  </button>
+                </div>
               </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
 
-        <div className="mt-6 text-center">
-          <span className="text-sm text-gray-600">
-            Remembered your password?{" "}
-          </span>
-          <Link to="/login" className="text-sm text-blue-600 hover:underline">
-            Log in
-          </Link>
+          <div className="mt-6">
+            <span className="text-sm text-gray-600">
+              Remembered your password?{" "}
+            </span>
+            <Link to="/login" className="text-sm text-blue-600 hover:underline">
+              Log in
+            </Link>
+          </div>
         </div>
       </div>
     </div>
