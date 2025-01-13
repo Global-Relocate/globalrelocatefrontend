@@ -282,7 +282,7 @@ export default function ResetPassword() {
                 onClick={handleContinue}
                 className="w-full py-3 rounded-lg bg-[#FCA311] hover:bg-[#e5940c] text-black text-center transition-colors"
               >
-                Continue to sign in
+                Proceed to sign in
               </button>
             </div>
           )}
