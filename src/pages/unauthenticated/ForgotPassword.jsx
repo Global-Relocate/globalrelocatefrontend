@@ -38,6 +38,7 @@ export default function ForgotPassword() {
       try {
         await forgotPassword(email);
         setEmailSent(true);
+        setApiError("");
       } catch (error) {
         setApiError(error.message || "Failed to send password reset email. Please try again.");
       } finally {
@@ -97,46 +98,58 @@ export default function ForgotPassword() {
 
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-6 pt-8 md:pt-16">
-        {!emailSent ? (
-          <>
-            <h1 className="text-3xl font-medium mb-4 text-center">
-              Forgot Password?
-            </h1>
-            <div className="flex justify-center">
-              <p className="text-base text-gray-700 mb-12 text-center w-full md:w-1/3">
+        <div className="flex flex-col items-center max-w-md mx-auto w-full">
+          {!emailSent ? (
+            <>
+              <h1 className="text-3xl font-medium mb-4">
+                Forgot Password?
+              </h1>
+              <p className="text-base text-gray-700 mb-12 text-center">
                 Enter your account's email and we'll send you an email to reset the password.
               </p>
-            </div>
 
-            <div className="flex justify-center">
               {/* Form Section */}
-              <div className="w-full md:w-1/3">
+              <div className="w-full">
+                {apiError && (
+                  <Alert variant="destructive" className="mb-4">
+                    <div className="flex justify-between items-start w-full">
+                      <AlertDescription>{apiError}</AlertDescription>
+                      <button 
+                        onClick={() => setApiError("")}
+                        className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
+                      >
+                        <IoCloseCircleOutline size={16} />
+                      </button>
+                    </div>
+                  </Alert>
+                )}
+                
                 <form className="space-y-6" onSubmit={handleSubmit}>
-                  <div className="relative">
+                  <div>
                     <label className="block text-sm mb-2">
                       Email Address
                     </label>
-                    {(emailError || apiError) && (
-                      <p className="absolute right-0 top-0 text-red-500 text-xs">
-                        {emailError || apiError}
-                      </p>
-                    )}
                     <input
                       type="email"
                       name="email"
                       value={email}
                       onChange={handleInputChange}
                       className={`w-full px-4 py-3 rounded-lg border ${
-                        emailError || apiError ? 'border-red-500' : 'border-gray-300'
+                        emailError ? 'border-red-500' : 'border-gray-300'
                       } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                       placeholder="myaccount@gmail.com"
                     />
+                    {emailError && (
+                      <p className="mt-1 text-red-500 text-xs">
+                        {emailError}
+                      </p>
+                    )}
                   </div>
 
                   <button
                     type="submit"
                     className={`w-full py-3 rounded-lg text-center transition-colors ${
-                      isFormValid
+                      isFormValid && !isLoading
                         ? "bg-[#FCA311] hover:bg-[#e5940c] text-black"
                         : "bg-[#FCA31180] text-black cursor-not-allowed"
                     }`}
@@ -146,54 +159,47 @@ export default function ForgotPassword() {
                   </button>
                 </form>
               </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <h1 className="text-3xl font-medium mb-4 text-center">
-              Reset Password
-            </h1>
-            <div className="flex justify-center">
-              <p className="text-base text-gray-700 mb-4 text-center w-full md:w-1/3">
-                If an account matching <span className="font-bold">{email}</span> exists, you will receive an email.
-              </p>
-            </div>
-            <div className="flex justify-center">
-              <p className="text-base text-gray-700 mb-12 text-center w-full md:w-1/3">
-                Click the link in the email to reset your password.
-              </p>
-            </div>
+            </>
+          ) : (
+            <>
+              <h1 className="text-3xl font-medium mb-4">
+                Reset Password
+              </h1>
+              <div className="w-full">
+                <p className="text-base text-gray-700 mb-4 text-center">
+                  If an account matching <span className="font-bold">{email}</span> exists, you will receive an email.
+                </p>
+                <p className="text-base text-gray-700 mb-12 text-center">
+                  Click the link in the email to reset your password.
+                </p>
 
-            <div className="flex justify-center">
-              <div className="w-full md:w-1/3 space-y-4">
-                <button
-                  onClick={handleDone}
-                  className="w-full py-3 rounded-lg bg-[#FCA311] hover:bg-[#e5940c] text-black text-center transition-colors"
-                >
-                  Done
-                </button>
-                <button
-                  onClick={handleResendEmail}
-                  className="w-full py-3 rounded-lg text-blue-600 text-center hover:underline"
-                  disabled={isLoading}
-                >
-                  {isLoading ? "Sending..." : "Resend Email"}
-                </button>
-                {apiError && (
-                  <p className="text-red-500 text-sm text-center">{apiError}</p>
-                )}
+                <div className="space-y-4">
+                  <button
+                    onClick={handleDone}
+                    className="w-full py-3 rounded-lg bg-[#FCA311] hover:bg-[#e5940c] text-black text-center transition-colors"
+                  >
+                    Done
+                  </button>
+                  <button
+                    onClick={handleResendEmail}
+                    className="w-full py-3 rounded-lg text-blue-600 text-center hover:underline"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Sending..." : "Resend Email"}
+                  </button>
+                </div>
               </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
 
-        <div className="mt-6 text-center">
-          <span className="text-sm text-gray-600">
-            Remembered your password?{" "}
-          </span>
-          <Link to="/login" className="text-sm text-blue-600 hover:underline">
-            Log in
-          </Link>
+          <div className="mt-6">
+            <span className="text-sm text-gray-600">
+              Remembered your password?{" "}
+            </span>
+            <Link to="/login" className="text-sm text-blue-600 hover:underline">
+              Log in
+            </Link>
+          </div>
         </div>
       </div>
     </div>
