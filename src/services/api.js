@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.API_URL;
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
-if (!API_URL) {
-  throw new Error('API_URL environment variable is not defined');
+if (!VITE_API_URL) {
+  throw new Error('VITE_API_URL environment variable is not defined');
 }
 
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: VITE_API_URL,
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -68,7 +68,7 @@ api.interceptors.response.use(
 
 export const registerNewUser = async (userData) => {
   const endpoint = '/v1/auth/register';
-  console.log('Starting registration request to:', `${API_URL}${endpoint}`);
+  console.log('Starting registration request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
     // Validate required fields
@@ -118,7 +118,7 @@ export const registerNewUser = async (userData) => {
 
 export const loginUser = async (email, password) => {
   const endpoint = '/v1/auth/login';
-  console.log('Starting login request to:', `${API_URL}${endpoint}`);
+  console.log('Starting login request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.post(endpoint, { email, password });
@@ -153,7 +153,7 @@ export const loginUser = async (email, password) => {
 
 export const verifyEmail = async (token) => {
   const endpoint = `/v1/auth/verify/${token}`;
-  console.log('Starting email verification request to:', `${API_URL}${endpoint}`);
+  console.log('Starting email verification request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
@@ -188,7 +188,7 @@ export const verifyEmail = async (token) => {
 
 export const forgotPassword = async (email) => {
   const endpoint = '/v1/auth/forgot-password';
-  console.log('Starting forgot password request to:', `${API_URL}${endpoint}`);
+  console.log('Starting forgot password request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.post(endpoint, { email });
@@ -223,7 +223,7 @@ export const forgotPassword = async (email) => {
 
 export const resetPassword = async (token, password) => {
   const endpoint = `/v1/auth/reset-password/${token}`;
-  console.log('Starting reset password request to:', `${API_URL}${endpoint}`);
+  console.log('Starting reset password request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.post(endpoint, { password });
