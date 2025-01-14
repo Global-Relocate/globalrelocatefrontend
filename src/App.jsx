@@ -5,6 +5,7 @@ import Signup from "./pages/unauthenticated/Signup";
 import "./App.css";
 import ForgotPassword from "./pages/unauthenticated/ForgotPassword";
 import VerifyEmail from "./pages/unauthenticated/VerifyEmail";
+import Dashboard from "./pages/user/Dashboard";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgotpassword" element={<ForgotPassword />} />
       <Route path="/verifymail" element={<VerifyEmail />} />
+
+      {/* Dashboard routes  */}
+      <Route path="/user/dashboard" element={<Dashboard />} />
     </Routes>
   );
 }
