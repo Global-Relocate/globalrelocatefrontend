@@ -222,6 +222,13 @@ export default function Login() {
           </Link>
         </div>
 
+        {/* Mobile Create Account Button */}
+        <div className="md:hidden mt-4 text-center">
+          <Link to="/signup" className="text-sm font-medium text-[#0000FF]">
+            Create account
+          </Link>
+        </div>
+
         <p className="mt-8 text-sm text-gray-600 text-center">
           By clicking creating an account, you agree to our{" "}
           <Link to="/terms" className="underline">
