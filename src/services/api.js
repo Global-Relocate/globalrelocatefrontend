@@ -71,8 +71,7 @@ export const registerNewUser = async (userData) => {
   console.log('Starting registration request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
-    // Validate required fields
-    const requiredFields = ['email', 'password', 'firstName', 'lastName', 'country', 'userType'];
+    const requiredFields = ['email', 'password', 'fullName', 'username', 'country', 'userType'];
     const missingFields = requiredFields.filter(field => !userData[field]);
 
     if (missingFields.length > 0) {
@@ -82,14 +81,12 @@ export const registerNewUser = async (userData) => {
       );
     }
 
-    const response = await api.post(endpoint, {
-      ...userData,
-      username: userData.username || userData.email.split('@')[0], // Default username logic
-    });
+    const response = await api.post(endpoint, userData);
 
     console.log('Registration successful:', response);
     return response;
   } catch (error) {
+    // Error handling remains the same
     if (error instanceof CustomAPIError) {
       throw error;
     }
