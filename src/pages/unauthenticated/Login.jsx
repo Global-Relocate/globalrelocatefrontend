@@ -4,7 +4,9 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import logo from "../../assets/svg/logo.svg";
+import { loginUser } from "../../services/api";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -14,6 +16,8 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -53,6 +57,23 @@ export default function Login() {
     navigate(-1);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMessage("");
+
+    try {
+      const response = await loginUser(formData.email, formData.password);
+      console.log("Login successful:", response);
+      navigate("/welcome");
+    } catch (error) {
+      console.error("Login error:", error);
+      setErrorMessage(error.message || "Failed to log in. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const isFormValid = formData.email && formData.password && !emailError && !passwordError;
 
   return (
@@ -90,7 +111,7 @@ export default function Login() {
         <div className="flex flex-col md:flex-row md:space-x-12 justify-center">
           {/* Form Section */}
           <div className="w-full md:w-[320px]">
-              <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="relative">
                 <label className="block text-sm mb-2">
                   Email Address
@@ -140,16 +161,30 @@ export default function Login() {
                 </div>
               </div>
 
+              {errorMessage && (
+                <Alert variant="destructive" className="mt-4">
+                  <div className="flex items-start justify-between">
+                    <AlertDescription>{errorMessage}</AlertDescription>
+                    <button 
+                      onClick={() => setErrorMessage("")} 
+                      className="ml-4 text-sm hover:text-gray-900"
+                    >
+                      <IoCloseCircleOutline className="h-5 w-5" />
+                    </button>
+                  </div>
+                </Alert>
+              )}
+
               <button
                 type="submit"
                 className={`w-full py-3 rounded-lg text-center transition-colors ${
-                  isFormValid
+                  isFormValid && !loading
                     ? "bg-[#FCA311] hover:bg-[#e5940c] text-black"
                     : "bg-[#FCA31180] text-black cursor-not-allowed"
                 }`}
-                disabled={!isFormValid}
+                disabled={!isFormValid || loading}
               >
-                Continue
+                {loading ? "Processing..." : "Continue"}
               </button>
             </form>
           </div>

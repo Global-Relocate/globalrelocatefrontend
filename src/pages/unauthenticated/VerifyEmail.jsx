@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import logo from "../../assets/svg/logo.svg";
 import mail from "../../assets/svg/mail.svg";
 
 export default function VerifyEmail() {
   const [loginCode, setLoginCode] = useState("");
-  const email = "myaccount@gmail.com"; // This would typically come from previous step/state
+  const location = useLocation();
+  const email = location.state?.email || "myaccount@gmail.com";
+  console.log("Email received in VerifyEmail:", email);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -94,7 +96,7 @@ export default function VerifyEmail() {
                 Privacy Policy.
               </Link>
             </div>
-            <div className="mb-20"></div>
+            <div className="mb-2"></div>
           </div>
         </div>
       </div>
