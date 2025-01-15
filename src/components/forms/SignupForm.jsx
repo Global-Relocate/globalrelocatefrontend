@@ -13,12 +13,59 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [loading, setLoading] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+  const [passwordStrength, setPasswordStrength] = useState({
+    score: 0,
+    message: "",
+    color: "gray"
+  });
   const navigate = useNavigate();
 
   const countryOptions = countries.getData().map(country => ({
     value: country.code,
     label: country.name
   }));
+
+  const calculatePasswordStrength = (password) => {
+    let score = 0;
+    let feedback = [];
+
+    if (password.length >= 8) {
+      score += 1;
+      feedback.push("Length");
+    }
+    if (/[A-Z]/.test(password)) {
+      score += 1;
+      feedback.push("Uppercase");
+    }
+    if (/[a-z]/.test(password)) {
+      score += 1;
+      feedback.push("Lowercase");
+    }
+    if (/[0-9]/.test(password)) {
+      score += 1;
+      feedback.push("Number");
+    }
+    if (/[^A-Za-z0-9]/.test(password)) {
+      score += 1;
+      feedback.push("Symbol");
+    }
+
+    const strengthMap = {
+      0: { message: "Very Weak", color: "#ff4444" },
+      1: { message: "Weak", color: "#ffbb33" },
+      2: { message: "Fair", color: "#ffbb33" },
+      3: { message: "Good", color: "#00C851" },
+      4: { message: "Strong", color: "#007E33" },
+      5: { message: "Very Strong", color: "#007E33" }
+    };
+
+    return {
+      score,
+      message: strengthMap[score].message,
+      color: strengthMap[score].color,
+      feedback: feedback.join(" • ")
+    };
+  };
 
   const customSelectStyles = {
     control: (base, state) => ({
@@ -67,14 +114,26 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
     } else if (name === "fullName") {
       if (!value) {
         error = "Full name is required";
-      } else if (value.trim().split(" ").length < 2) {
+      } else if (value.trim().length < 2) {
         error = "Please enter your full name";
+      }
+    } else if (name === "username") {
+      if (!value) {
+        error = "Username is required";
+      } else if (value.length < 3) {
+        error = "Username must be at least 3 characters";
       }
     } else if (name === "password") {
       if (!value) {
         error = "Password is required";
-      } else if (value.length < 6) {
-        error = "Password must be at least 6 characters";
+      } else {
+        const strength = calculatePasswordStrength(value);
+        setPasswordStrength(strength);
+        if (value.length < 8) {
+          error = "Password must be at least 8 characters";
+        } else if (strength.score < 3) {
+          error = "Password is too weak";
+        }
       }
     } else if (name === "confirmPassword") {
       if (!value) {
@@ -107,23 +166,24 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
     const isValid = !Object.values(errors).some(error => error) &&
       formData.email &&
       formData.fullName &&
+      formData.username &&
       formData.password &&
       formData.confirmPassword &&
-      formData.country;
+      formData.country &&
+      passwordStrength.score >= 3;
     setIsFormValid(isValid);
-  }, [errors, formData]);
+  }, [errors, formData, passwordStrength]);
 
   const handleContinue = async () => {
     if (isFormValid) {
       setLoading(true);
       const requestBody = {
-        firstName: formData.fullName.split(" ")[0],
-        lastName: formData.fullName.split(" ")[1] || "",
-        username: formData.email.split("@")[0],
+        fullName: formData.fullName,
+        username: formData.username,
         email: formData.email,
         password: formData.password,
         country: formData.country.label,
-        userType: formData.userType
+        userType: "INDIVIDUAL"
       };
 
       try {
@@ -137,7 +197,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
         setLoading(false);
       }
     } else {
-      setAlertMessage("Please fill in all required fields");
+      setAlertMessage("Please fill in all required fields correctly");
     }
   };
 
@@ -164,25 +224,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
       <div className="px-6 space-y-4 w-full">
         <div className="relative">
           <label className="text-sm text-gray-700 mb-1 block">
-            Email Address <span className="text-red-500">*</span>
-          </label>
-          {errors.email && (
-            <span className="absolute right-0 top-0 text-red-500 text-xs">{errors.email}</span>
-          )}
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className={`w-full p-3 rounded-lg border ${
-              errors.email ? 'border-red-500' : 'border-gray-300'
-            } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-            placeholder="myaccount@gmail.com"
-          />
-        </div>
-
-        <div>
-          <label className="text-sm text-gray-700 mb-1 block">
             Full Name <span className="text-red-500">*</span>
           </label>
           <input
@@ -193,10 +234,48 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
             className={`w-full p-3 rounded-lg border ${
               errors.fullName ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-            placeholder="John Doe"
+            placeholder="Enter your full name"
           />
           {errors.fullName && (
             <span className="text-red-500 text-xs mt-1">{errors.fullName}</span>
+          )}
+        </div>
+
+        <div className="relative">
+          <label className="text-sm text-gray-700 mb-1 block">
+            Username <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleInputChange}
+            className={`w-full p-3 rounded-lg border ${
+              errors.username ? 'border-red-500' : 'border-gray-300'
+            } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
+            placeholder="Choose a username"
+          />
+          {errors.username && (
+            <span className="text-red-500 text-xs mt-1">{errors.username}</span>
+          )}
+        </div>
+
+        <div className="relative">
+          <label className="text-sm text-gray-700 mb-1 block">
+            Email Address <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            className={`w-full p-3 rounded-lg border ${
+              errors.email ? 'border-red-500' : 'border-gray-300'
+            } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
+            placeholder="myaccount@gmail.com"
+          />
+          {errors.email && (
+            <span className="text-red-500 text-xs mt-1">{errors.email}</span>
           )}
         </div>
 
@@ -227,12 +306,29 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
               )}
             </button>
           </div>
-          {errors.password ? (
-            <span className="text-red-500 text-xs mt-1">{errors.password}</span>
-          ) : (
-            <span className="text-gray-500 text-xs mt-1">
-              Use a password with more than 6 characters
-            </span>
+          {formData.password && (
+            <div className="mt-2">
+              <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className="h-full transition-all duration-300"
+                  style={{
+                    width: `${(passwordStrength.score / 5) * 100}%`,
+                    backgroundColor: passwordStrength.color
+                  }}
+                />
+              </div>
+              <div className="flex justify-between items-center mt-1">
+                <span className="text-xs" style={{ color: passwordStrength.color }}>
+                  {passwordStrength.message}
+                </span>
+                <span className="text-xs text-gray-500">
+                  {passwordStrength.feedback}
+                </span>
+              </div>
+            </div>
+          )}
+          {errors.password && (
+            <span className="text-red-500 text-xs mt-1 block">{errors.password}</span>
           )}
         </div>
 
@@ -249,7 +345,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
               className={`w-full p-3 rounded-lg border ${
                 errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
               } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-              placeholder="Password"
+              placeholder="Confirm password"
             />
             <button
               type="button"

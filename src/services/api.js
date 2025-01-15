@@ -12,7 +12,7 @@ const api = axios.create({
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   },
-  timeout: 15000, // 15 seconds timeout
+  timeout: 15000,
 });
 
 // Custom error class for API errors
@@ -71,8 +71,7 @@ export const registerNewUser = async (userData) => {
   console.log('Starting registration request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
-    // Validate required fields
-    const requiredFields = ['email', 'password', 'firstName', 'lastName', 'country', 'userType'];
+    const requiredFields = ['email', 'password', 'fullName', 'username', 'country', 'userType'];
     const missingFields = requiredFields.filter(field => !userData[field]);
 
     if (missingFields.length > 0) {
@@ -82,14 +81,12 @@ export const registerNewUser = async (userData) => {
       );
     }
 
-    const response = await api.post(endpoint, {
-      ...userData,
-      username: userData.username || userData.email.split('@')[0], // Default username logic
-    });
+    const response = await api.post(endpoint, userData);
 
     console.log('Registration successful:', response);
     return response;
   } catch (error) {
+    // Error handling remains the same
     if (error instanceof CustomAPIError) {
       throw error;
     }
@@ -151,12 +148,12 @@ export const loginUser = async (email, password) => {
   }
 };
 
-export const verifyEmail = async (token) => {
-  const endpoint = `/v1/auth/verify/${token}`;
+export const verifyEmail = async (email, otp) => {
+  const endpoint = '/v1/auth/verify/otp';
   console.log('Starting email verification request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
-    const response = await api.get(endpoint);
+    const response = await api.post(endpoint, { email, otp });
     console.log('Email verification successful:', response);
     return response;
   } catch (error) {
@@ -221,12 +218,16 @@ export const forgotPassword = async (email) => {
   }
 };
 
-export const resetPassword = async (token, password) => {
-  const endpoint = `/v1/auth/reset-password/${token}`;
+export const resetPassword = async (email, password, otp) => {
+  const endpoint = `/v1/auth/reset-password`;
   console.log('Starting reset password request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
-    const response = await api.post(endpoint, { password });
+    const response = await api.post(endpoint, { 
+      email,
+      password,
+      otp
+    });
     console.log('Password reset successful:', response);
     return response;
   } catch (error) {

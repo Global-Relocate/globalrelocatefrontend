@@ -69,7 +69,7 @@ export default function ForgotPassword() {
   };
 
   const handleContinue = () => {
-    navigate("/resetpassword");
+    navigate("/resetpassword", { state: { email } });
   };
 
   const isFormValid = email && !emailError;
