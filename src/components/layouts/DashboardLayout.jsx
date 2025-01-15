@@ -27,7 +27,7 @@ function DashboardLayout({ children }) {
         <div className="flex">
           <Sidebar navData={userSidebarItems} navState={navState} />
           <div className="ml-0 sm:ml-64 w-full min-h-screen flex flex-col">
-            <div className="px-3 pt-24 sm:px-3 w-full ">{children}</div>
+            <div className="px-3 pt-32 sm:px-8 w-full ">{children}</div>
           </div>
         </div>
       </Fragment>

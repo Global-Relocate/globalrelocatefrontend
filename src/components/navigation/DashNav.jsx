@@ -26,14 +26,16 @@ function DashNav({ navState, setNavState }) {
         </div>
       </div>
 
-      <div className="flex items-center justify-start space-x-2 p-2 rounded-3xl border">
-        <div className="flex text-white items-center justify-center h-8 w-8 rounded-full bg-gray-500">
-          <FaUser />
+      <div className="flex items-center space-x-3">
+        <div className="flex items-center justify-start space-x-1 p-2 rounded-3xl border">
+          <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-gray-500">
+            <FaUser />
+          </div>
+          <span className="text-xs">Jerry Lamp</span>
         </div>
-        <span>Jerry Lamp</span>
-      </div>
 
-      <SelectLanguages />
+        <SelectLanguages />
+      </div>
     </div>
   );
 }

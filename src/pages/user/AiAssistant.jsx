@@ -1,12 +1,12 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import React from "react";
 
-function Dashboard() {
+function AiAssistant() {
   return (
     <DashboardLayout>
-      <div className="text-black">Dashboard</div>
+      <div>AiAssistant</div>
     </DashboardLayout>
   );
 }
 
-export default Dashboard;
+export default AiAssistant;

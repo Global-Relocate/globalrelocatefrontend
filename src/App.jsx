@@ -5,7 +5,15 @@ import Signup from "./pages/unauthenticated/Signup";
 import "./App.css";
 import ForgotPassword from "./pages/unauthenticated/ForgotPassword";
 import VerifyEmail from "./pages/unauthenticated/VerifyEmail";
-import Dashboard from "./pages/user/Dashboard";
+
+// Dashboard route imports
+import Countries from "./pages/user/Countries";
+import AiAssistant from "./pages/user/AiAssistant";
+import CompareCountries from "./pages/user/CompareCountries";
+import TaxCalculator from "./pages/user/TaxCalculator";
+import Favourites from "./pages/user/Favourites";
+import Community from "./pages/user/Community";
+import Notifications from "./pages/user/Notifications";
 
 function App() {
   return (
@@ -17,7 +25,13 @@ function App() {
       <Route path="/verifymail" element={<VerifyEmail />} />
 
       {/* Dashboard routes  */}
-      <Route path="/user/dashboard" element={<Dashboard />} />
+      <Route path="/user/countries" element={<Countries />} />
+      <Route path="/user/ai-assistant" element={<AiAssistant />} />
+      <Route path="/user/compare" element={<CompareCountries />} />
+      <Route path="/user/tax-calculator" element={<TaxCalculator />} />
+      <Route path="/user/notifications" element={<Notifications />} />
+      <Route path="/user/favourites" element={<Favourites />} />
+      <Route path="/user/community" element={<Community />} />
     </Routes>
   );
 }

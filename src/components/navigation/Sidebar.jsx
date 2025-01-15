@@ -18,8 +18,8 @@ function Sidebar({ navData, navState }) {
   return (
     <div
       className={`
-        fixed top-20 bottom-0 transition-width duration-500 overflow-hidden ${width} 
-        bg-white text-black h-screen shadow-sm border border-[#D4D4D4] border-t-0 z-50 whitespace-nowrap
+        fixed top-20 flex flex-col items-center justify-between  bottom-0 transition-width duration-500 overflow-hidden ${width} 
+        bg-white text-black h-screen shadow-sm border border-[#D4D4D4] border-t-0 z-50 
       `}
     >
       <div className="w-full pt-6 px-5">
@@ -30,10 +30,11 @@ function Sidebar({ navData, navState }) {
                 className={`
                   flex items-center font-medium rounded-2xl pl-3 py-2 cursor-pointer 
                     transition-colors duration-200
+                    whitespace-nowrap
                   ${
                     isActive(item.activeKey)
-                      ? "bg-teal-200 text-black"
-                      : "bg-[#FEE3B8] hover:border-white"
+                      ? "bg-[#FEE3B8] text-black"
+                      : "bg-white text-black"
                   }
                 `}
                 onClick={() =>
@@ -65,6 +66,21 @@ function Sidebar({ navData, navState }) {
             </div>
           ))}
         </ul>
+      </div>
+
+      <div className="mb-[100px] w-full flex flex-col items-center">
+        <div className="w-[90%] border p-2 border-[#D4D4D4] mb-3 rounded-xl">
+          <p className="whitespace-normal my-4 text-sm text-gray-700">
+            You're currently in view only mode. To gain complete access to
+            Global relocate
+          </p>
+          <button className="bg-black w-full text-sm text-white py-2 rounded-xl">
+            Login
+          </button>
+        </div>
+        <button className="border w-[90%] text-sm border-black text-black py-2 rounded-xl">
+          Upgrade to pro
+        </button>
       </div>
     </div>
   );
