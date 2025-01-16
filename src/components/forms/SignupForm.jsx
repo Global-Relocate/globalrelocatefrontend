@@ -5,7 +5,7 @@ import countries from 'country-list';
 import { useNavigate } from "react-router-dom";
 import { registerNewUser } from '../../services/api';
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { X } from "lucide-react";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -207,20 +207,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
         Let's create your account
       </h1>
 
-      {alertMessage && (
-        <div className="px-6 mb-4">
-          <Alert variant="destructive" className="relative">
-            <AlertDescription>{alertMessage}</AlertDescription>
-            <button 
-              onClick={() => setAlertMessage("")}
-              className="absolute right-4 top-4 hover:opacity-70 transition-opacity"
-            >
-              <X size={16} />
-            </button>
-          </Alert>
-        </div>
-      )}
-
       <div className="px-6 space-y-4 w-full">
         <div className="relative">
           <label className="text-sm text-gray-700 mb-1 block">
@@ -383,7 +369,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
       </div>
 
       <div className="px-6 mt-6">
-      <button
+        <button
           className={`w-full py-3 rounded-lg transition-colors ${
             isFormValid && !loading
               ? "bg-[#FCA311] hover:bg-[#e5940c] text-black"
@@ -393,8 +379,22 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
           disabled={!isFormValid || loading}
         >
           {loading ? "Processing..." : "Continue"}
-          </button>
+        </button>
       </div>
+
+      {alertMessage && (
+        <div className="px-6 mt-4">
+          <Alert variant="destructive" className="relative">
+            <AlertDescription>{alertMessage}</AlertDescription>
+            <button 
+              onClick={() => setAlertMessage("")}
+              className="absolute right-4 top-4 hover:opacity-70 transition-opacity"
+            >
+              <IoCloseCircleOutline size={16} />
+            </button>
+          </Alert>
+        </div>
+      )}
     </>
   );
 };
