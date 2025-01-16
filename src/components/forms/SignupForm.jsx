@@ -189,7 +189,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
       try {
         const response = await registerNewUser(requestBody);
         console.log("Signup successful:", response);
-        navigate("/verifymail", { state: { email: formData.email } });
+        navigate("/verifymail", { state: { email: formData.email, username: formData.username } });
       } catch (error) {
         console.error("Error during signup:", error);
         setAlertMessage(error.message || "An error occurred during signup");
@@ -383,19 +383,17 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
       </div>
 
       <div className="px-6 mt-6">
-        <button
-          className={`w-full py-3 rounded-lg transition-colors duration-200 ${
-            loading 
-              ? "bg-[#FCA31180] text-black/50 cursor-not-allowed" 
-              : isFormValid 
-                ? "bg-[#FCA311] hover:bg-[#e5940c] text-black" 
-                : "bg-[#FCA31180] text-black/50 cursor-not-allowed"
+      <button
+          className={`w-full py-3 rounded-lg transition-colors ${
+            isFormValid && !loading
+              ? "bg-[#FCA311] hover:bg-[#e5940c] text-black"
+              : "bg-[#FCA31180] text-black cursor-not-allowed"
           }`}
           onClick={handleContinue}
           disabled={!isFormValid || loading}
         >
           {loading ? "Processing..." : "Continue"}
-        </button>
+          </button>
       </div>
     </>
   );
