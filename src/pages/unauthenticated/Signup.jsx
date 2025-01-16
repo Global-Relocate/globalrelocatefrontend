@@ -4,11 +4,11 @@ import { GoPersonFill } from "react-icons/go";
 import { PiBuildingsFill } from "react-icons/pi";
 import { BsCheck, BsArrowLeft } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { FaApple } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import SignupForm from "../../components/forms/SignupForm";
 import logo from "../../assets/svg/logo.svg";
+import microsoftIcon from "../../assets/svg/microsoft.svg";
 
 export default function Signup() {
   const [selectedAccountType, setSelectedAccountType] = useState(null);
@@ -207,8 +207,8 @@ export default function Signup() {
 
         <button className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5]">
           <div className="flex items-center">
-            <FaApple className="h-5 w-5 mr-3" />
-            <span className="text-gray-700">Continue with Apple</span>
+            <img src={microsoftIcon} alt="Microsoft" className="h-5 w-5 mr-3" />
+            <span className="text-gray-700">Continue with Microsoft</span>
           </div>
           <BsArrowLeft className="rotate-180" />
         </button>
