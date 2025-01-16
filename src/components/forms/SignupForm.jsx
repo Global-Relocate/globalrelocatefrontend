@@ -275,7 +275,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className={`w-full p-3 rounded-lg border ${
+              className={`w-full p-3 pr-10 rounded-lg border ${
                 errors.password ? 'border-red-500' : 'border-gray-300'
               } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
               placeholder="Password"
@@ -328,7 +328,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleInputChange}
-              className={`w-full p-3 rounded-lg border ${
+              className={`w-full p-3 pr-10 rounded-lg border ${
                 errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
               } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
               placeholder="Confirm password"
