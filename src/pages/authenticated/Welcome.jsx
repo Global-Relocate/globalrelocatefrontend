@@ -1,8 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-export default function Welcome({ userName }) {
+export default function Welcome() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const userName = location.state?.username || "User";
 
   const handleContinue = () => {
     navigate("/dashboard");
