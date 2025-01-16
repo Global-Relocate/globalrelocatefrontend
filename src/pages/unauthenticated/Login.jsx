@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { FaApple } from "react-icons/fa";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import logo from "../../assets/svg/logo.svg";
+import microsoftIcon from "../../assets/svg/microsoft.svg";
 import { loginUser } from "../../services/api";
 
 export default function Login() {
@@ -208,8 +208,8 @@ export default function Login() {
 
             <button className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200">
               <div className="flex items-center">
-                <FaApple className="h-5 w-5 mr-3" />
-                <span>Continue with Apple</span>
+                <img src={microsoftIcon} alt="Microsoft" className="h-5 w-5 mr-3" /> {/* Use the SVG icon */}
+                <span>Continue with Microsoft</span>
               </div>
               <BsArrowLeft className="rotate-180" />
             </button>
