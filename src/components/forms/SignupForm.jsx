@@ -5,7 +5,7 @@ import countries from 'country-list';
 import { useNavigate } from "react-router-dom";
 import { registerNewUser } from '../../services/api';
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { X } from "lucide-react";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -189,7 +189,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
       try {
         const response = await registerNewUser(requestBody);
         console.log("Signup successful:", response);
-        navigate("/verifymail", { state: { email: formData.email } });
+        navigate("/verifymail", { state: { email: formData.email, username: formData.username } });
       } catch (error) {
         console.error("Error during signup:", error);
         setAlertMessage(error.message || "An error occurred during signup");
@@ -206,20 +206,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
       <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
         Let's create your account
       </h1>
-
-      {alertMessage && (
-        <div className="px-6 mb-4">
-          <Alert variant="destructive" className="relative">
-            <AlertDescription>{alertMessage}</AlertDescription>
-            <button 
-              onClick={() => setAlertMessage("")}
-              className="absolute right-4 top-4 hover:opacity-70 transition-opacity"
-            >
-              <X size={16} />
-            </button>
-          </Alert>
-        </div>
-      )}
 
       <div className="px-6 space-y-4 w-full">
         <div className="relative">
@@ -289,7 +275,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className={`w-full p-3 rounded-lg border ${
+              className={`w-full p-3 pr-10 rounded-lg border ${
                 errors.password ? 'border-red-500' : 'border-gray-300'
               } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
               placeholder="Password"
@@ -342,7 +328,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleInputChange}
-              className={`w-full p-3 rounded-lg border ${
+              className={`w-full p-3 pr-10 rounded-lg border ${
                 errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
               } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
               placeholder="Confirm password"
@@ -384,12 +370,10 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
 
       <div className="px-6 mt-6">
         <button
-          className={`w-full py-3 rounded-lg transition-colors duration-200 ${
-            loading 
-              ? "bg-[#FCA31180] text-black/50 cursor-not-allowed" 
-              : isFormValid 
-                ? "bg-[#FCA311] hover:bg-[#e5940c] text-black" 
-                : "bg-[#FCA31180] text-black/50 cursor-not-allowed"
+          className={`w-full py-3 rounded-lg transition-colors ${
+            isFormValid && !loading
+              ? "bg-[#FCA311] hover:bg-[#e5940c] text-black"
+              : "bg-[#FCA31180] text-black cursor-not-allowed"
           }`}
           onClick={handleContinue}
           disabled={!isFormValid || loading}
@@ -397,6 +381,20 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
           {loading ? "Processing..." : "Continue"}
         </button>
       </div>
+
+      {alertMessage && (
+        <div className="px-6 mt-4">
+          <Alert variant="destructive" className="relative">
+            <AlertDescription>{alertMessage}</AlertDescription>
+            <button 
+              onClick={() => setAlertMessage("")}
+              className="absolute right-4 top-4 hover:opacity-70 transition-opacity"
+            >
+              <IoCloseCircleOutline size={16} />
+            </button>
+          </Alert>
+        </div>
+      )}
     </>
   );
 };

@@ -12,7 +12,9 @@ export default function VerifyEmail() {
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const email = location.state?.email || "myaccount@gmail.com";
+  const username = location.state?.username || "User";
   console.log("Email received in VerifyEmail:", email);
+  console.log("Username received in VerifyEmail:", username);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -27,7 +29,7 @@ export default function VerifyEmail() {
       
       try {
         await verifyEmail(email, loginCode);
-        navigate("/login");
+        navigate("/welcome", { state: { username } });
       } catch (error) {
         setApiError(error.message || "Failed to verify email. Please try again.");
       } finally {

@@ -142,7 +142,7 @@ export default function Login() {
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-lg border ${
+                    className={`w-full px-4 py-3 pr-10 rounded-lg border ${
                       passwordError ? 'border-red-500' : 'border-gray-300'
                     } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                     placeholder="Enter your password"
