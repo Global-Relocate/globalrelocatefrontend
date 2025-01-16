@@ -9,11 +9,14 @@ import { Link, useNavigate } from "react-router-dom";
 import SignupForm from "../../components/forms/SignupForm";
 import logo from "../../assets/svg/logo.svg";
 import microsoftIcon from "../../assets/svg/microsoft.svg";
+import { initiateGoogleAuth, initiateMicrosoftAuth } from "../../services/api";
 
 export default function Signup() {
   const [selectedAccountType, setSelectedAccountType] = useState(null);
   const [showSignupMethods, setShowSignupMethods] = useState(false);
   const [showEmailForm, setShowEmailForm] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -104,6 +107,34 @@ export default function Signup() {
       ...prev,
       userType: type === "personal" ? "INDIVIDUAL" : "CORPORATE"
     }));
+  };
+
+  // Handle Google login
+  const handleGoogleLogin = async () => {
+    try {
+      setLoading(true);
+      setErrorMessage("");
+      await initiateGoogleAuth();
+      // No need to handle the response as we're redirecting
+    } catch (error) {
+      console.error("Google login error:", error);
+      setErrorMessage(error.message || "Failed to initiate Google login. Please try again.");
+      setLoading(false);
+    }
+  };
+
+  // Handle Microsoft login
+  const handleMicrosoftLogin = async () => {
+    try {
+      setLoading(true);
+      setErrorMessage("");
+      await initiateMicrosoftAuth();
+      // No need to handle the response as we're redirecting
+    } catch (error) {
+      console.error("Microsoft login error:", error);
+      setErrorMessage(error.message || "Failed to initiate Microsoft login. Please try again.");
+      setLoading(false);
+    }
   };
 
   // Account type selection component
@@ -197,7 +228,11 @@ export default function Signup() {
       </p>
 
       <div className="space-y-4 px-6">
-        <button className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5]">
+        <button
+          onClick={handleGoogleLogin}
+          disabled={loading}
+          className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5] disabled:opacity-50 disabled:cursor-not-allowed"
+        >
           <div className="flex items-center">
             <FcGoogle className="h-5 w-5 mr-3" />
             <span className="text-gray-700">Continue with Google</span>
@@ -205,17 +240,22 @@ export default function Signup() {
           <BsArrowLeft className="rotate-180" />
         </button>
 
-        <button className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5]">
+        <button
+          onClick={handleMicrosoftLogin}
+          disabled={loading}
+          className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5] disabled:opacity-50 disabled:cursor-not-allowed"
+        >
           <div className="flex items-center">
-            <img src={microsoftIcon} alt="Microsoft" className="h-5 w-5 mr-3" />
+            <img src={microsoftIcon} alt="Microsoft" className="h-5 w-5 mr-3" /> {/* Use the SVG icon */}
             <span className="text-gray-700">Continue with Microsoft</span>
           </div>
           <BsArrowLeft className="rotate-180" />
         </button>
 
         <button 
-          className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5]"
           onClick={handleEmailSignup}
+          disabled={loading}
+          className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <div className="flex items-center">
             <HiOutlineMail className="h-5 w-5 mr-3" />
@@ -265,6 +305,15 @@ export default function Signup() {
             setErrors={setErrors}
             handleContinue={handleContinue}
           />
+        )}
+
+        {/* Error Message Section */}
+        {errorMessage && (
+          <div className="px-6">
+            <p className="mt-4 text-sm text-red-600 text-left w-[100%]">
+              {errorMessage}
+            </p>
+          </div>
         )}
 
         {/* Login Link Section */}
