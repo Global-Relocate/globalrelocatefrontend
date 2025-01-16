@@ -3,10 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { FaApple } from "react-icons/fa";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import logo from "../../assets/svg/logo.svg";
-import { loginUser } from "../../services/api";
+import microsoftIcon from "../../assets/svg/microsoft.svg";
+import { 
+  loginUser, 
+  initiateGoogleAuth, 
+  initiateMicrosoftAuth 
+} from "../../services/api";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -26,7 +30,7 @@ export default function Login() {
   };
 
   const validatePassword = (password) => {
-    return password.length >= 6;
+    return password.length >= 8;
   };
 
   const handleInputChange = (e) => {
@@ -35,6 +39,9 @@ export default function Login() {
       ...prev,
       [name]: value,
     }));
+
+    // Clear any previous error messages
+    setErrorMessage("");
 
     if (name === "email") {
       if (value && !validateEmail(value)) {
@@ -46,7 +53,7 @@ export default function Login() {
 
     if (name === "password") {
       if (value && !validatePassword(value)) {
-        setPasswordError("Password must be at least 6 characters");
+        setPasswordError("Password must be at least 8 characters");
       } else {
         setPasswordError("");
       }
@@ -65,11 +72,43 @@ export default function Login() {
     try {
       const response = await loginUser(formData.email, formData.password);
       console.log("Login successful:", response);
+      
+      // Store the token if returned by the API
+      if (response.token) {
+        localStorage.setItem('authToken', response.token);
+      }
+      
       navigate("/welcome");
     } catch (error) {
       console.error("Login error:", error);
       setErrorMessage(error.message || "Failed to log in. Please try again.");
     } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      setLoading(true);
+      setErrorMessage("");
+      await initiateGoogleAuth();
+      // No need to handle the response as we're redirecting
+    } catch (error) {
+      console.error("Google login error:", error);
+      setErrorMessage(error.message || "Failed to initiate Google login. Please try again.");
+      setLoading(false);
+    }
+  };
+  
+  const handleMicrosoftLogin = async () => {
+    try {
+      setLoading(true);
+      setErrorMessage("");
+      await initiateMicrosoftAuth();
+      // No need to handle the response as we're redirecting
+    } catch (error) {
+      console.error("Microsoft login error:", error);
+      setErrorMessage(error.message || "Failed to initiate Microsoft login. Please try again.");
       setLoading(false);
     }
   };
@@ -83,7 +122,11 @@ export default function Login() {
         <Link to="/">
           <img src={logo} alt="Global Relocate Logo" className="h-10" />
         </Link>
-        <button onClick={handleClose} className="flex items-center">
+        <button 
+          onClick={handleClose} 
+          className="flex items-center"
+          aria-label="Close"
+        >
           <IoCloseCircleOutline className="text-2xl mr-2" />
           <span>Close</span>
         </button>
@@ -111,15 +154,18 @@ export default function Login() {
         <div className="flex flex-col md:flex-row md:space-x-12 justify-center">
           {/* Form Section */}
           <div className="w-full md:w-[320px]">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               <div className="relative">
-                <label className="block text-sm mb-2">
+                <label htmlFor="email" className="block text-sm mb-2">
                   Email Address
                 </label>
                 {emailError && (
-                  <p className="absolute right-0 top-0 text-red-500 text-xs">{emailError}</p>
+                  <p className="absolute right-0 top-0 text-red-500 text-xs" role="alert">
+                    {emailError}
+                  </p>
                 )}
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -128,16 +174,23 @@ export default function Login() {
                     emailError ? 'border-red-500' : 'border-gray-300'
                   } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                   placeholder="myaccount@gmail.com"
+                  aria-invalid={emailError ? "true" : "false"}
+                  aria-describedby={emailError ? "email-error" : undefined}
                 />
               </div>
 
               <div className="relative">
-                <label className="block text-sm mb-2">Password</label>
+                <label htmlFor="password" className="block text-sm mb-2">
+                  Password
+                </label>
                 {passwordError && (
-                  <p className="absolute right-0 top-0 text-red-500 text-xs">{passwordError}</p>
+                  <p className="absolute right-0 top-0 text-red-500 text-xs" role="alert">
+                    {passwordError}
+                  </p>
                 )}
                 <div className="relative">
                   <input
+                    id="password"
                     type={showPassword ? "text" : "password"}
                     name="password"
                     value={formData.password}
@@ -146,11 +199,14 @@ export default function Login() {
                       passwordError ? 'border-red-500' : 'border-gray-300'
                     } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                     placeholder="Enter your password"
+                    aria-invalid={passwordError ? "true" : "false"}
+                    aria-describedby={passwordError ? "password-error" : undefined}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                   >
                     {showPassword ? (
                       <BsEyeSlash className="h-5 w-5 text-gray-500" />
@@ -168,6 +224,7 @@ export default function Login() {
                     <button 
                       onClick={() => setErrorMessage("")} 
                       className="ml-4 text-sm hover:text-gray-900"
+                      aria-label="Close error message"
                     >
                       <IoCloseCircleOutline className="h-5 w-5" />
                     </button>
@@ -198,7 +255,11 @@ export default function Login() {
 
           {/* Social Login Section */}
           <div className="w-full md:w-[320px] space-y-4 md:mt-5">
-            <button className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200">
+            <button
+              onClick={handleGoogleLogin}
+              disabled={loading}
+              className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               <div className="flex items-center">
                 <FcGoogle className="h-5 w-5 mr-3" />
                 <span>Continue with Google</span>
@@ -206,10 +267,14 @@ export default function Login() {
               <BsArrowLeft className="rotate-180" />
             </button>
 
-            <button className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200">
+            <button
+              onClick={handleMicrosoftLogin}
+              disabled={loading}
+              className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               <div className="flex items-center">
-                <FaApple className="h-5 w-5 mr-3" />
-                <span>Continue with Apple</span>
+                <img src={microsoftIcon} alt="Microsoft" className="h-5 w-5 mr-3" />
+                <span>Continue with Microsoft</span>
               </div>
               <BsArrowLeft className="rotate-180" />
             </button>
@@ -217,7 +282,7 @@ export default function Login() {
         </div>
 
         <div className="mt-6 text-center">
-          <Link to="/forgotpassword" className="text-sm text-gray-600">
+          <Link to="/forgotpassword" className="text-sm text-gray-600 hover:text-gray-800">
             Can't log in?
           </Link>
         </div>
@@ -231,11 +296,11 @@ export default function Login() {
 
         <p className="mt-8 text-sm text-gray-600 text-center">
           By clicking creating an account, you agree to our{" "}
-          <Link to="/terms" className="underline">
+          <Link to="/terms" className="underline hover:text-gray-800">
             Terms of Service
           </Link>{" "}
           and{" "}
-          <Link to="/privacy" className="underline">
+          <Link to="/privacy" className="underline hover:text-gray-800">
             Privacy Policy.
           </Link>
         </p>

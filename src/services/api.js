@@ -48,7 +48,6 @@ api.interceptors.response.use(
     console.error('API Error:', error);
 
     if (!error.response) {
-      // Network error or timeout
       throw new CustomAPIError(
         'Network error. Please check your connection.',
         0
@@ -82,11 +81,9 @@ export const registerNewUser = async (userData) => {
     }
 
     const response = await api.post(endpoint, userData);
-
     console.log('Registration successful:', response);
     return response;
   } catch (error) {
-    // Error handling remains the same
     if (error instanceof CustomAPIError) {
       throw error;
     }
@@ -142,6 +139,34 @@ export const loginUser = async (email, password) => {
 
     throw new CustomAPIError(
       'Failed to log in. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const initiateGoogleAuth = async () => {
+  try {
+    // Direct browser redirect to the Google auth endpoint
+    window.location.href = `${VITE_API_URL}/v1/auth/google`;
+  } catch (error) {
+    console.error('Google auth error:', error);
+    throw new CustomAPIError(
+      'Failed to initiate Google authentication. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const initiateMicrosoftAuth = async () => {
+  try {
+    // Direct browser redirect to the Microsoft auth endpoint
+    window.location.href = `${VITE_API_URL}/v1/auth/microsoft`;
+  } catch (error) {
+    console.error('Microsoft auth error:', error);
+    throw new CustomAPIError(
+      'Failed to initiate Microsoft authentication. Please try again.',
       0,
       { originalError: error.message }
     );
@@ -219,7 +244,7 @@ export const forgotPassword = async (email) => {
 };
 
 export const resetPassword = async (email, password, otp) => {
-  const endpoint = `/v1/auth/reset-password`;
+  const endpoint = '/v1/auth/reset-password';
   console.log('Starting reset password request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
