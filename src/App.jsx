@@ -7,6 +7,7 @@ import ForgotPassword from "./pages/unauthenticated/ForgotPassword";
 import VerifyEmail from "./pages/unauthenticated/VerifyEmail";
 import ResetPassword from "./pages/unauthenticated/ResetPassword";
 import Welcome from "./pages/authenticated/Welcome";
+import OAuthCallback from "./pages/unauthenticated/OAuthCallback";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/verifymail" element={<VerifyEmail />} />
       <Route path="/resetpassword" element={<ResetPassword />} />
       <Route path="/welcome" element={<Welcome />} />
+      <Route path="/oauth/callback" element={<OAuthCallback />} />
     </Routes>
   );
 }
