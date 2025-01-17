@@ -145,16 +145,22 @@ export const loginUser = async (email, password) => {
   }
 };
 
+// Modified OAuth initialization functions
 export const initiateGoogleAuth = async () => {
   try {
     const redirectUri = `${window.location.origin}/oauth/callback`;
-    window.location.href = `${VITE_API_URL}/v1/auth/google?redirect_uri=${encodeURIComponent(redirectUri)}`;
+    // Store the redirect URI and provider type in sessionStorage
+    sessionStorage.setItem('oauth_redirect_uri', redirectUri);
+    sessionStorage.setItem('oauth_provider', 'google');
+    
+    // Redirect to Google auth endpoint directly
+    window.location.href = `${VITE_API_URL}/v1/auth/google`;
+    
+    return true;
   } catch (error) {
     console.error('Google auth error:', error);
-    throw new CustomAPIError(
-      'Failed to initiate Google authentication. Please try again.',
-      0,
-      { originalError: error.message }
+    throw new Error(
+      'Failed to initiate Google authentication. Please try again.'
     );
   }
 };
@@ -162,62 +168,64 @@ export const initiateGoogleAuth = async () => {
 export const initiateMicrosoftAuth = async () => {
   try {
     const redirectUri = `${window.location.origin}/oauth/callback`;
-    window.location.href = `${VITE_API_URL}/v1/auth/microsoft?redirect_uri=${encodeURIComponent(redirectUri)}`;
+    // Store the redirect URI and provider type in sessionStorage
+    sessionStorage.setItem('oauth_redirect_uri', redirectUri);
+    sessionStorage.setItem('oauth_provider', 'microsoft');
+    
+    // Redirect to Microsoft auth endpoint directly
+    window.location.href = `${VITE_API_URL}/v1/auth/microsoft`;
+    
+    return true;
   } catch (error) {
     console.error('Microsoft auth error:', error);
-    throw new CustomAPIError(
-      'Failed to initiate Microsoft authentication. Please try again.',
-      0,
-      { originalError: error.message }
+    throw new Error(
+      'Failed to initiate Microsoft authentication. Please try again.'
     );
   }
 };
 
-export const handleOAuthCallback = async (code, type) => {
-  const endpoint = `/v1/auth/${type}/callback`;
+// Modified OAuth callback handler
+export const handleOAuthCallback = async (code) => {
+  // Get the stored provider type and redirect URI
+  const provider = sessionStorage.getItem('oauth_provider');
+  const redirectUri = sessionStorage.getItem('oauth_redirect_uri');
+  
+  if (!provider || !redirectUri) {
+    throw new Error('Invalid OAuth flow - missing provider or redirect URI');
+  }
+  
   try {
-    const response = await api.post(endpoint, { 
+    // The code from the OAuth provider will be exchanged for user data
+    const response = await api.post(`/v1/auth/${provider}/callback`, { 
       code,
-      redirect_uri: `${window.location.origin}/oauth/callback`
+      redirect_uri: redirectUri
     });
 
-    if (response?.token) {
-      // Set the auth token in axios defaults
-      setAuthToken(response.token);
-      
-      return {
-        token: response.token,
-        user: {
-          email: response.user?.email,
-          name: response.user?.name,
-          id: response.user?.id,
-        }
-      };
-    }
-    
-    throw new Error('No token received from OAuth provider');
-  } catch (error) {
-    if (error instanceof CustomAPIError) {
-      throw error;
+    // Clear the stored OAuth data
+    sessionStorage.removeItem('oauth_redirect_uri');
+    sessionStorage.removeItem('oauth_provider');
+
+    if (!response?.data?.token || !response?.data?.user) {
+      throw new Error('Invalid response from authentication server');
     }
 
-    if (axios.isAxiosError(error)) {
-      if (!error.response) {
-        throw new CustomAPIError(
-          'Network error. Please check your connection.',
-          0
-        );
+    return {
+      token: response.data.token,
+      user: {
+        email: response.data.user.email,
+        name: response.data.user.fullName || response.data.user.name,
+        id: response.data.user.id,
+        username: response.data.user.username,
+        country: response.data.user.country
       }
-
-      const status = error.response?.status || 0;
-      const message = error.response?.data?.message || getErrorMessage(status);
-      throw new CustomAPIError(message, status, error.response?.data);
-    }
-
-    throw new CustomAPIError(
-      `Failed to complete ${type} authentication. Please try again.`,
-      0,
-      { originalError: error.message }
+    };
+  } catch (error) {
+    // Clear the stored OAuth data on error
+    sessionStorage.removeItem('oauth_redirect_uri');
+    sessionStorage.removeItem('oauth_provider');
+    
+    throw new Error(
+      `Failed to complete ${provider} authentication. Please try again.`
     );
   }
 };
