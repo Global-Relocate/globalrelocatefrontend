@@ -70,27 +70,31 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     setErrorMessage("");
-
     try {
       const response = await loginUser(formData.email, formData.password);
       
-      // Login successful, update AuthContext
-      login(response.token, {
-        email: formData.email,
-        // Add any other user info from response that you want to store
-        name: response.name,
-        id: response.id,
-        // ... other user data
+      // Login successful, update AuthContext with the correct user data structure
+      login(response.accessToken, {
+        email: response.data.user.email,
+        name: response.data.user.fullName, // Using fullName from the API response
+        id: response.data.user.id,
+        username: response.data.user.username,
+        country: response.data.user.country
       });
       
-      navigate("/welcome");
+      // Pass the correct name to the welcome page
+      navigate("/welcome", { 
+        state: { 
+          username: response.data.user.fullName // Using fullName for the welcome message
+        } 
+      });
     } catch (error) {
       console.error("Login error:", error);
       setErrorMessage(error.message || "Failed to log in. Please try again.");
       setLoading(false);
     }
   };
-
+  
   const handleGoogleLogin = async () => {
     try {
       setLoading(true);
@@ -99,7 +103,7 @@ export default function Login() {
       
       if (response?.token) {
         login(response.token, response.user);
-        navigate("/welcome");
+        navigate("/welcome", { state: { username: response.user.name } });
       }
     } catch (error) {
       console.error("Google login error:", error);
@@ -116,7 +120,7 @@ export default function Login() {
       
       if (response?.token) {
         login(response.token, response.user);
-        navigate("/welcome");
+        navigate("/welcome", { state: { username: response.user.name } });
       }
     } catch (error) {
       console.error("Microsoft login error:", error);

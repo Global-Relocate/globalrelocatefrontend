@@ -4,17 +4,17 @@ import { useNavigate, useLocation } from "react-router-dom";
 export default function Welcome() {
   const navigate = useNavigate();
   const location = useLocation();
-  const userName = location.state?.username || "User";
+  const userName = location.state?.username || "Friend";
 
   const handleContinue = () => {
-    navigate("/dashboard");
+    navigate("/user/countries");
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4">
       <div className="text-center max-w-md w-full">
         <h1 className="text-3xl font-medium mb-4">
-          Welcome on board {userName}!
+          Welcome on board {userName}
         </h1>
         <p className="text-base text-gray-700 mb-20">
           Your AI-powered platform for seamless relocation, legal guidance, and global living.

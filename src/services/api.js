@@ -180,7 +180,22 @@ export const handleOAuthCallback = async (code, type) => {
       code,
       redirect_uri: `${window.location.origin}/oauth/callback`
     });
-    return response;
+
+    if (response?.token) {
+      // Set the auth token in axios defaults
+      setAuthToken(response.token);
+      
+      return {
+        token: response.token,
+        user: {
+          email: response.user?.email,
+          name: response.user?.name,
+          id: response.user?.id,
+        }
+      };
+    }
+    
+    throw new Error('No token received from OAuth provider');
   } catch (error) {
     if (error instanceof CustomAPIError) {
       throw error;
