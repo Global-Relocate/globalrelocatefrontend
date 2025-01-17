@@ -147,8 +147,8 @@ export const loginUser = async (email, password) => {
 
 export const initiateGoogleAuth = async () => {
   try {
-    // Direct browser redirect to the Google auth endpoint
-    window.location.href = `${VITE_API_URL}/v1/auth/google`;
+    const redirectUri = `${window.location.origin}/oauth/callback`;
+    window.location.href = `${VITE_API_URL}/v1/auth/google?redirect_uri=${encodeURIComponent(redirectUri)}`;
   } catch (error) {
     console.error('Google auth error:', error);
     throw new CustomAPIError(
@@ -161,12 +161,46 @@ export const initiateGoogleAuth = async () => {
 
 export const initiateMicrosoftAuth = async () => {
   try {
-    // Direct browser redirect to the Microsoft auth endpoint
-    window.location.href = `${VITE_API_URL}/v1/auth/microsoft`;
+    const redirectUri = `${window.location.origin}/oauth/callback`;
+    window.location.href = `${VITE_API_URL}/v1/auth/microsoft?redirect_uri=${encodeURIComponent(redirectUri)}`;
   } catch (error) {
     console.error('Microsoft auth error:', error);
     throw new CustomAPIError(
       'Failed to initiate Microsoft authentication. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const handleOAuthCallback = async (code, type) => {
+  const endpoint = `/v1/auth/${type}/callback`;
+  try {
+    const response = await api.post(endpoint, { 
+      code,
+      redirect_uri: `${window.location.origin}/oauth/callback`
+    });
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status);
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      `Failed to complete ${type} authentication. Please try again.`,
       0,
       { originalError: error.message }
     );
