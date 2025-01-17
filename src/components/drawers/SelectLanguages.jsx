@@ -27,26 +27,28 @@ export default function SelectLanguages() {
         </div>
       </SheetTrigger>
       <SheetContent className="w-full sm:w-auto">
-        <SheetHeader>
-          <SheetTitle className="text-left">Select your language</SheetTitle>
-          <SheetDescription className="text-left">
-            Make changes to the site language here. Click save when you're done.
-          </SheetDescription>
-        </SheetHeader>
-        <div className="flex flex-col mt-10">
-          <Input id="lang" value="English" className="w-full mt-3 h-[40px]" />
-        </div>
+        <div className="mt-2"> {/* Added container div with margin-top */}
+          <SheetHeader>
+            <SheetTitle className="text-left">Select your language</SheetTitle>
+            <SheetDescription className="text-left">
+              Make changes to the site language here. Click save when you're done.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="flex flex-col mb-4">
+            <Input id="lang" value="English" className="w-full mt-3 h-[45px]" />
+          </div>
 
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button
-              type="submit"
-              className="w-full bg-[#FCA311] text-black hover:text-white mt-5"
-            >
-              Save Changes
-            </Button>
-          </SheetClose>
-        </SheetFooter>
+          <SheetFooter>
+            <SheetClose asChild>
+              <Button
+                type="submit"
+                className="w-full h-[40px] bg-[#FCA311] text-black hover:text-white mt-5"
+              >
+                Save Changes
+              </Button>
+            </SheetClose>
+          </SheetFooter>
+        </div>
       </SheetContent>
     </Sheet>
   );
