@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { AuthContext } from "../../context/AuthContext";
 import logo from "../../assets/svg/logo.svg";
 import microsoftIcon from "../../assets/svg/microsoft.svg";
 import { 
@@ -13,6 +14,7 @@ import {
 } from "../../services/api";
 
 export default function Login() {
+  const { login } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -71,18 +73,20 @@ export default function Login() {
 
     try {
       const response = await loginUser(formData.email, formData.password);
-      console.log("Login successful:", response);
       
-      // Store the token if returned by the API
-      if (response.token) {
-        localStorage.setItem('authToken', response.token);
-      }
+      // Login successful, update AuthContext
+      login(response.token, {
+        email: formData.email,
+        // Add any other user info from response that you want to store
+        name: response.name,
+        id: response.id,
+        // ... other user data
+      });
       
       navigate("/welcome");
     } catch (error) {
       console.error("Login error:", error);
       setErrorMessage(error.message || "Failed to log in. Please try again.");
-    } finally {
       setLoading(false);
     }
   };
@@ -91,8 +95,12 @@ export default function Login() {
     try {
       setLoading(true);
       setErrorMessage("");
-      await initiateGoogleAuth();
-      // No need to handle the response as we're redirecting
+      const response = await initiateGoogleAuth();
+      
+      if (response?.token) {
+        login(response.token, response.user);
+        navigate("/welcome");
+      }
     } catch (error) {
       console.error("Google login error:", error);
       setErrorMessage(error.message || "Failed to initiate Google login. Please try again.");
@@ -104,8 +112,12 @@ export default function Login() {
     try {
       setLoading(true);
       setErrorMessage("");
-      await initiateMicrosoftAuth();
-      // No need to handle the response as we're redirecting
+      const response = await initiateMicrosoftAuth();
+      
+      if (response?.token) {
+        login(response.token, response.user);
+        navigate("/welcome");
+      }
     } catch (error) {
       console.error("Microsoft login error:", error);
       setErrorMessage(error.message || "Failed to initiate Microsoft login. Please try again.");
