@@ -12,34 +12,29 @@ export default function OAuthCallback() {
     const handleAuth = async () => {
       const searchParams = new URLSearchParams(location.search);
       const code = searchParams.get('code');
-      const type = searchParams.get('type')?.toLowerCase();
+      const type = searchParams.get('type') || 'google'; // Default to google if type is not specified
 
-      if (code && type) {
-        try {
-          const response = await handleOAuthCallback(code, type);
-          if (response?.token) {
-            login(response.token, {
-              email: response.user.email,
-              name: response.user.name,
-              id: response.user.id,
-            });
-            navigate('/welcome');
-          } else {
-            throw new Error('No token received');
-          }
-        } catch (error) {
-          console.error('OAuth callback error:', error);
-          navigate('/login', { 
-            state: { 
-              error: 'Authentication failed. Please try again.' 
-            }
-          });
-        }
-      } else {
+      if (!code) {
         navigate('/login', { 
-          state: { 
-            error: 'Invalid authentication response' 
-          }
+          state: { error: 'Invalid authentication response' }
+        });
+        return;
+      }
+
+      try {
+        const response = await handleOAuthCallback(code, type);
+        
+        if (response?.token && response?.user) {
+          // Important: Call login with both token and user data
+          login(response.token, response.user);
+          navigate('/welcome');
+        } else {
+          throw new Error('Invalid authentication response');
+        }
+      } catch (error) {
+        console.error('OAuth callback error:', error);
+        navigate('/login', { 
+          state: { error: error.message || 'Authentication failed. Please try again.' }
         });
       }
     };
