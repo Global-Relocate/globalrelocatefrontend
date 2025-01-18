@@ -29,16 +29,34 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent background scroll when drawer is open
   useEffect(() => {
-    document.body.style.overflow = isDrawerOpen ? "hidden" : "";
+    if (isDrawerOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isDrawerOpen]);
 
-  const handleSignIn = () => navigate("/login");
-  const handleSignUp = () => navigate("/signup");
+  const handleSignIn = () => {
+    setIsDrawerOpen(false);
+    navigate("/login");
+  };
+  
+  const handleSignUp = () => {
+    setIsDrawerOpen(false);
+    navigate("/signup");
+  };
+  
   const handleLogout = () => {
+    setIsDrawerOpen(false);
     logout();
     navigate("/");
   };
+
   const isActivePath = (path) => location.pathname === path;
 
   const NavLinks = ({ mobile = false, onClick = () => {} }) => (
@@ -62,75 +80,76 @@ const Navbar = () => {
   );
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-gray-200"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="max-w-[1440px] mx-auto px-6 lg:px-10 py-4">
-        <div className="flex items-center justify-between">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center focus:outline-none"
-          >
-            <img src={logo} alt="Global Relocate Logo" className="h-10" />
-          </button>
+    <>
+      <header
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/80 backdrop-blur-md border-b border-gray-200"
+            : "bg-transparent"
+        }`}
+      >
+        <nav className="max-w-[1440px] mx-auto px-6 lg:px-10 py-4">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => navigate("/")}
+              className="flex items-center focus:outline-none"
+            >
+              <img src={logo} alt="Global Relocate Logo" className="h-10" />
+            </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center flex-1 justify-center">
-            <NavLinks />
-          </div>
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center flex-1 justify-center">
+              <NavLinks />
+            </div>
 
-          {/* Desktop Right Section */}
-          <div className="hidden lg:flex items-center space-x-6">
-            <SelectLanguages />
-            {isAuthenticated ? (
-              <button
-                onClick={handleLogout}
-                className="flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200"
-              >
-                <LogOut className="h-5 w-5" />
-                <span>Logout</span>
-              </button>
-            ) : (
-              <>
+            {/* Desktop Right Section */}
+            <div className="hidden lg:flex items-center space-x-6">
+              <SelectLanguages />
+              {isAuthenticated ? (
                 <button
-                  onClick={handleSignIn}
-                  className="text-[#404040] hover:text-black transition-colors duration-200"
+                  onClick={handleLogout}
+                  className="flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200"
                 >
-                  Log In
+                  <LogOut className="h-5 w-5" />
+                  <span>Logout</span>
                 </button>
-                <button
-                  onClick={handleSignUp}
-                  className="bg-[#FCA311] hover:bg-[#e5940c] text-black px-6 py-3 rounded-xl text-sm transition-colors duration-200"
-                >
-                  Get Started
-                </button>
-              </>
-            )}
-          </div>
+              ) : (
+                <>
+                  <button
+                    onClick={handleSignIn}
+                    className="text-[#404040] hover:text-black transition-colors duration-200"
+                  >
+                    Log In
+                  </button>
+                  <button
+                    onClick={handleSignUp}
+                    className="bg-[#FCA311] hover:bg-[#e5940c] text-black px-6 py-3 rounded-xl text-sm transition-colors duration-200"
+                  >
+                    Get Started
+                  </button>
+                </>
+              )}
+            </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-            className="lg:hidden text-gray-700 focus:outline-none"
-          >
-            <Menu className="h-6 w-6" />
-          </button>
-        </div>
-      </nav>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+              className="lg:hidden text-gray-700 focus:outline-none"
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+          </div>
+        </nav>
+      </header>
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-0 bg-white shadow-xl z-[9999] lg:hidden transform transition-transform duration-300 ease-in-out ${
-          isDrawerOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 bg-white z-[60] lg:hidden transition-transform duration-300 ${
+          isDrawerOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
-        style={{ isolation: 'isolate' }}
       >
-        <div className="flex flex-col h-full">
-          <div className="flex justify-between items-center p-6">
+        <div className="flex flex-col min-h-screen">
+          <div className="flex justify-between items-center p-6 border-b border-gray-100">
             <button
               onClick={() => navigate("/")}
               className="focus:outline-none"
@@ -145,51 +164,42 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="flex flex-col flex-1 px-6 pt-8">
+          <div className="flex-1 flex flex-col overflow-y-auto px-6 py-8">
             <NavLinks mobile onClick={() => setIsDrawerOpen(false)} />
-            <div className="pt-8">
+            <div className="mt-8">
               <SelectLanguages />
             </div>
           </div>
 
-          <div className="p-6 space-y-4">
+          <div className="p-6 border-t border-gray-100">
             {isAuthenticated ? (
               <button
-                onClick={() => {
-                  handleLogout();
-                  setIsDrawerOpen(false);
-                }}
+                onClick={handleLogout}
                 className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl text-gray-700 border border-gray-300 hover:bg-gray-100 transition-colors duration-200"
               >
                 <LogOut className="h-5 w-5" />
                 <span>Logout</span>
               </button>
             ) : (
-              <>
+              <div className="space-y-4">
                 <button
-                  onClick={() => {
-                    handleSignIn();
-                    setIsDrawerOpen(false);
-                  }}
+                  onClick={handleSignIn}
                   className="w-full px-4 py-3 rounded-xl text-gray-700 border border-gray-300 hover:bg-gray-100 transition-colors duration-200"
                 >
                   Log In
                 </button>
                 <button
-                  onClick={() => {
-                    handleSignUp();
-                    setIsDrawerOpen(false);
-                  }}
+                  onClick={handleSignUp}
                   className="w-full px-4 py-3 bg-[#FCA311] hover:bg-[#e5940c] text-black rounded-xl transition-colors duration-200"
                 >
                   Get Started
                 </button>
-              </>
+              </div>
             )}
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 };
 
