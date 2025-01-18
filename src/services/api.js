@@ -145,90 +145,83 @@ export const loginUser = async (email, password) => {
   }
 };
 
-// Modified OAuth initialization functions
+
+export const handleOAuthCallback = async (code, type) => {
+  try {
+    // Validate required data
+    if (!code || !type) {
+      throw new Error('Missing required authentication data');
+    }
+
+    // The code from the URL is the JWT token
+    const token = code;
+    
+    try {
+      // Decode the JWT to get user information
+      const [, payloadBase64] = token.split('.');
+      const payload = JSON.parse(atob(payloadBase64));
+      
+      // Set the token in the API headers for future requests
+      setAuthToken(token);
+      
+      // Return the token and decoded user info
+      // Note: Adjust the user object structure based on what your JWT payload contains
+      return {
+        token,
+        user: {
+          id: payload.id,
+          // If these fields aren't in your JWT, I might need to adjust
+          email: payload.email || '',
+          name: payload.name || '',
+          username: payload.username || '',
+          country: payload.country || ''
+        }
+      };
+    } catch (error) {
+      console.error('Error decoding JWT:', error);
+      throw new Error('Invalid authentication token');
+    }
+  } catch (error) {
+    // Clean up session storage
+    sessionStorage.removeItem('oauth_redirect_uri');
+    sessionStorage.removeItem('oauth_provider');
+    
+    console.error('OAuth callback error:', error);
+    throw error;
+  }
+};
+
+// Update the OAuth initialization functions
 export const initiateGoogleAuth = async () => {
   try {
     const redirectUri = `${window.location.origin}/oauth/callback`;
-    // Store the redirect URI and provider type in sessionStorage
     sessionStorage.setItem('oauth_redirect_uri', redirectUri);
     sessionStorage.setItem('oauth_provider', 'google');
     
-    // Redirect to Google auth endpoint directly
-    window.location.href = `${VITE_API_URL}/v1/auth/google`;
-    
+    // Redirect to the Google auth endpoint
+    window.location.href = `${VITE_API_URL}/v1/auth/google?redirect_uri=${encodeURIComponent(redirectUri)}`;
     return true;
   } catch (error) {
     console.error('Google auth error:', error);
-    throw new Error(
-      'Failed to initiate Google authentication. Please try again.'
-    );
+    throw new Error('Failed to initiate Google authentication');
   }
 };
 
 export const initiateMicrosoftAuth = async () => {
   try {
     const redirectUri = `${window.location.origin}/oauth/callback`;
-    // Store the redirect URI and provider type in sessionStorage
     sessionStorage.setItem('oauth_redirect_uri', redirectUri);
     sessionStorage.setItem('oauth_provider', 'microsoft');
     
-    // Redirect to Microsoft auth endpoint directly
-    window.location.href = `${VITE_API_URL}/v1/auth/microsoft`;
-    
+    // Redirect to the Microsoft auth endpoint
+    window.location.href = `${VITE_API_URL}/v1/auth/microsoft?redirect_uri=${encodeURIComponent(redirectUri)}`;
     return true;
   } catch (error) {
     console.error('Microsoft auth error:', error);
-    throw new Error(
-      'Failed to initiate Microsoft authentication. Please try again.'
-    );
+    throw new Error('Failed to initiate Microsoft authentication');
   }
 };
 
-// Modified OAuth callback handler
-export const handleOAuthCallback = async (code) => {
-  // Get the stored provider type and redirect URI
-  const provider = sessionStorage.getItem('oauth_provider');
-  const redirectUri = sessionStorage.getItem('oauth_redirect_uri');
-  
-  if (!provider || !redirectUri) {
-    throw new Error('Invalid OAuth flow - missing provider or redirect URI');
-  }
-  
-  try {
-    // The code from the OAuth provider will be exchanged for user data
-    const response = await api.post(`/v1/auth/${provider}/callback`, { 
-      code,
-      redirect_uri: redirectUri
-    });
-
-    // Clear the stored OAuth data
-    sessionStorage.removeItem('oauth_redirect_uri');
-    sessionStorage.removeItem('oauth_provider');
-
-    if (!response?.data?.token || !response?.data?.user) {
-      throw new Error('Invalid response from authentication server');
-    }
-
-    return {
-      token: response.data.token,
-      user: {
-        email: response.data.user.email,
-        name: response.data.user.fullName || response.data.user.name,
-        id: response.data.user.id,
-        username: response.data.user.username,
-        country: response.data.user.country
-      }
-    };
-  } catch (error) {
-    // Clear the stored OAuth data on error
-    sessionStorage.removeItem('oauth_redirect_uri');
-    sessionStorage.removeItem('oauth_provider');
-    
-    throw new Error(
-      `Failed to complete ${provider} authentication. Please try again.`
-    );
-  }
-};
 
 export const verifyEmail = async (email, otp) => {
   const endpoint = '/v1/auth/verify/otp';
