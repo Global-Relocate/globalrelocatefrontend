@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BiChevronDown, BiSignal4 } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
+import { Button } from "../ui/button";
 
 function Sidebar({ navData, navState }) {
   const width = navState ? "w-64" : "w-0 sm:w-64";
@@ -68,19 +69,17 @@ function Sidebar({ navData, navState }) {
         </ul>
       </div>
 
-      <div className="mb-[100px] w-full flex flex-col items-center">
-        <div className="w-[90%] border p-2 border-[#D4D4D4] mb-3 rounded-xl">
-          <p className="whitespace-normal my-4 text-sm text-gray-700">
-            You're currently in view only mode. To gain complete access to
-            Global relocate
+      <div className="mb-[100px] whitespace-nowrap w-full flex flex-col items-center">
+        <div className="w-[90%] border p-2 bg-[#F5F5F5] mb-3 rounded-xl">
+          <h3 className="font-semibold">Try Pro</h3>
+          <p className=" my-3 text-sm text-gray-700">
+            You're currently in free plan <br />
+            valid for 3days. Upgrade now <br /> to keep using Global relocate
           </p>
-          <button className="bg-black w-full text-sm text-white py-2 rounded-xl">
-            Login
-          </button>
+          <Button className="bg-black w-full text-sm text-white py-2 rounded-xl">
+            Learn More
+          </Button>
         </div>
-        <button className="border w-[90%] text-sm border-black text-black py-2 rounded-xl">
-          Upgrade to pro
-        </button>
       </div>
     </div>
   );

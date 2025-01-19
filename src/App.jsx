@@ -14,6 +14,7 @@ import TaxCalculator from "./pages/user/TaxCalculator";
 import Favourites from "./pages/user/Favourites";
 import Community from "./pages/user/Community";
 import Notifications from "./pages/user/Notifications";
+import CountryDetails from "./pages/user/CountryDetails";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
 
       {/* Dashboard routes  */}
       <Route path="/user/countries" element={<Countries />} />
+      <Route path="/user/countries/:countryName" element={<CountryDetails />} />
       <Route path="/user/ai-assistant" element={<AiAssistant />} />
       <Route path="/user/compare" element={<CompareCountries />} />
       <Route path="/user/tax-calculator" element={<TaxCalculator />} />

@@ -2,9 +2,16 @@ import React from "react";
 import { BsHeart } from "react-icons/bs";
 import { FaRegHandPointer } from "react-icons/fa";
 
-export default function CountriesCard({ image, location, countryImage, sm }) {
+export default function CountriesCard({
+  onClick,
+  image,
+  location,
+  countryFlag,
+  sm,
+}) {
   return (
     <div
+      onClick={onClick}
       className={`flex flex-col items-start space-y-3 relative ${
         sm ? "w-full md:w-[270px]" : "w-[380px]"
       } `}
@@ -21,12 +28,14 @@ export default function CountriesCard({ image, location, countryImage, sm }) {
       </button>
       <img
         src={image}
-        className={`w-full rounded-2xl object-cover ${sm ? "h-[320px]" : "h-[500px]"}`}
+        className={`w-full rounded-2xl object-cover ${
+          sm ? "h-[320px] cursor-pointer" : "h-[500px]"
+        }`}
         alt=""
       />
       <div className=" flex items-center justify-start space-x-2 ">
         <img
-          src={countryImage}
+          src={countryFlag}
           className="w-7 h-7 rounded-full object-cover"
           alt="logo"
         />

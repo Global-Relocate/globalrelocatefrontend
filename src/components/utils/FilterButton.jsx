@@ -1,12 +1,16 @@
 import React from "react";
-import { LuSettings2 } from "react-icons/lu";
+import { Button } from "../ui/button";
 
-function FilterButton() {
+function FilterButton({ isActive, title, ...props }) {
   return (
-    <div className="flex items-center p-3 space-x-2 rounded-xl border transition-all hover:bg-[#F6F6F6] cursor-pointer">
-      <LuSettings2 />
-      <span> Filter</span>
-    </div>
+    <Button
+      {...props}
+      className={`${
+        isActive ? "bg-black text-white shadow-md" : "bg-white text-black"
+      } rounded-3xl  shadow-none hover:text-white border border-black`}
+    >
+      {title}
+    </Button>
   );
 }
 

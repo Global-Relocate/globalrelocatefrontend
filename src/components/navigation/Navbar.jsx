@@ -5,7 +5,6 @@ import SelectLanguages from "@/components/drawers/SelectLanguages";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isLangDrawerOpen, setIsLangDrawerOpen] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
@@ -81,19 +80,8 @@ const Navbar = () => {
 
         {/* Sign Up and Sign In Buttons */}
         <div className="hidden md:flex space-x-4">
-          <SelectLanguages/>
-            {/* <div
-              className="flex items-center space-x-1 cursor-pointer"
-              // onClick={() => setIsLangDrawerOpen(true)}
-            >
-              <img
-                src="https://uk.usembassy.gov/wp-content/uploads/sites/16/US_Flag_Color_72DPI_750x450.jpg"
-                className="w-7 h-7 rounded-full"
-                alt="logo"
-              />
-              <span className="text-sm">EN</span>
-            </div>
-          </SelectLanguages> */}
+          <SelectLanguages />
+
           <button className="px-4 py-2 text-black" onClick={handleSignIn}>
             Log In
           </button>
@@ -181,7 +169,7 @@ const Navbar = () => {
             >
               Contact
             </a>
-            <SelectLanguages/>
+            <SelectLanguages />
           </div>
           <div className="flex flex-col gap-4 w-full">
             <button
