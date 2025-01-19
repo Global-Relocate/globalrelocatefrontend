@@ -5,6 +5,8 @@ import Signup from "./pages/unauthenticated/Signup";
 import "./App.css";
 import ForgotPassword from "./pages/unauthenticated/ForgotPassword";
 import VerifyEmail from "./pages/unauthenticated/VerifyEmail";
+import ResetPassword from "./pages/unauthenticated/ResetPassword";
+import Welcome from "./pages/authenticated/Welcome";
 
 // Dashboard route imports
 import Countries from "./pages/user/Countries";
@@ -24,7 +26,8 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgotpassword" element={<ForgotPassword />} />
       <Route path="/verifymail" element={<VerifyEmail />} />
-
+        <Route path="/resetpassword" element={<ResetPassword />} />
+      <Route path="/welcome" element={<Welcome />} />
       {/* Dashboard routes  */}
       <Route path="/user/countries" element={<Countries />} />
       <Route path="/user/countries/:countryName" element={<CountryDetails />} />
@@ -34,6 +37,7 @@ function App() {
       <Route path="/user/notifications" element={<Notifications />} />
       <Route path="/user/favourites" element={<Favourites />} />
       <Route path="/user/community" element={<Community />} />
+
     </Routes>
   );
 }

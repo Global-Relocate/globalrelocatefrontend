@@ -2,21 +2,18 @@ import React, { useState } from "react";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { GoPersonFill } from "react-icons/go";
 import { PiBuildingsFill } from "react-icons/pi";
-import { BsCheck, BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
+import { BsCheck, BsArrowLeft } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
-import Select from 'react-select';
-import countries from 'country-list';
+import SignupForm from "../../components/forms/SignupForm";
 import logo from "../../assets/svg/logo.svg";
 
 export default function Signup() {
   const [selectedAccountType, setSelectedAccountType] = useState(null);
   const [showSignupMethods, setShowSignupMethods] = useState(false);
   const [showEmailForm, setShowEmailForm] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -24,7 +21,8 @@ export default function Signup() {
     fullName: "",
     password: "",
     confirmPassword: "",
-    country: null
+    country: null,
+    userType: null
   });
 
   const [errors, setErrors] = useState({
@@ -35,41 +33,7 @@ export default function Signup() {
     country: ""
   });
 
-  const countryOptions = countries.getData().map(country => ({
-    value: country.code,
-    label: country.name
-  }));
-
-  const customSelectStyles = {
-    control: (base, state) => ({
-      ...base,
-      padding: '4px',
-      borderRadius: '8px',
-      border: state.isFocused ? '1px solid #FCA311' : '1px solid #E5E5E5',
-      boxShadow: 'none',
-      '&:hover': {
-        border: '1px solid #FCA311'
-      }
-    }),
-    option: (base, { isFocused, isSelected }) => ({
-      ...base,
-      backgroundColor: isSelected ? '#FCA311' : isFocused ? '#FCA31120' : 'white',
-      color: isSelected ? 'white' : 'black',
-      '&:hover': {
-        backgroundColor: '#FCA31120'
-      }
-    }),
-    placeholder: (base) => ({
-      ...base,
-      color: '#A3A3A3'
-    }),
-    menu: (base) => ({
-      ...base,
-      borderRadius: '8px',
-      marginTop: '4px'
-    })
-  };
-
+  // Validate form data
   const validateForm = () => {
     const newErrors = {};
     
@@ -101,38 +65,7 @@ export default function Signup() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ""
-      }));
-    }
-  };
-
-  const handleCountryChange = (selectedOption) => {
-    setFormData(prev => ({
-      ...prev,
-      country: selectedOption
-    }));
-    if (errors.country) {
-      setErrors(prev => ({
-        ...prev,
-        country: ""
-      }));
-    }
-  };
-
-  const handleAccountTypeSelect = (type) => {
-    setSelectedAccountType(type);
-  };
-
+  // Handle continue button click
   const handleContinue = () => {
     if (showEmailForm) {
       if (validateForm()) {
@@ -143,14 +76,17 @@ export default function Signup() {
     }
   };
 
+  // Handle email signup button click
   const handleEmailSignup = () => {
     setShowEmailForm(true);
   };
 
+  // Handle close button click
   const handleClose = () => {
     navigate(-1);
   };
 
+  // Handle back button click
   const handleBack = () => {
     if (showEmailForm) {
       setShowEmailForm(false);
@@ -161,6 +97,16 @@ export default function Signup() {
     }
   };
 
+  // Handle account type selection
+  const handleAccountTypeSelect = (type) => {
+    setSelectedAccountType(type);
+    setFormData(prev => ({
+      ...prev,
+      userType: type === "personal" ? "INDIVIDUAL" : "CORPORATE"
+    }));
+  };
+
+  // Account type selection component
   const AccountTypeSelection = () => (
     <>
       <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
@@ -239,6 +185,7 @@ export default function Signup() {
     </>
   );
 
+  // Signup methods component
   const SignupMethods = () => (
     <>
       <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
@@ -280,154 +227,9 @@ export default function Signup() {
     </>
   );
 
-  const EmailSignupForm = () => (
-    <>
-      <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
-        Let's create your account
-      </h1>
-
-      <div className="px-6 space-y-4 w-full">
-        <div className="relative">
-          <label className="text-sm text-gray-700 mb-1 block">
-            Email Address <span className="text-red-500">*</span>
-          </label>
-          {errors.email && (
-            <span className="absolute right-0 top-0 text-red-500 text-xs">{errors.email}</span>
-          )}
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className={`w-full p-3 rounded-lg border ${
-              errors.email ? 'border-red-500' : 'border-gray-300'
-            } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-            placeholder="myaccount@gmail.com"
-          />
-        </div>
-
-        <div>
-          <label className="text-sm text-gray-700 mb-1 block">
-            Full Name <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleInputChange}
-            className={`w-full p-3 rounded-lg border ${
-              errors.fullName ? 'border-red-500' : 'border-gray-300'
-            } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-            placeholder="John Doe"
-          />
-          {errors.fullName && (
-            <span className="text-red-500 text-xs mt-1">{errors.fullName}</span>
-          )}
-        </div>
-
-        <div>
-          <label className="text-sm text-gray-700 mb-1 block">
-            Password <span className="text-red-500">*</span>
-          </label>
-          <div className="relative">
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              className={`w-full p-3 rounded-lg border ${
-                errors.password ? 'border-red-500' : 'border-gray-300'
-              } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-              placeholder="Password"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2"
-            >
-              {showPassword ? (
-                <BsEyeSlash className="text-gray-500" />
-              ) : (
-                <BsEye className="text-gray-500" />
-              )}
-            </button>
-          </div>
-          {errors.password ? (
-            <span className="text-red-500 text-xs mt-1">{errors.password}</span>
-          ) : (
-            <span className="text-gray-500 text-xs mt-1">
-              Use a password with more than 6 characters
-            </span>
-          )}
-        </div>
-
-        <div>
-          <label className="text-sm text-gray-700 mb-1 block">
-            Confirm Password <span className="text-red-500">*</span>
-          </label>
-          <div className="relative">
-            <input
-              type={showConfirmPassword ? "text" : "password"}
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleInputChange}
-              className={`w-full p-3 rounded-lg border ${
-                errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
-              } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-              placeholder="Password"
-            />
-            <button
-              type="button"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2"
-            >
-              {showConfirmPassword ? (
-                <BsEyeSlash className="text-gray-500" />
-              ) : (
-                <BsEye className="text-gray-500" />
-              )}
-            </button>
-          </div>
-          {errors.confirmPassword ? (
-            <span className="text-red-500 text-xs mt-1">{errors.confirmPassword}</span>
-          ) : (
-            <span className="text-gray-500 text-xs mt-1">
-              Use a password with more than 6 characters
-            </span>
-          )}
-        </div>
-
-        <div>
-          <label className="text-sm text-gray-700 mb-1 block">
-            Country <span className="text-red-500">*</span>
-          </label>
-          <Select
-            options={countryOptions}
-            value={formData.country}
-            onChange={handleCountryChange}
-            styles={customSelectStyles}
-            placeholder="Select a country"
-            className={errors.country ? 'border-red-500' : ''}
-          />
-          {errors.country && (
-            <span className="text-red-500 text-xs mt-1">{errors.country}</span>
-          )}
-        </div>
-      </div>
-
-      <div className="px-6 mt-6">
-        <button
-          className="w-full py-3 text-black rounded-lg bg-[#FCA311] hover:bg-[#e5940c]"
-          onClick={handleContinue}
-        >
-          Continue
-        </button>
-      </div>
-    </>
-  );
-
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-50 px-6">
+      {/* Header Section */}
       <div className="w-full flex justify-between items-center mt-6">
         <Link to="/">
           <img src={logo} alt="Global Relocate Logo" className="h-10" />
@@ -448,10 +250,24 @@ export default function Signup() {
           </button>
         )}
 
+        {/* Account Type Selection Section */}
         {!showSignupMethods && !showEmailForm && <AccountTypeSelection />}
+        
+        {/* Signup Methods Section */}
         {showSignupMethods && !showEmailForm && <SignupMethods />}
-        {showEmailForm && <EmailSignupForm />}
+        
+        {/* Email Signup Form Section */}
+        {showEmailForm && (
+          <SignupForm
+            formData={formData}
+            setFormData={setFormData}
+            errors={errors}
+            setErrors={setErrors}
+            handleContinue={handleContinue}
+          />
+        )}
 
+        {/* Login Link Section */}
         {!showEmailForm && (
           <div className="px-6">
             <p className="mt-4 text-sm text-gray-600 text-left w-[100%]">
@@ -463,6 +279,7 @@ export default function Signup() {
           </div>
         )}
 
+        {/* Terms and Privacy Policy Section */}
         <p className="text-left mt-8 text-xs text-gray-500 px-6 w-[100%]">
           By clicking "Continue", you agree to our{" "}
           <Link to="/terms" className="text-black underline">
