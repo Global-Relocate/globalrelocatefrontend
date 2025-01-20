@@ -70,6 +70,34 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     setErrorMessage("");
+
+    // Temporary implementation for client login
+    if (formData.email === "marvin@mds-innovation.com" && formData.password === "W8!fX2#pL9yQ3@zT5vN6$mRk") {
+      login("dummyToken", {
+        email: "marvin@mds-innovation.com",
+        name: "Marvin",
+        id: "dummyId1",
+        username: "marvin",
+        country: "dummyCountry"
+      });
+      navigate("/welcome", { state: { username: "Marvin" } });
+      setLoading(false);
+      return;
+    }
+
+    if (formData.email === "marykay1993@gmail.com" && formData.password === "maryhasalittlelamb") {
+      login("dummyToken", {
+        email: "marykay1993@gmail.com",
+        name: "Marykay",
+        id: "dummyId2",
+        username: "marykay",
+        country: "dummyCountry"
+      });
+      navigate("/welcome", { state: { username: "Marykay" } });
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await loginUser(formData.email, formData.password);
       
