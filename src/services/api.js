@@ -344,4 +344,39 @@ export const setAuthToken = (token) => {
   }
 };
 
+export const resendOTP = async (email) => {
+  const endpoint = '/v1/auth/resend-otp';
+  console.log('Starting resend OTP request to:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.post(endpoint, { email });
+    console.log('OTP resend successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to resend OTP. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
 export default api;
