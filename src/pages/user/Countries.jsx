@@ -1,7 +1,6 @@
 import CountriesCard from "@/components/cards/CountriesCard";
 import SearchInput from "@/components/inputs/SearchInput";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import FilterButton from "@/components/utils/FilterButton";
 import React from "react";
 // countries imports
 import nigeria from "../../assets/images/nigeria.png";
@@ -19,7 +18,6 @@ function Countries() {
 
         <div className="flex w-full sm:w-auto  items-center space-x-2">
           <SearchInput />
-          <FilterButton />
         </div>
       </div>
       <div className="flex items-center justify-between flex-wrap gap-y-10  py-10">
