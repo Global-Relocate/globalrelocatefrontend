@@ -1,59 +1,57 @@
-import { LucideUsersRound } from "lucide-react";
-import { CiMemoPad } from "react-icons/ci";
-import {
-  FaCalculator,
-  FaFlag,
-  FaMoneyBill,
-  FaRegHeart,
-  FaUser,
-} from "react-icons/fa";
-import { FaCodeCompare, FaPeopleGroup } from "react-icons/fa6";
-import { ImOffice } from "react-icons/im";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { IoPersonAdd } from "react-icons/io5";
-import { MdOutlineAssistant, MdSpaceDashboard } from "react-icons/md";
+
+import countriesIcon from "./assets/svg/countries.svg";
+import aiAssistantIcon from "./assets/svg/ai.svg";
+import aiActiveIcon from "./assets/svg/ai-assistant.svg";
+import compareIcon from "./assets/svg/compare.svg";
+import calculatorIcon from "./assets/svg/calculator.svg";
+import bellIcon from "./assets/svg/bell.svg";
+import favoriteIcon from "./assets/svg/favorite.svg";
+import filledfavoriteIcon from "./assets/svg/filledfavorite.svg";
+import communityIcon from "./assets/svg/community.svg";
 
 export const userSidebarItems = [
   {
     title: "Countries",
     activeKey: "/user/countries",
     path: "/user/countries",
-    icon: FaFlag,
+    icon: countriesIcon,
   },
   {
     title: "Ai Assistant",
     activeKey: "/user/ai-assistant",
     path: "/user/ai-assistant",
-    icon: MdOutlineAssistant,
+    icon: aiAssistantIcon,
+    activeIcon: aiActiveIcon,
   },
   {
     title: "Compare Countries",
     activeKey: "/user/compare",
     path: "/user/compare",
-    icon: FaCodeCompare,
+    icon: compareIcon,
   },
   {
     title: "Tax Calculator",
     activeKey: "/user/tax-calculator",
     path: "/user/tax-calculator",
-    icon: FaCalculator,
+    icon: calculatorIcon,
   },
   {
     title: "Notifications",
     activeKey: "/user/notifications",
     path: "/user/notifications",
-    icon: IoMdNotificationsOutline,
+    icon: bellIcon,
   },
   {
     title: "Favourites",
     activeKey: "/user/favourites",
     path: "/user/favourites",
-    icon: FaRegHeart,
+    icon: favoriteIcon,
+    activeIcon: filledfavoriteIcon,
   },
   {
     title: "Community",
     activeKey: "/user/community",
     path: "/user/community",
-    icon: LucideUsersRound,
+    icon: communityIcon,
   },
 ];

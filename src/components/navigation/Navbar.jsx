@@ -140,7 +140,6 @@ const Navbar = () => {
             </button>
           </div>
         </nav>
-      </header>
 
       {/* Mobile Drawer */}
       <div
@@ -148,7 +147,7 @@ const Navbar = () => {
           isDrawerOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col h-full">
           <div className="flex justify-between items-center p-6 border-b border-gray-100">
             <button
               onClick={() => navigate("/")}
@@ -164,10 +163,12 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="flex-1 flex flex-col overflow-y-auto px-6 py-8">
-            <NavLinks mobile onClick={() => setIsDrawerOpen(false)} />
-            <div className="mt-8">
-              <SelectLanguages />
+          <div className="flex-1 overflow-y-auto">
+            <div className="px-6 py-8">
+              <NavLinks mobile onClick={() => setIsDrawerOpen(false)} />
+              <div className="mt-8">
+                <SelectLanguages />
+              </div>
             </div>
           </div>
 
@@ -199,6 +200,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      </header>
     </>
   );
 };

@@ -1,86 +1,55 @@
-import { useState } from "react";
-import { BiChevronDown, BiSignal4 } from "react-icons/bi";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { GoArrowUpRight } from "react-icons/go";
 
 function Sidebar({ navData, navState }) {
-  const width = navState ? "w-64" : "w-0 sm:w-64";
-  const navigate = useNavigate();
-  const [openItemIndex, setOpenItemIndex] = useState(null);
-
-  const toggleDropdown = (index) => {
-    setOpenItemIndex(openItemIndex === index ? null : index);
-  };
-
-  function isActive(path) {
-    return window.location.href.includes(path);
-  }
+  const location = useLocation();
 
   return (
     <div
-      className={`
-        fixed top-20 flex flex-col items-center justify-between  bottom-0 transition-width duration-500 overflow-hidden ${width} 
-        bg-white text-black h-screen shadow-sm border border-[#D4D4D4] border-t-0 z-50 
-      `}
+      className={`${
+        navState ? "translate-x-0" : "-translate-x-full"
+      } sm:translate-x-0 w-64 bg-white fixed h-screen transition-transform duration-300 ease-in-out border-r border-[#D4D4D4] pt-20 z-40`}
     >
-      <div className="w-full pt-6 px-5">
-        <ul className=" space-y-3">
-          {navData?.map((item, i) => (
-            <div key={i}>
-              <li
-                className={`
-                  flex items-center font-medium rounded-2xl pl-3 py-2 cursor-pointer 
-                    transition-colors duration-200
-                    whitespace-nowrap
-                  ${
-                    isActive(item.activeKey)
-                      ? "bg-[#FEE3B8] text-black"
-                      : "bg-white text-black"
-                  }
-                `}
-                onClick={() =>
-                  item.dropDown ? toggleDropdown(i) : navigate(item.path)
-                }
+      <div className="h-full flex flex-col justify-between pb-4">
+        <div className="flex-1 overflow-y-auto mt-6">
+          {navData.map((item, index) => {
+            const isActive = location.pathname.includes(item.activeKey);
+            const IconComponent = isActive && item.activeIcon ? item.activeIcon : item.icon;
+            
+            return (
+              <Link
+                key={index}
+                to={item.path}
+                className={`flex items-center space-x-2 px-4 py-3 mx-2 rounded-lg ${
+                  isActive ? "bg-[#F5F5F5]" : "hover:bg-gray-50"
+                }`}
               >
-                <item.icon className="text-xl mr-3" />
-                {item.title}
-                {item.dropDown && (
-                  <span className="ml-auto text-lg">
-                    <BiChevronDown />
-                  </span>
-                )}
-              </li>
-              {item.dropDown && openItemIndex === i && (
-                <ul className="flex flex-col mt-2 pl-12 space-y-1">
-                  {item.dropDown.map((subItem, j) => (
-                    <li key={j}>
-                      <Link
-                        to={subItem.path}
-                        className="text-sm font-normal text-gray-300 hover:text-white py-1 block"
-                      >
-                        {subItem.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mb-[100px] w-full flex flex-col items-center">
-        <div className="w-[90%] border p-2 border-[#D4D4D4] mb-3 rounded-xl">
-          <p className="whitespace-normal my-4 text-sm text-gray-700">
-            You're currently in view only mode. To gain complete access to
-            Global relocate
-          </p>
-          <button className="bg-black w-full text-sm text-white py-2 rounded-xl">
-            Login
-          </button>
+                <img 
+                  src={typeof IconComponent === 'string' ? IconComponent : null} 
+                  className="w-5 h-5"
+                  alt=""
+                />
+                <span className="text-sm">{item.title}</span>
+              </Link>
+            );
+          })}
         </div>
-        <button className="border w-[90%] text-sm border-black text-black py-2 rounded-xl">
-          Upgrade to pro
-        </button>
+        
+        <div className="px-4">
+          <div className="bg-gray-100 rounded-lg p-4">
+            <h3 className="font-medium text-base mb-2">Try Pro</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              You are currently in free plan valid for 3 days. Upgrade now to keep using Global Relocate.
+            </p>
+            <Link
+              to="/upgrade"
+              className="block w-full py-2 px-4 bg-black text-white rounded-lg text-sm hover:bg-gray-800 text-center flex items-center justify-center"
+            >
+              Learn More <GoArrowUpRight className="ml-2" />
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

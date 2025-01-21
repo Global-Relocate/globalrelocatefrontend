@@ -1,8 +1,9 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import SelectLanguages from "../drawers/SelectLanguages";
-import { FaUser } from "react-icons/fa";
+import { LuUserRound } from "react-icons/lu";
 import logo from "../../assets/svg/logo.svg";
+import { IoChevronDownOutline } from "react-icons/io5";
 
 function DashNav({ navState, setNavState }) {
   return (
@@ -27,11 +28,12 @@ function DashNav({ navState, setNavState }) {
       </div>
 
       <div className="flex items-center space-x-3">
-        <div className="flex items-center justify-start space-x-1 p-2 rounded-3xl border">
+        <div className="flex items-center justify-start space-x-1 p-2 rounded-3xl cursor-pointer">
           <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-gray-500">
-            <FaUser />
+            <LuUserRound />
           </div>
           <span className="text-xs">Jerry Lamp</span>
+          <IoChevronDownOutline className="text-gray-400" />
         </div>
 
         <SelectLanguages />
