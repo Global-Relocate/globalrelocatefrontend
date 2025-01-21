@@ -1,3 +1,4 @@
+
 import countriesIcon from "./assets/svg/countries.svg";
 import aiAssistantIcon from "./assets/svg/ai.svg";
 import aiActiveIcon from "./assets/svg/ai-assistant.svg";
@@ -5,7 +6,7 @@ import compareIcon from "./assets/svg/compare.svg";
 import calculatorIcon from "./assets/svg/calculator.svg";
 import bellIcon from "./assets/svg/bell.svg";
 import favoriteIcon from "./assets/svg/favorite.svg";
-import filledfavoriteIcon from "./assets/svg/filledfavourite.svg";
+import filledfavoriteIcon from "./assets/svg/filledfavorite.svg";
 import communityIcon from "./assets/svg/community.svg";
 
 export const userSidebarItems = [
