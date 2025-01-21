@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import { toast } from 'sonner';
 import favoriteIcon from "../assets/svg/favorite.svg";
-import filledFavoriteIcon from "../assets/svg/filledfavorite.svg";
+import heartIcon from "../assets/svg/heart.svg"
 
 const FavoritesContext = createContext();
 
@@ -18,16 +18,24 @@ export const FavoritesProvider = ({ children }) => {
             label: 'View',
             onClick: () => window.location.href = '/user/favourites'
           },
-          icon: <img src={favoriteIcon} alt="favorite icon" className="w-5 h-5" />
+          icon: <img src={favoriteIcon} alt="favorite icon" className="w-5 h-5" />,
+          closeButton: true,
+          dismissible: true
         });
         return prev.filter(f => f.location !== country.location);
       } else {
         toast(`${country.location} saved to favorites`, {
           action: {
-            label: 'View',
+            label: (
+              <div className="flex items-center gap-2">
+                <span>View</span>
+              </div>
+            ),
             onClick: () => window.location.href = '/user/favourites'
           },
-          icon: <img src={filledFavoriteIcon} alt="filled favorite icon" className="w-5 h-5" />
+          icon: <img src={heartIcon} alt="heart icon" className="w-5 h-5" />,
+          closeButton: true,
+          dismissible: true
         });
         return [...prev, country];
       }
