@@ -140,7 +140,6 @@ const Navbar = () => {
             </button>
           </div>
         </nav>
-      </header>
 
       {/* Mobile Drawer */}
       <div
@@ -201,6 +200,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      </header>
     </>
   );
 };
