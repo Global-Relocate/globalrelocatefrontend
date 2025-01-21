@@ -69,7 +69,7 @@ function DashNav({ navState, setNavState }) {
               Privacy Policy
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="cursor-pointer">
+            <DropdownMenuItem className="cursor-pointer font-bold">
               Upgrade plan
             </DropdownMenuItem>
             <DropdownMenuSeparator />
