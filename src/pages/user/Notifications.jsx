@@ -5,8 +5,10 @@ import bellicon from "../../assets/svg/bell.svg";
 function Notifications() {
   return (
     <DashboardLayout>
-      <div className="w-full flex flex-col items-center justify-center h-[60vh]">
-        <h2 className="text-3xl font-medium mb-4">Notifications</h2>
+      <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
+        <h2 className="text-3xl font-medium">Notifications</h2>
+      </div>
+      <div className="flex flex-col items-center justify-center h-[45vh]">
         <img
           src={bellicon}
           alt="Bell Icon"
