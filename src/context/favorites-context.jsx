@@ -6,11 +6,19 @@ import heartIcon from "../assets/svg/heart.svg"
 const FavoritesContext = createContext();
 
 export const FavoritesProvider = ({ children }) => {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    const saved = localStorage.getItem('favorites');
+    return saved ? JSON.parse(saved) : [];
+  });
 
   const toggleFavorite = (country) => {
     setFavorites(prev => {
       const exists = prev.find(f => f.location === country.location);
+      const newFavorites = exists 
+        ? prev.filter(f => f.location !== country.location)
+        : [...prev, country];
+      
+      localStorage.setItem('favorites', JSON.stringify(newFavorites));
       
       if (exists) {
         toast(`${country.location} unsaved from favorites`, {
@@ -22,23 +30,19 @@ export const FavoritesProvider = ({ children }) => {
           closeButton: true,
           dismissible: true
         });
-        return prev.filter(f => f.location !== country.location);
       } else {
         toast(`${country.location} saved to favorites`, {
           action: {
-            label: (
-              <div className="flex items-center gap-2">
-                <span>View</span>
-              </div>
-            ),
+            label: 'View',
             onClick: () => window.location.href = '/user/favourites'
           },
           icon: <img src={heartIcon} alt="heart icon" className="w-5 h-5" />,
           closeButton: true,
           dismissible: true
         });
-        return [...prev, country];
       }
+      
+      return newFavorites;
     });
   };
 
