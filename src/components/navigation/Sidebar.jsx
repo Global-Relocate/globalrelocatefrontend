@@ -1,9 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { GoArrowUpRight } from "react-icons/go";
+import CounterBadge from "../common/CounterBadge";
+import { useFavorites } from "@/context/favorites-context";
 
 function Sidebar({ navData, navState }) {
   const location = useLocation();
+  const { favorites } = useFavorites();
 
   return (
     <div
@@ -21,16 +24,19 @@ function Sidebar({ navData, navState }) {
               <Link
                 key={index}
                 to={item.path}
-                className={`flex items-center space-x-2 px-4 py-3 mx-2 rounded-lg ${
+                className={`flex items-center justify-between px-4 py-3 mx-2 rounded-lg ${
                   isActive ? "bg-[#F5F5F5]" : "hover:bg-gray-50"
                 }`}
               >
-                <img 
-                  src={typeof IconComponent === 'string' ? IconComponent : null} 
-                  className="w-5 h-5"
-                  alt=""
-                />
-                <span className="text-sm">{item.title}</span>
+                <div className="flex items-center space-x-2">
+                  <img 
+                    src={typeof IconComponent === 'string' ? IconComponent : null} 
+                    className="w-5 h-5"
+                    alt=""
+                  />
+                  <span className="text-sm">{item.title}</span>
+                </div>
+                {item.title === "Favourites" && <CounterBadge count={favorites.length} />}
               </Link>
             );
           })}
