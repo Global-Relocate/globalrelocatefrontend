@@ -9,15 +9,13 @@ import london from "../../assets/images/london.png";
 import italy from "../../assets/images/italy.png";
 import china from "../../assets/images/china.png";
 import uae from "../../assets/images/uae.png";
+import { useFavorites } from "@/context/favorites-context";
 
 function Countries() {
-  const [likedCountries, setLikedCountries] = useState({});
+  const { toggleFavorite, isFavorite } = useFavorites();
 
-  const handleLikeToggle = (location) => {
-    setLikedCountries((prev) => ({
-      ...prev,
-      [location]: !prev[location],
-    }));
+  const handleLikeToggle = (country) => {
+    toggleFavorite(country);
   };
 
   const countriesData = [
@@ -79,8 +77,8 @@ function Countries() {
             image={country.image}
             location={country.location}
             countryImage={country.countryImage}
-            isLiked={likedCountries[country.location]}
-            onLikeToggle={() => handleLikeToggle(country.location)}
+            isLiked={isFavorite(country.location)}
+            onLikeToggle={() => handleLikeToggle(country)}
           />
         ))}
       </div>
