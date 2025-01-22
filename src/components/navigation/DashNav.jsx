@@ -56,8 +56,8 @@ function DashNav({ navState, setNavState }) {
             <IoChevronDownOutline className="text-gray-400" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-[200px]">
-            <DropdownMenuItem className="cursor-pointer">
-              Account Settings
+          <DropdownMenuItem className="cursor-pointer" onClick={() => navigate('/user/settings')}>
+            Account Settings
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
               Give us feedback
