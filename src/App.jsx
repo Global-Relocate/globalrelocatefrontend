@@ -19,6 +19,7 @@ import TaxCalculator from "./pages/user/TaxCalculator";
 import Favourites from "./pages/user/Favourites";
 import Community from "./pages/user/Community";
 import Notifications from "./pages/user/Notifications";
+import Settings from "./pages/user/Settings";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/user/notifications" element={<Notifications />} />
         <Route path="/user/favourites" element={<Favourites />} />
         <Route path="/user/community" element={<Community />} />
+        <Route path="/user/settings" element={<Settings />} />
       </Routes>
     </FavoritesProvider>
   );
