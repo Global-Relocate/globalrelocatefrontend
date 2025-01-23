@@ -79,6 +79,50 @@ const Navbar = () => {
     </ul>
   );
 
+        {/* Nav Links (Desktop) */}
+        <ul className="hidden md:flex space-x-8 text-black">
+          <li>
+            <a href="#home" className="hover:text-gray-300">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about" className="hover:text-gray-300">
+              Countries & Data
+            </a>
+          </li>
+          <li>
+            <a href="#services" className="hover:text-gray-300">
+              Community
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="hover:text-gray-300">
+              Tools
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="hover:text-gray-300">
+              Contacts
+            </a>
+          </li>
+        </ul>
+
+        {/* Sign Up and Sign In Buttons */}
+        <div className="hidden md:flex space-x-4">
+          <SelectLanguages />
+
+          <button className="px-4 py-2 text-black" onClick={handleSignIn}>
+            Log In
+          </button>
+          <button
+            className="bg-[#fca311] text-black py-2 px-4 rounded-xl text-sm font-medium"
+            onClick={handleSignUp}
+          >
+            Get Started
+          </button>
+        </div>
+        
   return (
     <>
       <header
@@ -136,6 +180,9 @@ const Navbar = () => {
               onClick={() => setIsDrawerOpen(!isDrawerOpen)}
               className="lg:hidden text-gray-700 focus:outline-none"
             >
+              Contact
+            </a>
+            <SelectLanguages />
               <Menu className="h-6 w-6" />
             </button>
           </div>
