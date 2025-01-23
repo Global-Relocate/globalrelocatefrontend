@@ -53,7 +53,32 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
-  		}
+  		},
+  		animation: {
+  			fadeIn: 'fadeIn 0.3s ease-out',
+  			scaleIn: 'scaleIn 0.2s ease-in-out',
+  			modalIn: 'modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+  		},
+  		keyframes: {
+  			fadeIn: {
+  				'0%': { opacity: '0' },
+  				'100%': { opacity: '1' },
+  			},
+  			scaleIn: {
+  				'0%': { transform: 'scale(0.95)' },
+  				'100%': { transform: 'scale(1)' },
+  			},
+  			modalIn: {
+  				'0%': { 
+  					opacity: '0', 
+  					transform: 'scale(0.95) translateY(10px)' 
+  				},
+  				'100%': { 
+  					opacity: '1', 
+  					transform: 'scale(1) translateY(0)' 
+  				},
+  			},
+  		},
   	}
   },
   plugins: [require("tailwindcss-animate")],

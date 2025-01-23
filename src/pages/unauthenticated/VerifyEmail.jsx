@@ -1,24 +1,59 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { CheckCircle2 } from "lucide-react";
 import logo from "../../assets/svg/logo.svg";
 import mail from "../../assets/svg/mail.svg";
+import { verifyEmail, resendOTP } from "../../services/api";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function VerifyEmail() {
   const [loginCode, setLoginCode] = useState("");
+  const [apiError, setApiError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isResending, setIsResending] = useState(false);
   const location = useLocation();
   const email = location.state?.email || "myaccount@gmail.com";
+  const username = location.state?.username || "User";
   console.log("Email received in VerifyEmail:", email);
+  console.log("Username received in VerifyEmail:", username);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setLoginCode(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isFormValid) {
-      console.log("Verifying code:", loginCode);
+      setIsLoading(true);
+      setApiError("");
+      setSuccessMessage("");
+      
+      try {
+        await verifyEmail(email, loginCode);
+        navigate("/welcome", { state: { username } });
+      } catch (error) {
+        setApiError(error.message || "Failed to verify email. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  };
+
+  const handleResendOTP = async () => {
+    setIsResending(true);
+    setApiError("");
+    setSuccessMessage("");
+
+    try {
+      await resendOTP(email);
+      setSuccessMessage("OTP has been resent to your email");
+    } catch (error) {
+      setApiError(error.message || "Failed to resend OTP. Please try again.");
+    } finally {
+      setIsResending(false);
     }
   };
 
@@ -59,6 +94,37 @@ export default function VerifyEmail() {
 
           {/* Form Section */}
           <div className="w-full mt-8">
+            {apiError && (
+              <Alert variant="destructive" className="mb-4">
+                <div className="flex justify-between items-start w-full">
+                  <AlertDescription>{apiError}</AlertDescription>
+                  <button 
+                    onClick={() => setApiError("")}
+                    className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
+                  >
+                    <IoCloseCircleOutline size={16} />
+                  </button>
+                </div>
+              </Alert>
+            )}
+
+            {successMessage && (
+              <Alert className="mb-4 bg-green-50 border-green-200 text-green-800">
+                <div className="flex justify-between items-start w-full">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4" />
+                    <AlertDescription>{successMessage}</AlertDescription>
+                  </div>
+                  <button
+                    onClick={() => setSuccessMessage("")}
+                    className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
+                  >
+                    <IoCloseCircleOutline size={16} />
+                  </button>
+                </div>
+              </Alert>
+            )}
+
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm mb-2">
@@ -76,15 +142,23 @@ export default function VerifyEmail() {
               <button
                 type="submit"
                 className={`w-full py-3 rounded-lg text-center transition-colors ${
-                  isFormValid
+                  isFormValid && !isLoading
                     ? "bg-[#FCA311] hover:bg-[#e5940c] text-black"
                     : "bg-[#FCA31180] text-black cursor-not-allowed"
                 }`}
-                disabled={!isFormValid}
+                disabled={!isFormValid || isLoading}
               >
-                Continue with login code
+                {isLoading ? "Verifying..." : "Continue with login code"}
               </button>
             </form>
+
+            <button
+              onClick={handleResendOTP}
+              className="w-full py-3 rounded-lg text-blue-600 text-center hover:underline mt-4"
+              disabled={isResending}
+            >
+              {isResending ? "Sending..." : "Resend OTP"}
+            </button>
 
             <div className="mt-4 text-sm text-gray-600 text-center">
               By clicking creating an account, you agree to our{" "}

@@ -12,7 +12,7 @@ const api = axios.create({
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   },
-  timeout: 15000, // 15 seconds timeout
+  timeout: 15000,
 });
 
 // Custom error class for API errors
@@ -48,7 +48,6 @@ api.interceptors.response.use(
     console.error('API Error:', error);
 
     if (!error.response) {
-      // Network error or timeout
       throw new CustomAPIError(
         'Network error. Please check your connection.',
         0
@@ -71,8 +70,7 @@ export const registerNewUser = async (userData) => {
   console.log('Starting registration request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
-    // Validate required fields
-    const requiredFields = ['email', 'password', 'firstName', 'lastName', 'country', 'userType'];
+    const requiredFields = ['email', 'password', 'fullName', 'username', 'country', 'userType'];
     const missingFields = requiredFields.filter(field => !userData[field]);
 
     if (missingFields.length > 0) {
@@ -82,11 +80,7 @@ export const registerNewUser = async (userData) => {
       );
     }
 
-    const response = await api.post(endpoint, {
-      ...userData,
-      username: userData.username || userData.email.split('@')[0], // Default username logic
-    });
-
+    const response = await api.post(endpoint, userData);
     console.log('Registration successful:', response);
     return response;
   } catch (error) {
@@ -151,12 +145,90 @@ export const loginUser = async (email, password) => {
   }
 };
 
-export const verifyEmail = async (token) => {
-  const endpoint = `/v1/auth/verify/${token}`;
+
+export const handleOAuthCallback = async (code, type) => {
+  try {
+    // Validate required data
+    if (!code || !type) {
+      throw new Error('Missing required authentication data');
+    }
+
+    // The code from the URL is the JWT token
+    const token = code;
+    
+    try {
+      // Decode the JWT to get user information
+      const [, payloadBase64] = token.split('.');
+      const payload = JSON.parse(atob(payloadBase64));
+      
+      // Set the token in the API headers for future requests
+      setAuthToken(token);
+      
+      // Return the token and decoded user info
+      // Note: Adjust the user object structure based on what your JWT payload contains
+      return {
+        token,
+        user: {
+          id: payload.id,
+          // If these fields aren't in your JWT, I might need to adjust
+          email: payload.email || '',
+          name: payload.name || '',
+          username: payload.username || '',
+          country: payload.country || ''
+        }
+      };
+    } catch (error) {
+      console.error('Error decoding JWT:', error);
+      throw new Error('Invalid authentication token');
+    }
+  } catch (error) {
+    // Clean up session storage
+    sessionStorage.removeItem('oauth_redirect_uri');
+    sessionStorage.removeItem('oauth_provider');
+    
+    console.error('OAuth callback error:', error);
+    throw error;
+  }
+};
+
+// Update the OAuth initialization functions
+export const initiateGoogleAuth = async () => {
+  try {
+    const redirectUri = `${window.location.origin}/oauth/callback`;
+    sessionStorage.setItem('oauth_redirect_uri', redirectUri);
+    sessionStorage.setItem('oauth_provider', 'google');
+    
+    // Redirect to the Google auth endpoint
+    window.location.href = `${VITE_API_URL}/v1/auth/google?redirect_uri=${encodeURIComponent(redirectUri)}`;
+    return true;
+  } catch (error) {
+    console.error('Google auth error:', error);
+    throw new Error('Failed to initiate Google authentication');
+  }
+};
+
+export const initiateMicrosoftAuth = async () => {
+  try {
+    const redirectUri = `${window.location.origin}/oauth/callback`;
+    sessionStorage.setItem('oauth_redirect_uri', redirectUri);
+    sessionStorage.setItem('oauth_provider', 'microsoft');
+    
+    // Redirect to the Microsoft auth endpoint
+    window.location.href = `${VITE_API_URL}/v1/auth/microsoft?redirect_uri=${encodeURIComponent(redirectUri)}`;
+    return true;
+  } catch (error) {
+    console.error('Microsoft auth error:', error);
+    throw new Error('Failed to initiate Microsoft authentication');
+  }
+};
+
+
+export const verifyEmail = async (email, otp) => {
+  const endpoint = '/v1/auth/verify/otp';
   console.log('Starting email verification request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
-    const response = await api.get(endpoint);
+    const response = await api.post(endpoint, { email, otp });
     console.log('Email verification successful:', response);
     return response;
   } catch (error) {
@@ -221,12 +293,16 @@ export const forgotPassword = async (email) => {
   }
 };
 
-export const resetPassword = async (token, password) => {
-  const endpoint = `/v1/auth/reset-password/${token}`;
+export const resetPassword = async (email, password, otp) => {
+  const endpoint = '/v1/auth/reset-password';
   console.log('Starting reset password request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
-    const response = await api.post(endpoint, { password });
+    const response = await api.post(endpoint, { 
+      email,
+      password,
+      otp
+    });
     console.log('Password reset successful:', response);
     return response;
   } catch (error) {
@@ -265,6 +341,41 @@ export const setAuthToken = (token) => {
     api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   } else {
     delete api.defaults.headers.common['Authorization'];
+  }
+};
+
+export const resendOTP = async (email) => {
+  const endpoint = '/v1/auth/resend-otp';
+  console.log('Starting resend OTP request to:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.post(endpoint, { email });
+    console.log('OTP resend successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to resend OTP. Please try again.',
+      0,
+      { originalError: error.message }
+    );
   }
 };
 

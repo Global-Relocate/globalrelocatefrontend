@@ -1,7 +1,6 @@
 import SearchInput from "@/components/inputs/SearchInput";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import FilterButton from "@/components/utils/FilterButton";
-import React from "react";
+import React, { useState } from "react";
 // countries imports
 import nigeria from "../../assets/images/nigeria.png";
 import swizerland from "../../assets/images/swizerland.png";
@@ -15,13 +14,64 @@ import CountriesDashCard from "@/components/cards/CountriesDashCard";
 
 function Countries() {
   const navigate = useNavigate();
+import { useFavorites } from "@/context/favorites-context";
+
+function Countries() {
+  const { toggleFavorite, isFavorite } = useFavorites();
+
+  const handleLikeToggle = (country) => {
+    toggleFavorite(country);
+  };
+
+  const countriesData = [
+    {
+      image: swizerland,
+      location: "Zürich, Switzerland",
+      countryImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/1200px-Flag_of_Switzerland_%28Pantone%29.svg.png",
+    },
+    {
+      image: london,
+      location: "London, UK",
+      countryImage: "https://t4.ftcdn.net/jpg/08/32/02/87/360_F_832028757_4YU1BrvVBRUNJX7WvLf5g4Qm5xrjOBo6.jpg",
+    },
+    {
+      image: china,
+      location: "Beijing, China",
+      countryImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-FLVbYtX7A6P_Zjkt5pp0DafB3gXraLsNQ&s",
+    },
+    {
+      image: italy,
+      location: "Milan, Italy",
+      countryImage: "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/220px-Flag_of_Italy.svg.png",
+    },
+    {
+      image: uae,
+      location: "UAE",
+      countryImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/1200px-Flag_of_the_United_Arab_Emirates.svg.png",
+    },
+    {
+      image: nigeria,
+      location: "Lagos, Nigeria",
+      countryImage: "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
+    },
+    {
+      image: nigeria,
+      location: "Lagos, Nigeria",
+      countryImage: "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
+    },
+    {
+      image: nigeria,
+      location: "Lagos, Nigeria",
+      countryImage: "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
+    },
+  ];
+
   return (
     <DashboardLayout>
       <AiChatInput />
       <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
         <h2 className="text-3xl font-medium">Countries</h2>
-
-        <div className="flex w-full sm:w-auto  items-center space-x-2">
+        <div className="flex w-full sm:w-auto items-center space-x-2">
           <SearchInput />
         </div>
       </div>
@@ -94,6 +144,18 @@ function Countries() {
           location="Lagos, Nigeria"
           countryFlag="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"
         />
+      <div className="flex items-center justify-between flex-wrap gap-y-10 py-10">
+        {countriesData.map((country) => (
+          <CountriesCard
+            key={country.location}
+            sm={true}
+            image={country.image}
+            location={country.location}
+            countryImage={country.countryImage}
+            isLiked={isFavorite(country.location)}
+            onLikeToggle={() => handleLikeToggle(country)}
+          />
+        ))}
       </div>
     </DashboardLayout>
   );
