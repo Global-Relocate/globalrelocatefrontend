@@ -33,23 +33,11 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/verifymail" element={<VerifyEmail />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
-      <Route path="/welcome" element={<Welcome />} />
-      {/* Dashboard routes  */}
-      <Route path="/user/countries" element={<Countries />} />
-      <Route path="/user/countries/:countryName" element={<CountryDetails />} />
-      <Route path="/user/ai-assistant" element={<AiAssistant />} />
-      <Route path="/user/compare" element={<CompareCountries />} />
-      <Route path="/user/tax-calculator" element={<TaxCalculator />} />
-      <Route path="/user/notifications" element={<Notifications />} />
-      <Route path="/user/favourites" element={<Favourites />} />
-      <Route path="/user/community" element={<Community />} />
-
-    </Routes>
         <Route path="/welcome" element={<Welcome />} />
-        <Route path="/oauth/callback" element={<OAuthCallback />} />
-          
-        {/* Dashboard routes  */}
+        
+        {/* Dashboard routes */}
         <Route path="/user/countries" element={<Countries />} />
+        <Route path="/user/countries/:countryName" element={<CountryDetails />} />
         <Route path="/user/ai-assistant" element={<AiAssistant />} />
         <Route path="/user/compare" element={<CompareCountries />} />
         <Route path="/user/tax-calculator" element={<TaxCalculator />} />
@@ -57,6 +45,7 @@ function App() {
         <Route path="/user/favourites" element={<Favourites />} />
         <Route path="/user/community" element={<Community />} />
         <Route path="/user/settings" element={<Settings />} />
+        <Route path="/oauth/callback" element={<OAuthCallback />} />
       </Routes>
     </FavoritesProvider>
   );
