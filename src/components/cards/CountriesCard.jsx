@@ -3,14 +3,16 @@ import { GoHeart } from "react-icons/go";
 import { FaRegHandPointer } from "react-icons/fa";
 import heartIcon from "../../assets/svg/heart.svg";
 
-export default function CountriesCard({
-  onClick,
-  image,
-  location,
+export default function CountriesCard({ 
+  image, 
+  location, 
+  countryImage, 
   countryFlag,
-  sm,
+  sm, 
+  isLiked, 
+  onLikeToggle,
+  onClick 
 }) {
-export default function CountriesCard({ image, location, countryImage, sm, isLiked, onLikeToggle }) {
   return (
     <div
       onClick={onClick}
@@ -43,7 +45,7 @@ export default function CountriesCard({ image, location, countryImage, sm, isLik
       />
       <div className="flex items-center justify-start space-x-2">
         <img
-          src={countryFlag}
+          src={countryFlag || countryImage}
           className="w-7 h-7 rounded-full object-cover"
           alt="logo"
         />
