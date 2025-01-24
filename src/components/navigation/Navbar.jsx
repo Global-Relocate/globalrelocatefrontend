@@ -180,9 +180,6 @@ const Navbar = () => {
               onClick={() => setIsDrawerOpen(!isDrawerOpen)}
               className="lg:hidden text-gray-700 focus:outline-none"
             >
-              Contact
-            </a>
-            <SelectLanguages />
               <Menu className="h-6 w-6" />
             </button>
           </div>
