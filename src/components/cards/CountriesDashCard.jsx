@@ -14,11 +14,10 @@ export default function CountriesDashCard({
   images, // Changed to receive an array of images
   location,
   countryFlag,
-  sm,
+  sm = true,
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const countryImages = images;
-  //   const countryImages = isHovered ? images : [images[0]];
 
   return (
     <div
@@ -28,7 +27,7 @@ export default function CountriesDashCard({
       onMouseEnter={() => setIsHovered(true)} // Set hover state on mouse enter
       onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
     >
-      <button className="p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-sm font-semibold absolute top-7 right-4">
+      <button className="p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-sm font-semibold absolute top-7 right-4 z-10">
         {sm ? (
           <BsHeart />
         ) : (

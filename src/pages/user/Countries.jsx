@@ -40,56 +40,48 @@ function Countries() {
       <div className="flex items-center justify-between flex-wrap gap-y-10  py-10">
         <CountriesDashCard
           onClick={() => navigate("/user/countries/switzerland")}
-          sm={true}
           images={[swizerland, nigeria, swizerland, nigeria]}
           location="Zürich, Switzerland"
           countryFlag="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/1200px-Flag_of_Switzerland_%28Pantone%29.svg.png"
         />
         <CountriesDashCard
           onClick={() => navigate("/user/countries/switzerland")}
-          sm={true}
           images={[london]}
           location="London, UK"
           countryFlag="https://t4.ftcdn.net/jpg/08/32/02/87/360_F_832028757_4YU1BrvVBRUNJX7WvLf5g4Qm5xrjOBo6.jpg"
         />
         <CountriesDashCard
           onClick={() => navigate("/user/countries/switzerland")}
-          sm={true}
           images={[china]}
           location="Beijing, China"
           countryFlag="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-FLVbYtX7A6P_Zjkt5pp0DafB3gXraLsNQ&s"
         />
         <CountriesDashCard
           onClick={() => navigate("/user/countries/switzerland")}
-          sm={true}
           images={[italy]}
           location="Milan, Italy"
           countryFlag="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/220px-Flag_of_Italy.svg.png"
         />
         <CountriesDashCard
           onClick={() => navigate("/user/countries/switzerland")}
-          sm={true}
           images={[uae]}
           location="UAE"
           countryFlag="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/1200px-Flag_of_the_United_Arab_Emirates.svg.png"
         />
         <CountriesDashCard
           onClick={() => navigate("/user/countries/switzerland")}
-          sm={true}
           images={[nigeria]}
           location="Lagos, Nigeria"
           countryFlag="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"
         />
         <CountriesDashCard
           onClick={() => navigate("/user/countries/switzerland")}
-          sm={true}
           images={[nigeria]}
           location="Lagos, Nigeria"
           countryFlag="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"
         />
         <CountriesDashCard
           onClick={() => navigate("/user/countries/switzerland")}
-          sm={true}
           images={[nigeria]}
           location="Lagos, Nigeria"
           countryFlag="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"
