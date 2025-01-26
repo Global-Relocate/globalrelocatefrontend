@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BsHeart } from "react-icons/bs";
-import { FaRegHandPointer } from "react-icons/fa";
+import React, { useState } from "react";
+import heartIcon from "../../assets/svg/heart.svg";
 import {
   Carousel,
   CarouselContent,
@@ -8,17 +7,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { GoHeart } from "react-icons/go";
 
 export default function CountriesDashCard({
   onClick,
   images, // Changed to receive an array of images
   location,
   countryFlag,
-  sm,
+  sm = true,
+  isLiked,
+  onLikeToggle,
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const countryImages = images;
-  //   const countryImages = isHovered ? images : [images[0]];
 
   return (
     <div
@@ -28,14 +29,19 @@ export default function CountriesDashCard({
       onMouseEnter={() => setIsHovered(true)} // Set hover state on mouse enter
       onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
     >
-      <button className="p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-sm font-semibold absolute top-7 right-4">
-        {sm ? (
-          <BsHeart />
+      <button
+        className="p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-sm font-semibold absolute top-7 right-4 z-10"
+        onClick={onLikeToggle}
+      >
+        {isLiked ? (
+          <img
+            src={heartIcon}
+            alt="Liked"
+            className="w-5 h-5"
+            style={{ width: "1.3rem", height: "1.3rem" }}
+          />
         ) : (
-          <>
-            {" "}
-            <FaRegHandPointer fontSize="1.3rem" color="#95ACF8" /> View
-          </>
+          <GoHeart style={{ width: "1.3rem", height: "1.3rem" }} />
         )}
       </button>
 

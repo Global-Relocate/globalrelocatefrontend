@@ -4,12 +4,17 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
+import { FavoritesProvider } from "./context/favorites-context";
+import { Toaster } from "./components/ui/sonner";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <BrowserRouter>
-        <App />
+        <FavoritesProvider>
+          <Toaster />
+          <App />
+        </FavoritesProvider>
       </BrowserRouter>
     </AuthProvider>
   </StrictMode>

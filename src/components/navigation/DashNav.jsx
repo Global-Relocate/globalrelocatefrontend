@@ -1,11 +1,8 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import SelectLanguages from "../drawers/SelectLanguages";
-import { LuUserRound } from "react-icons/lu";
+import { FaUser } from "react-icons/fa";
 import logo from "../../assets/svg/logo.svg";
-import { IoChevronDownOutline } from "react-icons/io5";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,12 +10,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { IoChevronDownOutline } from "react-icons/io5";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { LuUserRound } from "react-icons/lu";
 
 function DashNav({ navState, setNavState }) {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
-  const displayName = user?.username || user?.name || "User";
+  const displayName = "User";
+  // const displayName = user?.username || user?.name || "User";
 
   const handleLogout = () => {
     logout();
@@ -56,8 +58,11 @@ function DashNav({ navState, setNavState }) {
             <IoChevronDownOutline className="text-gray-400" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-[200px]">
-          <DropdownMenuItem className="cursor-pointer" onClick={() => navigate('/user/settings')}>
-            Account Settings
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={() => navigate("/user/settings")}
+            >
+              Account Settings
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
               Give us feedback
@@ -73,7 +78,7 @@ function DashNav({ navState, setNavState }) {
               Upgrade plan
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem 
+            <DropdownMenuItem
               className="cursor-pointer text-red-600 focus:text-red-600"
               onClick={handleLogout}
             >
