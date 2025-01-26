@@ -9,7 +9,7 @@ function Favourites() {
   const { favorites, toggleFavorite, isFavorite } = useFavorites();
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredFavorites = favorites.filter(country => 
+  const filteredFavorites = favorites.filter((country) =>
     country.location.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -19,14 +19,14 @@ function Favourites() {
         <h2 className="text-3xl font-medium">Favourites</h2>
         {favorites.length > 0 && (
           <div className="flex w-full sm:w-auto items-center space-x-2">
-            <SearchInput 
+            <SearchInput
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
         )}
       </div>
-      
+
       {favorites.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-[45vh]">
           <GrFavorite size={36} className="mb-4 text-gray-600" />
@@ -38,9 +38,9 @@ function Favourites() {
             <CountriesCard
               key={country.location}
               sm={true}
-              image={country.image}
+              image={country.images[0]}
               location={country.location}
-              countryImage={country.countryImage}
+              countryFlag={country.countryFlag}
               isLiked={isFavorite(country.location)}
               onLikeToggle={() => toggleFavorite(country)}
             />

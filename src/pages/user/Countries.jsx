@@ -1,6 +1,6 @@
 import SearchInput from "@/components/inputs/SearchInput";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import React, { useState } from "react";
+import React from "react";
 // countries imports
 import nigeria from "../../assets/images/nigeria.png";
 import swizerland from "../../assets/images/swizerland.png";
@@ -11,12 +11,11 @@ import uae from "../../assets/images/uae.png";
 import { useNavigate } from "react-router-dom";
 import AiChatInput from "@/components/forms/AiChatInput";
 import CountriesDashCard from "@/components/cards/CountriesDashCard";
+import { useFavorites } from "@/context/favorites-context";
+import FilterButton from "@/components/utils/FilterButton";
 
 function Countries() {
   const navigate = useNavigate();
-import { useFavorites } from "@/context/favorites-context";
-
-function Countries() {
   const { toggleFavorite, isFavorite } = useFavorites();
 
   const handleLikeToggle = (country) => {
@@ -25,44 +24,52 @@ function Countries() {
 
   const countriesData = [
     {
-      image: swizerland,
+      images: [swizerland, nigeria, swizerland, nigeria],
       location: "Zürich, Switzerland",
-      countryImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/1200px-Flag_of_Switzerland_%28Pantone%29.svg.png",
+      countryFlag:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/1200px-Flag_of_Switzerland_%28Pantone%29.svg.png",
     },
     {
-      image: london,
+      images: [london],
       location: "London, UK",
-      countryImage: "https://t4.ftcdn.net/jpg/08/32/02/87/360_F_832028757_4YU1BrvVBRUNJX7WvLf5g4Qm5xrjOBo6.jpg",
+      countryFlag:
+        "https://t4.ftcdn.net/jpg/08/32/02/87/360_F_832028757_4YU1BrvVBRUNJX7WvLf5g4Qm5xrjOBo6.jpg",
     },
     {
-      image: china,
+      images: [china],
       location: "Beijing, China",
-      countryImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-FLVbYtX7A6P_Zjkt5pp0DafB3gXraLsNQ&s",
+      countryFlag:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-FLVbYtX7A6P_Zjkt5pp0DafB3gXraLsNQ&s",
     },
     {
-      image: italy,
+      images: [italy],
       location: "Milan, Italy",
-      countryImage: "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/220px-Flag_of_Italy.svg.png",
+      countryFlag:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/220px-Flag_of_Italy.svg.png",
     },
     {
-      image: uae,
+      images: [uae],
       location: "UAE",
-      countryImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/1200px-Flag_of_the_United_Arab_Emirates.svg.png",
+      countryFlag:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/1200px-Flag_of_the_United_Arab_Emirates.svg.png",
     },
     {
-      image: nigeria,
+      images: [nigeria],
       location: "Lagos, Nigeria",
-      countryImage: "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
+      countryFlag:
+        "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
     },
     {
-      image: nigeria,
-      location: "Lagos, Nigeria",
-      countryImage: "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
+      images: [nigeria],
+      location: "Abuja, Nigeria",
+      countryFlag:
+        "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
     },
     {
-      image: nigeria,
-      location: "Lagos, Nigeria",
-      countryImage: "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
+      images: [nigeria],
+      location: "Ibadan, Nigeria",
+      countryFlag:
+        "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
     },
   ];
 
@@ -88,66 +95,19 @@ function Countries() {
       </div>
 
       <div className="flex items-center justify-between flex-wrap gap-y-10  py-10">
-        <CountriesDashCard
-          onClick={() => navigate("/user/countries/switzerland")}
-          images={[swizerland, nigeria, swizerland, nigeria]}
-          location="Zürich, Switzerland"
-          countryFlag="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/1200px-Flag_of_Switzerland_%28Pantone%29.svg.png"
-        />
-        <CountriesDashCard
-          onClick={() => navigate("/user/countries/switzerland")}
-          images={[london]}
-          location="London, UK"
-          countryFlag="https://t4.ftcdn.net/jpg/08/32/02/87/360_F_832028757_4YU1BrvVBRUNJX7WvLf5g4Qm5xrjOBo6.jpg"
-        />
-        <CountriesDashCard
-          onClick={() => navigate("/user/countries/switzerland")}
-          images={[china]}
-          location="Beijing, China"
-          countryFlag="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-FLVbYtX7A6P_Zjkt5pp0DafB3gXraLsNQ&s"
-        />
-        <CountriesDashCard
-          onClick={() => navigate("/user/countries/switzerland")}
-          images={[italy]}
-          location="Milan, Italy"
-          countryFlag="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/220px-Flag_of_Italy.svg.png"
-        />
-        <CountriesDashCard
-          onClick={() => navigate("/user/countries/switzerland")}
-          images={[uae]}
-          location="UAE"
-          countryFlag="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/1200px-Flag_of_the_United_Arab_Emirates.svg.png"
-        />
-        <CountriesDashCard
-          onClick={() => navigate("/user/countries/switzerland")}
-          images={[nigeria]}
-          location="Lagos, Nigeria"
-          countryFlag="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"
-        />
-        <CountriesDashCard
-          onClick={() => navigate("/user/countries/switzerland")}
-          images={[nigeria]}
-          location="Lagos, Nigeria"
-          countryFlag="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"
-        />
-        <CountriesDashCard
-          onClick={() => navigate("/user/countries/switzerland")}
-          images={[nigeria]}
-          location="Lagos, Nigeria"
-          countryFlag="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"
-        />
-      <div className="flex items-center justify-between flex-wrap gap-y-10 py-10">
-        {countriesData.map((country) => (
-          <CountriesCard
-            key={country.location}
-            sm={true}
-            image={country.image}
-            location={country.location}
-            countryImage={country.countryImage}
-            isLiked={isFavorite(country.location)}
-            onLikeToggle={() => handleLikeToggle(country)}
-          />
-        ))}
+        {countriesData.map((item, i) => {
+          return (
+            <CountriesDashCard
+              key={i}
+              location={item.location}
+              isLiked={isFavorite(item.location)}
+              onLikeToggle={() => handleLikeToggle(item)}
+              onClick={() => navigate("/user/countries/switzerland")}
+              images={item.images}
+              countryFlag={item.countryFlag}
+            />
+          );
+        })}
       </div>
     </DashboardLayout>
   );
