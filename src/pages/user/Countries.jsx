@@ -1,3 +1,4 @@
+import CountriesCard from "@/components/cards/CountriesCard";
 import SearchInput from "@/components/inputs/SearchInput";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import React from "react";
@@ -75,7 +76,6 @@ function Countries() {
 
   return (
     <DashboardLayout>
-      <AiChatInput />
       <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
         <h2 className="text-3xl font-medium">Countries</h2>
         <div className="flex w-full sm:w-auto items-center space-x-2">

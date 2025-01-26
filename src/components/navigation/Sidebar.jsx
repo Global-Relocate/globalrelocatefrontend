@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { BiChevronDown } from "react-icons/bi";
+import { BiChevronDown} from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
+import React from "react";
+import { Link } from "react-router-dom";
 import { useFavorites } from "@/context/favorites-context";
 import { GoArrowUpRight } from "react-icons/go";
 import CounterBadge from "../common/CounterBadge";
+import CountdownTimer from '../common/CountdownTimer';
 
 function Sidebar({ navData, navState }) {
   const width = navState ? "w-64" : "w-0 sm:w-64";
@@ -89,6 +92,7 @@ function Sidebar({ navData, navState }) {
             You're currently in free plan <br />
             valid for 3days. Upgrade now <br /> to keep using Global relocate
           </p>
+          <CountdownTimer />
           <Button className="bg-black w-full text-sm text-white py-2 rounded-xl">
             Learn More <GoArrowUpRight className="ml-2" />
           </Button>

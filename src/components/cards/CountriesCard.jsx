@@ -22,7 +22,7 @@ export default function CountriesCard({
       />
       <div className="flex items-center justify-start space-x-2">
         <img
-          src={countryFlag}
+          src={countryFlag || countryImage}
           className="w-7 h-7 rounded-full object-cover"
           alt="logo"
         />
