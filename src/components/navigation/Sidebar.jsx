@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { BiChevronDown} from "react-icons/bi";
+import { BiChevronDown } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import React from "react";
-import { Link } from "react-router-dom";
 import { useFavorites } from "@/context/favorites-context";
 import { GoArrowUpRight } from "react-icons/go";
 import CounterBadge from "../common/CounterBadge";
-import CountdownTimer from '../common/CountdownTimer';
+import CountdownTimer from "../common/CountdownTimer";
 
 function Sidebar({ navData, navState }) {
   const width = navState ? "w-64" : "w-0 sm:w-64";
@@ -85,15 +84,15 @@ function Sidebar({ navData, navState }) {
         </ul>
       </div>
 
-      <div className="mb-[100px] whitespace-nowrap w-full flex flex-col items-center">
+      <div className="mb-[80px] whitespace-nowrap w-full flex flex-col items-center">
         <div className="w-[90%] border p-2 bg-[#F5F5F5] mb-3 rounded-xl">
           <h3 className="font-semibold">Try Pro</h3>
-          <p className=" my-3 text-sm text-gray-700">
+          <p className=" my-1 text-sm text-gray-700">
             You're currently in free plan <br />
             valid for 3days. Upgrade now <br /> to keep using Global relocate
           </p>
           <CountdownTimer />
-          <Button className="bg-black w-full text-sm text-white py-2 rounded-xl">
+          <Button className="bg-black mt-2 w-full text-sm text-white py-2 rounded-xl">
             Learn More <GoArrowUpRight className="ml-2" />
           </Button>
         </div>
