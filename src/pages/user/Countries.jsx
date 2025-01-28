@@ -1,7 +1,7 @@
 import CountriesCard from "@/components/cards/CountriesCard";
 import SearchInput from "@/components/inputs/SearchInput";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import React from "react";
+import React, { useState } from "react";
 // countries imports
 import nigeria from "../../assets/images/nigeria.png";
 import swizerland from "../../assets/images/swizerland.png";
@@ -18,6 +18,18 @@ import FilterButton from "@/components/utils/FilterButton";
 function Countries() {
   const navigate = useNavigate();
   const { toggleFavorite, isFavorite } = useFavorites();
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const filterOptions = [
+    "All",
+    "Europe",
+    "Asia",
+    "Africa",
+    "South America",
+    "North America",
+    "Antarctia",
+    "Oceania"
+  ];
 
   const handleLikeToggle = (country) => {
     toggleFavorite(country);
@@ -84,14 +96,14 @@ function Countries() {
       </div>
 
       <div className="flex items-center gap-4 w-full overflow-x-scroll no-scrollbar mt-5">
-        <FilterButton title="All" isActive={true} />
-        <FilterButton title="Europe" />
-        <FilterButton title="Asia" />
-        <FilterButton title="Africa" />
-        <FilterButton title="South America" />
-        <FilterButton title="North America" />
-        <FilterButton title="Antarctia" />
-        <FilterButton title="Oceania" />
+        {filterOptions.map((filter) => (
+          <FilterButton
+            key={filter}
+            title={filter}
+            isActive={activeFilter === filter}
+            onClick={() => setActiveFilter(filter)}
+          />
+        ))}
       </div>
 
       <div className="flex items-center justify-between flex-wrap gap-y-10  py-10">
