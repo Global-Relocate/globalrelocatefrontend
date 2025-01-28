@@ -1,7 +1,7 @@
 import React from "react";
 import { GoHeart } from "react-icons/go";
-import { FaRegHandPointer } from "react-icons/fa";
 import heartIcon from "../../assets/svg/heart.svg";
+import pointerIcon from "../../assets/svg/pointer.svg";
 
 export default function CountriesCard({ image, location, countryImage, sm, isLiked, onLikeToggle }) {
   return (
@@ -21,7 +21,7 @@ export default function CountriesCard({ image, location, countryImage, sm, isLik
             <GoHeart style={{ width: '1.3rem', height: '1.3rem' }} />
           ) : (
             <>
-              <FaRegHandPointer fontSize="1.3rem" color="#95ACF8" /> View
+              <img src={pointerIcon} alt="View" className="w-5 h-5" style={{ width: '1.3rem', height: '1.3rem' }} /> View
             </>
           )
         )}
