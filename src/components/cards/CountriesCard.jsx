@@ -1,5 +1,5 @@
 import React from "react";
-import { FaRegHandPointer } from "react-icons/fa";
+import pointer from "../../assets/svg/pointer.svg";
 
 export default function CountriesCard({
   image,
@@ -13,7 +13,7 @@ export default function CountriesCard({
       className={`flex flex-col items-start space-y-3 relative w-[380px] `}
     >
       <button className="p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-sm font-semibold absolute top-7 right-4">
-        <FaRegHandPointer fontSize="1.3rem" color="#95ACF8" /> View
+        <img src={pointer} alt="pointer" className="w-5 h-5" /> View
       </button>
       <img
         src={image}
