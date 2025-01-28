@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { GoArrowUpRight } from "react-icons/go";
 import CounterBadge from "../common/CounterBadge";
 import { useFavorites } from "@/context/favorites-context";
+import CountdownTimer from '../common/CountdownTimer';
 
 function Sidebar({ navData, navState }) {
   const location = useLocation();
@@ -48,9 +49,12 @@ function Sidebar({ navData, navState }) {
             <p className="text-sm text-gray-600 mb-4">
               You are currently in free plan valid for 3 days. Upgrade now to keep using Global Relocate.
             </p>
+            <div className="mb-4">
+              <CountdownTimer />
+            </div>
             <Link
               to="/upgrade"
-              className="block w-full py-2 px-4 bg-black text-white rounded-lg text-sm hover:bg-gray-800 text-center flex items-center justify-center"
+              className="w-full py-2 px-4 bg-black text-white rounded-lg text-sm hover:bg-gray-800 text-center flex items-center justify-center"
             >
               Learn More <GoArrowUpRight className="ml-2" />
             </Link>
