@@ -61,7 +61,7 @@ const Profile = () => {
                 <p className="text-gray-600">@Jerrylamp111</p>
               </div>
             </div>
-            <Button variant="outlineBlack">
+            <Button variant="outlineBlack" size="md">
               Edit profile
             </Button>
           </div>
