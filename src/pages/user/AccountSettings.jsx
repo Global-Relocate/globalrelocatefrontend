@@ -202,16 +202,18 @@ const AccountSettings = ({ open, onOpenChange }) => {
           </div>
         </SheetHeader>
         
-        <div className="h-[calc(90vh-5rem)]">
-          {activeTab === 'Profile' && <ProfileTab user={user} setUser={setUser} />}
-          {activeTab === 'Account' && (
-            <AccountTab 
-              user={user} 
-              showDeleteModal={showDeleteModal}
-              setShowDeleteModal={setShowDeleteModal}
-            />
-          )}
-          {activeTab === 'Preferences' && <PreferencesTab />}
+        <div className="h-[calc(90vh-5rem)] overflow-y-auto">
+          <div className="max-w-2xl mx-auto py-6">
+            {activeTab === 'Profile' && <ProfileTab user={user} setUser={setUser} />}
+            {activeTab === 'Account' && (
+              <AccountTab 
+                user={user} 
+                showDeleteModal={showDeleteModal}
+                setShowDeleteModal={setShowDeleteModal}
+              />
+            )}
+            {activeTab === 'Preferences' && <PreferencesTab />}
+          </div>
         </div>
       </SheetContent>
     </Sheet>
