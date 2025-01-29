@@ -62,18 +62,13 @@ function DashNav({ navState, setNavState }) {
             onClick={() => navigate("/user/profile")}>
               View profile
             </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer"
-            onClick={() => navigate("/user/settings")}
-            >
-              Account Settings
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
             <DropdownMenuItem 
               className="cursor-pointer"
               onClick={() => setIsSettingsOpen(true)}
             >
-              Settings
+              Account Settings
             </DropdownMenuItem>
+            <DropdownMenuSeparator />
             <DropdownMenuItem className="cursor-pointer">
               Give us feedback
             </DropdownMenuItem>
