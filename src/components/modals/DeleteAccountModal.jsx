@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@/components/ui/button';
 
 function DeleteAccountModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -23,12 +24,13 @@ function DeleteAccountModal({ isOpen, onClose }) {
           <button className="px-4 py-2 bg-red-600 text-white rounded-lg text-sm hover:bg-red-700">
             Confirm
           </button>
-          <button
+          <Button
+            variant="outlineBlack"
             onClick={onClose}
-            className="px-4 py-2 text-sm hover:bg-gray-50 rounded-lg"
+            className="px-4 py-2 text-sm"
           >
             Nevermind
-          </button>
+          </Button>
         </div>
       </div>
     </div>
