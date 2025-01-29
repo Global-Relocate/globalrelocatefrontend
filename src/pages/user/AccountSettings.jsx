@@ -11,23 +11,45 @@ import { Button } from '@/components/ui/button';
 import { LuUserRound } from 'react-icons/lu';
 import { BiEdit } from 'react-icons/bi';
 import FilterButton from '@/components/utils/FilterButton';
+import { ChevronDown } from "lucide-react";
+import DeleteAccountModal from '@/components/modals/DeleteAccountModal';
 
 // Profile Tab Component
-const ProfileTab = ({ user, setUser }) => {
+const ProfileTab = ({ user, setUser, onOpenChange }) => {
   const [editedName, setEditedName] = useState(user?.name || '');
   const [editedUsername, setEditedUsername] = useState(user?.username || '');
   const [editedBio, setEditedBio] = useState('');
   const [editedLocation, setEditedLocation] = useState('');
   const [isEditing, setIsEditing] = useState(false);
+  const [originalValues, setOriginalValues] = useState({
+    name: user?.name || '',
+    username: user?.username || '',
+    bio: '',
+    location: ''
+  });
 
   const handleChange = (e, setter) => {
-    setter(e.target.value);
-    setIsEditing(true);
+    const newValue = e.target.value;
+    setter(newValue);
+    // Only set isEditing to true if any field is different from its original value
+    const currentValues = {
+      name: setter === setEditedName ? newValue : editedName,
+      username: setter === setEditedUsername ? newValue : editedUsername,
+      bio: setter === setEditedBio ? newValue : editedBio,
+      location: setter === setEditedLocation ? newValue : editedLocation
+    };
+    
+    setIsEditing(
+      currentValues.name !== originalValues.name ||
+      currentValues.username !== originalValues.username ||
+      currentValues.bio !== originalValues.bio ||
+      currentValues.location !== originalValues.location
+    );
   };
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="flex-1 space-y-8 px-8 py-6 overflow-y-auto">
+    <div className="flex flex-col h-full relative">
+      <div className="flex-1 space-y-8 px-8 py-6 overflow-y-auto pb-20">
         <h2 className="text-xl font-medium text-left">Profile</h2>
         
         <div className="flex items-center justify-between">
@@ -69,7 +91,7 @@ const ProfileTab = ({ user, setUser }) => {
           <textarea
             value={editedBio}
             onChange={(e) => handleChange(e, setEditedBio)}
-            className="w-full p-2 border rounded-lg min-h-24 text-sm resize-none focus:border-black focus:outline-none"
+            className="w-full p-2 border-2 rounded-lg min-h-24 text-sm resize-none focus:border-black focus:outline-none placeholder-gray-500"
             placeholder="Write something about yourself..."
           />
         </div>
@@ -79,30 +101,42 @@ const ProfileTab = ({ user, setUser }) => {
           <Input
             value={editedLocation}
             onChange={(e) => handleChange(e, setEditedLocation)}
-            placeholder="Add your location"
-            className="focus:border-black"
+            placeholder="Change your location"
+            className="focus:border-black placeholder-gray-500"
           />
         </div>
       </div>
 
-      <div className="sticky bottom-0 left-0 right-0 px-8 py-4 bg-white border-t">
-        <div className="flex justify-end gap-3">
+      <div className="fixed bottom-0 left-0 right-0 bg-white w-full">
+        <div className="border-t border-gray-300 w-full" />
+        <div className="flex justify-end gap-3 max-w-2xl mx-auto mb-2 px-8 py-2">
           <Button 
             variant="default"
             className={!isEditing ? 'bg-gray-300 cursor-not-allowed' : 'bg-black'}
+            disabled={!isEditing}
             onClick={() => {
-              setEditedName('');
-              setEditedUsername('');
-              setEditedBio('');
-              setEditedLocation('');
+              // Handle save logic here
               setIsEditing(false);
+              setOriginalValues({
+                name: editedName,
+                username: editedUsername,
+                bio: editedBio,
+                location: editedLocation
+              });
             }}
           >
             Save changes
           </Button>
           <Button
             variant="outline"
-            disabled={!isEditing}
+            onClick={() => {
+              setEditedName(originalValues.name);
+              setEditedUsername(originalValues.username);
+              setEditedBio(originalValues.bio);
+              setEditedLocation(originalValues.location);
+              setIsEditing(false);
+              onOpenChange(false);
+            }}
           >
             Cancel
           </Button>
@@ -113,49 +147,57 @@ const ProfileTab = ({ user, setUser }) => {
 };
 
 // Account Tab Component
-const AccountTab = ({ user, showDeleteModal, setShowDeleteModal }) => (
-  <div className="px-8 py-6">
-    <h2 className="text-xl font-medium mb-8 text-left">Account</h2>
-    
-    <div className="space-y-8">
-      <div>
-        <h3 className="text-sm text-gray-600 mb-2">Email Address</h3>
-        <div className="flex items-center">
-          <span className="text-sm">{user?.email}</span>
-          <span className="ml-2 text-green-600 text-sm">(verified)</span>
-        </div>
-      </div>
+const AccountTab = ({ user, showDeleteModal, setShowDeleteModal }) => {
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-      <div>
-        <h3 className="text-sm text-gray-600 mb-2">Subscription</h3>
+  return (
+    <div className="px-8 py-6">
+      <h2 className="text-xl font-medium mb-8 text-left">Account</h2>
+      
+      <div className="space-y-8">
+        <div>
+          <h3 className="text-sm text-gray-600 mb-2">Email Address</h3>
+          <div className="flex items-center">
+            <span className="text-sm">{user?.email}</span>
+            <span className="ml-2 text-green-600 text-sm">(verified)</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm text-gray-600 mb-2">Subscription</h3>
+          <div className="flex justify-between items-start">
+            <p className="text-sm text-gray-600 max-w-md">
+              You are currently in free plan valid for 3 days. Upgrade now to keep using Global Relocate.
+            </p>
+            <Button variant="default" className="bg-black">
+              Learn more
+            </Button>
+          </div>
+        </div>
+
         <div className="flex justify-between items-start">
-          <p className="text-sm text-gray-600 max-w-md">
-            You are currently in free plan valid for 3 days. Upgrade now to keep using Global Relocate.
-          </p>
-          <Button variant="default" className="bg-black">
-            Learn more
+          <div className="space-y-2">
+            <h3 className="text-sm text-red-600">Delete account</h3>
+            <p className="text-sm text-gray-600">
+              Permanently delete your account and data
+            </p>
+          </div>
+          <Button 
+            variant="destructive"
+            onClick={() => setIsDeleteModalOpen(true)}
+          >
+            Delete account
           </Button>
         </div>
       </div>
 
-      <div className="pt-4 border-t">
-        <div className="space-y-2">
-          <h3 className="text-sm text-red-600">Delete account</h3>
-          <p className="text-sm text-gray-600">
-            Permanently delete your account and data
-          </p>
-        </div>
-        <Button 
-          variant="destructive"
-          onClick={() => setShowDeleteModal(true)}
-          className="mt-4"
-        >
-          Delete account
-        </Button>
-      </div>
+      <DeleteAccountModal 
+        isOpen={isDeleteModalOpen} 
+        onClose={() => setIsDeleteModalOpen(false)}
+      />
     </div>
-  </div>
-);
+  );
+};
 
 // Preferences Tab Component
 const PreferencesTab = () => (
@@ -164,9 +206,12 @@ const PreferencesTab = () => (
     
     <div>
       <h3 className="text-sm text-gray-600 mb-2">Language</h3>
-      <p className="text-sm text-gray-600 mb-4">Choose a language</p>
-      <div className="inline-flex items-center bg-gray-50 border rounded-lg px-4 py-2 cursor-pointer">
-        <span className="text-sm mr-2">English</span>
+      <div className="flex justify-between items-center">
+        <p className="text-sm text-gray-600">Choose a language</p>
+        <div className="inline-flex items-center bg-gray-50 border rounded-lg px-4 py-2 cursor-pointer">
+          <span className="text-sm mr-2">English</span>
+          <ChevronDown className="h-4 w-4 text-gray-600" />
+        </div>
       </div>
     </div>
   </div>
@@ -204,7 +249,7 @@ const AccountSettings = ({ open, onOpenChange }) => {
         
         <div className="h-[calc(90vh-5rem)] overflow-y-auto">
           <div className="max-w-2xl mx-auto py-6">
-            {activeTab === 'Profile' && <ProfileTab user={user} setUser={setUser} />}
+            {activeTab === 'Profile' && <ProfileTab user={user} setUser={setUser} onOpenChange={onOpenChange} />}
             {activeTab === 'Account' && (
               <AccountTab 
                 user={user} 
