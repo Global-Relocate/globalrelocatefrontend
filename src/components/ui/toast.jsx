@@ -11,7 +11,8 @@ export const showToast = ({ message, type = 'success' }) => {
       </span>
       <button
         onClick={() => toast.dismiss()}
-        className="p-1 hover:bg-gray-100 rounded-full"
+        className="p-1 hover:bg-gray-100 rounded-full cursor-pointer"
+        aria-label="Close"
       >
         <X className="h-4 w-4" />
       </button>
