@@ -1,21 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { LuUserRound } from 'react-icons/lu';
 import { BiEdit } from 'react-icons/bi';
+import { showToast } from '@/components/ui/toast';
 
-const ProfileTab = ({ user, setUser, onOpenChange }) => {
+const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
   const [editedName, setEditedName] = useState(user?.name || '');
   const [editedUsername, setEditedUsername] = useState(user?.username || '');
   const [editedBio, setEditedBio] = useState('');
   const [editedLocation, setEditedLocation] = useState('');
   const [isEditing, setIsEditing] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [showUnsavedWarning, setShowUnsavedWarning] = useState(false);
   const [originalValues, setOriginalValues] = useState({
     name: user?.name || '',
     username: user?.username || '',
     bio: '',
     location: ''
   });
+
+  // Preserve changes when switching tabs
+  useEffect(() => {
+    if (isEditing) {
+      setShowUnsavedWarning(true);
+    }
+  }, [activeTab]);
+
+  // Reset warning when component unmounts
+  useEffect(() => {
+    return () => {
+      if (isEditing) {
+        setShowUnsavedWarning(false);
+      }
+    };
+  }, []);
 
   const handleChange = (e, setter) => {
     const newValue = e.target.value;
@@ -27,16 +46,64 @@ const ProfileTab = ({ user, setUser, onOpenChange }) => {
       location: setter === setEditedLocation ? newValue : editedLocation
     };
     
-    setIsEditing(
+    const hasChanges = 
       currentValues.name !== originalValues.name ||
       currentValues.username !== originalValues.username ||
       currentValues.bio !== originalValues.bio ||
-      currentValues.location !== originalValues.location
-    );
+      currentValues.location !== originalValues.location;
+
+    setIsEditing(hasChanges);
+    setShowUnsavedWarning(hasChanges);
+  };
+
+  const handleSave = async () => {
+    setIsSaving(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setOriginalValues({
+        name: editedName,
+        username: editedUsername,
+        bio: editedBio,
+        location: editedLocation
+      });
+      
+      setIsEditing(false);
+      setShowUnsavedWarning(false);
+      
+      showToast({ 
+        message: 'Your changes has been saved',
+        type: 'success'
+      });
+    } catch (error) {
+      showToast({ 
+        message: 'Failed to save changes',
+        type: 'error'
+      });
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const handleCancel = () => {
+    setEditedName(originalValues.name);
+    setEditedUsername(originalValues.username);
+    setEditedBio(originalValues.bio);
+    setEditedLocation(originalValues.location);
+    setIsEditing(false);
+    setShowUnsavedWarning(false);
+    onOpenChange(false);
   };
 
   return (
     <div className="flex flex-col h-full relative">
+      {showUnsavedWarning && (
+        <div className="px-8 py-2 text-red-500 text-sm">
+          You have unsaved changes
+        </div>
+      )}
+      
       <div className="flex-1 space-y-8 px-8 py-6 overflow-y-auto pb-20">
         <h2 className="text-xl font-medium text-left">Profile</h2>
         
@@ -100,35 +167,28 @@ const ProfileTab = ({ user, setUser, onOpenChange }) => {
         <div className="flex justify-end gap-3 max-w-2xl mx-auto mb-2 px-8 py-2">
           <Button 
             variant="default"
-            className={!isEditing ? 'bg-gray-300 cursor-not-allowed' : 'bg-black'}
-            disabled={!isEditing}
-            onClick={() => {
-              setIsEditing(false);
-              setOriginalValues({
-                name: editedName,
-                username: editedUsername,
-                bio: editedBio,
-                location: editedLocation
-              });
-            }}
+            className={!isEditing ? 'bg-gray-600 cursor-not-allowed' : 'bg-black'}
+            disabled={!isEditing || isSaving}
+            onClick={handleSave}
           >
-            Save changes
+            {isSaving ? (
+              <div className="flex items-center">
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                Saving...
+              </div>
+            ) : (
+              'Save changes'
+            )}
           </Button>
           <Button
             variant="outline"
-            onClick={() => {
-              setEditedName(originalValues.name);
-              setEditedUsername(originalValues.username);
-              setEditedBio(originalValues.bio);
-              setEditedLocation(originalValues.location);
-              setIsEditing(false);
-              onOpenChange(false);
-            }}
+            onClick={handleCancel}
           >
             Cancel
           </Button>
         </div>
       </div>
+      <div className="mb-10" />
     </div>
   );
 };
