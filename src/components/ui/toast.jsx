@@ -1,4 +1,4 @@
-import { X, CheckCircle } from "lucide-react"
+import { X, CheckCircle, XCircle } from "lucide-react"
 import { toast } from "sonner"
 
 export const showToast = ({ message, type = 'success' }) => {
@@ -6,6 +6,7 @@ export const showToast = ({ message, type = 'success' }) => {
     <div className="flex items-center justify-between w-full">
       <span className="flex items-center">
         {type === 'success' && <CheckCircle className="h-4 w-4 mr-2 text-green-500" />}
+        {type === 'error' && <XCircle className="h-4 w-4 mr-2 text-red-500" />}
         {message}
       </span>
       <button
