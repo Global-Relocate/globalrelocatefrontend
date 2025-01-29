@@ -17,7 +17,7 @@ import Favourites from "./pages/user/Favourites";
 import Community from "./pages/user/Community";
 import Notifications from "./pages/user/Notifications";
 import CountryDetails from "./pages/user/CountryDetails";
-import Settings from "./pages/user/Settings";
+// import Settings from "./pages/user/Settings";
 import Profile from "./pages/user/Profile";
 import "./App.css";
 
@@ -43,7 +43,7 @@ function App() {
         <Route path="notifications" element={<Notifications />} />
         <Route path="favourites" element={<Favourites />} />
         <Route path="community" element={<Community />} />
-        <Route path="settings" element={<Settings />} />
+        {/* <Route path="settings" element={<Settings />} /> */}
         <Route path="profile" element={<Profile />} />
       </Route>
     </Routes>
