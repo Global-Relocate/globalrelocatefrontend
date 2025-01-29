@@ -1,59 +1,61 @@
-import React from "react";
+import { LanguageDropdown } from "@/components/ui/language-dropdown";
 import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { ChevronDown } from "lucide-react";
+import { CircleFlag } from "react-circle-flags";
+import { useLanguage } from "@/context/LanguageContext";
 
-export default function SelectLanguages() {
+const SelectLanguages = () => {
+  const { selectedLanguage, updateLanguage } = useLanguage();
+
+  const handleLanguageChange = (language) => {
+    updateLanguage(language);
+  };
+
   return (
     <Sheet>
       <SheetTrigger asChild>
         <div className="flex items-center space-x-2 cursor-pointer">
-          <img
-            src="https://uk.usembassy.gov/wp-content/uploads/sites/16/US_Flag_Color_72DPI_750x450.jpg"
-            className="w-7 h-7 rounded-full"
-            alt="logo"
-          />
-          <span className="text-sm">EN</span>
+          <div className="w-5 h-5 rounded-full overflow-hidden">
+            <CircleFlag countryCode={selectedLanguage.country.toLowerCase()} height={20} />
+          </div>
+          <span className="text-sm">{selectedLanguage.code.toUpperCase()}</span>
         </div>
       </SheetTrigger>
-      <SheetContent className="w-full sm:w-auto">
-        <div className="mt-2"> {/* Added container div with margin-top */}
-          <SheetHeader>
-            <SheetTitle className="text-left">Select your language</SheetTitle>
-            <SheetDescription className="text-left">
-              Make changes to the site language here, click save when you're done.
-            </SheetDescription>
+      <SheetContent>
+        <div className="pt-2">
+          <SheetHeader className="relative pb-4">
+            <SheetTitle className="text-left">Select language</SheetTitle>
+            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-200 -mx-6" />
           </SheetHeader>
-          <div className="flex flex-col mb-4">
-            <div className="relative w-full mt-3 h-[45px] flex items-center">
-              <Input id="lang" value="English (US)" className="w-full h-full" />
-              <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-            </div>
-          </div>
-
-          <SheetFooter>
-            <SheetClose asChild>
-              <Button
-                type="submit"
-                className="w-full h-[40px] bg-[#FCA311] text-black hover:text-white mt-5"
-              >
-                Save Changes
-              </Button>
-            </SheetClose>
-          </SheetFooter>
+        </div>
+        <div className="mt-10">
+          <p className="text-sm text-gray-700 mb-2">Select your language</p>
+          <LanguageDropdown
+            value={selectedLanguage?.code}
+            onChange={handleLanguageChange}
+            placeholder={selectedLanguage?.name || "Select language"}
+            className="focus:border-[#FCA311] hover:border-[#FCA311] h-10"
+          />
+        </div>
+        <div className="mt-6">
+          <SheetClose asChild>
+            <Button
+              className="w-full h-[40px] bg-[#FCA311] text-black hover:text-white"
+            >
+              Confirm Changes
+            </Button>
+          </SheetClose>
         </div>
       </SheetContent>
     </Sheet>
   );
-}
+};
+
+export default SelectLanguages;
