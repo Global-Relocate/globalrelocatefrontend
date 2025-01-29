@@ -8,57 +8,44 @@ import { showToast } from '@/components/ui/toast';
 const STORAGE_KEY = 'profileData';
 
 const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
-  const [editedName, setEditedName] = useState(user?.name || '');
-  const [editedUsername, setEditedUsername] = useState(user?.username || '');
-  const [editedBio, setEditedBio] = useState('');
-  const [editedLocation, setEditedLocation] = useState('');
+  // Initialize state with values from localStorage or user prop
+  const [formData, setFormData] = useState(() => {
+    const savedData = localStorage.getItem(STORAGE_KEY);
+    if (savedData) {
+      return JSON.parse(savedData);
+    }
+    return {
+      name: user?.name || '',
+      username: user?.username || '',
+      bio: user?.bio || '',
+      location: user?.location || ''
+    };
+  });
+
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [showUnsavedWarning, setShowUnsavedWarning] = useState(false);
 
-  // Load data from local storage on mount
+  // Check for unsaved changes whenever form data changes or tab switches
   useEffect(() => {
-    const savedData = localStorage.getItem(STORAGE_KEY);
-    if (savedData) {
-      const { name, username, bio, location } = JSON.parse(savedData);
-      setEditedName(name);
-      setEditedUsername(username);
-      setEditedBio(bio);
-      setEditedLocation(location);
-    }
-  }, []);
-
-  // Save current form state to local storage whenever it changes
-  useEffect(() => {
-    const currentValues = {
-      name: editedName,
-      username: editedUsername,
-      bio: editedBio,
-      location: editedLocation
-    };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(currentValues));
-  }, [editedName, editedUsername, editedBio, editedLocation]);
-
-  // Check for unsaved changes when switching tabs
-  useEffect(() => {
-    const currentValues = {
-      name: editedName,
-      username: editedUsername,
-      bio: editedBio,
-      location: editedLocation
-    };
-
-    const hasUnsavedChanges = Object.keys(currentValues).some(
-      key => currentValues[key] !== (user[key] || '')
+    const hasUnsavedChanges = Object.keys(formData).some(
+      key => formData[key] !== (user?.[key] || '')
     );
-
+    
     setShowUnsavedWarning(hasUnsavedChanges);
     setIsEditing(hasUnsavedChanges);
-  }, [activeTab, editedName, editedUsername, editedBio, editedLocation]);
+  }, [formData, user, activeTab]);
 
-  const handleChange = (e, setter) => {
-    const newValue = e.target.value;
-    setter(newValue);
+  // Save form state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  }, [formData]);
+
+  const handleChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
 
   const handleSave = async () => {
@@ -67,15 +54,11 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      const updatedData = {
-        name: editedName,
-        username: editedUsername,
-        bio: editedBio,
-        location: editedLocation
-      };
-
-      // Save to local storage
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedData));
+      // Update user context
+      setUser(prev => ({
+        ...prev,
+        ...formData
+      }));
 
       setIsEditing(false);
       setShowUnsavedWarning(false);
@@ -95,11 +78,13 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
   };
 
   const handleCancel = () => {
-    const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    setEditedName(savedData.name || '');
-    setEditedUsername(savedData.username || '');
-    setEditedBio(savedData.bio || '');
-    setEditedLocation(savedData.location || '');
+    // Reset form to user data
+    setFormData({
+      name: user?.name || '',
+      username: user?.username || '',
+      bio: user?.bio || '',
+      location: user?.location || ''
+    });
     setIsEditing(false);
     setShowUnsavedWarning(false);
     onOpenChange(false);
@@ -107,12 +92,6 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
 
   return (
     <div className="flex flex-col h-full relative">
-      {showUnsavedWarning && (
-        <div className="px-8 py-2 text-red-500 text-sm">
-          You have unsaved changes
-        </div>
-      )}
-      
       <div className="flex-1 space-y-8 px-8 py-6 overflow-y-auto pb-20">
         <h2 className="text-xl font-medium text-left">Profile</h2>
         
@@ -133,8 +112,8 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
         <div className="space-y-2">
           <h3 className="text-sm text-gray-600">Full Name</h3>
           <Input
-            value={editedName}
-            onChange={(e) => handleChange(e, setEditedName)}
+            value={formData.name}
+            onChange={(e) => handleChange('name', e.target.value)}
             placeholder="Add name"
             className="focus:border-black"
           />
@@ -143,8 +122,8 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
         <div className="space-y-2">
           <h3 className="text-sm text-gray-600">Username</h3>
           <Input
-            value={editedUsername}
-            onChange={(e) => handleChange(e, setEditedUsername)}
+            value={formData.username}
+            onChange={(e) => handleChange('username', e.target.value)}
             placeholder="Add username"
             className="focus:border-black"
           />
@@ -153,8 +132,8 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
         <div className="space-y-2">
           <h3 className="text-sm text-gray-600">Bio</h3>
           <textarea
-            value={editedBio}
-            onChange={(e) => handleChange(e, setEditedBio)}
+            value={formData.bio}
+            onChange={(e) => handleChange('bio', e.target.value)}
             className="w-full p-2 border-2 rounded-lg min-h-24 text-sm resize-none focus:border-black focus:outline-none placeholder-gray-500"
             placeholder="Write something about yourself..."
           />
@@ -163,8 +142,8 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
         <div className="space-y-2">
           <h3 className="text-sm text-gray-600">Location</h3>
           <Input
-            value={editedLocation}
-            onChange={(e) => handleChange(e, setEditedLocation)}
+            value={formData.location}
+            onChange={(e) => handleChange('location', e.target.value)}
             placeholder="Change your location"
             className="focus:border-black placeholder-gray-500"
           />
