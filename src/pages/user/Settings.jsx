@@ -65,13 +65,15 @@ function Settings() {
               <div className="pb-6">
                 <div className="flex items-center justify-between">
                   <span className="text-sm">Avatar</span>
-                  <div className="flex items-center relative">
-                    <div className="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors -ml-4">
-                      <LuUserRound className="h-7 w-7 text-gray-500" />
+                  <div className="relative">
+                    <div 
+                      className="h-16 w-16 rounded-full bg-[#8F8F8F] flex items-center justify-center hover:bg-[#7F7F7F] transition-colors duration-200"
+                    >
+                      <LuUserRound className="h-8 w-8 text-white" />
                     </div>
                     <div className="absolute -right-1 -bottom-1">
-                      <button className="p-1 bg-white rounded-md shadow-sm border hover:bg-gray-50">
-                        <BiEdit className="h-3 w-3 text-gray-600" />
+                      <button className="p-1 bg-white rounded-md shadow-md border hover:bg-gray-50">
+                        <BiEdit className="h-3 w-3 text-black" />
                       </button>
                     </div>
                   </div>
