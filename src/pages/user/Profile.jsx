@@ -34,7 +34,7 @@ const Profile = () => {
         return (
           <div className="text-center py-16 bg-white rounded-lg">
             <h3 className="text-xl font-semibold mb-2">No bookmarked posts</h3>
-            <p className="text-gray-600">Start bookmarking posts to keep them organized</p>
+            <p className="text-gray-600">Start bookmarking posts to keep them organized.</p>
           </div>
         );
       default:
@@ -54,7 +54,7 @@ const Profile = () => {
         </div>
         
         {/* Profile Card */}
-        <div className="bg-[#F8F7F7] rounded-lg p-6 mb-8">
+        <div className="bg-[#F8F7F7] rounded-lg p-6 mb-8 border border-[#0E0F0C1F]">
           <div className="flex justify-between items-start mb-6">
             <div className="flex flex-col items-start gap-4">
               {/* Avatar Section */}
