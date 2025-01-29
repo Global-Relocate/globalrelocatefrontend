@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
-import Select from 'react-select';
-import countries from 'country-list';
 import { useNavigate } from "react-router-dom";
 import { registerNewUser } from '../../services/api';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { CountryDropdown } from "@/components/ui/country-dropdown";
 
 const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,11 +18,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
     color: "gray"
   });
   const navigate = useNavigate();
-
-  const countryOptions = countries.getData().map(country => ({
-    value: country.code,
-    label: country.name
-  }));
 
   const calculatePasswordStrength = (password) => {
     let score = 0;
@@ -65,36 +59,6 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
       color: strengthMap[score].color,
       feedback: feedback.join(" • ")
     };
-  };
-
-  const customSelectStyles = {
-    control: (base, state) => ({
-      ...base,
-      padding: '4px',
-      borderRadius: '8px',
-      border: state.isFocused ? '1px solid #FCA311' : '1px solid #E5E5E5',
-      boxShadow: 'none',
-      '&:hover': {
-        border: '1px solid #FCA311'
-      }
-    }),
-    option: (base, { isFocused, isSelected }) => ({
-      ...base,
-      backgroundColor: isSelected ? '#FCA311' : isFocused ? '#FCA31120' : 'white',
-      color: isSelected ? 'white' : 'black',
-      '&:hover': {
-        backgroundColor: '#FCA31120'
-      }
-    }),
-    placeholder: (base) => ({
-      ...base,
-      color: '#A3A3A3'
-    }),
-    menu: (base) => ({
-      ...base,
-      borderRadius: '8px',
-      marginTop: '4px'
-    })
   };
 
   const handleInputChange = (e) => {
@@ -149,10 +113,11 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
     }));
   };
 
-  const handleCountryChange = (selectedOption) => {
+  const handleCountryChange = (selectedCountry) => {
     setFormData(prev => ({
       ...prev,
-      country: selectedOption
+      country: selectedCountry.name,
+      countryCode: selectedCountry.alpha2
     }));
     if (errors.country) {
       setErrors(prev => ({
@@ -182,7 +147,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
         username: formData.username,
         email: formData.email,
         password: formData.password,
-        country: formData.country.label,
+        country: formData.country,
         userType: "INDIVIDUAL"
       };
 
@@ -354,13 +319,10 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
           <label className="text-sm text-gray-700 mb-1 block">
             Country <span className="text-red-500">*</span>
           </label>
-          <Select
-            options={countryOptions}
-            value={formData.country}
+          <CountryDropdown
             onChange={handleCountryChange}
-            styles={customSelectStyles}
-            placeholder="Select a country"
-            className={errors.country ? 'border-red-500' : ''}
+            value={formData.countryCode}
+            className={`${errors.country ? 'border-red-500' : 'border-gray-300'} focus:border-[#FCA311] hover:border-[#FCA311]`}
           />
           {errors.country && (
             <span className="text-red-500 text-xs mt-1">{errors.country}</span>
