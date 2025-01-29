@@ -7,12 +7,14 @@ import { ArrowLeft, MapPin } from 'lucide-react';
 import { LuUserRound } from "react-icons/lu";
 import DashboardLayout from '@/components/layouts/DashboardLayout';
 import { AuthContext } from "../../context/AuthContext";
+import AccountSettings from './AccountSettings';
 
 const Profile = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('posts');
   const { user } = useContext(AuthContext);
   const displayName = user?.username || user?.name || "User";
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -68,7 +70,7 @@ const Profile = () => {
                 <p className="text-gray-600">@{user?.username || "Add username"}</p>
               </div>
             </div>
-            <Button variant="outlineBlack" size="md" as={Link} to="/user/edit-profile">
+            <Button variant="outlineBlack" size="md" onClick={() => setIsSettingsOpen(true)}>
               Edit profile
             </Button>
           </div>
@@ -102,6 +104,9 @@ const Profile = () => {
 
         {/* Content */}
         {renderContent()}
+
+        {/* Account Settings Modal */}
+        <AccountSettings open={isSettingsOpen} onOpenChange={setIsSettingsOpen} />
       </div>
     </DashboardLayout>
   );
