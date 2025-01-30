@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import DeleteAccountModal from '@/components/modals/DeleteAccountModal';
+import DeleteAccountDialog from '@/components/dialogs/DeleteAccountDialog';
 
-const AccountTab = ({ user, showDeleteModal, setShowDeleteModal }) => {
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+const AccountTab = ({ user }) => {
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 
   return (
     <div className="px-8 py-6 h-full">
@@ -39,16 +39,16 @@ const AccountTab = ({ user, showDeleteModal, setShowDeleteModal }) => {
           </div>
           <Button 
             variant="destructive"
-            onClick={() => setIsDeleteModalOpen(true)}
+            onClick={() => setIsDeleteDialogOpen(true)}
           >
             Delete account
           </Button>
         </div>
       </div>
 
-      <DeleteAccountModal 
-        isOpen={isDeleteModalOpen} 
-        onClose={() => setIsDeleteModalOpen(false)}
+      <DeleteAccountDialog 
+        isOpen={isDeleteDialogOpen} 
+        onClose={() => setIsDeleteDialogOpen(false)}
       />
     </div>
   );
