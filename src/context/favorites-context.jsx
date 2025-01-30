@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
 import favoriteIcon from "../assets/svg/favorite.svg";
 import heartIcon from "../assets/svg/heart.svg"
 
@@ -10,6 +11,7 @@ export const FavoritesProvider = ({ children }) => {
     const saved = localStorage.getItem('favorites');
     return saved ? JSON.parse(saved) : [];
   });
+  const navigate = useNavigate();
 
   const toggleFavorite = (country) => {
     setFavorites(prev => {
@@ -24,7 +26,7 @@ export const FavoritesProvider = ({ children }) => {
         toast(`${country.location} unsaved from favorites`, {
           action: {
             label: 'View',
-            onClick: () => window.location.href = '/user/favourites'
+            onClick: () => navigate('/user/favorites')
           },
           icon: <img src={favoriteIcon} alt="favorite icon" className="w-5 h-5" />,
           closeButton: true,
@@ -34,7 +36,7 @@ export const FavoritesProvider = ({ children }) => {
         toast(`${country.location} saved to favorites`, {
           action: {
             label: 'View',
-            onClick: () => window.location.href = '/user/favourites'
+            onClick: () => navigate('/user/favorites')
           },
           icon: <img src={heartIcon} alt="heart icon" className="w-5 h-5" />,
           closeButton: true,
