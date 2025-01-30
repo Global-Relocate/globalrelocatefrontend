@@ -24,7 +24,7 @@ function CountryDetails() {
         <div className="flex items-center gap-3">
           <Button variant="outline" className="rounded-3xl border">
             {" "}
-            <BiHeart /> Add to favourites
+            <BiHeart /> Add to favorites
           </Button>
           <Button variant="outline" className="rounded-3xl border">
             {" "}
