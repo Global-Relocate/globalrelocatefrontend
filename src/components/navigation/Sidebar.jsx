@@ -37,7 +37,7 @@ function Sidebar({ navData, navState }) {
                   />
                   <span className="text-sm">{item.title}</span>
                 </div>
-                {item.title === "Favourites" && <CounterBadge count={favorites.length} />}
+                {item.title === "Favorites" && <CounterBadge count={favorites.length} />}
               </Link>
             );
           })}

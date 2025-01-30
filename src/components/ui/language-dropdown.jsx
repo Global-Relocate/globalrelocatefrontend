@@ -156,7 +156,7 @@ const LanguageDropdownComponent = forwardRef(
           side="bottom"
           className="min-w-[--radix-popper-anchor-width] p-0"
         >
-          <Command className="w-full max-h-[200px] sm:max-h-[270px]">
+          <Command className="w-full max-h-[200px] sm:max-h-[270px] overflow-y-auto">
             <CommandList>
               <div className="sticky top-0 z-10 bg-popover">
                 <CommandInput 
