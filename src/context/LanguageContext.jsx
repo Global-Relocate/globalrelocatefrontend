@@ -3,7 +3,7 @@ import { createContext, useState, useContext, useEffect } from 'react';
 const STORAGE_KEY = 'selectedLanguage';
 
 const defaultLanguage = {
-  code: 'eng',
+  code: 'en',
   name: 'English',
   country: 'US'
 };
