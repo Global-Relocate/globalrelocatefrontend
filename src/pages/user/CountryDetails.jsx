@@ -1,11 +1,21 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import swizerland from "../../assets/images/swizerland.png";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { BiHeart, BiShare } from "react-icons/bi";
+import { BiHeart } from "react-icons/bi";
 import { PiShare } from "react-icons/pi";
+import FilterButton from '@/components/utils/FilterButton';
+import { useState } from "react";
 
 function CountryDetails() {
+  const [activeTab, setActiveTab] = useState("overview");
+
+  const tabs = [
+    { value: "overview", label: "Overview" },
+    { value: "visa", label: "Visa & Immigration" },
+    { value: "taxes", label: "Taxes" }
+  ];
+
   return (
     <DashboardLayout>
       <div className="flex w-full gap-3 flex-wrap items-center justify-between">
@@ -41,30 +51,21 @@ function CountryDetails() {
         />
       </div>
 
-      <Tabs defaultValue="overview" className="mt-5">
-        <TabsList className="grid gap-3 grid-cols-3 w-full md:w-[600px] bg-white">
-          <TabsTrigger
-            value="overview"
-            className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none"
-          >
-            Overview
-          </TabsTrigger>
-          <TabsTrigger
-            value="visa"
-            className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none"
-          >
-            Visa & Immigration
-          </TabsTrigger>
-          <TabsTrigger
-            value="taxes"
-            className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none"
-          >
-            Taxes
-          </TabsTrigger>
-        </TabsList>
+      <Tabs value={activeTab} className="mt-5">
+        <div className="flex items-center gap-4 w-full overflow-x-scroll no-scrollbar">
+          {tabs.map((tab) => (
+            <FilterButton
+              key={tab.value}
+              title={tab.label}
+              isActive={activeTab === tab.value}
+              onClick={() => setActiveTab(tab.value)}
+            />
+          ))}
+        </div>
+
         <TabsContent value="overview">
           <h2 className="font-medium text-2xl my-7">Background</h2>
-          <p className=" text-[#222222]">
+          <p className="text-[#222222]">
             The Swiss Confederation was founded in 1291 as a defensive alliance
             among three cantons. In succeeding years, other localities joined
             the original three. The Swiss Confederation secured its independence
