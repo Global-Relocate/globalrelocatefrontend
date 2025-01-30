@@ -7,13 +7,14 @@ import VerifyEmail from "./pages/unauthenticated/VerifyEmail";
 import ResetPassword from "./pages/unauthenticated/ResetPassword";
 import Welcome from "./pages/authenticated/Welcome";
 import OAuthCallback from "./pages/unauthenticated/OAuthCallback";
+import NotFound from "./pages/NotFound";
 
 // Dashboard route imports
 import Countries from "./pages/user/Countries";
 import AiAssistant from "./pages/user/AiAssistant";
 import CompareCountries from "./pages/user/CompareCountries";
 import TaxCalculator from "./pages/user/TaxCalculator";
-import Favourites from "./pages/user/Favourites";
+import Favorites from "./pages/user/Favorites";
 import Community from "./pages/user/Community";
 import Notifications from "./pages/user/Notifications";
 import CountryDetails from "./pages/user/CountryDetails";
@@ -33,7 +34,7 @@ function App() {
       <Route path="/oauth/callback" element={<OAuthCallback />} />
       <Route path="/welcome" element={<Welcome />} />
 
-      {/* Dashboard routes  */}
+      {/* Dashboard routes */}
       <Route path="/user">
         <Route path="countries" element={<Countries />} />
         <Route path="countries/:countryName" element={<CountryDetails />} />
@@ -41,11 +42,14 @@ function App() {
         <Route path="compare" element={<CompareCountries />} />
         <Route path="tax-calculator" element={<TaxCalculator />} />
         <Route path="notifications" element={<Notifications />} />
-        <Route path="favourites" element={<Favourites />} />
+        <Route path="favorites" element={<Favorites />} />
         <Route path="community" element={<Community />} />
         {/* <Route path="settings" element={<Settings />} /> */}
         <Route path="profile" element={<Profile />} />
       </Route>
+
+      {/* 404 route */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
