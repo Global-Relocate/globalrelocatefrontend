@@ -42,9 +42,9 @@ export const userSidebarItems = [
     icon: bellIcon,
   },
   {
-    title: "Favourites",
-    activeKey: "/user/favourites",
-    path: "/user/favourites",
+    title: "Favorites",
+    activeKey: "/user/favorites",
+    path: "/user/favorites",
     icon: favoriteIcon,
     activeIcon: filledfavoriteIcon,
   },
