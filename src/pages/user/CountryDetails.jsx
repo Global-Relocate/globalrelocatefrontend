@@ -1,11 +1,10 @@
-import DashboardLayout from "@/components/layouts/DashboardLayout";
-import swizerland from "../../assets/images/swizerland.png";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { BiHeart } from "react-icons/bi";
 import { PiShare } from "react-icons/pi";
 import FilterButton from '@/components/utils/FilterButton';
 import { useState } from "react";
+import swizerland from "../../assets/images/swizerland.png";
 
 function CountryDetails() {
   const [activeTab, setActiveTab] = useState("overview");
@@ -17,7 +16,7 @@ function CountryDetails() {
   ];
 
   return (
-    <DashboardLayout>
+    <>
       <div className="flex w-full gap-3 flex-wrap items-center justify-between">
         <div className="flex items-start gap-2">
           <img
@@ -42,7 +41,6 @@ function CountryDetails() {
           </Button>
         </div>
       </div>
-
       <div className="w-full h-[450px] rounded-xl">
         <img
           src={swizerland}
@@ -86,7 +84,7 @@ function CountryDetails() {
         <TabsContent value="visa"></TabsContent>
         <TabsContent value="taxes"></TabsContent>
       </Tabs>
-    </DashboardLayout>
+    </>
   );
 }
 
