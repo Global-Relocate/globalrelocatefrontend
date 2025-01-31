@@ -31,60 +31,67 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar }) => {
     onClose();
   };
 
+  const getCursorPosition = (element) => {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const preCaretRange = range.cloneRange();
+    preCaretRange.selectNodeContents(element);
+    preCaretRange.setEnd(range.endContainer, range.endOffset);
+    return preCaretRange.toString().length;
+  };
+
+  const setCursorPosition = (element, position) => {
+    const range = document.createRange();
+    const sel = window.getSelection();
+    let currentPos = 0;
+    let targetNode = null;
+    let targetOffset = position;
+
+    const traverse = (node) => {
+      if (targetNode) return;
+
+      if (node.nodeType === Node.TEXT_NODE) {
+        const length = node.textContent.length;
+        if (currentPos + length >= position) {
+          targetNode = node;
+          targetOffset = position - currentPos;
+        } else {
+          currentPos += length;
+        }
+      } else {
+        for (const childNode of node.childNodes) {
+          traverse(childNode);
+        }
+      }
+    };
+
+    traverse(element);
+
+    if (targetNode) {
+      range.setStart(targetNode, targetOffset);
+      range.collapse(true);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  };
+
   const handleInput = (e) => {
+    const cursorPosition = getCursorPosition(e.target);
     const text = e.target.textContent;
     setContent(text);
 
-    // Get the current cursor position
-    const selection = window.getSelection();
-    const range = selection.getRangeAt(0);
-    const cursorPosition = range.startOffset;
-
-    // Split text into words and format
-    const words = text.split(/\s+/);
-    const formattedContent = words.map(word => {
-      if (word.startsWith('#')) {
-        return `<span style="color: #208BFE">${word}</span>`;
+    // Format the content while preserving spaces
+    const parts = text.split(/((?<=\s)|(?=\s))/);
+    const formattedContent = parts.map(part => {
+      if (part.startsWith('#')) {
+        return `<span style="color: #208BFE">${part}</span>`;
       }
-      return word;
-    }).join(' ');
+      return part;
+    }).join('');
 
-    // Update the content
+    // Update content and restore cursor
     e.target.innerHTML = formattedContent;
-
-    // Restore cursor position
-    if (editorRef.current) {
-      const newRange = document.createRange();
-      const sel = window.getSelection();
-      
-      // Find the correct text node and position
-      let currentNode = editorRef.current.firstChild;
-      let currentPos = 0;
-      
-      while (currentNode) {
-        if (currentNode.nodeType === Node.TEXT_NODE) {
-          if (currentPos + currentNode.length >= cursorPosition) {
-            newRange.setStart(currentNode, cursorPosition - currentPos);
-            newRange.collapse(true);
-            sel.removeAllRanges();
-            sel.addRange(newRange);
-            break;
-          }
-          currentPos += currentNode.length;
-        } else if (currentNode.nodeType === Node.ELEMENT_NODE) {
-          if (currentNode.textContent && currentPos + currentNode.textContent.length >= cursorPosition) {
-            const textNode = currentNode.firstChild;
-            newRange.setStart(textNode, cursorPosition - currentPos);
-            newRange.collapse(true);
-            sel.removeAllRanges();
-            sel.addRange(newRange);
-            break;
-          }
-          currentPos += currentNode.textContent ? currentNode.textContent.length : 0;
-        }
-        currentNode = currentNode.nextSibling;
-      }
-    }
+    setCursorPosition(e.target, cursorPosition);
   };
 
   return (
@@ -109,7 +116,7 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar }) => {
                 role="textbox"
                 aria-multiline="true"
                 placeholder="Write something"
-                className="w-full min-h-[150px] focus:outline-none text-lg text-black empty:before:content-[attr(placeholder)] empty:before:text-gray-400"
+                className="w-full min-h-[150px] focus:outline-none text-lg text-black empty:before:content-[attr(placeholder)] empty:before:text-gray-400 whitespace-pre-wrap"
                 onInput={handleInput}
               />
             </div>
