@@ -1,26 +1,34 @@
-import { useState, Fragment } from "react";
-import Sidebar from "../navigation/Sidebar";
-import DashNav from "../navigation/DashNav";
+import { AppSidebar } from "@/components/navigation/AppSidebar";
+import { SidebarInset } from "@/components/ui/sidebar";
+import { Outlet } from "react-router-dom";
+import { useState } from "react";
+import SidebarNav from "@/components/navigation/SidebarNav";
+import AccountSettings from "@/pages/user/AccountSettings";
+import { useSidebar } from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 
-import ProtectedRoute from "@/utils/ProtectedRoute";
-import { userSidebarItems } from "../../fakeDataStore";
-
-function DashboardLayout({ children }) {
-  const [navState, setNavState] = useState(false);
+export default function DashboardLayout() {
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const { state } = useSidebar();
+  const isExpanded = state === "expanded";
 
   return (
-    <ProtectedRoute>
-      <Fragment>
-        <DashNav setNavState={setNavState} navState={navState} />
-        <div className="flex">
-          <Sidebar navData={userSidebarItems} navState={navState} />
-          <div className="ml-0 sm:ml-64 w-full min-h-screen flex flex-col">
-            <div className="px-3 pt-32 sm:px-8 w-full ">{children}</div>
+    <>
+      <AppSidebar />
+      <SidebarInset>
+        <SidebarNav onSettingsOpen={setIsSettingsOpen} />
+        <div className="flex-1 overflow-y-auto">
+          <div 
+            className={cn(
+              "container mx-auto py-8 max-w-7xl transition-all duration-200",
+              isExpanded ? "px-8" : "px-4"
+            )}
+          >
+            <Outlet />
           </div>
         </div>
-      </Fragment>
-    </ProtectedRoute>
+      </SidebarInset>
+      <AccountSettings open={isSettingsOpen} onOpenChange={setIsSettingsOpen} />
+    </>
   );
 }
-
-export default DashboardLayout;
