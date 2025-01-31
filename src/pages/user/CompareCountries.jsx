@@ -5,7 +5,7 @@ import React from "react";
 
 function CompareCountries() {
   return (
-    <DashboardLayout>
+    <>
       <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
         <h2 className="text-3xl font-medium">Compare Countries</h2>
 
@@ -14,7 +14,7 @@ function CompareCountries() {
           <FilterButton />
         </div>
       </div>
-    </DashboardLayout>
+    </>
   );
 }
 
