@@ -21,6 +21,8 @@ import CountryDetails from "./pages/user/CountryDetails";
 // import Settings from "./pages/user/Settings";
 import Profile from "./pages/user/Profile";
 import "./App.css";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import DashboardLayout from "@/components/layouts/DashboardLayout";
 
 function App() {
   return (
@@ -34,8 +36,15 @@ function App() {
       <Route path="/oauth/callback" element={<OAuthCallback />} />
       <Route path="/welcome" element={<Welcome />} />
 
-      {/* Dashboard routes */}
-      <Route path="/user">
+      {/* Dashboard routes wrapped in SidebarProvider */}
+      <Route
+        path="/user"
+        element={
+          <SidebarProvider defaultOpen={true}>
+            <DashboardLayout />
+          </SidebarProvider>
+        }
+      >
         <Route path="countries" element={<Countries />} />
         <Route path="countries/:countryName" element={<CountryDetails />} />
         <Route path="ai-assistant" element={<AiAssistant />} />
@@ -44,7 +53,6 @@ function App() {
         <Route path="notifications" element={<Notifications />} />
         <Route path="favorites" element={<Favorites />} />
         <Route path="community" element={<Community />} />
-        {/* <Route path="settings" element={<Settings />} /> */}
         <Route path="profile" element={<Profile />} />
       </Route>
 
