@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import FilterButton from "@/components/utils/FilterButton";
 import { ArrowLeft, MapPin } from 'lucide-react';
 import { LuUserRound } from "react-icons/lu";
-import DashboardLayout from '@/components/layouts/DashboardLayout';
 import { AuthContext } from "../../context/AuthContext";
 import AccountSettings from './AccountSettings';
 
@@ -45,7 +44,7 @@ const Profile = () => {
   };
 
   return (
-    <DashboardLayout>
+    <>
       <div className="max-w-4xl mx-auto px-4">
         {/* Header */}
         <div className="flex items-center gap-4 py-6">
@@ -108,7 +107,7 @@ const Profile = () => {
         {/* Account Settings Modal */}
         <AccountSettings open={isSettingsOpen} onOpenChange={setIsSettingsOpen} />
       </div>
-    </DashboardLayout>
+    </>
   );
 };
 
