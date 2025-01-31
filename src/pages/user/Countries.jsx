@@ -1,6 +1,5 @@
 import CountriesCard from "@/components/cards/CountriesCard";
 import SearchInput from "@/components/inputs/SearchInput";
-import DashboardLayout from "@/components/layouts/DashboardLayout";
 import React, { useState } from "react";
 // countries imports
 import nigeria from "../../assets/images/nigeria.png";
@@ -87,7 +86,7 @@ function Countries() {
   ];
 
   return (
-    <DashboardLayout>
+    <>
       <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
         <h2 className="text-3xl font-medium">Countries</h2>
         <div className="flex w-full sm:w-auto items-center space-x-2">
@@ -106,22 +105,20 @@ function Countries() {
         ))}
       </div>
 
-      <div className="flex items-center justify-between flex-wrap gap-y-10  py-10">
-        {countriesData.map((item, i) => {
-          return (
-            <CountriesDashCard
-              key={i}
-              location={item.location}
-              isLiked={isFavorite(item.location)}
-              onLikeToggle={() => handleLikeToggle(item)}
-              onClick={() => navigate("/user/countries/switzerland")}
-              images={item.images}
-              countryFlag={item.countryFlag}
-            />
-          );
-        })}
+      <div className="flex items-center justify-between flex-wrap gap-y-10 py-10">
+        {countriesData.map((item, i) => (
+          <CountriesDashCard
+            key={i}
+            location={item.location}
+            isLiked={isFavorite(item.location)}
+            onLikeToggle={() => handleLikeToggle(item)}
+            onClick={() => navigate("/user/countries/switzerland")}
+            images={item.images}
+            countryFlag={item.countryFlag}
+          />
+        ))}
       </div>
-    </DashboardLayout>
+    </>
   );
 }
 
