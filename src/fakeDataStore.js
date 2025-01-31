@@ -8,6 +8,7 @@ import bellIcon from "./assets/svg/bell.svg";
 import favoriteIcon from "./assets/svg/favorite.svg";
 import filledfavoriteIcon from "./assets/svg/filledfavorite.svg";
 import communityIcon from "./assets/svg/community.svg";
+import communityActiveIcon from "./assets/svg/communities.svg";
 
 export const userSidebarItems = [
   {
@@ -53,5 +54,6 @@ export const userSidebarItems = [
     activeKey: "/user/community",
     path: "/user/community",
     icon: communityIcon,
+    activeIcon: communityActiveIcon,
   },
 ];
