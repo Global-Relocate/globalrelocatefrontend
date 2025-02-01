@@ -4,6 +4,12 @@ import { HiPhoto } from "react-icons/hi2";
 import { PiVideoFill } from "react-icons/pi";
 import CommunityPostCard from "@/components/community/CommunityPostCard";
 import CreatePostModal from "@/components/community/CreatePostModal";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import image1 from "@/assets/images/image1.png";
 import image2 from "@/assets/images/image2.png";
 import image3 from "@/assets/images/image3.png";
@@ -16,6 +22,7 @@ import image9 from "@/assets/images/image9.png";
 import image10 from "@/assets/images/image10.png";
 import image11 from "@/assets/images/image11.png";
 import image12 from "@/assets/images/image12.png";
+import image13 from "@/assets/images/image13.png";
 import imageStacked from "@/assets/images/stackedimage.png";
 
 function Community() {
@@ -23,8 +30,8 @@ function Community() {
 
   const posts = [
     {
-      avatar: image1,
-      name: "Jerry Lamp",
+      avatar: image13,
+      name: "Leon Francesco",
       timeAgo: "2m ago",
       content: "Rome from every angle - a visual feast of history, culture, and architectural mastery. 🎨 #RomanHoliday #CityViews",
       images: [image12, image11, image10, image9, image8, image7, image6, image5, image4],
@@ -83,7 +90,7 @@ function Community() {
         {/* Start new post section - Fixed at top */}
         <div className="sticky top-20 z-10 px-4 md:px-8 lg:px-20 pt-4 pb-2 bg-white">
           <div 
-            className="bg-[#F8F7F7] border border-[#D4D4D4] rounded-lg p-4 cursor-pointer"
+            className="bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl p-4 cursor-pointer"
             onClick={handleOpenPostModal}
           >
             {/* Desktop/Tablet View */}
