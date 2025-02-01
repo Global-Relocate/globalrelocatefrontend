@@ -7,6 +7,10 @@ import CreatePostModal from "@/components/community/CreatePostModal";
 import image1 from "@/assets/images/image1.png";
 import image2 from "@/assets/images/image2.png";
 import image3 from "@/assets/images/image3.png";
+import image4 from "@/assets/images/image4.png";
+import image5 from "@/assets/images/image5.png";
+import image6 from "@/assets/images/image6.png";
+import image7 from "@/assets/images/image7.png";
 import imageStacked from "@/assets/images/stackedimage.png";
 
 function Community() {
@@ -17,10 +21,41 @@ function Community() {
       avatar: image1,
       name: "Jerry Lamp",
       timeAgo: "2m ago",
-      content: "Hello everyone! My name is Jerry Lamp, i am a traveler and explorer, i am excited about anything related to traveling and would like to connect with liked minded as well on this platform, feel free to say hi.",
+      content: "Step into history at the Colosseum, Rome's iconic amphitheater. Once home to gladiator battles, it stands as a breathtaking symbol of ancient engineering and timeless grandeur. 🏛️ #Colosseum #Rome",
+      images: [image4],
       likesImage: imageStacked,
       likesCount: 6,
       commentsCount: 0
+    },
+    {
+      avatar: image1,
+      name: "Jerry Lamp",
+      timeAgo: "5m ago",
+      content: "Exploring the eternal city's magnificent landmarks. Each corner tells a story of centuries past. 🇮🇹 #RomanArchitecture #TravelDiary",
+      images: [image4, image5],
+      likesImage: imageStacked,
+      likesCount: 8,
+      commentsCount: 2
+    },
+    {
+      avatar: image1,
+      name: "Jerry Lamp",
+      timeAgo: "10m ago",
+      content: "A journey through Rome's architectural wonders. The city's skyline is a testament to human creativity and engineering brilliance. ✨ #RomaViews #Heritage",
+      images: [image4, image5, image6],
+      likesImage: imageStacked,
+      likesCount: 12,
+      commentsCount: 4
+    },
+    {
+      avatar: image1,
+      name: "Jerry Lamp",
+      timeAgo: "15m ago",
+      content: "Rome from every angle - a visual feast of history, culture, and architectural mastery. 🎨 #RomanHoliday #CityViews",
+      images: [image4, image5, image6, image7],
+      likesImage: imageStacked,
+      likesCount: 15,
+      commentsCount: 6
     },
     {
       avatar: image2,
