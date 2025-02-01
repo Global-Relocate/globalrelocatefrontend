@@ -1,16 +1,110 @@
-import React from 'react';
+import { useState } from 'react';
 import favoriteIcon from "../../assets/svg/favorite.svg";
 import heartIcon from "../../assets/svg/heart.svg";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 import { BsThreeDots } from "react-icons/bs";
 import { PiChatCircle } from "react-icons/pi";
-import { useState } from 'react';
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import PropTypes from 'prop-types';
+
+const ImageGrid = ({ images }) => {
+  if (!images || images.length === 0) return null;
+
+  const getGridLayout = () => {
+    switch (images.length) {
+      case 1:
+        return "grid-cols-1";
+      case 2:
+        return "grid-cols-2";
+      case 3:
+        return "grid-cols-2";
+      case 4:
+        return "grid-cols-2";
+      default:
+        return "grid-cols-1";
+    }
+  };
+
+  return (
+    <div className={`grid ${getGridLayout()} gap-2 mt-4`}>
+      {images.length === 1 && (
+        <div className="relative w-full rounded-lg overflow-hidden">
+          <AspectRatio ratio={16 / 9}>
+            <img 
+              src={images[0]} 
+              alt="Post image" 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </AspectRatio>
+        </div>
+      )}
+
+      {images.length === 2 && images.map((image, index) => (
+        <div key={index} className="relative w-full rounded-lg overflow-hidden">
+          <AspectRatio ratio={4 / 3}>
+            <img 
+              src={image} 
+              alt={`Post image ${index + 1}`} 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </AspectRatio>
+        </div>
+      ))}
+
+      {images.length === 3 && (
+        <>
+          <div className="col-span-2 relative w-full rounded-lg overflow-hidden">
+            <AspectRatio ratio={16 / 9}>
+              <img 
+                src={images[0]} 
+                alt="Post image 1" 
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </AspectRatio>
+          </div>
+          {images.slice(1).map((image, index) => (
+            <div key={index} className="relative w-full rounded-lg overflow-hidden">
+              <AspectRatio ratio={4 / 3}>
+                <img 
+                  src={image} 
+                  alt={`Post image ${index + 2}`} 
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AspectRatio>
+            </div>
+          ))}
+        </>
+      )}
+
+      {images.length === 4 && (
+        <>
+          {images.map((image, index) => (
+            <div key={index} className="relative w-full rounded-lg overflow-hidden">
+              <AspectRatio ratio={1}>
+                <img 
+                  src={image} 
+                  alt={`Post image ${index + 1}`} 
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AspectRatio>
+            </div>
+          ))}
+        </>
+      )}
+    </div>
+  );
+};
+
+ImageGrid.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string)
+};
 
 const CommunityPostCard = ({ 
   avatar, 
   name, 
   timeAgo, 
   content, 
+  images,
   likesImage, 
   likesCount, 
   commentsCount 
@@ -48,6 +142,7 @@ const CommunityPostCard = ({
 
       <div className="mb-4">
         <p className="text-gray-800">{content}</p>
+        <ImageGrid images={images} />
       </div>
 
       <div className="border-t border-[#D4D4D4] pt-3">
@@ -74,6 +169,17 @@ const CommunityPostCard = ({
       </div>
     </div>
   );
+};
+
+CommunityPostCard.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  timeAgo: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  images: PropTypes.arrayOf(PropTypes.string),
+  likesImage: PropTypes.string.isRequired,
+  likesCount: PropTypes.number.isRequired,
+  commentsCount: PropTypes.number.isRequired
 };
 
 export default CommunityPostCard; 
