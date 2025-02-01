@@ -5,6 +5,7 @@ import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 import { BsThreeDots } from "react-icons/bs";
 import { PiChatCircle } from "react-icons/pi";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useBookmarks } from "@/context/BookmarkContext";
 import {
   Tooltip,
   TooltipContent,
@@ -124,7 +125,9 @@ const CommunityPostCard = ({
   commentsCount 
 }) => {
   const [isLiked, setIsLiked] = useState(false);
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const { toggleBookmark, isBookmarked } = useBookmarks();
+  const post = { avatar, name, timeAgo, content, images, likesImage, likesCount, commentsCount };
+  const bookmarked = isBookmarked(post);
 
   return (
     <TooltipProvider>
@@ -141,17 +144,17 @@ const CommunityPostCard = ({
             <div className="flex items-center gap-4">
               <Tooltip>
                 <TooltipTrigger>
-                  {isBookmarked ? (
+                  {bookmarked ? (
                     <FaBookmark 
-                      className="text-black cursor-pointer" 
+                      className="text-[#5762D5] cursor-pointer" 
                       size={20} 
-                      onClick={() => setIsBookmarked(false)}
+                      onClick={() => toggleBookmark(post)}
                     />
                   ) : (
                     <FaRegBookmark 
                       className="text-gray-600 cursor-pointer hover:text-[#5762D5]" 
                       size={20} 
-                      onClick={() => setIsBookmarked(true)}
+                      onClick={() => toggleBookmark(post)}
                     />
                   )}
                 </TooltipTrigger>
