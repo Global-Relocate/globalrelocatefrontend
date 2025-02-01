@@ -4,12 +4,6 @@ import { HiPhoto } from "react-icons/hi2";
 import { PiVideoFill } from "react-icons/pi";
 import CommunityPostCard from "@/components/community/CommunityPostCard";
 import CreatePostModal from "@/components/community/CreatePostModal";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import image1 from "@/assets/images/image1.png";
 import image2 from "@/assets/images/image2.png";
 import image3 from "@/assets/images/image3.png";
@@ -88,20 +82,40 @@ function Community() {
     <DashboardLayout>
       <div className="w-full flex flex-col">
         {/* Start new post section - Fixed at top */}
-        <div className="sticky top-20 z-10 px-4 md:px-8 lg:px-20 pt-4 pb-2 bg-white">
-          <div 
-            className="bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl p-4 cursor-pointer"
-            onClick={handleOpenPostModal}
-          >
-            {/* Desktop/Tablet View */}
-            <div className="hidden sm:flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <img src={image1} alt="User avatar" className="w-10 h-10 rounded-full" />
-                <span className="text-black">Start a new post</span>
+        <div className="sticky top-20 z-10 bg-white">
+          <div className="px-4 md:px-8 lg:px-20 pt-2 pb-2">
+            <div 
+              className="bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl p-4 cursor-pointer"
+              onClick={handleOpenPostModal}
+            >
+              {/* Desktop/Tablet View */}
+              <div className="hidden sm:flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <img src={image1} alt="User avatar" className="w-10 h-10 rounded-full" />
+                  <span className="text-black">Start a new post</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="h-6 w-[1px] bg-[#D4D4D4] mx-4" />
+                  <div className="flex items-center gap-4">
+                    <button className="flex items-center gap-2">
+                      <HiPhoto className="text-[#5762D5]" size={24} />
+                      <span>Photo</span>
+                    </button>
+                    <button className="flex items-center gap-2">
+                      <PiVideoFill size={24} />
+                      <span>Video</span>
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center">
-                <div className="h-6 w-[1px] bg-[#D4D4D4] mx-4" />
-                <div className="flex items-center gap-4">
+
+              {/* Mobile View */}
+              <div className="flex sm:hidden flex-col">
+                <div className="flex items-center gap-3 mb-4">
+                  <img src={image1} alt="User avatar" className="w-10 h-10 rounded-full" />
+                  <span className="text-black">Start a new post</span>
+                </div>
+                <div className="flex items-center justify-center gap-8">
                   <button className="flex items-center gap-2">
                     <HiPhoto className="text-[#5762D5]" size={24} />
                     <span>Photo</span>
@@ -113,25 +127,9 @@ function Community() {
                 </div>
               </div>
             </div>
-
-            {/* Mobile View */}
-            <div className="flex sm:hidden flex-col">
-              <div className="flex items-center gap-3 mb-4">
-                <img src={image1} alt="User avatar" className="w-10 h-10 rounded-full" />
-                <span className="text-black">Start a new post</span>
-              </div>
-              <div className="flex items-center justify-center gap-8">
-                <button className="flex items-center gap-2">
-                  <HiPhoto className="text-[#5762D5]" size={24} />
-                  <span>Photo</span>
-                </button>
-                <button className="flex items-center gap-2">
-                  <PiVideoFill size={24} />
-                  <span>Video</span>
-                </button>
-              </div>
-            </div>
           </div>
+          {/* Separator */}
+          <div className="w-screen h-[1px] bg-[#D4D4D4] -ml-[calc((100vw-100%)/2)]" />
         </div>
 
         {/* Scrollable content area */}
