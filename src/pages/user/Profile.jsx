@@ -1,6 +1,6 @@
 // Profile.jsx
-import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import FilterButton from "@/components/utils/FilterButton";
 import { ArrowLeft, MapPin } from 'lucide-react';
@@ -8,37 +8,24 @@ import { LuUserRound } from "react-icons/lu";
 import DashboardLayout from '@/components/layouts/DashboardLayout';
 import { AuthContext } from "../../context/AuthContext";
 import AccountSettings from './AccountSettings';
+import PostsTab from '@/components/profile/tabs/PostsTab';
+import CommentsTab from '@/components/profile/tabs/CommentsTab';
+import BookmarksTab from '@/components/profile/tabs/BookmarksTab';
 
 const Profile = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('posts');
   const { user } = useContext(AuthContext);
-  const displayName = user?.username || user?.name || "User";
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const renderContent = () => {
     switch (activeTab) {
       case 'posts':
-        return (
-          <div className="text-center py-16 bg-white rounded-lg">
-            <h3 className="text-xl font-semibold mb-2">There are no posts yet</h3>
-            <p className="text-gray-600">Posts by this member will show up here.</p>
-          </div>
-        );
+        return <PostsTab />;
       case 'comments':
-        return (
-          <div className="text-center py-16 bg-white rounded-lg">
-            <h3 className="text-xl font-semibold mb-2">There are no comments yet</h3>
-            <p className="text-gray-600">Comments by you will show up here.</p>
-          </div>
-        );
+        return <CommentsTab />;
       case 'bookmarks':
-        return (
-          <div className="text-center py-16 bg-white rounded-lg">
-            <h3 className="text-xl font-semibold mb-2">No bookmarked posts</h3>
-            <p className="text-gray-600">Start bookmarking posts to keep them organized.</p>
-          </div>
-        );
+        return <BookmarksTab />;
       default:
         return null;
     }
@@ -56,7 +43,7 @@ const Profile = () => {
         </div>
         
         {/* Profile Card */}
-        <div className="bg-[#F8F7F7] rounded-lg p-6 mb-8 border border-[#0E0F0C1F]">
+        <div className="bg-[#F8F7F7] rounded-2xl p-6 mb-8 border border-[#D4D4D4]">
           <div className="flex justify-between items-start mb-6">
             <div className="flex flex-col items-start gap-4">
               {/* Avatar Section */}
