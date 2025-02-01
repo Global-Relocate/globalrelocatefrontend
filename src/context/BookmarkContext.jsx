@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
+import PropTypes from 'prop-types';
 
 const BookmarkContext = createContext();
 
@@ -14,9 +15,9 @@ export const BookmarkProvider = ({ children }) => {
 
   const toggleBookmark = (post) => {
     setBookmarks(prev => {
-      const exists = prev.find(b => b.id === post.id);
+      const exists = prev.find(b => b.content === post.content && b.timeAgo === post.timeAgo);
       const newBookmarks = exists 
-        ? prev.filter(b => b.id !== post.id)
+        ? prev.filter(b => !(b.content === post.content && b.timeAgo === post.timeAgo))
         : [...prev, post];
       
       localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
@@ -25,17 +26,17 @@ export const BookmarkProvider = ({ children }) => {
         toast(`Post removed from bookmarks`, {
           action: {
             label: 'View Bookmarks',
-            onClick: () => navigate('/user/profile?tab=bookmarks')
+            onClick: () => navigate('/user/profile')
           },
           icon: <FaRegBookmark className="w-5 h-5" />,
           closeButton: true,
           dismissible: true
         });
       } else {
-        toast(`Post saved to bookmarks`, {
+        toast(`Post added to bookmarks`, {
           action: {
             label: 'View Bookmarks',
-            onClick: () => navigate('/user/profile?tab=bookmarks')
+            onClick: () => navigate('/user/profile')
           },
           icon: <FaBookmark className="w-5 h-5" />,
           closeButton: true,
@@ -47,8 +48,8 @@ export const BookmarkProvider = ({ children }) => {
     });
   };
 
-  const isBookmarked = (postId) => {
-    return bookmarks.some(b => b.id === postId);
+  const isBookmarked = (post) => {
+    return bookmarks.some(b => b.content === post.content && b.timeAgo === post.timeAgo);
   };
 
   return (
@@ -56,6 +57,10 @@ export const BookmarkProvider = ({ children }) => {
       {children}
     </BookmarkContext.Provider>
   );
+};
+
+BookmarkProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export const useBookmarks = () => useContext(BookmarkContext); 
