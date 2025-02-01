@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { FavoritesProvider } from "./context/favorites-context";
+import { BookmarkProvider } from "./context/BookmarkContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import { Toaster } from "./components/ui/sonner";
 
@@ -13,10 +14,12 @@ createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <BrowserRouter>
         <FavoritesProvider>
-          <LanguageProvider>
-            <Toaster />
-            <App />
-          </LanguageProvider>
+          <BookmarkProvider>
+            <LanguageProvider>
+              <Toaster />
+              <App />
+            </LanguageProvider>
+          </BookmarkProvider>
         </FavoritesProvider>
       </BrowserRouter>
     </AuthProvider>
