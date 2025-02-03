@@ -25,6 +25,7 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar }) => {
   ];
 
   const handlePost = () => {
+
     // Handle post creation here
     console.log("Post content:", content);
     console.log("Privacy setting:", privacy);
@@ -80,7 +81,6 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar }) => {
     const text = e.target.textContent;
     setContent(text);
 
-    // Format the content while preserving spaces
     const parts = text.split(/((?<=\s)|(?=\s))/);
     const formattedContent = parts.map(part => {
       if (part.startsWith('#')) {
@@ -89,7 +89,6 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar }) => {
       return part;
     }).join('');
 
-    // Update content and restore cursor
     e.target.innerHTML = formattedContent;
     setCursorPosition(e.target, cursorPosition);
   };
@@ -98,6 +97,7 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/30 backdrop-blur-md" onClick={onClose} />
       <div className="relative bg-white rounded-lg w-full max-w-2xl mx-4">
+      
         {/* Close button */}
         <div className="absolute right-4 top-4">
           <button onClick={onClose} className="p-1 hover:bg-gray-100 rounded-full">
@@ -105,25 +105,32 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar }) => {
           </button>
         </div>
 
+
         {/* Content */}
         <div className="p-4 pt-14">
-          <div className="flex gap-3 items-start">
+          <div className="flex gap-3 items-start relative">
             <img src={userAvatar} alt="User avatar" className="w-10 h-10 rounded-full" />
-            <div className="flex-1">
+            <div className="flex-1 pr-[70px]">
               <div
                 ref={editorRef}
                 contentEditable
                 role="textbox"
                 aria-multiline="true"
                 placeholder="Write something"
-                className="w-full min-h-[150px] focus:outline-none text-lg text-black empty:before:content-[attr(placeholder)] empty:before:text-gray-400 whitespace-pre-wrap"
+                className="w-full min-h-[150px] max-h-[300px] overflow-y-auto focus:outline-none text-lg text-black empty:before:content-[attr(placeholder)] empty:before:text-gray-400 whitespace-pre-wrap p-2"
                 onInput={handleInput}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    document.execCommand('insertHTML', false, '<br><br>');
+                    e.preventDefault();
+                  }
+                }}
               />
             </div>
             <button
               onClick={handlePost}
               disabled={!content.trim()}
-              className={`px-4 py-1 rounded-full ${
+              className={`absolute right-0 top-0 px-4 py-1 rounded-full ${
                 content.trim() 
                   ? "bg-black text-white hover:bg-gray-800" 
                   : "bg-[#D4D4D4] text-white cursor-not-allowed"
