@@ -4,6 +4,7 @@ import aiAssistantIcon from "./assets/svg/ai.svg";
 import aiActiveIcon from "./assets/svg/ai-assistant.svg";
 import compareIcon from "./assets/svg/compare.svg";
 import calculatorIcon from "./assets/svg/calculator.svg";
+import calculatorActiveIcon from "./assets/svg/filledcalculator.svg";
 import bellIcon from "./assets/svg/bell.svg";
 import favoriteIcon from "./assets/svg/favorite.svg";
 import filledfavoriteIcon from "./assets/svg/filledfavorite.svg";
@@ -35,6 +36,7 @@ export const userSidebarItems = [
     activeKey: "/user/tax-calculator",
     path: "/user/tax-calculator",
     icon: calculatorIcon,
+    activeIcon: calculatorActiveIcon,
   },
   {
     title: "Notifications",
