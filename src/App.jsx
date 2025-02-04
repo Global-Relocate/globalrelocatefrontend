@@ -23,6 +23,8 @@ import CountryDetails from "./pages/user/CountryDetails";
 // import Settings from "./pages/user/Settings";
 import Profile from "./pages/user/Profile";
 import Upgrade from "./pages/user/Upgrade";
+import TrialExpired from "./pages/user/TrialExpired";
+import Feedback from "./pages/user/Feedback";
 import "./App.css";
 
 const AppContent = () => {
@@ -40,6 +42,7 @@ const AppContent = () => {
         <Route path="/oauth/callback" element={<OAuthCallback />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/upgrade" element={<Upgrade />} />
+        <Route path="/trialexpired" element={<TrialExpired />} />
 
         {/* Dashboard routes */}
         <Route path="/user">
@@ -51,6 +54,7 @@ const AppContent = () => {
           <Route path="notifications" element={<Notifications />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="community" element={<Community />} />
+          <Route path="feedback" element={<Feedback />} />
           {/* <Route path="settings" element={<Settings />} /> */}
           <Route path="profile" element={<Profile />} />
         </Route>
