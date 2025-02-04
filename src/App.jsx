@@ -8,6 +8,8 @@ import ResetPassword from "./pages/unauthenticated/ResetPassword";
 import Welcome from "./pages/authenticated/Welcome";
 import OAuthCallback from "./pages/unauthenticated/OAuthCallback";
 import NotFound from "./pages/NotFound";
+import { TrialProvider, useTrial } from "./context/TrialContext";
+import TrialExpiredModal from "./components/modals/TrialExpiredModal";
 
 // Dashboard route imports
 import Countries from "./pages/user/Countries";
@@ -20,37 +22,57 @@ import Notifications from "./pages/user/Notifications";
 import CountryDetails from "./pages/user/CountryDetails";
 // import Settings from "./pages/user/Settings";
 import Profile from "./pages/user/Profile";
+import Upgrade from "./pages/user/Upgrade";
+import TrialExpired from "./pages/user/TrialExpired";
+import Feedback from "./pages/user/Feedback";
 import "./App.css";
+
+const AppContent = () => {
+  const { showTrialModal } = useTrial();
+
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/verifymail" element={<VerifyEmail />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/oauth/callback" element={<OAuthCallback />} />
+        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/upgrade" element={<Upgrade />} />
+        <Route path="/trialexpired" element={<TrialExpired />} />
+
+        {/* Dashboard routes */}
+        <Route path="/user">
+          <Route path="countries" element={<Countries />} />
+          <Route path="countries/:countryName" element={<CountryDetails />} />
+          <Route path="ai-assistant" element={<AiAssistant />} />
+          <Route path="compare" element={<CompareCountries />} />
+          <Route path="tax-calculator" element={<TaxCalculator />} />
+          <Route path="notifications" element={<Notifications />} />
+          <Route path="favorites" element={<Favorites />} />
+          <Route path="community" element={<Community />} />
+          <Route path="feedback" element={<Feedback />} />
+          {/* <Route path="settings" element={<Settings />} /> */}
+          <Route path="profile" element={<Profile />} />
+        </Route>
+
+        {/* 404 route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
+      <TrialExpiredModal isOpen={showTrialModal} />
+    </>
+  );
+};
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/forgotpassword" element={<ForgotPassword />} />
-      <Route path="/verifymail" element={<VerifyEmail />} />
-      <Route path="/resetpassword" element={<ResetPassword />} />
-      <Route path="/oauth/callback" element={<OAuthCallback />} />
-      <Route path="/welcome" element={<Welcome />} />
-
-      {/* Dashboard routes */}
-      <Route path="/user">
-        <Route path="countries" element={<Countries />} />
-        <Route path="countries/:countryName" element={<CountryDetails />} />
-        <Route path="ai-assistant" element={<AiAssistant />} />
-        <Route path="compare" element={<CompareCountries />} />
-        <Route path="tax-calculator" element={<TaxCalculator />} />
-        <Route path="notifications" element={<Notifications />} />
-        <Route path="favorites" element={<Favorites />} />
-        <Route path="community" element={<Community />} />
-        {/* <Route path="settings" element={<Settings />} /> */}
-        <Route path="profile" element={<Profile />} />
-      </Route>
-
-      {/* 404 route */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <TrialProvider>
+      <AppContent />
+    </TrialProvider>
   );
 }
 
