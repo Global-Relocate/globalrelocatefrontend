@@ -189,7 +189,9 @@ const CountryDropdownComponent = (
                     <CheckIcon
                       className={cn(
                         "ml-auto h-4 w-4 shrink-0",
-                        selectedCountries.some((c) => c.alpha2 === option.alpha2)
+                        selectedCountries.some(
+                          (c) => c.alpha2 === option.alpha2
+                        )
                           ? "opacity-100"
                           : "opacity-0"
                       )}
@@ -206,4 +208,4 @@ const CountryDropdownComponent = (
 
 CountryDropdownComponent.displayName = "CountryDropdownComponent";
 
-export const CountryDropdown = forwardRef(CountryDropdownComponent); 
+export const CountryDropdown = forwardRef(CountryDropdownComponent);
