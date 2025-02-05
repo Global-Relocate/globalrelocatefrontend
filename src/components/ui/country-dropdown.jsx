@@ -158,8 +158,8 @@ const CountryDropdownComponent = (
         <Command className="w-full max-h-[200px] sm:max-h-[270px]">
           <CommandList>
             <div className="sticky top-0 z-10 bg-popover">
-              <CommandInput 
-                placeholder="Search country..." 
+              <CommandInput
+                placeholder="Search country..."
                 className="h-12 text-base placeholder:text-gray-400 focus:placeholder:text-gray-400"
               />
             </div>
@@ -187,7 +187,9 @@ const CountryDropdownComponent = (
                     <CheckIcon
                       className={cn(
                         "ml-auto h-4 w-4 shrink-0",
-                        selectedCountries.some((c) => c.alpha2 === option.alpha2)
+                        selectedCountries.some(
+                          (c) => c.alpha2 === option.alpha2
+                        )
                           ? "opacity-100"
                           : "opacity-0"
                       )}
@@ -204,4 +206,4 @@ const CountryDropdownComponent = (
 
 CountryDropdownComponent.displayName = "CountryDropdownComponent";
 
-export const CountryDropdown = forwardRef(CountryDropdownComponent); 
+export const CountryDropdown = forwardRef(CountryDropdownComponent);
