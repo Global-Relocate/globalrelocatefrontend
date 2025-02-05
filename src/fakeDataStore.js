@@ -4,10 +4,13 @@ import aiAssistantIcon from "./assets/svg/ai.svg";
 import aiActiveIcon from "./assets/svg/ai-assistant.svg";
 import compareIcon from "./assets/svg/compare.svg";
 import calculatorIcon from "./assets/svg/calculator.svg";
+import calculatorActiveIcon from "./assets/svg/filledcalculator.svg";
 import bellIcon from "./assets/svg/bell.svg";
+import bellActiveIcon from "./assets/svg/filledbell.svg";
 import favoriteIcon from "./assets/svg/favorite.svg";
 import filledfavoriteIcon from "./assets/svg/filledfavorite.svg";
 import communityIcon from "./assets/svg/community.svg";
+import communityActiveIcon from "./assets/svg/communities.svg";
 
 export const userSidebarItems = [
   {
@@ -34,12 +37,14 @@ export const userSidebarItems = [
     activeKey: "/user/tax-calculator",
     path: "/user/tax-calculator",
     icon: calculatorIcon,
+    activeIcon: calculatorActiveIcon,
   },
   {
     title: "Notifications",
     activeKey: "/user/notifications",
     path: "/user/notifications",
     icon: bellIcon,
+    activeIcon: bellActiveIcon,
   },
   {
     title: "Favorites",
@@ -53,5 +58,6 @@ export const userSidebarItems = [
     activeKey: "/user/community",
     path: "/user/community",
     icon: communityIcon,
+    activeIcon: communityActiveIcon,
   },
 ];

@@ -38,6 +38,7 @@ const CountryDropdownComponent = (
     slim = false,
     inline = false,
     multiple = false,
+    textSize = "base",
     className,
     ...props
   },
@@ -102,7 +103,8 @@ const CountryDropdownComponent = (
   );
 
   const triggerClasses = cn(
-    "flex h-12 w-full items-center justify-between whitespace-nowrap rounded-lg border border-input bg-transparent px-3 text-base ring-offset-background focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 transition-colors duration-200",
+    "flex h-12 w-full items-center justify-between whitespace-nowrap rounded-lg border border-gray-300 bg-white px-3 ring-offset-background focus:outline-none focus-visible:ring-1 focus-visible:ring-gray-300 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 transition-colors duration-200",
+    `text-${textSize}`,
     slim === true && "gap-1 w-min",
     inline && "rounded-r-none border-r-0 gap-1 pr-1 w-min",
     className
@@ -131,7 +133,7 @@ const CountryDropdownComponent = (
                   />
                 </div>
                 {slim === false && !inline && (
-                  <span className="overflow-hidden text-ellipsis whitespace-nowrap text-gray-900 text-base">
+                  <span className={`overflow-hidden text-ellipsis whitespace-nowrap text-black text-${textSize}`}>
                     {selectedCountries[0].name}
                   </span>
                 )}
@@ -139,15 +141,15 @@ const CountryDropdownComponent = (
             )}
           </div>
         ) : (
-          <span className="flex items-center gap-2 text-gray-400 text-base">
+          <span className={`flex items-center gap-2 text-gray-400 text-${textSize}`}>
             {inline || slim ? <Globe size={16} /> : placeholder}
           </span>
         )}
 
         {!inline ? (
-          <ChevronDown size={16} className="text-gray-400" />
+          <ChevronDown size={16} className="text-black opacity-50" />
         ) : (
-          <ChevronsUpDown size={16} className="text-gray-400" />
+          <ChevronsUpDown size={16} className="text-black opacity-50" />
         )}
       </PopoverTrigger>
       <PopoverContent
@@ -158,9 +160,9 @@ const CountryDropdownComponent = (
         <Command className="w-full max-h-[200px] sm:max-h-[270px]">
           <CommandList>
             <div className="sticky top-0 z-10 bg-popover">
-              <CommandInput
-                placeholder="Search country..."
-                className="h-12 text-base placeholder:text-gray-400 focus:placeholder:text-gray-400"
+              <CommandInput 
+                placeholder="Search country..." 
+                className={`h-12 text-${textSize} placeholder:text-gray-400 focus:placeholder:text-gray-400`}
               />
             </div>
             <CommandEmpty>No country found.</CommandEmpty>
@@ -169,7 +171,7 @@ const CountryDropdownComponent = (
                 .filter((x) => x.name)
                 .map((option, key) => (
                   <CommandItem
-                    className="flex items-center w-full gap-2 py-2.5 text-base"
+                    className={`flex items-center w-full gap-2 py-2.5 text-${textSize}`}
                     key={key}
                     onSelect={() => handleSelect(option)}
                   >

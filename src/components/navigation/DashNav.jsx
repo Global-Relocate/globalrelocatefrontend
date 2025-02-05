@@ -15,6 +15,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { LuUserRound } from "react-icons/lu";
 import AccountSettings from "../../pages/user/AccountSettings";
+import PropTypes from 'prop-types';
 
 function DashNav({ navState, setNavState }) {
   const { user, logout } = useContext(AuthContext);
@@ -79,7 +80,10 @@ function DashNav({ navState, setNavState }) {
               Privacy Policy
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="cursor-pointer font-bold">
+            <DropdownMenuItem 
+              className="cursor-pointer font-bold"
+              onClick={() => navigate("/upgrade")}
+            >
               Upgrade plan
             </DropdownMenuItem>
             <DropdownMenuSeparator />
@@ -98,5 +102,10 @@ function DashNav({ navState, setNavState }) {
     </div>
   );
 }
+
+DashNav.propTypes = {
+  navState: PropTypes.bool.isRequired,
+  setNavState: PropTypes.func.isRequired
+};
 
 export default DashNav;

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import DeleteAccountModal from '@/components/modals/DeleteAccountModal';
+import PropTypes from 'prop-types';
 
-const AccountTab = ({ user, showDeleteModal, setShowDeleteModal }) => {
+const AccountTab = ({ user }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="px-8 py-6 h-full">
@@ -24,7 +27,11 @@ const AccountTab = ({ user, showDeleteModal, setShowDeleteModal }) => {
             <p className="text-sm text-gray-600 max-w-md p-2">
               You are currently in free plan valid for 3 days. Upgrade now to keep using Global Relocate.
             </p>
-            <Button variant="default" className="bg-black">
+            <Button 
+              variant="default" 
+              className="bg-black"
+              onClick={() => navigate('/upgrade')}
+            >
               Learn more
             </Button>
           </div>
@@ -52,6 +59,12 @@ const AccountTab = ({ user, showDeleteModal, setShowDeleteModal }) => {
       />
     </div>
   );
+};
+
+AccountTab.propTypes = {
+  user: PropTypes.shape({
+    email: PropTypes.string
+  })
 };
 
 export default AccountTab;
