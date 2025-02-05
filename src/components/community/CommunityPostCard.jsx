@@ -6,6 +6,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { PiChatCircle } from "react-icons/pi";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useBookmarks } from "@/context/BookmarkContext";
+import CommentInput from './CommentInput';
 import {
   Tooltip,
   TooltipContent,
@@ -125,9 +126,15 @@ const CommunityPostCard = ({
   commentsCount 
 }) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [showCommentInput, setShowCommentInput] = useState(false);
   const { toggleBookmark, isBookmarked } = useBookmarks();
   const post = { avatar, name, timeAgo, content, images, likesImage, likesCount, commentsCount };
   const bookmarked = isBookmarked(post);
+
+  const handleCommentSubmit = (comment) => {
+    // Handle the comment submission here
+    console.log('New comment:', comment);
+  };
 
   return (
     <TooltipProvider>
@@ -198,8 +205,14 @@ const CommunityPostCard = ({
               <div className="flex items-center gap-4">
                 <Tooltip>
                   <TooltipTrigger>
-                    <div className="flex items-center gap-3 cursor-pointer">
-                      <PiChatCircle size={20} className="text-gray-600 hover:text-[#5762D5]" />
+                    <div 
+                      className="flex items-center gap-3 cursor-pointer"
+                      onClick={() => setShowCommentInput(!showCommentInput)}
+                    >
+                      <PiChatCircle 
+                        size={20} 
+                        className={`${showCommentInput ? 'text-[#5762D5]' : 'text-gray-600 hover:text-[#5762D5]'}`} 
+                      />
                     </div>
                   </TooltipTrigger>
                   <TooltipContent className="bg-[#5762D5]">
@@ -224,6 +237,15 @@ const CommunityPostCard = ({
             </div>
           </div>
         </div>
+
+        {showCommentInput && (
+          <div className="mt-2 pb-2">
+            <CommentInput 
+              userAvatar={avatar}
+              onSubmit={handleCommentSubmit}
+            />
+          </div>
+        )}
       </div>
     </TooltipProvider>
   );
