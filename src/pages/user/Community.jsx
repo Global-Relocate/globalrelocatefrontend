@@ -129,7 +129,7 @@ function Community() {
             </div>
           </div>
           {/* Separator */}
-          <div className="w-screen h-[1px] bg-[#D4D4D4] -ml-[calc((100vw-100%)/2)]" />
+          <div className="w-screen h-[1px] bg-[#D4D4D4] -ml-[calc((100vw-77%)/2)]"  />
         </div>
 
         {/* Scrollable content area */}
