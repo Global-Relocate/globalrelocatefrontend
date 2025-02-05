@@ -1,50 +1,65 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '@/context/AuthContext';
-import { Button } from "@/components/ui/button";
-import logo from "../../assets/svg/logo.svg";
+import { IoClose } from "react-icons/io5";
+import { IoSendSharp } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
+import DashboardLayout from "@/components/layouts/DashboardLayout";
 
 const Feedback = () => {
   const { user } = useContext(AuthContext);
   const [feedback, setFeedback] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle feedback submission here
     console.log('Feedback submitted:', feedback);
     setFeedback('');
+    navigate(-1); // Go back after submission
   };
 
   return (
-    <div className="min-h-screen p-8">
-      <img src={logo} alt="Global Relocate Logo" className="w-32 mb-16" />
-      
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-medium mb-3">
-          Hey, {user?.name || 'there'}. What has worked well? Tell us what you like about Global Relocate
-        </h1>
-        
-        <form onSubmit={handleSubmit} className="mt-8">
-          <textarea
-            value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
-            placeholder="Type here"
-            className="w-full h-48 p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/5 resize-none text-base"
-          />
-          
-          <div className="mt-4 flex justify-end">
-            <Button
-              type="submit"
-              disabled={!feedback.trim()}
-              className={`px-8 py-2.5 rounded-xl text-white ${
-                feedback.trim() ? 'bg-black hover:bg-black/90' : 'bg-gray-200 cursor-not-allowed'
-              }`}
+    <DashboardLayout>
+      <div className="fixed inset-0 z-[100] flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => navigate(-1)} />
+        <div className="relative bg-white rounded-[32px] w-full max-w-[800px] mx-4">
+          <div className="absolute right-6 top-6">
+            <button 
+              onClick={() => navigate(-1)}
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
             >
-              Send
-            </Button>
+              <IoClose size={24} />
+            </button>
           </div>
-        </form>
+
+          <div className="p-12">
+            <h1 className="text-2xl font-medium text-black mb-8">
+              Hey, {user?.name || 'there'}. What has worked well? Tell us what you like about Global Relocate
+            </h1>
+            
+            <form onSubmit={handleSubmit} className="relative">
+              <textarea
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
+                placeholder="Type here"
+                className="w-full min-h-[200px] bg-transparent text-black placeholder-gray-400 text-lg focus:outline-none resize-none"
+                autoFocus
+              />
+              
+              <button
+                type="submit"
+                disabled={!feedback.trim()}
+                className={`absolute bottom-4 right-4 p-3 rounded-lg transition-colors ${
+                  feedback.trim() ? 'bg-black text-white hover:bg-black/90' : 'bg-[#F2F4F7] text-[#98A2B3]'
+                }`}
+              >
+                <IoSendSharp size={18} className="-rotate-45" />
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
+    </DashboardLayout>
   );
 };
 
