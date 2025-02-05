@@ -70,7 +70,10 @@ function DashNav({ navState, setNavState }) {
               Account Settings
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="cursor-pointer">
+            <DropdownMenuItem 
+              className="cursor-pointer"
+              onClick={() => navigate("/user/feedback")}
+            >
               Give us feedback
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
