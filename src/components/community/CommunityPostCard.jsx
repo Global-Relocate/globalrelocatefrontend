@@ -5,6 +5,13 @@ import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 import { BsThreeDots } from "react-icons/bs";
 import { PiChatCircle } from "react-icons/pi";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { useBookmarks } from "@/context/BookmarkContext";
 import CommentInput from './CommentInput';
 import {
@@ -14,8 +21,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import PropTypes from 'prop-types';
+import CommentThread from './CommentThread';
 
 const ImageGrid = ({ images }) => {
+  const [showCarousel, setShowCarousel] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
   if (!images || images.length === 0) return null;
 
   const displayImages = images.slice(0, 4);
@@ -36,10 +47,48 @@ const ImageGrid = ({ images }) => {
     }
   };
 
+  if (showCarousel) {
+    return (
+      <div 
+        className="relative w-full"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <button
+          onClick={() => setShowCarousel(false)}
+          className="absolute top-4 right-4 z-20 bg-black bg-opacity-50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-opacity-70"
+        >
+          ✕
+        </button>
+        <Carousel className="w-full">
+          <CarouselContent>
+            {images.map((image, index) => (
+              <CarouselItem key={index}>
+                <AspectRatio ratio={16 / 9}>
+                  <img
+                    src={image}
+                    alt={`Post image ${index + 1}`}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </AspectRatio>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          {isHovered && (
+            <>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </>
+          )}
+        </Carousel>
+      </div>
+    );
+  }
+
   return (
-    <div className={`grid ${getGridLayout()} gap-3`}>
+    <div className={`grid ${getGridLayout()} gap-3`} onClick={() => setShowCarousel(true)}>
       {displayImages.length === 1 && (
-        <div className="relative w-full rounded-2xl overflow-hidden">
+        <div className="relative w-full rounded-2xl overflow-hidden cursor-pointer">
           <AspectRatio ratio={16 / 9}>
             <img 
               src={displayImages[0]} 
@@ -51,7 +100,7 @@ const ImageGrid = ({ images }) => {
       )}
 
       {displayImages.length === 2 && displayImages.map((image, index) => (
-        <div key={index} className="relative w-full rounded-2xl overflow-hidden">
+        <div key={index} className="relative w-full rounded-2xl overflow-hidden cursor-pointer">
           <AspectRatio ratio={4 / 3}>
             <img 
               src={image} 
@@ -64,7 +113,7 @@ const ImageGrid = ({ images }) => {
 
       {displayImages.length === 3 && (
         <>
-          <div className="col-span-2 relative w-full rounded-2xl overflow-hidden">
+          <div className="col-span-2 relative w-full rounded-2xl overflow-hidden cursor-pointer">
             <AspectRatio ratio={16 / 9}>
               <img 
                 src={displayImages[0]} 
@@ -74,7 +123,7 @@ const ImageGrid = ({ images }) => {
             </AspectRatio>
           </div>
           {displayImages.slice(1).map((image, index) => (
-            <div key={index} className="relative w-full rounded-2xl overflow-hidden">
+            <div key={index} className="relative w-full rounded-2xl overflow-hidden cursor-pointer">
               <AspectRatio ratio={4 / 3}>
                 <img 
                   src={image} 
@@ -90,7 +139,7 @@ const ImageGrid = ({ images }) => {
       {displayImages.length === 4 && (
         <>
           {displayImages.map((image, index) => (
-            <div key={index} className="relative w-full rounded-2xl overflow-hidden">
+            <div key={index} className="relative w-full rounded-2xl overflow-hidden cursor-pointer">
               <AspectRatio ratio={1}>
                 <img 
                   src={image} 
@@ -123,17 +172,58 @@ const CommunityPostCard = ({
   images,
   likesImage, 
   likesCount, 
-  commentsCount 
+  commentsCount,
+  comments = [] 
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
+  const [localComments, setLocalComments] = useState(comments);
   const { toggleBookmark, isBookmarked } = useBookmarks();
   const post = { avatar, name, timeAgo, content, images, likesImage, likesCount, commentsCount };
   const bookmarked = isBookmarked(post);
 
   const handleCommentSubmit = (comment) => {
-    // Handle the comment submission here
-    console.log('New comment:', comment);
+    const newComment = {
+      id: Date.now().toString(),
+      author: name,
+      avatar: avatar,
+      content: comment,
+      timeAgo: 'Just now',
+      replies: []
+    };
+    setLocalComments([...localComments, newComment]);
+    setShowCommentInput(false);
+  };
+
+  const handleReply = (parentId, replyText) => {
+    const newReply = {
+      id: Date.now().toString(),
+      author: name,
+      avatar: avatar,
+      content: replyText,
+      timeAgo: 'Just now',
+      replies: []
+    };
+
+    const updateReplies = (comments) => {
+      return comments.map(comment => {
+        if (comment.id === parentId) {
+          return {
+            ...comment,
+            replies: [...(comment.replies || []), newReply]
+          };
+        }
+        if (comment.replies) {
+          return {
+            ...comment,
+            replies: updateReplies(comment.replies)
+          };
+        }
+        return comment;
+      });
+    };
+
+    setLocalComments(updateReplies(localComments));
   };
 
   return (
@@ -239,12 +329,20 @@ const CommunityPostCard = ({
         </div>
 
         {showCommentInput && (
-          <div className="mt-2 pb-2">
-            <CommentInput 
-              userAvatar={avatar}
-              onSubmit={handleCommentSubmit}
-            />
-          </div>
+          <CommentInput 
+            userAvatar={avatar}
+            onSubmit={handleCommentSubmit}
+            autoFocus={true}
+          />
+        )}
+
+        {localComments.length > 0 && (
+          <CommentThread
+            comments={localComments}
+            currentUserAvatar={avatar}
+            onAddComment={handleCommentSubmit}
+            onReply={handleReply}
+          />
         )}
       </div>
     </TooltipProvider>
@@ -259,7 +357,17 @@ CommunityPostCard.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   likesImage: PropTypes.string.isRequired,
   likesCount: PropTypes.number.isRequired,
-  commentsCount: PropTypes.number.isRequired
+  commentsCount: PropTypes.number.isRequired,
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      timeAgo: PropTypes.string.isRequired,
+      replies: PropTypes.arrayOf(PropTypes.object),
+    })
+  ),
 };
 
 export default CommunityPostCard;
