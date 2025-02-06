@@ -26,11 +26,17 @@ import CommentThread from './CommentThread';
 const ImageGrid = ({ images }) => {
   const [showCarousel, setShowCarousel] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   if (!images || images.length === 0) return null;
 
   const displayImages = images.slice(0, 4);
   const remainingImages = images.length > 4 ? images.length - 4 : 0;
+
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+    setShowCarousel(true);
+  };
 
   const getGridLayout = () => {
     switch (displayImages.length) {
@@ -60,7 +66,7 @@ const ImageGrid = ({ images }) => {
         >
           ✕
         </button>
-        <Carousel className="w-full">
+        <Carousel className="w-full" opts={{ startIndex: selectedImageIndex }}>
           <CarouselContent>
             {images.map((image, index) => (
               <CarouselItem key={index}>
@@ -86,9 +92,12 @@ const ImageGrid = ({ images }) => {
   }
 
   return (
-    <div className={`grid ${getGridLayout()} gap-3`} onClick={() => setShowCarousel(true)}>
+    <div className={`grid ${getGridLayout()} gap-3`}>
       {displayImages.length === 1 && (
-        <div className="relative w-full rounded-2xl overflow-hidden cursor-pointer">
+        <div 
+          className="relative w-full rounded-2xl overflow-hidden cursor-pointer"
+          onClick={() => handleImageClick(0)}
+        >
           <AspectRatio ratio={16 / 9}>
             <img 
               src={displayImages[0]} 
@@ -100,7 +109,11 @@ const ImageGrid = ({ images }) => {
       )}
 
       {displayImages.length === 2 && displayImages.map((image, index) => (
-        <div key={index} className="relative w-full rounded-2xl overflow-hidden cursor-pointer">
+        <div 
+          key={index} 
+          className="relative w-full rounded-2xl overflow-hidden cursor-pointer"
+          onClick={() => handleImageClick(index)}
+        >
           <AspectRatio ratio={4 / 3}>
             <img 
               src={image} 
@@ -113,7 +126,10 @@ const ImageGrid = ({ images }) => {
 
       {displayImages.length === 3 && (
         <>
-          <div className="col-span-2 relative w-full rounded-2xl overflow-hidden cursor-pointer">
+          <div 
+            className="col-span-2 relative w-full rounded-2xl overflow-hidden cursor-pointer"
+            onClick={() => handleImageClick(0)}
+          >
             <AspectRatio ratio={16 / 9}>
               <img 
                 src={displayImages[0]} 
@@ -123,7 +139,11 @@ const ImageGrid = ({ images }) => {
             </AspectRatio>
           </div>
           {displayImages.slice(1).map((image, index) => (
-            <div key={index} className="relative w-full rounded-2xl overflow-hidden cursor-pointer">
+            <div 
+              key={index} 
+              className="relative w-full rounded-2xl overflow-hidden cursor-pointer"
+              onClick={() => handleImageClick(index + 1)}
+            >
               <AspectRatio ratio={4 / 3}>
                 <img 
                   src={image} 
@@ -139,7 +159,11 @@ const ImageGrid = ({ images }) => {
       {displayImages.length === 4 && (
         <>
           {displayImages.map((image, index) => (
-            <div key={index} className="relative w-full rounded-2xl overflow-hidden cursor-pointer">
+            <div 
+              key={index} 
+              className="relative w-full rounded-2xl overflow-hidden cursor-pointer"
+              onClick={() => handleImageClick(index)}
+            >
               <AspectRatio ratio={1}>
                 <img 
                   src={image} 
@@ -171,16 +195,23 @@ const CommunityPostCard = ({
   content, 
   images,
   likesImage, 
-  likesCount, 
-  commentsCount,
+  likesCount: initialLikesCount, 
+  commentsCount: initialCommentsCount,
   comments = [] 
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
   const [localComments, setLocalComments] = useState(comments);
+  const [likesCount, setLikesCount] = useState(initialLikesCount);
+  const [commentsCount, setCommentsCount] = useState(initialCommentsCount);
   const { toggleBookmark, isBookmarked } = useBookmarks();
   const post = { avatar, name, timeAgo, content, images, likesImage, likesCount, commentsCount };
   const bookmarked = isBookmarked(post);
+
+  const handleLikeToggle = () => {
+    setIsLiked(!isLiked);
+    setLikesCount(prevCount => isLiked ? prevCount - 1 : prevCount + 1);
+  };
 
   const handleCommentSubmit = (comment) => {
     const newComment = {
@@ -191,7 +222,8 @@ const CommunityPostCard = ({
       timeAgo: 'Just now',
       replies: []
     };
-    setLocalComments([...localComments, newComment]);
+    setLocalComments(prev => [...prev, newComment]);
+    setCommentsCount(prevCount => prevCount + 1);
     setShowCommentInput(false);
   };
 
@@ -224,6 +256,7 @@ const CommunityPostCard = ({
     };
 
     setLocalComments(updateReplies(localComments));
+    setCommentsCount(prevCount => prevCount + 1);
   };
 
   return (
@@ -316,7 +349,7 @@ const CommunityPostCard = ({
                       src={isLiked ? heartIcon : favoriteIcon} 
                       alt="Like" 
                       className="w-5 h-5 cursor-pointer hover:text-[#5762D5]"
-                      onClick={() => setIsLiked(!isLiked)}
+                      onClick={handleLikeToggle}
                     />
                   </TooltipTrigger>
                   <TooltipContent className="bg-[#5762D5]">
