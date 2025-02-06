@@ -1,11 +1,17 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { PiSmiley } from "react-icons/pi";
 import { IoImageOutline } from "react-icons/io5";
 import PropTypes from 'prop-types';
 
-const CommentInput = ({ userAvatar, onSubmit }) => {
+const CommentInput = ({ userAvatar, onSubmit, autoFocus = false }) => {
   const [comment, setComment] = useState('');
   const textareaRef = useRef(null);
+
+  useEffect(() => {
+    if (autoFocus && textareaRef.current) {
+      textareaRef.current.focus();
+    }
+  }, [autoFocus]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -78,7 +84,8 @@ const CommentInput = ({ userAvatar, onSubmit }) => {
 
 CommentInput.propTypes = {
   userAvatar: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  autoFocus: PropTypes.bool
 };
 
 export default CommentInput; 
