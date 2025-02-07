@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/carousel";
 import { useBookmarks } from "@/context/BookmarkContext";
 import CommentInput from './CommentInput';
+import VideoPlayer from './VideoPlayer';
 import {
   Tooltip,
   TooltipContent,
@@ -68,12 +69,12 @@ const ImageGrid = ({ images }) => {
         </button>
         <Carousel className="w-full" opts={{ startIndex: selectedImageIndex }}>
           <CarouselContent>
-            {images.map((image, index) => (
+            {images.map((media, index) => (
               <CarouselItem key={index}>
                 <AspectRatio ratio={16 / 9}>
                   <img
-                    src={image}
-                    alt={`Post image ${index + 1}`}
+                    src={media}
+                    alt={`Post media ${index + 1}`}
                     className="w-full h-full object-cover rounded-lg"
                   />
                 </AspectRatio>
@@ -188,12 +189,25 @@ ImageGrid.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string)
 };
 
+const VideoContent = ({ videoUrl }) => {
+  return (
+    <div className="w-full mb-4">
+      <VideoPlayer videoUrl={videoUrl} />
+    </div>
+  );
+};
+
+VideoContent.propTypes = {
+  videoUrl: PropTypes.string.isRequired,
+};
+
 const CommunityPostCard = ({ 
   avatar, 
   name, 
   timeAgo, 
   content, 
   images,
+  mediaType = 'image',
   likesImage, 
   likesCount: initialLikesCount, 
   commentsCount: initialCommentsCount,
@@ -259,6 +273,16 @@ const CommunityPostCard = ({
     setCommentsCount(prevCount => prevCount + 1);
   };
 
+  const renderMedia = () => {
+    if (!images || images.length === 0) return null;
+
+    if (mediaType === 'video') {
+      return <VideoContent videoUrl={images[0]} />;
+    }
+
+    return <ImageGrid images={images} />;
+  };
+
   return (
     <TooltipProvider>
       <div className="w-full bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl mb-6">
@@ -309,11 +333,9 @@ const CommunityPostCard = ({
           </div>
         </div>
 
-        {images && images.length > 0 && (
-          <div className="px-6">
-            <ImageGrid images={images} />
-          </div>
-        )}
+        <div className="px-6">
+          {renderMedia()}
+        </div>
 
         <div className="px-6 pt-3 pb-4">
           <div className="border-t border-[#D4D4D4] pt-3">
@@ -388,6 +410,7 @@ CommunityPostCard.propTypes = {
   timeAgo: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   images: PropTypes.arrayOf(PropTypes.string),
+  mediaType: PropTypes.oneOf(['image', 'video']),
   likesImage: PropTypes.string.isRequired,
   likesCount: PropTypes.number.isRequired,
   commentsCount: PropTypes.number.isRequired,
