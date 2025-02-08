@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { HiPhoto } from "react-icons/hi2";
 import { PiVideoFill } from "react-icons/pi";
 import { LuUserRound } from "react-icons/lu";
@@ -14,7 +14,6 @@ import {
 const CreatePostModal = ({ isOpen, onClose, userAvatar }) => {
   const [content, setContent] = useState("");
   const [privacy, setPrivacy] = useState("Anybody can interact");
-  const editorRef = useRef(null);
 
   if (!isOpen) return null;
 
@@ -25,72 +24,10 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar }) => {
   ];
 
   const handlePost = () => {
-
     // Handle post creation here
     console.log("Post content:", content);
     console.log("Privacy setting:", privacy);
     onClose();
-  };
-
-  const getCursorPosition = (element) => {
-    const selection = window.getSelection();
-    const range = selection.getRangeAt(0);
-    const preCaretRange = range.cloneRange();
-    preCaretRange.selectNodeContents(element);
-    preCaretRange.setEnd(range.endContainer, range.endOffset);
-    return preCaretRange.toString().length;
-  };
-
-  const setCursorPosition = (element, position) => {
-    const range = document.createRange();
-    const sel = window.getSelection();
-    let currentPos = 0;
-    let targetNode = null;
-    let targetOffset = position;
-
-    const traverse = (node) => {
-      if (targetNode) return;
-
-      if (node.nodeType === Node.TEXT_NODE) {
-        const length = node.textContent.length;
-        if (currentPos + length >= position) {
-          targetNode = node;
-          targetOffset = position - currentPos;
-        } else {
-          currentPos += length;
-        }
-      } else {
-        for (const childNode of node.childNodes) {
-          traverse(childNode);
-        }
-      }
-    };
-
-    traverse(element);
-
-    if (targetNode) {
-      range.setStart(targetNode, targetOffset);
-      range.collapse(true);
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-  };
-
-  const handleInput = (e) => {
-    const cursorPosition = getCursorPosition(e.target);
-    const text = e.target.textContent;
-    setContent(text);
-
-    const parts = text.split(/((?<=\s)|(?=\s))/);
-    const formattedContent = parts.map(part => {
-      if (part.startsWith('#')) {
-        return `<span style="color: #208BFE">${part}</span>`;
-      }
-      return part;
-    }).join('');
-
-    e.target.innerHTML = formattedContent;
-    setCursorPosition(e.target, cursorPosition);
   };
 
   return (
@@ -105,35 +42,24 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar }) => {
           </button>
         </div>
 
-
         {/* Content */}
         <div className="p-4 pt-14">
           <div className="flex gap-3 items-start relative">
             <img src={userAvatar} alt="User avatar" className="w-10 h-10 rounded-full" />
-            <div className="flex-1 pr-[70px]">
-              <div
-                ref={editorRef}
-                contentEditable
-                role="textbox"
-                aria-multiline="true"
+            <div className="flex-1">
+              <textarea
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
                 placeholder="Write something"
-                className="w-full min-h-[150px] max-h-[300px] overflow-y-auto focus:outline-none text-lg text-black empty:before:content-[attr(placeholder)] empty:before:text-gray-400 whitespace-pre-wrap p-2"
-                onInput={handleInput}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    document.execCommand('insertHTML', false, '<br><br>');
-                    e.preventDefault();
-                  }
-                }}
+                className="w-[85%] min-h-[200px] p-4 bg-white text-black placeholder-gray-400 text-lg focus:outline-none resize-none border border-white rounded-2xl"
+                autoFocus
               />
             </div>
             <button
               onClick={handlePost}
               disabled={!content.trim()}
-              className={`absolute right-0 top-0 px-4 py-1 rounded-full ${
-                content.trim() 
-                  ? "bg-black text-white hover:bg-gray-800" 
-                  : "bg-[#D4D4D4] text-white cursor-not-allowed"
+              className={`absolute right-0 top-0 px-6 py-2 rounded-lg transition-colors ${
+                content.trim() ? 'bg-black text-white hover:bg-black/90' : 'bg-[#D4D4D4] text-white'
               }`}
             >
               Post
