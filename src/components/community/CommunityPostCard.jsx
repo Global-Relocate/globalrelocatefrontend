@@ -5,7 +5,16 @@ import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 import { BsThreeDots } from "react-icons/bs";
 import { PiChatCircle } from "react-icons/pi";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { useBookmarks } from "@/context/BookmarkContext";
+import CommentInput from './CommentInput';
+import VideoPlayer from './VideoPlayer';
 import {
   Tooltip,
   TooltipContent,
@@ -13,12 +22,22 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import PropTypes from 'prop-types';
+import CommentThread from './CommentThread';
 
 const ImageGrid = ({ images }) => {
+  const [showCarousel, setShowCarousel] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
   if (!images || images.length === 0) return null;
 
   const displayImages = images.slice(0, 4);
   const remainingImages = images.length > 4 ? images.length - 4 : 0;
+
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+    setShowCarousel(true);
+  };
 
   const getGridLayout = () => {
     switch (displayImages.length) {
@@ -35,10 +54,51 @@ const ImageGrid = ({ images }) => {
     }
   };
 
+  if (showCarousel) {
+    return (
+      <div 
+        className="relative w-full"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <button
+          onClick={() => setShowCarousel(false)}
+          className="absolute top-4 right-4 z-20 bg-black bg-opacity-50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-opacity-70"
+        >
+          ✕
+        </button>
+        <Carousel className="w-full" opts={{ startIndex: selectedImageIndex }}>
+          <CarouselContent>
+            {images.map((media, index) => (
+              <CarouselItem key={index}>
+                <AspectRatio ratio={16 / 9}>
+                  <img
+                    src={media}
+                    alt={`Post media ${index + 1}`}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </AspectRatio>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          {isHovered && (
+            <>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </>
+          )}
+        </Carousel>
+      </div>
+    );
+  }
+
   return (
     <div className={`grid ${getGridLayout()} gap-3`}>
       {displayImages.length === 1 && (
-        <div className="relative w-full rounded-2xl overflow-hidden">
+        <div 
+          className="relative w-full rounded-2xl overflow-hidden cursor-pointer"
+          onClick={() => handleImageClick(0)}
+        >
           <AspectRatio ratio={16 / 9}>
             <img 
               src={displayImages[0]} 
@@ -50,7 +110,11 @@ const ImageGrid = ({ images }) => {
       )}
 
       {displayImages.length === 2 && displayImages.map((image, index) => (
-        <div key={index} className="relative w-full rounded-2xl overflow-hidden">
+        <div 
+          key={index} 
+          className="relative w-full rounded-2xl overflow-hidden cursor-pointer"
+          onClick={() => handleImageClick(index)}
+        >
           <AspectRatio ratio={4 / 3}>
             <img 
               src={image} 
@@ -63,7 +127,10 @@ const ImageGrid = ({ images }) => {
 
       {displayImages.length === 3 && (
         <>
-          <div className="col-span-2 relative w-full rounded-2xl overflow-hidden">
+          <div 
+            className="col-span-2 relative w-full rounded-2xl overflow-hidden cursor-pointer"
+            onClick={() => handleImageClick(0)}
+          >
             <AspectRatio ratio={16 / 9}>
               <img 
                 src={displayImages[0]} 
@@ -73,7 +140,11 @@ const ImageGrid = ({ images }) => {
             </AspectRatio>
           </div>
           {displayImages.slice(1).map((image, index) => (
-            <div key={index} className="relative w-full rounded-2xl overflow-hidden">
+            <div 
+              key={index} 
+              className="relative w-full rounded-2xl overflow-hidden cursor-pointer"
+              onClick={() => handleImageClick(index + 1)}
+            >
               <AspectRatio ratio={4 / 3}>
                 <img 
                   src={image} 
@@ -89,7 +160,11 @@ const ImageGrid = ({ images }) => {
       {displayImages.length === 4 && (
         <>
           {displayImages.map((image, index) => (
-            <div key={index} className="relative w-full rounded-2xl overflow-hidden">
+            <div 
+              key={index} 
+              className="relative w-full rounded-2xl overflow-hidden cursor-pointer"
+              onClick={() => handleImageClick(index)}
+            >
               <AspectRatio ratio={1}>
                 <img 
                   src={image} 
@@ -114,20 +189,99 @@ ImageGrid.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string)
 };
 
+const VideoContent = ({ videoUrl }) => {
+  return (
+    <div className="w-full mb-4">
+      <VideoPlayer videoUrl={videoUrl} />
+    </div>
+  );
+};
+
+VideoContent.propTypes = {
+  videoUrl: PropTypes.string.isRequired,
+};
+
 const CommunityPostCard = ({ 
   avatar, 
   name, 
   timeAgo, 
   content, 
   images,
+  mediaType = 'image',
   likesImage, 
-  likesCount, 
-  commentsCount 
+  likesCount: initialLikesCount, 
+  commentsCount: initialCommentsCount,
+  comments = [] 
 }) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [showCommentInput, setShowCommentInput] = useState(false);
+  const [localComments, setLocalComments] = useState(comments);
+  const [likesCount, setLikesCount] = useState(initialLikesCount);
+  const [commentsCount, setCommentsCount] = useState(initialCommentsCount);
   const { toggleBookmark, isBookmarked } = useBookmarks();
   const post = { avatar, name, timeAgo, content, images, likesImage, likesCount, commentsCount };
   const bookmarked = isBookmarked(post);
+
+  const handleLikeToggle = () => {
+    setIsLiked(!isLiked);
+    setLikesCount(prevCount => isLiked ? prevCount - 1 : prevCount + 1);
+  };
+
+  const handleCommentSubmit = (comment) => {
+    const newComment = {
+      id: Date.now().toString(),
+      author: name,
+      avatar: avatar,
+      content: comment,
+      timeAgo: 'Just now',
+      replies: []
+    };
+    setLocalComments(prev => [...prev, newComment]);
+    setCommentsCount(prevCount => prevCount + 1);
+    setShowCommentInput(false);
+  };
+
+  const handleReply = (parentId, replyText) => {
+    const newReply = {
+      id: Date.now().toString(),
+      author: name,
+      avatar: avatar,
+      content: replyText,
+      timeAgo: 'Just now',
+      replies: []
+    };
+
+    const updateReplies = (comments) => {
+      return comments.map(comment => {
+        if (comment.id === parentId) {
+          return {
+            ...comment,
+            replies: [...(comment.replies || []), newReply]
+          };
+        }
+        if (comment.replies) {
+          return {
+            ...comment,
+            replies: updateReplies(comment.replies)
+          };
+        }
+        return comment;
+      });
+    };
+
+    setLocalComments(updateReplies(localComments));
+    setCommentsCount(prevCount => prevCount + 1);
+  };
+
+  const renderMedia = () => {
+    if (!images || images.length === 0) return null;
+
+    if (mediaType === 'video') {
+      return <VideoContent videoUrl={images[0]} />;
+    }
+
+    return <ImageGrid images={images} />;
+  };
 
   return (
     <TooltipProvider>
@@ -179,11 +333,9 @@ const CommunityPostCard = ({
           </div>
         </div>
 
-        {images && images.length > 0 && (
-          <div className="px-6">
-            <ImageGrid images={images} />
-          </div>
-        )}
+        <div className="px-6">
+          {renderMedia()}
+        </div>
 
         <div className="px-6 pt-3 pb-4">
           <div className="border-t border-[#D4D4D4] pt-3">
@@ -198,8 +350,14 @@ const CommunityPostCard = ({
               <div className="flex items-center gap-4">
                 <Tooltip>
                   <TooltipTrigger>
-                    <div className="flex items-center gap-3 cursor-pointer">
-                      <PiChatCircle size={20} className="text-gray-600 hover:text-[#5762D5]" />
+                    <div 
+                      className="flex items-center gap-3 cursor-pointer"
+                      onClick={() => setShowCommentInput(!showCommentInput)}
+                    >
+                      <PiChatCircle 
+                        size={20} 
+                        className={`${showCommentInput ? 'text-[#5762D5]' : 'text-gray-600 hover:text-[#5762D5]'}`} 
+                      />
                     </div>
                   </TooltipTrigger>
                   <TooltipContent className="bg-[#5762D5]">
@@ -213,7 +371,7 @@ const CommunityPostCard = ({
                       src={isLiked ? heartIcon : favoriteIcon} 
                       alt="Like" 
                       className="w-5 h-5 cursor-pointer hover:text-[#5762D5]"
-                      onClick={() => setIsLiked(!isLiked)}
+                      onClick={handleLikeToggle}
                     />
                   </TooltipTrigger>
                   <TooltipContent className="bg-[#5762D5]">
@@ -224,6 +382,23 @@ const CommunityPostCard = ({
             </div>
           </div>
         </div>
+
+        {showCommentInput && (
+          <CommentInput 
+            userAvatar={avatar}
+            onSubmit={handleCommentSubmit}
+            autoFocus={true}
+          />
+        )}
+
+        {localComments.length > 0 && (
+          <CommentThread
+            comments={localComments}
+            currentUserAvatar={avatar}
+            onAddComment={handleCommentSubmit}
+            onReply={handleReply}
+          />
+        )}
       </div>
     </TooltipProvider>
   );
@@ -235,9 +410,20 @@ CommunityPostCard.propTypes = {
   timeAgo: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   images: PropTypes.arrayOf(PropTypes.string),
+  mediaType: PropTypes.oneOf(['image', 'video']),
   likesImage: PropTypes.string.isRequired,
   likesCount: PropTypes.number.isRequired,
-  commentsCount: PropTypes.number.isRequired
+  commentsCount: PropTypes.number.isRequired,
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      timeAgo: PropTypes.string.isRequired,
+      replies: PropTypes.arrayOf(PropTypes.object),
+    })
+  ),
 };
 
 export default CommunityPostCard;
