@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { HiPhoto } from "react-icons/hi2";
 import { PiVideoFill } from "react-icons/pi";
 import { LuUserRound } from "react-icons/lu";
@@ -14,12 +14,10 @@ import {
 const CreatePostModal = ({ isOpen, onClose, userAvatar, onPost }) => {
   const [content, setContent] = useState("");
   const [privacy, setPrivacy] = useState("Anybody can interact");
-  const [privacy, setPrivacy] = useState("Anyone");
   const [selectedImages, setSelectedImages] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoPreviewUrl, setVideoPreviewUrl] = useState(null);
-  const editorRef = useRef(null);
   const fileInputRef = useRef(null);
   const videoInputRef = useRef(null);
 
@@ -31,12 +29,6 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar, onPost }) => {
     "Only people you mentioned"
   ];
 
-  const handlePost = () => {
-    // Handle post creation here
-    console.log("Post content:", content);
-    console.log("Privacy setting:", privacy);
-    onClose();
-    
   const handleImageSelect = (e) => {
     if (selectedVideo) return; // Don't allow images if video is selected
     const files = Array.from(e.target.files);
@@ -116,14 +108,12 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar, onPost }) => {
       }
       onClose();
     }
-    
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/30 backdrop-blur-md" onClick={onClose} />
       <div className="relative bg-white rounded-lg w-full max-w-2xl mx-4">
-      
         {/* Close button */}
         <div className="absolute right-4 top-4">
           <button onClick={onClose} className="p-1 hover:bg-gray-100 rounded-full">
@@ -188,9 +178,6 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar, onPost }) => {
             </div>
             <button
               onClick={handlePost}
-              disabled={!content.trim()}
-              className={`absolute right-0 top-0 px-6 py-2 rounded-lg transition-colors ${
-                content.trim() ? 'bg-black text-white hover:bg-black/90' : 'bg-[#D4D4D4] text-white'
               disabled={!content.trim() && selectedImages.length === 0 && !selectedVideo}
               className={`absolute right-0 top-0 px-4 py-1 rounded-full ${
                 content.trim() || selectedImages.length > 0 || selectedVideo
