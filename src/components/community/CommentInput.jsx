@@ -3,7 +3,7 @@ import { PiSmiley } from "react-icons/pi";
 import { IoImageOutline } from "react-icons/io5";
 import PropTypes from 'prop-types';
 
-const CommentInput = ({ userAvatar, onSubmit, autoFocus = false }) => {
+const CommentInput = ({ userAvatar, onSubmit, autoFocus = false, placeholder = "Add a comment" }) => {
   const [comment, setComment] = useState('');
   const textareaRef = useRef(null);
 
@@ -35,7 +35,7 @@ const CommentInput = ({ userAvatar, onSubmit, autoFocus = false }) => {
               ref={textareaRef}
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              placeholder="Add a comment"
+              placeholder={placeholder}
               rows={1}
               className="w-full px-4 pt-3 pb-2 bg-white resize-none focus:outline-none min-h-[44px]"
               style={{
@@ -85,7 +85,8 @@ const CommentInput = ({ userAvatar, onSubmit, autoFocus = false }) => {
 CommentInput.propTypes = {
   userAvatar: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  autoFocus: PropTypes.bool
+  autoFocus: PropTypes.bool,
+  placeholder: PropTypes.string
 };
 
 export default CommentInput; 
