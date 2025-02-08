@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import favoriteIcon from "../../assets/svg/favorite.svg";
 import heartIcon from "../../assets/svg/heart.svg";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 import { BsThreeDots } from "react-icons/bs";
+import { BiBookmark, BiLink } from "react-icons/bi";
+import { FiFlag } from "react-icons/fi";
+import { IoEyeOffOutline } from "react-icons/io5";
+import { Loader2 } from "lucide-react";
 import { PiChatCircle } from "react-icons/pi";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import {
@@ -13,8 +16,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useBookmarks } from "@/context/BookmarkContext";
-import CommentInput from './CommentInput';
-import VideoPlayer from './VideoPlayer';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Tooltip,
   TooltipContent,
@@ -22,7 +29,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import PropTypes from 'prop-types';
+import CommentInput from './CommentInput';
+import VideoPlayer from './VideoPlayer';
 import CommentThread from './CommentThread';
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import { FiEdit3 } from "react-icons/fi";
+import { HiOutlineTrash } from "react-icons/hi";
 
 const ImageGrid = ({ images }) => {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -211,7 +223,8 @@ const CommunityPostCard = ({
   likesImage, 
   likesCount: initialLikesCount, 
   commentsCount: initialCommentsCount,
-  comments = [] 
+  comments = [],
+  currentUserId
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
@@ -219,8 +232,22 @@ const CommunityPostCard = ({
   const [likesCount, setLikesCount] = useState(initialLikesCount);
   const [commentsCount, setCommentsCount] = useState(initialCommentsCount);
   const { toggleBookmark, isBookmarked } = useBookmarks();
-  const post = { avatar, name, timeAgo, content, images, likesImage, likesCount, commentsCount };
+  const post = { 
+    id: Date.now().toString(),
+    avatar, 
+    name, 
+    timeAgo, 
+    content, 
+    images, 
+    mediaType,
+    likesImage, 
+    likesCount: initialLikesCount, 
+    commentsCount: initialCommentsCount 
+  };
   const bookmarked = isBookmarked(post);
+  const [isDropdownLoading, setIsDropdownLoading] = useState(false);
+
+  const isOwnPost = currentUserId === name;
 
   const handleLikeToggle = () => {
     setIsLiked(!isLiked);
@@ -273,6 +300,57 @@ const CommunityPostCard = ({
     setCommentsCount(prevCount => prevCount + 1);
   };
 
+  const handleCommentEdit = (commentId, newContent) => {
+    const updateComments = (comments) => {
+      return comments.map(comment => {
+        if (comment.id === commentId) {
+          return {
+            ...comment,
+            content: newContent
+          };
+        }
+        if (comment.replies) {
+          return {
+            ...comment,
+            replies: updateComments(comment.replies)
+          };
+        }
+        return comment;
+      });
+    };
+
+    setLocalComments(updateComments(localComments));
+  };
+
+  const handleCommentDelete = (commentId) => {
+    const deleteFromComments = (comments) => {
+      return comments.filter(comment => {
+        if (comment.id === commentId) {
+          setCommentsCount(prevCount => prevCount - 1);
+          return false;
+        }
+        if (comment.replies) {
+          comment.replies = deleteFromComments(comment.replies);
+        }
+        return true;
+      });
+    };
+
+    setLocalComments(deleteFromComments(localComments));
+  };
+
+  const handleDropdownClick = () => {
+    setIsDropdownLoading(true);
+    // Simulate loading for 500ms
+    setTimeout(() => {
+      setIsDropdownLoading(false);
+    }, 500);
+  };
+
+  const handleBookmarkToggle = () => {
+    toggleBookmark(post);
+  };
+
   const renderMedia = () => {
     if (!images || images.length === 0) return null;
 
@@ -302,29 +380,71 @@ const CommunityPostCard = ({
                     <FaBookmark 
                       className="text-[#5762D5] cursor-pointer" 
                       size={20} 
-                      onClick={() => toggleBookmark(post)}
+                      onClick={handleBookmarkToggle}
                     />
                   ) : (
                     <FaRegBookmark 
                       className="text-gray-600 cursor-pointer hover:text-[#5762D5]" 
                       size={20} 
-                      onClick={() => toggleBookmark(post)}
+                      onClick={handleBookmarkToggle}
                     />
                   )}
                 </TooltipTrigger>
                 <TooltipContent className="bg-[#5762D5]">
-                  <span>Bookmark</span>
+                  <span>{bookmarked ? 'Remove Bookmark' : 'Bookmark'}</span>
                 </TooltipContent>
               </Tooltip>
 
-              <Tooltip>
-                <TooltipTrigger>
-                  <BsThreeDots className="text-gray-600 cursor-pointer hover:text-[#5762D5]" size={20} />
-                </TooltipTrigger>
-                <TooltipContent className="bg-[#5762D5]">
-                  <span>More</span>
-                </TooltipContent>
-              </Tooltip>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild onClick={handleDropdownClick}>
+                  <button className="p-1 hover:bg-black/5 rounded-full transition-colors">
+                    {isDropdownLoading ? (
+                      <Loader2 className="h-5 w-5 animate-spin text-gray-600" />
+                    ) : (
+                      <BsThreeDots className="text-gray-600" size={20} />
+                    )}
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-[240px] py-2">
+                  {isOwnPost ? (
+                    <>
+                      <DropdownMenuItem 
+                        className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <FiEdit3 size={18} />
+                        <span>Edit</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        className="text-red-600 gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <HiOutlineTrash size={18} />
+                        <span>Delete</span>
+                      </DropdownMenuItem>
+                    </>
+                  ) : (
+                    <>
+                      <DropdownMenuItem 
+                        className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <BiLink size={18} />
+                        <span>Copy link to post</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <IoEyeOffOutline size={18} />
+                        <span>I don&apos;t want to see this</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <FiFlag size={18} />
+                        <span>Report post</span>
+                      </DropdownMenuItem>
+                    </>
+                  )}
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
 
@@ -395,8 +515,11 @@ const CommunityPostCard = ({
           <CommentThread
             comments={localComments}
             currentUserAvatar={avatar}
+            currentUserId={name}
             onAddComment={handleCommentSubmit}
             onReply={handleReply}
+            onEdit={handleCommentEdit}
+            onDelete={handleCommentDelete}
           />
         )}
       </div>
@@ -424,6 +547,7 @@ CommunityPostCard.propTypes = {
       replies: PropTypes.arrayOf(PropTypes.object),
     })
   ),
+  currentUserId: PropTypes.string.isRequired,
 };
 
 export default CommunityPostCard;
