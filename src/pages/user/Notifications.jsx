@@ -2,6 +2,8 @@ import { useState } from "react";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import FilterButton from "@/components/utils/FilterButton";
 import AllNotificationsTab from "@/components/profile/tabs/AllNotificationsTab";
+import MentionsTab from "@/components/profile/tabs/MentionsTab";
+import FollowingTab from "@/components/profile/tabs/FollowingTab";
 
 function Notifications() {
   const [activeTab, setActiveTab] = useState('all');
@@ -10,7 +12,7 @@ function Notifications() {
     <DashboardLayout>
       <div className="w-full flex flex-col">
         <div className="px-4 md:px-8 lg:px-20 pt-2 pb-4">
-          <h1 className="text-2xl font-semibold mb-6">Notifications</h1>
+          <h1 className="text-3xl font-medium mb-6">Notifications</h1>
           
           {/* Tabs */}
           <div className="flex gap-4 mb-6">
@@ -34,8 +36,8 @@ function Notifications() {
           {/* Tab Content */}
           <div className="w-full">
             {activeTab === 'all' && <AllNotificationsTab />}
-            {activeTab === 'mentions' && <AllNotificationsTab />}
-            {activeTab === 'following' && <AllNotificationsTab />}
+            {activeTab === 'mentions' && <MentionsTab />}
+            {activeTab === 'following' && <FollowingTab />}
           </div>
         </div>
       </div>
