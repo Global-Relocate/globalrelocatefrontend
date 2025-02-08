@@ -3,15 +3,32 @@ import { PiSmiley } from "react-icons/pi";
 import { IoImageOutline } from "react-icons/io5";
 import PropTypes from 'prop-types';
 
-const CommentInput = ({ userAvatar, onSubmit, autoFocus = false, placeholder = "Add a comment" }) => {
-  const [comment, setComment] = useState('');
+const CommentInput = ({ 
+  userAvatar, 
+  onSubmit, 
+  autoFocus = false, 
+  placeholder = "Add a comment",
+  initialValue = "" 
+}) => {
+  const [comment, setComment] = useState(initialValue);
   const textareaRef = useRef(null);
 
   useEffect(() => {
     if (autoFocus && textareaRef.current) {
       textareaRef.current.focus();
+      // Place cursor at the end of the text
+      const length = textareaRef.current.value.length;
+      textareaRef.current.setSelectionRange(length, length);
     }
   }, [autoFocus]);
+
+  useEffect(() => {
+    if (initialValue && textareaRef.current) {
+      // Adjust height for initial content
+      textareaRef.current.style.height = '44px';
+      textareaRef.current.style.height = Math.min(textareaRef.current.scrollHeight, 120) + 'px';
+    }
+  }, [initialValue]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,7 +90,7 @@ const CommentInput = ({ userAvatar, onSubmit, autoFocus = false, placeholder = "
                       : 'bg-gray-200 text-gray-500 cursor-not-allowed'
                   }`}
                 >
-                  Post
+                  {initialValue ? 'Save' : 'Post'}
                 </button>
               </div>
             </div>
@@ -88,7 +105,8 @@ CommentInput.propTypes = {
   userAvatar: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   autoFocus: PropTypes.bool,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  initialValue: PropTypes.string
 };
 
 export default CommentInput; 
