@@ -92,32 +92,32 @@ const Feedback = () => {
             <>
               <h1 className="text-2xl font-medium text-black mb-2">
                 Hey, {user?.name || 'there'}. what didn&apos;t work well for you?
-              </h1>
+            </h1>
               <p className="text-gray-600 mb-8">
                 Tell us what didn&apos;t work or what&apos;s missing in your experience using the app.
               </p>
-              
-              <form onSubmit={handleSubmit} className="relative">
-                <textarea
+            
+            <form onSubmit={handleSubmit} className="relative">
+              <textarea
                   value={feedback2}
                   onChange={(e) => setFeedback2(e.target.value)}
                   placeholder="Type your answer here"
                   className="w-full min-h-[200px] p-4 bg-white text-black placeholder-gray-400 text-lg focus:outline-none resize-none border border-[#D4D4D4] rounded-2xl"
-                  autoFocus
-                />
-                
+                autoFocus
+              />
+              
                 <div className="flex justify-end items-center gap-3 mt-6">
-                  <button
-                    type="submit"
+              <button
+                type="submit"
                     disabled={!feedback2.trim()}
                     className={`px-6 py-2 rounded-lg transition-colors ${
                       feedback2.trim() ? 'bg-black text-white hover:bg-black/90' : 'bg-[#D4D4D4] text-white'
                     }`}
                   >
                     Submit
-                  </button>
+              </button>
                 </div>
-              </form>
+            </form>
             </>
           )}
 
