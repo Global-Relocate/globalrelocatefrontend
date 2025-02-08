@@ -1,21 +1,86 @@
-import SearchInput from "@/components/inputs/SearchInput";
+import React, { useState } from "react";
+import CompareCountryCard from "@/components/cards/CompareCountryCard";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import FilterButton from "@/components/utils/FilterButton";
-import React from "react";
+import SelectCountryModal from "@/components/modals/SelectCountryModal";
+import { Button } from "@/components/ui/button";
 
 function CompareCountries() {
+  const [openCountryModal, setOpenCountryModal] = useState(false);
+  const [countryData, setCountryData] = useState({});
+  const [countryIdx, setCountryIdx] = useState(1);
+
+  const handleModalClose = () => {
+    setOpenCountryModal(false);
+  };
+
+  const handleModalOpen = (idx) => {
+    setOpenCountryModal(true);
+    setCountryIdx(idx);
+  };
+
+  const handleCountrySelect = (selectedCountryData) => {
+    setCountryData((prev) => ({
+      ...prev,
+      [countryIdx]: selectedCountryData,
+    }));
+    handleModalClose();
+  };
+
+  // console.log(countryData);
+  console.log(countryData[countryIdx]);
+
   return (
     <DashboardLayout>
-      <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
+      <div>
         <h2 className="text-3xl font-medium">Compare Countries</h2>
-
-        <div className="flex w-full sm:w-auto  items-center space-x-2">
-          <SearchInput />
-          <FilterButton />
+        <div className="flex flex-col md:flex-row w-full mt-7 gap-10 items-center justify-between">
+          <CompareCountryCard
+            onOpen={handleModalOpen}
+            onClose={handleModalClose}
+            countryData={countryData} // Pass the correct country data
+            idx={1}
+          />
+          <div className="border py-2 px-3 rounded-full">
+            <span>VS</span>
+          </div>
+          <CompareCountryCard
+            onOpen={handleModalOpen}
+            onClose={handleModalClose}
+            countryData={countryData} // Pass the correct country data
+            idx={2}
+          />
         </div>
+
+        <div className="flex mt-4 w-full items-center justify-end">
+          <Button
+            disabled={!countryData[1] || !countryData[2]}
+            className="h-[40px] self-end bg-[#FCA311] text-black hover:text-white"
+          >
+            Compare
+          </Button>
+        </div>
+
+        <SelectCountryModal
+          isOpen={openCountryModal}
+          onClose={handleModalClose}
+          onChange={handleCountrySelect}
+          value={countryData[countryIdx]?.code || ""}
+        />
       </div>
     </DashboardLayout>
   );
 }
 
 export default CompareCountries;
+
+const obj = {
+  alpha2: "AF",
+  alpha3: "AFG",
+  countryCallingCodes: ["+93"],
+  currencies: ["AFN"],
+  emoji: "🇦🇫",
+  ioc: "AFG",
+  languages: ["pus"],
+  name: "Afghanistan",
+  status: "assigned",
+};

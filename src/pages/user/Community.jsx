@@ -21,8 +21,7 @@ import imageStacked from "@/assets/images/stackedimage.png";
 
 function Community() {
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
-
-  const posts = [
+  const [posts, setPosts] = useState([
     {
       avatar: image13,
       name: "Leon Francesco",
@@ -31,7 +30,8 @@ function Community() {
       images: [image12, image11, image10, image9, image8, image7, image6, image5, image4],
       likesImage: imageStacked,
       likesCount: 6,
-      commentsCount: 0
+      commentsCount: 0,
+      comments: []
     },
     {
       avatar: image1,
@@ -41,7 +41,8 @@ function Community() {
       images: [image4, image5],
       likesImage: imageStacked,
       likesCount: 8,
-      commentsCount: 2
+      commentsCount: 2,
+      comments: []
     },
     {
       avatar: image1,
@@ -51,7 +52,8 @@ function Community() {
       images: [image4, image5, image6],
       likesImage: imageStacked,
       likesCount: 12,
-      commentsCount: 4
+      commentsCount: 4,
+      comments: []
     },
     {
       avatar: image1,
@@ -61,7 +63,8 @@ function Community() {
       images: [image4, image5, image6, image7],
       likesImage: imageStacked,
       likesCount: 15,
-      commentsCount: 6
+      commentsCount: 6,
+      comments: []
     },
     {
       avatar: image2,
@@ -70,52 +73,50 @@ function Community() {
       content: "Ever notice how life feels like a mix of a loading bar and a playlist on shuffle? Some days, you're at 2% wondering if you'll ever make it, and other days, you're jamming to the perfect vibe. Just keep hitting play. 🎵💪 #RandomThoughts #KeepGoing",
       likesImage: image3,
       likesCount: 1,
-      commentsCount: 0
+      commentsCount: 0,
+      comments: []
     }
-  ];
+  ]);
 
   const handleOpenPostModal = () => {
     setIsPostModalOpen(true);
+  };
+
+  const handleCreatePost = (content, privacy, images = []) => {
+    const newPost = {
+      avatar: image1, // Using the current user's avatar
+      name: "Jerry Lamp", // Using a hardcoded name for now
+      timeAgo: "Just now",
+      content: content,
+      images: images, // Now handling uploaded images
+      likesImage: imageStacked,
+      likesCount: 0,
+      commentsCount: 0,
+      comments: []
+    };
+
+    setPosts(prevPosts => [newPost, ...prevPosts]);
+    setIsPostModalOpen(false);
   };
 
   return (
     <DashboardLayout>
       <div className="w-full flex flex-col">
         {/* Start new post section - Fixed at top */}
-        <div className="sticky top-20 z-10 bg-white">
-          <div className="px-4 md:px-8 lg:px-20 pt-2 pb-2">
-            <div 
-              className="bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl p-4 cursor-pointer"
-              onClick={handleOpenPostModal}
-            >
-              {/* Desktop/Tablet View */}
-              <div className="hidden sm:flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <img src={image1} alt="User avatar" className="w-10 h-10 rounded-full" />
-                  <span className="text-black">Start a new post</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="h-6 w-[1px] bg-[#D4D4D4] mx-4" />
-                  <div className="flex items-center gap-4">
-                    <button className="flex items-center gap-2">
-                      <HiPhoto className="text-[#5762D5]" size={24} />
-                      <span>Photo</span>
-                    </button>
-                    <button className="flex items-center gap-2">
-                      <PiVideoFill size={24} />
-                      <span>Video</span>
-                    </button>
-                  </div>
-                </div>
+        <div className="px-4 md:px-8 lg:px-20 pt-2 pb-2">
+          <div 
+            className="bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl p-4 cursor-pointer"
+            onClick={handleOpenPostModal}
+          >
+            {/* Desktop/Tablet View */}
+            <div className="hidden sm:flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <img src={image1} alt="User avatar" className="w-10 h-10 rounded-full" />
+                <span className="text-black">Start a new post</span>
               </div>
-
-              {/* Mobile View */}
-              <div className="flex sm:hidden flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <img src={image1} alt="User avatar" className="w-10 h-10 rounded-full" />
-                  <span className="text-black">Start a new post</span>
-                </div>
-                <div className="flex items-center justify-center gap-8">
+              <div className="flex items-center">
+                <div className="h-6 w-[1px] bg-[#D4D4D4] mx-4" />
+                <div className="flex items-center gap-4">
                   <button className="flex items-center gap-2">
                     <HiPhoto className="text-[#5762D5]" size={24} />
                     <span>Photo</span>
@@ -127,9 +128,25 @@ function Community() {
                 </div>
               </div>
             </div>
+
+            {/* Mobile View */}
+            <div className="flex sm:hidden flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <img src={image1} alt="User avatar" className="w-10 h-10 rounded-full" />
+                <span className="text-black">Start a new post</span>
+              </div>
+              <div className="flex items-center justify-center gap-8">
+                <button className="flex items-center gap-2">
+                  <HiPhoto className="text-[#5762D5]" size={24} />
+                  <span>Photo</span>
+                </button>
+                <button className="flex items-center gap-2">
+                  <PiVideoFill size={24} />
+                  <span>Video</span>
+                </button>
+              </div>
+            </div>
           </div>
-          {/* Separator */}
-          <div className="w-screen h-[1px] bg-[#D4D4D4] -ml-[calc((100vw-100%)/2)]" />
         </div>
 
         {/* Scrollable content area */}
@@ -139,6 +156,7 @@ function Community() {
             isOpen={isPostModalOpen}
             onClose={() => setIsPostModalOpen(false)}
             userAvatar={image1}
+            onPost={handleCreatePost}
           />
 
           {/* Posts feed */}
