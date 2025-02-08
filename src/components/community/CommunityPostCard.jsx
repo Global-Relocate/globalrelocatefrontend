@@ -33,6 +33,8 @@ import CommentInput from './CommentInput';
 import VideoPlayer from './VideoPlayer';
 import CommentThread from './CommentThread';
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import { FiEdit3 } from "react-icons/fi";
+import { HiOutlineTrash } from "react-icons/hi";
 
 const ImageGrid = ({ images }) => {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -221,7 +223,8 @@ const CommunityPostCard = ({
   likesImage, 
   likesCount: initialLikesCount, 
   commentsCount: initialCommentsCount,
-  comments = [] 
+  comments = [],
+  currentUserId
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
@@ -243,6 +246,8 @@ const CommunityPostCard = ({
   };
   const bookmarked = isBookmarked(post);
   const [isDropdownLoading, setIsDropdownLoading] = useState(false);
+
+  const isOwnPost = currentUserId === name;
 
   const handleLikeToggle = () => {
     setIsLiked(!isLiked);
@@ -293,6 +298,45 @@ const CommunityPostCard = ({
 
     setLocalComments(updateReplies(localComments));
     setCommentsCount(prevCount => prevCount + 1);
+  };
+
+  const handleCommentEdit = (commentId, newContent) => {
+    const updateComments = (comments) => {
+      return comments.map(comment => {
+        if (comment.id === commentId) {
+          return {
+            ...comment,
+            content: newContent
+          };
+        }
+        if (comment.replies) {
+          return {
+            ...comment,
+            replies: updateComments(comment.replies)
+          };
+        }
+        return comment;
+      });
+    };
+
+    setLocalComments(updateComments(localComments));
+  };
+
+  const handleCommentDelete = (commentId) => {
+    const deleteFromComments = (comments) => {
+      return comments.filter(comment => {
+        if (comment.id === commentId) {
+          setCommentsCount(prevCount => prevCount - 1);
+          return false;
+        }
+        if (comment.replies) {
+          comment.replies = deleteFromComments(comment.replies);
+        }
+        return true;
+      });
+    };
+
+    setLocalComments(deleteFromComments(localComments));
   };
 
   const handleDropdownClick = () => {
@@ -361,23 +405,44 @@ const CommunityPostCard = ({
                     )}
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-[200px]">
-                  <DropdownMenuItem className="gap-2">
-                    <BiLink className="h-4 w-4" />
-                    Copy link to post
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="gap-2">
-                    <BiBookmark className="h-4 w-4" />
-                    Embed this post
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="gap-2">
-                    <IoEyeOffOutline className="h-4 w-4" />
-                    Not interested
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="gap-2">
-                    <FiFlag className="h-4 w-4" />
-                    Report post
-                  </DropdownMenuItem>
+                <DropdownMenuContent align="end" className="w-[240px] py-2">
+                  {isOwnPost ? (
+                    <>
+                      <DropdownMenuItem 
+                        className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <FiEdit3 size={18} />
+                        <span>Edit</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        className="text-red-600 gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <HiOutlineTrash size={18} />
+                        <span>Delete</span>
+                      </DropdownMenuItem>
+                    </>
+                  ) : (
+                    <>
+                      <DropdownMenuItem 
+                        className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <BiLink size={18} />
+                        <span>Copy link to post</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <IoEyeOffOutline size={18} />
+                        <span>I don&apos;t want to see this</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <FiFlag size={18} />
+                        <span>Report post</span>
+                      </DropdownMenuItem>
+                    </>
+                  )}
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -450,8 +515,11 @@ const CommunityPostCard = ({
           <CommentThread
             comments={localComments}
             currentUserAvatar={avatar}
+            currentUserId={name}
             onAddComment={handleCommentSubmit}
             onReply={handleReply}
+            onEdit={handleCommentEdit}
+            onDelete={handleCommentDelete}
           />
         )}
       </div>
@@ -479,6 +547,7 @@ CommunityPostCard.propTypes = {
       replies: PropTypes.arrayOf(PropTypes.object),
     })
   ),
+  currentUserId: PropTypes.string.isRequired,
 };
 
 export default CommunityPostCard;
