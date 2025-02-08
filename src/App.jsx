@@ -9,7 +9,7 @@ import Welcome from "./pages/authenticated/Welcome";
 import OAuthCallback from "./pages/unauthenticated/OAuthCallback";
 import NotFound from "./pages/NotFound";
 import { TrialProvider, useTrial } from "./context/TrialContext";
-import TrialExpiredModal from "./components/modals/TrialExpiredModal";
+// import TrialExpiredModal from "./components/modals/TrialExpiredModal";
 
 // Dashboard route imports
 import Countries from "./pages/user/Countries";
@@ -63,7 +63,7 @@ const AppContent = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      <TrialExpiredModal isOpen={showTrialModal} />
+      {/* <TrialExpiredModal isOpen={showTrialModal} /> */}
     </>
   );
 };

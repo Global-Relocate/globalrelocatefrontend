@@ -30,6 +30,7 @@ const CommentInput = ({ userAvatar, onSubmit, autoFocus = false }) => {
       <div className="flex items-start gap-3">
         <img src={userAvatar} alt="User avatar" className="w-10 h-10 rounded-full" />
         <form onSubmit={handleSubmit} className="flex-1">
+          <div className="w-[95%] rounded-2xl border border-white  overflow-hidden">
           <div className="w-full rounded-2xl border border-[#D4D4D4] bg-white overflow-hidden">
             <textarea
               ref={textareaRef}
