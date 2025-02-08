@@ -7,6 +7,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { FavoritesProvider } from "./context/favorites-context";
 import { BookmarkProvider } from "./context/BookmarkContext";
 import { LanguageProvider } from "./context/LanguageContext";
+import { NotificationsProvider } from "./context/NotificationsContext";
 import { Toaster } from "./components/ui/sonner";
 
 createRoot(document.getElementById("root")).render(
@@ -16,8 +17,10 @@ createRoot(document.getElementById("root")).render(
         <FavoritesProvider>
           <BookmarkProvider>
             <LanguageProvider>
-              <Toaster />
-              <App />
+              <NotificationsProvider>
+                <Toaster />
+                <App />
+              </NotificationsProvider>
             </LanguageProvider>
           </BookmarkProvider>
         </FavoritesProvider>
