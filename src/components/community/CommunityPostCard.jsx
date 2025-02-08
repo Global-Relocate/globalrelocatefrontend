@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import favoriteIcon from "../../assets/svg/favorite.svg";
 import heartIcon from "../../assets/svg/heart.svg";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 import { BsThreeDots } from "react-icons/bs";
+import { BiBookmark, BiLink } from "react-icons/bi";
+import { FiFlag } from "react-icons/fi";
+import { IoEyeOffOutline } from "react-icons/io5";
+import { Loader2 } from "lucide-react";
 import { PiChatCircle } from "react-icons/pi";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import {
@@ -13,8 +16,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useBookmarks } from "@/context/BookmarkContext";
-import CommentInput from './CommentInput';
-import VideoPlayer from './VideoPlayer';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Tooltip,
   TooltipContent,
@@ -22,7 +29,10 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import PropTypes from 'prop-types';
+import CommentInput from './CommentInput';
+import VideoPlayer from './VideoPlayer';
 import CommentThread from './CommentThread';
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 
 const ImageGrid = ({ images }) => {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -219,8 +229,20 @@ const CommunityPostCard = ({
   const [likesCount, setLikesCount] = useState(initialLikesCount);
   const [commentsCount, setCommentsCount] = useState(initialCommentsCount);
   const { toggleBookmark, isBookmarked } = useBookmarks();
-  const post = { avatar, name, timeAgo, content, images, likesImage, likesCount, commentsCount };
+  const post = { 
+    id: Date.now().toString(),
+    avatar, 
+    name, 
+    timeAgo, 
+    content, 
+    images, 
+    mediaType,
+    likesImage, 
+    likesCount: initialLikesCount, 
+    commentsCount: initialCommentsCount 
+  };
   const bookmarked = isBookmarked(post);
+  const [isDropdownLoading, setIsDropdownLoading] = useState(false);
 
   const handleLikeToggle = () => {
     setIsLiked(!isLiked);
@@ -273,6 +295,18 @@ const CommunityPostCard = ({
     setCommentsCount(prevCount => prevCount + 1);
   };
 
+  const handleDropdownClick = () => {
+    setIsDropdownLoading(true);
+    // Simulate loading for 500ms
+    setTimeout(() => {
+      setIsDropdownLoading(false);
+    }, 500);
+  };
+
+  const handleBookmarkToggle = () => {
+    toggleBookmark(post);
+  };
+
   const renderMedia = () => {
     if (!images || images.length === 0) return null;
 
@@ -302,29 +336,50 @@ const CommunityPostCard = ({
                     <FaBookmark 
                       className="text-[#5762D5] cursor-pointer" 
                       size={20} 
-                      onClick={() => toggleBookmark(post)}
+                      onClick={handleBookmarkToggle}
                     />
                   ) : (
                     <FaRegBookmark 
                       className="text-gray-600 cursor-pointer hover:text-[#5762D5]" 
                       size={20} 
-                      onClick={() => toggleBookmark(post)}
+                      onClick={handleBookmarkToggle}
                     />
                   )}
                 </TooltipTrigger>
                 <TooltipContent className="bg-[#5762D5]">
-                  <span>Bookmark</span>
+                  <span>{bookmarked ? 'Remove Bookmark' : 'Bookmark'}</span>
                 </TooltipContent>
               </Tooltip>
 
-              <Tooltip>
-                <TooltipTrigger>
-                  <BsThreeDots className="text-gray-600 cursor-pointer hover:text-[#5762D5]" size={20} />
-                </TooltipTrigger>
-                <TooltipContent className="bg-[#5762D5]">
-                  <span>More</span>
-                </TooltipContent>
-              </Tooltip>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild onClick={handleDropdownClick}>
+                  <button className="p-1 hover:bg-black/5 rounded-full transition-colors">
+                    {isDropdownLoading ? (
+                      <Loader2 className="h-5 w-5 animate-spin text-gray-600" />
+                    ) : (
+                      <BsThreeDots className="text-gray-600" size={20} />
+                    )}
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-[200px]">
+                  <DropdownMenuItem className="gap-2">
+                    <BiLink className="h-4 w-4" />
+                    Copy link to post
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="gap-2">
+                    <BiBookmark className="h-4 w-4" />
+                    Embed this post
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="gap-2">
+                    <IoEyeOffOutline className="h-4 w-4" />
+                    Not interested
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="gap-2">
+                    <FiFlag className="h-4 w-4" />
+                    Report post
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
 
