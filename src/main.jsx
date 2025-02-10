@@ -9,6 +9,7 @@ import { BookmarkProvider } from "./context/BookmarkContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import { NotificationsProvider } from "./context/NotificationsContext";
 import { Toaster } from "./components/ui/sonner";
+import { CountryDataProvider } from "./context/CountryDataContext";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -18,8 +19,10 @@ createRoot(document.getElementById("root")).render(
           <BookmarkProvider>
             <LanguageProvider>
               <NotificationsProvider>
-                <Toaster />
-                <App />
+                <CountryDataProvider>
+                  <Toaster />
+                  <App />
+                </CountryDataProvider>
               </NotificationsProvider>
             </LanguageProvider>
           </BookmarkProvider>
