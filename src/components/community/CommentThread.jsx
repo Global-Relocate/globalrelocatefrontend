@@ -15,6 +15,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const MAX_VISIBLE_REPLIES = 2;
 
@@ -27,24 +28,26 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
   const [showUndoMessage, setShowUndoMessage] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleReply = (replyText) => {
-    onReply(comment.id, replyText);
+  const handleReply = (replyText, image) => {
+    onReply(comment.id, replyText, image);
     setShowReplyInput(false);
   };
 
-  const handleEdit = (newText) => {
-    onEdit(comment.id, newText);
+  const handleEdit = (newText, image) => {
+    onEdit(comment.id, newText, image);
     setShowEditInput(false);
   };
 
   const handleDelete = () => {
     setIsDeleted(true);
     setShowUndoMessage(true);
-    setTimeout(() => {
-      if (!showUndoMessage) {
+    const timeoutId = setTimeout(() => {
+      if (isDeleted && showUndoMessage) {
         onDelete(comment.id);
+        setShowUndoMessage(false);
       }
-    }, 5000); // 5 second delay before actual deletion
+    }, 5000);
+    return () => clearTimeout(timeoutId);
   };
 
   const handleUndo = () => {
@@ -70,7 +73,7 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
 
   if (showUndoMessage) {
     return (
-      <div className="w-full bg-white p-4 flex justify-between items-center">
+      <div className="w-full bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl p-4 flex justify-between items-center">
         <span>Comment deleted.</span>
         <Button
           variant="outline"
@@ -168,7 +171,20 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
               />
             </div>
           ) : (
-            <p className="text-gray-800 mt-1">{comment.content}</p>
+            <div>
+              <p className="text-gray-800 mt-1">{comment.content}</p>
+              {comment.image && (
+                <div className="mt-2 relative w-full max-w-[200px] rounded-lg overflow-hidden">
+                  <AspectRatio ratio={16 / 9}>
+                    <img 
+                      src={comment.image} 
+                      alt="Comment attachment" 
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </AspectRatio>
+                </div>
+              )}
+            </div>
           )}
           <div className="flex items-center gap-6 mt-2">
             <button 
@@ -252,6 +268,7 @@ Comment.propTypes = {
     avatar: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     timeAgo: PropTypes.string.isRequired,
+    image: PropTypes.string,
     replies: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
   level: PropTypes.number,
@@ -291,6 +308,7 @@ CommentThread.propTypes = {
       avatar: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       timeAgo: PropTypes.string.isRequired,
+      image: PropTypes.string,
       replies: PropTypes.arrayOf(PropTypes.object),
     })
   ).isRequired,
