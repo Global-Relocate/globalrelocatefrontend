@@ -18,8 +18,8 @@ createRoot(document.getElementById("root")).render(
           <BookmarkProvider>
             <LanguageProvider>
               <NotificationsProvider>
-                <Toaster />
-                <App />
+              <Toaster />
+              <App />
               </NotificationsProvider>
             </LanguageProvider>
           </BookmarkProvider>
