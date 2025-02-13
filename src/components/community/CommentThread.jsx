@@ -192,13 +192,36 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
       {comment.replies?.length > 0 && (
         <div className="relative mt-2">
           <div 
-            className="absolute left-4 top-2 h-full w-[2px] bg-[#E5E7EB]"
+            className="absolute left-4 bottom-2"
             style={{ marginLeft: '-1px' }}
-          />
-          <div 
-            className="absolute left-4 top-2 w-[24px] h-[2px] bg-[#E5E7EB]"
-            style={{ marginLeft: '-1px' }}
-          />
+          >
+            <div className="relative">
+              <div 
+                className="absolute bottom-0 w-[2px] bg-[#E5E7EB]"
+                style={{ 
+                  height: 'calc(100% + 100px)',
+                  left: '2px',
+                  bottom: '10px'
+                }}
+              />
+              <div 
+                className="absolute bottom-0 h-[2px] w-[10px] bg-[#E5E7EB]"
+                style={{ 
+                  transform: 'translateY(3px)',
+                  left: '12px',
+                  bottom: '1px'
+                }} 
+              />
+              <div
+                className="absolute bottom-0 w-[12px] h-[12px] border-b-2 border-l-2 border-[#E5E7EB]"
+                style={{
+                  borderBottomLeftRadius: '6px',
+                  transform: 'translate(-2px, 2px)',
+                  left: '4px'
+                }}
+              />
+            </div>
+          </div>
 
           {!showAllReplies && hiddenRepliesCount > 0 && (
             <button
