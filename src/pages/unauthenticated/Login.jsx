@@ -74,25 +74,21 @@ export default function Login() {
     try {
       const response = await loginUser(formData.email, formData.password);
       
-      if (response?.accessToken && response?.user) {
-        // Login successful, update AuthContext with the user data
-        login(response.accessToken, {
-          email: response.user.email,
-          name: response.user.fullName,
-          id: response.user.id,
-          username: response.user.username,
-          country: response.user.country
-        });
-        
-        // Navigate to welcome page with the correct name
-        navigate("/welcome", { 
-          state: { 
-            username: response.user.fullName 
-          } 
-        });
-      } else {
-        throw new Error("Invalid response from server");
-      }
+      // Login successful, update AuthContext with the correct user data structure
+      login(response.accessToken, {
+        email: response.data.user.email,
+        name: response.data.user.fullName, // Using fullName from the API response
+        id: response.data.user.id,
+        username: response.data.user.username,
+        country: response.data.user.country
+      });
+      
+      // Pass the correct name to the welcome page
+      navigate("/welcome", { 
+        state: { 
+          username: response.data.user.fullName // Using fullName for the welcome message
+        } 
+      });
     } catch (error) {
       console.error("Login error:", error);
       setErrorMessage(error.message || "Failed to log in. Please try again.");
