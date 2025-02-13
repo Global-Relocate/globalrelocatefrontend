@@ -16,6 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useUndo } from "@/context/UndoContext";
 
 const MAX_VISIBLE_REPLIES = 2;
 
@@ -25,7 +26,7 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
   const [showAllReplies, setShowAllReplies] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
-  const [showUndoMessage, setShowUndoMessage] = useState(false);
+  const { showUndoToast } = useUndo();
   const [isHovered, setIsHovered] = useState(false);
 
   const handleReply = (replyText, image) => {
@@ -40,19 +41,18 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
 
   const handleDelete = () => {
     setIsDeleted(true);
-    setShowUndoMessage(true);
+    showUndoToast({ 
+      message: 'Comment deleted.',
+      onUndo: () => setIsDeleted(false),
+      duration: 5000
+    });
+    
     const timeoutId = setTimeout(() => {
-      if (isDeleted && showUndoMessage) {
+      if (isDeleted) {
         onDelete(comment.id);
-        setShowUndoMessage(false);
       }
     }, 5000);
     return () => clearTimeout(timeoutId);
-  };
-
-  const handleUndo = () => {
-    setIsDeleted(false);
-    setShowUndoMessage(false);
   };
 
   const handleDropdownClick = () => {
@@ -70,28 +70,6 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
   const hiddenRepliesCount = comment.replies?.length - MAX_VISIBLE_REPLIES;
 
   const isOwnComment = comment.author === currentUserId;
-
-  if (showUndoMessage) {
-    return (
-      <div className="w-full bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl p-4 flex justify-between items-center">
-        <span>Comment deleted.</span>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={handleUndo}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className="flex items-center gap-2 text-black hover:text-black"
-        >
-          <span>Undo</span>
-          <FaRedoAlt 
-            className={`transition-transform duration-200 ${isHovered ? 'rotate-180' : ''}`} 
-            size={14} 
-          />
-        </Button>
-      </div>
-    );
-  }
 
   if (isDeleted) {
     return null;
