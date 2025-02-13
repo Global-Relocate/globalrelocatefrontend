@@ -11,6 +11,7 @@ import { NotificationsProvider } from "./context/NotificationsContext";
 import { Toaster } from "./components/ui/sonner";
 import { UndoProvider } from "./context/UndoContext";
 import { CountryDataProvider } from "./context/CountryDataContext";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
@@ -20,13 +21,11 @@ createRoot(document.getElementById("root")).render(
             <LanguageProvider>
               <NotificationsProvider>
                 <UndoProvider>
-                  <Toaster />
-                  <App />
+                  <CountryDataProvider>
+                    <Toaster />
+                    <App />
+                  </CountryDataProvider>
                 </UndoProvider>
-                <CountryDataProvider>
-                  <Toaster />
-                  <App />
-                </CountryDataProvider>
               </NotificationsProvider>
             </LanguageProvider>
           </BookmarkProvider>
