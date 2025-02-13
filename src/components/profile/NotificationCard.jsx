@@ -5,10 +5,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { GrDislike } from "react-icons/gr";
-import { FaRedoAlt } from "react-icons/fa";
-import { IoCheckmarkCircle } from "react-icons/io5";
 import { useState } from 'react';
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,6 +13,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
+import { useUndo } from "@/context/UndoContext";
 
 const NotificationCard = ({ 
   type, 
@@ -28,11 +26,8 @@ const NotificationCard = ({
   onShowLess,
   id 
 }) => {
-  const [showUndoMessage, setShowUndoMessage] = useState(false);
-  const [showFeedbackMessage, setShowFeedbackMessage] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isHoveredFeedback, setIsHoveredFeedback] = useState(false);
+  const { showUndoToast } = useUndo();
 
   const handleMarkAsRead = () => {
     onMarkAsRead(id);
@@ -40,79 +35,29 @@ const NotificationCard = ({
 
   const handleDelete = () => {
     setIsDeleted(true);
-    setShowUndoMessage(true);
-    setTimeout(() => {
-      if (!showUndoMessage) {
+    showUndoToast({ 
+      message: 'Notification deleted.',
+      onUndo: () => setIsDeleted(false),
+      duration: 5000
+    });
+    
+    const timeoutId = setTimeout(() => {
+      if (isDeleted) {
         onDelete(id);
       }
-    }, 5000); // 5 second delay before actual deletion
-  };
-
-  const handleUndo = () => {
-    setIsDeleted(false);
-    setShowUndoMessage(false);
+    }, 5000);
+    return () => clearTimeout(timeoutId);
   };
 
   const handleShowLess = () => {
-    setShowFeedbackMessage(true);
-    onShowLess(id);
-    setTimeout(() => {
-      if (!showFeedbackMessage) {
-        // Handle any cleanup if needed
+    showUndoToast({ 
+      type: 'feedback',
+      onUndo: () => {
+        // Handle undo feedback
       }
-    }, 5000);
+    });
+    onShowLess(id);
   };
-
-  const handleUndoFeedback = () => {
-    setShowFeedbackMessage(false);
-  };
-
-  if (showUndoMessage) {
-    return (
-      <div className="w-full bg-white p-4 flex justify-between items-center">
-        <span>Notification deleted.</span>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={handleUndo}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className="flex items-center gap-2 text-black hover:text-black"
-        >
-          <span>Undo</span>
-          <FaRedoAlt 
-            className={`transition-transform duration-200 ${isHovered ? 'rotate-180' : ''}`} 
-            size={14} 
-          />
-        </Button>
-      </div>
-    );
-  }
-
-  if (showFeedbackMessage) {
-    return (
-      <div className="w-full bg-white p-4 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <IoCheckmarkCircle className="text-[#22C55E]" size={20} />
-          <span className="text-[#22C55E]">Thanks. Your feedback helps us improve your notifications.</span>
-        </div>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={handleUndoFeedback}
-          onMouseEnter={() => setIsHoveredFeedback(true)}
-          onMouseLeave={() => setIsHoveredFeedback(false)}
-          className="flex items-center gap-2 text-black hover:text-black"
-        >
-          <span>Undo</span>
-          <FaRedoAlt 
-            className={`transition-transform duration-200 ${isHoveredFeedback ? 'rotate-180' : ''}`} 
-            size={14} 
-          />
-        </Button>
-      </div>
-    );
-  }
 
   if (isDeleted) {
     return null;

@@ -6,8 +6,6 @@ import { HiOutlineTrash } from "react-icons/hi";
 import { BiLink } from "react-icons/bi";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { Loader2 } from "lucide-react";
-import { FaRedoAlt } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
 import CommentInput from './CommentInput';
 import {
   DropdownMenu,
@@ -15,6 +13,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useUndo } from "@/context/UndoContext";
 
 const MAX_VISIBLE_REPLIES = 2;
 
@@ -24,32 +24,32 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
   const [showAllReplies, setShowAllReplies] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
-  const [showUndoMessage, setShowUndoMessage] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const { showUndoToast } = useUndo();
 
-  const handleReply = (replyText) => {
-    onReply(comment.id, replyText);
+  const handleReply = (replyText, image) => {
+    onReply(comment.id, replyText, image);
     setShowReplyInput(false);
   };
 
-  const handleEdit = (newText) => {
-    onEdit(comment.id, newText);
+  const handleEdit = (newText, image) => {
+    onEdit(comment.id, newText, image);
     setShowEditInput(false);
   };
 
   const handleDelete = () => {
     setIsDeleted(true);
-    setShowUndoMessage(true);
-    setTimeout(() => {
-      if (!showUndoMessage) {
+    showUndoToast({ 
+      message: 'Comment deleted.',
+      onUndo: () => setIsDeleted(false),
+      duration: 5000
+    });
+    
+    const timeoutId = setTimeout(() => {
+      if (isDeleted) {
         onDelete(comment.id);
       }
-    }, 5000); // 5 second delay before actual deletion
-  };
-
-  const handleUndo = () => {
-    setIsDeleted(false);
-    setShowUndoMessage(false);
+    }, 5000);
+    return () => clearTimeout(timeoutId);
   };
 
   const handleDropdownClick = () => {
@@ -68,34 +68,12 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
 
   const isOwnComment = comment.author === currentUserId;
 
-  if (showUndoMessage) {
-    return (
-      <div className="w-full bg-white p-4 flex justify-between items-center">
-        <span>Comment deleted.</span>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={handleUndo}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className="flex items-center gap-2 text-black hover:text-black"
-        >
-          <span>Undo</span>
-          <FaRedoAlt 
-            className={`transition-transform duration-200 ${isHovered ? 'rotate-180' : ''}`} 
-            size={14} 
-          />
-        </Button>
-      </div>
-    );
-  }
-
   if (isDeleted) {
     return null;
   }
 
   return (
-    <div className={`relative ${level > 0 ? 'ml-12' : ''} mb-4`}>
+    <div className={`relative ${level > 0 } mb-4`}>
       <div className="flex items-start gap-3">
         <img src={comment.avatar} alt={`${comment.author} avatar`} className="w-8 h-8 rounded-full" />
         <div className="flex-1">
@@ -168,7 +146,20 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
               />
             </div>
           ) : (
-            <p className="text-gray-800 mt-1">{comment.content}</p>
+            <div>
+              <p className="text-gray-800 mt-1">{comment.content}</p>
+              {comment.image && (
+                <div className="mt-2 relative w-full max-w-[200px] rounded-lg overflow-hidden">
+                  <AspectRatio ratio={16 / 9}>
+                    <img 
+                      src={comment.image} 
+                      alt="Comment attachment" 
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </AspectRatio>
+                </div>
+              )}
+            </div>
           )}
           <div className="flex items-center gap-6 mt-2">
             <button 
@@ -198,13 +189,36 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
       {comment.replies?.length > 0 && (
         <div className="relative mt-2">
           <div 
-            className="absolute left-4 top-2 h-full w-[2px] bg-[#E5E7EB]"
+            className="absolute left-4 bottom-2"
             style={{ marginLeft: '-1px' }}
-          />
-          <div 
-            className="absolute left-4 top-2 w-[24px] h-[2px] bg-[#E5E7EB]"
-            style={{ marginLeft: '-1px' }}
-          />
+          >
+            <div className="relative">
+              <div 
+                className="absolute bottom-0 w-[2px] bg-[#E5E7EB]"
+                style={{ 
+                  height: 'calc(100% + 100px)',
+                  left: '2px',
+                  bottom: '10px'
+                }}
+              />
+              <div 
+                className="absolute bottom-0 h-[2px] w-[10px] bg-[#E5E7EB]"
+                style={{ 
+                  transform: 'translateY(3px)',
+                  left: '12px',
+                  bottom: '1px'
+                }} 
+              />
+              <div
+                className="absolute bottom-0 w-[12px] h-[12px] border-b-2 border-l-2 border-[#E5E7EB]"
+                style={{
+                  borderBottomLeftRadius: '6px',
+                  transform: 'translate(-2px, 2px)',
+                  left: '4px'
+                }}
+              />
+            </div>
+          </div>
 
           {!showAllReplies && hiddenRepliesCount > 0 && (
             <button
@@ -252,6 +266,7 @@ Comment.propTypes = {
     avatar: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     timeAgo: PropTypes.string.isRequired,
+    image: PropTypes.string,
     replies: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
   level: PropTypes.number,
@@ -265,18 +280,35 @@ Comment.propTypes = {
 const CommentThread = ({ comments, currentUserAvatar, currentUserId, onReply, onEdit, onDelete }) => {
   return (
     <div className="w-full px-6 pb-4">
-      <div className="pt-2">
-        {comments.map((comment) => (
-          <Comment
-            key={comment.id}
-            comment={comment}
-            onReply={onReply}
-            onEdit={onEdit}
-            onDelete={onDelete}
-            currentUserAvatar={currentUserAvatar}
-            currentUserId={currentUserId}
+      <div className="relative pt-2">
+        {/* Single thread line for entire thread */}
+        <div 
+          className="absolute left-4 top-0 bottom-0"
+          style={{ marginLeft: '-1px' }}
+        >
+          <div 
+            className="absolute w-[2px] bg-[#E5E7EB]"
+            style={{ 
+              height: '100%',
+              left: '2px',
+            }}
           />
-        ))}
+        </div>
+
+        {/* Comments */}
+        <div className="space-y-4">
+          {comments.map((comment) => (
+            <Comment
+              key={comment.id}
+              comment={comment}
+              onReply={onReply}
+              onEdit={onEdit}
+              onDelete={onDelete}
+              currentUserAvatar={currentUserAvatar}
+              currentUserId={currentUserId}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -291,6 +323,7 @@ CommentThread.propTypes = {
       avatar: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       timeAgo: PropTypes.string.isRequired,
+      image: PropTypes.string,
       replies: PropTypes.arrayOf(PropTypes.object),
     })
   ).isRequired,

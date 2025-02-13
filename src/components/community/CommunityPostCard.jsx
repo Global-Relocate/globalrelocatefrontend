@@ -2,7 +2,7 @@ import { useState } from 'react';
 import favoriteIcon from "../../assets/svg/favorite.svg";
 import heartIcon from "../../assets/svg/heart.svg";
 import { BsThreeDots } from "react-icons/bs";
-import { BiBookmark, BiLink } from "react-icons/bi";
+import { BiLink } from "react-icons/bi";
 import { FiFlag } from "react-icons/fi";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { Loader2 } from "lucide-react";
@@ -254,13 +254,14 @@ const CommunityPostCard = ({
     setLikesCount(prevCount => isLiked ? prevCount - 1 : prevCount + 1);
   };
 
-  const handleCommentSubmit = (comment) => {
+  const handleCommentSubmit = (comment, image) => {
     const newComment = {
       id: Date.now().toString(),
       author: name,
       avatar: avatar,
       content: comment,
       timeAgo: 'Just now',
+      image: image,
       replies: []
     };
     setLocalComments(prev => [...prev, newComment]);
@@ -268,13 +269,14 @@ const CommunityPostCard = ({
     setShowCommentInput(false);
   };
 
-  const handleReply = (parentId, replyText) => {
+  const handleReply = (parentId, replyText, image) => {
     const newReply = {
       id: Date.now().toString(),
       author: name,
       avatar: avatar,
       content: replyText,
       timeAgo: 'Just now',
+      image: image,
       replies: []
     };
 
@@ -300,13 +302,14 @@ const CommunityPostCard = ({
     setCommentsCount(prevCount => prevCount + 1);
   };
 
-  const handleCommentEdit = (commentId, newContent) => {
+  const handleCommentEdit = (commentId, newContent, newImage) => {
     const updateComments = (comments) => {
       return comments.map(comment => {
         if (comment.id === commentId) {
           return {
             ...comment,
-            content: newContent
+            content: newContent,
+            image: newImage
           };
         }
         if (comment.replies) {
@@ -544,6 +547,7 @@ CommunityPostCard.propTypes = {
       avatar: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       timeAgo: PropTypes.string.isRequired,
+      image: PropTypes.string,
       replies: PropTypes.arrayOf(PropTypes.object),
     })
   ),
