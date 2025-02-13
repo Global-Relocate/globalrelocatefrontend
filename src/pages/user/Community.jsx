@@ -84,11 +84,11 @@ function Community() {
 
   const handleCreatePost = (content, privacy, images = []) => {
     const newPost = {
-      avatar: image1, // Using the current user's avatar
-      name: "Jerry Lamp", // Using a hardcoded name for now
+      avatar: image1,
+      name: "Jerry Lamp",
       timeAgo: "Just now",
       content: content,
-      images: images, // Now handling uploaded images
+      images: images,
       likesImage: imageStacked,
       likesCount: 0,
       commentsCount: 0,
