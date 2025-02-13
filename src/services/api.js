@@ -138,41 +138,38 @@ export const loginUser = async (email, password) => {
 
 export const handleOAuthCallback = async (code, type) => {
   try {
-    // Validate required data
     if (!code || !type) {
       throw new Error('Missing required authentication data');
     }
-
-    // The code from the URL is the JWT token
+    
     const token = code;
     
     try {
-      // Decode the JWT to get user information
       const [, payloadBase64] = token.split('.');
       const payload = JSON.parse(atob(payloadBase64));
       
-      // Set the token in the API headers for future requests
       setAuthToken(token);
       
-      // Return the token and decoded user info
-      // Note: Adjust the user object structure based on what your JWT payload contains
+      // Extract user data from the payload's data.user object
+      const userData = payload.data?.user || payload;
+      
+      const userInfo = {
+        id: userData.id,
+        email: userData.email || '',
+        name: userData.fullName || userData.name || '', // Try fullName first, then name
+        username: userData.username || '',
+        country: userData.country || ''
+      };
+
       return {
         token,
-        user: {
-          id: payload.id,
-          // If these fields aren't in your JWT, I might need to adjust
-          email: payload.email || '',
-          name: payload.name || '',
-          username: payload.username || '',
-          country: payload.country || ''
-        }
+        user: userInfo
       };
     } catch (error) {
       console.error('Error decoding JWT:', error);
       throw new Error('Invalid authentication token');
     }
   } catch (error) {
-    // Clean up session storage
     sessionStorage.removeItem('oauth_redirect_uri');
     sessionStorage.removeItem('oauth_provider');
     

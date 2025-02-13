@@ -32,7 +32,9 @@ export default function OAuthCallback() {
           
           // Navigate to welcome page
           navigate('/welcome', {
-            state: { username: response.user.name }
+            state: { 
+              username: response.user.name || response.user.fullName || 'Friend'
+            }
           });
         } else {
           throw new Error('Invalid authentication response');
