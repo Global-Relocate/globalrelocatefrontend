@@ -26,19 +26,9 @@ class CustomAPIError extends Error {
 }
 
 // Get error message based on status code
-const getErrorMessage = (status) => {
-  const messages = {
-    400: 'Invalid request. Please check your input.',
-    401: 'Unauthorized. Please log in.',
-    403: 'Access forbidden. You do not have permission.',
-    404: 'Resource not found.',
-    409: 'This email is already registered.',
-    422: 'Validation error. Please check your input.',
-    500: 'Server error. Please try again later.',
-    503: 'Service unavailable. Please try again later.',
-  };
-
-  return messages[status] || 'An unexpected error occurred.';
+const getErrorMessage = (status, serverMessage) => {
+  // Only use a generic message if the server doesn't provide one
+  return serverMessage || 'An unexpected error occurred.';
 };
 
 // Add response interceptor for global error handling
@@ -55,7 +45,7 @@ api.interceptors.response.use(
     }
 
     const { response } = error;
-    const errorMessage = response.data?.message || getErrorMessage(response.status);
+    const errorMessage = response.data?.message || getErrorMessage(response.status, response.data?.error);
 
     throw new CustomAPIError(
       errorMessage,
@@ -97,7 +87,7 @@ export const registerNewUser = async (userData) => {
       }
 
       const status = error.response?.status || 0;
-      const message = error.response?.data?.message || getErrorMessage(status);
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
 
       throw new CustomAPIError(message, status, error.response?.data);
     }
@@ -132,7 +122,7 @@ export const loginUser = async (email, password) => {
       }
 
       const status = error.response?.status || 0;
-      const message = error.response?.data?.message || getErrorMessage(status);
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
 
       throw new CustomAPIError(message, status, error.response?.data);
     }
@@ -245,7 +235,7 @@ export const verifyEmail = async (email, otp) => {
       }
 
       const status = error.response?.status || 0;
-      const message = error.response?.data?.message || getErrorMessage(status);
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
 
       throw new CustomAPIError(message, status, error.response?.data);
     }
@@ -280,7 +270,7 @@ export const forgotPassword = async (email) => {
       }
 
       const status = error.response?.status || 0;
-      const message = error.response?.data?.message || getErrorMessage(status);
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
 
       throw new CustomAPIError(message, status, error.response?.data);
     }
@@ -319,7 +309,7 @@ export const resetPassword = async (email, password, otp) => {
       }
 
       const status = error.response?.status || 0;
-      const message = error.response?.data?.message || getErrorMessage(status);
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
 
       throw new CustomAPIError(message, status, error.response?.data);
     }
@@ -366,7 +356,7 @@ export const resendOTP = async (email) => {
       }
 
       const status = error.response?.status || 0;
-      const message = error.response?.data?.message || getErrorMessage(status);
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
 
       throw new CustomAPIError(message, status, error.response?.data);
     }
