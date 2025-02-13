@@ -47,7 +47,7 @@ const AppContent = () => {
         {/* Dashboard routes */}
         <Route path="/user">
           <Route path="countries" element={<Countries />} />
-          <Route path="countries/:countryName" element={<CountryDetails />} />
+          <Route path="countries/:id" element={<CountryDetails />} />
           <Route path="ai-assistant" element={<AiAssistant />} />
           <Route path="compare" element={<CompareCountries />} />
           <Route path="tax-calculator" element={<TaxCalculator />} />

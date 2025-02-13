@@ -66,7 +66,7 @@ api.interceptors.response.use(
 );
 
 export const registerNewUser = async (userData) => {
-  const endpoint = '/v1/auth/register';
+  const endpoint = '/auth/register';
   console.log('Starting registration request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
@@ -111,7 +111,7 @@ export const registerNewUser = async (userData) => {
 };
 
 export const loginUser = async (email, password) => {
-  const endpoint = '/v1/auth/login';
+  const endpoint = '/auth/login';
   console.log('Starting login request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
@@ -199,7 +199,7 @@ export const initiateGoogleAuth = async () => {
     sessionStorage.setItem('oauth_provider', 'google');
     
     // Redirect to the Google auth endpoint
-    window.location.href = `${VITE_API_URL}/v1/auth/google?redirect_uri=${encodeURIComponent(redirectUri)}`;
+    window.location.href = `${VITE_API_URL}/auth/google?redirect_uri=${encodeURIComponent(redirectUri)}`;
     return true;
   } catch (error) {
     console.error('Google auth error:', error);
@@ -214,7 +214,7 @@ export const initiateMicrosoftAuth = async () => {
     sessionStorage.setItem('oauth_provider', 'microsoft');
     
     // Redirect to the Microsoft auth endpoint
-    window.location.href = `${VITE_API_URL}/v1/auth/microsoft?redirect_uri=${encodeURIComponent(redirectUri)}`;
+    window.location.href = `${VITE_API_URL}/auth/microsoft?redirect_uri=${encodeURIComponent(redirectUri)}`;
     return true;
   } catch (error) {
     console.error('Microsoft auth error:', error);
@@ -224,7 +224,7 @@ export const initiateMicrosoftAuth = async () => {
 
 
 export const verifyEmail = async (email, otp) => {
-  const endpoint = '/v1/auth/verify/otp';
+  const endpoint = '/auth/verify/otp';
   console.log('Starting email verification request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
@@ -259,7 +259,7 @@ export const verifyEmail = async (email, otp) => {
 };
 
 export const forgotPassword = async (email) => {
-  const endpoint = '/v1/auth/forgot-password';
+  const endpoint = '/auth/forgot-password';
   console.log('Starting forgot password request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
@@ -294,7 +294,7 @@ export const forgotPassword = async (email) => {
 };
 
 export const resetPassword = async (email, password, otp) => {
-  const endpoint = '/v1/auth/reset-password';
+  const endpoint = '/auth/reset-password';
   console.log('Starting reset password request to:', `${VITE_API_URL}${endpoint}`);
 
   try {
@@ -333,7 +333,7 @@ export const resetPassword = async (email, password, otp) => {
 };
 
 export const resendVerificationEmail = async (userId) => {
-  return api.post('/v1/auth/resend-verification', { userId });
+  return api.post('/auth/resend-verification', { userId });
 };
 
 export const setAuthToken = (token) => {
@@ -345,7 +345,7 @@ export const setAuthToken = (token) => {
 };
 
 export const resendOTP = async (email) => {
-  const endpoint = '/v1/auth/resend-otp';
+  const endpoint = '/auth/resend-otp';
   console.log('Starting resend OTP request to:', `${VITE_API_URL}${endpoint}`);
 
   try {

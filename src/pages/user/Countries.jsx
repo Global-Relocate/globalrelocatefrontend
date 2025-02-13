@@ -14,11 +14,16 @@ import AiChatInput from "@/components/forms/AiChatInput";
 import CountriesDashCard from "@/components/cards/CountriesDashCard";
 import { useFavorites } from "@/context/favorites-context";
 import FilterButton from "@/components/utils/FilterButton";
+import { useCountryData } from "@/context/CountryDataContext";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function Countries() {
   const navigate = useNavigate();
   const { toggleFavorite, isFavorite } = useFavorites();
   const [activeFilter, setActiveFilter] = useState("All");
+  const { countries, loading, page, setPage, totalPages } = useCountryData();
+
+  console.log(countries);
 
   const filterOptions = [
     "All",
@@ -28,63 +33,12 @@ function Countries() {
     "South America",
     "North America",
     "Antarctia",
-    "Oceania"
+    "Oceania",
   ];
 
   const handleLikeToggle = (country) => {
     toggleFavorite(country);
   };
-
-  const countriesData = [
-    {
-      images: [swizerland, nigeria, swizerland, nigeria],
-      location: "Zürich, Switzerland",
-      countryFlag:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/1200px-Flag_of_Switzerland_%28Pantone%29.svg.png",
-    },
-    {
-      images: [london],
-      location: "London, UK",
-      countryFlag:
-        "https://t4.ftcdn.net/jpg/08/32/02/87/360_F_832028757_4YU1BrvVBRUNJX7WvLf5g4Qm5xrjOBo6.jpg",
-    },
-    {
-      images: [china],
-      location: "Beijing, China",
-      countryFlag:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-FLVbYtX7A6P_Zjkt5pp0DafB3gXraLsNQ&s",
-    },
-    {
-      images: [italy],
-      location: "Milan, Italy",
-      countryFlag:
-        "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/220px-Flag_of_Italy.svg.png",
-    },
-    {
-      images: [uae],
-      location: "UAE",
-      countryFlag:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/1200px-Flag_of_the_United_Arab_Emirates.svg.png",
-    },
-    {
-      images: [nigeria],
-      location: "Lagos, Nigeria",
-      countryFlag:
-        "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
-    },
-    {
-      images: [nigeria],
-      location: "Abuja, Nigeria",
-      countryFlag:
-        "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
-    },
-    {
-      images: [nigeria],
-      location: "Ibadan, Nigeria",
-      countryFlag:
-        "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
-    },
-  ];
 
   return (
     <DashboardLayout>
@@ -106,20 +60,36 @@ function Countries() {
         ))}
       </div>
 
-      <div className="flex items-center justify-between flex-wrap gap-y-10  py-10">
-        {countriesData.map((item, i) => {
-          return (
-            <CountriesDashCard
-              key={i}
-              location={item.location}
-              isLiked={isFavorite(item.location)}
-              onLikeToggle={() => handleLikeToggle(item)}
-              onClick={() => navigate("/user/countries/switzerland")}
-              images={item.images}
-              countryFlag={item.countryFlag}
-            />
-          );
-        })}
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-10 py-10">
+        {loading ? (
+          <>
+            {Array.from({ length: 8 }).map((_, index) => (
+              <div key={index} className="w-full md:w-[270px]">
+                <Skeleton className="h-[320px] w-full rounded-xl" />
+                <div className="flex items-center space-x-2 mt-2">
+                  <Skeleton className="h-12 w-12 rounded-full" />
+                  <Skeleton className="h-4 w-[200px]" />
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <>
+            {countries?.map((item, i) => {
+              return (
+                <CountriesDashCard
+                  key={item.countryID || i}
+                  location={item.countryName}
+                  isLiked={item.isLiked}
+                  onLikeToggle={() => handleLikeToggle(item)}
+                  onClick={() => navigate(`/user/countries/${item.countryID}`)}
+                  images={[swizerland, nigeria, swizerland, nigeria]}
+                  countryFlag={item.countryFlag}
+                />
+              );
+            })}
+          </>
+        )}
       </div>
     </DashboardLayout>
   );
