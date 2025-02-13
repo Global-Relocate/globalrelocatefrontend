@@ -71,54 +71,32 @@ export default function Login() {
     setLoading(true);
     setErrorMessage("");
 
-    // Temporary implementation for client login
-    if (formData.email === "marvin@mds-innovation.com" && formData.password === "W8!fX2#pL9yQ3@zT5vN6$mRk") {
-      login("dummyToken", {
-        email: "marvin@mds-innovation.com",
-        name: "Marvin",
-        id: "dummyId1",
-        username: "marvin",
-        country: "dummyCountry"
-      });
-      navigate("/welcome", { state: { username: "Marvin" } });
-      setLoading(false);
-      return;
-    }
-
-    if (formData.email === "marykay1993@gmail.com" && formData.password === "maryhasalittlelamb") {
-      login("dummyToken", {
-        email: "marykay1993@gmail.com",
-        name: "Marykay",
-        id: "dummyId2",
-        username: "marykay",
-        country: "dummyCountry"
-      });
-      navigate("/welcome", { state: { username: "Marykay" } });
-      setLoading(false);
-      return;
-    }
-
     try {
       const response = await loginUser(formData.email, formData.password);
       
-      // Login successful, update AuthContext with the correct user data structure
-      login(response.accessToken, {
-        email: response.data.user.email,
-        name: response.data.user.fullName, // Using fullName from the API response
-        id: response.data.user.id,
-        username: response.data.user.username,
-        country: response.data.user.country
-      });
-      
-      // Pass the correct name to the welcome page
-      navigate("/welcome", { 
-        state: { 
-          username: response.data.user.fullName // Using fullName for the welcome message
-        } 
-      });
+      if (response?.data?.accessToken && response?.data?.user) {
+        // Login successful, update AuthContext with the user data
+        login(response.data.accessToken, {
+          email: response.data.user.email,
+          name: response.data.user.fullName,
+          id: response.data.user.id,
+          username: response.data.user.username,
+          country: response.data.user.country
+        });
+        
+        // Navigate to welcome page with the correct name
+        navigate("/welcome", { 
+          state: { 
+            username: response.data.user.fullName 
+          } 
+        });
+      } else {
+        throw new Error("Invalid response from server");
+      }
     } catch (error) {
       console.error("Login error:", error);
       setErrorMessage(error.message || "Failed to log in. Please try again.");
+    } finally {
       setLoading(false);
     }
   };
