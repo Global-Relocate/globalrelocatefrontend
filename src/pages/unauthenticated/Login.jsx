@@ -74,20 +74,20 @@ export default function Login() {
     try {
       const response = await loginUser(formData.email, formData.password);
       
-      if (response?.data?.accessToken && response?.data?.user) {
+      if (response?.accessToken && response?.user) {
         // Login successful, update AuthContext with the user data
-        login(response.data.accessToken, {
-          email: response.data.user.email,
-          name: response.data.user.fullName,
-          id: response.data.user.id,
-          username: response.data.user.username,
-          country: response.data.user.country
+        login(response.accessToken, {
+          email: response.user.email,
+          name: response.user.fullName,
+          id: response.user.id,
+          username: response.user.username,
+          country: response.user.country
         });
         
         // Navigate to welcome page with the correct name
         navigate("/welcome", { 
           state: { 
-            username: response.data.user.fullName 
+            username: response.user.fullName 
           } 
         });
       } else {
