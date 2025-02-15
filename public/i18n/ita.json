@@ -1,0 +1,61 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Home",
+      "countriesData": "Paesi & Dati",
+      "community": "Community",
+      "tools": "Strumenti",
+      "contact": "Contatto"
+    },
+    "showcase": {
+      "title": "Trasferisciti in modo intelligente, vivi meglio.",
+      "para": "La tua piattaforma con IA per un trasferimento senza problemi, assistenza legale e vita globale.",
+      "buttonText": "Inizia"
+    },
+    "features": {
+      "title": "Funzionalità",
+      "cards": {
+        "card1": {
+          "title": "Community",
+          "para": "Entra nei forum e gruppi con nomadi globali simili a te."
+        },
+        "card2": {
+          "title": "Informazioni intelligenti con IA",
+          "para": "Accedi a dati aggiornati e precisi con IA."
+        },
+        "card3": {
+          "title": "Paesi & Dati",
+          "para": "Esplora informazioni dettagliate sui vari paesi."
+        }
+      }
+    },
+    "countries": {
+      "title": "Paesi popolari",
+      "para": "Scopri le destinazioni più richieste e pianifica il tuo trasferimento."
+    },
+    "whyChooseUs": {
+      "title": "Perché Sceglierci",
+      "card1": {
+        "title": "Dati sempre aggiornati con IA",
+        "para": "Informazioni affidabili e sempre aggiornate."
+      },
+      "card2": {
+        "title": "Contatti verificati & fonti attendibili",
+        "para": "Una piattaforma basata sulla community per garantire credibilità."
+      },
+      "card3": {
+        "title": "Soluzione tutto-in-uno",
+        "para": "Tutto, dai visti al costo della vita, in un unico posto."
+      },
+      "card4": {
+        "title": "Notifiche personalizzate",
+        "para": "Resta aggiornato con avvisi su misura e la funzione preferiti."
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Conferma modifiche"
+    }
+  }
+}

@@ -16,16 +16,14 @@ import uae from "../../assets/images/uae.png";
 import people from "../../assets/images/people_image.png";
 import cardimg1 from "../../assets/images/cardimg_1.png";
 import cardimg2 from "../../assets/images/cardimg_2.png";
+import { useTranslation } from "react-i18next";
 
 export default function Landing() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleStartNow = () => {
     navigate("/login");
-  };
-
-  const handleSignUp = () => {
-    navigate("/signup");
   };
 
   return (
@@ -34,17 +32,16 @@ export default function Landing() {
         <div className="hero-bg min-h-[85vh] md:min-h-[100vh] w-full flex items-center justify-center">
           <div className="flex flex-col items-center justify-center max-w-[600px] md:min-w-[900px] text-black relative">
             <h1 className="text-4xl text-center md:text-5xl max-w-[90%] md:max-w-[600px] lg:text-7xl font-semibold">
-              Relocate smarter, live better.
+              {t("landingPage.showcase.title")}
             </h1>
             <p className="text-center my-8 text-md md:text-md max-w-[600px] px-10 line-clamp-2">
-              Your AI-powered platform for seamless relocation, legal guidance,
-              and global living.
+              {t("landingPage.showcase.para")}
             </p>
             <button
               className="bg-[#fca311] text-black py-2 px-8 rounded-xl text-lg font-medium"
               onClick={handleStartNow}
             >
-              Get Started
+              {t("landingPage.showcase.buttonText")}
             </button>
             <div className="absolute bg-white rounded-3xl hidden md:flex items-center justify-start p-2 pr-3 shadow-md  space-x-2 top-10 left-0">
               <img
@@ -80,15 +77,32 @@ export default function Landing() {
             </div>
           </div>
         </div>
-        <h2 className="text-2xl md:text-4xl my-3 font-medium">Features</h2>
+        <h2 className="text-2xl md:text-4xl my-3 font-medium">
+          {" "}
+          {t("landingPage.features.title")}
+        </h2>
         <div className="flex items-center gap-14 justify-evenly flex-wrap  py-20 w-[90%]">
-          <FeaturesCard title="Community" image={people} />
-          <FeaturesCard title="Smart info with AI" image={cardimg1} />
-          <FeaturesCard title="Countries & Data" image={cardimg2} />
+          <FeaturesCard
+            title={t("landingPage.features.cards.card1.title")}
+            para={t("landingPage.features.cards.card1.para")}
+            image={people}
+          />
+          <FeaturesCard
+            title={t("landingPage.features.cards.card2.title")}
+            para={t("landingPage.features.cards.card2.para")}
+            image={cardimg1}
+          />
+          <FeaturesCard
+            title={t("landingPage.features.cards.card3.title")}
+            para={t("landingPage.features.cards.card3.para")}
+            image={cardimg2}
+          />
         </div>
-        <h2 className="text-4xl font-medium mt-20">Popular countries</h2>
+        <h2 className="text-4xl font-medium mt-20">
+          {t("landingPage.countries.title")}
+        </h2>
         <p className="mt-4 text-center px-5">
-          Explore popular destinations and start planning your relocation
+          {t("landingPage.countries.para")}
         </p>
         <div className="flex items-center justify-evenly flex-wrap gap-y-10  py-20 w-[90%]">
           <CountriesCard
@@ -122,29 +136,33 @@ export default function Landing() {
             countryFlag="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"
           />
         </div>
-        <h2 className="text-4xl my-4 font-medium">Why choose us?</h2>
+        <h2 className="text-4xl my-4 font-medium">
+          {t("landingPage.whyChooseUs.title")}
+        </h2>
         <div className="flex items-start justify-evenly flex-wrap gap-y-10  py-20 w-[90%]">
           <div className="flex flex-col items-start w-[90%] md:w-[285px] border-t-2 py-5 border-black">
             <h2 className="text-lg font-semibold mb-2">
-              Time-Saving AI-Supported Data
+              {t("landingPage.whyChooseUs.card1.title")}
             </h2>
-            <p>Always up-to-date and reliable information.</p>
+            <p> {t("landingPage.whyChooseUs.card1.para")}</p>
           </div>
           <div className="flex flex-col items-start w-[90%] md:w-[285px] border-t-2 py-5 border-black">
             <h2 className="text-lg font-semibold mb-2">
-              Verified Contacts & Trusted Sources:
+              {t("landingPage.whyChooseUs.card2.title")}
             </h2>
-            <p> A community-based platform ensuring credibility.</p>
+            <p> {t("landingPage.whyChooseUs.card2.para")}</p>
           </div>
           <div className="flex flex-col items-start w-[90%] md:w-[285px] border-t-2 py-5 border-black">
-            <h2 className="text-lg font-semibold mb-2">All-in-One Solution</h2>
-            <p>Everything from visas to cost of living in one place.</p>
+            <h2 className="text-lg font-semibold mb-2">
+              {t("landingPage.whyChooseUs.card3.title")}
+            </h2>
+            <p>{t("landingPage.whyChooseUs.card3.para")}</p>
           </div>
           <div className="flex flex-col items-start w-[90%] md:w-[285px] border-t-2 py-5 border-black">
-            <h2 className="text-lg font-semibold mb-2">Personalized Alerts</h2>
-            <p>
-              Stay ahead with tailored notifications and a favorites feature.
-            </p>
+            <h2 className="text-lg font-semibold mb-2">
+              {t("landingPage.whyChooseUs.card4.title")}
+            </h2>
+            <p>{t("landingPage.whyChooseUs.card4.para")}</p>
           </div>
         </div>
       </div>

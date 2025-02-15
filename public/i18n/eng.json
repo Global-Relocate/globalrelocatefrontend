@@ -1,0 +1,62 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Home",
+      "countriesData": "Countries & Data",
+      "community": "Community",
+      "tools": "Tools",
+      "contact": "Contact"
+    },
+    "showcase": {
+      "title": "Relocate smarter, live better.",
+      "para": "Your AI-powered platform for seamless relocation, legal guidance, and global living.",
+      "buttonText": "Get Started"
+    },
+    "features": {
+      "title": "Features",
+      "cards": {
+        "card1": {
+          "title": "Community",
+          "para": "Join forums and groups with like-minded global nomads."
+        },
+        "card2": {
+          "title": "Smart info with Ai",
+          "para": "Join forums and groups with like-minded global nomads."
+        },
+        "card3": {
+          "title": "Countries & Data",
+          "para": "Join forums and groups with like-minded global nomads."
+        }
+      }
+    },
+    "countries": {
+      "title": "Popular Countries",
+      "para": "Explore popular destinations and start planning your relocation"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us",
+      "card1": {
+        "title": "Time-Saving AI-Supported Data",
+        "para": "Always up-to-date and reliable information."
+      },
+      "card2": {
+        "title": "Verified Contacts & Trusted Sources:",
+        "para": "A community-based platform ensuring credibility."
+      },
+      "card3": {
+        "title": "All-in-One Solution",
+        "para": "Everything from visas to cost of living in one place."
+      },
+      "card4": {
+        "title": "Personalized Alerts",
+        "para": "Stay ahead with tailored notifications and a favorites feature."
+      }
+    }
+  },
+
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Confirm Changes"
+    }
+  }
+}

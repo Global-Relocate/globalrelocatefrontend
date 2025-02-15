@@ -1,0 +1,61 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Accueil",
+      "countriesData": "Pays & Données",
+      "community": "Communauté",
+      "tools": "Outils",
+      "contact": "Contact"
+    },
+    "showcase": {
+      "title": "Déménagez plus intelligemment, vivez mieux.",
+      "para": "Votre plateforme IA pour une relocalisation fluide, des conseils juridiques et une vie globale.",
+      "buttonText": "Commencer"
+    },
+    "features": {
+      "title": "Fonctionnalités",
+      "cards": {
+        "card1": {
+          "title": "Communauté",
+          "para": "Rejoignez des forums et groupes de nomades partageant vos intérêts."
+        },
+        "card2": {
+          "title": "Infos intelligentes avec IA",
+          "para": "Accédez à des informations pertinentes et mises à jour par l'IA."
+        },
+        "card3": {
+          "title": "Pays & Données",
+          "para": "Découvrez des informations détaillées sur différents pays."
+        }
+      }
+    },
+    "countries": {
+      "title": "Pays populaires",
+      "para": "Explorez les destinations tendances et planifiez votre relocalisation."
+    },
+    "whyChooseUs": {
+      "title": "Pourquoi Nous Choisir",
+      "card1": {
+        "title": "Données actualisées avec IA",
+        "para": "Des informations fiables et toujours à jour."
+      },
+      "card2": {
+        "title": "Contacts vérifiés & sources fiables",
+        "para": "Une plateforme communautaire garantissant la crédibilité."
+      },
+      "card3": {
+        "title": "Solution tout-en-un",
+        "para": "Tout, des visas au coût de la vie, en un seul endroit."
+      },
+      "card4": {
+        "title": "Alertes personnalisées",
+        "para": "Restez informé grâce aux notifications et favoris."
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Confirmer les changements"
+    }
+  }
+}

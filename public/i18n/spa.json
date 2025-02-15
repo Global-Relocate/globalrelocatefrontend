@@ -1,0 +1,61 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Inicio",
+      "countriesData": "Países & Datos",
+      "community": "Comunidad",
+      "tools": "Herramientas",
+      "contact": "Contacto"
+    },
+    "showcase": {
+      "title": "Reubícate de forma inteligente, vive mejor.",
+      "para": "Tu plataforma con IA para una reubicación fluida, asesoría legal y vida global.",
+      "buttonText": "Comenzar"
+    },
+    "features": {
+      "title": "Funciones",
+      "cards": {
+        "card1": {
+          "title": "Comunidad",
+          "para": "Únete a foros y grupos con nómadas de ideas afines."
+        },
+        "card2": {
+          "title": "Información inteligente con IA",
+          "para": "Accede a datos actualizados y precisos con IA."
+        },
+        "card3": {
+          "title": "Países & Datos",
+          "para": "Explora información detallada sobre distintos países."
+        }
+      }
+    },
+    "countries": {
+      "title": "Países populares",
+      "para": "Explora destinos populares y planifica tu reubicación."
+    },
+    "whyChooseUs": {
+      "title": "Por Qué Elegirnos",
+      "card1": {
+        "title": "Datos actualizados con IA",
+        "para": "Información confiable y siempre actualizada."
+      },
+      "card2": {
+        "title": "Contactos verificados & fuentes confiables",
+        "para": "Una plataforma comunitaria que garantiza credibilidad."
+      },
+      "card3": {
+        "title": "Solución todo-en-uno",
+        "para": "Todo, desde visados hasta costo de vida, en un solo lugar."
+      },
+      "card4": {
+        "title": "Alertas personalizadas",
+        "para": "Mantente informado con notificaciones y favoritos."
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Confirmar cambios"
+    }
+  }
+}

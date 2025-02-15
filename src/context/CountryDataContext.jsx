@@ -17,13 +17,23 @@ export const CountryDataProvider = ({ children }) => {
   const fetchCountries = async () => {
     setLoading(true);
     try {
-      const response = await axiosInstance.get(`/countries`);
-      setCountries(response.data.data.data);
+      const response = await axiosInstance.get(`/countries?limit=40`);
+      console.log(response.data.data)
+      setCountries(response.data.data);
       // setTotalPages(response.data.totalPages);
     } catch (error) {
       console.error("Error fetching countries:", error);
     }
     setLoading(false);
+  };
+  const addCountryToFavourite = async (id) => {
+    try {
+      const response = await axiosInstance.get(`/countries/addToFavourites/${id}`);
+      fetchCountries()
+    } catch (error) {
+      console.error("Error fetching countries:", error);
+    }
+ 
   };
 
   // Fetch a single country by ID
@@ -48,6 +58,7 @@ export const CountryDataProvider = ({ children }) => {
         totalPages,
         singleCountry,
         getSingleCountry,
+        addCountryToFavourite
       }}
     >
       {children}

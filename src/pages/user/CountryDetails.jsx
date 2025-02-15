@@ -68,7 +68,7 @@ function CountryDetails() {
         )}
       </div>
 
-      <div className="w-full h-[450px] rounded-xl">
+      <div className="w-full h-[500px] rounded-xl">
         {loading ? (
           <Skeleton className="w-full h-full mt-5 rounded-xl" />
         ) : (
@@ -82,7 +82,7 @@ function CountryDetails() {
 
       {singleCountry && (
         <Tabs defaultValue="overview" className="mt-5">
-          <TabsList className="grid gap-3 grid-cols-3 w-full md:w-[600px] bg-white">
+          <TabsList className="flex overflow-x-auto w-full bg-white">
             <TabsTrigger
               value="overview"
               className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none"

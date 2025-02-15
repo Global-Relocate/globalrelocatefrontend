@@ -1,0 +1,61 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Startseite",
+      "countriesData": "Länder & Daten",
+      "community": "Community",
+      "tools": "Tools",
+      "contact": "Kontakt"
+    },
+    "showcase": {
+      "title": "Klüger umziehen, besser leben.",
+      "para": "Deine KI-gestützte Plattform für nahtlose Umsiedlung, rechtliche Beratung und globales Leben.",
+      "buttonText": "Loslegen"
+    },
+    "features": {
+      "title": "Funktionen",
+      "cards": {
+        "card1": {
+          "title": "Community",
+          "para": "Tritt Foren und Gruppen mit gleichgesinnten Nomaden bei."
+        },
+        "card2": {
+          "title": "Intelligente Infos mit KI",
+          "para": "Erhalte aktuelle und präzise Informationen mit KI."
+        },
+        "card3": {
+          "title": "Länder & Daten",
+          "para": "Erkunde detaillierte Informationen über verschiedene Länder."
+        }
+      }
+    },
+    "countries": {
+      "title": "Beliebte Länder",
+      "para": "Entdecke beliebte Reiseziele und plane deinen Umzug."
+    },
+    "whyChooseUs": {
+      "title": "Warum Uns Wählen",
+      "card1": {
+        "title": "KI-gestützte aktuelle Daten",
+        "para": "Zuverlässige und stets aktuelle Informationen."
+      },
+      "card2": {
+        "title": "Verifizierte Kontakte & vertrauenswürdige Quellen",
+        "para": "Eine Community-Plattform, die Glaubwürdigkeit sichert."
+      },
+      "card3": {
+        "title": "All-in-One-Lösung",
+        "para": "Alles von Visa bis Lebenshaltungskosten an einem Ort."
+      },
+      "card4": {
+        "title": "Personalisierte Benachrichtigungen",
+        "para": "Bleib mit individuellen Mitteilungen und Favoriten auf dem Laufenden."
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Änderungen bestätigen"
+    }
+  }
+}

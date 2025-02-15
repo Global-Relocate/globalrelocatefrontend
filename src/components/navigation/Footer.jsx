@@ -1,26 +1,28 @@
 import React from "react";
 import logo from "../../assets/images/footer_logo.png";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <div className="text-[#7E7E7E] w-full flex items-center justify-center flex-col bg-black min-h-[500px]">
       <div className="w-[90%] flex-wrap flex items-start justify-start gap-14 md:gap-36 p-4">
         <img src={logo} alt="logo" />
         <ul className="flex flex-col gap-5">
           <li>
-            <a href="#">Home</a>
+            <a href="#">{t("landingPage.navbar.home")}</a>
           </li>
           <li>
-            <a href="#">Countries & Data</a>
+            <a href="#">{t("landingPage.navbar.countriesData")}</a>
           </li>
           <li>
-            <a href="#">Communities</a>
+            <a href="#">{t("landingPage.navbar.community")}</a>
           </li>
           <li>
-            <a href="#">Tools</a>
+            <a href="#">{t("landingPage.navbar.tools")}</a>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <a href="#">{t("landingPage.navbar.contact")}</a>
           </li>
         </ul>
 

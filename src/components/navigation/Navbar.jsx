@@ -4,8 +4,10 @@ import { AuthContext } from "../../context/AuthContext";
 import SelectLanguages from "@/components/drawers/SelectLanguages";
 import logo from "../../assets/svg/logo.svg";
 import { X, Menu, LogOut } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
@@ -13,11 +15,11 @@ const Navbar = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "#about", label: "Countries & Data" },
-    { href: "#services", label: "Community" },
-    { href: "#tools", label: "Tools" },
-    { href: "#contact", label: "Contact" }
+    { href: "/", label: t("landingPage.navbar.home") },
+    { href: "#countries", label: t("landingPage.navbar.countriesData") },
+    { href: "#community", label: t("landingPage.navbar.community") },
+    { href: "#tools", label: t("landingPage.navbar.tools") },
+    { href: "#contact", label: t("landingPage.navbar.contact") },
   ];
 
   useEffect(() => {
@@ -32,12 +34,12 @@ const Navbar = () => {
   // Prevent background scroll when drawer is open
   useEffect(() => {
     if (isDrawerOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isDrawerOpen]);
 
@@ -45,12 +47,12 @@ const Navbar = () => {
     setIsDrawerOpen(false);
     navigate("/login");
   };
-  
+
   const handleSignUp = () => {
     setIsDrawerOpen(false);
     navigate("/signup");
   };
-  
+
   const handleLogout = () => {
     setIsDrawerOpen(false);
     logout();
@@ -78,7 +80,6 @@ const Navbar = () => {
       ))}
     </ul>
   );
-
 
   return (
     <>
@@ -142,65 +143,65 @@ const Navbar = () => {
           </div>
         </nav>
 
-      {/* Mobile Drawer */}
-      <div
-        className={`fixed inset-0 bg-white z-[60] lg:hidden transition-transform duration-300 ${
-          isDrawerOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="flex flex-col h-full">
-          <div className="flex justify-between items-center p-6 border-b border-gray-100">
-            <button
-              onClick={() => navigate("/")}
-              className="focus:outline-none"
-            >
-              <img src={logo} alt="Global Relocate Logo" className="h-10" />
-            </button>
-            <button
-              onClick={() => setIsDrawerOpen(false)}
-              className="text-gray-700 focus:outline-none"
-            >
-              <X className="h-6 w-6" />
-            </button>
-          </div>
+        {/* Mobile Drawer */}
+        <div
+          className={`fixed inset-0 bg-white z-[60] lg:hidden transition-transform duration-300 ${
+            isDrawerOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex flex-col h-full">
+            <div className="flex justify-between items-center p-6 border-b border-gray-100">
+              <button
+                onClick={() => navigate("/")}
+                className="focus:outline-none"
+              >
+                <img src={logo} alt="Global Relocate Logo" className="h-10" />
+              </button>
+              <button
+                onClick={() => setIsDrawerOpen(false)}
+                className="text-gray-700 focus:outline-none"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
 
-          <div className="flex-1 overflow-y-auto">
-            <div className="px-6 py-8">
-              <NavLinks mobile onClick={() => setIsDrawerOpen(false)} />
-              <div className="mt-8">
-                <SelectLanguages />
+            <div className="flex-1 overflow-y-auto">
+              <div className="px-6 py-8">
+                <NavLinks mobile onClick={() => setIsDrawerOpen(false)} />
+                <div className="mt-8">
+                  <SelectLanguages />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="p-6 border-t border-gray-100">
-            {isAuthenticated ? (
-              <button
-                onClick={handleLogout}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl text-gray-700 border border-gray-300 hover:bg-gray-100 transition-colors duration-200"
-              >
-                <LogOut className="h-5 w-5" />
-                <span>Logout</span>
-              </button>
-            ) : (
-              <div className="space-y-4">
+            <div className="p-6 border-t border-gray-100">
+              {isAuthenticated ? (
                 <button
-                  onClick={handleSignIn}
-                  className="w-full px-4 py-3 rounded-xl text-gray-700 border border-gray-300 hover:bg-gray-100 transition-colors duration-200"
+                  onClick={handleLogout}
+                  className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl text-gray-700 border border-gray-300 hover:bg-gray-100 transition-colors duration-200"
                 >
-                  Log In
+                  <LogOut className="h-5 w-5" />
+                  <span>Logout</span>
                 </button>
-                <button
-                  onClick={handleSignUp}
-                  className="w-full px-4 py-3 bg-[#FCA311] hover:bg-[#e5940c] text-black rounded-xl transition-colors duration-200"
-                >
-                  Get Started
-                </button>
-              </div>
-            )}
+              ) : (
+                <div className="space-y-4">
+                  <button
+                    onClick={handleSignIn}
+                    className="w-full px-4 py-3 rounded-xl text-gray-700 border border-gray-300 hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    Log In
+                  </button>
+                  <button
+                    onClick={handleSignUp}
+                    className="w-full px-4 py-3 bg-[#FCA311] hover:bg-[#e5940c] text-black rounded-xl transition-colors duration-200"
+                  >
+                    Get Started
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
       </header>
     </>
   );
