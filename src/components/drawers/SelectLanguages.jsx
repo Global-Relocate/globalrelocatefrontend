@@ -48,7 +48,10 @@ const SelectLanguages = () => {
         <div className="pt-2">
           <SheetHeader className="relative pb-4">
             <SheetTitle className="text-left">Select language</SheetTitle>
-            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-200 -mx-6" />
+            <div
+              onClick={() => setIsSheetOpen(false)}
+              className="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-200 -mx-6"
+            />
           </SheetHeader>
         </div>
         <div className="mt-10">

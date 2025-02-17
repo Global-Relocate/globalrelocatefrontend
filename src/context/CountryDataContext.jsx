@@ -1,5 +1,11 @@
 import axiosInstance from "@/config/axiosInstance";
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
 
 const CountryDataContext = createContext();
 
@@ -9,34 +15,41 @@ export const CountryDataProvider = ({ children }) => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [singleCountry, setSingleCountry] = useState(null);
+  const [search, setSearch] = useState("");
+  const [continent, setContinent] = useState("");
 
   useEffect(() => {
-    fetchCountries();
-  }, [page]);
+    fetchCountries(true);
+  }, [page, search, continent]);
 
-  const fetchCountries = async () => {
-    setLoading(true);
+  const fetchCountries = async (reset = false, preventLoader = false) => {
+    if (loading) return;
+    if (!preventLoader) {
+      setLoading(true);
+    }
     try {
-      const response = await axiosInstance.get(`/countries?limit=40`);
-      console.log(response.data.data)
-      setCountries(response.data.data);
-      // setTotalPages(response.data.totalPages);
+      const response = await axiosInstance.get(
+        `/countries?page=${page}&limit=20&country=${search}&continent=${continent}`
+      );
+      setCountries((prev) =>
+        reset ? response.data.data : [...prev, ...response.data.data]
+      );
+      setTotalPages(response.data.totalPages);
     } catch (error) {
       console.error("Error fetching countries:", error);
     }
     setLoading(false);
   };
+
   const addCountryToFavourite = async (id) => {
     try {
-      const response = await axiosInstance.get(`/countries/addToFavourites/${id}`);
-      fetchCountries()
+      await axiosInstance.post(`/countries/favourite/add/${id}`);
+      fetchCountries(true, true);
     } catch (error) {
-      console.error("Error fetching countries:", error);
+      console.error("Error adding country to favorites:", error);
     }
- 
   };
 
-  // Fetch a single country by ID
   const getSingleCountry = async (id) => {
     setLoading(true);
     try {
@@ -58,7 +71,11 @@ export const CountryDataProvider = ({ children }) => {
         totalPages,
         singleCountry,
         getSingleCountry,
-        addCountryToFavourite
+        addCountryToFavourite,
+        search,
+        setSearch,
+        continent,
+        setContinent,
       }}
     >
       {children}
@@ -66,5 +83,4 @@ export const CountryDataProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use CountryDataContext
 export const useCountryData = () => useContext(CountryDataContext);

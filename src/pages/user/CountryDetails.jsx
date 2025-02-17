@@ -82,7 +82,7 @@ function CountryDetails() {
 
       {singleCountry && (
         <Tabs defaultValue="overview" className="mt-5">
-          <TabsList className="flex overflow-x-auto w-full bg-white">
+          <TabsList className="flex overflow-x-auto w-full justify-start gap-2 bg-white">
             <TabsTrigger
               value="overview"
               className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none"

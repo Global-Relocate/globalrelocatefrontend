@@ -8,17 +8,33 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { GoHeart } from "react-icons/go";
+import { useCountryData } from "@/context/CountryDataContext";
 
 export default function CountriesDashCard({
+  id,
   onClick,
   images, // Changed to receive an array of images
   location,
   countryFlag,
   sm = true,
   isLiked,
-  onLikeToggle,
+  // onLikeToggle,
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { addCountryToFavourite } = useCountryData();
+
+  const onAddToFavourite = async () => {
+    setLoading(true);
+    try {
+      const res = await addCountryToFavourite(id);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const countryImages = images;
 
   return (
@@ -29,25 +45,31 @@ export default function CountriesDashCard({
       onMouseEnter={() => setIsHovered(true)} // Set hover state on mouse enter
       onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
     >
-      <button
-        className="p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-sm font-semibold absolute top-7 right-4 z-10"
-        onClick={onLikeToggle}
-      >
-        {isLiked ? (
-          <img
-            src={heartIcon}
-            alt="Liked"
-            className="w-5 h-5"
-            style={{ width: "1.3rem", height: "1.3rem" }}
-          />
+      <button className="p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-sm font-semibold absolute top-7 right-4 z-10">
+        {loading ? (
+          <div className="w-4 h-4 border-2 border-black hover:border-white border-t-transparent rounded-full animate-spin"></div>
         ) : (
-          <GoHeart style={{ width: "1.3rem", height: "1.3rem" }} />
+          <>
+            {isLiked ? (
+              <img
+                src={heartIcon}
+                alt="Liked"
+                className="w-5 h-5"
+                style={{ width: "1.3rem", height: "1.3rem" }}
+              />
+            ) : (
+              <GoHeart
+                onClick={onAddToFavourite}
+                style={{ width: "1.3rem", height: "1.3rem" }}
+              />
+            )}
+          </>
         )}
       </button>
 
       {/* Carousel Component with images array */}
       <Carousel
-        initialIndex={0} // Set the first image as default
+        // initialIndex={0}
         loop={false} // Optionally loop images
         className={`w-full rounded-2xl `}
       >

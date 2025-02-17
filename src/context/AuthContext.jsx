@@ -11,10 +11,9 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     // Check for existing auth on mount
-    const token = localStorage.getItem("authToken");
     const userInfo = localStorage.getItem("user");
 
-    if (token && userInfo) {
+    if (userInfo) {
       setIsAuthenticated(true);
       setUser(JSON.parse(userInfo));
     }
@@ -26,9 +25,7 @@ export const AuthProvider = ({ children }) => {
       return;
     }
 
-    // Store in localStorage
-    localStorage.setItem("authToken", token);
-    localStorage.setItem("user", JSON.stringify(userInfo));
+    localStorage.setItem("user", JSON.stringify({ ...userInfo, token }));
 
     // Update state
     setIsAuthenticated(true);
@@ -38,9 +35,6 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     // Clear auth token from axios defaults
     setAuthToken(null);
-
-    // Clear localStorage
-    localStorage.removeItem("authToken");
     localStorage.removeItem("user");
 
     // Update state
