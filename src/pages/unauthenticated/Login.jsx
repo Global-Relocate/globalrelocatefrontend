@@ -74,19 +74,13 @@ export default function Login() {
     try {
       const response = await loginUser(formData.email, formData.password);
       
-      // Login successful, update AuthContext with the correct user data structure
-      login(response.accessToken, {
-        email: response.data.user.email,
-        name: response.data.user.fullName, // Using fullName from the API response
-        id: response.data.user.id,
-        username: response.data.user.username,
-        country: response.data.user.country
-      });
+      // Store the exact user data structure from the API response
+      login(response.accessToken, response.data.user);
       
-      // Pass the correct name to the welcome page
+      // Navigate to welcome page
       navigate("/welcome", { 
         state: { 
-          username: response.data.user.fullName // Using fullName for the welcome message
+          username: response.data.user.fullName
         } 
       });
     } catch (error) {
