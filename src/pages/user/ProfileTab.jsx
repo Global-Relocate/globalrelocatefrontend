@@ -1,26 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { LuUserRound } from 'react-icons/lu';
 import { BiEdit } from 'react-icons/bi';
 import { showToast } from '@/components/ui/toast';
+import { updateUserProfile } from '@/services/api';
 
 const STORAGE_KEY = 'profileData';
 
-const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
-  // Initialize state with values from localStorage or user prop
+const ProfileTab = ({ user, setUser, onOpenChange, activeTab, profileData, onProfileUpdate }) => {
+  // Initialize state with values from profileData or localStorage
   const [formData, setFormData] = useState(() => {
     const savedData = localStorage.getItem(STORAGE_KEY);
     if (savedData) {
       return JSON.parse(savedData);
     }
     return {
-      name: user?.name || '',
-      username: user?.username || '',
-      bio: user?.bio || '',
-      location: user?.location || ''
+      fullName: profileData?.fullName || user?.fullName || '',
+      username: profileData?.username || user?.username || '',
+      bio: profileData?.bio || '',
+      country: profileData?.country || user?.country || ''
     };
   });
+
+  // Update form data when profileData changes
+  useEffect(() => {
+    if (profileData) {
+      setFormData({
+        fullName: profileData.fullName || '',
+        username: profileData.username || '',
+        bio: profileData.bio || '',
+        country: profileData.country || ''
+      });
+    }
+  }, [profileData]);
 
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -29,12 +43,12 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
   // Check for unsaved changes whenever form data changes or tab switches
   useEffect(() => {
     const hasUnsavedChanges = Object.keys(formData).some(
-      key => formData[key] !== (user?.[key] || '')
+      key => formData[key] !== (profileData?.[key] || '')
     );
     
     setShowUnsavedWarning(hasUnsavedChanges);
     setIsEditing(hasUnsavedChanges);
-  }, [formData, user, activeTab]);
+  }, [formData, profileData, activeTab]);
 
   // Save form state to localStorage whenever it changes
   useEffect(() => {
@@ -51,25 +65,28 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Update user context
+      await updateUserProfile(formData);
+      
+      // Update user context and profile data
       setUser(prev => ({
         ...prev,
         ...formData
       }));
+      
+      // Fetch updated profile data
+      await onProfileUpdate();
 
       setIsEditing(false);
       setShowUnsavedWarning(false);
+      onOpenChange(false);
 
       showToast({ 
-        message: 'Your changes have been saved',
+        message: 'Your profile has been updated successfully',
         type: 'success'
       });
     } catch (error) {
       showToast({ 
-        message: 'Failed to save changes',
+        message: error.message || 'Failed to update profile',
         type: 'error'
       });
     } finally {
@@ -78,13 +95,15 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
   };
 
   const handleCancel = () => {
-    // Reset form to user data
-    setFormData({
-      name: user?.name || '',
-      username: user?.username || '',
-      bio: user?.bio || '',
-      location: user?.location || ''
-    });
+    // Reset form to profile data
+    if (profileData) {
+      setFormData({
+        fullName: profileData.fullName || '',
+        username: profileData.username || '',
+        bio: profileData.bio || '',
+        country: profileData.country || ''
+      });
+    }
     setIsEditing(false);
     setShowUnsavedWarning(false);
     onOpenChange(false);
@@ -112,8 +131,8 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
         <div className="space-y-2">
           <h3 className="text-sm text-gray-600">Full Name</h3>
           <Input
-            value={formData.name}
-            onChange={(e) => handleChange('name', e.target.value)}
+            value={formData.fullName}
+            onChange={(e) => handleChange('fullName', e.target.value)}
             placeholder="Add name"
             className="focus:border-black"
           />
@@ -140,11 +159,11 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-sm text-gray-600">Location</h3>
+          <h3 className="text-sm text-gray-600">Country</h3>
           <Input
-            value={formData.location}
-            onChange={(e) => handleChange('location', e.target.value)}
-            placeholder="Change your location"
+            value={formData.country}
+            onChange={(e) => handleChange('country', e.target.value)}
+            placeholder="Add your country"
             className="focus:border-black placeholder-gray-500"
           />
         </div>
@@ -188,6 +207,30 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
       <div className="mb-10" />
     </div>
   );
+};
+
+ProfileTab.propTypes = {
+  user: PropTypes.shape({
+    fullName: PropTypes.string,
+    username: PropTypes.string,
+    country: PropTypes.string
+  }),
+  setUser: PropTypes.func.isRequired,
+  onOpenChange: PropTypes.func.isRequired,
+  activeTab: PropTypes.string,
+  profileData: PropTypes.shape({
+    fullName: PropTypes.string,
+    username: PropTypes.string,
+    bio: PropTypes.string,
+    country: PropTypes.string
+  }),
+  onProfileUpdate: PropTypes.func.isRequired
+};
+
+ProfileTab.defaultProps = {
+  user: {},
+  activeTab: 'Profile',
+  profileData: null
 };
 
 export default ProfileTab;
