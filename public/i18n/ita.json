@@ -53,6 +53,27 @@
       }
     }
   },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Paesi",
+      "aiAssistant": "Assistente AI",
+      "compareCountries": "Confronta paesi",
+      "taxCalculator": "Calcolatore tasse",
+      "notifications": "Notifiche",
+      "favourites": "Preferiti",
+      "community": "Comunità",
+      "cta": {
+        "title": "Prova Pro",
+        "para": "Attualmente sei nel piano gratuito valido per 3 giorni. Aggiorna ora per continuare a usare Global Relocate.",
+        "buttonText": "Scopri di più"
+      }
+    },
+    "countries": {
+      "title": "Paesi",
+      "noDataText": "Nessun dato disponibile!",
+      "searchText": "Cerca paesi"
+    }
+  },
   "drawers": {
     "selectLanguages": {
       "confirm": "Conferma modifiche"

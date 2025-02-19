@@ -1,31 +1,31 @@
 import { Route, Routes } from "react-router-dom";
-import Landing from "./pages/unauthenticated/Landing";
-import Login from "./pages/unauthenticated/Login";
-import Signup from "./pages/unauthenticated/Signup";
-import ForgotPassword from "./pages/unauthenticated/ForgotPassword";
-import VerifyEmail from "./pages/unauthenticated/VerifyEmail";
-import ResetPassword from "./pages/unauthenticated/ResetPassword";
-import Welcome from "./pages/authenticated/Welcome";
-import OAuthCallback from "./pages/unauthenticated/OAuthCallback";
-import NotFound from "./pages/NotFound";
+import Landing from "./pages/unauthenticated/landing";
+import Login from "./pages/unauthenticated/login";
+import Signup from "./pages/unauthenticated/signup";
+import ForgotPassword from "./pages/unauthenticated/forgot-password";
+import VerifyEmail from "./pages/unauthenticated/verify-email";
+import ResetPassword from "./pages/unauthenticated/reset-password";
+import Welcome from "./pages/unauthenticated/welcome";
+import OAuthCallback from "./pages/unauthenticated/oauth-callback";
+import NotFound from "./pages/unauthenticated/not-found";
 import { TrialProvider, useTrial } from "./context/TrialContext";
 // import TrialExpiredModal from "./components/modals/TrialExpiredModal";
 
-// Dashboard route imports
-import Countries from "./pages/user/Countries";
-import AiAssistant from "./pages/user/AiAssistant";
-import CompareCountries from "./pages/user/CompareCountries";
-import TaxCalculator from "./pages/user/TaxCalculator";
-import Favorites from "./pages/user/Favorites";
-import Community from "./pages/user/Community";
-import Notifications from "./pages/user/Notifications";
-import CountryDetails from "./pages/user/CountryDetails";
+import Countries from "./pages/user/countries";
+import AiAssistant from "./pages/user/ai-assistant";
+import CompareCountries from "./pages/user/compare-countries";
+import TaxCalculator from "./pages/user/tax-calculator";
+import Favorites from "./pages/user/favorites";
+import Community from "./pages/user/community";
+import Notifications from "./pages/user/notifications";
+import CountryDetails from "./pages/user/country-details";
 // import Settings from "./pages/user/Settings";
-import Profile from "./pages/user/Profile";
-import Upgrade from "./pages/user/Upgrade";
-import TrialExpired from "./pages/user/TrialExpired";
-import Feedback from "./pages/user/Feedback";
+import Profile from "./pages/user/profile";
+import Upgrade from "./pages/user/upgrade";
+import TrialExpired from "./pages/user/trial-expired";
+import Feedback from "./pages/user/feedback";
 import "./App.css";
+import HelpCenter from "./pages/unauthenticated/help-center";
 
 const AppContent = () => {
   const { showTrialModal } = useTrial();
@@ -43,6 +43,7 @@ const AppContent = () => {
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/upgrade" element={<Upgrade />} />
         <Route path="/trialexpired" element={<TrialExpired />} />
+        <Route path="/help" element={<HelpCenter />} />
 
         {/* Dashboard routes */}
         <Route path="/user">
@@ -55,11 +56,9 @@ const AppContent = () => {
           <Route path="favorites" element={<Favorites />} />
           <Route path="community" element={<Community />} />
           <Route path="feedback" element={<Feedback />} />
-          {/* <Route path="settings" element={<Settings />} /> */}
           <Route path="profile" element={<Profile />} />
         </Route>
 
-        {/* 404 route */}
         <Route path="*" element={<NotFound />} />
       </Routes>
 

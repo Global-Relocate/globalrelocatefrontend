@@ -53,6 +53,27 @@
       }
     }
   },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Countries",
+      "aiAssistant": "Ai Assistant",
+      "compareCountries": "Compare Countries",
+      "taxCalculator": "Tax Calculator",
+      "notifications": "Notifications",
+      "favourites": "Favourites",
+      "community": "Community",
+      "cta": {
+        "title": "Try Pro",
+        "para": "You are currently in free plan valid for 3 days. Upgrade now to keep using Global Relocate.",
+        "buttonText": "Learn More"
+      }
+    },
+    "countries": {
+      "title": "Countries",
+      "noDataText": "No data available!",
+      "searchText": "Search for countries"
+    }
+  },
 
   "drawers": {
     "selectLanguages": {

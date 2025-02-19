@@ -6,6 +6,7 @@ import {
   useState,
   useCallback,
 } from "react";
+import { toast } from "sonner";
 
 const CountryDataContext = createContext();
 
@@ -36,6 +37,7 @@ export const CountryDataProvider = ({ children }) => {
       );
       setTotalPages(response.data.totalPages);
     } catch (error) {
+      toast.error(error.response.data.message || error.message);
       console.error("Error fetching countries:", error);
     }
     setLoading(false);

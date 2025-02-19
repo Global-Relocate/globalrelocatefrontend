@@ -58,27 +58,53 @@ export default {
   			fadeIn: 'fadeIn 0.3s ease-out',
   			scaleIn: 'scaleIn 0.2s ease-in-out',
   			modalIn: 'modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		keyframes: {
   			fadeIn: {
-  				'0%': { opacity: '0' },
-  				'100%': { opacity: '1' },
+  				'0%': {
+  					opacity: '0'
+  				},
+  				'100%': {
+  					opacity: '1'
+  				}
   			},
   			scaleIn: {
-  				'0%': { transform: 'scale(0.95)' },
-  				'100%': { transform: 'scale(1)' },
+  				'0%': {
+  					transform: 'scale(0.95)'
+  				},
+  				'100%': {
+  					transform: 'scale(1)'
+  				}
   			},
   			modalIn: {
-  				'0%': { 
-  					opacity: '0', 
-  					transform: 'scale(0.95) translateY(10px)' 
+  				'0%': {
+  					opacity: '0',
+  					transform: 'scale(0.95) translateY(10px)'
   				},
-  				'100%': { 
-  					opacity: '1', 
-  					transform: 'scale(1) translateY(0)' 
-  				},
+  				'100%': {
+  					opacity: '1',
+  					transform: 'scale(1) translateY(0)'
+  				}
   			},
-  		},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

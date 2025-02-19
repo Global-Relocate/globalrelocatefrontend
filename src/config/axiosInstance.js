@@ -1,6 +1,4 @@
-import { AuthContext } from "@/context/AuthContext";
 import axios from "axios";
-import { useContext } from "react";
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL, // Replace with your actual API base URL

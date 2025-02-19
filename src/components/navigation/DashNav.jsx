@@ -14,11 +14,13 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { LuUserRound } from "react-icons/lu";
-import AccountSettings from "../../pages/user/AccountSettings";
-import PropTypes from 'prop-types';
+import AccountSettings from "../../pages/user/account-settings";
+import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 function DashNav({ navState, setNavState }) {
   const { user, logout } = useContext(AuthContext);
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const displayName = user?.username || user?.name || "User";
@@ -59,31 +61,36 @@ function DashNav({ navState, setNavState }) {
             <IoChevronDownOutline className="text-gray-400" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-[200px]">
-            <DropdownMenuItem className="cursor-pointer"
-            onClick={() => navigate("/user/profile")}>
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={() => navigate("/user/profile")}
+            >
               View profile
             </DropdownMenuItem>
-            <DropdownMenuItem 
+            <DropdownMenuItem
               className="cursor-pointer"
               onClick={() => setIsSettingsOpen(true)}
             >
               Account Settings
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem 
+            <DropdownMenuItem
               className="cursor-pointer"
               onClick={() => navigate("/user/feedback")}
             >
               Give us feedback
             </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">
+            <DropdownMenuItem
+              onClick={() => navigate("/help")}
+              className="cursor-pointer"
+            >
               Help Center
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
               Privacy Policy
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem 
+            <DropdownMenuItem
               className="cursor-pointer font-bold"
               onClick={() => navigate("/upgrade")}
             >
@@ -108,7 +115,7 @@ function DashNav({ navState, setNavState }) {
 
 DashNav.propTypes = {
   navState: PropTypes.bool.isRequired,
-  setNavState: PropTypes.func.isRequired
+  setNavState: PropTypes.func.isRequired,
 };
 
 export default DashNav;

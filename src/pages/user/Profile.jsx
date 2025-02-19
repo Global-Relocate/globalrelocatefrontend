@@ -2,12 +2,12 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import FilterButton from "@/components/utils/FilterButton";
+import FilterButton from "@/components/user-buttons/FilterButton";
 import { ArrowLeft, MapPin } from 'lucide-react';
 import { LuUserRound } from "react-icons/lu";
 import DashboardLayout from '@/components/layouts/DashboardLayout';
 import { AuthContext } from "../../context/AuthContext";
-import AccountSettings from './AccountSettings';
+import AccountSettings from './account-settings';
 import PostsTab from '@/components/profile/tabs/PostsTab';
 import CommentsTab from '@/components/profile/tabs/CommentsTab';
 import BookmarksTab from '@/components/profile/tabs/BookmarksTab';

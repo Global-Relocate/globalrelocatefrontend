@@ -53,6 +53,30 @@
       }
     }
   },
+
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Länder",
+      "aiAssistant": "KI-Assistent",
+      "compareCountries": "Länder vergleichen",
+      "taxCalculator": "Steuerrechner",
+      "notifications": "Benachrichtigungen",
+      "favourites": "Favoriten",
+      "community": "Community",
+      "cta": {
+        "title": "Probiere Pro",
+        "para": "Sie nutzen derzeit den kostenlosen Plan für 3 Tage. Jetzt upgraden, um Global Relocate weiter zu nutzen.",
+        "buttonText": "Mehr erfahren"
+      }
+    },
+    "countries": {
+      "title": "Länder",
+      "noDataText": "Keine Daten verfügbar!",
+      "searchText": "Nach Ländern suchen"
+    }
+  },
+
+
   "drawers": {
     "selectLanguages": {
       "confirm": "Änderungen bestätigen"
