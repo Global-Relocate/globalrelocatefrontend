@@ -26,6 +26,8 @@ import TrialExpired from "./pages/user/trial-expired";
 import Feedback from "./pages/user/feedback";
 import "./App.css";
 import HelpCenter from "./pages/unauthenticated/help-center";
+import PrivacyPolicy from "./pages/unauthenticated/privacy-policy";
+import TermsAndConditions from "./pages/unauthenticated/terms-conditions";
 
 const AppContent = () => {
   const { showTrialModal } = useTrial();
@@ -44,6 +46,8 @@ const AppContent = () => {
         <Route path="/upgrade" element={<Upgrade />} />
         <Route path="/trialexpired" element={<TrialExpired />} />
         <Route path="/help" element={<HelpCenter />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/term" element={<TermsAndConditions />} />
 
         {/* Dashboard routes */}
         <Route path="/user">

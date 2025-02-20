@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../assets/images/footer_logo.png";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -28,10 +29,10 @@ export default function Footer() {
 
         <ul className="flex flex-col gap-5">
           <li>
-            <a href="#">Terms</a>
+            <Link to="/term">Terms</Link>
           </li>
           <li>
-            <a href="#">Privacy</a>
+            <Link to="/privacy">Privacy</Link>
           </li>
         </ul>
       </div>
