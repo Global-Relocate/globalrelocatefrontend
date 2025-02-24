@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Landing from "./pages/unauthenticated/landing";
-import Login from "./pages/unauthenticated/login";
+import Login from "./pages/unauthenticated/Login";
 import Signup from "./pages/unauthenticated/signup";
 import ForgotPassword from "./pages/unauthenticated/forgot-password";
 import VerifyEmail from "./pages/unauthenticated/verify-email";
