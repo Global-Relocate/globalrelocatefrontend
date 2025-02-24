@@ -41,7 +41,7 @@ const SelectLanguages = () => {
             />
           </div>
           <span className="text-sm">
-            {selectedLanguage?.code?.toUpperCase() || "eng"}
+            {selectedLanguage?.code?.toUpperCase() || "ENG"}
           </span>
         </div>
       </SheetTrigger>
