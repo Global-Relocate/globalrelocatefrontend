@@ -12,7 +12,7 @@ import {
 import { IoChevronDownOutline } from "react-icons/io5";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LuUserRound } from "react-icons/lu";
 import AccountSettings from "../../pages/user/account-settings";
 import PropTypes from "prop-types";
@@ -46,9 +46,9 @@ function DashNav({ navState, setNavState }) {
             />
           )}
         </div>
-        <div className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img src={logo} alt="logo" className="w-36" />
-        </div>
+        </Link>
       </div>
 
       <div className="flex items-center space-x-3">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import SelectLanguages from "@/components/drawers/SelectLanguages";
 import logo from "../../assets/svg/logo.svg";
@@ -65,8 +65,8 @@ const Navbar = () => {
     <ul className={`${mobile ? "flex flex-col space-y-6" : "flex space-x-8"}`}>
       {navLinks.map(({ href, label }) => (
         <li key={href}>
-          <a
-            href={href}
+          <Link
+            to={href}
             className={`transition-colors duration-200 ${
               isActivePath(href)
                 ? "text-black hover:text-[#404040]"
@@ -75,7 +75,7 @@ const Navbar = () => {
             onClick={onClick}
           >
             {label}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>

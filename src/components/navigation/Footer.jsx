@@ -11,19 +11,21 @@ export default function Footer() {
         <img src={logo} alt="logo" />
         <ul className="flex flex-col gap-5">
           <li>
-            <a href="#">{t("landingPage.navbar.home")}</a>
+            <Link to="/">{t("landingPage.navbar.home")}</Link>
           </li>
           <li>
-            <a href="#">{t("landingPage.navbar.countriesData")}</a>
+            <Link to="/user/countries">
+              {t("landingPage.navbar.countriesData")}
+            </Link>
           </li>
           <li>
-            <a href="#">{t("landingPage.navbar.community")}</a>
+            <Link to="#">{t("landingPage.navbar.community")}</Link>
           </li>
           <li>
-            <a href="#">{t("landingPage.navbar.tools")}</a>
+            <Link to="#">{t("landingPage.navbar.tools")}</Link>
           </li>
           <li>
-            <a href="#">{t("landingPage.navbar.contact")}</a>
+            <Link to="#">{t("landingPage.navbar.contact")}</Link>
           </li>
         </ul>
 

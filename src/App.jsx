@@ -23,7 +23,7 @@ import CountryDetails from "./pages/user/country-details";
 import Profile from "./pages/user/Profile";
 import Upgrade from "./pages/user/Upgrade";
 import TrialExpired from "./pages/user/trial-expired";
-import Feedback from "./pages/user/feedback";
+import Feedback from "./pages/user/Feedback";
 import "./App.css";
 import HelpCenter from "./pages/unauthenticated/help-center";
 import PrivacyPolicy from "./pages/unauthenticated/privacy-policy";
@@ -31,6 +31,7 @@ import TermsAndConditions from "./pages/unauthenticated/terms-conditions";
 import { useEffect, useState } from "react";
 import PageLoader from "./components/loaders/PageLoader";
 import "./App.css";
+import ScrollToTop from "./utils/ScrollToTop";
 
 const AppContent = () => {
   const { showTrialModal } = useTrial();
@@ -63,6 +64,7 @@ const AppContent = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
