@@ -23,7 +23,7 @@ import CountryDetails from "./pages/user/country-details";
 import Profile from "./pages/user/Profile";
 import Upgrade from "./pages/user/Upgrade";
 import TrialExpired from "./pages/user/trial-expired";
-import Feedback from "./pages/user/Feedback";
+import Feedback from "./pages/user/feedback";
 import "./App.css";
 import HelpCenter from "./pages/unauthenticated/help-center";
 import PrivacyPolicy from "./pages/unauthenticated/privacy-policy";
