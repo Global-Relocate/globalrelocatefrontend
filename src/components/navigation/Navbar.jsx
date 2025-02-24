@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "/", label: t("landingPage.navbar.home") },
-    { href: "#countries", label: t("landingPage.navbar.countriesData") },
+    { href: "/user/countries", label: t("landingPage.navbar.countriesData") },
     { href: "#community", label: t("landingPage.navbar.community") },
     { href: "#tools", label: t("landingPage.navbar.tools") },
     { href: "#contact", label: t("landingPage.navbar.contact") },

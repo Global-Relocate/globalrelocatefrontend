@@ -28,9 +28,37 @@ import "./App.css";
 import HelpCenter from "./pages/unauthenticated/help-center";
 import PrivacyPolicy from "./pages/unauthenticated/privacy-policy";
 import TermsAndConditions from "./pages/unauthenticated/terms-conditions";
+import { useEffect, useState } from "react";
+import PageLoader from "./components/loaders/PageLoader";
 
 const AppContent = () => {
   const { showTrialModal } = useTrial();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const handleStateChange = () => {
+      if (document.readyState === "complete") {
+        setIsLoading(false); // Hide the loader when the page is fully loaded
+      }
+    };
+
+    // Check the initial state
+    if (document.readyState === "complete") {
+      setIsLoading(false); // If the page is already loaded, hide the loader immediately
+    } else {
+      // Listen for changes in the loading state
+      document.addEventListener("readystatechange", handleStateChange);
+    }
+
+    // Cleanup
+    return () => {
+      document.removeEventListener("readystatechange", handleStateChange);
+    };
+  }, []);
+
+  if (isLoading) {
+    return <PageLoader />;
+  }
 
   return (
     <>
