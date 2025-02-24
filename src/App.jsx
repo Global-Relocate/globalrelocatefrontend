@@ -24,12 +24,12 @@ import Profile from "./pages/user/profile";
 import Upgrade from "./pages/user/upgrade";
 import TrialExpired from "./pages/user/trial-expired";
 import Feedback from "./pages/user/feedback";
-import "./App.css";
 import HelpCenter from "./pages/unauthenticated/help-center";
 import PrivacyPolicy from "./pages/unauthenticated/privacy-policy";
 import TermsAndConditions from "./pages/unauthenticated/terms-conditions";
 import { useEffect, useState } from "react";
 import PageLoader from "./components/loaders/PageLoader";
+import "./App.css";
 
 const AppContent = () => {
   const { showTrialModal } = useTrial();
