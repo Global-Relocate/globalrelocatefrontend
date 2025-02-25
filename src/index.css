@@ -86,3 +86,30 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+
+.policyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+}
+
+.policyInner {
+  width: 80%;
+}
+
+.policyInner h1 {
+  color: inherit;
+  font-weight: 700;
+  font-size: 30px;
+}
+.policyInner p {
+  margin: 20px 0px;
+  color: inherit;
+}
+
+.policyInner h3 {
+  color: inherit;
+  font-size: 18px;
+  font-weight: 700;
+}

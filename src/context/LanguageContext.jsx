@@ -1,11 +1,11 @@
-import { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useContext } from "react";
 
-const STORAGE_KEY = 'selectedLanguage';
+const STORAGE_KEY = "selectedLanguage";
 
 const defaultLanguage = {
-  code: 'eng',
-  name: 'English',
-  country: 'US'
+  code: "eng",
+  name: "English",
+  country: "US",
 };
 
 export const LanguageContext = createContext();
@@ -31,7 +31,7 @@ export const LanguageProvider = ({ children }) => {
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
 };

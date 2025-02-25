@@ -53,6 +53,27 @@
       }
     }
   },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Países",
+      "aiAssistant": "Asistente IA",
+      "compareCountries": "Comparar países",
+      "taxCalculator": "Calculadora de impuestos",
+      "notifications": "Notificaciones",
+      "favourites": "Favoritos",
+      "community": "Comunidad",
+      "cta": {
+        "title": "Prueba Pro",
+        "para": "Actualmente estás en el plan gratuito válido por 3 días. Actualiza ahora para seguir usando Global Relocate.",
+        "buttonText": "Saber más"
+      }
+    },
+    "countries": {
+      "title": "Países",
+      "noDataText": "¡No hay datos disponibles!",
+      "searchText": "Buscar países"
+    }
+  },
   "drawers": {
     "selectLanguages": {
       "confirm": "Confirmar cambios"

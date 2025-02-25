@@ -4,18 +4,16 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import CountriesDashCard from "@/components/cards/CountriesDashCard";
 import { useFavorites } from "@/context/favorites-context";
-import FilterButton from "@/components/utils/FilterButton";
+import FilterButton from "@/components/user-buttons/FilterButton";
 import { useCountryData } from "@/context/CountryDataContext";
 import { Skeleton } from "@/components/ui/skeleton";
 // countries imports
 import nigeria from "../../assets/images/nigeria.png";
 import swizerland from "../../assets/images/swizerland.png";
-import london from "../../assets/images/london.png";
-import italy from "../../assets/images/italy.png";
-import china from "../../assets/images/china.png";
-import uae from "../../assets/images/uae.png";
+import { useTranslation } from "react-i18next";
 
 function Countries() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { toggleFavorite } = useFavorites();
   const {
@@ -87,9 +85,14 @@ function Countries() {
   return (
     <DashboardLayout>
       <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
-        <h2 className="text-3xl font-medium">Countries</h2>
+        <h2 className="text-3xl font-medium">
+          {t("userDashboard.countries.title")}
+        </h2>
         <div className="flex w-full sm:w-auto items-center space-x-2">
-          <SearchInput onChange={handleSearch} />
+          <SearchInput
+            onChange={handleSearch}
+            placeholder={t("userDashboard.countries.searchText")}
+          />
         </div>
       </div>
 
@@ -106,17 +109,22 @@ function Countries() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-10 py-10">
         {/* Main Loader - only visible when fetching first page */}
-        {loading && page === 1
-          ? Array.from({ length: 8 }).map((_, index) => (
-              <div key={index} className="w-full md:w-[270px]">
-                <Skeleton className="h-[320px] w-full rounded-xl" />
-                <div className="flex items-center space-x-2 mt-2">
-                  <Skeleton className="h-12 w-12 rounded-full" />
-                  <Skeleton className="h-4 w-[200px]" />
-                </div>
+        {loading && page === 1 ? (
+          Array.from({ length: 8 }).map((_, index) => (
+            <div key={index} className="w-full md:w-[270px]">
+              <Skeleton className="h-[320px] w-full rounded-xl" />
+              <div className="flex items-center space-x-2 mt-2">
+                <Skeleton className="h-12 w-12 rounded-full" />
+                <Skeleton className="h-4 w-[200px]" />
               </div>
-            ))
-          : countries.map((item, i) => {
+            </div>
+          ))
+        ) : (
+          <>
+            {countries.length < 1 && (
+              <h2> {t("userDashboard.countries.noDataText")}</h2>
+            )}
+            {countries.map((item, i) => {
               const isLastElement = i === countries.length - 1;
               console.log(isLastElement);
               return (
@@ -138,6 +146,8 @@ function Countries() {
                 </div>
               );
             })}
+          </>
+        )}
       </div>
 
       {/* Infinite Scroll Loader - only visible when fetching more */}

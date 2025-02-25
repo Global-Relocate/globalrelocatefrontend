@@ -8,7 +8,7 @@ function FilterButton({ isActive, title, onClick, ...props }) {
       onClick={onClick}
       className={`${
         isActive
-          ? "bg-black text-white shadow-md" 
+          ? "bg-black text-white shadow-md"
           : "bg-white text-black hover:bg-black hover:text-white"
       } rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200`}
     >

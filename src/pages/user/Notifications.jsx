@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import FilterButton from "@/components/utils/FilterButton";
+import FilterButton from "@/components/user-buttons/FilterButton";
 import AllNotificationsTab from "@/components/profile/tabs/AllNotificationsTab";
 import MentionsTab from "@/components/profile/tabs/MentionsTab";
 import FollowingTab from "@/components/profile/tabs/FollowingTab";

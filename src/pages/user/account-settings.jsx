@@ -6,10 +6,10 @@ import {
   SheetHeader,
   SheetTitle,
 } from '@/components/ui/sheet';
-import ProfileTab from './ProfileTab';
-import AccountTab from './AccountTab';
-import PreferencesTab from './PreferencesTab';
-import FilterButton from '@/components/utils/FilterButton';
+import ProfileTab from '../../components/user-tabs/profile-tab';
+import AccountTab from '../../components/user-tabs/account-tab';
+import PreferencesTab from '../../components/user-tabs/preferences-tab';
+import FilterButton from '@/components/user-buttons/FilterButton';
 
 const AccountSettings = ({ open, onOpenChange }) => {
   const [activeTab, setActiveTab] = useState('Profile');
