@@ -1,45 +1,55 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { LuUserRound } from 'react-icons/lu';
 import { BiEdit } from 'react-icons/bi';
 import { showToast } from '@/components/ui/toast';
+import { updateUserProfile } from '@/services/api';
+import { CountryDropdown } from "@/components/ui/country-dropdown";
 
-const STORAGE_KEY = 'profileData';
-
-const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
-  // Initialize state with values from localStorage or user prop
-  const [formData, setFormData] = useState(() => {
-    const savedData = localStorage.getItem(STORAGE_KEY);
-    if (savedData) {
-      return JSON.parse(savedData);
-    }
-    return {
-      name: user?.name || '',
-      username: user?.username || '',
-      bio: user?.bio || '',
-      location: user?.location || ''
-    };
+const ProfileTab = ({ user, setUser, onOpenChange, profileData, onProfileUpdate }) => {
+  const fileInputRef = useRef(null);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    username: '',
+    bio: '',
+    country: '',
+    countryCode: '',
+    avatar: null
   });
-
+  const [previewImage, setPreviewImage] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [showUnsavedWarning, setShowUnsavedWarning] = useState(false);
 
-  // Check for unsaved changes whenever form data changes or tab switches
+  // Initialize form with profile data
+  useEffect(() => {
+    if (profileData || user) {
+      setFormData({
+        fullName: profileData?.fullName || user?.fullName || '',
+        username: profileData?.username || user?.username || '',
+        bio: profileData?.bio || '',
+        country: profileData?.country || user?.country || '',
+        countryCode: profileData?.countryCode || user?.countryCode || '',
+        avatar: null
+      });
+      // If there's an avatar URL from the profile, set it as preview
+      if (profileData?.avatarUrl) {
+        setPreviewImage(profileData.avatarUrl);
+      }
+    }
+  }, [profileData, user]);
+
+  // Check for unsaved changes
   useEffect(() => {
     const hasUnsavedChanges = Object.keys(formData).some(
-      key => formData[key] !== (user?.[key] || '')
-    );
+      key => key !== 'avatar' && formData[key] !== (profileData?.[key] || user?.[key] || '')
+    ) || formData.avatar !== null;
     
     setShowUnsavedWarning(hasUnsavedChanges);
     setIsEditing(hasUnsavedChanges);
-  }, [formData, user, activeTab]);
-
-  // Save form state to localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-  }, [formData]);
+  }, [formData, profileData, user]);
 
   const handleChange = (field, value) => {
     setFormData(prev => ({
@@ -48,28 +58,90 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
     }));
   };
 
+  const handleAvatarClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) { // 5MB limit
+        showToast({
+          message: 'Image size should be less than 5MB',
+          type: 'error'
+        });
+        return;
+      }
+
+      if (!file.type.startsWith('image/')) {
+        showToast({
+          message: 'Please select an image file',
+          type: 'error'
+        });
+        return;
+      }
+
+      setFormData(prev => ({
+        ...prev,
+        avatar: file
+      }));
+
+      // Create preview URL
+      const previewUrl = URL.createObjectURL(file);
+      setPreviewImage(previewUrl);
+    }
+  };
+
+  const handleCountryChange = (selectedCountry) => {
+    setFormData(prev => ({
+      ...prev,
+      country: selectedCountry.name,
+      countryCode: selectedCountry.alpha2
+    }));
+  };
+
   const handleSave = async () => {
+    if (!formData.fullName.trim()) {
+      showToast({
+        message: 'Full name is required',
+        type: 'error'
+      });
+      return;
+    }
+
+    if (!formData.username.trim()) {
+      showToast({
+        message: 'Username is required',
+        type: 'error'
+      });
+      return;
+    }
+
     setIsSaving(true);
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Update user context
+      await updateUserProfile(formData);
+      
+      // Update user context and profile data
       setUser(prev => ({
         ...prev,
-        ...formData
+        ...formData,
+        avatar: undefined // Remove the File object
       }));
+      
+      // Fetch updated profile data
+      await onProfileUpdate();
 
       setIsEditing(false);
       setShowUnsavedWarning(false);
+      onOpenChange(false);
 
       showToast({ 
-        message: 'Your changes have been saved',
+        message: 'Your profile has been updated successfully',
         type: 'success'
       });
     } catch (error) {
       showToast({ 
-        message: 'Failed to save changes',
+        message: error.message || 'Failed to update profile',
         type: 'error'
       });
     } finally {
@@ -78,13 +150,18 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
   };
 
   const handleCancel = () => {
-    // Reset form to user data
-    setFormData({
-      name: user?.name || '',
-      username: user?.username || '',
-      bio: user?.bio || '',
-      location: user?.location || ''
-    });
+    // Reset form to profile data
+    if (profileData || user) {
+      setFormData({
+        fullName: profileData?.fullName || user?.fullName || '',
+        username: profileData?.username || user?.username || '',
+        bio: profileData?.bio || '',
+        country: profileData?.country || user?.country || '',
+        countryCode: profileData?.countryCode || user?.countryCode || '',
+        avatar: null
+      });
+      setPreviewImage(profileData?.avatarUrl || null);
+    }
     setIsEditing(false);
     setShowUnsavedWarning(false);
     onOpenChange(false);
@@ -98,13 +175,33 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
         <div className="flex items-center justify-between">
           <h3 className="text-sm text-gray-600">Avatar</h3>
           <div className="relative">
-            <div className="h-16 w-16 rounded-full bg-[#8F8F8F] flex items-center justify-center hover:bg-[#7F7F7F] transition-colors duration-200">
-              <LuUserRound className="h-8 w-8 text-white" />
+            <div 
+              className="h-16 w-16 rounded-full bg-[#8F8F8F] flex items-center justify-center hover:bg-[#7F7F7F] transition-colors duration-200 overflow-hidden"
+            >
+              {previewImage ? (
+                <img 
+                  src={previewImage} 
+                  alt="Avatar" 
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <LuUserRound className="h-8 w-8 text-white" />
+              )}
             </div>
             <div className="absolute -right-1 -bottom-1">
-              <button className="p-1 bg-white rounded-md shadow-md border hover:bg-gray-50">
+              <button 
+                className="p-1 bg-white rounded-md shadow-md border hover:bg-gray-50"
+                onClick={handleAvatarClick}
+              >
                 <BiEdit className="h-3 w-3" />
               </button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={handleFileChange}
+              />
             </div>
           </div>
         </div>
@@ -112,8 +209,8 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
         <div className="space-y-2">
           <h3 className="text-sm text-gray-600">Full Name</h3>
           <Input
-            value={formData.name}
-            onChange={(e) => handleChange('name', e.target.value)}
+            value={formData.fullName}
+            onChange={(e) => handleChange('fullName', e.target.value)}
             placeholder="Add name"
             className="focus:border-black"
           />
@@ -140,12 +237,11 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-sm text-gray-600">Location</h3>
-          <Input
-            value={formData.location}
-            onChange={(e) => handleChange('location', e.target.value)}
-            placeholder="Change your location"
-            className="focus:border-black placeholder-gray-500"
+          <h3 className="text-sm text-gray-600">Country</h3>
+          <CountryDropdown
+            onChange={handleCountryChange}
+            value={formData.countryCode}
+            className="focus:border-black hover:border-black"
           />
         </div>
       </div>
@@ -188,6 +284,33 @@ const ProfileTab = ({ user, setUser, onOpenChange, activeTab }) => {
       <div className="mb-10" />
     </div>
   );
+};
+
+ProfileTab.propTypes = {
+  user: PropTypes.shape({
+    fullName: PropTypes.string,
+    username: PropTypes.string,
+    country: PropTypes.string,
+    countryCode: PropTypes.string,
+    bio: PropTypes.string,
+    avatarUrl: PropTypes.string
+  }),
+  setUser: PropTypes.func.isRequired,
+  onOpenChange: PropTypes.func.isRequired,
+  profileData: PropTypes.shape({
+    fullName: PropTypes.string,
+    username: PropTypes.string,
+    bio: PropTypes.string,
+    country: PropTypes.string,
+    countryCode: PropTypes.string,
+    avatarUrl: PropTypes.string
+  }),
+  onProfileUpdate: PropTypes.func.isRequired
+};
+
+ProfileTab.defaultProps = {
+  user: null,
+  profileData: null
 };
 
 export default ProfileTab;

@@ -135,7 +135,6 @@ export const loginUser = async (email, password) => {
   }
 };
 
-
 export const handleOAuthCallback = async (code, type) => {
   try {
     if (!code || !type) {
@@ -208,7 +207,6 @@ export const initiateMicrosoftAuth = async () => {
     throw new Error('Failed to initiate Microsoft authentication');
   }
 };
-
 
 export const verifyEmail = async (email, otp) => {
   const endpoint = '/auth/verify/otp';
@@ -320,7 +318,8 @@ export const resetPassword = async (email, password, otp) => {
 };
 
 export const resendVerificationEmail = async (userId) => {
-  return api.post('/auth/resend-verification', { userId });
+  const endpoint = '/auth/resend-verification';
+  return api.post(endpoint, { userId });
 };
 
 export const setAuthToken = (token) => {
@@ -360,6 +359,358 @@ export const resendOTP = async (email) => {
 
     throw new CustomAPIError(
       'Failed to resend OTP. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+// User Profile Endpoints
+export const getUserProfile = async () => {
+  const endpoint = '/user/profile';
+  console.log('Fetching user profile from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Profile fetch successful:', response);
+    return response;
+  } catch (error) {
+    console.error('Profile fetch error:', error);
+
+    if (error.response?.status === 403) {
+      // Return the actual error message from the backend
+      return {
+        success: false,
+        message: error.response.data.message,
+        data: {
+          user: null
+        }
+      };
+    }
+
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to fetch user profile. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const updateUserProfile = async (profileData) => {
+  const endpoint = '/user/profile';
+  console.log('Updating user profile at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    // Create FormData instance for multipart/form-data
+    const formData = new FormData();
+    
+    // Append file if avatar is provided
+    if (profileData.avatar) {
+      formData.append('avatar', profileData.avatar);
+    }
+
+    // Append other fields
+    const fields = ['fullName', 'username', 'bio', 'country'];
+    fields.forEach(field => {
+      if (profileData[field] !== undefined) {
+        formData.append(field, profileData[field]);
+      }
+    });
+
+    const response = await api.put(endpoint, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    
+    console.log('Profile update successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to update user profile. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const getUserPosts = async () => {
+  const endpoint = '/user/profile/posts';
+  console.log('Fetching user posts from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Posts fetch successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to fetch user posts. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const getUserComments = async () => {
+  const endpoint = '/user/profile/comments';
+  console.log('Fetching user comments from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Comments fetch successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to fetch user comments. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const getUserBookmarks = async () => {
+  const endpoint = '/user/profile/bookmarks';
+  console.log('Fetching user bookmarks from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Bookmarks fetch successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to fetch user bookmarks. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+// User Preferences Endpoints
+export const getUserPreferences = async () => {
+  const endpoint = '/user/preferences';
+  console.log('Fetching user preferences from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Preferences fetch successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to fetch user preferences. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const updateUserPreferences = async (preferences) => {
+  const endpoint = '/user/preferences';
+  console.log('Updating user preferences at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.put(endpoint, preferences);
+    console.log('Preferences update successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to update user preferences. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+// Account Management Endpoints
+export const getAccountDetails = async () => {
+  const endpoint = '/user/account';
+  console.log('Fetching account details from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Account details fetch successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to fetch account details. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const deleteAccount = async () => {
+  const endpoint = '/user/account';
+  console.log('Deleting account at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.delete(endpoint);
+    console.log('Account deletion successful:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to delete account. Please try again.',
       0,
       { originalError: error.message }
     );

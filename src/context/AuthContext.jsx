@@ -1,4 +1,5 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import { setAuthToken } from "../services/api";
 
 export const AuthContext = createContext();
@@ -14,8 +15,14 @@ export const AuthProvider = ({ children }) => {
     const userInfo = localStorage.getItem("user");
 
     if (userInfo) {
+      const parsedUser = JSON.parse(userInfo);
       setIsAuthenticated(true);
-      setUser(JSON.parse(userInfo));
+      setUser(parsedUser);
+      
+      // Set the auth token in axios defaults if it exists
+      if (parsedUser.token) {
+        setAuthToken(parsedUser.token);
+      }
     }
   }, []);
 
@@ -25,11 +32,16 @@ export const AuthProvider = ({ children }) => {
       return;
     }
 
-    localStorage.setItem("user", JSON.stringify({ ...userInfo, token }));
+    // Store user info with token
+    const userWithToken = { ...userInfo, token };
+    localStorage.setItem("user", JSON.stringify(userWithToken));
+
+    // Set the auth token in axios defaults
+    setAuthToken(token);
 
     // Update state
     setIsAuthenticated(true);
-    setUser(userInfo);
+    setUser(userWithToken);
   };
 
   const logout = () => {
@@ -47,4 +59,8 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
+};
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
