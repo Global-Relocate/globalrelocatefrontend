@@ -6,6 +6,8 @@ import { HiOutlineTrash } from "react-icons/hi";
 import { BiLink } from "react-icons/bi";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { Loader2 } from "lucide-react";
+// import { FaRedoAlt } from "react-icons/fa";
+// import { Button } from "@/components/ui/button";
 import CommentInput from './CommentInput';
 import {
   DropdownMenu,
@@ -25,6 +27,7 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const { showUndoToast } = useUndo();
+  // const [isHovered, setIsHovered] = useState(false);
 
   const handleReply = (replyText, image) => {
     onReply(comment.id, replyText, image);
@@ -73,7 +76,7 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
   }
 
   return (
-    <div className={`relative ${level > 0 } mb-4`}>
+    <div className={`relative ${level > 0 ? 'ml-12' : ''} mb-4`}>
       <div className="flex items-start gap-3">
         <img src={comment.avatar} alt={`${comment.author} avatar`} className="w-8 h-8 rounded-full" />
         <div className="flex-1">
@@ -280,35 +283,18 @@ Comment.propTypes = {
 const CommentThread = ({ comments, currentUserAvatar, currentUserId, onReply, onEdit, onDelete }) => {
   return (
     <div className="w-full px-6 pb-4">
-      <div className="relative pt-2">
-        {/* Single thread line for entire thread */}
-        <div 
-          className="absolute left-4 top-0 bottom-0"
-          style={{ marginLeft: '-1px' }}
-        >
-          <div 
-            className="absolute w-[2px] bg-[#E5E7EB]"
-            style={{ 
-              height: '100%',
-              left: '2px',
-            }}
+      <div className="pt-2">
+        {comments.map((comment) => (
+          <Comment
+            key={comment.id}
+            comment={comment}
+            onReply={onReply}
+            onEdit={onEdit}
+            onDelete={onDelete}
+            currentUserAvatar={currentUserAvatar}
+            currentUserId={currentUserId}
           />
-        </div>
-
-        {/* Comments */}
-        <div className="space-y-4">
-          {comments.map((comment) => (
-            <Comment
-              key={comment.id}
-              comment={comment}
-              onReply={onReply}
-              onEdit={onEdit}
-              onDelete={onDelete}
-              currentUserAvatar={currentUserAvatar}
-              currentUserId={currentUserId}
-            />
-          ))}
-        </div>
+        ))}
       </div>
     </div>
   );
