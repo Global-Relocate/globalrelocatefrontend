@@ -214,15 +214,15 @@ VideoContent.propTypes = {
 };
 
 const StackedAvatars = ({ likers }) => {
-  if (!likers || likers.length === 0) return null;
+  if (!likers?.length) return null;
 
   return (
     <div className="flex -space-x-2">
       {likers.slice(0, 3).map((liker, index) => (
-        <img 
+        <img
           key={index}
-          src={liker.avatar} 
-          alt={`${liker.name} avatar`} 
+          src={liker.avatar}
+          alt={`${liker.name} avatar`}
           className="w-6 h-6 rounded-full border-2 border-white"
         />
       ))}
@@ -283,11 +283,14 @@ const CommunityPostCard = ({
   const handleCommentSubmit = (comment, image) => {
     const newComment = {
       id: Date.now().toString(),
+      userId: currentUserId,
       author: name,
       avatar: avatar,
       content: comment,
       timeAgo: 'Just now',
       image: image,
+      likesCount: 0,
+      isLikedByUser: false,
       replies: []
     };
     setLocalComments(prev => [...prev, newComment]);
@@ -298,11 +301,14 @@ const CommunityPostCard = ({
   const handleReply = (parentId, replyText, image) => {
     const newReply = {
       id: Date.now().toString(),
+      userId: currentUserId,
       author: name,
       avatar: avatar,
       content: replyText,
       timeAgo: 'Just now',
       image: image,
+      likesCount: 0,
+      isLikedByUser: false,
       replies: []
     };
 
@@ -491,12 +497,18 @@ const CommunityPostCard = ({
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
-                  {likers.length > 0 ? (
-                    <StackedAvatars likers={likers} />
-                  ) : (
-                    <img src={isLiked ? heartIcon : favoriteIcon} alt="Likes" className="w-6 h-6" />
-                  )}
-                  <span className="text-sm text-gray-600">{likesCount} likes</span>
+                  <StackedAvatars likers={likers} />
+                  <div className="flex items-center gap-2">
+                    {isLiked && (
+                      <img 
+                        src="/src/assets/svg/filledfavorite.svg" 
+                        alt="Liked" 
+                        className="w-4 h-4"
+                        style={{ filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)' }}
+                      />
+                    )}
+                    <span className="text-sm text-gray-600">{likesCount} likes</span>
+                  </div>
                 </div>
                 <span className="text-sm text-gray-600">{commentsCount} comments</span>
               </div>
