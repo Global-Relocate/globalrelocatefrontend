@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { AuthContext } from '@/context/AuthContext';
 import {
   Sheet,
@@ -10,11 +11,30 @@ import ProfileTab from '../../components/user-tabs/profile-tab';
 import AccountTab from '../../components/user-tabs/account-tab';
 import PreferencesTab from '../../components/user-tabs/preferences-tab';
 import FilterButton from '@/components/user-buttons/FilterButton';
+import { getUserProfile } from '@/services/api';
 
 const AccountSettings = ({ open, onOpenChange }) => {
   const [activeTab, setActiveTab] = useState('Profile');
   const { user, setUser } = useContext(AuthContext);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [profileData, setProfileData] = useState(null);
+
+  const fetchProfileData = async () => {
+    try {
+      const response = await getUserProfile();
+      if (response.success) {
+        setProfileData(response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching profile:', error);
+    }
+  };
+
+  useEffect(() => {
+    if (open && activeTab === 'Profile') {
+      fetchProfileData();
+    }
+  }, [open, activeTab]);
 
   const tabs = ['Profile', 'Account', 'Preferences'];
 
@@ -42,7 +62,15 @@ const AccountSettings = ({ open, onOpenChange }) => {
         
         <div className="h-[calc(90vh-5rem)] overflow-y-auto">
           <div className="max-w-2xl mx-auto py-6">
-            {activeTab === 'Profile' && <ProfileTab user={user} setUser={setUser} onOpenChange={onOpenChange} />}
+            {activeTab === 'Profile' && (
+              <ProfileTab 
+                user={user} 
+                setUser={setUser} 
+                onOpenChange={onOpenChange}
+                profileData={profileData}
+                onProfileUpdate={fetchProfileData}
+              />
+            )}
             {activeTab === 'Account' && (
               <AccountTab 
                 user={user} 
@@ -56,6 +84,11 @@ const AccountSettings = ({ open, onOpenChange }) => {
       </SheetContent>
     </Sheet>
   );
+};
+
+AccountSettings.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onOpenChange: PropTypes.func.isRequired
 };
 
 export default AccountSettings;

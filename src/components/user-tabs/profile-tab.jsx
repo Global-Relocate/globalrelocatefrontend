@@ -7,6 +7,7 @@ import { BiEdit } from 'react-icons/bi';
 import { showToast } from '@/components/ui/toast';
 import { updateUserProfile } from '@/services/api';
 import { CountryDropdown } from "@/components/ui/country-dropdown";
+import { countries } from "country-data-list";
 
 const ProfileTab = ({ user, setUser, onOpenChange, profileData, onProfileUpdate }) => {
   const fileInputRef = useRef(null);
@@ -26,17 +27,24 @@ const ProfileTab = ({ user, setUser, onOpenChange, profileData, onProfileUpdate 
   // Initialize form with profile data
   useEffect(() => {
     if (profileData || user) {
+      const countryName = profileData?.country || user?.country || '';
+      // Find the country code by name
+      const countryData = countries.all.find(
+        c => c.name.toLowerCase() === countryName.toLowerCase()
+      );
+
       setFormData({
         fullName: profileData?.fullName || user?.fullName || '',
         username: profileData?.username || user?.username || '',
-        bio: profileData?.bio || '',
-        country: profileData?.country || user?.country || '',
-        countryCode: profileData?.countryCode || user?.countryCode || '',
+        bio: profileData?.bio || user?.bio || '',
+        country: countryName,
+        countryCode: countryData?.alpha2 || '',
         avatar: null
       });
+      
       // If there's an avatar URL from the profile, set it as preview
-      if (profileData?.avatarUrl) {
-        setPreviewImage(profileData.avatarUrl);
+      if (profileData?.profilePic || user?.profilePic) {
+        setPreviewImage(profileData?.profilePic || user?.profilePic);
       }
     }
   }, [profileData, user]);
@@ -93,6 +101,8 @@ const ProfileTab = ({ user, setUser, onOpenChange, profileData, onProfileUpdate 
   };
 
   const handleCountryChange = (selectedCountry) => {
+    if (!selectedCountry) return;
+    
     setFormData(prev => ({
       ...prev,
       country: selectedCountry.name,
@@ -119,26 +129,30 @@ const ProfileTab = ({ user, setUser, onOpenChange, profileData, onProfileUpdate 
 
     setIsSaving(true);
     try {
-      await updateUserProfile(formData);
+      const response = await updateUserProfile(formData);
       
-      // Update user context and profile data
-      setUser(prev => ({
-        ...prev,
-        ...formData,
-        avatar: undefined // Remove the File object
-      }));
-      
-      // Fetch updated profile data
-      await onProfileUpdate();
+      if (response.success) {
+        // Update user context and profile data
+        if (typeof setUser === 'function') {
+          setUser(prev => ({
+            ...prev,
+            ...formData,
+            avatar: undefined // Remove the File object
+          }));
+        }
+        
+        // Fetch updated profile data
+        await onProfileUpdate();
 
-      setIsEditing(false);
-      setShowUnsavedWarning(false);
-      onOpenChange(false);
+        setIsEditing(false);
+        setShowUnsavedWarning(false);
+        onOpenChange(false);
 
-      showToast({ 
-        message: 'Your profile has been updated successfully',
-        type: 'success'
-      });
+        showToast({ 
+          message: 'Your profile has been updated successfully',
+          type: 'success'
+        });
+      }
     } catch (error) {
       showToast({ 
         message: error.message || 'Failed to update profile',
@@ -160,7 +174,7 @@ const ProfileTab = ({ user, setUser, onOpenChange, profileData, onProfileUpdate 
         countryCode: profileData?.countryCode || user?.countryCode || '',
         avatar: null
       });
-      setPreviewImage(profileData?.avatarUrl || null);
+      setPreviewImage(profileData?.profilePic || null);
     }
     setIsEditing(false);
     setShowUnsavedWarning(false);
@@ -293,7 +307,7 @@ ProfileTab.propTypes = {
     country: PropTypes.string,
     countryCode: PropTypes.string,
     bio: PropTypes.string,
-    avatarUrl: PropTypes.string
+    profilePic: PropTypes.string
   }),
   setUser: PropTypes.func.isRequired,
   onOpenChange: PropTypes.func.isRequired,
@@ -303,7 +317,7 @@ ProfileTab.propTypes = {
     bio: PropTypes.string,
     country: PropTypes.string,
     countryCode: PropTypes.string,
-    avatarUrl: PropTypes.string
+    profilePic: PropTypes.string
   }),
   onProfileUpdate: PropTypes.func.isRequired
 };
