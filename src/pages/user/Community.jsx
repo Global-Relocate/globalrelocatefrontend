@@ -17,7 +17,6 @@ import image10 from "@/assets/images/image10.png";
 import image11 from "@/assets/images/image11.png";
 import image12 from "@/assets/images/image12.png";
 import image13 from "@/assets/images/image13.png";
-import imageStacked from "@/assets/images/stackedimage.png";
 
 function Community() {
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
@@ -28,7 +27,11 @@ function Community() {
       timeAgo: "2m ago",
       content: "Rome from every angle - a visual feast of history, culture, and architectural mastery. 🎨 #RomanHoliday #CityViews",
       images: [image12, image11, image10, image9, image8, image7, image6, image5, image4],
-      likesImage: imageStacked,
+      likers: [
+        { name: "Jerry Lamp", avatar: image1 },
+        { name: "Alege Samuel", avatar: image2 },
+        { name: "John Doe", avatar: image3 }
+      ],
       likesCount: 6,
       commentsCount: 0,
       comments: []
@@ -39,7 +42,10 @@ function Community() {
       timeAgo: "5m ago",
       content: "Exploring the eternal city's magnificent landmarks. Each corner tells a story of centuries past. 🇮🇹 #RomanArchitecture #TravelDiary",
       images: [image4, image5],
-      likesImage: imageStacked,
+      likers: [
+        { name: "Alege Samuel", avatar: image2 },
+        { name: "John Doe", avatar: image3 }
+      ],
       likesCount: 8,
       commentsCount: 2,
       comments: []
@@ -50,7 +56,11 @@ function Community() {
       timeAgo: "10m ago",
       content: "A journey through Rome's architectural wonders. The city's skyline is a testament to human creativity and engineering brilliance. ✨ #RomaViews #Heritage",
       images: [image4, image5, image6],
-      likesImage: imageStacked,
+      likers: [
+        { name: "Leon Francesco", avatar: image13 },
+        { name: "Alege Samuel", avatar: image2 },
+        { name: "John Doe", avatar: image3 }
+      ],
       likesCount: 12,
       commentsCount: 4,
       comments: []
@@ -61,7 +71,10 @@ function Community() {
       timeAgo: "15m ago",
       content: "Step into history at the Colosseum, Rome's iconic amphitheater. Once home to gladiator battles, it stands as a breathtaking symbol of ancient engineering and timeless grandeur. 🇮🇹 ✨ #Colosseum #Rome",
       images: [image4, image5, image6, image7],
-      likesImage: imageStacked,
+      likers: [
+        { name: "Leon Francesco", avatar: image13 },
+        { name: "Alege Samuel", avatar: image2 }
+      ],
       likesCount: 15,
       commentsCount: 6,
       comments: []
@@ -71,7 +84,9 @@ function Community() {
       name: "Samuel Alege",
       timeAgo: "22s ago",
       content: "Ever notice how life feels like a mix of a loading bar and a playlist on shuffle? Some days, you're at 2% wondering if you'll ever make it, and other days, you're jamming to the perfect vibe. Just keep hitting play. 🎵💪 #RandomThoughts #KeepGoing",
-      likesImage: image3,
+      likers: [
+        { name: "John Doe", avatar: image3 }
+      ],
       likesCount: 1,
       commentsCount: 0,
       comments: []
@@ -89,7 +104,7 @@ function Community() {
       timeAgo: "Just now",
       content: content,
       images: images,
-      likesImage: imageStacked,
+      likers: [],
       likesCount: 0,
       commentsCount: 0,
       comments: []
