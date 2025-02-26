@@ -1,19 +1,22 @@
 import NotificationCard from '../NotificationCard';
 import { useNotifications } from '@/context/NotificationsContext';
 import { useEffect, useState, useRef, useCallback } from 'react';
-import image1 from "@/assets/images/image1.png";
 import bellicon from "../../../assets/svg/bell.svg";
 
 const ITEMS_PER_PAGE = 10;
 
 const MentionsTab = () => {
-  const [mentionNotifications, setMentionNotifications] = useState([]);
+  const { notifications, isLoading: isLoadingNotifications, error, refreshNotifications, markAsRead, deleteNotification, showLessLikeThis } = useNotifications();
   const [displayedNotifications, setDisplayedNotifications] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const observer = useRef();
-  const { markAsRead, deleteNotification, showLessLikeThis } = useNotifications();
+
+  // Filter for mention notifications
+  const mentionNotifications = notifications.filter(
+    notification => notification.type === 'mention'
+  );
 
   const lastNotificationRef = useCallback(node => {
     if (loading) return;
@@ -27,28 +30,6 @@ const MentionsTab = () => {
   }, [loading, hasMore]);
 
   useEffect(() => {
-    // Initialize with sample mention notifications
-    const sampleMentions = Array.from({ length: 15 }, (_, i) => ({
-      id: `mention-${i + 1}`,
-      type: 'system',
-      data: {
-        content: (
-          <p className="text-gray-800">
-            <span className="font-medium text-[#5762D5]">Jerry Lamp</span> mentioned you in a {i % 2 === 0 ? 'post' : 'comment'}: &quot;Hey @user, {i % 2 === 0 ? 'check out this amazing travel guide!' : 'thanks for the recommendation!'}
-          </p>
-        ),
-        timeAgo: `${(i + 1) * 5} min ago`,
-        mentioner: {
-          name: 'Jerry Lamp',
-          avatar: image1
-        }
-      },
-      isUnread: i < 3
-    }));
-    setMentionNotifications(sampleMentions);
-  }, []);
-
-  useEffect(() => {
     setDisplayedNotifications(mentionNotifications.slice(0, page * ITEMS_PER_PAGE));
     setHasMore(mentionNotifications.length > page * ITEMS_PER_PAGE);
   }, [mentionNotifications, page]);
@@ -58,24 +39,30 @@ const MentionsTab = () => {
     setTimeout(() => {
       setPage(prev => prev + 1);
       setLoading(false);
-    }, 1000);
+    }, 500);
   };
 
-  const handleMarkAsRead = (id) => {
-    setMentionNotifications(prev =>
-      prev.map(notification =>
-        notification.id === id
-          ? { ...notification, isUnread: false }
-          : notification
-      )
+  if (isLoadingNotifications && page === 1) {
+    return (
+      <div className="flex justify-center items-center h-[45vh]">
+        <div className="w-8 h-8 border-4 border-[#5762D5] border-t-transparent rounded-full animate-spin"></div>
+      </div>
     );
-    markAsRead(id);
-  };
+  }
 
-  const handleDelete = (id) => {
-    setMentionNotifications(prev => prev.filter(notification => notification.id !== id));
-    deleteNotification(id);
-  };
+  if (error) {
+    return (
+      <div className="flex flex-col items-center justify-center h-[45vh]">
+        <p className="text-gray-600 mb-4">{error}</p>
+        <button 
+          onClick={refreshNotifications}
+          className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+        >
+          Try Again
+        </button>
+      </div>
+    );
+  }
 
   if (mentionNotifications.length === 0) {
     return (
@@ -105,8 +92,8 @@ const MentionsTab = () => {
             isLast={index === displayedNotifications.length - 1}
             isFirst={index === 0}
             isUnread={notification.isUnread}
-            onMarkAsRead={handleMarkAsRead}
-            onDelete={handleDelete}
+            onMarkAsRead={markAsRead}
+            onDelete={deleteNotification}
             onShowLess={showLessLikeThis}
           />
         </div>
