@@ -8,7 +8,9 @@ import ResetPassword from "./pages/unauthenticated/reset-password";
 import Welcome from "./pages/unauthenticated/welcome";
 import OAuthCallback from "./pages/unauthenticated/oauth-callback";
 import NotFound from "./pages/unauthenticated/not-found";
-import { TrialProvider, useTrial } from "./context/TrialContext";
+import { TrialProvider } from "./context/TrialContext";
+import { AuthProvider } from "./context/AuthContext";
+import { NotificationsProvider } from "./context/NotificationsContext";
 // import TrialExpiredModal from "./components/modals/TrialExpiredModal";
 
 import Countries from "./pages/user/Countries";
@@ -34,25 +36,21 @@ import "./App.css";
 import ScrollToTop from "./utils/ScrollToTop";
 
 const AppContent = () => {
-  const { showTrialModal } = useTrial();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleStateChange = () => {
       if (document.readyState === "complete") {
-        setIsLoading(false); // Hide the loader when the page is fully loaded
+        setIsLoading(false);
       }
     };
 
-    // Check the initial state
     if (document.readyState === "complete") {
-      setIsLoading(false); // If the page is already loaded, hide the loader immediately
+      setIsLoading(false);
     } else {
-      // Listen for changes in the loading state
       document.addEventListener("readystatechange", handleStateChange);
     }
 
-    // Cleanup
     return () => {
       document.removeEventListener("readystatechange", handleStateChange);
     };
@@ -104,9 +102,13 @@ const AppContent = () => {
 
 function App() {
   return (
-    <TrialProvider>
-      <AppContent />
-    </TrialProvider>
+    <AuthProvider>
+      <NotificationsProvider>
+        <TrialProvider>
+          <AppContent />
+        </TrialProvider>
+      </NotificationsProvider>
+    </AuthProvider>
   );
 }
 
