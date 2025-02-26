@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import { HiPhoto } from "react-icons/hi2";
 import { PiVideoFill } from "react-icons/pi";
+import { LuUserRound } from "react-icons/lu";
 import CommunityPostCard from "@/components/community/CommunityPostCard";
 import CreatePostModal from "@/components/community/CreatePostModal";
 import image1 from "@/assets/images/image1.png";
@@ -17,9 +18,11 @@ import image10 from "@/assets/images/image10.png";
 import image11 from "@/assets/images/image11.png";
 import image12 from "@/assets/images/image12.png";
 import image13 from "@/assets/images/image13.png";
+import { getUserProfile } from '@/services/api';
 
 function Community() {
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
+  const [profilePic, setProfilePic] = useState(null);
   const [posts, setPosts] = useState([
     {
       avatar: image13,
@@ -93,13 +96,28 @@ function Community() {
     }
   ]);
 
+  useEffect(() => {
+    const fetchProfilePic = async () => {
+      try {
+        const response = await getUserProfile();
+        if (response.success && response.data?.profilePic) {
+          setProfilePic(response.data.profilePic);
+        }
+      } catch (error) {
+        console.error('Error fetching profile picture:', error);
+      }
+    };
+
+    fetchProfilePic();
+  }, []);
+
   const handleOpenPostModal = () => {
     setIsPostModalOpen(true);
   };
 
   const handleCreatePost = (content, privacy, images = []) => {
     const newPost = {
-      avatar: image1,
+      avatar: profilePic || image1,
       name: "Jerry Lamp",
       timeAgo: "Just now",
       content: content,
@@ -126,7 +144,17 @@ function Community() {
             {/* Desktop/Tablet View */}
             <div className="hidden sm:flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <img src={image1} alt="User avatar" className="w-10 h-10 rounded-full" />
+                <div className="flex text-white items-center justify-center h-10 w-10 rounded-full bg-[#8F8F8F] overflow-hidden">
+                  {profilePic ? (
+                    <img 
+                      src={profilePic} 
+                      alt="Profile" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <LuUserRound className="h-5 w-5" />
+                  )}
+                </div>
                 <span className="text-black">Start a new post</span>
               </div>
               <div className="flex items-center">
@@ -147,7 +175,17 @@ function Community() {
             {/* Mobile View */}
             <div className="flex sm:hidden flex-col">
               <div className="flex items-center gap-3 mb-4">
-                <img src={image1} alt="User avatar" className="w-10 h-10 rounded-full" />
+                <div className="flex text-white items-center justify-center h-10 w-10 rounded-full bg-[#8F8F8F] overflow-hidden">
+                  {profilePic ? (
+                    <img 
+                      src={profilePic} 
+                      alt="Profile" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <LuUserRound className="h-5 w-5" />
+                  )}
+                </div>
                 <span className="text-black">Start a new post</span>
               </div>
               <div className="flex items-center justify-center gap-8">
@@ -170,7 +208,6 @@ function Community() {
           <CreatePostModal
             isOpen={isPostModalOpen}
             onClose={() => setIsPostModalOpen(false)}
-            userAvatar={image1}
             onPost={handleCreatePost}
           />
 
