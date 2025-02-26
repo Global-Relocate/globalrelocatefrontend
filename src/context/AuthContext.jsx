@@ -1,8 +1,16 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import PropTypes from 'prop-types';
 import { setAuthToken } from "../services/api";
 
 export const AuthContext = createContext();
+
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+}
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -54,8 +62,17 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
+  const value = {
+    isAuthenticated,
+    user,
+    setUser,
+    login,
+    logout,
+    token: user?.token
+  };
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, setUser, login, logout }}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );
