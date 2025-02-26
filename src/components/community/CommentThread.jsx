@@ -26,6 +26,8 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
   const [showAllReplies, setShowAllReplies] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
+  const [isLiked, setIsLiked] = useState(comment.isLikedByUser || false);
+  const [likesCount, setLikesCount] = useState(comment.likesCount || 0);
   const { showUndoToast } = useUndo();
   // const [isHovered, setIsHovered] = useState(false);
 
@@ -53,6 +55,11 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
       }
     }, 5000);
     return () => clearTimeout(timeoutId);
+  };
+
+  const handleLike = () => {
+    setIsLiked(!isLiked);
+    setLikesCount(prev => isLiked ? prev - 1 : prev + 1);
   };
 
   const handleDropdownClick = () => {
@@ -171,8 +178,27 @@ const Comment = ({ comment, level = 0, onReply, onEdit, onDelete, currentUserAva
             >
               Reply
             </button>
-            <button className="text-sm text-gray-600 hover:text-gray-900">
-              Like
+            <button
+              onClick={handleLike}
+              className={`flex items-center gap-1 text-sm ${isLiked ? 'text-red-500' : 'text-gray-600 hover:text-gray-900'}`}
+            >
+              {isLiked ? (
+                <>
+                  <img 
+                    src="/src/assets/svg/filledfavorite.svg" 
+                    alt="Liked" 
+                    className="w-4 h-4"
+                    style={{ filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)' }}
+                  />
+                  <span>{likesCount}</span>
+                </>
+              ) : (
+                <img 
+                  src="/src/assets/svg/favorite.svg" 
+                  alt="Like" 
+                  className="w-4 h-4"
+                />
+              )}
             </button>
           </div>
         </div>
@@ -270,6 +296,8 @@ Comment.propTypes = {
     content: PropTypes.string.isRequired,
     timeAgo: PropTypes.string.isRequired,
     image: PropTypes.string,
+    likesCount: PropTypes.number,
+    isLikedByUser: PropTypes.bool,
     replies: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
   level: PropTypes.number,
@@ -310,6 +338,8 @@ CommentThread.propTypes = {
       content: PropTypes.string.isRequired,
       timeAgo: PropTypes.string.isRequired,
       image: PropTypes.string,
+      likesCount: PropTypes.number,
+      isLikedByUser: PropTypes.bool,
       replies: PropTypes.arrayOf(PropTypes.object),
     })
   ).isRequired,

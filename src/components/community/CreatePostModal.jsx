@@ -1,9 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { HiPhoto } from "react-icons/hi2";
 import { PiVideoFill } from "react-icons/pi";
 import { LuUserRound } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import PropTypes from 'prop-types';
+import { getUserProfile } from '@/services/api';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,15 +12,33 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const CreatePostModal = ({ isOpen, onClose, userAvatar, onPost }) => {
+const CreatePostModal = ({ isOpen, onClose, onPost }) => {
   const [content, setContent] = useState("");
   const [privacy, setPrivacy] = useState("Anybody can interact");
   const [selectedImages, setSelectedImages] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoPreviewUrl, setVideoPreviewUrl] = useState(null);
+  const [profilePic, setProfilePic] = useState(null);
   const fileInputRef = useRef(null);
   const videoInputRef = useRef(null);
+
+  useEffect(() => {
+    const fetchProfilePic = async () => {
+      try {
+        const response = await getUserProfile();
+        if (response.success && response.data?.profilePic) {
+          setProfilePic(response.data.profilePic);
+        }
+      } catch (error) {
+        console.error('Error fetching profile picture:', error);
+      }
+    };
+
+    if (isOpen) {
+      fetchProfilePic();
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -124,7 +143,17 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar, onPost }) => {
         {/* Content */}
         <div className="p-4 pt-14">
           <div className="flex gap-3 items-start relative">
-            <img src={userAvatar} alt="User avatar" className="w-10 h-10 rounded-full" />
+            <div className="flex text-white items-center justify-center h-10 w-10 rounded-full bg-[#8F8F8F] overflow-hidden">
+              {profilePic ? (
+                <img 
+                  src={profilePic} 
+                  alt="Profile" 
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <LuUserRound className="h-5 w-5" />
+              )}
+            </div>
             <div className="flex-1">
               <textarea
                 value={content}
@@ -261,7 +290,6 @@ const CreatePostModal = ({ isOpen, onClose, userAvatar, onPost }) => {
 CreatePostModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  userAvatar: PropTypes.string.isRequired,
   onPost: PropTypes.func.isRequired,
 };
 
