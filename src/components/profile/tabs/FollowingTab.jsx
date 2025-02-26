@@ -1,20 +1,22 @@
 import NotificationCard from '../NotificationCard';
 import { useNotifications } from '@/context/NotificationsContext';
 import { useEffect, useState, useRef, useCallback } from 'react';
-import image2 from "@/assets/images/image2.png";
-import image3 from "@/assets/images/image3.png";
 import bellicon from "../../../assets/svg/bell.svg";
 
 const ITEMS_PER_PAGE = 10;
 
 const FollowingTab = () => {
-  const [followingNotifications, setFollowingNotifications] = useState([]);
+  const { notifications, isLoading: isLoadingNotifications, error, refreshNotifications, markAsRead, deleteNotification, showLessLikeThis } = useNotifications();
   const [displayedNotifications, setDisplayedNotifications] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const observer = useRef();
-  const { markAsRead, deleteNotification, showLessLikeThis } = useNotifications();
+
+  // Filter for follow notifications
+  const followNotifications = notifications.filter(
+    notification => notification.type === 'follow'
+  );
 
   const lastNotificationRef = useCallback(node => {
     if (loading) return;
@@ -28,59 +30,41 @@ const FollowingTab = () => {
   }, [loading, hasMore]);
 
   useEffect(() => {
-    // Initialize with sample following notifications
-    const users = [
-      { name: 'Alege Samuel', avatar: image2 },
-      { name: 'John Doe', avatar: image3 }
-    ];
-    
-    const sampleFollowing = Array.from({ length: 15 }, (_, i) => ({
-      id: `following-${i + 1}`,
-      type: 'system',
-      data: {
-        content: (
-          <p className="text-gray-800">
-            <span className="font-medium text-[#5762D5]">{users[i % 2].name}</span> has started following you
-          </p>
-        ),
-        timeAgo: `${(i + 1) * 5} min ago`,
-        follower: users[i % 2]
-      },
-      isUnread: i < 3
-    }));
-    setFollowingNotifications(sampleFollowing);
-  }, []);
-
-  useEffect(() => {
-    setDisplayedNotifications(followingNotifications.slice(0, page * ITEMS_PER_PAGE));
-    setHasMore(followingNotifications.length > page * ITEMS_PER_PAGE);
-  }, [followingNotifications, page]);
+    setDisplayedNotifications(followNotifications.slice(0, page * ITEMS_PER_PAGE));
+    setHasMore(followNotifications.length > page * ITEMS_PER_PAGE);
+  }, [followNotifications, page]);
 
   const loadMore = () => {
     setLoading(true);
     setTimeout(() => {
       setPage(prev => prev + 1);
       setLoading(false);
-    }, 1000);
+    }, 500);
   };
 
-  const handleMarkAsRead = (id) => {
-    setFollowingNotifications(prev =>
-      prev.map(notification =>
-        notification.id === id
-          ? { ...notification, isUnread: false }
-          : notification
-      )
+  if (isLoadingNotifications && page === 1) {
+    return (
+      <div className="flex justify-center items-center h-[45vh]">
+        <div className="w-8 h-8 border-4 border-[#5762D5] border-t-transparent rounded-full animate-spin"></div>
+      </div>
     );
-    markAsRead(id);
-  };
+  }
 
-  const handleDelete = (id) => {
-    setFollowingNotifications(prev => prev.filter(notification => notification.id !== id));
-    deleteNotification(id);
-  };
+  if (error) {
+    return (
+      <div className="flex flex-col items-center justify-center h-[45vh]">
+        <p className="text-gray-600 mb-4">{error}</p>
+        <button 
+          onClick={refreshNotifications}
+          className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+        >
+          Try Again
+        </button>
+      </div>
+    );
+  }
 
-  if (followingNotifications.length === 0) {
+  if (followNotifications.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-[45vh]">
         <img
@@ -89,7 +73,7 @@ const FollowingTab = () => {
           className="mb-4"
           style={{ width: '36px', height: '36px', filter: 'invert(41%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(91%) contrast(88%)' }}
         />
-        <p className="text-gray-600">You don&apos;t have any following notifications yet.</p>
+        <p className="text-gray-600">You don&apos;t have any follow notifications yet.</p>
       </div>
     );
   }
@@ -108,8 +92,8 @@ const FollowingTab = () => {
             isLast={index === displayedNotifications.length - 1}
             isFirst={index === 0}
             isUnread={notification.isUnread}
-            onMarkAsRead={handleMarkAsRead}
-            onDelete={handleDelete}
+            onMarkAsRead={markAsRead}
+            onDelete={deleteNotification}
             onShowLess={showLessLikeThis}
           />
         </div>
