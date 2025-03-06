@@ -6,12 +6,14 @@ import { BiHeart, BiShare } from "react-icons/bi";
 import { PiShare } from "react-icons/pi";
 import { useCountryData } from "@/context/CountryDataContext";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 
 function CountryDetails() {
   const { id } = useParams();
+  const countryFlag = useLocation()?.state
   const { singleCountry, loading, getSingleCountry } = useCountryData();
+
 
   useEffect(() => {
     if (id) {
@@ -44,8 +46,8 @@ function CountryDetails() {
           <>
             <div className="flex items-start gap-2">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/1200px-Flag_of_Switzerland_%28Pantone%29.svg.png"
-                className="w-9 h-9 rounded-full object-contain"
+                src={countryFlag || "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/1200px-Flag_of_Switzerland_%28Pantone%29.svg.png"}
+                className="w-10 h-10 rounded-full object-cover"
                 alt=""
               />
               <div className="flex flex-col items-start">

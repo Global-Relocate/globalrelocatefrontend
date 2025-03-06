@@ -12,7 +12,10 @@ const CountryDataContext = createContext();
 
 export const CountryDataProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
+  const [countryList, setCountryList] = useState([])
+  const [compareData, setCompareData] = useState(null)
   const [loading, setLoading] = useState(false);
+  const [compareLoader, setCompareLoader] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [singleCountry, setSingleCountry] = useState(null);
@@ -24,7 +27,6 @@ export const CountryDataProvider = ({ children }) => {
   }, [page, search, continent]);
 
   const fetchCountries = async (reset = false, preventLoader = false) => {
-    if (loading) return;
     if (!preventLoader) {
       setLoading(true);
     }
@@ -37,18 +39,19 @@ export const CountryDataProvider = ({ children }) => {
       );
       setTotalPages(response.data.totalPages);
     } catch (error) {
-      toast.error(error.response.data.message || error.message);
-      console.error("Error fetching countries:", error);
+      toast.error(error?.response?.data?.message || error?.message);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const addCountryToFavourite = async (id) => {
     try {
       await axiosInstance.post(`/countries/favourite/add/${id}`);
       fetchCountries(true, true);
+      toast.success("Added to favourite!");
     } catch (error) {
-      console.error("Error adding country to favorites:", error);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -58,9 +61,35 @@ export const CountryDataProvider = ({ children }) => {
       const response = await axiosInstance.get(`/countries/${id}`);
       setSingleCountry(response.data.data);
     } catch (error) {
-      console.error("Error fetching single country:", error);
+      toast.error(error?.response?.data?.message || error?.message);
     }
     setLoading(false);
+  };
+  const getCountryList = async () => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.get(`/countries/list`);
+      setCountryList(response.data.data);
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const compareCountries = async (firstCountryId,
+    secondCountryId) => {
+    setCompareLoader(true);
+    try {
+      const response = await axiosInstance.post(`/countries/compare`, {
+        firstCountryId,
+        secondCountryId
+      });
+      setCompareData(response.data.data);
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    } finally {
+      setCompareLoader(false);
+    }
   };
 
   return (
@@ -78,6 +107,11 @@ export const CountryDataProvider = ({ children }) => {
         setSearch,
         continent,
         setContinent,
+        getCountryList,
+        countryList,
+        compareCountries,
+        compareData,
+        compareLoader
       }}
     >
       {children}

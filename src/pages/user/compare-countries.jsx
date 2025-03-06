@@ -3,11 +3,15 @@ import CompareCountryCard from "@/components/cards/CompareCountryCard";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import SelectCountryModal from "@/components/modals/SelectCountryModal";
 import { Button } from "@/components/ui/button";
+import { useCountryData } from "@/context/CountryDataContext";
+import Spinner from "@/components/loaders/Spinner";
 
 function CompareCountries() {
   const [openCountryModal, setOpenCountryModal] = useState(false);
   const [countryData, setCountryData] = useState({});
   const [countryIdx, setCountryIdx] = useState(1);
+
+  const { compareLoader, compareCountries } = useCountryData()
 
   const handleModalClose = () => {
     setOpenCountryModal(false);
@@ -26,8 +30,12 @@ function CompareCountries() {
     handleModalClose();
   };
 
-  // console.log(countryData);
-  console.log(countryData[countryIdx]);
+  const handleCountryCompare = async () => {
+    const idx1 = countryData[1]?.id
+    const idx2 = countryData[2]?.id
+    await compareCountries(idx1, idx2)
+  }
+
 
   return (
     <DashboardLayout>
@@ -37,7 +45,7 @@ function CompareCountries() {
           <CompareCountryCard
             onOpen={handleModalOpen}
             onClose={handleModalClose}
-            countryData={countryData} // Pass the correct country data
+            countryData={countryData}
             idx={1}
           />
           <div className="border py-2 px-3 rounded-full">
@@ -46,17 +54,18 @@ function CompareCountries() {
           <CompareCountryCard
             onOpen={handleModalOpen}
             onClose={handleModalClose}
-            countryData={countryData} // Pass the correct country data
+            countryData={countryData}
             idx={2}
           />
         </div>
 
-        <div className="flex mt-4 w-full items-center justify-end">
+        <div className="flex mt-7 w-full items-center justify-end">
           <Button
-            disabled={!countryData[1] || !countryData[2]}
-            className="h-[40px] self-end bg-[#FCA311] text-black hover:text-white"
+            disabled={!countryData[1] || !countryData[2] || compareLoader}
+            onClick={handleCountryCompare}
+            className="self-end bg-[#FCA311] text-black hover:text-white px-8 w-32 disabled:cursor-not-allowed"
           >
-            Compare
+            {compareLoader ? <Spinner size="w-6 h-6" /> : "Compare"}
           </Button>
         </div>
 
@@ -64,7 +73,6 @@ function CompareCountries() {
           isOpen={openCountryModal}
           onClose={handleModalClose}
           onChange={handleCountrySelect}
-          value={countryData[countryIdx]?.code || ""}
         />
       </div>
     </DashboardLayout>

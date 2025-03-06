@@ -39,9 +39,8 @@ export default function CountriesDashCard({
 
   return (
     <div
-      className={`flex flex-col items-start space-y-3 relative ${
-        sm ? "w-full md:w-[270px]" : "w-[380px]"
-      }`}
+      className={`flex flex-col items-start space-y-3 relative ${sm ? "w-full" : "w-[380px]"
+        }`}
       onMouseEnter={() => setIsHovered(true)} // Set hover state on mouse enter
       onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
     >
@@ -82,9 +81,8 @@ export default function CountriesDashCard({
                   src={item}
                   onClick={onClick}
                   alt="Main Image"
-                  className={`w-full cursor-pointer ${
-                    sm ? "h-[320px]" : "h-[500px]"
-                  } object-cover rounded-2xl`}
+                  className={`w-full cursor-pointer ${sm ? "h-[320px]" : "h-[500px]"
+                    } object-cover rounded-2xl`}
                 />
               </CarouselItem>
             );

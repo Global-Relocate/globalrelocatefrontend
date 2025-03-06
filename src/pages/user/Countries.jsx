@@ -22,11 +22,11 @@ function Countries() {
     page,
     setPage,
     totalPages,
-    setSearch,
-    setContinent,
+    setContinent, // Keep API-based continent filter
   } = useCountryData();
 
   const [activeFilter, setActiveFilter] = useState("All");
+  const [searchTerm, setSearchTerm] = useState(""); // Local state for search term
   const observer = useRef(null);
 
   const filterOptions = [
@@ -40,19 +40,28 @@ function Countries() {
     "Oceania",
   ];
 
+  // Handle search input change
   const handleSearch = (e) => {
-    setSearch(e.target.value);
-    setPage(1); // Reset page when searching
+    setSearchTerm(e.target.value); // Update local search term
   };
 
+  // Handle filter change
   const handleFilter = (filter) => {
     setActiveFilter(filter);
-    setContinent(filter === "All" ? "" : filter);
+    setContinent(filter === "All" ? "" : filter); // Update API-based continent filter
     setPage(1); // Reset page on filter change
   };
 
+  // Filter countries locally by search term (countryName)
+  const filteredCountries = countries.filter((country) =>
+    country.countryName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Infinite scroll logic
   const lastElementRef = useCallback(
     (node) => {
+      if (loading || page >= totalPages) return; // Do nothing if loading or no more pages
+
       if (observer.current) observer.current.disconnect(); // Disconnect previous observer
 
       if (node) {
@@ -61,7 +70,7 @@ function Countries() {
           (entries) => {
             const entry = entries[0];
             if (entry.isIntersecting && !loading && page < totalPages) {
-              // Check NOT loading
+              // Check NOT loading and more pages available
               setPage((prevPage) => prevPage + 1);
             }
           },
@@ -70,17 +79,17 @@ function Countries() {
         observer.current.observe(node);
       }
     },
-    [loading, page, totalPages]
-  ); // Add loading to the dependency array
+    [loading, page, totalPages] // Add loading, page, and totalPages to the dependency array
+  );
 
+  // Cleanup observer on unmount
   useEffect(() => {
-    // This useEffect is crucial for resetting the observer when dependencies change
     return () => {
       if (observer.current) {
         observer.current.disconnect();
       }
     };
-  }, [loading, page, totalPages]); // Add loading, page, and totalPages to the dependency array
+  }, []);
 
   return (
     <DashboardLayout>
@@ -88,7 +97,7 @@ function Countries() {
         <h2 className="text-3xl font-medium">
           {t("userDashboard.countries.title")}
         </h2>
-        <div className="flex w-full sm:w-auto items-center space-x-2">
+        <div className="flex w-full sm:w-auto md:w-[400px] items-center space-x-2">
           <SearchInput
             onChange={handleSearch}
             placeholder={t("userDashboard.countries.searchText")}
@@ -107,11 +116,11 @@ function Countries() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-10 py-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 py-10">
         {/* Main Loader - only visible when fetching first page */}
         {loading && page === 1 ? (
           Array.from({ length: 8 }).map((_, index) => (
-            <div key={index} className="w-full md:w-[270px]">
+            <div key={index} className="w-full">
               <Skeleton className="h-[320px] w-full rounded-xl" />
               <div className="flex items-center space-x-2 mt-2">
                 <Skeleton className="h-12 w-12 rounded-full" />
@@ -121,12 +130,11 @@ function Countries() {
           ))
         ) : (
           <>
-            {countries.length < 1 && (
+            {filteredCountries.length < 1 && (
               <h2> {t("userDashboard.countries.noDataText")}</h2>
             )}
-            {countries.map((item, i) => {
-              const isLastElement = i === countries.length - 1;
-              console.log(isLastElement);
+            {filteredCountries.map((item, i) => {
+              const isLastElement = i === filteredCountries.length - 1;
               return (
                 <div
                   key={item.countryId || i}
@@ -138,7 +146,7 @@ function Countries() {
                     isLiked={item.isLiked}
                     // onLikeToggle={() => toggleFavorite(item)}
                     onClick={() =>
-                      navigate(`/user/countries/${item.countryId}`)
+                      navigate(`/user/countries/${item.countryId}`, { state: item.countryFlag })
                     }
                     images={[swizerland, nigeria, swizerland, nigeria]}
                     countryFlag={item.countryFlag}
