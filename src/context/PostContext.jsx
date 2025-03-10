@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useEffect } from 'react';
+import { createContext, useContext, useReducer, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const PostContext = createContext();
@@ -17,21 +17,18 @@ const postReducer = (state, action) => {
 };
 
 export const PostProvider = ({ children }) => {
-  const [posts, dispatch] = useReducer(postReducer, []);
+  const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const savedPosts = localStorage.getItem('posts');
-    if (savedPosts) {
-      dispatch({ type: 'INITIALIZE', payload: JSON.parse(savedPosts) });
-    }
-  }, []);
+  const addPost = (newPost) => {
+    setPosts(prev => [newPost, ...prev]);
+  };
 
-  const addPost = (post) => {
-    dispatch({ type: 'ADD_POST', payload: post });
+  const deletePost = (postId) => {
+    setPosts(prev => prev.filter(post => post.id !== postId));
   };
 
   return (
-    <PostContext.Provider value={{ posts, addPost }}>
+    <PostContext.Provider value={{ posts, addPost, deletePost }}>
       {children}
     </PostContext.Provider>
   );
