@@ -4,7 +4,7 @@ import { PiVideoFill } from "react-icons/pi";
 import { LuUserRound } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import PropTypes from 'prop-types';
-import { getUserProfile, createPost } from '@/services/api';
+import { getUserProfile, createPost, editPost } from '@/services/api';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +15,7 @@ import { usePosts } from "@/context/PostContext"; // Import the Post context
 import image1 from "@/assets/images/image1.png";
 import { Loader2 } from "lucide-react";
 
-const CreatePostModal = ({ isOpen, onClose }) => {
+const CreatePostModal = ({ isOpen, onClose, onPostCreated, editMode = false, postToEdit = null }) => {
   const { addPost } = usePosts(); // Get addPost function from context
   const [content, setContent] = useState("");
   const [privacy, setPrivacy] = useState('PUBLIC');
@@ -27,6 +27,7 @@ const CreatePostModal = ({ isOpen, onClose }) => {
   const fileInputRef = useRef(null);
   const videoInputRef = useRef(null);
   const [isPosting, setIsPosting] = useState(false);
+  const [isEditing, setIsEditing] = useState(editMode);
 
   useEffect(() => {
     const fetchProfilePic = async () => {
@@ -45,11 +46,22 @@ const CreatePostModal = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (postToEdit && editMode) {
+      setContent(postToEdit.content.text);
+      setPrivacy(postToEdit.privacy);
+      if (postToEdit.content.media && postToEdit.content.media.length > 0) {
+        // Set preview URLs for existing media
+        setPreviewUrls(postToEdit.content.media.map(m => m.url));
+      }
+    }
+  }, [postToEdit, editMode]);
+
   if (!isOpen) return null;
 
   const privacyOptions = [
-    { value: 'PUBLIC', label: 'Anyone' },
-    { value: 'FRIENDS', label: 'People that follow me' },
+    { value: 'PUBLIC', label: 'Public' },
+    { value: 'FRIENDS', label: 'Friends' },
     { value: 'ME', label: 'Only me' }
   ];
 
@@ -97,7 +109,7 @@ const CreatePostModal = ({ isOpen, onClose }) => {
   const handlePost = async () => {
     if (content.trim() || selectedImages.length > 0 || selectedVideo) {
       try {
-        setIsPosting(true); // Start loading
+        setIsPosting(true);
         let mediaFiles = [];
         
         if (selectedVideo) {
@@ -106,7 +118,21 @@ const CreatePostModal = ({ isOpen, onClose }) => {
           mediaFiles = selectedImages;
         }
 
-        const response = await createPost(content.trim(), mediaFiles, privacy);
+        let response;
+        if (editMode && postToEdit) {
+          response = await editPost(
+            postToEdit.id,
+            content.trim(),
+            mediaFiles,
+            privacy
+          );
+        } else {
+          response = await createPost(
+            content.trim(),
+            mediaFiles,
+            privacy
+          );
+        }
         
         if (response.success) {
           // Clean up
@@ -119,16 +145,19 @@ const CreatePostModal = ({ isOpen, onClose }) => {
             setVideoPreviewUrl(null);
             setSelectedVideo(null);
           }
+          onPostCreated(); // This will trigger a refresh of posts
           onClose();
         }
       } catch (error) {
-        console.error('Error creating post:', error);
-        // Handle error (show toast notification, etc.)
+        console.error('Error creating/editing post:', error);
       } finally {
-        setIsPosting(false); // Stop loading
+        setIsPosting(false);
       }
     }
   };
+
+  // Update the button text
+  const buttonText = editMode ? 'Save' : 'Post';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -220,10 +249,10 @@ const CreatePostModal = ({ isOpen, onClose }) => {
               {isPosting ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  <span>Posting...</span>
+                  <span>{editMode ? 'Saving' : 'Posting'}...</span>
                 </>
               ) : (
-                "Post"
+                buttonText
               )}
             </button>
           </div>
@@ -300,6 +329,9 @@ const CreatePostModal = ({ isOpen, onClose }) => {
 CreatePostModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  onPostCreated: PropTypes.func.isRequired,
+  editMode: PropTypes.bool,
+  postToEdit: PropTypes.object,
 };
 
 export default CreatePostModal; 
