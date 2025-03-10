@@ -19,11 +19,15 @@ import image11 from "@/assets/images/image11.png";
 import image12 from "@/assets/images/image12.png";
 import image13 from "@/assets/images/image13.png";
 import { getUserProfile } from '@/services/api';
+import { usePosts } from "@/context/PostContext"; // Import the Post context
 
 function Community() {
+  const { posts, addPost } = usePosts(); // Get posts and addPost from context
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
   const [profilePic, setProfilePic] = useState(null);
-  const [posts, setPosts] = useState([
+
+  // Dummy data
+  const initialPosts = [
     {
       avatar: image13,
       name: "Leon Francesco",
@@ -94,7 +98,14 @@ function Community() {
       commentsCount: 0,
       comments: []
     }
-  ]);
+  ];
+
+  // Initialize posts with dummy data if no posts exist
+  useEffect(() => {
+    if (posts.length === 0) {
+      initialPosts.forEach(post => addPost(post));
+    }
+  }, [posts, addPost]);
 
   useEffect(() => {
     const fetchProfilePic = async () => {
@@ -113,23 +124,6 @@ function Community() {
 
   const handleOpenPostModal = () => {
     setIsPostModalOpen(true);
-  };
-
-  const handleCreatePost = (content, privacy, images = []) => {
-    const newPost = {
-      avatar: profilePic || image1,
-      name: "Jerry Lamp",
-      timeAgo: "Just now",
-      content: content,
-      images: images,
-      likers: [],
-      likesCount: 0,
-      commentsCount: 0,
-      comments: []
-    };
-
-    setPosts(prevPosts => [newPost, ...prevPosts]);
-    setIsPostModalOpen(false);
   };
 
   return (
@@ -204,13 +198,6 @@ function Community() {
 
         {/* Scrollable content area */}
         <div className="flex-1 px-4 md:px-8 lg:px-20 pb-20 pt-4">
-          {/* Create Post Modal */}
-          <CreatePostModal
-            isOpen={isPostModalOpen}
-            onClose={() => setIsPostModalOpen(false)}
-            onPost={handleCreatePost}
-          />
-
           {/* Posts feed */}
           <div className="space-y-6">
             {posts.map((post, index) => (
@@ -219,6 +206,11 @@ function Community() {
           </div>
         </div>
       </div>
+
+      <CreatePostModal
+        isOpen={isPostModalOpen}
+        onClose={() => setIsPostModalOpen(false)}
+      />
     </DashboardLayout>
   );
 }
