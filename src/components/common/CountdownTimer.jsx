@@ -1,37 +1,78 @@
 import React, { useState, useEffect } from 'react';
+import { getSubscriptionDetails } from '@/services/api';
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({
-    days: 3,
+    days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0
   });
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 3); // 3 days from now
+    let timer;
+    
+    const fetchSubscriptionAndStartTimer = async () => {
+      try {
+        const response = await getSubscriptionDetails();
+        const remainingDays = response.data?.trial?.remainingDays || 0;
+        
+        if (remainingDays <= 0) {
+          setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+          setIsLoading(false);
+          return;
+        }
 
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate.getTime() - now;
+        // Calculate target date based on remaining days
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + remainingDays);
 
-      if (distance < 0) {
-        clearInterval(timer);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        return;
+        timer = setInterval(() => {
+          const now = new Date().getTime();
+          const distance = targetDate.getTime() - now;
+
+          if (distance < 0) {
+            clearInterval(timer);
+            setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+            return;
+          }
+
+          setTimeLeft({
+            days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+            minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+            seconds: Math.floor((distance % (1000 * 60)) / 1000)
+          });
+        }, 1000);
+
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching subscription details:', error);
+        setIsLoading(false);
       }
+    };
 
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000)
-      });
-    }, 1000);
+    fetchSubscriptionAndStartTimer();
 
-    return () => clearInterval(timer);
+    return () => {
+      if (timer) clearInterval(timer);
+    };
   }, []);
+
+  if (isLoading) {
+    return <div className="animate-pulse">Loading...</div>;
+  }
+
+  // Don't show the timer if there's no time left
+  if (timeLeft.days === 0 && timeLeft.hours === 0 && 
+      timeLeft.minutes === 0 && timeLeft.seconds === 0) {
+    return (
+      <div className="text-center">
+        <p className="text-gray-600">Trial period has ended</p>
+      </div>
+    );
+  }
 
   return (
     <div className="grid grid-flow-col gap-2 text-center auto-cols-max">
