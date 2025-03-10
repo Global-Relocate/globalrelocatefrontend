@@ -109,7 +109,8 @@ function DashNav({ navState, setNavState }) {
             >
               Help Center
             </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">
+            <DropdownMenuItem className="cursor-pointer" 
+            onClick={() => navigate("/privacy")}>
               Privacy Policy
             </DropdownMenuItem>
             <DropdownMenuSeparator />
