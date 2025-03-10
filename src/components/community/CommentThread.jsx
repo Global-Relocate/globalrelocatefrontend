@@ -212,18 +212,18 @@ const Comment = ({
 
           {/* Delete Confirmation Dialog */}
           <Dialog open={isDeleteConfirmOpen} onOpenChange={setIsDeleteConfirmOpen}>
-            <DialogContent className="p-4 md:p-6 mx-4 sm:mx-6 lg:mx-auto max-w-md rounded-lg shadow-lg">
-              <p>Are you sure you want to delete this comment?</p>
+            <DialogContent className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-[calc(100%-2rem)] sm:w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
+              <p className="mb-4">Are you sure you want to delete this comment?</p>
               <div className="flex justify-end space-x-2">
                 <button 
                   onClick={() => setIsDeleteConfirmOpen(false)} 
-                  className="text-black"
+                  className="text-black px-4 py-2"
                 >
                   Cancel
                 </button>
                 <button 
                   onClick={handleDeleteComment} 
-                  className="text-red-600"
+                  className="text-red-600 px-4 py-2"
                 >
                   Delete
                 </button>
