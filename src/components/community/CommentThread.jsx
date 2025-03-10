@@ -132,12 +132,12 @@ const Comment = ({
                       <FiFlag size={18} />
                       <span>Report</span>
                     </DropdownMenuItem>
-                    <DropdownMenuItem 
+                    {/* <DropdownMenuItem 
                       className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                     >
                       <IoEyeOffOutline size={18} />
                       <span>I don&apos;t want to see this</span>
-                    </DropdownMenuItem>
+                    </DropdownMenuItem> */}
                   </>
                 )}
               </DropdownMenuContent>
