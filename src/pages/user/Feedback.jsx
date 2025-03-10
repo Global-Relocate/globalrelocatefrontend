@@ -2,6 +2,8 @@ import { useState, useContext } from 'react';
 import { AuthContext } from '@/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { submitFeedback } from '@/services/api';
+import { showToast } from '@/components/ui/toast';
 import logo from "../../assets/svg/logo.svg";
 
 const Feedback = () => {
@@ -9,6 +11,7 @@ const Feedback = () => {
   const [step, setStep] = useState(1);
   const [feedback1, setFeedback1] = useState('');
   const [feedback2, setFeedback2] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
 
   const handleContinue = () => {
@@ -21,12 +24,40 @@ const Feedback = () => {
     setStep(1);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle feedback submission here
-    console.log('Positive feedback:', feedback1);
-    console.log('Negative feedback:', feedback2);
-    navigate(-1);
+    setSubmitting(true);
+
+    try {
+      // Submit positive feedback
+      if (feedback1.trim()) {
+        await submitFeedback(feedback1.trim(), 'GOOD');
+      }
+
+      // Submit negative feedback if provided
+      if (feedback2.trim()) {
+        await submitFeedback(feedback2.trim(), 'BAD');
+      }
+
+      showToast({
+        message: 'Feedback submitted successfully!',
+        type: 'success'
+      });
+
+      // Short delay before navigation to ensure toast is visible
+      setTimeout(() => {
+        navigate(-1);
+      }, 1000);
+
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+      showToast({
+        message: error.message || 'Failed to submit feedback. Please try again.',
+        type: 'error'
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -109,12 +140,12 @@ const Feedback = () => {
                 <div className="flex justify-end items-center gap-3 mt-6">
               <button
                 type="submit"
-                    disabled={!feedback2.trim()}
+                    disabled={!feedback2.trim() || submitting}
                     className={`px-6 py-2 rounded-lg transition-colors ${
-                      feedback2.trim() ? 'bg-black text-white hover:bg-black/90' : 'bg-[#D4D4D4] text-white'
+                      feedback2.trim() && !submitting ? 'bg-black text-white hover:bg-black/90' : 'bg-[#D4D4D4] text-white'
                     }`}
                   >
-                    Submit
+                    {submitting ? 'Submitting...' : 'Submit'}
               </button>
                 </div>
             </form>

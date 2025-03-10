@@ -32,6 +32,9 @@ import { useEffect, useState } from "react";
 import PageLoader from "./components/loaders/PageLoader";
 import "./App.css";
 import ScrollToTop from "./utils/ScrollToTop";
+import { PostProvider } from "@/context/PostContext";
+import { CommentProvider } from "@/context/CommentContext";
+import SinglePost from "@/pages/user/SinglePost";
 
 const AppContent = () => {
   const { showTrialModal } = useTrial();
@@ -89,10 +92,12 @@ const AppContent = () => {
           <Route path="tax-calculator" element={<TaxCalculator />} />
           <Route path="notifications" element={<Notifications />} />
           <Route path="favorites" element={<Favorites />} />
-          <Route path="community" element={<Community />} />
+          <Route path="community" element={<PostProvider><Community /></PostProvider>} />
           <Route path="feedback" element={<Feedback />} />
           <Route path="profile" element={<Profile />} />
         </Route>
+
+        <Route path="/user/community/post/:postId" element={<SinglePost />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
@@ -104,9 +109,13 @@ const AppContent = () => {
 
 function App() {
   return (
-    <TrialProvider>
-      <AppContent />
-    </TrialProvider>
+    <PostProvider>
+      <CommentProvider>
+        <TrialProvider>
+          <AppContent />
+        </TrialProvider>
+      </CommentProvider>
+    </PostProvider>
   );
 }
 

@@ -4,17 +4,20 @@ import { PiVideoFill } from "react-icons/pi";
 import { LuUserRound } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import PropTypes from 'prop-types';
-import { getUserProfile } from '@/services/api';
+import { getUserProfile, createPost, editPost } from '@/services/api';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { usePosts } from "@/context/PostContext"; 
+import { Loader2 } from "lucide-react";
 
-const CreatePostModal = ({ isOpen, onClose, onPost }) => {
+const CreatePostModal = ({ isOpen, onClose, onPostCreated, editMode = false, postToEdit = null }) => {
+  const { addPost } = usePosts(); // Get addPost function from context
   const [content, setContent] = useState("");
-  const [privacy, setPrivacy] = useState("Anybody can interact");
+  const [privacy, setPrivacy] = useState('PUBLIC');
   const [selectedImages, setSelectedImages] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -22,6 +25,8 @@ const CreatePostModal = ({ isOpen, onClose, onPost }) => {
   const [profilePic, setProfilePic] = useState(null);
   const fileInputRef = useRef(null);
   const videoInputRef = useRef(null);
+  const [isPosting, setIsPosting] = useState(false);
+  const [isEditing, setIsEditing] = useState(editMode);
 
   useEffect(() => {
     const fetchProfilePic = async () => {
@@ -40,12 +45,23 @@ const CreatePostModal = ({ isOpen, onClose, onPost }) => {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (postToEdit && editMode) {
+      setContent(postToEdit.content.text);
+      setPrivacy(postToEdit.privacy);
+      if (postToEdit.content.media && postToEdit.content.media.length > 0) {
+        // Set preview URLs for existing media
+        setPreviewUrls(postToEdit.content.media.map(m => m.url));
+      }
+    }
+  }, [postToEdit, editMode]);
+
   if (!isOpen) return null;
 
   const privacyOptions = [
-    "Anyone",
-    "People you follow",
-    "Only people you mentioned"
+    { value: 'PUBLIC', label: 'Public' },
+    { value: 'FRIENDS', label: 'Friends' },
+    { value: 'ME', label: 'Only me' }
   ];
 
   const handleImageSelect = (e) => {
@@ -91,43 +107,56 @@ const CreatePostModal = ({ isOpen, onClose, onPost }) => {
 
   const handlePost = async () => {
     if (content.trim() || selectedImages.length > 0 || selectedVideo) {
-      let mediaUrls = [];
+      try {
+        setIsPosting(true);
+        let mediaFiles = [];
+        
+        if (selectedVideo) {
+          mediaFiles = [selectedVideo];
+        } else if (selectedImages.length > 0) {
+          mediaFiles = selectedImages;
+        }
 
-      if (selectedVideo) {
-        // Convert video to base64
-        const videoPromise = new Promise((resolve) => {
-          const reader = new FileReader();
-          reader.onloadend = () => resolve(reader.result);
-          reader.readAsDataURL(selectedVideo);
-        });
-        mediaUrls = [await videoPromise];
-      } else if (selectedImages.length > 0) {
-        // Convert images to base64 strings
-        const imagePromises = selectedImages.map(file => {
-          return new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result);
-            reader.readAsDataURL(file);
-          });
-        });
-        mediaUrls = await Promise.all(imagePromises);
+        let response;
+        if (editMode && postToEdit) {
+          response = await editPost(
+            postToEdit.id,
+            content.trim(),
+            mediaFiles,
+            privacy
+          );
+        } else {
+          response = await createPost(
+            content.trim(),
+            mediaFiles,
+            privacy
+          );
+        }
+        
+        if (response.success) {
+          // Clean up
+          setContent("");
+          setSelectedImages([]);
+          previewUrls.forEach(url => URL.revokeObjectURL(url));
+          setPreviewUrls([]);
+          if (videoPreviewUrl) {
+            URL.revokeObjectURL(videoPreviewUrl);
+            setVideoPreviewUrl(null);
+            setSelectedVideo(null);
+          }
+          onPostCreated(); // This will trigger a refresh of posts
+          onClose();
+        }
+      } catch (error) {
+        console.error('Error creating/editing post:', error);
+      } finally {
+        setIsPosting(false);
       }
-
-      onPost(content, privacy, mediaUrls, selectedVideo ? 'video' : 'image');
-      
-      // Clean up
-      setContent("");
-      setSelectedImages([]);
-      previewUrls.forEach(url => URL.revokeObjectURL(url));
-      setPreviewUrls([]);
-      if (videoPreviewUrl) {
-        URL.revokeObjectURL(videoPreviewUrl);
-        setVideoPreviewUrl(null);
-        setSelectedVideo(null);
-      }
-      onClose();
     }
   };
+
+  // Update the button text
+  const buttonText = editMode ? 'Save' : 'Post';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -165,7 +194,7 @@ const CreatePostModal = ({ isOpen, onClose, onPost }) => {
 
               {/* Image Previews */}
               {previewUrls.length > 0 && (
-                <div className="mt-4 relative">
+                <div className="mt-2">
                   <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
                     {previewUrls.map((url, index) => (
                       <div key={index} className="relative group flex-none">
@@ -207,14 +236,23 @@ const CreatePostModal = ({ isOpen, onClose, onPost }) => {
             </div>
             <button
               onClick={handlePost}
-              disabled={!content.trim() && selectedImages.length === 0 && !selectedVideo}
-              className={`absolute right-0 top-0 px-4 py-1 rounded-full ${
-                content.trim() || selectedImages.length > 0 || selectedVideo
-                  ? "bg-black text-white hover:bg-gray-800" 
-                  : "bg-[#D4D4D4] text-white cursor-not-allowed"
+              disabled={(!content.trim() && selectedImages.length === 0 && !selectedVideo) || isPosting}
+              className={`absolute right-0 top-0 px-4 py-1 rounded-full flex items-center gap-2 ${
+                isPosting 
+                  ? "bg-gray-400 text-white cursor-not-allowed"
+                  : content.trim() || selectedImages.length > 0 || selectedVideo
+                    ? "bg-black text-white hover:bg-gray-800" 
+                    : "bg-[#D4D4D4] text-white cursor-not-allowed"
               }`}
             >
-              Post
+              {isPosting ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span>{editMode ? 'Saving' : 'Posting'}...</span>
+                </>
+              ) : (
+                buttonText
+              )}
             </button>
           </div>
         </div>
@@ -265,16 +303,16 @@ const CreatePostModal = ({ isOpen, onClose, onPost }) => {
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded-lg">
                   <LuUserRound size={20} />
-                  <span>{privacy}</span>
+                  <span>{privacyOptions.find(opt => opt.value === privacy)?.label}</span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   {privacyOptions.map((option) => (
                     <DropdownMenuItem
-                      key={option}
-                      onClick={() => setPrivacy(option)}
+                      key={option.value}
+                      onClick={() => setPrivacy(option.value)}
                       className="cursor-pointer"
                     >
-                      {option}
+                      {option.label}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -290,7 +328,9 @@ const CreatePostModal = ({ isOpen, onClose, onPost }) => {
 CreatePostModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  onPost: PropTypes.func.isRequired,
+  onPostCreated: PropTypes.func.isRequired,
+  editMode: PropTypes.bool,
+  postToEdit: PropTypes.object,
 };
 
 export default CreatePostModal; 

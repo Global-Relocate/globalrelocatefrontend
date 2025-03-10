@@ -4,133 +4,124 @@ import { HiPhoto } from "react-icons/hi2";
 import { PiVideoFill } from "react-icons/pi";
 import { LuUserRound } from "react-icons/lu";
 import CommunityPostCard from "@/components/community/CommunityPostCard";
+import { CommentThreadSkeleton } from "@/components/community/CommentSkeleton";
 import CreatePostModal from "@/components/community/CreatePostModal";
-import image1 from "@/assets/images/image1.png";
-import image2 from "@/assets/images/image2.png";
-import image3 from "@/assets/images/image3.png";
-import image4 from "@/assets/images/image4.png";
-import image5 from "@/assets/images/image5.png";
-import image6 from "@/assets/images/image6.png";
-import image7 from "@/assets/images/image7.png";
-import image8 from "@/assets/images/image8.png";
-import image9 from "@/assets/images/image9.png";
-import image10 from "@/assets/images/image10.png";
-import image11 from "@/assets/images/image11.png";
-import image12 from "@/assets/images/image12.png";
-import image13 from "@/assets/images/image13.png";
-import { getUserProfile } from '@/services/api';
+import { getUserProfile, getPosts, deletePost } from '@/services/api';
+import { Skeleton } from "@/components/ui/skeleton";
 
 function Community() {
-  const [isPostModalOpen, setIsPostModalOpen] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [editPostData, setEditPostData] = useState(null);
+  const [isCreatePostModalOpen, setIsCreatePostModalOpen] = useState(false);
+  const [currentUserId, setCurrentUserId] = useState(null);
   const [profilePic, setProfilePic] = useState(null);
-  const [posts, setPosts] = useState([
-    {
-      avatar: image13,
-      name: "Leon Francesco",
-      timeAgo: "2m ago",
-      content: "Rome from every angle - a visual feast of history, culture, and architectural mastery. 🎨 #RomanHoliday #CityViews",
-      images: [image12, image11, image10, image9, image8, image7, image6, image5, image4],
-      likers: [
-        { name: "Jerry Lamp", avatar: image1 },
-        { name: "Alege Samuel", avatar: image2 },
-        { name: "John Doe", avatar: image3 }
-      ],
-      likesCount: 6,
-      commentsCount: 0,
-      comments: []
-    },
-    {
-      avatar: image1,
-      name: "Jerry Lamp",
-      timeAgo: "5m ago",
-      content: "Exploring the eternal city's magnificent landmarks. Each corner tells a story of centuries past. 🇮🇹 #RomanArchitecture #TravelDiary",
-      images: [image4, image5],
-      likers: [
-        { name: "Alege Samuel", avatar: image2 },
-        { name: "John Doe", avatar: image3 }
-      ],
-      likesCount: 8,
-      commentsCount: 2,
-      comments: []
-    },
-    {
-      avatar: image1,
-      name: "Jerry Lamp",
-      timeAgo: "10m ago",
-      content: "A journey through Rome's architectural wonders. The city's skyline is a testament to human creativity and engineering brilliance. ✨ #RomaViews #Heritage",
-      images: [image4, image5, image6],
-      likers: [
-        { name: "Leon Francesco", avatar: image13 },
-        { name: "Alege Samuel", avatar: image2 },
-        { name: "John Doe", avatar: image3 }
-      ],
-      likesCount: 12,
-      commentsCount: 4,
-      comments: []
-    },
-    {
-      avatar: image1,
-      name: "Jerry Lamp",
-      timeAgo: "15m ago",
-      content: "Step into history at the Colosseum, Rome's iconic amphitheater. Once home to gladiator battles, it stands as a breathtaking symbol of ancient engineering and timeless grandeur. 🇮🇹 ✨ #Colosseum #Rome",
-      images: [image4, image5, image6, image7],
-      likers: [
-        { name: "Leon Francesco", avatar: image13 },
-        { name: "Alege Samuel", avatar: image2 }
-      ],
-      likesCount: 15,
-      commentsCount: 6,
-      comments: []
-    },
-    {
-      avatar: image2,
-      name: "Samuel Alege",
-      timeAgo: "22s ago",
-      content: "Ever notice how life feels like a mix of a loading bar and a playlist on shuffle? Some days, you're at 2% wondering if you'll ever make it, and other days, you're jamming to the perfect vibe. Just keep hitting play. 🎵💪 #RandomThoughts #KeepGoing",
-      likers: [
-        { name: "John Doe", avatar: image3 }
-      ],
-      likesCount: 1,
-      commentsCount: 0,
-      comments: []
+
+  const formatTimestamp = (timestamp) => {
+    if (!timestamp) return '';
+    
+    const date = new Date(timestamp);
+    const now = new Date();
+    const diffInSeconds = Math.floor((now - date) / 1000);
+
+    // If the date is invalid, return empty string
+    if (isNaN(date.getTime())) return '';
+
+    if (diffInSeconds < 60) {
+      return 'Just now';
+    } else if (diffInSeconds < 3600) {
+      const minutes = Math.floor(diffInSeconds / 60);
+      return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ago`;
+    } else if (diffInSeconds < 86400) {
+      const hours = Math.floor(diffInSeconds / 3600);
+      return `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`;
+    } else if (diffInSeconds < 604800) {
+      const days = Math.floor(diffInSeconds / 86400);
+      return `${days} ${days === 1 ? 'day' : 'days'} ago`;
+    } else {
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
     }
-  ]);
+  };
+
+  const fetchPosts = async () => {
+    try {
+      setLoading(true);
+      const response = await getPosts();
+      if (response.success && response.data) {
+        setPosts(response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchProfilePic = async () => {
+    const fetchUserAndPosts = async () => {
       try {
-        const response = await getUserProfile();
-        if (response.success && response.data?.profilePic) {
-          setProfilePic(response.data.profilePic);
+        // Fetch user profile to get currentUserId and profile picture
+        const userResponse = await getUserProfile();
+        if (userResponse.success && userResponse.data) {
+          setCurrentUserId(userResponse.data.username);
+          setProfilePic(userResponse.data.profilePic); // Store the profile picture
         }
+        
+        // Fetch posts
+        await fetchPosts();
       } catch (error) {
-        console.error('Error fetching profile picture:', error);
+        console.error('Error initializing community:', error);
       }
     };
 
-    fetchProfilePic();
+    fetchUserAndPosts();
   }, []);
 
-  const handleOpenPostModal = () => {
-    setIsPostModalOpen(true);
+  const handlePostCreated = async () => {
+    await fetchPosts(); // Refresh posts after creation/edit
+    setIsCreatePostModalOpen(false);
   };
 
-  const handleCreatePost = (content, privacy, images = []) => {
-    const newPost = {
-      avatar: profilePic || image1,
-      name: "Jerry Lamp",
-      timeAgo: "Just now",
-      content: content,
-      images: images,
-      likers: [],
-      likesCount: 0,
-      commentsCount: 0,
-      comments: []
-    };
-
-    setPosts(prevPosts => [newPost, ...prevPosts]);
-    setIsPostModalOpen(false);
+  const handlePostDeleted = async (postId) => {
+    try {
+      const response = await deletePost(postId);
+      if (response.success) {
+        await fetchPosts(); // Refresh posts after deletion
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
   };
+
+  const handleEditPost = (post) => {
+    setEditPostData(post);
+    setIsCreatePostModalOpen(true);
+  };
+
+  if (loading) {
+    return (
+      <DashboardLayout>
+        <div className="w-full flex flex-col">
+          <div className="px-4 md:px-8 lg:px-20 pt-2 pb-2">
+            <Skeleton className="h-[100px] w-full rounded-2xl" />
+          </div>
+          <div className="flex-1 px-4 md:px-8 lg:px-20 pb-20 pt-4">
+            <div className="space-y-6">
+              {Array.from({ length: 3 }).map((_, index) => (
+                <CommentThreadSkeleton key={index} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </DashboardLayout>
+    );
+  }
 
   return (
     <DashboardLayout>
@@ -139,7 +130,7 @@ function Community() {
         <div className="px-4 md:px-8 lg:px-20 pt-2 pb-2">
           <div 
             className="bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl p-4 cursor-pointer"
-            onClick={handleOpenPostModal}
+            onClick={() => setIsCreatePostModalOpen(true)}
           >
             {/* Desktop/Tablet View */}
             <div className="hidden sm:flex items-center justify-between">
@@ -204,21 +195,46 @@ function Community() {
 
         {/* Scrollable content area */}
         <div className="flex-1 px-4 md:px-8 lg:px-20 pb-20 pt-4">
-          {/* Create Post Modal */}
-          <CreatePostModal
-            isOpen={isPostModalOpen}
-            onClose={() => setIsPostModalOpen(false)}
-            onPost={handleCreatePost}
-          />
-
           {/* Posts feed */}
           <div className="space-y-6">
-            {posts.map((post, index) => (
-              <CommunityPostCard key={index} {...post} />
-            ))}
+            {loading ? (
+              // Show skeleton loading state
+              Array.from({ length: 3 }).map((_, index) => (
+                <CommentThreadSkeleton key={index} />
+              ))
+            ) : (
+              posts.map((post) => (
+                <CommunityPostCard
+                  key={post.id}
+                  id={post.id}
+                  avatar={post.author.profilePic || '/default-avatar.png'}
+                  name={post.author.username}
+                  timeAgo={formatTimestamp(post.timestamp)}
+                  content={post.content.text}
+                  images={post.content.media?.map(m => m.url) || []}
+                  likesCount={post._count?.likes || 0}
+                  commentsCount={post._count?.comments || 0}
+                  currentUserId={currentUserId}
+                  isOwnPost={post.author.username === currentUserId}
+                  onEdit={() => handleEditPost(post)}
+                  onDelete={handlePostDeleted}
+                />
+              ))
+            )}
           </div>
         </div>
       </div>
+
+      <CreatePostModal
+        isOpen={isCreatePostModalOpen}
+        onClose={() => {
+          setIsCreatePostModalOpen(false);
+          setEditPostData(null);
+        }}
+        onPostCreated={handlePostCreated}
+        editMode={!!editPostData}
+        postToEdit={editPostData}
+      />
     </DashboardLayout>
   );
 }

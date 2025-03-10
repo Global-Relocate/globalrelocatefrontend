@@ -11,11 +11,12 @@ const CommentInput = ({
   onSubmit, 
   autoFocus = false, 
   placeholder = "Add a comment",
-  initialValue = "" 
+  initialValue = "",
+  initialImage = null
 }) => {
   const [comment, setComment] = useState(initialValue);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(initialImage);
   const textareaRef = useRef(null);
   const fileInputRef = useRef(null);
   const emojiPickerRef = useRef(null);
@@ -50,13 +51,27 @@ const CommentInput = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (comment.trim() || selectedImage) {
-      onSubmit(comment, selectedImage);
-      setComment('');
-      setSelectedImage(null);
-      if (textareaRef.current) {
-        textareaRef.current.style.height = '44px';
+    if (!comment.trim() && !selectedImage) {
+      return;
+    }
+    
+    let mediaFile = null;
+    if (selectedImage) {
+      const byteString = atob(selectedImage.split(',')[1]);
+      const ab = new ArrayBuffer(byteString.length);
+      const ia = new Uint8Array(ab);
+      for (let i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
       }
+      const blob = new Blob([ab], { type: 'image/jpeg' });
+      mediaFile = new File([blob], 'comment-image.jpg', { type: 'image/jpeg' });
+    }
+
+    onSubmit(comment, mediaFile);
+    setComment('');
+    setSelectedImage(null);
+    if (textareaRef.current) {
+      textareaRef.current.style.height = '44px';
     }
   };
 
@@ -193,7 +208,8 @@ CommentInput.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   autoFocus: PropTypes.bool,
   placeholder: PropTypes.string,
-  initialValue: PropTypes.string
+  initialValue: PropTypes.string,
+  initialImage: PropTypes.string
 };
 
 export default CommentInput; 
