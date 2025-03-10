@@ -278,7 +278,10 @@ const CommunityPostCard = ({
   commentsCount: initialCommentsCount,
   comments = [],
   currentUserId,
-  id
+  id,
+  isOwnPost,
+  onEdit,
+  onDelete,
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
@@ -310,8 +313,6 @@ const CommunityPostCard = ({
   const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
   const [editContent, setEditContent] = useState(content);
   const [editImages, setEditImages] = useState(images);
-
-  const isOwnPost = currentUserId === name;
 
   const handleLikeToggle = () => {
     setIsLiked(!isLiked);
@@ -488,6 +489,17 @@ const CommunityPostCard = ({
     setIsDeleteConfirmOpen(false);
   };
 
+  const handleEditClick = () => {
+    onEdit();
+  };
+
+  const handleDeleteClick = async () => {
+    if (await onDelete(id)) {
+      // Post was successfully deleted
+      setIsDeleteConfirmOpen(false);
+    }
+  };
+
   return (
     <TooltipProvider>
       <div className="w-full bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl mb-6">
@@ -536,7 +548,7 @@ const CommunityPostCard = ({
                   {isOwnPost ? (
                     <>
                       <DropdownMenuItem 
-                        onClick={() => setIsEditModalOpen(true)}
+                        onClick={handleEditClick}
                         className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                       >
                         <FiEdit3 size={18} />
@@ -549,6 +561,12 @@ const CommunityPostCard = ({
                         <HiOutlineTrash size={18} />
                         <span>Delete Post</span>
                       </DropdownMenuItem>
+                      <DropdownMenuItem 
+                        className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                      >
+                        <BiLink size={18} />
+                        <span>Copy link to post</span>
+                      </DropdownMenuItem>
                     </>
                   ) : (
                     <>
@@ -557,12 +575,6 @@ const CommunityPostCard = ({
                       >
                         <BiLink size={18} />
                         <span>Copy link to post</span>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem 
-                        className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
-                      >
-                        <IoEyeOffOutline size={18} />
-                        <span>I don&apos;t want to see this</span>
                       </DropdownMenuItem>
                       <DropdownMenuItem 
                         className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
@@ -717,7 +729,7 @@ const CommunityPostCard = ({
                 Cancel
               </button>
               <button 
-                onClick={handleDeletePost} 
+                onClick={handleDeleteClick} 
                 className="text-red-600 px-4 py-2"
               >
                 Delete
@@ -740,6 +752,9 @@ CommunityPostCard.propTypes = {
   likesCount: PropTypes.number.isRequired,
   commentsCount: PropTypes.number.isRequired,
   currentUserId: PropTypes.string.isRequired,
+  isOwnPost: PropTypes.bool.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default CommunityPostCard;
