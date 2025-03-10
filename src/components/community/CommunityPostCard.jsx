@@ -41,6 +41,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Skeleton } from "@/components/ui/skeleton";
+import { usePosts } from "@/context/PostContext";
+import { useComments } from "@/context/CommentContext";
 
 const ImageGrid = ({ images }) => {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -298,6 +301,10 @@ const CommunityPostCard = ({
   const [isDropdownLoading, setIsDropdownLoading] = useState(false);
   const [showLikes, setShowLikes] = useState(false);
   const [showComments, setShowComments] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { addPost } = usePosts();
+  const { addComment } = useComments();
+  const [localPosts, setLocalPosts] = useState([]);
 
   const isOwnPost = currentUserId === name;
 
@@ -319,6 +326,7 @@ const CommunityPostCard = ({
       isLikedByUser: false,
       replies: []
     };
+    addComment(newComment);
     setLocalComments(prev => [...prev, newComment]);
     setCommentsCount(prevCount => prevCount + 1);
     setShowCommentInput(false);
@@ -433,6 +441,27 @@ const CommunityPostCard = ({
     return <ImageGrid images={images} />;
   };
 
+  const handlePostSubmit = (content, images) => {
+    const newPost = {
+      avatar: avatar,
+      name: name,
+      timeAgo: timeAgo,
+      content: content,
+      images: images,
+      likers: [],
+      likesCount: 0,
+      commentsCount: 0,
+      comments: []
+    };
+    
+    addPost(newPost);
+    setLocalPosts(prevPosts => [newPost, ...prevPosts]);
+    setLocalComments(prev => [...prev, newPost]);
+    setLikesCount(prev => prev + 1);
+    setCommentsCount(prev => prev + 1);
+    setShowCommentInput(false);
+  };
+
   return (
     <TooltipProvider>
       <div className="w-full bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl mb-6">
@@ -535,19 +564,29 @@ const CommunityPostCard = ({
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
                   <StackedAvatars likers={likers} />
-                  <button 
-                    className="text-sm text-gray-600 hover:text-gray-900"
-                    onClick={() => setShowLikes(true)}
-                  >
-                    {likesCount} likes
-                  </button>
+                  {loading ? (
+                    <Skeleton className="h-4 w-20" />
+                  ) : (
+                    <button 
+                      className="text-sm text-gray-600 hover:text-gray-900"
+                      onClick={() => setShowLikes(true)}
+                    >
+                      {likesCount} likes
+                    </button>
+                  )}
                 </div>
-                <button 
-                  className="text-sm text-gray-600 hover:text-gray-900"
-                  onClick={() => setShowComments(true)}
-                >
-                  {commentsCount} comments
-                </button>
+                <div className="flex items-center gap-3">
+                  {loading ? (
+                    <Skeleton className="h-4 w-20" />
+                  ) : (
+                    <button 
+                      className="text-sm text-gray-600 hover:text-gray-900"
+                      onClick={() => setShowComments(true)}
+                    >
+                      {commentsCount} comments
+                    </button>
+                  )}
+                </div>
               </div>
               <div className="flex items-center gap-4">
                 <Tooltip>
