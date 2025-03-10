@@ -34,6 +34,7 @@ import "./App.css";
 import ScrollToTop from "./utils/ScrollToTop";
 import { PostProvider } from "@/context/PostContext";
 import { CommentProvider } from "@/context/CommentContext";
+import SinglePost from "@/pages/user/SinglePost";
 
 const AppContent = () => {
   const { showTrialModal } = useTrial();
@@ -95,6 +96,8 @@ const AppContent = () => {
           <Route path="feedback" element={<Feedback />} />
           <Route path="profile" element={<Profile />} />
         </Route>
+
+        <Route path="/user/community/post/:postId" element={<SinglePost />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
