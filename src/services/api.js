@@ -717,4 +717,312 @@ export const deleteAccount = async () => {
   }
 };
 
+// Subscription Endpoints
+export const createCheckoutSession = async (plan) => {
+  const endpoint = '/subscription/create-checkout-session';
+  console.log('Creating checkout session at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    if (!['YEARLY', 'MONTHLY'].includes(plan)) {
+      throw new CustomAPIError('Invalid plan type. Must be either YEARLY or MONTHLY', 400);
+    }
+
+    const response = await api.post(endpoint, { plan });
+    
+    if (!response.data?.checkout_link) {
+      throw new CustomAPIError('Invalid checkout response from server', 500);
+    }
+
+    return {
+      data: {
+        checkout_link: response.data.checkout_link
+      }
+    };
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to create checkout session. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const createBillingPortalSession = async () => {
+  const endpoint = '/subscription/create-portal-session';
+  console.log('Creating billing portal session at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Billing portal session created successfully:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to create billing portal session. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const getSubscriptionDetails = async () => {
+  const endpoint = '/subscription';
+  console.log('Fetching subscription details from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Subscription details fetched successfully:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to fetch subscription details. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const cancelSubscription = async () => {
+  const endpoint = '/subscription/cancel';
+  console.log('Canceling subscription at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.post(endpoint);
+    console.log('Subscription canceled successfully:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to cancel subscription. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const reactivateSubscription = async () => {
+  const endpoint = '/subscription/cancel';
+  console.log('Reactivating subscription at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Subscription reactivated successfully:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to reactivate subscription. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+// Feedback Endpoint
+export const submitFeedback = async (content, type) => {
+  const endpoint = '/feedback';
+  console.log('Submitting feedback at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    if (!content || !type) {
+      throw new CustomAPIError('Content and type are required', 400);
+    }
+
+    // Ensure we're sending the exact structure the API expects
+    const response = await api.post(endpoint, {
+      content: content,
+      type: type
+    });
+    
+    console.log('Feedback submitted successfully:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to submit feedback. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+// Notification Endpoints
+export const getNotifications = async () => {
+  const endpoint = '/notifications';
+  console.log('Fetching notifications from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Notifications fetched successfully:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to fetch notifications. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
+export const markNotificationsAsRead = async (notificationIds) => {
+  const endpoint = '/notifications';
+  console.log('Marking notifications as read at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    if (!Array.isArray(notificationIds) || notificationIds.length === 0) {
+      throw new CustomAPIError('Notification IDs must be provided as a non-empty array', 400);
+    }
+
+    const response = await api.post(endpoint, { ids: notificationIds });
+    console.log('Notifications marked as read successfully:', response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          'Network error. Please check your connection.',
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      'Failed to mark notifications as read. Please try again.',
+      0,
+      { originalError: error.message }
+    );
+  }
+};
+
 export default api;
