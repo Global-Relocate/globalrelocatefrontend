@@ -277,7 +277,8 @@ const CommunityPostCard = ({
   likesCount: initialLikesCount, 
   commentsCount: initialCommentsCount,
   comments = [],
-  currentUserId
+  currentUserId,
+  id
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
@@ -302,9 +303,13 @@ const CommunityPostCard = ({
   const [showLikes, setShowLikes] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { addPost } = usePosts();
+  const { addPost, deletePost } = usePosts();
   const { addComment } = useComments();
   const [localPosts, setLocalPosts] = useState([]);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
+  const [editContent, setEditContent] = useState(content);
+  const [editImages, setEditImages] = useState(images);
 
   const isOwnPost = currentUserId === name;
 
@@ -462,6 +467,27 @@ const CommunityPostCard = ({
     setShowCommentInput(false);
   };
 
+  const handleEditPost = () => {
+    const updatedPost = {
+      avatar,
+      name,
+      timeAgo,
+      content: editContent,
+      images: editImages,
+      likers,
+      likesCount,
+      commentsCount,
+      id
+    };
+    addPost(updatedPost);
+    setIsEditModalOpen(false);
+  };
+
+  const handleDeletePost = () => {
+    deletePost(id);
+    setIsDeleteConfirmOpen(false);
+  };
+
   return (
     <TooltipProvider>
       <div className="w-full bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl mb-6">
@@ -510,16 +536,18 @@ const CommunityPostCard = ({
                   {isOwnPost ? (
                     <>
                       <DropdownMenuItem 
+                        onClick={() => setIsEditModalOpen(true)}
                         className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                       >
                         <FiEdit3 size={18} />
-                        <span>Edit</span>
+                        <span>Edit Post</span>
                       </DropdownMenuItem>
                       <DropdownMenuItem 
+                        onClick={() => setIsDeleteConfirmOpen(true)}
                         className="text-red-600 gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                       >
                         <HiOutlineTrash size={18} />
-                        <span>Delete</span>
+                        <span>Delete Post</span>
                       </DropdownMenuItem>
                     </>
                   ) : (
@@ -660,6 +688,30 @@ const CommunityPostCard = ({
             View all {commentsCount} comments
           </button>
         )}
+
+        {/* Edit Post Modal */}
+        <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
+          <DialogContent>
+            <form onSubmit={handleEditPost}>
+              <textarea 
+                value={editContent} 
+                onChange={(e) => setEditContent(e.target.value)} 
+                placeholder="Edit your post..."
+              />
+              {/* Add image upload logic here */}
+              <button type="submit">Save Changes</button>
+            </form>
+          </DialogContent>
+        </Dialog>
+
+        {/* Delete Confirmation Dialog */}
+        <Dialog open={isDeleteConfirmOpen} onOpenChange={setIsDeleteConfirmOpen}>
+          <DialogContent>
+            <p>Are you sure you want to delete this post?</p>
+            <button onClick={handleDeletePost}>Yes, Delete</button>
+            <button onClick={() => setIsDeleteConfirmOpen(false)}>Cancel</button>
+          </DialogContent>
+        </Dialog>
       </div>
     </TooltipProvider>
   );
@@ -692,6 +744,7 @@ CommunityPostCard.propTypes = {
     })
   ),
   currentUserId: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default CommunityPostCard;
