@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import favoriteIcon from "../../assets/svg/favorite.svg";
 import heartIcon from "../../assets/svg/heart.svg";
 import { BsThreeDots } from "react-icons/bs";
@@ -45,7 +45,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { usePosts } from "@/context/PostContext";
 import { useComments } from "@/context/CommentContext";
 import { showToast } from "@/components/ui/toast";
-import { getSinglePost } from "@/services/api";
+import { getSinglePost, createComment, getPostComments, replyToComment, getCommentReplies, editComment as editCommentApi, deleteComment as deleteCommentApi } from "@/services/api";
+import { CommentThreadSkeleton } from "@/components/community/CommentSkeleton";
 
 const ImageGrid = ({ images }) => {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -278,7 +279,6 @@ const CommunityPostCard = ({
   likers = [],
   likesCount: initialLikesCount, 
   commentsCount: initialCommentsCount,
-  comments = [],
   currentUserId,
   id,
   isOwnPost,
@@ -287,7 +287,7 @@ const CommunityPostCard = ({
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
-  const [localComments, setLocalComments] = useState(comments);
+  const [postComments, setPostComments] = useState([]);
   const [likesCount, setLikesCount] = useState(initialLikesCount);
   const [commentsCount, setCommentsCount] = useState(initialCommentsCount);
   const { toggleBookmark, isBookmarked } = useBookmarks();
@@ -315,116 +315,86 @@ const CommunityPostCard = ({
   const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
   const [editContent, setEditContent] = useState(content);
   const [editImages, setEditImages] = useState(images);
+  const [isLoadingComments, setIsLoadingComments] = useState(false);
 
   const handleLikeToggle = () => {
     setIsLiked(!isLiked);
     setLikesCount(prevCount => isLiked ? prevCount - 1 : prevCount + 1);
   };
 
-  const handleCommentSubmit = (comment, image) => {
-    const newComment = {
-      id: Date.now().toString(),
-      userId: currentUserId,
-      author: name,
-      avatar: avatar,
-      content: comment,
-      timeAgo: 'Just now',
-      image: image,
-      likesCount: 0,
-      isLikedByUser: false,
-      replies: []
-    };
-    addComment(newComment);
-    setLocalComments(prev => [...prev, newComment]);
-    setCommentsCount(prevCount => prevCount + 1);
-    setShowCommentInput(false);
+  const handleCommentSubmit = async (text, media) => {
+    try {
+      if (!text.trim() && !media) return;
+
+      const formData = new FormData();
+      if (text.trim()) {
+        formData.append('text', text.trim());
+      }
+      if (media) {
+        formData.append('media', media);
+      }
+
+      const response = await createComment(id, text, media);
+      if (response.success) {
+        // Update comments and count
+        await fetchComments();
+        setShowCommentInput(false);
+      }
+    } catch (error) {
+      console.error('Error creating comment:', error);
+      showToast({
+        message: "Failed to post comment",
+        type: "error"
+      });
+    }
   };
 
-  const handleReply = (parentId, replyText, image) => {
-    const newReply = {
-      id: Date.now().toString(),
-      userId: currentUserId,
-      author: name,
-      avatar: avatar,
-      content: replyText,
-      timeAgo: 'Just now',
-      image: image,
-      likesCount: 0,
-      isLikedByUser: false,
-      replies: []
-    };
-
-    const updateReplies = (comments) => {
-      return comments.map(comment => {
-        if (comment.id === parentId) {
-          return {
-            ...comment,
-            replies: [...(comment.replies || []), newReply]
-          };
-        }
-        if (comment.replies) {
-          return {
-            ...comment,
-            replies: updateReplies(comment.replies)
-          };
-        }
-        return comment;
+  const handleReply = async (commentId, text, media) => {
+    try {
+      const response = await replyToComment(commentId, id, text, media);
+      if (response.success) {
+        // Refresh comments to show new reply
+        await fetchComments();
+      }
+    } catch (error) {
+      console.error('Error replying to comment:', error);
+      showToast({
+        message: "Failed to post reply",
+        type: "error"
       });
-    };
-
-    setLocalComments(updateReplies(localComments));
-    setCommentsCount(prevCount => prevCount + 1);
+    }
   };
 
-  const handleCommentEdit = (commentId, newContent, newImage) => {
-    const updateComments = (comments) => {
-      return comments.map(comment => {
-        if (comment.id === commentId) {
-          return {
-            ...comment,
-            content: newContent,
-            image: newImage
-          };
-        }
-        if (comment.replies) {
-          return {
-            ...comment,
-            replies: updateComments(comment.replies)
-          };
-        }
-        return comment;
+  const handleCommentEdit = async (commentId, text, media) => {
+    try {
+      const response = await editCommentApi(commentId, text, media);
+      if (response.success) {
+        // Refresh comments to show edited comment
+        await fetchComments();
+      }
+    } catch (error) {
+      console.error('Error editing comment:', error);
+      showToast({
+        message: "Failed to edit comment",
+        type: "error"
       });
-    };
-
-    setLocalComments(updateComments(localComments));
+    }
   };
 
-  const handleCommentDelete = (commentId) => {
-    const deleteFromComments = (comments) => {
-      let deletedCount = 0;
-      const filtered = comments.filter(comment => {
-        if (comment.id === commentId) {
-          deletedCount = 1 + (comment.replies?.length || 0);
-          return false;
-        }
-        if (comment.replies) {
-          const prevLength = comment.replies.length;
-          comment.replies = deleteFromComments(comment.replies);
-          if (comment.replies.length !== prevLength) {
-            deletedCount = prevLength - comment.replies.length;
-            return true;
-          }
-        }
-        return true;
+  const handleCommentDelete = async (commentId) => {
+    try {
+      const response = await deleteCommentApi(commentId);
+      if (response.success) {
+        // Refresh comments to remove deleted comment
+        await fetchComments();
+      }
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+      showToast({
+        message: "Failed to delete comment",
+        type: "error"
       });
-      return filtered;
-    };
-
-    setLocalComments(prevComments => {
-      const newComments = deleteFromComments([...prevComments]);
-      setCommentsCount(prev => prev - 1);
-      return newComments;
-    });
+    }
   };
 
   const handleDropdownClick = () => {
@@ -464,7 +434,7 @@ const CommunityPostCard = ({
     
     addPost(newPost);
     setLocalPosts(prevPosts => [newPost, ...prevPosts]);
-    setLocalComments(prev => [...prev, newPost]);
+    setPostComments(prev => [...prev, newPost]);
     setLikesCount(prev => prev + 1);
     setCommentsCount(prev => prev + 1);
     setShowCommentInput(false);
@@ -523,6 +493,31 @@ const CommunityPostCard = ({
       });
     }
   };
+
+  const fetchComments = async () => {
+    try {
+      setIsLoadingComments(true);
+      const response = await getPostComments(id);
+      if (response.success) {
+        setPostComments(response.data);
+        setCommentsCount(response.pagination.total);
+      }
+    } catch (error) {
+      console.error('Error fetching comments:', error);
+      showToast({
+        message: "Failed to load comments",
+        type: "error"
+      });
+    } finally {
+      setIsLoadingComments(false);
+    }
+  };
+
+  useEffect(() => {
+    if (showComments) {
+      fetchComments();
+    }
+  }, [showComments]);
 
   return (
     <TooltipProvider>
@@ -698,16 +693,38 @@ const CommunityPostCard = ({
           />
         )}
 
-        {localComments.length > 0 && (
-          <CommentThread
-            comments={localComments}
-            currentUserAvatar={avatar}
-            currentUserId={name}
-            onAddComment={handleCommentSubmit}
-            onReply={handleReply}
-            onEdit={handleCommentEdit}
-            onDelete={handleCommentDelete}
-          />
+        {showComments && (
+          <div>
+            {isLoadingComments ? (
+              <CommentThreadSkeleton />
+            ) : postComments && postComments.length > 0 ? (
+              <CommentThread
+                comments={postComments}
+                currentUserAvatar={avatar}
+                currentUserId={currentUserId}
+                onAddComment={handleCommentSubmit}
+                onReply={handleReply}
+                onEdit={handleCommentEdit}
+                onDelete={handleCommentDelete}
+              />
+            ) : (
+              <div className="px-6 py-4 text-center text-gray-500">
+                No comments yet
+              </div>
+            )}
+          </div>
+        )}
+
+        {!showComments && commentsCount > 0 && (
+          <button
+            className="px-6 py-2 text-sm text-[#5762D5] hover:underline"
+            onClick={() => {
+              setShowComments(true);
+              fetchComments();
+            }}
+          >
+            View all {commentsCount} comments
+          </button>
         )}
 
         {showLikes && (
@@ -717,15 +734,6 @@ const CommunityPostCard = ({
             likers={likers}
             className="rounded-lg"
           />
-        )}
-
-        {showComments && commentsCount > 0 && localComments.length === 0 && (
-          <button
-            className="px-6 py-2 text-sm text-[#5762D5] hover:underline"
-            onClick={() => setShowComments(false)}
-          >
-            View all {commentsCount} comments
-          </button>
         )}
 
         {/* Edit Post Modal */}
