@@ -18,8 +18,40 @@ import {
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useUndo } from "@/context/UndoContext";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { showToast } from "@/components/ui/toast";
+import { getCommentReplies, getSinglePost } from '@/services/api';
 
 const MAX_VISIBLE_REPLIES = 2;
+
+const formatTimestamp = (timestamp) => {
+  if (!timestamp) return '';
+  
+  const date = new Date(timestamp);
+  const now = new Date();
+  const diffInSeconds = Math.floor((now - date) / 1000);
+
+  // If the date is invalid, return empty string
+  if (isNaN(date.getTime())) return '';
+
+  if (diffInSeconds < 60) {
+    return 'Just now';
+  } else if (diffInSeconds < 3600) {
+    const minutes = Math.floor(diffInSeconds / 60);
+    return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ago`;
+  } else if (diffInSeconds < 86400) {
+    const hours = Math.floor(diffInSeconds / 3600);
+    return `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`;
+  } else if (diffInSeconds < 604800) {
+    const days = Math.floor(diffInSeconds / 86400);
+    return `${days} ${days === 1 ? 'day' : 'days'} ago`;
+  } else {
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
+};
 
 const Comment = ({ 
   comment, 
@@ -37,33 +69,47 @@ const Comment = ({
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const [isLiked, setIsLiked] = useState(comment.isLikedByUser || false);
-  const [likesCount, setLikesCount] = useState(comment.likesCount || 0);
+  const [currentLikesCount, setCurrentLikesCount] = useState(comment.likesCount || 0);
   const { showUndoToast } = useUndo();
   const [showImagePreview, setShowImagePreview] = useState(false);
   const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
   const [editContent, setEditContent] = useState(comment.content);
+  const [isLoadingReplies, setIsLoadingReplies] = useState(false);
+  const [localReplies, setLocalReplies] = useState([]);
+  const [isDropdownLoading, setIsDropdownLoading] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
 
-  const hasReplies = comment.replies && comment.replies.length > 0;
-  const replyCount = comment.replies?.length || 0;
+  const {
+    id,
+    author,
+    content,
+    createdAt,
+    _count,
+    postId,
+    userId,
+  } = comment;
+
+  const totalReplies = _count?.replies || 0;
+  const totalLikes = _count?.likes || 0;
 
   const handleReply = (replyText, image) => {
-    onReply(comment.id, replyText, image);
+    onReply(id, replyText, image);
     setShowReplyInput(false);
   };
 
   const handleEditComment = () => {
-    onEdit(comment.id, editContent);
+    onEdit(id, editContent);
     setShowEditInput(false);
   };
 
   const handleDeleteComment = () => {
-    onDelete(comment.id);
+    onDelete(id);
     setIsDeleteConfirmOpen(false);
   };
 
   const handleLike = () => {
     setIsLiked(!isLiked);
-    setLikesCount(prev => isLiked ? prev - 1 : prev + 1);
+    setCurrentLikesCount(prev => isLiked ? prev - 1 : prev + 1);
   };
 
   const handleDropdownClick = () => {
@@ -74,7 +120,63 @@ const Comment = ({
     }, 500);
   };
 
-  const isOwnComment = comment.author === currentUserId;
+  const isOwnComment = userId === currentUserId;
+
+  const handleViewReplies = async () => {
+    if (isExpanded) {
+      setIsExpanded(false);
+      setLocalReplies([]);
+      return;
+    }
+
+    try {
+      setIsLoadingReplies(true);
+      const response = await getCommentReplies(postId, id);
+      if (response.success) {
+        setLocalReplies(response.data.replies || []);
+        setIsExpanded(true);
+      }
+    } catch (error) {
+      console.error('Error fetching replies:', error);
+      showToast({
+        message: "Failed to load replies",
+        type: "error"
+      });
+    } finally {
+      setIsLoadingReplies(false);
+    }
+  };
+
+  const handleCopyCommentLink = async () => {
+    try {
+      // Get the post details first
+      const response = await getSinglePost(postId);
+      if (response.success) {
+        // Construct the comment URL
+        const commentUrl = `${window.location.origin}/user/community/post/${postId}#comment-${id}`;
+        await navigator.clipboard.writeText(commentUrl);
+        showToast({
+          message: "Comment link copied to clipboard",
+          type: "success"
+        });
+      }
+    } catch (error) {
+      console.error('Error copying comment link:', error);
+      showToast({
+        message: "Failed to copy comment link",
+        type: "error"
+      });
+    }
+    setShowDropdown(false);
+  };
+
+  const handleReportComment = () => {
+    showToast({
+      message: "Comment has been reported",
+      type: "success"
+    });
+    setShowDropdown(false);
+  };
 
   if (isDeleted) {
     return null;
@@ -83,17 +185,26 @@ const Comment = ({
   return (
     <div className={`relative ${level > 0 ? 'ml-10' : ''} mb-4`}>
       <div className="flex items-start gap-3">
-        <img src={comment.avatar} alt={`${comment.author} avatar`} className="w-8 h-8 rounded-full" />
+        <img 
+          src={author.profilePic} 
+          alt={`${author.username} avatar`} 
+          className="w-8 h-8 rounded-full" 
+        />
         <div className="flex-1">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="font-medium text-[#5762D5]">{comment.author}</span>
-              <span className="text-sm text-gray-500">{comment.timeAgo}</span>
+              <span className="font-medium text-[#5762D5]">{author.username}</span>
+              <span className="text-sm text-gray-500">
+                {formatTimestamp(createdAt)}
+              </span>
             </div>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild onClick={handleDropdownClick}>
-                <button className="p-1 hover:bg-black/5 rounded-full transition-colors">
-                  {isLoading ? (
+            <DropdownMenu open={showDropdown} onOpenChange={setShowDropdown}>
+              <DropdownMenuTrigger asChild>
+                <button 
+                  className="p-1 hover:bg-black/5 rounded-full transition-colors"
+                  onClick={() => setIsDropdownLoading(true)}
+                >
+                  {isDropdownLoading ? (
                     <Loader2 className="h-4 w-4 animate-spin text-gray-600" />
                   ) : (
                     <BsThreeDots className="text-gray-600" size={16} />
@@ -104,14 +215,20 @@ const Comment = ({
                 {isOwnComment ? (
                   <>
                     <DropdownMenuItem 
-                      onClick={() => setShowEditInput(true)}
+                      onClick={() => {
+                        onEdit(id, content.text);
+                        setShowDropdown(false);
+                      }}
                       className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                     >
                       <FiEdit3 size={18} />
                       <span>Edit Comment</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem 
-                      onClick={() => setIsDeleteConfirmOpen(true)}
+                      onClick={() => {
+                        onDelete(id);
+                        setShowDropdown(false);
+                      }}
                       className="text-red-600 gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                     >
                       <HiOutlineTrash size={18} />
@@ -121,23 +238,19 @@ const Comment = ({
                 ) : (
                   <>
                     <DropdownMenuItem 
+                      onClick={handleCopyCommentLink}
                       className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                     >
                       <BiLink size={18} />
                       <span>Copy link to comment</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem 
+                      onClick={handleReportComment}
                       className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                     >
                       <FiFlag size={18} />
                       <span>Report</span>
                     </DropdownMenuItem>
-                    {/* <DropdownMenuItem 
-                      className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
-                    >
-                      <IoEyeOffOutline size={18} />
-                      <span>I don&apos;t want to see this</span>
-                    </DropdownMenuItem> */}
                   </>
                 )}
               </DropdownMenuContent>
@@ -156,23 +269,15 @@ const Comment = ({
                 />
               </div>
             ) : (
-              <p className="text-gray-800">{comment.content}</p>
+              <p className="text-gray-800">{content.text}</p>
             )}
-            {comment.image && (
-              <div 
-                className="mt-2 relative w-full max-w-[200px] rounded-lg overflow-hidden cursor-pointer"
-                onClick={() => {
-                  // Add image preview dialog
-                  setShowImagePreview(true);
-                }}
-              >
-                <AspectRatio ratio={16 / 9}>
-                  <img 
-                    src={comment.image} 
-                    alt="Comment attachment" 
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </AspectRatio>
+            {content.media && content.media.length > 0 && (
+              <div className="mt-2 relative w-full max-w-[200px] rounded-lg overflow-hidden">
+                <img 
+                  src={content.media[0]} 
+                  alt="Comment attachment" 
+                  className="w-full h-auto"
+                />
               </div>
             )}
           </div>
@@ -204,8 +309,8 @@ const Comment = ({
                   />
                 )}
               </button>
-              {likesCount > 0 && (
-                <span className="text-sm text-gray-600">{likesCount}</span>
+              {currentLikesCount > 0 && (
+                <span className="text-sm text-gray-600">{currentLikesCount}</span>
               )}
             </div>
           </div>
@@ -230,14 +335,62 @@ const Comment = ({
               </div>
             </DialogContent>
           </Dialog>
+
+          {/* Show replies button */}
+          {totalReplies > 0 && !isExpanded && (
+            <button
+              className="ml-11 mt-2 text-sm text-[#5762D5] hover:underline flex items-center gap-2"
+              onClick={handleViewReplies}
+            >
+              {isLoadingReplies ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span>Loading replies...</span>
+                </>
+              ) : (
+                <span>View {totalReplies} {totalReplies === 1 ? 'reply' : 'replies'}</span>
+              )}
+            </button>
+          )}
+
+          {/* Display replies */}
+          {isExpanded && localReplies.length > 0 && (
+            <div className="mt-2">
+              {localReplies.map((reply) => (
+                <Comment
+                  key={reply.id}
+                  comment={{
+                    ...reply,
+                    postId,
+                  }}
+                  level={level + 1}
+                  onReply={onReply}
+                  onEdit={onEdit}
+                  onDelete={onDelete}
+                  currentUserAvatar={currentUserAvatar}
+                  currentUserId={currentUserId}
+                  isLast={false}
+                />
+              ))}
+              <button
+                className="ml-11 mt-2 text-sm text-gray-600 hover:text-gray-900"
+                onClick={() => {
+                  setIsExpanded(false);
+                  setLocalReplies([]);
+                }}
+              >
+                Hide replies
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
-      {showImagePreview && comment.image && (
+      {showImagePreview && content.media && content.media.length > 0 && (
         <Dialog open={showImagePreview} onOpenChange={setShowImagePreview}>
           <DialogContent className="max-w-4xl p-0">
             <img 
-              src={comment.image} 
+              src={content.media[0]} 
               alt="Comment attachment" 
               className="w-full h-full object-contain"
             />
@@ -255,39 +408,6 @@ const Comment = ({
           />
         </div>
       )}
-
-      {hasReplies && !isExpanded && (
-        <button
-          className="ml-11 mt-2 text-sm text-[#5762D5] hover:underline"
-          onClick={() => setIsExpanded(true)}
-        >
-          View {replyCount} {replyCount === 1 ? 'reply' : 'replies'}
-        </button>
-      )}
-
-      {hasReplies && isExpanded && (
-        <div className="mt-2">
-          {comment.replies.map((reply, index) => (
-            <Comment
-              key={reply.id}
-              comment={reply}
-              level={level + 1}
-              onReply={onReply}
-              onEdit={onEdit}
-              onDelete={onDelete}
-              currentUserAvatar={currentUserAvatar}
-              currentUserId={currentUserId}
-              isLast={index === comment.replies.length - 1}
-            />
-          ))}
-          <button
-            className="ml-11 mt-2 text-sm text-gray-600 hover:text-gray-900"
-            onClick={() => setIsExpanded(false)}
-          >
-            Hide replies
-          </button>
-        </div>
-      )}
     </div>
   );
 };
@@ -295,15 +415,23 @@ const Comment = ({
 Comment.propTypes = {
   comment: PropTypes.shape({
     id: PropTypes.string.isRequired,
+    postId: PropTypes.string.isRequired,
     userId: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    timeAgo: PropTypes.string.isRequired,
-    image: PropTypes.string,
-    likesCount: PropTypes.number,
-    isLikedByUser: PropTypes.bool,
-    replies: PropTypes.arrayOf(PropTypes.object),
+    author: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      username: PropTypes.string.isRequired,
+      profilePic: PropTypes.string
+    }).isRequired,
+    content: PropTypes.shape({
+      text: PropTypes.string,
+      media: PropTypes.arrayOf(PropTypes.string)
+    }).isRequired,
+    createdAt: PropTypes.string.isRequired,
+    _count: PropTypes.shape({
+      replies: PropTypes.number,
+      likes: PropTypes.number
+    }),
+    replies: PropTypes.array
   }).isRequired,
   level: PropTypes.number,
   onReply: PropTypes.func.isRequired,
@@ -311,10 +439,20 @@ Comment.propTypes = {
   onDelete: PropTypes.func.isRequired,
   currentUserAvatar: PropTypes.string.isRequired,
   currentUserId: PropTypes.string.isRequired,
-  isLast: PropTypes.bool,
+  isLast: PropTypes.bool
 };
 
 const CommentThread = ({ comments, currentUserAvatar, currentUserId, onReply, onEdit, onDelete }) => {
+  const [expandedComments, setExpandedComments] = useState(new Set());
+
+  const handleViewReplies = async (commentId) => {
+    setExpandedComments(prev => {
+      const newSet = new Set(prev);
+      newSet.add(commentId);
+      return newSet;
+    });
+  };
+
   return (
     <div className="w-full px-6 pb-4">
       <div className="pt-2">
@@ -325,9 +463,12 @@ const CommentThread = ({ comments, currentUserAvatar, currentUserId, onReply, on
             onReply={onReply}
             onEdit={onEdit}
             onDelete={onDelete}
+            onViewReplies={handleViewReplies}
             currentUserAvatar={currentUserAvatar}
             currentUserId={currentUserId}
+            isExpanded={expandedComments.has(comment.id)}
             isLast={index === comments.length - 1}
+            level={0}
           />
         ))}
       </div>
@@ -339,22 +480,27 @@ CommentThread.propTypes = {
   comments: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      userId: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      timeAgo: PropTypes.string.isRequired,
-      image: PropTypes.string,
-      likesCount: PropTypes.number,
-      isLikedByUser: PropTypes.bool,
-      replies: PropTypes.arrayOf(PropTypes.object),
+      author: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        username: PropTypes.string.isRequired,
+        profilePic: PropTypes.string
+      }).isRequired,
+      content: PropTypes.shape({
+        text: PropTypes.string,
+        media: PropTypes.arrayOf(PropTypes.string)
+      }).isRequired,
+      createdAt: PropTypes.string.isRequired,
+      _count: PropTypes.shape({
+        replies: PropTypes.number,
+        likes: PropTypes.number
+      })
     })
   ).isRequired,
   currentUserAvatar: PropTypes.string.isRequired,
   currentUserId: PropTypes.string.isRequired,
   onReply: PropTypes.func.isRequired,
   onEdit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
 };
 
 export default CommentThread; 
