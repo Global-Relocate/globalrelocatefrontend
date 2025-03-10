@@ -1025,4 +1025,293 @@ export const markNotificationsAsRead = async (notificationIds) => {
   }
 };
 
+// Community Posts Endpoints
+export const getPosts = async (page = 1, limit = 20) => {
+  const endpoint = `/community/post?limit=${limit}&page=${page}`;
+  console.log('Fetching posts from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Posts fetched successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to fetch posts');
+  }
+};
+
+export const createPost = async (text, media, privacy = 'PUBLIC') => {
+  const endpoint = '/community/post';
+  console.log('Creating post at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const formData = new FormData();
+    formData.append('text', text);
+    formData.append('privacy', privacy);
+    
+    if (media && media.length > 0) {
+      media.forEach(file => {
+        formData.append('media', file);
+      });
+    }
+
+    const response = await api.post(endpoint, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log('Post created successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to create post');
+  }
+};
+
+export const getSinglePost = async (postId) => {
+  const endpoint = `/community/post/${postId}`;
+  console.log('Fetching single post from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Post fetched successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to fetch post');
+  }
+};
+
+export const editPost = async (postId, text, media, privacy) => {
+  const endpoint = `/community/post/${postId}`;
+  console.log('Editing post at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const formData = new FormData();
+    formData.append('text', text);
+    if (privacy) formData.append('privacy', privacy);
+    
+    if (media && media.length > 0) {
+      media.forEach(file => {
+        formData.append('media', file);
+      });
+    }
+
+    const response = await api.put(endpoint, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log('Post edited successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to edit post');
+  }
+};
+
+export const deletePost = async (postId) => {
+  const endpoint = `/community/post/${postId}`;
+  console.log('Deleting post at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.delete(endpoint);
+    console.log('Post deleted successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to delete post');
+  }
+};
+
+// Community Comments Endpoints
+export const createComment = async (postId, text, media) => {
+  const endpoint = `/community/post/${postId}/comment`;
+  console.log('Creating comment at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const formData = new FormData();
+    formData.append('text', text);
+    
+    if (media) {
+      formData.append('media', media);
+    }
+
+    const response = await api.post(endpoint, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log('Comment created successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to create comment');
+  }
+};
+
+export const getPostComments = async (postId) => {
+  const endpoint = `/community/post/${postId}/comment`;
+  console.log('Fetching post comments from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Comments fetched successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to fetch comments');
+  }
+};
+
+export const replyToComment = async (commentId, postId, text, media) => {
+  const endpoint = `/community/comment/${commentId}/reply`;
+  console.log('Creating reply at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const formData = new FormData();
+    formData.append('text', text);
+    formData.append('postId', postId);
+    
+    if (media) {
+      formData.append('media', media);
+    }
+
+    const response = await api.post(endpoint, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log('Reply created successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to create reply');
+  }
+};
+
+export const getCommentReplies = async (postId, commentId) => {
+  const endpoint = `/community/post/${postId}/comment/${commentId}/replies`;
+  console.log('Fetching comment replies from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Replies fetched successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to fetch replies');
+  }
+};
+
+export const editComment = async (commentId, text, media) => {
+  const endpoint = `/community/comment/${commentId}`;
+  console.log('Editing comment at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const formData = new FormData();
+    formData.append('text', text);
+    
+    if (media && media.length > 0) {
+      media.forEach(file => {
+        formData.append('media', file);
+      });
+    }
+
+    const response = await api.put(endpoint, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log('Comment edited successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to edit comment');
+  }
+};
+
+export const deleteComment = async (commentId) => {
+  const endpoint = `/community/comment/${commentId}`;
+  console.log('Deleting comment at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.delete(endpoint);
+    console.log('Comment deleted successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to delete comment');
+  }
+};
+
+// Community Likes Endpoints
+export const likePost = async (postId) => {
+  const endpoint = `/community/post/${postId}/like`;
+  console.log('Liking/unliking post at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.post(endpoint);
+    console.log('Post like/unlike successful:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to like/unlike post');
+  }
+};
+
+export const getPostLikes = async (postId) => {
+  const endpoint = `/community/post/${postId}/like`;
+  console.log('Fetching post likes from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Post likes fetched successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to fetch post likes');
+  }
+};
+
+export const likeComment = async (postId, commentId) => {
+  const endpoint = `/community/post/${postId}/comment/${commentId}/like`;
+  console.log('Liking/unliking comment at:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.post(endpoint);
+    console.log('Comment like/unlike successful:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to like/unlike comment');
+  }
+};
+
+export const getCommentLikes = async (postId, commentId) => {
+  const endpoint = `/community/post/${postId}/comment/${commentId}/likes`;
+  console.log('Fetching comment likes from:', `${VITE_API_URL}${endpoint}`);
+
+  try {
+    const response = await api.get(endpoint);
+    console.log('Comment likes fetched successfully:', response);
+    return response;
+  } catch (error) {
+    handleApiError(error, 'Failed to fetch comment likes');
+  }
+};
+
+// Helper function for error handling
+const handleApiError = (error, defaultMessage) => {
+  if (error instanceof CustomAPIError) {
+    throw error;
+  }
+
+  if (axios.isAxiosError(error)) {
+    if (!error.response) {
+      throw new CustomAPIError(
+        'Network error. Please check your connection.',
+        0
+      );
+    }
+
+    const status = error.response?.status || 0;
+    const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
+
+    throw new CustomAPIError(message, status, error.response?.data);
+  }
+
+  throw new CustomAPIError(
+    `${defaultMessage}. Please try again.`,
+    0,
+    { originalError: error.message }
+  );
+};
+
 export default api;
