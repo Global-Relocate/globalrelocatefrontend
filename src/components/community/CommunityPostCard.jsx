@@ -35,6 +35,12 @@ import CommentThread from './CommentThread';
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { FiEdit3 } from "react-icons/fi";
 import { HiOutlineTrash } from "react-icons/hi";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const ImageGrid = ({ images }) => {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -239,6 +245,24 @@ StackedAvatars.propTypes = {
   ).isRequired,
 };
 
+const LikesDialog = ({ isOpen, onClose, likers }) => (
+  <Dialog open={isOpen} onOpenChange={onClose}>
+    <DialogContent className="max-w-md">
+      <DialogHeader>
+        <DialogTitle>Likes</DialogTitle>
+      </DialogHeader>
+      <div className="max-h-[60vh] overflow-y-auto">
+        {likers.map((liker, index) => (
+          <div key={index} className="flex items-center gap-3 py-2">
+            <img src={liker.avatar} alt={liker.name} className="w-10 h-10 rounded-full" />
+            <span className="font-medium">{liker.name}</span>
+          </div>
+        ))}
+      </div>
+    </DialogContent>
+  </Dialog>
+);
+
 const CommunityPostCard = ({ 
   avatar, 
   name, 
@@ -272,6 +296,8 @@ const CommunityPostCard = ({
   };
   const bookmarked = isBookmarked(post);
   const [isDropdownLoading, setIsDropdownLoading] = useState(false);
+  const [showLikes, setShowLikes] = useState(false);
+  const [showComments, setShowComments] = useState(false);
 
   const isOwnPost = currentUserId === name;
 
@@ -359,19 +385,30 @@ const CommunityPostCard = ({
 
   const handleCommentDelete = (commentId) => {
     const deleteFromComments = (comments) => {
-      return comments.filter(comment => {
+      let deletedCount = 0;
+      const filtered = comments.filter(comment => {
         if (comment.id === commentId) {
-          setCommentsCount(prevCount => prevCount - 1);
+          deletedCount = 1 + (comment.replies?.length || 0);
           return false;
         }
         if (comment.replies) {
+          const prevLength = comment.replies.length;
           comment.replies = deleteFromComments(comment.replies);
+          if (comment.replies.length !== prevLength) {
+            deletedCount = prevLength - comment.replies.length;
+            return true;
+          }
         }
         return true;
       });
+      return filtered;
     };
 
-    setLocalComments(deleteFromComments(localComments));
+    setLocalComments(prevComments => {
+      const newComments = deleteFromComments([...prevComments]);
+      setCommentsCount(prev => prev - 1);
+      return newComments;
+    });
   };
 
   const handleDropdownClick = () => {
@@ -498,19 +535,19 @@ const CommunityPostCard = ({
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
                   <StackedAvatars likers={likers} />
-                  <div className="flex items-center gap-2">
-                    {isLiked && (
-                      <img 
-                        src="/src/assets/svg/filledfavorite.svg" 
-                        alt="Liked" 
-                        className="w-4 h-4"
-                        style={{ filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)' }}
-                      />
-                    )}
-                    <span className="text-sm text-gray-600">{likesCount} likes</span>
-                  </div>
+                  <button 
+                    className="text-sm text-gray-600 hover:text-gray-900"
+                    onClick={() => setShowLikes(true)}
+                  >
+                    {likesCount} likes
+                  </button>
                 </div>
-                <span className="text-sm text-gray-600">{commentsCount} comments</span>
+                <button 
+                  className="text-sm text-gray-600 hover:text-gray-900"
+                  onClick={() => setShowComments(true)}
+                >
+                  {commentsCount} comments
+                </button>
               </div>
               <div className="flex items-center gap-4">
                 <Tooltip>
@@ -535,7 +572,7 @@ const CommunityPostCard = ({
                     <img 
                       src={isLiked ? heartIcon : favoriteIcon} 
                       alt="Like" 
-                      className="w-5 h-5 cursor-pointer hover:text-[#5762D5]"
+                      className="w-5 h-5 cursor-pointer"
                       onClick={handleLikeToggle}
                     />
                   </TooltipTrigger>
@@ -566,6 +603,23 @@ const CommunityPostCard = ({
             onEdit={handleCommentEdit}
             onDelete={handleCommentDelete}
           />
+        )}
+
+        {showLikes && (
+          <LikesDialog
+            isOpen={showLikes}
+            onClose={() => setShowLikes(false)}
+            likers={likers}
+          />
+        )}
+
+        {showComments && commentsCount > 0 && localComments.length === 0 && (
+          <button
+            className="px-6 py-2 text-sm text-[#5762D5] hover:underline"
+            onClick={() => setShowComments(false)}
+          >
+            View all {commentsCount} comments
+          </button>
         )}
       </div>
     </TooltipProvider>
