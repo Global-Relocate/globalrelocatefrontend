@@ -4,7 +4,7 @@ import { PiVideoFill } from "react-icons/pi";
 import { LuUserRound } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import PropTypes from 'prop-types';
-import { getUserProfile } from '@/services/api';
+import { getUserProfile, createPost } from '@/services/api';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,11 +13,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { usePosts } from "@/context/PostContext"; // Import the Post context
 import image1 from "@/assets/images/image1.png";
+import { Loader2 } from "lucide-react";
 
 const CreatePostModal = ({ isOpen, onClose }) => {
   const { addPost } = usePosts(); // Get addPost function from context
   const [content, setContent] = useState("");
-  const [privacy, setPrivacy] = useState("Anybody can interact");
+  const [privacy, setPrivacy] = useState('PUBLIC');
   const [selectedImages, setSelectedImages] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -25,6 +26,7 @@ const CreatePostModal = ({ isOpen, onClose }) => {
   const [profilePic, setProfilePic] = useState(null);
   const fileInputRef = useRef(null);
   const videoInputRef = useRef(null);
+  const [isPosting, setIsPosting] = useState(false);
 
   useEffect(() => {
     const fetchProfilePic = async () => {
@@ -46,9 +48,9 @@ const CreatePostModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const privacyOptions = [
-    "Anyone",
-    "People you follow",
-    "Only people you mentioned"
+    { value: 'PUBLIC', label: 'Anyone' },
+    { value: 'FRIENDS', label: 'People that follow me' },
+    { value: 'ME', label: 'Only me' }
   ];
 
   const handleImageSelect = (e) => {
@@ -94,53 +96,37 @@ const CreatePostModal = ({ isOpen, onClose }) => {
 
   const handlePost = async () => {
     if (content.trim() || selectedImages.length > 0 || selectedVideo) {
-      let mediaUrls = [];
+      try {
+        setIsPosting(true); // Start loading
+        let mediaFiles = [];
+        
+        if (selectedVideo) {
+          mediaFiles = [selectedVideo];
+        } else if (selectedImages.length > 0) {
+          mediaFiles = selectedImages;
+        }
 
-      if (selectedVideo) {
-        // Convert video to base64
-        const videoPromise = new Promise((resolve) => {
-          const reader = new FileReader();
-          reader.onloadend = () => resolve(reader.result);
-          reader.readAsDataURL(selectedVideo);
-        });
-        mediaUrls = [await videoPromise];
-      } else if (selectedImages.length > 0) {
-        // Convert images to base64 strings
-        const imagePromises = selectedImages.map(file => {
-          return new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result);
-            reader.readAsDataURL(file);
-          });
-        });
-        mediaUrls = await Promise.all(imagePromises);
+        const response = await createPost(content.trim(), mediaFiles, privacy);
+        
+        if (response.success) {
+          // Clean up
+          setContent("");
+          setSelectedImages([]);
+          previewUrls.forEach(url => URL.revokeObjectURL(url));
+          setPreviewUrls([]);
+          if (videoPreviewUrl) {
+            URL.revokeObjectURL(videoPreviewUrl);
+            setVideoPreviewUrl(null);
+            setSelectedVideo(null);
+          }
+          onClose();
+        }
+      } catch (error) {
+        console.error('Error creating post:', error);
+        // Handle error (show toast notification, etc.)
+      } finally {
+        setIsPosting(false); // Stop loading
       }
-
-      const newPost = {
-        avatar: profilePic || image1,
-        name: "Jerry Lamp",
-        timeAgo: "Just now",
-        content: content,
-        images: mediaUrls,
-        likers: [],
-        likesCount: 0,
-        commentsCount: 0,
-        comments: []
-      };
-      
-      addPost(newPost); // Use context to add post
-      
-      // Clean up
-      setContent("");
-      setSelectedImages([]);
-      previewUrls.forEach(url => URL.revokeObjectURL(url));
-      setPreviewUrls([]);
-      if (videoPreviewUrl) {
-        URL.revokeObjectURL(videoPreviewUrl);
-        setVideoPreviewUrl(null);
-        setSelectedVideo(null);
-      }
-      onClose();
     }
   };
 
@@ -180,7 +166,7 @@ const CreatePostModal = ({ isOpen, onClose }) => {
 
               {/* Image Previews */}
               {previewUrls.length > 0 && (
-                <div className="mt-4 relative">
+                <div className="mt-2">
                   <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
                     {previewUrls.map((url, index) => (
                       <div key={index} className="relative group flex-none">
@@ -222,14 +208,23 @@ const CreatePostModal = ({ isOpen, onClose }) => {
             </div>
             <button
               onClick={handlePost}
-              disabled={!content.trim() && selectedImages.length === 0 && !selectedVideo}
-              className={`absolute right-0 top-0 px-4 py-1 rounded-full ${
-                content.trim() || selectedImages.length > 0 || selectedVideo
-                  ? "bg-black text-white hover:bg-gray-800" 
-                  : "bg-[#D4D4D4] text-white cursor-not-allowed"
+              disabled={(!content.trim() && selectedImages.length === 0 && !selectedVideo) || isPosting}
+              className={`absolute right-0 top-0 px-4 py-1 rounded-full flex items-center gap-2 ${
+                isPosting 
+                  ? "bg-gray-400 text-white cursor-not-allowed"
+                  : content.trim() || selectedImages.length > 0 || selectedVideo
+                    ? "bg-black text-white hover:bg-gray-800" 
+                    : "bg-[#D4D4D4] text-white cursor-not-allowed"
               }`}
             >
-              Post
+              {isPosting ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span>Posting...</span>
+                </>
+              ) : (
+                "Post"
+              )}
             </button>
           </div>
         </div>
@@ -280,16 +275,16 @@ const CreatePostModal = ({ isOpen, onClose }) => {
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded-lg">
                   <LuUserRound size={20} />
-                  <span>{privacy}</span>
+                  <span>{privacyOptions.find(opt => opt.value === privacy)?.label}</span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   {privacyOptions.map((option) => (
                     <DropdownMenuItem
-                      key={option}
-                      onClick={() => setPrivacy(option)}
+                      key={option.value}
+                      onClick={() => setPrivacy(option.value)}
                       className="cursor-pointer"
                     >
-                      {option}
+                      {option.label}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
