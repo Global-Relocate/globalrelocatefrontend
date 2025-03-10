@@ -11,11 +11,12 @@ const CommentInput = ({
   onSubmit, 
   autoFocus = false, 
   placeholder = "Add a comment",
-  initialValue = "" 
+  initialValue = "",
+  initialImage = null
 }) => {
   const [comment, setComment] = useState(initialValue);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(initialImage);
   const textareaRef = useRef(null);
   const fileInputRef = useRef(null);
   const emojiPickerRef = useRef(null);
@@ -193,7 +194,8 @@ CommentInput.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   autoFocus: PropTypes.bool,
   placeholder: PropTypes.string,
-  initialValue: PropTypes.string
+  initialValue: PropTypes.string,
+  initialImage: PropTypes.string
 };
 
 export default CommentInput; 
