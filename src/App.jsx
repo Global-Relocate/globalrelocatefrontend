@@ -32,6 +32,8 @@ import { useEffect, useState } from "react";
 import PageLoader from "./components/loaders/PageLoader";
 import "./App.css";
 import ScrollToTop from "./utils/ScrollToTop";
+import { PostProvider } from "@/context/PostContext";
+import { CommentProvider } from "@/context/CommentContext";
 
 const AppContent = () => {
   const { showTrialModal } = useTrial();
@@ -104,9 +106,13 @@ const AppContent = () => {
 
 function App() {
   return (
-    <TrialProvider>
-      <AppContent />
-    </TrialProvider>
+    <PostProvider>
+      <CommentProvider>
+        <TrialProvider>
+          <AppContent />
+        </TrialProvider>
+      </CommentProvider>
+    </PostProvider>
   );
 }
 
