@@ -40,6 +40,8 @@ const Comment = ({
   const [likesCount, setLikesCount] = useState(comment.likesCount || 0);
   const { showUndoToast } = useUndo();
   const [showImagePreview, setShowImagePreview] = useState(false);
+  const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
+  const [editContent, setEditContent] = useState(comment.content);
 
   const hasReplies = comment.replies && comment.replies.length > 0;
   const replyCount = comment.replies?.length || 0;
@@ -49,13 +51,14 @@ const Comment = ({
     setShowReplyInput(false);
   };
 
-  const handleEdit = (newText, image) => {
-    onEdit(comment.id, newText, image);
+  const handleEditComment = () => {
+    onEdit(comment.id, editContent);
     setShowEditInput(false);
   };
 
-  const handleDelete = () => {
+  const handleDeleteComment = () => {
     onDelete(comment.id);
+    setIsDeleteConfirmOpen(false);
   };
 
   const handleLike = () => {
@@ -105,14 +108,14 @@ const Comment = ({
                       className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                     >
                       <FiEdit3 size={18} />
-                      <span>Edit</span>
+                      <span>Edit Comment</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem 
-                      onClick={handleDelete}
+                      onClick={() => setIsDeleteConfirmOpen(true)}
                       className="text-red-600 gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                     >
                       <HiOutlineTrash size={18} />
-                      <span>Delete</span>
+                      <span>Delete Comment</span>
                     </DropdownMenuItem>
                   </>
                 ) : (
@@ -142,7 +145,19 @@ const Comment = ({
           </div>
           
           <div className="mt-1">
-            <p className="text-gray-800">{comment.content}</p>
+            {showEditInput ? (
+              <div className="mt-2">
+                <CommentInput 
+                  userAvatar={currentUserAvatar}
+                  onSubmit={handleEditComment}
+                  autoFocus={true}
+                  initialValue={editContent}
+                  placeholder="Edit your comment"
+                />
+              </div>
+            ) : (
+              <p className="text-gray-800">{comment.content}</p>
+            )}
             {comment.image && (
               <div 
                 className="mt-2 relative w-full max-w-[200px] rounded-lg overflow-hidden cursor-pointer"
@@ -194,6 +209,15 @@ const Comment = ({
               )}
             </div>
           </div>
+
+          {/* Delete Confirmation Dialog */}
+          <Dialog open={isDeleteConfirmOpen} onOpenChange={setIsDeleteConfirmOpen}>
+            <DialogContent>
+              <p>Are you sure you want to delete this comment?</p>
+              <button onClick={handleDeleteComment}>Yes, Delete</button>
+              <button onClick={() => setIsDeleteConfirmOpen(false)}>Cancel</button>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
 
@@ -208,19 +232,6 @@ const Comment = ({
           </DialogContent>
         </Dialog>
       )}
-
-      {showEditInput ? (
-        <div className="mt-3 ml-11">
-          <CommentInput 
-            userAvatar={currentUserAvatar}
-            onSubmit={(text, image) => handleEdit(text, image)}
-            autoFocus={true}
-            initialValue={comment.content}
-            initialImage={comment.image}
-            placeholder="Edit your comment..."
-          />
-        </div>
-      ) : null}
 
       {showReplyInput && (
         <div className="mt-3 ml-11">
