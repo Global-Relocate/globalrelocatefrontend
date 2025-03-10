@@ -11,8 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { usePosts } from "@/context/PostContext"; // Import the Post context
-import image1 from "@/assets/images/image1.png";
+import { usePosts } from "@/context/PostContext"; 
 import { Loader2 } from "lucide-react";
 
 const CreatePostModal = ({ isOpen, onClose, onPostCreated, editMode = false, postToEdit = null }) => {
