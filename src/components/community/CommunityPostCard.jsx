@@ -44,6 +44,8 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { usePosts } from "@/context/PostContext";
 import { useComments } from "@/context/CommentContext";
+import { showToast } from "@/components/ui/toast";
+import { getSinglePost } from "@/services/api";
 
 const ImageGrid = ({ images }) => {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -500,6 +502,28 @@ const CommunityPostCard = ({
     }
   };
 
+  const handleCopyLink = async (postId) => {
+    try {
+      // Construct the post URL
+      const postUrl = `${window.location.origin}/user/community/post/${postId}`;
+      
+      // Copy to clipboard
+      await navigator.clipboard.writeText(postUrl);
+      
+      // Show success toast
+      showToast({
+        message: "Post link copied to clipboard",
+        type: "success"
+      });
+    } catch (error) {
+      console.error('Error copying link:', error);
+      showToast({
+        message: "Failed to copy link",
+        type: "error"
+      });
+    }
+  };
+
   return (
     <TooltipProvider>
       <div className="w-full bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl mb-6">
@@ -562,6 +586,7 @@ const CommunityPostCard = ({
                         <span>Delete Post</span>
                       </DropdownMenuItem>
                       <DropdownMenuItem 
+                        onClick={() => handleCopyLink(id)}
                         className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                       >
                         <BiLink size={18} />
@@ -571,6 +596,7 @@ const CommunityPostCard = ({
                   ) : (
                     <>
                       <DropdownMenuItem 
+                        onClick={() => handleCopyLink(id)}
                         className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                       >
                         <BiLink size={18} />
