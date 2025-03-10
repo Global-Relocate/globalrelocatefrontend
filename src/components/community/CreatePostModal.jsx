@@ -11,8 +11,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { usePosts } from "@/context/PostContext"; // Import the Post context
+import image1 from "@/assets/images/image1.png";
 
-const CreatePostModal = ({ isOpen, onClose, onPost }) => {
+const CreatePostModal = ({ isOpen, onClose }) => {
+  const { addPost } = usePosts(); // Get addPost function from context
   const [content, setContent] = useState("");
   const [privacy, setPrivacy] = useState("Anybody can interact");
   const [selectedImages, setSelectedImages] = useState([]);
@@ -113,7 +116,19 @@ const CreatePostModal = ({ isOpen, onClose, onPost }) => {
         mediaUrls = await Promise.all(imagePromises);
       }
 
-      onPost(content, privacy, mediaUrls, selectedVideo ? 'video' : 'image');
+      const newPost = {
+        avatar: profilePic || image1,
+        name: "Jerry Lamp",
+        timeAgo: "Just now",
+        content: content,
+        images: mediaUrls,
+        likers: [],
+        likesCount: 0,
+        commentsCount: 0,
+        comments: []
+      };
+      
+      addPost(newPost); // Use context to add post
       
       // Clean up
       setContent("");
@@ -290,7 +305,6 @@ const CreatePostModal = ({ isOpen, onClose, onPost }) => {
 CreatePostModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  onPost: PropTypes.func.isRequired,
 };
 
 export default CreatePostModal; 
