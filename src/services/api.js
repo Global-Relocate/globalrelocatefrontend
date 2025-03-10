@@ -1079,14 +1079,14 @@ export const getSinglePost = async (postId) => {
   }
 };
 
-export const editPost = async (postId, text, media, privacy) => {
+export const editPost = async (postId, text, media, privacy = 'PUBLIC') => {
   const endpoint = `/community/post/${postId}`;
   console.log('Editing post at:', `${VITE_API_URL}${endpoint}`);
 
   try {
     const formData = new FormData();
     formData.append('text', text);
-    if (privacy) formData.append('privacy', privacy);
+    formData.append('privacy', privacy);
     
     if (media && media.length > 0) {
       media.forEach(file => {
