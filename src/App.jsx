@@ -91,7 +91,7 @@ const AppContent = () => {
           <Route path="tax-calculator" element={<TaxCalculator />} />
           <Route path="notifications" element={<Notifications />} />
           <Route path="favorites" element={<Favorites />} />
-          <Route path="community" element={<Community />} />
+          <Route path="community" element={<PostProvider><Community /></PostProvider>} />
           <Route path="feedback" element={<Feedback />} />
           <Route path="profile" element={<Profile />} />
         </Route>
