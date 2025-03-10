@@ -731,33 +731,15 @@ const CommunityPostCard = ({
 };
 
 CommunityPostCard.propTypes = {
+  id: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   timeAgo: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   images: PropTypes.arrayOf(PropTypes.string),
-  mediaType: PropTypes.oneOf(['image', 'video']),
-  likers: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-    })
-  ),
   likesCount: PropTypes.number.isRequired,
   commentsCount: PropTypes.number.isRequired,
-  comments: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      timeAgo: PropTypes.string.isRequired,
-      image: PropTypes.string,
-      replies: PropTypes.arrayOf(PropTypes.object),
-    })
-  ),
   currentUserId: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
 };
 
 export default CommunityPostCard;
