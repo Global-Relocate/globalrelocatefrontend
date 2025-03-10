@@ -6,37 +6,55 @@ import { LuUserRound } from "react-icons/lu";
 import CommunityPostCard from "@/components/community/CommunityPostCard";
 import { CommentThreadSkeleton } from "@/components/community/CommentSkeleton";
 import CreatePostModal from "@/components/community/CreatePostModal";
-import image1 from "@/assets/images/image1.png";
-import image2 from "@/assets/images/image2.png";
-import image3 from "@/assets/images/image3.png";
-import image4 from "@/assets/images/image4.png";
-import image5 from "@/assets/images/image5.png";
-import image6 from "@/assets/images/image6.png";
-import image7 from "@/assets/images/image7.png";
-import image8 from "@/assets/images/image8.png";
-import image9 from "@/assets/images/image9.png";
-import image10 from "@/assets/images/image10.png";
-import image11 from "@/assets/images/image11.png";
-import image12 from "@/assets/images/image12.png";
-import image13 from "@/assets/images/image13.png";
-import { getUserProfile, getPosts } from '@/services/api';
+import { getUserProfile, getPosts, deletePost } from '@/services/api';
+import { Skeleton } from "@/components/ui/skeleton";
 
 function Community() {
-  const [isPostModalOpen, setIsPostModalOpen] = useState(false);
-  const [profilePic, setProfilePic] = useState(null);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
+  const [editPostData, setEditPostData] = useState(null);
+  const [isCreatePostModalOpen, setIsCreatePostModalOpen] = useState(false);
+  const [currentUserId, setCurrentUserId] = useState(null);
+  const [profilePic, setProfilePic] = useState(null);
+
+  const formatTimestamp = (timestamp) => {
+    if (!timestamp) return '';
+    
+    const date = new Date(timestamp);
+    const now = new Date();
+    const diffInSeconds = Math.floor((now - date) / 1000);
+
+    // If the date is invalid, return empty string
+    if (isNaN(date.getTime())) return '';
+
+    if (diffInSeconds < 60) {
+      return 'Just now';
+    } else if (diffInSeconds < 3600) {
+      const minutes = Math.floor(diffInSeconds / 60);
+      return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ago`;
+    } else if (diffInSeconds < 86400) {
+      const hours = Math.floor(diffInSeconds / 3600);
+      return `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`;
+    } else if (diffInSeconds < 604800) {
+      const days = Math.floor(diffInSeconds / 86400);
+      return `${days} ${days === 1 ? 'day' : 'days'} ago`;
+    } else {
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+  };
 
   const fetchPosts = async () => {
     try {
-      const response = await getPosts(page);
-      if (response.success) {
-        setPosts(prevPosts => 
-          page === 1 ? response.data : [...prevPosts, ...response.data]
-        );
-        setHasMore(page < response.pagination.totalPages);
+      setLoading(true);
+      const response = await getPosts();
+      if (response.success && response.data) {
+        setPosts(response.data);
       }
     } catch (error) {
       console.error('Error fetching posts:', error);
@@ -46,32 +64,64 @@ function Community() {
   };
 
   useEffect(() => {
-    fetchPosts();
-  }, [page]);
-
-  useEffect(() => {
-    const fetchProfilePic = async () => {
+    const fetchUserAndPosts = async () => {
       try {
-        const response = await getUserProfile();
-        if (response.success && response.data?.profilePic) {
-          setProfilePic(response.data.profilePic);
+        // Fetch user profile to get currentUserId and profile picture
+        const userResponse = await getUserProfile();
+        if (userResponse.success && userResponse.data) {
+          setCurrentUserId(userResponse.data.username);
+          setProfilePic(userResponse.data.profilePic); // Store the profile picture
         }
+        
+        // Fetch posts
+        await fetchPosts();
       } catch (error) {
-        console.error('Error fetching profile picture:', error);
+        console.error('Error initializing community:', error);
       }
     };
 
-    fetchProfilePic();
+    fetchUserAndPosts();
   }, []);
 
-  const handleOpenPostModal = () => {
-    setIsPostModalOpen(true);
+  const handlePostCreated = async () => {
+    await fetchPosts(); // Refresh posts after creation/edit
+    setIsCreatePostModalOpen(false);
   };
 
-  const handlePostCreated = () => {
-    setPage(1);
-    fetchPosts();
+  const handlePostDeleted = async (postId) => {
+    try {
+      const response = await deletePost(postId);
+      if (response.success) {
+        await fetchPosts(); // Refresh posts after deletion
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
   };
+
+  const handleEditPost = (post) => {
+    setEditPostData(post);
+    setIsCreatePostModalOpen(true);
+  };
+
+  if (loading) {
+    return (
+      <DashboardLayout>
+        <div className="w-full flex flex-col">
+          <div className="px-4 md:px-8 lg:px-20 pt-2 pb-2">
+            <Skeleton className="h-[100px] w-full rounded-2xl" />
+          </div>
+          <div className="flex-1 px-4 md:px-8 lg:px-20 pb-20 pt-4">
+            <div className="space-y-6">
+              {Array.from({ length: 3 }).map((_, index) => (
+                <CommentThreadSkeleton key={index} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </DashboardLayout>
+    );
+  }
 
   return (
     <DashboardLayout>
@@ -80,7 +130,7 @@ function Community() {
         <div className="px-4 md:px-8 lg:px-20 pt-2 pb-2">
           <div 
             className="bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl p-4 cursor-pointer"
-            onClick={handleOpenPostModal}
+            onClick={() => setIsCreatePostModalOpen(true)}
           >
             {/* Desktop/Tablet View */}
             <div className="hidden sm:flex items-center justify-between">
@@ -157,14 +207,17 @@ function Community() {
                 <CommunityPostCard
                   key={post.id}
                   id={post.id}
-                  avatar={post.author.profilePic}
+                  avatar={post.author.profilePic || '/default-avatar.png'}
                   name={post.author.username}
-                  timeAgo={new Date(post.timestamp).toLocaleDateString()}
+                  timeAgo={formatTimestamp(post.timestamp)}
                   content={post.content.text}
                   images={post.content.media?.map(m => m.url) || []}
-                  likesCount={post.likesCount}
-                  commentsCount={post.commentsCount}
-                  currentUserId={post.author.id}
+                  likesCount={post._count?.likes || 0}
+                  commentsCount={post._count?.comments || 0}
+                  currentUserId={currentUserId}
+                  isOwnPost={post.author.username === currentUserId}
+                  onEdit={() => handleEditPost(post)}
+                  onDelete={handlePostDeleted}
                 />
               ))
             )}
@@ -173,9 +226,14 @@ function Community() {
       </div>
 
       <CreatePostModal
-        isOpen={isPostModalOpen}
-        onClose={() => setIsPostModalOpen(false)}
+        isOpen={isCreatePostModalOpen}
+        onClose={() => {
+          setIsCreatePostModalOpen(false);
+          setEditPostData(null);
+        }}
         onPostCreated={handlePostCreated}
+        editMode={!!editPostData}
+        postToEdit={editPostData}
       />
     </DashboardLayout>
   );
