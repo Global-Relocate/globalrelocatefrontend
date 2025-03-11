@@ -17,8 +17,8 @@ const Navbar = () => {
   const navLinks = [
     { href: "/", label: t("landingPage.navbar.home") },
     { href: "/user/countries", label: t("landingPage.navbar.countriesData") },
-    { href: "#community", label: t("landingPage.navbar.community") },
-    { href: "#tools", label: t("landingPage.navbar.tools") },
+    { href: "/user/community", label: t("landingPage.navbar.community") },
+    { href: "/user/tax-calculator", label: t("landingPage.navbar.tools") },
     { href: "#contact", label: t("landingPage.navbar.contact") },
   ];
 
