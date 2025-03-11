@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { FaCheckCircle } from "react-icons/fa";
+import { IoArrowBack } from "react-icons/io5";
 import PropTypes from 'prop-types';
 import { getSubscriptionDetails, createCheckoutSession } from '@/services/api';
 import { showToast } from '@/components/ui/toast';
 import logo from "../../assets/svg/logo.svg"; // Import the logo
+import { useNavigate } from 'react-router-dom';
 
 // Loading component
 const LoadingScreen = () => (
@@ -69,6 +71,11 @@ const Upgrade = () => {
   const [currentPlan, setCurrentPlan] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     const fetchSubscriptionDetails = async () => {
@@ -165,6 +172,14 @@ const Upgrade = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 py-16">
+        <button
+          onClick={handleBack}
+          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-8"
+        >
+          <IoArrowBack size={20} />
+          <span>Back</span>
+        </button>
+
         <div className="text-center mb-12">
           <h1 className="text-3xl font-semibold mb-4">Upgrade your plan</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
