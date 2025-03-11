@@ -1,24 +1,44 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useCheckoutRedirect } from '@/hooks/useCheckoutRedirect';
 
-export default function NotFound() {
+const NotFound = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  useCheckoutRedirect();
+
+  if (location.pathname.includes('checkout')) {
+    return null;
+  }
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4">
-      <h1 className="text-6xl font-bold text-gray-900 mb-4">404</h1>
-      <h2 className="text-2xl font-medium text-gray-700 mb-8">
-        Page Not Found
-      </h2>
-      <p className="text-gray-600 mb-8 text-center">
-        The page you're looking for doesn't exist or has been moved.
-      </p>
-      <button
-        onClick={() => navigate(-1)}
-        className="px-6 py-3 rounded-lg bg-[#FCA311] hover:bg-[#e5940c] text-black text-center transition-colors"
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="text-center"
       >
-        Go Back
-      </button>
+        <h1 className="text-6xl font-bold text-gray-800 mb-4">404</h1>
+        <p className="text-xl text-gray-600 mb-8">
+          The page you&apos;re looking for doesn&apos;t exist or has been moved.
+        </p>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={handleGoBack}
+          className="bg-[#FCA311] text-white py-2 px-6 rounded-lg text-lg font-medium"
+        >
+          Go Back
+        </motion.button>
+      </motion.div>
     </div>
   );
-}
+};
+
+export default NotFound;
