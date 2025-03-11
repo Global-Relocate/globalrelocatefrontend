@@ -252,7 +252,7 @@ StackedAvatars.propTypes = {
 
 export const LikesDialog = ({ isOpen, onClose, likers, className }) => (
   <Dialog open={isOpen} onOpenChange={onClose}>
-    <DialogContent className={`max-w-md ${className || ''}`}>
+    <DialogContent className={`w-[calc(100%-2rem)] sm:w-full max-w-md p-6 ${className || ''}`}>
       <DialogHeader>
         <DialogTitle className="text-start">Likes</DialogTitle>
       </DialogHeader>
