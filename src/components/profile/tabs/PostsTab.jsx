@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getUserPosts } from "@/services/api";
+import { getUserPosts, getUserProfile } from "@/services/api";
 import CommunityPostCard from "@/components/community/CommunityPostCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { showToast } from "@/components/ui/toast";
@@ -32,12 +32,43 @@ const PostSkeleton = () => (
   </div>
 );
 
+const formatTimestamp = (timestamp) => {
+  if (!timestamp) return '';
+  
+  const date = new Date(timestamp);
+  const now = new Date();
+  const diffInSeconds = Math.floor((now - date) / 1000);
+
+  // If the date is invalid, return empty string
+  if (isNaN(date.getTime())) return '';
+
+  if (diffInSeconds < 60) {
+    return 'Just now';
+  } else if (diffInSeconds < 3600) {
+    const minutes = Math.floor(diffInSeconds / 60);
+    return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ago`;
+  } else if (diffInSeconds < 86400) {
+    const hours = Math.floor(diffInSeconds / 3600);
+    return `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`;
+  } else if (diffInSeconds < 604800) {
+    const days = Math.floor(diffInSeconds / 86400);
+    return `${days} ${days === 1 ? 'day' : 'days'} ago`;
+  } else {
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
+};
+
 const PostsTab = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [userProfile, setUserProfile] = useState(null);
 
   useEffect(() => {
-    fetchUserPosts();
+    fetchUserData();
   }, []);
 
   const handleEditPost = async (postId) => {
@@ -46,37 +77,40 @@ const PostsTab = () => {
 
   const handleDeletePost = async (postId) => {
     // Implement delete functionality
-    return true; // Return true if delete was successful
+    return true;
   };
 
-  const fetchUserPosts = async () => {
+  const fetchUserData = async () => {
     try {
       setIsLoading(true);
-      const response = await getUserPosts();
-      
-      if (response.success) {
-        // Make sure we're handling the posts array correctly from the response
-        const postsData = response.data?.posts || [];
+      // Fetch user profile and posts in parallel
+      const [profileResponse, postsResponse] = await Promise.all([
+        getUserProfile(),
+        getUserPosts()
+      ]);
+
+      if (profileResponse.success) {
+        setUserProfile(profileResponse.data);
+      }
+
+      if (postsResponse.success) {
+        const postsData = postsResponse.data?.posts || [];
         setPosts(postsData.map(post => ({
-          ...post,
-          avatar: post.author?.profilePic || '',
-          name: post.author?.username || '',
-          timeAgo: post.timestamp || '',
+          id: post.id,
+          avatar: profileResponse.data?.profilePic || '',
+          name: profileResponse.data?.fullName || post.author?.username || 'User',
+          timeAgo: formatTimestamp(post.timestamp),
           content: post.content?.text || '',
-          images: post.content?.media || [],
+          images: post.content?.media?.map(media => media.url) || [],
           likesCount: post._count?.likes || 0,
           commentsCount: post._count?.comments || 0,
           currentUserId: post.userId,
-          id: post.id
+          isOwnPost: true,
+          mediaType: 'image'
         })));
-      } else {
-        showToast({
-          message: "Failed to load posts",
-          type: "error"
-        });
       }
     } catch (error) {
-      console.error('Error fetching user posts:', error);
+      console.error('Error fetching user data:', error);
       showToast({
         message: "Failed to load posts",
         type: "error"
@@ -111,7 +145,6 @@ const PostsTab = () => {
         <CommunityPostCard 
           key={post.id} 
           {...post}
-          isOwnPost={true}
           onEdit={() => handleEditPost(post.id)}
           onDelete={() => handleDeletePost(post.id)}
         />
