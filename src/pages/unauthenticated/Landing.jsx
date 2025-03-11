@@ -218,7 +218,7 @@ export default function Landing() {
         <motion.div 
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="flex items-center justify-evenly flex-wrap gap-y-10 py-20 w-[90%]"
         >
           {[
