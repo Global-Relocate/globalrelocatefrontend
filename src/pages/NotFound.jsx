@@ -1,19 +1,12 @@
-import React, { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useCheckoutRedirect } from '@/hooks/useCheckoutRedirect';
 
 const NotFound = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  useCheckoutRedirect();
-
-  if (location.pathname.includes('checkout')) {
-    return null;
-  }
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate('/upgrade');
   };
 
   return (
@@ -41,4 +34,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default NotFound; 
