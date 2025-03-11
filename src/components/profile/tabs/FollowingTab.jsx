@@ -1,86 +1,68 @@
 import NotificationCard from '../NotificationCard';
-import { useNotifications } from '@/context/NotificationsContext';
+import NotificationSkeleton from '../NotificationSkeleton';
 import { useEffect, useState, useRef, useCallback } from 'react';
-import image2 from "@/assets/images/image2.png";
-import image3 from "@/assets/images/image3.png";
 import bellicon from "../../../assets/svg/bell.svg";
+import { getNotifications } from '@/services/api';
+import { showToast } from "@/components/ui/toast";
+import { useNotifications } from '@/context/NotificationsContext';
+import { formatTimeAgo } from '@/utils/dateUtils';
 
 const ITEMS_PER_PAGE = 10;
 
 const FollowingTab = () => {
-  const [followingNotifications, setFollowingNotifications] = useState([]);
-  const [displayedNotifications, setDisplayedNotifications] = useState([]);
+  const [notifications, setNotifications] = useState([]);
   const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(true);
   const observer = useRef();
   const { markAsRead, deleteNotification, showLessLikeThis } = useNotifications();
+
+  const fetchNotifications = async () => {
+    try {
+      setLoading(true);
+      const response = await getNotifications(page, ITEMS_PER_PAGE, 'FOLLOW');
+      
+      if (response.success) {
+        setNotifications(prev => [...prev, ...response.data]);
+        setHasMore(response.data.length === ITEMS_PER_PAGE);
+      }
+    } catch (error) {
+      console.error('Error fetching following notifications:', error);
+      showToast({
+        message: "Failed to load following notifications",
+        type: "error"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchNotifications();
+  }, [page]);
 
   const lastNotificationRef = useCallback(node => {
     if (loading) return;
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && hasMore) {
-        loadMore();
+        setPage(prev => prev + 1);
       }
     });
     if (node) observer.current.observe(node);
   }, [loading, hasMore]);
 
-  useEffect(() => {
-    // Initialize with sample following notifications
-    const users = [
-      { name: 'Alege Samuel', avatar: image2 },
-      { name: 'John Doe', avatar: image3 }
-    ];
-    
-    const sampleFollowing = Array.from({ length: 15 }, (_, i) => ({
-      id: `following-${i + 1}`,
-      type: 'system',
-      data: {
-        content: (
-          <p className="text-gray-800">
-            <span className="font-medium text-[#5762D5]">{users[i % 2].name}</span> has started following you
-          </p>
-        ),
-        timeAgo: `${(i + 1) * 5} min ago`,
-        follower: users[i % 2]
-      },
-      isUnread: i < 3
-    }));
-    setFollowingNotifications(sampleFollowing);
-  }, []);
-
-  useEffect(() => {
-    setDisplayedNotifications(followingNotifications.slice(0, page * ITEMS_PER_PAGE));
-    setHasMore(followingNotifications.length > page * ITEMS_PER_PAGE);
-  }, [followingNotifications, page]);
-
-  const loadMore = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setPage(prev => prev + 1);
-      setLoading(false);
-    }, 1000);
-  };
-
-  const handleMarkAsRead = (id) => {
-    setFollowingNotifications(prev =>
-      prev.map(notification =>
-        notification.id === id
-          ? { ...notification, isUnread: false }
-          : notification
-      )
+  if (loading && notifications.length === 0) {
+    return (
+      <div className="w-full bg-[#F8F7F7] rounded-2xl">
+        {[1, 2, 3].map((_, index) => (
+          <NotificationSkeleton key={index} />
+        ))}
+      </div>
     );
-    markAsRead(id);
-  };
+  }
 
-  const handleDelete = (id) => {
-    setFollowingNotifications(prev => prev.filter(notification => notification.id !== id));
-    deleteNotification(id);
-  };
-
-  if (followingNotifications.length === 0) {
+  if (!loading && notifications.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-[45vh]">
         <img
@@ -96,20 +78,28 @@ const FollowingTab = () => {
 
   return (
     <div className="w-full bg-[#F8F7F7] rounded-2xl">
-      {displayedNotifications.map((notification, index) => (
+      {notifications.map((notification, index) => (
         <div
           key={notification.id}
-          ref={index === displayedNotifications.length - 1 ? lastNotificationRef : null}
+          ref={index === notifications.length - 1 ? lastNotificationRef : null}
         >
           <NotificationCard
             id={notification.id}
-            type={notification.type}
-            data={notification.data}
-            isLast={index === displayedNotifications.length - 1}
+            type={notification.type.toLowerCase()}
+            data={{
+              timeAgo: formatTimeAgo(notification.createdAt),
+              sender: notification.sender,
+              post: notification.post,
+              comment: notification.Comment,
+              content: notification.content,
+              like: notification.Like,
+              bookmark: notification.Bookmark
+            }}
+            isLast={index === notifications.length - 1}
             isFirst={index === 0}
-            isUnread={notification.isUnread}
-            onMarkAsRead={handleMarkAsRead}
-            onDelete={handleDelete}
+            isUnread={!notification.isRead}
+            onMarkAsRead={markAsRead}
+            onDelete={deleteNotification}
             onShowLess={showLessLikeThis}
           />
         </div>
@@ -123,7 +113,7 @@ const FollowingTab = () => {
       
       {!loading && hasMore && (
         <button
-          onClick={loadMore}
+          onClick={fetchNotifications}
           className="w-full py-3 text-center text-gray-600 hover:text-gray-900 transition-colors border-t border-[#D4D4D4]"
         >
           Show more results

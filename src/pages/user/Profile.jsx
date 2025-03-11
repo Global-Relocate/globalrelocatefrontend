@@ -12,6 +12,7 @@ import CommentsTab from '@/components/profile/tabs/CommentsTab';
 import BookmarksTab from '@/components/profile/tabs/BookmarksTab';
 import { getUserProfile } from '@/services/api';
 import { showToast } from '@/components/ui/toast';
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -73,8 +74,15 @@ const Profile = () => {
         {/* Profile Card */}
         <div className="bg-[#F8F7F7] rounded-2xl p-6 mb-8 border border-[#D4D4D4]">
           {isLoading ? (
-            <div className="flex justify-center items-center h-40">
-              <div className="w-8 h-8 border-4 border-black border-t-transparent rounded-full animate-spin" />
+            <div className="flex justify-between items-start mb-6">
+              <div className="flex flex-col items-start gap-4">
+                <Skeleton className="h-16 w-16 rounded-full" />
+                <div className="space-y-2">
+                  <Skeleton className="h-6 w-32" />
+                  <Skeleton className="h-4 w-24" />
+                </div>
+              </div>
+              <Skeleton className="h-10 w-24" />
             </div>
           ) : (
             <>

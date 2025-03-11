@@ -951,8 +951,8 @@ export const submitFeedback = async (content, type) => {
 };
 
 // Notification Endpoints
-export const getNotifications = async () => {
-  const endpoint = '/notifications';
+export const getNotifications = async (page = 1, limit = 10, type = null) => {
+  const endpoint = `/notifications?page=${page}&limit=${limit}${type ? `&type=${type}` : ''}`;
   console.log('Fetching notifications from:', `${VITE_API_URL}${endpoint}`);
 
   try {
@@ -960,68 +960,20 @@ export const getNotifications = async () => {
     console.log('Notifications fetched successfully:', response);
     return response;
   } catch (error) {
-    if (error instanceof CustomAPIError) {
-      throw error;
-    }
-
-    if (axios.isAxiosError(error)) {
-      if (!error.response) {
-        throw new CustomAPIError(
-          'Network error. Please check your connection.',
-          0
-        );
-      }
-
-      const status = error.response?.status || 0;
-      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
-
-      throw new CustomAPIError(message, status, error.response?.data);
-    }
-
-    throw new CustomAPIError(
-      'Failed to fetch notifications. Please try again.',
-      0,
-      { originalError: error.message }
-    );
+    handleApiError(error, 'Failed to fetch notifications');
   }
 };
 
 export const markNotificationsAsRead = async (notificationIds) => {
-  const endpoint = '/notifications';
+  const endpoint = '/notifications/mark-read';
   console.log('Marking notifications as read at:', `${VITE_API_URL}${endpoint}`);
 
   try {
-    if (!Array.isArray(notificationIds) || notificationIds.length === 0) {
-      throw new CustomAPIError('Notification IDs must be provided as a non-empty array', 400);
-    }
-
     const response = await api.post(endpoint, { ids: notificationIds });
     console.log('Notifications marked as read successfully:', response);
     return response;
   } catch (error) {
-    if (error instanceof CustomAPIError) {
-      throw error;
-    }
-
-    if (axios.isAxiosError(error)) {
-      if (!error.response) {
-        throw new CustomAPIError(
-          'Network error. Please check your connection.',
-          0
-        );
-      }
-
-      const status = error.response?.status || 0;
-      const message = error.response?.data?.message || getErrorMessage(status, error.response?.data?.error);
-
-      throw new CustomAPIError(message, status, error.response?.data);
-    }
-
-    throw new CustomAPIError(
-      'Failed to mark notifications as read. Please try again.',
-      0,
-      { originalError: error.message }
-    );
+    handleApiError(error, 'Failed to mark notifications as read');
   }
 };
 

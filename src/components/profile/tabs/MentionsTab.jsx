@@ -1,83 +1,68 @@
 import NotificationCard from '../NotificationCard';
-import { useNotifications } from '@/context/NotificationsContext';
+import NotificationSkeleton from '../NotificationSkeleton';
 import { useEffect, useState, useRef, useCallback } from 'react';
-import image1 from "@/assets/images/image1.png";
 import bellicon from "../../../assets/svg/bell.svg";
+import { getNotifications } from '@/services/api';
+import { showToast } from "@/components/ui/toast";
+import { useNotifications } from '@/context/NotificationsContext';
+import { formatTimeAgo } from '@/utils/dateUtils';
 
 const ITEMS_PER_PAGE = 10;
 
 const MentionsTab = () => {
-  const [mentionNotifications, setMentionNotifications] = useState([]);
-  const [displayedNotifications, setDisplayedNotifications] = useState([]);
+  const [notifications, setNotifications] = useState([]);
   const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(true);
   const observer = useRef();
   const { markAsRead, deleteNotification, showLessLikeThis } = useNotifications();
+
+  const fetchNotifications = async () => {
+    try {
+      setLoading(true);
+      const response = await getNotifications(page, ITEMS_PER_PAGE, 'MENTION');
+      
+      if (response.success) {
+        setNotifications(prev => [...prev, ...response.data]);
+        setHasMore(response.data.length === ITEMS_PER_PAGE);
+      }
+    } catch (error) {
+      console.error('Error fetching mention notifications:', error);
+      showToast({
+        message: "Failed to load mentions",
+        type: "error"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchNotifications();
+  }, [page]);
 
   const lastNotificationRef = useCallback(node => {
     if (loading) return;
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && hasMore) {
-        loadMore();
+        setPage(prev => prev + 1);
       }
     });
     if (node) observer.current.observe(node);
   }, [loading, hasMore]);
 
-  useEffect(() => {
-    // Initialize with sample mention notifications
-    const sampleMentions = Array.from({ length: 15 }, (_, i) => ({
-      id: `mention-${i + 1}`,
-      type: 'system',
-      data: {
-        content: (
-          <p className="text-gray-800">
-            <span className="font-medium text-[#5762D5]">Jerry Lamp</span> mentioned you in a {i % 2 === 0 ? 'post' : 'comment'}: &quot;Hey @user, {i % 2 === 0 ? 'check out this amazing travel guide!' : 'thanks for the recommendation!'}
-          </p>
-        ),
-        timeAgo: `${(i + 1) * 5} min ago`,
-        mentioner: {
-          name: 'Jerry Lamp',
-          avatar: image1
-        }
-      },
-      isUnread: i < 3
-    }));
-    setMentionNotifications(sampleMentions);
-  }, []);
-
-  useEffect(() => {
-    setDisplayedNotifications(mentionNotifications.slice(0, page * ITEMS_PER_PAGE));
-    setHasMore(mentionNotifications.length > page * ITEMS_PER_PAGE);
-  }, [mentionNotifications, page]);
-
-  const loadMore = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setPage(prev => prev + 1);
-      setLoading(false);
-    }, 1000);
-  };
-
-  const handleMarkAsRead = (id) => {
-    setMentionNotifications(prev =>
-      prev.map(notification =>
-        notification.id === id
-          ? { ...notification, isUnread: false }
-          : notification
-      )
+  if (loading && notifications.length === 0) {
+    return (
+      <div className="w-full bg-[#F8F7F7] rounded-2xl">
+        {[1, 2, 3].map((_, index) => (
+          <NotificationSkeleton key={index} />
+        ))}
+      </div>
     );
-    markAsRead(id);
-  };
+  }
 
-  const handleDelete = (id) => {
-    setMentionNotifications(prev => prev.filter(notification => notification.id !== id));
-    deleteNotification(id);
-  };
-
-  if (mentionNotifications.length === 0) {
+  if (!loading && notifications.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-[45vh]">
         <img
@@ -86,27 +71,35 @@ const MentionsTab = () => {
           className="mb-4"
           style={{ width: '36px', height: '36px', filter: 'invert(41%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(91%) contrast(88%)' }}
         />
-        <p className="text-gray-600">You don&apos;t have any mention notifications yet.</p>
+        <p className="text-gray-600">You don&apos;t have any mentions yet.</p>
       </div>
     );
   }
 
   return (
     <div className="w-full bg-[#F8F7F7] rounded-2xl">
-      {displayedNotifications.map((notification, index) => (
+      {notifications.map((notification, index) => (
         <div
           key={notification.id}
-          ref={index === displayedNotifications.length - 1 ? lastNotificationRef : null}
+          ref={index === notifications.length - 1 ? lastNotificationRef : null}
         >
           <NotificationCard
             id={notification.id}
-            type={notification.type}
-            data={notification.data}
-            isLast={index === displayedNotifications.length - 1}
+            type={notification.type.toLowerCase()}
+            data={{
+              timeAgo: formatTimeAgo(notification.createdAt),
+              sender: notification.sender,
+              post: notification.post,
+              comment: notification.Comment,
+              content: notification.content,
+              like: notification.Like,
+              bookmark: notification.Bookmark
+            }}
+            isLast={index === notifications.length - 1}
             isFirst={index === 0}
-            isUnread={notification.isUnread}
-            onMarkAsRead={handleMarkAsRead}
-            onDelete={handleDelete}
+            isUnread={!notification.isRead}
+            onMarkAsRead={markAsRead}
+            onDelete={deleteNotification}
             onShowLess={showLessLikeThis}
           />
         </div>
@@ -116,15 +109,6 @@ const MentionsTab = () => {
         <div className="flex justify-center items-center py-4">
           <div className="w-6 h-6 border-2 border-[#5762D5] border-t-transparent rounded-full animate-spin"></div>
         </div>
-      )}
-      
-      {!loading && hasMore && (
-        <button
-          onClick={loadMore}
-          className="w-full py-3 text-center text-gray-600 hover:text-gray-900 transition-colors border-t border-[#D4D4D4]"
-        >
-          Show more results
-        </button>
       )}
     </div>
   );

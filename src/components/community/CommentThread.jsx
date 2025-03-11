@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { BsThreeDots } from "react-icons/bs";
 import { FiEdit3, FiFlag } from "react-icons/fi";
@@ -19,9 +19,8 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useUndo } from "@/context/UndoContext";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { showToast } from "@/components/ui/toast";
-import { getCommentReplies, getSinglePost } from '@/services/api';
-
-const MAX_VISIBLE_REPLIES = 2;
+import { getCommentReplies, getSinglePost, likeComment, getCommentLikes } from '@/services/api';
+import { LikesDialog } from './CommunityPostCard';
 
 const formatTimestamp = (timestamp) => {
   if (!timestamp) return '';
@@ -61,14 +60,15 @@ const Comment = ({
   onDelete, 
   currentUserAvatar, 
   currentUserId,
-  isLast = false
+  isLast = false,
+  isLiked: initialIsLiked = false,
 }) => {
   const [showReplyInput, setShowReplyInput] = useState(false);
   const [showEditInput, setShowEditInput] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
-  const [isLiked, setIsLiked] = useState(comment.isLikedByUser || false);
+  const [isLiked, setIsLiked] = useState(initialIsLiked);
   const [currentLikesCount, setCurrentLikesCount] = useState(comment.likesCount || 0);
   const { showUndoToast } = useUndo();
   const [showImagePreview, setShowImagePreview] = useState(false);
@@ -78,6 +78,10 @@ const Comment = ({
   const [localReplies, setLocalReplies] = useState([]);
   const [isDropdownLoading, setIsDropdownLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [commentLikers, setCommentLikers] = useState([]);
+  const [showCommentLikes, setShowCommentLikes] = useState(false);
+  const [isLoadingCommentLikes, setIsLoadingCommentLikes] = useState(false);
+  const [isLiking, setIsLiking] = useState(false);
 
   const {
     id,
@@ -91,6 +95,36 @@ const Comment = ({
 
   const totalReplies = _count?.replies || 0;
   const totalLikes = _count?.likes || 0;
+
+  const getLikeIcon = (isLiked) => {
+    return isLiked ? "/src/assets/svg/filledfavorite.svg" : "/src/assets/svg/favorite.svg";
+  };
+
+  const formatCountText = (count, singularText, pluralText) => {
+    if (count <= 0) return '';
+    return count === 1 ? `1 ${singularText}` : `${count} ${pluralText}`;
+  };
+
+  const checkIfUserLikedComment = async () => {
+    try {
+      setIsLoadingCommentLikes(true);
+      const response = await getCommentLikes(postId, id);
+      if (response.success) {
+        const userLike = response.data.find(like => like.id === currentUserId);
+        setIsLiked(!!userLike);
+        setCommentLikers(response.data);
+        setCurrentLikesCount(response.pagination.total);
+      }
+    } catch (error) {
+      console.error('Error fetching comment likes:', error);
+    } finally {
+      setIsLoadingCommentLikes(false);
+    }
+  };
+
+  useEffect(() => {
+    checkIfUserLikedComment();
+  }, [id, postId, currentUserId]);
 
   const handleReply = (replyText, image) => {
     onReply(id, replyText, image);
@@ -107,9 +141,52 @@ const Comment = ({
     setIsDeleteConfirmOpen(false);
   };
 
-  const handleLike = () => {
-    setIsLiked(!isLiked);
-    setCurrentLikesCount(prev => isLiked ? prev - 1 : prev + 1);
+  const handleLike = async () => {
+    if (isLiking) return;
+    
+    const previousState = isLiked;
+    const previousCount = currentLikesCount;
+    
+    try {
+      setIsLiking(true);
+      const response = await likeComment(postId, id);
+      
+      if (response.success) {
+        const newLikeState = response.data.action === 'liked';
+        setIsLiked(newLikeState);
+        setCurrentLikesCount(response.data.likeCount);
+      }
+    } catch (error) {
+      // Revert to previous state if request fails
+      setIsLiked(previousState);
+      setCurrentLikesCount(previousCount);
+      console.error('Error toggling comment like:', error);
+      showToast({
+        message: "Failed to like/unlike comment",
+        type: "error"
+      });
+    } finally {
+      setIsLiking(false);
+    }
+  };
+
+  const handleShowCommentLikes = async () => {
+    try {
+      setIsLoadingCommentLikes(true);
+      const response = await getCommentLikes(postId, id);
+      if (response.success) {
+        setCommentLikers(response.data);
+        setShowCommentLikes(true);
+      }
+    } catch (error) {
+      console.error('Error fetching comment likes:', error);
+      showToast({
+        message: "Failed to load comment likes",
+        type: "error"
+      });
+    } finally {
+      setIsLoadingCommentLikes(false);
+    }
   };
 
   const handleDropdownClick = () => {
@@ -212,7 +289,7 @@ const Comment = ({
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-[240px] py-2">
-                {isOwnComment ? (
+                {isOwnComment && (
                   <>
                     <DropdownMenuItem 
                       onClick={() => {
@@ -235,23 +312,22 @@ const Comment = ({
                       <span>Delete Comment</span>
                     </DropdownMenuItem>
                   </>
-                ) : (
-                  <>
-                    <DropdownMenuItem 
-                      onClick={handleCopyCommentLink}
-                      className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
-                    >
-                      <BiLink size={18} />
-                      <span>Copy link to comment</span>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem 
-                      onClick={handleReportComment}
-                      className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
-                    >
-                      <FiFlag size={18} />
-                      <span>Report</span>
-                    </DropdownMenuItem>
-                  </>
+                )}
+                <DropdownMenuItem 
+                  onClick={handleCopyCommentLink}
+                  className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                >
+                  <BiLink size={18} />
+                  <span>Copy link to comment</span>
+                </DropdownMenuItem>
+                {!isOwnComment && (
+                  <DropdownMenuItem 
+                    onClick={handleReportComment}
+                    className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
+                  >
+                    <FiFlag size={18} />
+                    <span>Report</span>
+                  </DropdownMenuItem>
                 )}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -294,23 +370,27 @@ const Comment = ({
                 onClick={handleLike}
                 className="flex items-center"
               >
-                {isLiked ? (
-                  <img 
-                    src="/src/assets/svg/filledfavorite.svg" 
-                    alt="Liked" 
-                    className="w-4 h-4"
-                    style={{ filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)' }}
-                  />
-                ) : (
-                  <img 
-                    src="/src/assets/svg/favorite.svg" 
-                    alt="Like" 
-                    className="w-4 h-4"
-                  />
-                )}
+                <img 
+                  src={getLikeIcon(isLiked)}
+                  alt={isLiked ? "Unlike" : "Like"}
+                  className="w-4 h-4"
+                  style={isLiked ? { 
+                    filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)' 
+                  } : undefined}
+                />
               </button>
+              
               {currentLikesCount > 0 && (
-                <span className="text-sm text-gray-600">{currentLikesCount}</span>
+                <button
+                  onClick={handleShowCommentLikes}
+                  className="text-sm text-gray-600 hover:text-gray-900"
+                >
+                  {isLoadingCommentLikes ? (
+                    <Loader2 className="h-3 w-3 animate-spin" />
+                  ) : (
+                    formatCountText(currentLikesCount, 'like', 'likes')
+                  )}
+                </button>
               )}
             </div>
           </div>
@@ -408,6 +488,14 @@ const Comment = ({
           />
         </div>
       )}
+
+      {/* Add LikesDialog for comments */}
+      <LikesDialog
+        isOpen={showCommentLikes}
+        onClose={() => setShowCommentLikes(false)}
+        likers={commentLikers}
+        className="rounded-lg"
+      />
     </div>
   );
 };
@@ -439,7 +527,8 @@ Comment.propTypes = {
   onDelete: PropTypes.func.isRequired,
   currentUserAvatar: PropTypes.string.isRequired,
   currentUserId: PropTypes.string.isRequired,
-  isLast: PropTypes.bool
+  isLast: PropTypes.bool,
+  isLiked: PropTypes.bool,
 };
 
 const CommentThread = ({ comments, currentUserAvatar, currentUserId, onReply, onEdit, onDelete }) => {

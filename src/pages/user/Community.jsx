@@ -218,6 +218,7 @@ function Community() {
                   isOwnPost={post.author.username === currentUserId}
                   onEdit={() => handleEditPost(post)}
                   onDelete={handlePostDeleted}
+                  isLiked={post.isLiked}
                 />
               ))
             )}
