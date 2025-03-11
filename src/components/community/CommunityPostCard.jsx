@@ -290,6 +290,7 @@ const CommunityPostCard = ({
   isOwnPost,
   onEdit,
   onDelete,
+  isLiked: initialIsLiked = false,
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
@@ -323,21 +324,55 @@ const CommunityPostCard = ({
   const [editImages, setEditImages] = useState(images);
   const [isLoadingComments, setIsLoadingComments] = useState(false);
   const [likersList, setLikersList] = useState([]);
-  const [isLoadingLikes, setIsLoadingLikes] = useState(false);
+  const [isLiking, setIsLiking] = useState(false);
+
+  useEffect(() => {
+    setIsLiked(initialIsLiked);
+  }, [initialIsLiked]);
+
+  const checkIfUserLiked = async () => {
+    try {
+      const response = await getPostLikes(id);
+      if (response.success) {
+        const userLike = response.data.find(like => like.id === currentUserId);
+        setIsLiked(!!userLike);
+        setLikersList(response.data);
+        setLikesCount(response.pagination.total);
+      }
+    } catch (error) {
+      console.error('Error fetching likes:', error);
+    }
+  };
+
+  useEffect(() => {
+    checkIfUserLiked();
+  }, [id, currentUserId]);
 
   const handleLikeToggle = async () => {
+    if (isLiking) return;
+    
+    const previousState = isLiked;
+    const previousCount = likesCount;
+    
     try {
+      setIsLiking(true);
       const response = await likePost(id);
+      
       if (response.success) {
-        setIsLiked(response.data.action === 'liked');
+        const newLikeState = response.data.action === 'liked';
+        setIsLiked(newLikeState);
         setLikesCount(response.data.likeCount);
       }
     } catch (error) {
+      setIsLiked(previousState);
+      setLikesCount(previousCount);
       console.error('Error toggling like:', error);
       showToast({
         message: "Failed to like/unlike post",
         type: "error"
       });
+    } finally {
+      setIsLiking(false);
     }
   };
 
@@ -534,7 +569,6 @@ const CommunityPostCard = ({
 
   const handleShowLikes = async () => {
     try {
-      setIsLoadingLikes(true);
       const response = await getPostLikes(id);
       if (response.success) {
         setLikersList(response.data);
@@ -546,8 +580,6 @@ const CommunityPostCard = ({
         message: "Failed to load likes",
         type: "error"
       });
-    } finally {
-      setIsLoadingLikes(false);
     }
   };
 
@@ -556,6 +588,13 @@ const CommunityPostCard = ({
       fetchComments();
     }
   }, [showComments]);
+
+  // Update the likes/comments text to handle singular/plural
+  const likesText = likesCount === 1 ? '1 like' : `${likesCount} likes`;
+  const commentsText = commentsCount === 1 ? '1 comment' : `${commentsCount} comments`;
+  const viewCommentsText = commentsCount === 1 
+    ? 'View 1 comment'
+    : `View all ${commentsCount} comments`;
 
   return (
     <TooltipProvider>
@@ -670,14 +709,10 @@ const CommunityPostCard = ({
                       className="text-sm text-gray-600 hover:text-gray-900"
                       onClick={handleShowLikes}
                     >
-                      {isLoadingLikes ? (
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                      ) : (
-                        `${likesCount} likes`
-                      )}
+                      {likesText}
                     </button>
                   )}
-                </div>
+                  </div>
                 <div className="flex items-center gap-3">
                   {loading ? (
                     <Skeleton className="h-4 w-20" />
@@ -686,7 +721,7 @@ const CommunityPostCard = ({
                       className="text-sm text-gray-600 hover:text-gray-900"
                       onClick={() => setShowComments(true)}
                     >
-                      {commentsCount} comments
+                      {commentsText}
                     </button>
                   )}
                 </div>
@@ -711,15 +746,28 @@ const CommunityPostCard = ({
 
                 <Tooltip>
                   <TooltipTrigger>
-                    <img 
-                      src={isLiked ? heartIcon : favoriteIcon} 
-                      alt="Like" 
-                      className="w-5 h-5 cursor-pointer"
+                    <button 
+                      className="relative"
                       onClick={handleLikeToggle}
-                    />
+                      disabled={isLiking}
+                    >
+                      <img 
+                        src={isLiked ? heartIcon : favoriteIcon}
+                        alt={isLiked ? "Unlike" : "Like"}
+                        className={`w-5 h-5 cursor-pointer transition-opacity duration-200 ${isLiking ? 'opacity-50' : ''}`}
+                        style={isLiked ? {
+                          filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)'
+                        } : undefined}
+                      />
+                      {isLiking && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Loader2 className="h-3 w-3 animate-spin" />
+                        </div>
+                      )}
+                    </button>
                   </TooltipTrigger>
                   <TooltipContent className="bg-[#5762D5]">
-                    <span>Like</span>
+                    <span>{isLiked ? 'Unlike' : 'Like'}</span>
                   </TooltipContent>
                 </Tooltip>
               </div>
@@ -740,14 +788,14 @@ const CommunityPostCard = ({
             {isLoadingComments ? (
               <CommentThreadSkeleton />
             ) : postComments && postComments.length > 0 ? (
-              <CommentThread
+          <CommentThread
                 comments={postComments}
-                currentUserAvatar={avatar}
+            currentUserAvatar={avatar}
                 currentUserId={currentUserId}
-                onAddComment={handleCommentSubmit}
-                onReply={handleReply}
-                onEdit={handleCommentEdit}
-                onDelete={handleCommentDelete}
+            onAddComment={handleCommentSubmit}
+            onReply={handleReply}
+            onEdit={handleCommentEdit}
+            onDelete={handleCommentDelete}
               />
             ) : (
               <div className="px-6 py-4 text-center text-gray-500">
@@ -765,7 +813,7 @@ const CommunityPostCard = ({
               fetchComments();
             }}
           >
-            View all {commentsCount} comments
+            {viewCommentsText}
           </button>
         )}
 
@@ -831,6 +879,7 @@ CommunityPostCard.propTypes = {
   isOwnPost: PropTypes.bool.isRequired,
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
+  isLiked: PropTypes.bool,
 };
 
 export default CommunityPostCard;
