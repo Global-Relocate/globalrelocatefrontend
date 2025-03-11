@@ -275,6 +275,17 @@ export const LikesDialog = ({ isOpen, onClose, likers, className }) => (
   </Dialog>
 );
 
+// Helper function to determine like icon
+const getLikeIcon = (isLiked) => {
+  return isLiked ? heartIcon : favoriteIcon;
+};
+
+// Helper function to format count text
+const formatCountText = (count, singularText, pluralText) => {
+  if (count <= 0) return '';
+  return count === 1 ? `1 ${singularText}` : `${count} ${pluralText}`;
+};
+
 const CommunityPostCard = ({ 
   avatar, 
   name, 
@@ -325,6 +336,7 @@ const CommunityPostCard = ({
   const [isLoadingComments, setIsLoadingComments] = useState(false);
   const [likersList, setLikersList] = useState([]);
   const [isLiking, setIsLiking] = useState(false);
+  const [isLoadingLikes, setIsLoadingLikes] = useState(false);
 
   useEffect(() => {
     setIsLiked(initialIsLiked);
@@ -332,15 +344,19 @@ const CommunityPostCard = ({
 
   const checkIfUserLiked = async () => {
     try {
+      setIsLoadingLikes(true);
       const response = await getPostLikes(id);
       if (response.success) {
         const userLike = response.data.find(like => like.id === currentUserId);
+        
         setIsLiked(!!userLike);
         setLikersList(response.data);
         setLikesCount(response.pagination.total);
       }
     } catch (error) {
       console.error('Error fetching likes:', error);
+    } finally {
+      setIsLoadingLikes(false);
     }
   };
 
@@ -362,6 +378,8 @@ const CommunityPostCard = ({
         const newLikeState = response.data.action === 'liked';
         setIsLiked(newLikeState);
         setLikesCount(response.data.likeCount);
+        
+        await checkIfUserLiked();
       }
     } catch (error) {
       setIsLiked(previousState);
@@ -390,7 +408,6 @@ const CommunityPostCard = ({
 
       const response = await createComment(id, text, media);
       if (response.success) {
-        // Update comments and count
         await fetchComments();
         setShowCommentInput(false);
       }
@@ -407,7 +424,6 @@ const CommunityPostCard = ({
     try {
       const response = await replyToComment(commentId, id, text, media);
       if (response.success) {
-        // Refresh comments to show new reply
         await fetchComments();
       }
     } catch (error) {
@@ -423,7 +439,6 @@ const CommunityPostCard = ({
     try {
       const response = await editCommentApi(commentId, text, media);
       if (response.success) {
-        // Refresh comments to show edited comment
         await fetchComments();
       }
     } catch (error) {
@@ -439,7 +454,6 @@ const CommunityPostCard = ({
     try {
       const response = await deleteCommentApi(commentId);
       if (response.success) {
-        // Refresh comments to remove deleted comment
         await fetchComments();
       }
     } catch (error) {
@@ -453,7 +467,6 @@ const CommunityPostCard = ({
 
   const handleDropdownClick = () => {
     setIsDropdownLoading(true);
-    // Simulate loading for 500ms
     setTimeout(() => {
       setIsDropdownLoading(false);
     }, 500);
@@ -521,20 +534,16 @@ const CommunityPostCard = ({
 
   const handleDeleteClick = async () => {
     if (await onDelete(id)) {
-      // Post was successfully deleted
       setIsDeleteConfirmOpen(false);
     }
   };
 
   const handleCopyLink = async (postId) => {
     try {
-      // Construct the post URL
       const postUrl = `${window.location.origin}/user/community/post/${postId}`;
       
-      // Copy to clipboard
       await navigator.clipboard.writeText(postUrl);
       
-      // Show success toast
       showToast({
         message: "Post link copied to clipboard",
         type: "success"
@@ -588,13 +597,6 @@ const CommunityPostCard = ({
       fetchComments();
     }
   }, [showComments]);
-
-  // Update the likes/comments text to handle singular/plural
-  const likesText = likesCount === 1 ? '1 like' : `${likesCount} likes`;
-  const commentsText = commentsCount === 1 ? '1 comment' : `${commentsCount} comments`;
-  const viewCommentsText = commentsCount === 1 
-    ? 'View 1 comment'
-    : `View all ${commentsCount} comments`;
 
   return (
     <TooltipProvider>
@@ -709,7 +711,11 @@ const CommunityPostCard = ({
                       className="text-sm text-gray-600 hover:text-gray-900"
                       onClick={handleShowLikes}
                     >
-                      {likesText}
+                      {isLoadingLikes ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        formatCountText(likesCount, 'like', 'likes')
+                      )}
                     </button>
                   )}
                   </div>
@@ -721,7 +727,7 @@ const CommunityPostCard = ({
                       className="text-sm text-gray-600 hover:text-gray-900"
                       onClick={() => setShowComments(true)}
                     >
-                      {commentsText}
+                      {formatCountText(commentsCount, 'comment', 'comments')}
                     </button>
                   )}
                 </div>
@@ -752,7 +758,7 @@ const CommunityPostCard = ({
                       disabled={isLiking}
                     >
                       <img 
-                        src={isLiked ? heartIcon : favoriteIcon}
+                        src={getLikeIcon(isLiked)}
                         alt={isLiked ? "Unlike" : "Like"}
                         className={`w-5 h-5 cursor-pointer transition-opacity duration-200 ${isLiking ? 'opacity-50' : ''}`}
                         style={isLiked ? {
@@ -813,7 +819,9 @@ const CommunityPostCard = ({
               fetchComments();
             }}
           >
-            {viewCommentsText}
+            {commentsCount === 1 
+              ? 'View comment' 
+              : `View all ${commentsCount} comments`}
           </button>
         )}
 
@@ -826,7 +834,6 @@ const CommunityPostCard = ({
           />
         )}
 
-        {/* Edit Post Modal */}
         <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
           <DialogContent>
             <form onSubmit={handleEditPost}>
@@ -835,13 +842,11 @@ const CommunityPostCard = ({
                 onChange={(e) => setEditContent(e.target.value)} 
                 placeholder="Edit your post..."
               />
-              {/* Add image upload logic here */}
               <button type="submit">Save Changes</button>
             </form>
           </DialogContent>
         </Dialog>
 
-        {/* Delete Confirmation Dialog */}
         <Dialog open={isDeleteConfirmOpen} onOpenChange={setIsDeleteConfirmOpen}>
           <DialogContent className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-[calc(100%-2rem)] sm:w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
             <p className="mb-4">Are you sure you want to delete this post?</p>
