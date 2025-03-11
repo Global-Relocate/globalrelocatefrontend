@@ -4,7 +4,6 @@ import heartIcon from "../../assets/svg/heart.svg";
 import { BsThreeDots } from "react-icons/bs";
 import { BiLink } from "react-icons/bi";
 import { FiFlag } from "react-icons/fi";
-import { IoEyeOffOutline } from "react-icons/io5";
 import { Loader2 } from "lucide-react";
 import { PiChatCircle } from "react-icons/pi";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -45,7 +44,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { usePosts } from "@/context/PostContext";
 import { useComments } from "@/context/CommentContext";
 import { showToast } from "@/components/ui/toast";
-import { getSinglePost, createComment, getPostComments, replyToComment, getCommentReplies, editComment as editCommentApi, deleteComment as deleteCommentApi } from "@/services/api";
+import { getSinglePost, createComment, getPostComments, replyToComment, getCommentReplies, editComment as editCommentApi, deleteComment as deleteCommentApi, likePost, getPostLikes, likeComment, getCommentLikes } from "@/services/api";
 import { CommentThreadSkeleton } from "@/components/community/CommentSkeleton";
 
 const ImageGrid = ({ images }) => {
@@ -251,17 +250,24 @@ StackedAvatars.propTypes = {
   ).isRequired,
 };
 
-const LikesDialog = ({ isOpen, onClose, likers, className }) => (
+export const LikesDialog = ({ isOpen, onClose, likers, className }) => (
   <Dialog open={isOpen} onOpenChange={onClose}>
     <DialogContent className={`max-w-md ${className || ''}`}>
       <DialogHeader>
         <DialogTitle className="text-start">Likes</DialogTitle>
       </DialogHeader>
       <div className="max-h-[60vh] overflow-y-auto">
-        {likers.map((liker, index) => (
-          <div key={index} className="flex items-center gap-3 py-2">
-            <img src={liker.avatar} alt={liker.name} className="w-10 h-10 rounded-full" />
-            <span className="font-medium">{liker.name}</span>
+        {likers.map((liker) => (
+          <div key={liker.id} className="flex items-center gap-3 py-2">
+            <img 
+              src={liker.profilePic} 
+              alt={liker.username} 
+              className="w-10 h-10 rounded-full" 
+            />
+            <div className="flex flex-col">
+              <span className="font-medium">{liker.username}</span>
+              <span className="text-sm text-gray-500">{liker.fullName}</span>
+            </div>
           </div>
         ))}
       </div>
@@ -316,10 +322,23 @@ const CommunityPostCard = ({
   const [editContent, setEditContent] = useState(content);
   const [editImages, setEditImages] = useState(images);
   const [isLoadingComments, setIsLoadingComments] = useState(false);
+  const [likersList, setLikersList] = useState([]);
+  const [isLoadingLikes, setIsLoadingLikes] = useState(false);
 
-  const handleLikeToggle = () => {
-    setIsLiked(!isLiked);
-    setLikesCount(prevCount => isLiked ? prevCount - 1 : prevCount + 1);
+  const handleLikeToggle = async () => {
+    try {
+      const response = await likePost(id);
+      if (response.success) {
+        setIsLiked(response.data.action === 'liked');
+        setLikesCount(response.data.likeCount);
+      }
+    } catch (error) {
+      console.error('Error toggling like:', error);
+      showToast({
+        message: "Failed to like/unlike post",
+        type: "error"
+      });
+    }
   };
 
   const handleCommentSubmit = async (text, media) => {
@@ -513,6 +532,25 @@ const CommunityPostCard = ({
     }
   };
 
+  const handleShowLikes = async () => {
+    try {
+      setIsLoadingLikes(true);
+      const response = await getPostLikes(id);
+      if (response.success) {
+        setLikersList(response.data);
+        setShowLikes(true);
+      }
+    } catch (error) {
+      console.error('Error fetching likes:', error);
+      showToast({
+        message: "Failed to load likes",
+        type: "error"
+      });
+    } finally {
+      setIsLoadingLikes(false);
+    }
+  };
+
   useEffect(() => {
     if (showComments) {
       fetchComments();
@@ -630,9 +668,13 @@ const CommunityPostCard = ({
                   ) : (
                     <button 
                       className="text-sm text-gray-600 hover:text-gray-900"
-                      onClick={() => setShowLikes(true)}
+                      onClick={handleShowLikes}
                     >
-                      {likesCount} likes
+                      {isLoadingLikes ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        `${likesCount} likes`
+                      )}
                     </button>
                   )}
                 </div>
@@ -731,7 +773,7 @@ const CommunityPostCard = ({
           <LikesDialog
             isOpen={showLikes}
             onClose={() => setShowLikes(false)}
-            likers={likers}
+            likers={likersList}
             className="rounded-lg"
           />
         )}
