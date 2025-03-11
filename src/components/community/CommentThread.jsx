@@ -96,6 +96,15 @@ const Comment = ({
   const totalReplies = _count?.replies || 0;
   const totalLikes = _count?.likes || 0;
 
+  const getLikeIcon = (isLiked) => {
+    return isLiked ? "/src/assets/svg/filledfavorite.svg" : "/src/assets/svg/favorite.svg";
+  };
+
+  const formatCountText = (count, singularText, pluralText) => {
+    if (count <= 0) return '';
+    return count === 1 ? `1 ${singularText}` : `${count} ${pluralText}`;
+  };
+
   const checkIfUserLikedComment = async () => {
     try {
       setIsLoadingCommentLikes(true);
@@ -246,9 +255,6 @@ const Comment = ({
     setShowDropdown(false);
   };
 
-  // Update like text to handle singular/plural
-  const likesText = currentLikesCount === 1 ? '1 like' : `${currentLikesCount} likes`;
-
   if (isDeleted) {
     return null;
   }
@@ -362,23 +368,18 @@ const Comment = ({
             <div className="flex items-center gap-1">
               <button
                 onClick={handleLike}
-                className="relative"
-                disabled={isLiking}
+                className="flex items-center"
               >
                 <img 
-                  src={isLiked ? "/src/assets/svg/filledfavorite.svg" : "/src/assets/svg/favorite.svg"}
+                  src={getLikeIcon(isLiked)}
                   alt={isLiked ? "Unlike" : "Like"}
-                  className={`w-4 h-4 transition-opacity duration-200 ${isLiking ? 'opacity-50' : ''}`}
-                  style={isLiked ? {
-                    filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)'
+                  className="w-4 h-4"
+                  style={isLiked ? { 
+                    filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)' 
                   } : undefined}
                 />
-                {isLiking && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Loader2 className="h-2 w-2 animate-spin" />
-                  </div>
-                )}
               </button>
+              
               {currentLikesCount > 0 && (
                 <button
                   onClick={handleShowCommentLikes}
@@ -387,7 +388,7 @@ const Comment = ({
                   {isLoadingCommentLikes ? (
                     <Loader2 className="h-3 w-3 animate-spin" />
                   ) : (
-                    likesText
+                    formatCountText(currentLikesCount, 'like', 'likes')
                   )}
                 </button>
               )}
