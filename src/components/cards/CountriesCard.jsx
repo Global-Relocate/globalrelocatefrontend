@@ -10,7 +10,8 @@ export default function CountriesCard({
   sm,
   isLiked,
   onLikeToggle,
-  onClick
+  onClick,
+  flagClassName = "w-6 h-6"
 }) {
   return (
     <div
@@ -50,14 +51,14 @@ export default function CountriesCard({
       <img
         src={image}
         className={`w-full rounded-2xl object-cover ${sm ? "h-[320px]" : "h-[500px]"}`}
-        alt=""
+        alt={location}
         onClick={onClick}
       />
       <div className="flex items-center justify-start space-x-2">
         <img
           src={countryFlag}
-          className="w-7 h-7 rounded-full object-cover"
-          alt="logo"
+          alt={`${location} flag`}
+          className={`rounded-full ${flagClassName}`}
         />
         <span>{location}</span>
       </div>
