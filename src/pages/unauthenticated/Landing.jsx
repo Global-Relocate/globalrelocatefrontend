@@ -11,6 +11,10 @@ import london from "../../assets/images/london.png";
 import italy from "../../assets/images/italy.png";
 import china from "../../assets/images/china.png";
 import uae from "../../assets/images/uae.png";
+import canada from "../../assets/images/canada.png";
+import australia from "../../assets/images/australia.png";
+import chinaFlag from "../../assets/images/china-flag.png";
+import nigeriaFlag from "../../assets/images/nigeria-flag.png";
 
 // features
 import people from "../../assets/images/people_image.png";
@@ -43,11 +47,11 @@ export default function Landing() {
             >
               {t("landingPage.showcase.buttonText")}
             </button>
-            <div className="absolute bg-white rounded-3xl hidden md:flex items-center justify-start p-2 pr-3 shadow-md  space-x-2 top-10 left-0">
+            <div className="absolute bg-white rounded-3xl hidden md:flex items-center justify-start p-2 pr-3 shadow-md space-x-2 top-10 left-0">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/800px-Flag_of_Canada_%28Pantone%29.svg.png"
-                className="w-7 h-7 rounded-full"
-                alt="logo"
+                src={canada}
+                className="w-7 h-7 rounded-full object-cover"
+                alt="Canada flag"
               />
               <span>Canada</span>
             </div>
@@ -67,11 +71,11 @@ export default function Landing() {
               />
               <span>France</span>
             </div>
-            <div className="absolute bg-white rounded-3xl hidden md:flex items-center justify-start p-2 pr-3 shadow-md  space-x-2 bottom-0 right-14">
+            <div className="absolute bg-white rounded-3xl hidden md:flex items-center justify-start p-2 pr-3 shadow-md space-x-2 bottom-0 right-14">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg"
-                className="w-7 h-7 rounded-full"
-                alt="logo"
+                src={australia}
+                className="w-8 h-8 rounded-full object-cover"
+                alt="Australia flag"
               />
               <span>Australia</span>
             </div>
@@ -118,7 +122,8 @@ export default function Landing() {
           <CountriesCard
             image={china}
             location="Beijing, China"
-            countryFlag="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-FLVbYtX7A6P_Zjkt5pp0DafB3gXraLsNQ&s"
+            countryFlag={chinaFlag}
+            flagClassName="w-7 h-7 object-cover"
           />
           <CountriesCard
             image={italy}
@@ -133,7 +138,8 @@ export default function Landing() {
           <CountriesCard
             image={nigeria}
             location="Lagos, Nigeria"
-            countryFlag="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"
+            countryFlag={nigeriaFlag}
+            flagClassName="w-7 h-7 object-cover"
           />
         </div>
         <h2 className="text-4xl my-4 font-medium">
