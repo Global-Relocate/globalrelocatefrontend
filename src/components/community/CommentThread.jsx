@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { BsThreeDots } from "react-icons/bs";
 import { FiEdit3, FiFlag } from "react-icons/fi";
@@ -60,14 +60,15 @@ const Comment = ({
   onDelete, 
   currentUserAvatar, 
   currentUserId,
-  isLast = false
+  isLast = false,
+  isLiked: initialIsLiked = false,
 }) => {
   const [showReplyInput, setShowReplyInput] = useState(false);
   const [showEditInput, setShowEditInput] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
-  const [isLiked, setIsLiked] = useState(comment.isLikedByUser || false);
+  const [isLiked, setIsLiked] = useState(initialIsLiked);
   const [currentLikesCount, setCurrentLikesCount] = useState(comment.likesCount || 0);
   const { showUndoToast } = useUndo();
   const [showImagePreview, setShowImagePreview] = useState(false);
@@ -80,6 +81,7 @@ const Comment = ({
   const [commentLikers, setCommentLikers] = useState([]);
   const [showCommentLikes, setShowCommentLikes] = useState(false);
   const [isLoadingCommentLikes, setIsLoadingCommentLikes] = useState(false);
+  const [isLiking, setIsLiking] = useState(false);
 
   const {
     id,
@@ -93,6 +95,27 @@ const Comment = ({
 
   const totalReplies = _count?.replies || 0;
   const totalLikes = _count?.likes || 0;
+
+  const checkIfUserLikedComment = async () => {
+    try {
+      setIsLoadingCommentLikes(true);
+      const response = await getCommentLikes(postId, id);
+      if (response.success) {
+        const userLike = response.data.find(like => like.id === currentUserId);
+        setIsLiked(!!userLike);
+        setCommentLikers(response.data);
+        setCurrentLikesCount(response.pagination.total);
+      }
+    } catch (error) {
+      console.error('Error fetching comment likes:', error);
+    } finally {
+      setIsLoadingCommentLikes(false);
+    }
+  };
+
+  useEffect(() => {
+    checkIfUserLikedComment();
+  }, [id, postId, currentUserId]);
 
   const handleReply = (replyText, image) => {
     onReply(id, replyText, image);
@@ -110,18 +133,31 @@ const Comment = ({
   };
 
   const handleLike = async () => {
+    if (isLiking) return;
+    
+    const previousState = isLiked;
+    const previousCount = currentLikesCount;
+    
     try {
+      setIsLiking(true);
       const response = await likeComment(postId, id);
+      
       if (response.success) {
-        setIsLiked(response.data.action === 'liked');
+        const newLikeState = response.data.action === 'liked';
+        setIsLiked(newLikeState);
         setCurrentLikesCount(response.data.likeCount);
       }
     } catch (error) {
+      // Revert to previous state if request fails
+      setIsLiked(previousState);
+      setCurrentLikesCount(previousCount);
       console.error('Error toggling comment like:', error);
       showToast({
         message: "Failed to like/unlike comment",
         type: "error"
       });
+    } finally {
+      setIsLiking(false);
     }
   };
 
@@ -209,6 +245,9 @@ const Comment = ({
     });
     setShowDropdown(false);
   };
+
+  // Update like text to handle singular/plural
+  const likesText = currentLikesCount === 1 ? '1 like' : `${currentLikesCount} likes`;
 
   if (isDeleted) {
     return null;
@@ -323,21 +362,21 @@ const Comment = ({
             <div className="flex items-center gap-1">
               <button
                 onClick={handleLike}
-                className="flex items-center"
+                className="relative"
+                disabled={isLiking}
               >
-                {isLiked ? (
-                  <img 
-                    src="/src/assets/svg/filledfavorite.svg" 
-                    alt="Liked" 
-                    className="w-4 h-4"
-                    style={{ filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)' }}
-                  />
-                ) : (
-                  <img 
-                    src="/src/assets/svg/favorite.svg" 
-                    alt="Like" 
-                    className="w-4 h-4"
-                  />
+                <img 
+                  src={isLiked ? "/src/assets/svg/filledfavorite.svg" : "/src/assets/svg/favorite.svg"}
+                  alt={isLiked ? "Unlike" : "Like"}
+                  className={`w-4 h-4 transition-opacity duration-200 ${isLiking ? 'opacity-50' : ''}`}
+                  style={isLiked ? {
+                    filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)'
+                  } : undefined}
+                />
+                {isLiking && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Loader2 className="h-2 w-2 animate-spin" />
+                  </div>
                 )}
               </button>
               {currentLikesCount > 0 && (
@@ -348,7 +387,7 @@ const Comment = ({
                   {isLoadingCommentLikes ? (
                     <Loader2 className="h-3 w-3 animate-spin" />
                   ) : (
-                    `${currentLikesCount} likes`
+                    likesText
                   )}
                 </button>
               )}
@@ -487,7 +526,8 @@ Comment.propTypes = {
   onDelete: PropTypes.func.isRequired,
   currentUserAvatar: PropTypes.string.isRequired,
   currentUserId: PropTypes.string.isRequired,
-  isLast: PropTypes.bool
+  isLast: PropTypes.bool,
+  isLiked: PropTypes.bool,
 };
 
 const CommentThread = ({ comments, currentUserAvatar, currentUserId, onReply, onEdit, onDelete }) => {
