@@ -9,7 +9,7 @@ import Welcome from "./pages/unauthenticated/welcome";
 import OAuthCallback from "./pages/unauthenticated/oauth-callback";
 import NotFound from "./pages/unauthenticated/not-found";
 import { TrialProvider, useTrial } from "./context/TrialContext";
-// import TrialExpiredModal from "./components/modals/TrialExpiredModal";
+import TrialExpiredModal from "./components/modals/TrialExpiredModal";
 
 import Countries from "./pages/user/Countries";
 import AiAssistant from "./pages/user/ai-assistant";
@@ -114,20 +114,20 @@ const AppContent = () => {
         </Routes>
       </RouteGuard>
 
-      {/* <TrialExpiredModal isOpen={showTrialModal} /> */}
+      <TrialExpiredModal isOpen={showTrialModal} />
     </>
   );
 };
 
 function App() {
   return (
-    <PostProvider>
-      <CommentProvider>
-        <TrialProvider>
+    <TrialProvider>
+      <PostProvider>
+        <CommentProvider>
           <AppContent />
-        </TrialProvider>
-      </CommentProvider>
-    </PostProvider>
+        </CommentProvider>
+      </PostProvider>
+    </TrialProvider>
   );
 }
 
