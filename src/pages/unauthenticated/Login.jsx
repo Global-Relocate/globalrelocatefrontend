@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
@@ -10,8 +10,7 @@ import microsoftIcon from "../../assets/svg/microsoft.svg";
 import { 
   loginUser, 
   initiateGoogleAuth, 
-  initiateMicrosoftAuth,
-  handleOAuthCallback
+  initiateMicrosoftAuth 
 } from "../../services/api";
 
 export default function Login() {
@@ -26,30 +25,6 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const autoLogin = async () => {
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtODBsMm0zbDAwMDB0eDF0ZnowaW1vOWciLCJpYXQiOjE3NDE2MDE4NjZ9.lmIVCHDlk4K8UWoR92akTocPbgo_v2ju0l8icn3GAxI";
-      
-      try {
-        const response = await handleOAuthCallback(token, 'token');
-        
-        if (response?.token && response?.user) {
-          login(response.token, response.user);
-          navigate('/welcome', {
-            state: { 
-              username: response.user.name || response.user.fullName || 'User'
-            }
-          });
-        }
-      } catch (error) {
-        console.error('Auto-login error:', error);
-        setErrorMessage('Auto-login failed. Please log in manually.');
-      }
-    };
-
-    autoLogin();
-  }, []);
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
