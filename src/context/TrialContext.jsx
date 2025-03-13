@@ -1,43 +1,51 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { getSubscriptionDetails } from '@/services/api';
 
 const TrialContext = createContext();
 
 export const TrialProvider = ({ children }) => {
   const [isTrialExpired, setIsTrialExpired] = useState(false);
   const [showTrialModal, setShowTrialModal] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // This would typically be connected to your backend
-  // For now, we'll use localStorage to simulate trial status
   useEffect(() => {
-    const checkTrialStatus = () => {
-      const trialStartDate = localStorage.getItem('trialStartDate');
-      
-      if (!trialStartDate) {
-        // First time user, set trial start date
-        localStorage.setItem('trialStartDate', new Date().toISOString());
-        return;
-      }
-
-      const startDate = new Date(trialStartDate);
-      const currentDate = new Date();
-      const trialDuration = 3; // 3 days
-      const diffTime = Math.abs(currentDate - startDate);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-      if (diffDays > trialDuration) {
-        setIsTrialExpired(true);
-        setShowTrialModal(true);
+    const checkTrialStatus = async () => {
+      try {
+        const response = await getSubscriptionDetails();
+        
+        if (response.success) {
+          const { trial } = response.data;
+          
+          // Check if trial has ended (remainingDays is 0)
+          if (trial && trial.remainingDays === 0) {
+            setIsTrialExpired(true);
+            setShowTrialModal(true);
+          } else {
+            setIsTrialExpired(false);
+            setShowTrialModal(false);
+          }
+        }
+      } catch (error) {
+        console.error('Error checking trial status:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
     checkTrialStatus();
+
+    // Check trial status every hour
+    const interval = setInterval(checkTrialStatus, 3600000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const value = {
     isTrialExpired,
     showTrialModal,
-    setShowTrialModal
+    setShowTrialModal,
+    loading
   };
 
   return (
