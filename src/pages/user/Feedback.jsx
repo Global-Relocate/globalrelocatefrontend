@@ -60,6 +60,10 @@ const Feedback = () => {
     }
   };
 
+  const handleNavigateBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="w-full min-h-screen bg-white">
       <div className="w-full px-12 pt-12">
@@ -70,6 +74,15 @@ const Feedback = () => {
       {/* Content */}
       <div className="max-w-[800px] mx-auto px-4 mt-16">
         <div className="relative">
+          {/* Back Button - Added here */}
+          <button
+            onClick={handleNavigateBack}
+            className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6"
+          >
+            <ChevronLeft size={20} />
+            <span>Back</span>
+          </button>
+
           {/* Navigation Buttons */}
           <div className="absolute right-0 -top-[72px] flex items-center gap-2">
             <button
