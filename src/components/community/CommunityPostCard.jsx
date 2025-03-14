@@ -600,7 +600,7 @@ const CommunityPostCard = ({
 
   return (
     <TooltipProvider>
-      <div className="w-full bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl mb-6">
+      <div className="w-full bg-[#F8F7F7] rounded-2xl mb-6">
         <div className="px-6 pt-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
