@@ -77,8 +77,15 @@ export default function Login() {
       // Store the exact user data structure from the API response
       login(response.accessToken, response.data.user);
       
-      // Navigate to welcome page
-      navigate("/welcome", { 
+      // // Navigate to welcome page
+      // navigate("/welcome", { 
+      //   state: { 
+      //     username: response.data.user.fullName
+      //   } 
+      // });
+
+      // Navigate to dashboard page
+      navigate("/user/countries", { 
         state: { 
           username: response.data.user.fullName
         } 
@@ -309,7 +316,7 @@ export default function Login() {
         <p className="mt-8 text-sm text-gray-600 text-center">
           By clicking creating an account, you agree to our{" "}
           <Link to="/terms" className="underline hover:text-gray-800">
-            Terms of Service
+            Term of Service
           </Link>{" "}
           and{" "}
           <Link to="/privacy" className="underline hover:text-gray-800">
