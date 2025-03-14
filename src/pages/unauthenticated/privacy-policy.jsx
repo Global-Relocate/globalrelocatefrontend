@@ -67,7 +67,7 @@ const PrivacyPolicy = () => {
               To enhance your experience on the Platform by offering a favorites
               feature and tailored recommendations.
             </li>
-            <li>To enforce our Terms of Service and other policies.</li>
+            <li>To enforce our Term of Service and other policies.</li>
             <li>To comply with legal obligations.</li>
           </ul>
 
