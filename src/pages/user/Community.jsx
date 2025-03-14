@@ -127,9 +127,9 @@ function Community() {
     <DashboardLayout>
       <div className="w-full flex flex-col">
         {/* Start new post section - Fixed at top */}
-        <div className="px-4 md:px-8 lg:px-20 pt-2 pb-2">
+        <div className="px-4 md:px-8 lg:px-10 pt-2 pb-2">
           <div 
-            className="bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl p-4 cursor-pointer"
+            className="bg-[#F8F7F7] rounded-2xl p-4 cursor-pointer"
             onClick={() => setIsCreatePostModalOpen(true)}
           >
             {/* Desktop/Tablet View */}
@@ -194,7 +194,7 @@ function Community() {
         </div>
 
         {/* Scrollable content area */}
-        <div className="flex-1 px-4 md:px-8 lg:px-20 pb-20 pt-4">
+        <div className="flex-1 px-4 md:px-8 lg:px-10 pb-20 pt-4">
           {/* Posts feed */}
           <div className="space-y-6">
             {loading ? (
