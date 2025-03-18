@@ -286,7 +286,7 @@ export default function Login() {
               <BsArrowLeft className="rotate-180" />
             </button>
 
-            <button
+            {/* <button
               onClick={handleMicrosoftLogin}
               disabled={loading}
               className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -296,13 +296,13 @@ export default function Login() {
                 <span>Continue with Microsoft</span>
               </div>
               <BsArrowLeft className="rotate-180" />
-            </button>
+            </button> */}
           </div>
         </div>
 
         <div className="mt-6 text-center">
           <Link to="/forgotpassword" className="text-sm text-gray-600 hover:text-gray-800">
-            Can't log in?
+            Can&apos;t log in?
           </Link>
         </div>
 
