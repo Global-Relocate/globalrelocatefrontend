@@ -93,13 +93,13 @@ function DashNav({ navState, setNavState }) {
             <DropdownMenuItem
               className="cursor-pointer"
               onClick={() => setIsSettingsOpen(true)}
-            >
-              Account Settings
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem
-              className="cursor-pointer"
-              onClick={() => navigate("/user/feedback")}
+            // >
+            //   Account Settings
+            // </DropdownMenuItem>
+            // <DropdownMenuSeparator />
+            // <DropdownMenuItem
+            //   className="cursor-pointer"
+            //   onClick={() => navigate("/user/feedback")}
             >
               Give us feedback
             </DropdownMenuItem>
