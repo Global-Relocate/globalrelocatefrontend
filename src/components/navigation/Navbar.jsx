@@ -5,6 +5,15 @@ import SelectLanguages from "@/components/drawers/SelectLanguages";
 import logo from "../../assets/svg/logo.svg";
 import { X, Menu, LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { LuUserRound } from "react-icons/lu";
+import { IoChevronDownOutline } from "react-icons/io5";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -19,7 +28,7 @@ const Navbar = () => {
     { href: "/user/countries", label: t("landingPage.navbar.countriesData") },
     { href: "/user/community", label: t("landingPage.navbar.community") },
     { href: "/user/tax-calculator", label: t("landingPage.navbar.tools") },
-    { href: "/pricing", label: t("landingPage.navbar.pricing") },
+    { href: "/upgrade", label: t("landingPage.navbar.pricing") },
   ];
 
   useEffect(() => {
@@ -106,13 +115,43 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center space-x-6">
               <SelectLanguages />
               {isAuthenticated ? (
-                <button
-                  onClick={handleLogout}
-                  className="flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200"
-                >
-                  <LogOut className="h-5 w-5" />
-                  <span>Logout</span>
-                </button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex items-center justify-start space-x-1 p-2 rounded-3xl cursor-pointer hover:bg-gray-100 outline-none">
+                    <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-[#8F8F8F]">
+                      <LuUserRound className="h-4 w-4" />
+                    </div>
+                    <span className="text-xs">User</span>
+                    <IoChevronDownOutline className="text-gray-400" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-[200px]">
+                    <DropdownMenuItem
+                      className="cursor-pointer"
+                      onClick={() => navigate("/user/profile")}
+                    >
+                      View profile
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      className="cursor-pointer"
+                      onClick={() => navigate("/user/feedback")}
+                    >
+                      Give us feedback
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onClick={() => navigate("/help")}
+                      className="cursor-pointer"
+                    >
+                      Help Center
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                      className="cursor-pointer text-red-600 focus:text-red-600"
+                      onClick={handleLogout}
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Log Out
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               ) : (
                 <>
                   <button

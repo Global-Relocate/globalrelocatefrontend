@@ -6,13 +6,15 @@ import { BiHeart, BiShare } from "react-icons/bi";
 import { PiShare } from "react-icons/pi";
 import { useCountryData } from "@/context/CountryDataContext";
 import { useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ChevronLeft } from "lucide-react";
 
 function CountryDetails() {
   const { id } = useParams();
   const countryFlag = useLocation()?.state
   const { singleCountry, loading, getSingleCountry } = useCountryData();
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -25,6 +27,14 @@ function CountryDetails() {
 
   return (
     <DashboardLayout>
+      <button
+        onClick={() => navigate(-1)}
+        className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6"
+      >
+        <ChevronLeft size={20} />
+        <span>Back</span>
+      </button>
+      
       <div className="flex w-full gap-3 flex-wrap items-center justify-between">
         {loading ? (
           <>

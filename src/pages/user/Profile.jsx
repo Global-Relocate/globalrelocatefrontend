@@ -2,14 +2,14 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import FilterButton from "@/components/user-buttons/FilterButton";
+// import FilterButton from "@/components/user-buttons/FilterButton";
 import { ArrowLeft, MapPin } from 'lucide-react';
 import { LuUserRound } from "react-icons/lu";
 import DashboardLayout from '@/components/layouts/DashboardLayout';
 import AccountSettings from './account-settings';
-import PostsTab from '@/components/profile/tabs/PostsTab';
-import CommentsTab from '@/components/profile/tabs/CommentsTab';
-import BookmarksTab from '@/components/profile/tabs/BookmarksTab';
+// import PostsTab from '@/components/profile/tabs/PostsTab';
+// import CommentsTab from '@/components/profile/tabs/CommentsTab';
+// import BookmarksTab from '@/components/profile/tabs/BookmarksTab';
 import { getUserProfile } from '@/services/api';
 import { showToast } from '@/components/ui/toast';
 import { Skeleton } from "@/components/ui/skeleton";
@@ -47,18 +47,18 @@ const Profile = () => {
     }
   };
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'posts':
-        return <PostsTab />;
-      case 'comments':
-        return <CommentsTab />;
-      case 'bookmarks':
-        return <BookmarksTab />;
-      default:
-        return null;
-    }
-  };
+  // const renderContent = () => {
+  //   switch (activeTab) {
+  //     case 'posts':
+  //       return <PostsTab />;
+  //     case 'comments':
+  //       return <CommentsTab />;
+  //     case 'bookmarks':
+  //       return <BookmarksTab />;
+  //     default:
+  //       return null;
+  //   }
+  // };
 
   return (
     <DashboardLayout>
@@ -130,7 +130,7 @@ const Profile = () => {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-4 mb-6">
+        {/* <div className="flex gap-4 mb-6">
           <FilterButton
             title="Posts"
             isActive={activeTab === 'posts'}
@@ -146,10 +146,10 @@ const Profile = () => {
             isActive={activeTab === 'bookmarks'}
             onClick={() => setActiveTab('bookmarks')}
           />
-        </div>
+        </div> */}
 
         {/* Content */}
-        {renderContent()}
+        {/* {renderContent()} */}
 
         {/* Account Settings Modal */}
         <AccountSettings 

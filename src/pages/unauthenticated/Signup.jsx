@@ -331,8 +331,8 @@ export default function Signup() {
         {/* Terms and Privacy Policy Section */}
         <p className="text-left mt-8 text-xs text-gray-500 px-6 w-[100%]">
           By clicking &quot;Continue&quot;, you agree to our{" "}
-          <Link to="/terms" className="text-black underline">
-            Term of Service
+          <Link to="/term" className="text-black underline">
+            Terms of Service
           </Link>{" "}
           and{" "}
           <Link to="/privacy" className="text-black underline">
