@@ -19,7 +19,7 @@ const Navbar = () => {
     { href: "/user/countries", label: t("landingPage.navbar.countriesData") },
     { href: "/user/community", label: t("landingPage.navbar.community") },
     { href: "/user/tax-calculator", label: t("landingPage.navbar.tools") },
-    { href: "#contact", label: t("landingPage.navbar.contact") },
+    { href: "/pricing", label: t("landingPage.navbar.pricing") },
   ];
 
   useEffect(() => {
@@ -61,17 +61,16 @@ const Navbar = () => {
 
   const isActivePath = (path) => location.pathname === path;
 
-  const NavLinks = ({ mobile = false, onClick = () => {} }) => (
+  const NavLinks = ({ mobile = false, onClick = () => { } }) => (
     <ul className={`${mobile ? "flex flex-col space-y-6" : "flex space-x-8"}`}>
       {navLinks.map(({ href, label }) => (
         <li key={href}>
           <Link
             to={href}
-            className={`transition-colors duration-200 ${
-              isActivePath(href)
-                ? "text-black hover:text-[#404040]"
-                : "text-[#404040] hover:text-black"
-            }`}
+            className={`transition-colors duration-200 ${isActivePath(href)
+              ? "text-black hover:text-[#404040]"
+              : "text-[#404040] hover:text-black"
+              }`}
             onClick={onClick}
           >
             {label}
@@ -84,11 +83,10 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/80 backdrop-blur-md border-b border-gray-200"
-            : "bg-transparent"
-        }`}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+          ? "bg-white/80 backdrop-blur-md border-b border-gray-200"
+          : "bg-transparent"
+          }`}
       >
         <nav className="max-w-[1440px] mx-auto px-6 lg:px-10 py-4">
           <div className="flex items-center justify-between">
@@ -96,7 +94,7 @@ const Navbar = () => {
               onClick={() => navigate("/")}
               className="flex items-center focus:outline-none"
             >
-              <img src={logo} alt="Global Relocate Logo" className="h-10" />
+              <img src={logo} alt="Global Relocate Logo" className="h-12" />
             </button>
 
             {/* Desktop Navigation */}
@@ -145,9 +143,8 @@ const Navbar = () => {
 
         {/* Mobile Drawer */}
         <div
-          className={`fixed inset-0 bg-white z-[60] lg:hidden transition-transform duration-300 ${
-            isDrawerOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed inset-0 bg-white z-[60] lg:hidden transition-transform duration-300 ${isDrawerOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           <div className="flex flex-col h-full">
             <div className="flex justify-between items-center p-6 border-b border-gray-100">

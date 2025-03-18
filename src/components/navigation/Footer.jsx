@@ -35,7 +35,7 @@ export default function Footer() {
     hover: {
       scale: 1.05,
       rotate: 3,
-      transition: { 
+      transition: {
         type: "spring",
         stiffness: 300
       }
@@ -44,9 +44,9 @@ export default function Footer() {
 
   const linkVariants = {
     hover: {
-      scale: 1.05,
+      // scale: 1.05,
       color: "#FCA311", // Highlight color
-      transition: { 
+      transition: {
         type: "spring",
         stiffness: 300
       }
@@ -54,7 +54,7 @@ export default function Footer() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -62,15 +62,15 @@ export default function Footer() {
       className="text-[#7E7E7E] w-full flex items-center justify-center flex-col bg-black min-h-[500px]"
     >
       <div className="w-[90%] flex-wrap flex items-start justify-start gap-14 md:gap-36 p-4">
-        <motion.img 
+        <motion.img
           variants={logoVariants}
-          whileHover="hover"
-          src={logo} 
-          alt="logo" 
+          // whileHover="hover"
+          src={logo}
+          alt="logo"
           className="cursor-pointer"
         />
-        
-        <motion.ul 
+
+        <motion.ul
           variants={containerVariants}
           className="flex flex-col gap-5"
         >
@@ -79,9 +79,9 @@ export default function Footer() {
             { to: "/user/countries", label: t("landingPage.navbar.countriesData") },
             { to: "#", label: t("landingPage.navbar.community") },
             { to: "#", label: t("landingPage.navbar.tools") },
-            { to: "#", label: t("landingPage.navbar.contact") }
+            { to: "#", label: t("landingPage.navbar.pricing") }
           ].map((item, index) => (
-            <motion.li 
+            <motion.li
               key={index}
               variants={itemVariants}
             >
@@ -97,7 +97,7 @@ export default function Footer() {
           ))}
         </motion.ul>
 
-        <motion.ul 
+        <motion.ul
           variants={containerVariants}
           className="flex flex-col gap-5"
         >
@@ -105,7 +105,7 @@ export default function Footer() {
             { to: "/term", label: "Terms" },
             { to: "/privacy", label: "Privacy" }
           ].map((item, index) => (
-            <motion.li 
+            <motion.li
               key={index}
               variants={itemVariants}
             >
