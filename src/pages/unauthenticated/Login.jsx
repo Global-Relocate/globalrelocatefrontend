@@ -316,7 +316,7 @@ export default function Login() {
         <p className="mt-8 text-sm text-gray-600 text-center">
           By clicking creating an account, you agree to our{" "}
           <Link to="/terms" className="underline hover:text-gray-800">
-            Term of Service
+            Terms of Service
           </Link>{" "}
           and{" "}
           <Link to="/privacy" className="underline hover:text-gray-800">
