@@ -163,7 +163,7 @@ export default function VerifyEmail() {
             <div className="mt-4 text-sm text-gray-600 text-center">
               By clicking creating an account, you agree to our{" "}
               <Link to="/terms" className="underline">
-                Terms of Service
+                Term of Service
               </Link>{" "}
               and{" "}
               <Link to="/privacy" className="underline">
