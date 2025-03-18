@@ -17,6 +17,13 @@ import { LuUserRound } from "react-icons/lu";
 import AccountSettings from "../../pages/user/account-settings";
 import PropTypes from "prop-types";
 import { getUserProfile } from '@/services/api';
+import { LogOut } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 function DashNav({ navState, setNavState }) {
   const { user, logout } = useContext(AuthContext);
@@ -68,7 +75,7 @@ function DashNav({ navState, setNavState }) {
 
       <div className="flex items-center space-x-3">
         <DropdownMenu>
-          <DropdownMenuTrigger className="flex items-center justify-start space-x-1 p-2 rounded-3xl cursor-pointer hover:bg-gray-100 outline-none">
+          <DropdownMenuTrigger className="hidden sm:flex items-center justify-start space-x-1 p-2 rounded-3xl cursor-pointer hover:bg-gray-100 outline-none">
             <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-[#8F8F8F] overflow-hidden">
               {profilePic ? (
                 <img 
@@ -120,17 +127,44 @@ function DashNav({ navState, setNavState }) {
             >
               Upgrade plan
             </DropdownMenuItem>
-            {/* <DropdownMenuSeparator />
+            <DropdownMenuSeparator />
             <DropdownMenuItem
               className="cursor-pointer text-red-600 focus:text-red-600"
               onClick={handleLogout}
             >
+              <LogOut className="h-4 w-4 mr-2" />
               Log Out
-            </DropdownMenuItem> */}
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 
         <SelectLanguages />
+
+        {/* Logout Button - Desktop */}
+        <button
+          onClick={handleLogout}
+          className="hidden sm:flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200"
+        >
+          <LogOut className="h-5 w-5" />
+          <span>Logout</span>
+        </button>
+
+        {/* Logout Button - Mobile */}
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                onClick={handleLogout}
+                className="sm:hidden flex items-center justify-center p-2 text-[#404040] hover:text-black transition-colors duration-200"
+              >
+                <LogOut className="h-5 w-5" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <span>Logout</span>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
       <AccountSettings open={isSettingsOpen} onOpenChange={setIsSettingsOpen} />
     </div>
