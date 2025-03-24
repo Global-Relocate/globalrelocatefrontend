@@ -129,6 +129,18 @@ const Upgrade = () => {
       ],
     },
     {
+      title: "Basic",
+      price: "5",
+      features: [
+        "Full country information",
+        "Community participation",
+        "Complete tax calculator",
+        "Cost comparison tools",
+        "Basic relocation guides",
+        "Email support"
+      ],
+    },
+    {
       title: "Premium",
       price: "100",
       features: [
@@ -143,18 +155,6 @@ const Upgrade = () => {
         "Custom relocation roadmap"
       ],
     },
-    {
-      title: "Basic",
-      price: "5",
-      features: [
-        "Full country information",
-        "Community participation",
-        "Complete tax calculator",
-        "Cost comparison tools",
-        "Basic relocation guides",
-        "Email support"
-      ],
-    }
   ];
 
   if (loading) {

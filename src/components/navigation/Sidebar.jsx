@@ -68,13 +68,13 @@ function Sidebar({ navState }) {
       icon: favoriteIcon,
       activeIcon: filledfavoriteIcon,
     },
-    {
-      title: t("userDashboard.sidebar.community"),
-      activeKey: "/user/community",
-      path: "/user/community",
-      icon: communityIcon,
-      activeIcon: communityActiveIcon,
-    },
+    // {
+    //   title: t("userDashboard.sidebar.community"),
+    //   activeKey: "/user/community",
+    //   path: "/user/community",
+    //   icon: communityIcon,
+    //   activeIcon: communityActiveIcon,
+    // },
   ];
   return (
     <div
