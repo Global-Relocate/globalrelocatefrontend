@@ -26,9 +26,9 @@ const Navbar = () => {
   const navLinks = [
     { href: "/", label: t("landingPage.navbar.home") },
     { href: "/user/countries", label: t("landingPage.navbar.countriesData") },
-    { href: "/user/community", label: t("landingPage.navbar.community") },
+    // { href: "/user/community", label: t("landingPage.navbar.community") }, // Comment out community
     { href: "/user/tax-calculator", label: t("landingPage.navbar.tools") },
-    { href: "/upgrade", label: t("landingPage.navbar.pricing") },
+    { href: "/pricing", label: t("landingPage.navbar.pricing") },
   ];
 
   useEffect(() => {
