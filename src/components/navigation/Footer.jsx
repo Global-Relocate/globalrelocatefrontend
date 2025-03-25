@@ -54,73 +54,46 @@ export default function Footer() {
   };
 
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={containerVariants}
-      className="text-[#7E7E7E] w-full flex items-center justify-center flex-col bg-black min-h-[500px]"
-    >
+    <div className="text-[#7E7E7E] w-full flex items-center justify-center flex-col bg-black min-h-[300px]">
       <div className="w-[90%] flex-wrap flex items-start justify-start gap-14 md:gap-36 p-4">
-        <motion.img
-          variants={logoVariants}
-          // whileHover="hover"
+        <img
           src={logo}
           alt="logo"
           className="cursor-pointer"
         />
 
-        <motion.ul
-          variants={containerVariants}
-          className="flex flex-col gap-5"
-        >
+        <ul className="flex flex-col gap-5">
           {[
             { to: "/", label: t("landingPage.navbar.home") },
             { to: "/user/countries", label: t("landingPage.navbar.countriesData") },
-            { to: "#", label: t("landingPage.navbar.community") },
-            { to: "#", label: t("landingPage.navbar.tools") },
-            { to: "#", label: t("landingPage.navbar.pricing") }
+            { to: "/user/tax-calculator", label: t("landingPage.navbar.tools") },
+            { to: "/pricing", label: t("landingPage.navbar.pricing") }
           ].map((item, index) => (
-            <motion.li
-              key={index}
-              variants={itemVariants}
-            >
-              <motion.div
-                whileHover="hover"
-                variants={linkVariants}
-              >
+            <li key={index}>
+              <div>
                 <Link to={item.to} className="block">
                   {item.label}
                 </Link>
-              </motion.div>
-            </motion.li>
+              </div>
+            </li>
           ))}
-        </motion.ul>
+        </ul>
 
-        <motion.ul
-          variants={containerVariants}
-          className="flex flex-col gap-5"
-        >
+        <ul className="flex flex-col gap-5">
           {[
             { to: "/term", label: "Terms" },
             { to: "/privacy", label: "Privacy" }
           ].map((item, index) => (
-            <motion.li
-              key={index}
-              variants={itemVariants}
-            >
-              <motion.div
-                whileHover="hover"
-                variants={linkVariants}
-              >
+            <li key={index}>
+              <div>
                 <Link to={item.to} className="block">
                   {item.label}
                 </Link>
-              </motion.div>
-            </motion.li>
+              </div>
+            </li>
           ))}
-        </motion.ul>
+        </ul>
       </div>
-    </motion.div>
+    </div>
   );
 }
