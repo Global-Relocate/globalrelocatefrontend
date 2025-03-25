@@ -7,6 +7,8 @@ import { getSubscriptionDetails, createCheckoutSession } from '@/services/api';
 import { showToast } from '@/components/ui/toast';
 import logo from "../../assets/svg/logo.svg"; // Import the logo
 import { useNavigate } from 'react-router-dom';
+import MainLayout from "@/components/layouts/MainLayout";
+import Navbar from "@/components/navigation/Navbar";
 
 // Loading component
 const LoadingScreen = () => (
@@ -170,36 +172,39 @@ const Upgrade = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <button
-          onClick={handleBack}
-          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-8"
-        >
-          <IoArrowBack size={20} />
-          <span>Back</span>
-        </button>
+    <MainLayout>
+      <Navbar />
+      <div className="min-h-screen bg-white pt-20">
+        <div className="max-w-7xl mx-auto px-4 py-16">
+          <button
+            onClick={handleBack}
+            className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-8"
+          >
+            <IoArrowBack size={20} />
+            <span>Back</span>
+          </button>
 
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-semibold mb-4">Upgrade your plan</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Choose the perfect plan to support your global relocation journey. Get access to comprehensive tools and insights to make your move seamless.
-          </p>
-        </div>
+          <div className="text-center mb-12">
+            <h1 className="text-3xl font-semibold mb-4">Upgrade your plan</h1>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Choose the perfect plan to support your global relocation journey. Get access to comprehensive tools and insights to make your move seamless.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan) => (
-            <PricingCard
-              key={plan.title}
-              {...plan}
-              isCurrentPlan={currentPlan === plan.title.toUpperCase()}
-              buttonText={currentPlan === plan.title.toUpperCase() ? "Your current plan" : "Get started"}
-              onUpgrade={handleUpgrade}
-            />
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {plans.map((plan) => (
+              <PricingCard
+                key={plan.title}
+                {...plan}
+                isCurrentPlan={currentPlan === plan.title.toUpperCase()}
+                buttonText={currentPlan === plan.title.toUpperCase() ? "Your current plan" : "Get started"}
+                onUpgrade={handleUpgrade}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </MainLayout>
   );
 };
 
