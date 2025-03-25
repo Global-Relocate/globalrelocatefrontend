@@ -21,14 +21,16 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { isAuthenticated, logout, user } = useContext(AuthContext);
+  const [profilePic, setProfilePic] = useState(null);
+  const displayName = user?.username || user?.name || "User";
 
   const navLinks = [
     { href: "/", label: t("landingPage.navbar.home") },
     { href: "/user/countries", label: t("landingPage.navbar.countriesData") },
     // { href: "/user/community", label: t("landingPage.navbar.community") }, // Comment out community
     { href: "/user/tax-calculator", label: t("landingPage.navbar.tools") },
-    { href: "/pricing", label: t("landingPage.navbar.pricing") },
+    { href: "/upgrade", label: t("landingPage.navbar.pricing") },
   ];
 
   useEffect(() => {
@@ -99,12 +101,9 @@ const Navbar = () => {
       >
         <nav className="max-w-[1440px] mx-auto px-6 lg:px-10 py-4">
           <div className="flex items-center justify-between">
-            <button
-              onClick={() => navigate("/")}
-              className="flex items-center focus:outline-none"
-            >
+            <Link to="/" className="flex items-center focus:outline-none">
               <img src={logo} alt="Global Relocate Logo" className="h-12" />
-            </button>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center flex-1 justify-center">
@@ -115,43 +114,51 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center space-x-6">
               <SelectLanguages />
               {isAuthenticated ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="flex items-center justify-start space-x-1 p-2 rounded-3xl cursor-pointer hover:bg-gray-100 outline-none">
-                    <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-[#8F8F8F]">
-                      <LuUserRound className="h-4 w-4" />
-                    </div>
-                    <span className="text-xs">User</span>
-                    <IoChevronDownOutline className="text-gray-400" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-[200px]">
-                    <DropdownMenuItem
-                      className="cursor-pointer"
-                      onClick={() => navigate("/user/profile")}
-                    >
-                      View profile
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      className="cursor-pointer"
-                      onClick={() => navigate("/user/feedback")}
-                    >
-                      Give us feedback
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      onClick={() => navigate("/help")}
-                      className="cursor-pointer"
-                    >
-                      Help Center
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      className="cursor-pointer text-red-600 focus:text-red-600"
-                      onClick={handleLogout}
-                    >
-                      <LogOut className="h-4 w-4 mr-2" />
-                      Log Out
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="flex items-center justify-start space-x-1 p-2 rounded-3xl cursor-pointer hover:bg-gray-100 outline-none">
+                      <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-[#8F8F8F]">
+                        {profilePic ? (
+                          <img 
+                            src={profilePic} 
+                            alt="Profile" 
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <LuUserRound className="h-4 w-4" />
+                        )}
+                      </div>
+                      <span className="text-xs">{displayName}</span>
+                      <IoChevronDownOutline className="text-gray-400" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-[200px]">
+                      <DropdownMenuItem
+                        className="cursor-pointer"
+                        onClick={() => navigate("/user/profile")}
+                      >
+                        View profile
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => navigate("/help")}
+                        className="cursor-pointer"
+                      >
+                        Help Center
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        className="cursor-pointer"
+                        onClick={() => navigate("/user/feedback")}
+                      >
+                        Give us feedback
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center justify-center p-2 text-[#404040] hover:text-black transition-colors duration-200"
+                  >
+                    <LogOut className="h-5 w-5" />
+                  </button>
+                </>
               ) : (
                 <>
                   <button
@@ -187,12 +194,9 @@ const Navbar = () => {
         >
           <div className="flex flex-col h-full">
             <div className="flex justify-between items-center p-6 border-b border-gray-100">
-              <button
-                onClick={() => navigate("/")}
-                className="focus:outline-none"
-              >
+              <Link to="/" className="focus:outline-none">
                 <img src={logo} alt="Global Relocate Logo" className="h-10" />
-              </button>
+              </Link>
               <button
                 onClick={() => setIsDrawerOpen(false)}
                 className="text-gray-700 focus:outline-none"
