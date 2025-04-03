@@ -11,7 +11,7 @@ const HelpCenter = () => {
   return (
     <MainLayout>
       <div className="flex items-center flex-col">
-        <div className="w-full h-[250px] md:h-[480px] bg-[#FCA311] flex items-center justify-center">
+        <div className="w-full h-[250px] md:h-[480px] bg-white flex items-center justify-center">
           <h1 className="text-4xl md:text-7xl/[80px] mt-10 text-center font-semibold max-w-[80%] md:max-w-[430px]">
             We are here to help.
           </h1>
@@ -30,6 +30,7 @@ const HelpCenter = () => {
             {faqList.map((item, idx) => {
               return (
                 <AccordionItem
+                  key={idx}
                   className="border rounded-lg px-3"
                   value={`item-${idx + 1}`}
                 >

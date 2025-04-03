@@ -20,10 +20,7 @@ export const AiChatProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await axiosInstance.get("/ai/session");
-      const aisessions = response?.data?.data;
-      if (aisessions) {
-        setSessions(response.data.data);
-      }
+      setSessions(response.data.data);
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     } finally {
@@ -35,11 +32,13 @@ export const AiChatProvider = ({ children }) => {
   const startChatSession = async () => {
     setLoading(true);
     try {
-      const response = await axiosInstance.get("/ai/start");
-      setCurrentSession(response.data.session_id);
+      const { data } = await axiosInstance.get("/ai/start");
+      console.log("session", data)
+      const newSession = { id: data.data.sessionId, title: data.data.title };
+      setCurrentSession(newSession);
       setMessages([]); // Clear messages for the new session
       toast.success("New chat session started!");
-      return response.data; // Return the new session data
+      return newSession; // Return the new session data
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
       return null;
@@ -48,42 +47,13 @@ export const AiChatProvider = ({ children }) => {
     }
   };
 
-  // Send a message to the AI and handle the event stream
+  // Send a message to the AI
   const askAI = async (sessionId, message) => {
     setLoading(true);
     try {
-      const response = await axiosInstance.post(
-        `/ai/${sessionId}`,
-        { message },
-        {
-          responseType: "stream", // Enable streaming
-        }
-      );
-
-      let fullResponse = "";
-
-      // Process the event stream
-      response.data.on("data", (chunk) => {
-        const chunkStr = chunk.toString();
-        const lines = chunkStr.split("\n");
-
-        lines.forEach((line) => {
-          if (line.startsWith("data: ")) {
-            const data = JSON.parse(line.slice(6)); // Remove "data: " prefix
-            fullResponse += data.text; // Concatenate the text
-            updateMessage(sessionId, fullResponse); // Update the UI
-          }
-        });
-      });
-
-      response.data.on("end", () => {
-        // Mark the message as complete
-        updateMessage(sessionId, fullResponse, true);
-      });
-
-      response.data.on("error", (error) => {
-        throw new Error("Failed to process the event stream.");
-      });
+      await axiosInstance.post(`/ai/${sessionId}`, { message });
+      // Fetch the updated session to get the latest messages
+      await fetchSingleSession(sessionId);
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     } finally {
@@ -91,30 +61,19 @@ export const AiChatProvider = ({ children }) => {
     }
   };
 
-  // Update messages incrementally
-  const updateMessage = (sessionId, text, isComplete = false) => {
-    setMessages((prevMessages) => {
-      const updatedMessages = [...prevMessages];
-      const messageIndex = updatedMessages.findIndex(
-        (msg) => msg.sessionId === sessionId && !msg.isComplete
-      );
-
-      if (messageIndex === -1) {
-        // Add a new message
-        updatedMessages.push({
-          sessionId,
-          sender: "ai",
-          text,
-          isComplete,
-        });
-      } else {
-        // Update the existing message
-        updatedMessages[messageIndex].text = text;
-        updatedMessages[messageIndex].isComplete = isComplete;
-      }
-
-      return updatedMessages;
-    });
+  // Fetch a single session by ID
+  const fetchSingleSession = async (sessionId) => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.get(`/ai/session/${sessionId}`);
+      const { id, title } = response.data.data;
+      setCurrentSession({ id, title });
+      setMessages(response.data.data.messages || []);
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Clear a chat session
@@ -122,10 +81,11 @@ export const AiChatProvider = ({ children }) => {
     setLoading(true);
     try {
       await axiosInstance.delete(`/ai/${sessionId}`);
-      if (currentSession === sessionId) {
+      if (currentSession?.id === sessionId) {
         setCurrentSession(null);
         setMessages([]);
       }
+      await fetchAllSessions();
       toast.success("Chat session cleared!");
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -148,20 +108,6 @@ export const AiChatProvider = ({ children }) => {
     }
   };
 
-  // Fetch a single session by ID
-  const fetchSingleSession = async (sessionId) => {
-    setLoading(true);
-    try {
-      const response = await axiosInstance.get(`/ai/session/${sessionId}`);
-      setCurrentSession(sessionId);
-      setMessages(response.data.messages || []);
-    } catch (error) {
-      toast.error(error?.response?.data?.message || error?.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   // Fetch all sessions on component mount
   useEffect(() => {
     fetchAllSessions();
@@ -172,6 +118,7 @@ export const AiChatProvider = ({ children }) => {
       value={{
         sessions,
         currentSession,
+        setCurrentSession,
         loading,
         messages,
         startChatSession,
@@ -180,7 +127,6 @@ export const AiChatProvider = ({ children }) => {
         renameChatSession,
         fetchSingleSession,
         fetchAllSessions,
-        updateMessage,
       }}
     >
       {children}

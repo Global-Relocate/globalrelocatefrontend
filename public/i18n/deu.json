@@ -5,7 +5,7 @@
       "countriesData": "Länder & Daten",
       "community": "Community",
       "tools": "Tools",
-      "contact": "Kontakt"
+      "pricing": "Pricing"
     },
     "showcase": {
       "title": "Klüger umziehen, besser leben.",
@@ -75,7 +75,6 @@
       "searchText": "Nach Ländern suchen"
     }
   },
-
 
   "drawers": {
     "selectLanguages": {

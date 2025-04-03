@@ -2,16 +2,17 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import FilterButton from "@/components/user-buttons/FilterButton";
+// import FilterButton from "@/components/user-buttons/FilterButton";
 import { ArrowLeft, MapPin } from 'lucide-react';
 import { LuUserRound } from "react-icons/lu";
 import DashboardLayout from '@/components/layouts/DashboardLayout';
 import AccountSettings from './account-settings';
-import PostsTab from '@/components/profile/tabs/PostsTab';
-import CommentsTab from '@/components/profile/tabs/CommentsTab';
-import BookmarksTab from '@/components/profile/tabs/BookmarksTab';
+// import PostsTab from '@/components/profile/tabs/PostsTab';
+// import CommentsTab from '@/components/profile/tabs/CommentsTab';
+// import BookmarksTab from '@/components/profile/tabs/BookmarksTab';
 import { getUserProfile } from '@/services/api';
 import { showToast } from '@/components/ui/toast';
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -46,18 +47,18 @@ const Profile = () => {
     }
   };
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'posts':
-        return <PostsTab />;
-      case 'comments':
-        return <CommentsTab />;
-      case 'bookmarks':
-        return <BookmarksTab />;
-      default:
-        return null;
-    }
-  };
+  // const renderContent = () => {
+  //   switch (activeTab) {
+  //     case 'posts':
+  //       return <PostsTab />;
+  //     case 'comments':
+  //       return <CommentsTab />;
+  //     case 'bookmarks':
+  //       return <BookmarksTab />;
+  //     default:
+  //       return null;
+  //   }
+  // };
 
   return (
     <DashboardLayout>
@@ -73,8 +74,15 @@ const Profile = () => {
         {/* Profile Card */}
         <div className="bg-[#F8F7F7] rounded-2xl p-6 mb-8 border border-[#D4D4D4]">
           {isLoading ? (
-            <div className="flex justify-center items-center h-40">
-              <div className="w-8 h-8 border-4 border-black border-t-transparent rounded-full animate-spin" />
+            <div className="flex justify-between items-start mb-6">
+              <div className="flex flex-col items-start gap-4">
+                <Skeleton className="h-16 w-16 rounded-full" />
+                <div className="space-y-2">
+                  <Skeleton className="h-6 w-32" />
+                  <Skeleton className="h-4 w-24" />
+                </div>
+              </div>
+              <Skeleton className="h-10 w-24" />
             </div>
           ) : (
             <>
@@ -122,7 +130,7 @@ const Profile = () => {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-4 mb-6">
+        {/* <div className="flex gap-4 mb-6">
           <FilterButton
             title="Posts"
             isActive={activeTab === 'posts'}
@@ -138,10 +146,10 @@ const Profile = () => {
             isActive={activeTab === 'bookmarks'}
             onClick={() => setActiveTab('bookmarks')}
           />
-        </div>
+        </div> */}
 
         {/* Content */}
-        {renderContent()}
+        {/* {renderContent()} */}
 
         {/* Account Settings Modal */}
         <AccountSettings 

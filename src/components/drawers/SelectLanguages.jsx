@@ -47,12 +47,9 @@ const SelectLanguages = () => {
       </SheetTrigger>
       <SheetContent>
         <div className="pt-2">
-          <SheetHeader className="relative pb-4">
+          <SheetHeader className=" pb-4">
             <SheetTitle className="text-left">Select language</SheetTitle>
-            <div
-              onClick={() => setIsSheetOpen(false)}
-              className="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-200 -mx-6"
-            />
+
           </SheetHeader>
         </div>
         <div className="mt-10">
@@ -65,14 +62,14 @@ const SelectLanguages = () => {
           />
         </div>
         <div className="mt-6">
-          <SheetClose onClick={() => setIsSheetOpen(false)}>
-            <Button className="w-full h-[40px] bg-[#FCA311] text-black hover:text-white">
-              {t("drawers.selectLanguages.confirm")}
-            </Button>
-          </SheetClose>
+
+          <Button onClick={() => setIsSheetOpen(false)} className="w-full h-[40px] bg-[#FCA311] text-black hover:text-white">
+            {t("drawers.selectLanguages.confirm")}
+          </Button>
+
         </div>
       </SheetContent>
-    </Sheet>
+    </Sheet >
   );
 };
 

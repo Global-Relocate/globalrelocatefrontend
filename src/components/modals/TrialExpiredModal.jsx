@@ -1,11 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PropTypes from 'prop-types';
+import { useTrial } from '@/context/TrialContext';
 
 const TrialExpiredModal = ({ isOpen }) => {
   const navigate = useNavigate();
+  const { setShowTrialModal } = useTrial();
 
   if (!isOpen) return null;
+
+  const handleUpgrade = () => {
+    setShowTrialModal(false); // Close the modal
+    navigate('/upgrade');
+  };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">
@@ -20,7 +27,7 @@ const TrialExpiredModal = ({ isOpen }) => {
           </p>
           <div className="pt-4">
             <Button
-              onClick={() => navigate('/upgrade')}
+              onClick={handleUpgrade}
               className="bg-black hover:bg-black/90 text-white px-8 py-2.5 h-auto text-base rounded-xl"
             >
               See plan options

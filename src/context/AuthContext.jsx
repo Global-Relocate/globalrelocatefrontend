@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
       const parsedUser = JSON.parse(userInfo);
       setIsAuthenticated(true);
       setUser(parsedUser);
-      
+
       // Set the auth token in axios defaults if it exists
       if (parsedUser.token) {
         setAuthToken(parsedUser.token);

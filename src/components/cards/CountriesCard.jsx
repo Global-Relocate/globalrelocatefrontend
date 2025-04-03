@@ -2,6 +2,7 @@ import React from "react";
 import { GoHeart } from "react-icons/go";
 import heartIcon from "../../assets/svg/heart.svg";
 import pointerIcon from "../../assets/svg/pointer.svg";
+import { Link } from "react-router-dom";
 
 export default function CountriesCard({
   image,
@@ -10,7 +11,7 @@ export default function CountriesCard({
   sm,
   isLiked,
   onLikeToggle,
-  onClick
+  flagClassName = "w-6 h-6"
 }) {
   return (
     <div
@@ -36,28 +37,32 @@ export default function CountriesCard({
           sm ? (
             <GoHeart style={{ width: '1.3rem', height: '1.3rem' }} />
           ) : (
-            <>
+            <Link to="/user/countries" className="flex items-center gap-2">
               <img 
                 src={pointerIcon} 
                 alt="View" 
                 className="w-5 h-5" 
                 style={{ width: '1.3rem', height: '1.3rem' }} 
-              /> View
-            </>
+              /> 
+              <span>View</span>
+            </Link>
           )
         )}
       </button>
-      <img
-        src={image}
-        className={`w-full rounded-2xl object-cover ${sm ? "h-[320px]" : "h-[500px]"}`}
-        alt=""
-        onClick={onClick}
-      />
+
+      <Link to="/user/countries" className="w-full">
+        <img
+          src={image}
+          className={`w-full rounded-2xl object-cover ${sm ? "h-[320px]" : "h-[500px]"}`}
+          alt={location}
+        />
+      </Link>
+
       <div className="flex items-center justify-start space-x-2">
         <img
           src={countryFlag}
-          className="w-7 h-7 rounded-full object-cover"
-          alt="logo"
+          alt={`${location} flag`}
+          className={`rounded-full ${flagClassName}`}
         />
         <span>{location}</span>
       </div>

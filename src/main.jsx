@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
@@ -15,27 +14,25 @@ import "@/i18n/i18n"
 import { AiChatProvider } from "./context/AiChatContext";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <FavoritesProvider>
-          <BookmarkProvider>
-            <LanguageProvider>
-              <NotificationsProvider>
-                <UndoProvider>
-                  <CountryDataProvider>
-                    <AiChatProvider>
+  <BrowserRouter>
+    <AuthProvider>
+      <FavoritesProvider>
+        <BookmarkProvider>
+          <LanguageProvider>
+            <NotificationsProvider>
+              <UndoProvider>
+                <CountryDataProvider>
+                  <AiChatProvider>
 
-                      <Toaster />
-                      <App />
-                    </AiChatProvider>
-                  </CountryDataProvider>
-                </UndoProvider>
-              </NotificationsProvider>
-            </LanguageProvider>
-          </BookmarkProvider>
-        </FavoritesProvider>
-      </AuthProvider>
-    </BrowserRouter>
-  </StrictMode>
+                    <Toaster />
+                    <App />
+                  </AiChatProvider>
+                </CountryDataProvider>
+              </UndoProvider>
+            </NotificationsProvider>
+          </LanguageProvider>
+        </BookmarkProvider>
+      </FavoritesProvider>
+    </AuthProvider>
+  </BrowserRouter>
 );

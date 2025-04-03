@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import favoriteIcon from "../../assets/svg/favorite.svg";
 import heartIcon from "../../assets/svg/heart.svg";
 import { BsThreeDots } from "react-icons/bs";
 import { BiLink } from "react-icons/bi";
 import { FiFlag } from "react-icons/fi";
-import { IoEyeOffOutline } from "react-icons/io5";
 import { Loader2 } from "lucide-react";
 import { PiChatCircle } from "react-icons/pi";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -35,6 +34,18 @@ import CommentThread from './CommentThread';
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { FiEdit3 } from "react-icons/fi";
 import { HiOutlineTrash } from "react-icons/hi";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Skeleton } from "@/components/ui/skeleton";
+import { usePosts } from "@/context/PostContext";
+import { useComments } from "@/context/CommentContext";
+import { showToast } from "@/components/ui/toast";
+import { getSinglePost, createComment, getPostComments, replyToComment, getCommentReplies, editComment as editCommentApi, deleteComment as deleteCommentApi, likePost, getPostLikes, likeComment, getCommentLikes } from "@/services/api";
+import { CommentThreadSkeleton } from "@/components/community/CommentSkeleton";
 
 const ImageGrid = ({ images }) => {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -239,6 +250,42 @@ StackedAvatars.propTypes = {
   ).isRequired,
 };
 
+export const LikesDialog = ({ isOpen, onClose, likers, className }) => (
+  <Dialog open={isOpen} onOpenChange={onClose}>
+    <DialogContent className={`w-[calc(100%-2rem)] sm:w-full max-w-md p-6 ${className || ''}`}>
+      <DialogHeader>
+        <DialogTitle className="text-start">Likes</DialogTitle>
+      </DialogHeader>
+      <div className="max-h-[60vh] overflow-y-auto">
+        {likers.map((liker) => (
+          <div key={liker.id} className="flex items-center gap-3 py-2">
+            <img 
+              src={liker.profilePic} 
+              alt={liker.username} 
+              className="w-10 h-10 rounded-full" 
+            />
+            <div className="flex flex-col">
+              <span className="font-medium">{liker.username}</span>
+              <span className="text-sm text-gray-500">{liker.fullName}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </DialogContent>
+  </Dialog>
+);
+
+// Helper function to determine like icon
+const getLikeIcon = (isLiked) => {
+  return isLiked ? heartIcon : favoriteIcon;
+};
+
+// Helper function to format count text
+const formatCountText = (count, singularText, pluralText) => {
+  if (count <= 0) return '';
+  return count === 1 ? `1 ${singularText}` : `${count} ${pluralText}`;
+};
+
 const CommunityPostCard = ({ 
   avatar, 
   name, 
@@ -249,12 +296,16 @@ const CommunityPostCard = ({
   likers = [],
   likesCount: initialLikesCount, 
   commentsCount: initialCommentsCount,
-  comments = [],
-  currentUserId
+  currentUserId,
+  id,
+  isOwnPost,
+  onEdit,
+  onDelete,
+  isLiked: initialIsLiked = false,
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
-  const [localComments, setLocalComments] = useState(comments);
+  const [postComments, setPostComments] = useState([]);
   const [likesCount, setLikesCount] = useState(initialLikesCount);
   const [commentsCount, setCommentsCount] = useState(initialCommentsCount);
   const { toggleBookmark, isBookmarked } = useBookmarks();
@@ -272,111 +323,150 @@ const CommunityPostCard = ({
   };
   const bookmarked = isBookmarked(post);
   const [isDropdownLoading, setIsDropdownLoading] = useState(false);
+  const [showLikes, setShowLikes] = useState(false);
+  const [showComments, setShowComments] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { addPost, deletePost } = usePosts();
+  const { addComment } = useComments();
+  const [localPosts, setLocalPosts] = useState([]);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
+  const [editContent, setEditContent] = useState(content);
+  const [editImages, setEditImages] = useState(images);
+  const [isLoadingComments, setIsLoadingComments] = useState(false);
+  const [likersList, setLikersList] = useState([]);
+  const [isLiking, setIsLiking] = useState(false);
+  const [isLoadingLikes, setIsLoadingLikes] = useState(false);
 
-  const isOwnPost = currentUserId === name;
+  useEffect(() => {
+    setIsLiked(initialIsLiked);
+  }, [initialIsLiked]);
 
-  const handleLikeToggle = () => {
-    setIsLiked(!isLiked);
-    setLikesCount(prevCount => isLiked ? prevCount - 1 : prevCount + 1);
+  const checkIfUserLiked = async () => {
+    try {
+      setIsLoadingLikes(true);
+      const response = await getPostLikes(id);
+      if (response.success) {
+        const userLike = response.data.find(like => like.id === currentUserId);
+        
+        setIsLiked(!!userLike);
+        setLikersList(response.data);
+        setLikesCount(response.pagination.total);
+      }
+    } catch (error) {
+      console.error('Error fetching likes:', error);
+    } finally {
+      setIsLoadingLikes(false);
+    }
   };
 
-  const handleCommentSubmit = (comment, image) => {
-    const newComment = {
-      id: Date.now().toString(),
-      userId: currentUserId,
-      author: name,
-      avatar: avatar,
-      content: comment,
-      timeAgo: 'Just now',
-      image: image,
-      likesCount: 0,
-      isLikedByUser: false,
-      replies: []
-    };
-    setLocalComments(prev => [...prev, newComment]);
-    setCommentsCount(prevCount => prevCount + 1);
-    setShowCommentInput(false);
-  };
+  useEffect(() => {
+    checkIfUserLiked();
+  }, [id, currentUserId]);
 
-  const handleReply = (parentId, replyText, image) => {
-    const newReply = {
-      id: Date.now().toString(),
-      userId: currentUserId,
-      author: name,
-      avatar: avatar,
-      content: replyText,
-      timeAgo: 'Just now',
-      image: image,
-      likesCount: 0,
-      isLikedByUser: false,
-      replies: []
-    };
-
-    const updateReplies = (comments) => {
-      return comments.map(comment => {
-        if (comment.id === parentId) {
-          return {
-            ...comment,
-            replies: [...(comment.replies || []), newReply]
-          };
-        }
-        if (comment.replies) {
-          return {
-            ...comment,
-            replies: updateReplies(comment.replies)
-          };
-        }
-        return comment;
+  const handleLikeToggle = async () => {
+    if (isLiking) return;
+    
+    const previousState = isLiked;
+    const previousCount = likesCount;
+    
+    try {
+      setIsLiking(true);
+      const response = await likePost(id);
+      
+      if (response.success) {
+        const newLikeState = response.data.action === 'liked';
+        setIsLiked(newLikeState);
+        setLikesCount(response.data.likeCount);
+        
+        await checkIfUserLiked();
+      }
+    } catch (error) {
+      setIsLiked(previousState);
+      setLikesCount(previousCount);
+      console.error('Error toggling like:', error);
+      showToast({
+        message: "Failed to like/unlike post",
+        type: "error"
       });
-    };
-
-    setLocalComments(updateReplies(localComments));
-    setCommentsCount(prevCount => prevCount + 1);
+    } finally {
+      setIsLiking(false);
+    }
   };
 
-  const handleCommentEdit = (commentId, newContent, newImage) => {
-    const updateComments = (comments) => {
-      return comments.map(comment => {
-        if (comment.id === commentId) {
-          return {
-            ...comment,
-            content: newContent,
-            image: newImage
-          };
-        }
-        if (comment.replies) {
-          return {
-            ...comment,
-            replies: updateComments(comment.replies)
-          };
-        }
-        return comment;
-      });
-    };
+  const handleCommentSubmit = async (text, media) => {
+    try {
+      if (!text.trim() && !media) return;
 
-    setLocalComments(updateComments(localComments));
+      const formData = new FormData();
+      if (text.trim()) {
+        formData.append('text', text.trim());
+      }
+      if (media) {
+        formData.append('media', media);
+      }
+
+      const response = await createComment(id, text, media);
+      if (response.success) {
+        await fetchComments();
+        setShowCommentInput(false);
+      }
+    } catch (error) {
+      console.error('Error creating comment:', error);
+      showToast({
+        message: "Failed to post comment",
+        type: "error"
+      });
+    }
   };
 
-  const handleCommentDelete = (commentId) => {
-    const deleteFromComments = (comments) => {
-      return comments.filter(comment => {
-        if (comment.id === commentId) {
-          setCommentsCount(prevCount => prevCount - 1);
-          return false;
-        }
-        if (comment.replies) {
-          comment.replies = deleteFromComments(comment.replies);
-        }
-        return true;
+  const handleReply = async (commentId, text, media) => {
+    try {
+      const response = await replyToComment(commentId, id, text, media);
+      if (response.success) {
+        await fetchComments();
+      }
+    } catch (error) {
+      console.error('Error replying to comment:', error);
+      showToast({
+        message: "Failed to post reply",
+        type: "error"
       });
-    };
+    }
+  };
 
-    setLocalComments(deleteFromComments(localComments));
+  const handleCommentEdit = async (commentId, text, media) => {
+    try {
+      const response = await editCommentApi(commentId, text, media);
+      if (response.success) {
+        await fetchComments();
+      }
+    } catch (error) {
+      console.error('Error editing comment:', error);
+      showToast({
+        message: "Failed to edit comment",
+        type: "error"
+      });
+    }
+  };
+
+  const handleCommentDelete = async (commentId) => {
+    try {
+      const response = await deleteCommentApi(commentId);
+      if (response.success) {
+        await fetchComments();
+      }
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+      showToast({
+        message: "Failed to delete comment",
+        type: "error"
+      });
+    }
   };
 
   const handleDropdownClick = () => {
     setIsDropdownLoading(true);
-    // Simulate loading for 500ms
     setTimeout(() => {
       setIsDropdownLoading(false);
     }, 500);
@@ -396,9 +486,121 @@ const CommunityPostCard = ({
     return <ImageGrid images={images} />;
   };
 
+  const handlePostSubmit = (content, images) => {
+    const newPost = {
+      avatar: avatar,
+      name: name,
+      timeAgo: timeAgo,
+      content: content,
+      images: images,
+      likers: [],
+      likesCount: 0,
+      commentsCount: 0,
+      comments: []
+    };
+    
+    addPost(newPost);
+    setLocalPosts(prevPosts => [newPost, ...prevPosts]);
+    setPostComments(prev => [...prev, newPost]);
+    setLikesCount(prev => prev + 1);
+    setCommentsCount(prev => prev + 1);
+    setShowCommentInput(false);
+  };
+
+  const handleEditPost = () => {
+    const updatedPost = {
+      avatar,
+      name,
+      timeAgo,
+      content: editContent,
+      images: editImages,
+      likers,
+      likesCount,
+      commentsCount,
+      id
+    };
+    addPost(updatedPost);
+    setIsEditModalOpen(false);
+  };
+
+  const handleDeletePost = () => {
+    deletePost(id);
+    setIsDeleteConfirmOpen(false);
+  };
+
+  const handleEditClick = () => {
+    onEdit();
+  };
+
+  const handleDeleteClick = async () => {
+    if (await onDelete(id)) {
+      setIsDeleteConfirmOpen(false);
+    }
+  };
+
+  const handleCopyLink = async (postId) => {
+    try {
+      const postUrl = `${window.location.origin}/user/community/post/${postId}`;
+      
+      await navigator.clipboard.writeText(postUrl);
+      
+      showToast({
+        message: "Post link copied to clipboard",
+        type: "success"
+      });
+    } catch (error) {
+      console.error('Error copying link:', error);
+      showToast({
+        message: "Failed to copy link",
+        type: "error"
+      });
+    }
+  };
+
+  const fetchComments = async () => {
+    try {
+      setIsLoadingComments(true);
+      const response = await getPostComments(id);
+      if (response.success) {
+        setPostComments(response.data);
+        setCommentsCount(response.pagination.total);
+      }
+    } catch (error) {
+      console.error('Error fetching comments:', error);
+      showToast({
+        message: "Failed to load comments",
+        type: "error"
+      });
+    } finally {
+      setIsLoadingComments(false);
+    }
+  };
+
+  const handleShowLikes = async () => {
+    try {
+      const response = await getPostLikes(id);
+      if (response.success) {
+        setLikersList(response.data);
+        setShowLikes(true);
+      }
+    } catch (error) {
+      console.error('Error fetching likes:', error);
+      showToast({
+        message: "Failed to load likes",
+        type: "error"
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (showComments) {
+      fetchComments();
+    }
+  }, [showComments]);
+
   return (
     <TooltipProvider>
-      <div className="w-full bg-[#F8F7F7] border border-[#D4D4D4] rounded-2xl mb-6">
+      <div className="w-full bg-[#F8F7F7] rounded-2xl mb-6">
         <div className="px-6 pt-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
@@ -444,31 +646,35 @@ const CommunityPostCard = ({
                   {isOwnPost ? (
                     <>
                       <DropdownMenuItem 
+                        onClick={handleEditClick}
                         className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                       >
                         <FiEdit3 size={18} />
-                        <span>Edit</span>
+                        <span>Edit Post</span>
                       </DropdownMenuItem>
                       <DropdownMenuItem 
+                        onClick={() => setIsDeleteConfirmOpen(true)}
                         className="text-red-600 gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                       >
                         <HiOutlineTrash size={18} />
-                        <span>Delete</span>
+                        <span>Delete Post</span>
                       </DropdownMenuItem>
-                    </>
-                  ) : (
-                    <>
                       <DropdownMenuItem 
+                        onClick={() => handleCopyLink(id)}
                         className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                       >
                         <BiLink size={18} />
                         <span>Copy link to post</span>
                       </DropdownMenuItem>
+                    </>
+                  ) : (
+                    <>
                       <DropdownMenuItem 
+                        onClick={() => handleCopyLink(id)}
                         className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                       >
-                        <IoEyeOffOutline size={18} />
-                        <span>I don&apos;t want to see this</span>
+                        <BiLink size={18} />
+                        <span>Copy link to post</span>
                       </DropdownMenuItem>
                       <DropdownMenuItem 
                         className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
@@ -498,19 +704,33 @@ const CommunityPostCard = ({
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
                   <StackedAvatars likers={likers} />
-                  <div className="flex items-center gap-2">
-                    {isLiked && (
-                      <img 
-                        src="/src/assets/svg/filledfavorite.svg" 
-                        alt="Liked" 
-                        className="w-4 h-4"
-                        style={{ filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)' }}
-                      />
-                    )}
-                    <span className="text-sm text-gray-600">{likesCount} likes</span>
+                  {loading ? (
+                    <Skeleton className="h-4 w-20" />
+                  ) : (
+                    <button 
+                      className="text-sm text-gray-600 hover:text-gray-900"
+                      onClick={handleShowLikes}
+                    >
+                      {isLoadingLikes ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        formatCountText(likesCount, 'like', 'likes')
+                      )}
+                    </button>
+                  )}
                   </div>
+                <div className="flex items-center gap-3">
+                  {loading ? (
+                    <Skeleton className="h-4 w-20" />
+                  ) : (
+                    <button 
+                      className="text-sm text-gray-600 hover:text-gray-900"
+                      onClick={() => setShowComments(true)}
+                    >
+                      {formatCountText(commentsCount, 'comment', 'comments')}
+                    </button>
+                  )}
                 </div>
-                <span className="text-sm text-gray-600">{commentsCount} comments</span>
               </div>
               <div className="flex items-center gap-4">
                 <Tooltip>
@@ -532,15 +752,28 @@ const CommunityPostCard = ({
 
                 <Tooltip>
                   <TooltipTrigger>
-                    <img 
-                      src={isLiked ? heartIcon : favoriteIcon} 
-                      alt="Like" 
-                      className="w-5 h-5 cursor-pointer hover:text-[#5762D5]"
+                    <button 
+                      className="relative"
                       onClick={handleLikeToggle}
-                    />
+                      disabled={isLiking}
+                    >
+                      <img 
+                        src={getLikeIcon(isLiked)}
+                        alt={isLiked ? "Unlike" : "Like"}
+                        className={`w-5 h-5 cursor-pointer transition-opacity duration-200 ${isLiking ? 'opacity-50' : ''}`}
+                        style={isLiked ? {
+                          filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)'
+                        } : undefined}
+                      />
+                      {isLiking && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Loader2 className="h-3 w-3 animate-spin" />
+                        </div>
+                      )}
+                    </button>
                   </TooltipTrigger>
                   <TooltipContent className="bg-[#5762D5]">
-                    <span>Like</span>
+                    <span>{isLiked ? 'Unlike' : 'Like'}</span>
                   </TooltipContent>
                 </Tooltip>
               </div>
@@ -556,49 +789,102 @@ const CommunityPostCard = ({
           />
         )}
 
-        {localComments.length > 0 && (
+        {showComments && (
+          <div>
+            {isLoadingComments ? (
+              <CommentThreadSkeleton />
+            ) : postComments && postComments.length > 0 ? (
           <CommentThread
-            comments={localComments}
+                comments={postComments}
             currentUserAvatar={avatar}
-            currentUserId={name}
+                currentUserId={currentUserId}
             onAddComment={handleCommentSubmit}
             onReply={handleReply}
             onEdit={handleCommentEdit}
             onDelete={handleCommentDelete}
+              />
+            ) : (
+              <div className="px-6 py-4 text-center text-gray-500">
+                No comments yet
+              </div>
+            )}
+          </div>
+        )}
+
+        {!showComments && commentsCount > 0 && (
+          <button
+            className="px-6 py-2 text-sm text-[#5762D5] hover:underline"
+            onClick={() => {
+              setShowComments(true);
+              fetchComments();
+            }}
+          >
+            {commentsCount === 1 
+              ? 'View comment' 
+              : `View all ${commentsCount} comments`}
+          </button>
+        )}
+
+        {showLikes && (
+          <LikesDialog
+            isOpen={showLikes}
+            onClose={() => setShowLikes(false)}
+            likers={likersList}
+            className="rounded-lg"
           />
         )}
+
+        <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
+          <DialogContent>
+            <form onSubmit={handleEditPost}>
+              <textarea 
+                value={editContent} 
+                onChange={(e) => setEditContent(e.target.value)} 
+                placeholder="Edit your post..."
+              />
+              <button type="submit">Save Changes</button>
+            </form>
+          </DialogContent>
+        </Dialog>
+
+        <Dialog open={isDeleteConfirmOpen} onOpenChange={setIsDeleteConfirmOpen}>
+          <DialogContent className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-[calc(100%-2rem)] sm:w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
+            <p className="mb-4">Are you sure you want to delete this post?</p>
+            <div className="flex justify-end space-x-2">
+              <button 
+                onClick={() => setIsDeleteConfirmOpen(false)} 
+                className="text-black px-4 py-2"
+              >
+                Cancel
+              </button>
+              <button 
+                onClick={handleDeleteClick} 
+                className="text-red-600 px-4 py-2"
+              >
+                Delete
+              </button>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </TooltipProvider>
   );
 };
 
 CommunityPostCard.propTypes = {
+  id: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   timeAgo: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   images: PropTypes.arrayOf(PropTypes.string),
-  mediaType: PropTypes.oneOf(['image', 'video']),
-  likers: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-    })
-  ),
   likesCount: PropTypes.number.isRequired,
   commentsCount: PropTypes.number.isRequired,
-  comments: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      timeAgo: PropTypes.string.isRequired,
-      image: PropTypes.string,
-      replies: PropTypes.arrayOf(PropTypes.object),
-    })
-  ),
   currentUserId: PropTypes.string.isRequired,
+  isOwnPost: PropTypes.bool.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  isLiked: PropTypes.bool,
 };
 
 export default CommunityPostCard;

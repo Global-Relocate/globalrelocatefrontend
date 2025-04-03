@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import Landing from "./pages/unauthenticated/Landing";
 import Login from "./pages/unauthenticated/Login";
 import Signup from "./pages/unauthenticated/Signup";
@@ -9,7 +9,7 @@ import Welcome from "./pages/unauthenticated/welcome";
 import OAuthCallback from "./pages/unauthenticated/oauth-callback";
 import NotFound from "./pages/unauthenticated/not-found";
 import { TrialProvider, useTrial } from "./context/TrialContext";
-// import TrialExpiredModal from "./components/modals/TrialExpiredModal";
+import TrialExpiredModal from "./components/modals/TrialExpiredModal";
 
 import Countries from "./pages/user/Countries";
 import AiAssistant from "./pages/user/ai-assistant";
@@ -32,6 +32,19 @@ import { useEffect, useState } from "react";
 import PageLoader from "./components/loaders/PageLoader";
 import "./App.css";
 import ScrollToTop from "./utils/ScrollToTop";
+import { PostProvider } from "@/context/PostContext";
+import { CommentProvider } from "@/context/CommentContext";
+import SinglePost from "@/pages/user/SinglePost";
+
+const RouteGuard = ({ children }) => {
+  const location = useLocation();
+  
+  if (location.pathname.includes('checkout')) {
+    return <Navigate to="/upgrade" replace />;
+  }
+  
+  return children;
+};
 
 const AppContent = () => {
   const { showTrialModal } = useTrial();
@@ -65,39 +78,44 @@ const AppContent = () => {
   return (
     <>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/verifymail" element={<VerifyEmail />} />
-        <Route path="/resetpassword" element={<ResetPassword />} />
-        <Route path="/oauth/callback" element={<OAuthCallback />} />
-        <Route path="/welcome" element={<Welcome />} />
-        <Route path="/upgrade" element={<Upgrade />} />
-        <Route path="/trialexpired" element={<TrialExpired />} />
-        <Route path="/help" element={<HelpCenter />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/term" element={<TermsAndConditions />} />
+      <RouteGuard>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/verifymail" element={<VerifyEmail />} />
+          <Route path="/resetpassword" element={<ResetPassword />} />
+          <Route path="/oauth/callback" element={<OAuthCallback />} />
+          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/upgrade" element={<Upgrade />} />
+          <Route path="/trialexpired" element={<TrialExpired />} />
+          <Route path="/help" element={<HelpCenter />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/term" element={<TermsAndConditions />} />
 
-        {/* Dashboard routes */}
-        <Route path="/user">
-          <Route path="countries" element={<Countries />} />
-          <Route path="countries/:id" element={<CountryDetails />} />
-          <Route path="ai-assistant" element={<AiAssistant />} />
-          <Route path="compare" element={<CompareCountries />} />
-          <Route path="tax-calculator" element={<TaxCalculator />} />
-          <Route path="notifications" element={<Notifications />} />
-          <Route path="favorites" element={<Favorites />} />
-          <Route path="community" element={<Community />} />
-          <Route path="feedback" element={<Feedback />} />
-          <Route path="profile" element={<Profile />} />
-        </Route>
+          {/* Dashboard routes */}
+          <Route path="/user">
+            <Route path="countries" element={<Countries />} />
+            <Route path="countries/:id" element={<CountryDetails />} />
+            <Route path="ai-assistant" element={<AiAssistant />} />
+            <Route path="ai-assistant/:sessionId" element={<AiAssistant />} />
+            <Route path="compare" element={<CompareCountries />} />
+            <Route path="tax-calculator" element={<TaxCalculator />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="favorites" element={<Favorites />} />
+            <Route path="community" element={<PostProvider><Community /></PostProvider>} />
+            <Route path="feedback" element={<Feedback />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          <Route path="/user/community/post/:postId" element={<SinglePost />} />
 
-      {/* <TrialExpiredModal isOpen={showTrialModal} /> */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </RouteGuard>
+
+      <TrialExpiredModal isOpen={showTrialModal} />
     </>
   );
 };
@@ -105,7 +123,11 @@ const AppContent = () => {
 function App() {
   return (
     <TrialProvider>
-      <AppContent />
+      <PostProvider>
+        <CommentProvider>
+          <AppContent />
+        </CommentProvider>
+      </PostProvider>
     </TrialProvider>
   );
 }

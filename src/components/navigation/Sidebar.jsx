@@ -5,6 +5,7 @@ import CounterBadge from "../common/CounterBadge";
 import { useFavorites } from "@/context/favorites-context";
 import CountdownTimer from "../common/CountdownTimer";
 import { useTranslation } from "react-i18next";
+import { useNotifications } from '@/context/NotificationsContext';
 
 import countriesIcon from "../../assets/svg/countries.svg";
 import aiAssistantIcon from "../../assets/svg/ai.svg";
@@ -23,6 +24,7 @@ function Sidebar({ navState }) {
   const { t } = useTranslation();
   const location = useLocation();
   const { favorites } = useFavorites();
+  const { unreadCount } = useNotifications();
 
   const navData = [
     {
@@ -57,6 +59,7 @@ function Sidebar({ navState }) {
       path: "/user/notifications",
       icon: bellIcon,
       activeIcon: bellActiveIcon,
+      count: unreadCount
     },
     {
       title: t("userDashboard.sidebar.favourites"),
@@ -65,13 +68,13 @@ function Sidebar({ navState }) {
       icon: favoriteIcon,
       activeIcon: filledfavoriteIcon,
     },
-    {
-      title: t("userDashboard.sidebar.community"),
-      activeKey: "/user/community",
-      path: "/user/community",
-      icon: communityIcon,
-      activeIcon: communityActiveIcon,
-    },
+    // {
+    //   title: t("userDashboard.sidebar.community"),
+    //   activeKey: "/user/community",
+    //   path: "/user/community",
+    //   icon: communityIcon,
+    //   activeIcon: communityActiveIcon,
+    // },
   ];
   return (
     <div
@@ -104,9 +107,7 @@ function Sidebar({ navState }) {
                   />
                   <span className="text-sm">{item.title}</span>
                 </div>
-                {item.title === "Favorites" && (
-                  <CounterBadge count={favorites.length} />
-                )}
+                {item.count > 0 && <CounterBadge count={item.count} />}
               </Link>
             );
           })}
