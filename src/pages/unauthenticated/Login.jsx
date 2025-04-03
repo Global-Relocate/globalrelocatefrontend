@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AuthContext } from "../../context/AuthContext";
 import logo from "../../assets/svg/logo.svg";
-import microsoftIcon from "../../assets/svg/microsoft.svg";
+// import microsoftIcon from "../../assets/svg/microsoft.svg";
 import { 
   loginUser, 
   initiateGoogleAuth, 
@@ -279,7 +279,8 @@ export default function Login() {
               <BsArrowLeft className="rotate-180" />
             </button>
 
-            <button
+            {/* Commented out Microsoft login button */}
+            {/* <button
               onClick={handleMicrosoftLogin}
               disabled={loading}
               className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -289,13 +290,13 @@ export default function Login() {
                 <span>Continue with Microsoft</span>
               </div>
               <BsArrowLeft className="rotate-180" />
-            </button>
+            </button> */}
           </div>
         </div>
 
         <div className="mt-6 text-center">
           <Link to="/forgotpassword" className="text-sm text-gray-600 hover:text-gray-800">
-            Can't log in?
+            Can&apos;t log in?
           </Link>
         </div>
 

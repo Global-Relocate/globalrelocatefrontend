@@ -8,7 +8,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import SignupForm from "../../components/forms/SignupForm";
 import logo from "../../assets/svg/logo.svg";
-import microsoftIcon from "../../assets/svg/microsoft.svg";
+// import microsoftIcon from "../../assets/svg/microsoft.svg";
 import { initiateGoogleAuth, initiateMicrosoftAuth } from "../../services/api";
 
 export default function Signup() {
@@ -240,17 +240,18 @@ export default function Signup() {
           <BsArrowLeft className="rotate-180" />
         </button>
 
-        <button
-          onClick={handleMicrosoftLogin}
-          disabled={loading}
-          className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5] disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <div className="flex items-center">
-            <img src={microsoftIcon} alt="Microsoft" className="h-5 w-5 mr-3" /> {/* Use the SVG icon */}
-            <span className="text-gray-700">Continue with Microsoft</span>
-          </div>
-          <BsArrowLeft className="rotate-180" />
-        </button>
+        {/* Commented out Microsoft login button */}
+            {/* <button
+              onClick={handleMicrosoftLogin}
+              disabled={loading}
+              className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <div className="flex items-center">
+                <img src={microsoftIcon} alt="Microsoft" className="h-5 w-5 mr-3" />
+                <span>Continue with Microsoft</span>
+              </div>
+              <BsArrowLeft className="rotate-180" />
+            </button> */}
 
         <button 
           onClick={handleEmailSignup}
