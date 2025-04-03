@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AuthContext } from "../../context/AuthContext";
 import logo from "../../assets/svg/logo.svg";
-import microsoftIcon from "../../assets/svg/microsoft.svg";
+// import microsoftIcon from "../../assets/svg/microsoft.svg";
 import { 
   loginUser, 
   initiateGoogleAuth, 
@@ -77,15 +77,8 @@ export default function Login() {
       // Store the exact user data structure from the API response
       login(response.accessToken, response.data.user);
       
-      // // Navigate to welcome page
-      // navigate("/welcome", { 
-      //   state: { 
-      //     username: response.data.user.fullName
-      //   } 
-      // });
-
-      // Navigate to dashboard page
-      navigate("/user/countries", { 
+      // Navigate to welcome page
+      navigate("/welcome", { 
         state: { 
           username: response.data.user.fullName
         } 
@@ -286,6 +279,7 @@ export default function Login() {
               <BsArrowLeft className="rotate-180" />
             </button>
 
+            {/* Commented out Microsoft login button */}
             {/* <button
               onClick={handleMicrosoftLogin}
               disabled={loading}
@@ -315,7 +309,7 @@ export default function Login() {
 
         <p className="mt-8 text-sm text-gray-600 text-center">
           By clicking creating an account, you agree to our{" "}
-          <Link to="/term" className="underline hover:text-gray-800">
+          <Link to="/terms" className="underline hover:text-gray-800">
             Terms of Service
           </Link>{" "}
           and{" "}
