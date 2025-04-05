@@ -12,8 +12,8 @@ const CountryDataContext = createContext();
 
 export const CountryDataProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
-  const [countryList, setCountryList] = useState([])
-  const [compareData, setCompareData] = useState(null)
+  const [countryList, setCountryList] = useState([]);
+  const [compareData, setCompareData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [compareLoader, setCompareLoader] = useState(false);
   const [page, setPage] = useState(1);
@@ -21,6 +21,7 @@ export const CountryDataProvider = ({ children }) => {
   const [singleCountry, setSingleCountry] = useState(null);
   const [search, setSearch] = useState("");
   const [continent, setContinent] = useState("");
+  const [favourites, setFavourites] = useState([]);
 
   useEffect(() => {
     fetchCountries(true);
@@ -76,19 +77,31 @@ export const CountryDataProvider = ({ children }) => {
       setLoading(false);
     }
   };
-  const compareCountries = async (firstCountryId,
-    secondCountryId) => {
+  const compareCountries = async (firstCountryId, secondCountryId) => {
     setCompareLoader(true);
     try {
       const response = await axiosInstance.post(`/countries/compare`, {
         firstCountryId,
-        secondCountryId
+        secondCountryId,
       });
       setCompareData(response.data.data);
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     } finally {
       setCompareLoader(false);
+    }
+  };
+
+  const getFavouriteCountries = async () => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.get("/countries/favourite");
+
+      setFavourites(response.data.data);
+    } catch (err) {
+      toast.error(err?.response?.data?.message || err?.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -111,7 +124,9 @@ export const CountryDataProvider = ({ children }) => {
         countryList,
         compareCountries,
         compareData,
-        compareLoader
+        compareLoader,
+        favourites,
+        getFavouriteCountries,
       }}
     >
       {children}

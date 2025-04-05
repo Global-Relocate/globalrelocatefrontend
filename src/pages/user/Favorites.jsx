@@ -1,65 +1,76 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GrFavorite } from "react-icons/gr";
 import { useFavorites } from "@/context/favorites-context";
 import CountriesDashCard from "@/components/cards/CountriesDashCard";
 import SearchInput from "@/components/inputs/SearchInput";
+import { useCountryData } from "@/context/CountryDataContext";
+import nigeria from "../../assets/images/nigeria.png";
+import swizerland from "../../assets/images/swizerland.png";
 
 function Favorites() {
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  try {
-    const { favorites, toggleFavorite, isFavorite } = useFavorites();
-    const [searchQuery, setSearchQuery] = useState("");
+  const { favourites, getFavouriteCountries } = useCountryData();
+  useEffect(() => {
+    getFavouriteCountries();
+  }, []);
 
-    const filteredFavorites = favorites.filter((country) =>
-      country.location.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+  // const { toggleFavorite } = useFavorites(); // uncomment if needed
 
-    if (error) {
-      return <div>Error: {error.message}</div>;
+  const filteredFavorites =
+    favourites?.filter((country) =>
+      country.countryName.toLowerCase().startsWith(searchQuery.toLowerCase())
+    ) || [];
+
+  useEffect(() => {
+    // Optional: handle errors if needed
+    if (!favourites) {
+      setError(new Error("Favorites not found"));
     }
+  }, [favourites]);
 
-    return (
-      <DashboardLayout>
-        <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
-          <h2 className="text-3xl font-medium">Favorites</h2>
-          {favorites?.length > 0 && (
-            <div className="flex w-full sm:w-auto items-center space-x-2">
-              <SearchInput
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-          )}
-        </div>
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
-        {!favorites?.length ? (
-          <div className="flex flex-col items-center justify-center h-[45vh]">
-            <GrFavorite size={36} className="mb-4 text-gray-600" />
-            <p className="text-gray-600">You haven't liked any favorites yet.</p>
-          </div>
-        ) : (
-          <div className="flex items-center justify-between flex-wrap gap-y-10 py-10">
-            {filteredFavorites.map((country) => (
-              <CountriesDashCard
-                key={country.location}
-                sm={true}
-                images={Array.isArray(country.images) ? country.images : [country.image || country.images]}
-                location={country.location}
-                countryFlag={country.countryFlag}
-                isLiked={isFavorite(country.location)}
-                onLikeToggle={() => toggleFavorite(country)}
-              />
-            ))}
+  return (
+    <DashboardLayout>
+      <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
+        <h2 className="text-3xl font-medium">Favorites</h2>
+        {favourites?.length > 0 && (
+          <div className="flex w-full sm:w-auto items-center space-x-2">
+            <SearchInput
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
         )}
-      </DashboardLayout>
-    );
-  } catch (err) {
-    setError(err);
-    return <div>Error loading favorites: {err.message}</div>;
-  }
+      </div>
+
+      {!favourites?.length ? (
+        <div className="flex flex-col items-center justify-center h-[45vh]">
+          <GrFavorite size={36} className="mb-4 text-gray-600" />
+          <p className="text-gray-600">You haven't liked any favorites yet.</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 py-10">
+          {filteredFavorites.map((country) => (
+            <CountriesDashCard
+              key={country.countryId}
+              sm={true}
+              images={[swizerland, nigeria, swizerland, nigeria]}
+              location={country.countryName}
+              countryFlag={country.countryFlag}
+              isLiked={country.isLiked}
+              // onLikeToggle={() => toggleFavorite?.(country)}
+            />
+          ))}
+        </div>
+      )}
+    </DashboardLayout>
+  );
 }
 
 export default Favorites;
