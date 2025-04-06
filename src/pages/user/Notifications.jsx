@@ -14,7 +14,7 @@ function Notifications() {
         <div className="px-4 md:px-8 lg:px-20 pt-2 pb-4">
           <h1 className="text-3xl font-medium mb-6">Notifications</h1>
           
-          {/* Tabs */}
+          {/* Tabs
           <div className="flex gap-4 mb-6">
             <FilterButton
               title="All"
@@ -31,7 +31,7 @@ function Notifications() {
               isActive={activeTab === 'following'}
               onClick={() => setActiveTab('following')}
             />
-          </div>
+          </div> */}
 
           {/* Tab Content */}
           <div className="w-full">

@@ -34,19 +34,21 @@ const NotificationCard = ({
   };
 
   const handleDelete = () => {
-    setIsDeleted(true);
-    showUndoToast({ 
-      message: 'Notification deleted.',
-      onUndo: () => setIsDeleted(false),
-      duration: 5000
-    });
+    onDelete(id)
+
+    // setIsDeleted(true);
+    // showUndoToast({ 
+    //   message: 'Notification deleted.',
+    //   onUndo: () => setIsDeleted(false),
+    //   duration: 5000
+    // });
     
-    const timeoutId = setTimeout(() => {
-      if (isDeleted) {
-        onDelete(id);
-      }
-    }, 5000);
-    return () => clearTimeout(timeoutId);
+    // const timeoutId = setTimeout(() => {
+    //   if (isDeleted) {
+    //     onDelete(id);
+    //   }
+    // }, 5000);
+    // return () => clearTimeout(timeoutId);
   };
 
   const handleShowLess = () => {

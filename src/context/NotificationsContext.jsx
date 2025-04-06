@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { markNotificationsAsRead } from '@/services/api';
 import { showToast } from "@/components/ui/toast";
+import axiosInstance from '@/config/axiosInstance';
 
 const NotificationsContext = createContext();
 
@@ -43,12 +44,30 @@ export function NotificationsProvider({ children }) {
     }
   }, [updateUnreadCount]);
 
-  const deleteNotification = useCallback((notificationId) => {
-    setNotifications(prev => {
-      const updated = prev.filter(notification => notification.id !== notificationId);
-      updateUnreadCount(updated);
-      return updated;
-    });
+  const deleteNotification = useCallback(async (notificationId) => {
+    try {
+      const response = await axiosInstance.delete(`/notifications/${notificationId}`);
+      
+      if (response.data.success) {
+        // Update local state by filtering out the deleted notification
+        setNotifications(prev => {
+          const updated = prev.filter(notification => notification.id !== notificationId);
+          updateUnreadCount(updated);
+          return updated;
+        });
+        
+        showToast({
+          message: "Notification deleted successfully",
+          type: "success"
+        });
+      }
+    } catch (error) {
+      console.error('Error deleting notification:', error);
+      showToast({
+        message: "Failed to delete notification",
+        type: "error"
+      });
+    }
   }, [updateUnreadCount]);
 
   const showLessLikeThis = useCallback((notificationId) => {

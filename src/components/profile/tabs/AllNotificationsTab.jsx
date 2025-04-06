@@ -11,7 +11,7 @@ const ITEMS_PER_PAGE = 10;
 
 const AllNotificationsTab = () => {
   const { notifications, setNotifications, markAsRead, deleteNotification, showLessLikeThis, updateUnreadCount } = useNotifications();
-  const [displayedNotifications, setDisplayedNotifications] = useState([]);
+  // const [displayedNotifications, setDisplayedNotifications] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(true);
