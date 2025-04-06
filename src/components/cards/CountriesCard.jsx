@@ -16,11 +16,11 @@ export default function CountriesCard({
   return (
     <div
       className={`flex flex-col items-start space-y-3 relative ${
-        sm ? "w-full md:w-[270px]" : "w-[380px]"
+        sm ? "w-full md:w-[270px]" : "w-full sm:w-[300px] md:w-[380px]"
       } `}
     >
       <button
-        className="p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-sm font-semibold absolute top-7 right-4"
+        className="p-2 sm:p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-xs sm:text-sm font-semibold absolute top-3 sm:top-7 right-2 sm:right-4"
         onClick={(e) => {
           e.stopPropagation();
           onLikeToggle?.();
@@ -30,21 +30,21 @@ export default function CountriesCard({
           <img 
             src={heartIcon} 
             alt="Liked" 
-            className="w-5 h-5" 
-            style={{ width: '1.3rem', height: '1.3rem' }} 
+            className="w-4 h-4 sm:w-5 sm:h-5" 
+            style={{ width: '1.1rem', height: '1.1rem' }} 
           />
         ) : (
           sm ? (
-            <GoHeart style={{ width: '1.3rem', height: '1.3rem' }} />
+            <GoHeart style={{ width: '1.1rem', height: '1.1rem' }} />
           ) : (
             <Link to="/user/countries" className="flex items-center gap-2">
               <img 
                 src={pointerIcon} 
                 alt="View" 
-                className="w-5 h-5" 
-                style={{ width: '1.3rem', height: '1.3rem' }} 
+                className="w-4 h-4 sm:w-5 sm:h-5" 
+                style={{ width: '1.1rem', height: '1.1rem' }} 
               /> 
-              <span>View</span>
+              <span className="text-xs sm:text-sm">View</span>
             </Link>
           )
         )}
@@ -53,7 +53,7 @@ export default function CountriesCard({
       <Link to="/user/countries" className="w-full">
         <img
           src={image}
-          className={`w-full rounded-2xl object-cover ${sm ? "h-[320px]" : "h-[500px]"}`}
+          className={`w-full rounded-2xl object-cover ${sm ? "h-[250px] sm:h-[280px] md:h-[320px]" : "h-[300px] sm:h-[400px] md:h-[500px]"}`}
           alt={location}
         />
       </Link>
@@ -64,7 +64,7 @@ export default function CountriesCard({
           alt={`${location} flag`}
           className={`rounded-full ${flagClassName}`}
         />
-        <span>{location}</span>
+        <span className="text-sm sm:text-base">{location}</span>
       </div>
     </div>
   );
