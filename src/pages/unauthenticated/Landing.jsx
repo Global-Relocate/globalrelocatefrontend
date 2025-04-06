@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import MainLayout from "../../components/layouts/MainLayout";
@@ -91,17 +90,17 @@ export default function Landing() {
             initial="hidden"
             animate="visible"
             variants={heroTextVariants}
-            className="flex flex-col items-center justify-center max-w-[600px] md:min-w-[900px] text-black relative"
+            className="flex flex-col items-center justify-center max-w-[95%] sm:max-w-[600px] md:min-w-[900px] text-black relative px-4 sm:px-0"
           >
             <motion.h1 
               variants={heroChildVariants}
-              className="text-4xl text-center md:text-5xl max-w-[90%] md:max-w-[600px] lg:text-7xl font-semibold"
+              className="text-3xl sm:text-4xl text-center md:text-5xl max-w-[95%] sm:max-w-[90%] md:max-w-[600px] lg:text-7xl font-semibold"
             >
               {t("landingPage.showcase.title")}
             </motion.h1>
             <motion.p 
               variants={heroChildVariants}
-              className="text-center my-8 text-md md:text-md max-w-[600px] px-10 line-clamp-2"
+              className="text-center my-6 sm:my-8 text-sm sm:text-md max-w-full sm:max-w-[600px] px-3 sm:px-10 line-clamp-2"
             >
               {t("landingPage.showcase.para")}
             </motion.p>
@@ -109,7 +108,7 @@ export default function Landing() {
               variants={heroChildVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-[#fca311] text-black py-2 px-8 rounded-xl text-lg font-medium"
+              className="bg-[#fca311] text-black py-2 px-6 sm:px-8 rounded-xl text-base sm:text-lg font-medium"
               onClick={handleStartNow}
             >
               {t("landingPage.showcase.buttonText")}
@@ -122,7 +121,7 @@ export default function Landing() {
               animate="animate"
               className="absolute bg-white rounded-3xl hidden md:flex items-center justify-start p-2 pr-3 shadow-md space-x-2 top-10 left-0"
             >
-               <img
+              <img
                 src={canada}
                 className="w-7 h-7 rounded-full object-cover"
                 alt="Canada flag"
@@ -175,7 +174,7 @@ export default function Landing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-2xl md:text-4xl my-3 font-medium"
+          className="text-xl sm:text-2xl md:text-4xl my-3 font-medium px-4 text-center"
         >
           {t("landingPage.features.title")}
         </motion.h2>
@@ -183,7 +182,7 @@ export default function Landing() {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}
-          className="flex items-center gap-14 justify-evenly flex-wrap py-20 w-[90%]"
+          className="flex items-center gap-6 sm:gap-10 md:gap-14 justify-evenly flex-wrap py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
         >
           {[
             { title: t("landingPage.features.cards.card1.title"), para: t("landingPage.features.cards.card1.para"), image: people },
@@ -208,18 +207,18 @@ export default function Landing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-medium mt-20"
+          className="text-2xl sm:text-3xl md:text-4xl font-medium mt-10 sm:mt-20 text-center px-4"
         >
           {t("landingPage.countries.title")}
         </motion.h2>
-        <p className="mt-4 text-center px-5">
+        <p className="mt-3 sm:mt-4 text-center px-5 text-sm sm:text-base">
           {t("landingPage.countries.para")}
         </p>
         <motion.div 
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex items-center justify-evenly flex-wrap gap-y-10 py-20 w-[90%]"
+          className="flex items-center justify-evenly flex-wrap gap-y-8 sm:gap-y-10 py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
         >
           {[
             { image: swizerland, location: "Zürich, Switzerland", flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/1200px-Flag_of_Switzerland_%28Pantone%29.svg.png" },
@@ -247,7 +246,7 @@ export default function Landing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl my-4 font-medium"
+          className="text-2xl sm:text-3xl md:text-4xl my-3 sm:my-4 font-medium text-center px-4"
         >
           {t("landingPage.whyChooseUs.title")}
         </motion.h2>
@@ -255,7 +254,7 @@ export default function Landing() {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}
-          className="flex items-start justify-evenly flex-wrap gap-y-10 py-20 w-[90%]"
+          className="flex items-start justify-evenly flex-wrap gap-y-8 sm:gap-y-10 py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
         >
           {[
             { title: t("landingPage.whyChooseUs.card1.title"), para: t("landingPage.whyChooseUs.card1.para") },
@@ -267,10 +266,10 @@ export default function Landing() {
               key={index}
               variants={cardVariants}
               custom={index}
-              className="flex flex-col items-start w-[90%] md:w-[285px] border-t-2 py-5 border-black"
+              className="flex flex-col items-start w-full sm:w-[90%] md:w-[285px] border-t-2 py-5 border-black px-3 sm:px-0"
             >
-              <h2 className="text-lg font-semibold mb-2">{card.title}</h2>
-              <p>{card.para}</p>
+              <h2 className="text-base sm:text-lg font-semibold mb-2">{card.title}</h2>
+              <p className="text-sm sm:text-base">{card.para}</p>
             </motion.div>
           ))}
         </motion.div>
