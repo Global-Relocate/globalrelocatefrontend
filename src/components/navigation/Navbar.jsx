@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import SelectLanguages from "@/components/drawers/SelectLanguages";
@@ -7,11 +7,11 @@ import { X, Menu, LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { LuUserRound } from "react-icons/lu";
 import { IoChevronDownOutline } from "react-icons/io5";
+import PropTypes from 'prop-types';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -22,8 +22,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { isAuthenticated, logout, user } = useContext(AuthContext);
-  const [profilePic, setProfilePic] = useState(null);
   const displayName = user?.username || user?.name || "User";
+  const drawerRef = useRef(null);
 
   const navLinks = [
     { href: "/", label: t("landingPage.navbar.home") },
@@ -41,6 +41,20 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle click outside to close drawer
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target) && isDrawerOpen) {
+        setIsDrawerOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDrawerOpen]);
 
   // Prevent background scroll when drawer is open
   useEffect(() => {
@@ -91,6 +105,11 @@ const Navbar = () => {
     </ul>
   );
 
+  NavLinks.propTypes = {
+    mobile: PropTypes.bool,
+    onClick: PropTypes.func
+  };
+
   return (
     <>
       <header
@@ -118,15 +137,7 @@ const Navbar = () => {
                   <DropdownMenu>
                     <DropdownMenuTrigger className="flex items-center justify-start space-x-1 p-2 rounded-3xl cursor-pointer hover:bg-gray-100 outline-none">
                       <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-[#8F8F8F]">
-                        {profilePic ? (
-                          <img 
-                            src={profilePic} 
-                            alt="Profile" 
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <LuUserRound className="h-4 w-4" />
-                        )}
+                        <LuUserRound className="h-4 w-4" />
                       </div>
                       <span className="text-xs">{displayName}</span>
                       <IoChevronDownOutline className="text-gray-400" />
@@ -186,14 +197,25 @@ const Navbar = () => {
             </button>
           </div>
         </nav>
+      </header>
 
-        {/* Mobile Drawer */}
+      {/* Mobile Drawer - Moved outside of header to be independent */}
+      <div 
+        className={`fixed inset-0 z-[150] ${isDrawerOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+      >
+        {/* Overlay */}
+        <div 
+          className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${isDrawerOpen ? "opacity-100" : "opacity-0"}`}
+          onClick={() => setIsDrawerOpen(false)}
+        ></div>
+        
+        {/* Drawer */}
         <div
-          className={`fixed inset-0 bg-white z-[60] lg:hidden transition-transform duration-300 ${isDrawerOpen ? "translate-x-0" : "translate-x-full"
-            }`}
+          ref={drawerRef}
+          className={`absolute right-0 top-0 bottom-0 w-full sm:w-[380px] bg-white mobile-drawer transition-transform duration-300 ${isDrawerOpen ? "translate-x-0" : "translate-x-full"}`}
         >
-          <div className="flex flex-col h-full">
-            <div className="flex justify-between items-center p-6 border-b border-gray-100">
+          <div className="mobile-drawer-content">
+            <div className="flex justify-between items-center p-6 border-b border-gray-100 bg-white sticky top-0 z-10">
               <Link to="/" className="focus:outline-none">
                 <img src={logo} alt="Global Relocate Logo" className="h-10" />
               </Link>
@@ -205,16 +227,33 @@ const Navbar = () => {
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto bg-white">
               <div className="px-6 py-8">
-                <NavLinks mobile onClick={() => setIsDrawerOpen(false)} />
-                <div className="mt-8">
-                  <SelectLanguages />
+                <div className="flex flex-col space-y-6">
+                  {navLinks.map(({ href, label }) => (
+                    <Link
+                      key={href}
+                      to={href}
+                      className={`text-base ${
+                        isActivePath(href)
+                          ? "text-black font-medium"
+                          : "text-gray-700"
+                      }`}
+                      onClick={() => setIsDrawerOpen(false)}
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                  <div className="pt-2">
+                    <div className="flex items-center space-x-2">
+                      <SelectLanguages />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 border-t border-gray-100">
+            <div className="p-6 border-t border-gray-100 bg-white sticky bottom-0 z-10">
               {isAuthenticated ? (
                 <button
                   onClick={handleLogout}
@@ -242,7 +281,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </header>
+      </div>
     </>
   );
 };
