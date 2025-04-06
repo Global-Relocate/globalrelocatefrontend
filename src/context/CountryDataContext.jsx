@@ -27,6 +27,10 @@ export const CountryDataProvider = ({ children }) => {
     fetchCountries(true);
   }, [page, search, continent]);
 
+  useEffect(() => {
+    getFavouriteCountries();
+  }, []);
+
   const fetchCountries = async (reset = false, preventLoader = false) => {
     if (!preventLoader) {
       setLoading(true);
@@ -50,7 +54,19 @@ export const CountryDataProvider = ({ children }) => {
     try {
       await axiosInstance.post(`/countries/favourite/add/${id}`);
       fetchCountries(true, true);
+      getFavouriteCountries()
       toast.success("Added to favourite!");
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  const removeCountryFromFavourite = async (id) => {
+    try {
+      await axiosInstance.post(`/countries/favourite/remove/${id}`);
+      fetchCountries(true, true);
+      getFavouriteCountries()
+      toast.success("Remove from favourite!");
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     }
@@ -116,6 +132,7 @@ export const CountryDataProvider = ({ children }) => {
         singleCountry,
         getSingleCountry,
         addCountryToFavourite,
+        removeCountryFromFavourite,
         search,
         setSearch,
         continent,

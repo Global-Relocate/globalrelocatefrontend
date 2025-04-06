@@ -13,9 +13,6 @@ function Favorites() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const { favourites, getFavouriteCountries } = useCountryData();
-  useEffect(() => {
-    getFavouriteCountries();
-  }, []);
 
   // const { toggleFavorite } = useFavorites(); // uncomment if needed
 
@@ -58,13 +55,17 @@ function Favorites() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 py-10">
           {filteredFavorites.map((country) => (
             <CountriesDashCard
-              key={country.countryId}
-              sm={true}
-              images={[swizerland, nigeria, swizerland, nigeria]}
+              id={country.countryId}
               location={country.countryName}
-              countryFlag={country.countryFlag}
               isLiked={country.isLiked}
-              // onLikeToggle={() => toggleFavorite?.(country)}
+              // onLikeToggle={() => toggleFavorite(item)}
+              onClick={() =>
+                navigate(`/user/countries/${country.countryId}`, {
+                  state: country.countryFlag,
+                })
+              }
+              images={[swizerland, nigeria, swizerland, nigeria]}
+              countryFlag={country.countryFlag}
             />
           ))}
         </div>

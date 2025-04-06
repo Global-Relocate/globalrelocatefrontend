@@ -17,7 +17,9 @@ const CarouselIndicators = ({ currentIndex, total, onClick }) => {
       {Array.from({ length: total }).map((_, index) => (
         <button
           key={index}
-          className={`w-2 h-2 shadow rounded-full mx-1 ${currentIndex === index ? "bg-black" : "bg-gray-300"}`}
+          className={`w-2 h-2 shadow rounded-full mx-1 ${
+            currentIndex === index ? "bg-black" : "bg-gray-300"
+          }`}
           onClick={() => onClick(index)}
         />
       ))}
@@ -36,7 +38,8 @@ export default function CountriesDashCard({
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { addCountryToFavourite } = useCountryData();
+  const { addCountryToFavourite, removeCountryFromFavourite } =
+    useCountryData();
   const [currentIndex, setCurrentIndex] = useState(0); // State to track current index
   const [api, setApi] = useState();
   const [count, setCount] = useState(0);
@@ -57,7 +60,7 @@ export default function CountriesDashCard({
   const onAddToFavourite = async () => {
     setLoading(true);
     try {
-      const res = await addCountryToFavourite(id);
+      await addCountryToFavourite(id);
     } catch (error) {
       console.log(error);
     } finally {
@@ -65,12 +68,32 @@ export default function CountriesDashCard({
     }
   };
 
+  const onRemoveFromFavourite = async () => {
+    setLoading(true);
+    try {
+      await removeCountryFromFavourite(id);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const toggleFavorite = async () => {
+    if(isLiked){
+      await onRemoveFromFavourite();
+    }else{
+      await onAddToFavourite();
+    }
+  }
+
   const countryImages = images;
 
   return (
     <div
-      className={`flex flex-col items-start space-y-3 relative ${sm ? "w-full" : "w-[380px]"
-        }`}
+      className={`flex flex-col items-start space-y-3 relative ${
+        sm ? "w-full" : "w-[380px]"
+      }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -85,10 +108,11 @@ export default function CountriesDashCard({
                 alt="Liked"
                 className="w-5 h-5"
                 style={{ width: "1.3rem", height: "1.3rem" }}
+                onClick={toggleFavorite}
               />
             ) : (
               <GoHeart
-                onClick={onAddToFavourite}
+                onClick={toggleFavorite}
                 style={{ width: "1.3rem", height: "1.3rem" }}
               />
             )}
@@ -111,8 +135,9 @@ export default function CountriesDashCard({
                   src={item}
                   onClick={onClick}
                   alt="Main Image"
-                  className={`w-full cursor-pointer ${sm ? "h-[320px]" : "h-[500px]"
-                    } object-cover rounded-2xl`}
+                  className={`w-full cursor-pointer ${
+                    sm ? "h-[320px]" : "h-[500px]"
+                  } object-cover rounded-2xl`}
                 />
               </CarouselItem>
             );
@@ -121,10 +146,10 @@ export default function CountriesDashCard({
         {isHovered && (
           <>
             <div className="">
-              <CarouselPrevious className='left-1' />
+              <CarouselPrevious className="left-1" />
             </div>
             <div className="">
-              <CarouselNext className='right-1' />
+              <CarouselNext className="right-1" />
             </div>
             <CarouselIndicators
               currentIndex={currentIndex}
@@ -133,10 +158,12 @@ export default function CountriesDashCard({
             />
           </>
         )}
-
       </Carousel>
 
-      <div onClick={onClick} className="flex items-center cursor-pointer justify-start space-x-2">
+      <div
+        onClick={onClick}
+        className="flex items-center cursor-pointer justify-start space-x-2"
+      >
         <img
           src={countryFlag}
           className="w-7 h-7 rounded-full object-cover"
