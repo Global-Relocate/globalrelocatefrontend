@@ -92,28 +92,28 @@ export default function CountriesDashCard({
   return (
     <div
       className={`flex flex-col items-start space-y-3 relative ${
-        sm ? "w-full" : "w-[380px]"
+        sm ? "w-full" : "w-full sm:w-[300px] md:w-[380px]"
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <button className="p-2 shadow flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-sm font-semibold absolute top-7 right-4 z-10">
+      <button className="p-1 sm:p-2 shadow flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-xs sm:text-sm font-semibold absolute top-3 sm:top-7 right-2 sm:right-4 z-10">
         {loading ? (
-          <div className="w-4 h-4 border-2 border-black hover:border-white border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-black hover:border-white border-t-transparent rounded-full animate-spin"></div>
         ) : (
           <>
             {isLiked ? (
               <img
                 src={heartIcon}
                 alt="Liked"
-                className="w-5 h-5"
-                style={{ width: "1.3rem", height: "1.3rem" }}
+                className="w-4 h-4 sm:w-5 sm:h-5"
+                style={{ width: "1.1rem", height: "1.1rem" }}
                 onClick={toggleFavorite}
               />
             ) : (
               <GoHeart
                 onClick={toggleFavorite}
-                style={{ width: "1.3rem", height: "1.3rem" }}
+                style={{ width: "1.1rem", height: "1.1rem" }}
               />
             )}
           </>
@@ -136,7 +136,7 @@ export default function CountriesDashCard({
                   onClick={onClick}
                   alt="Main Image"
                   className={`w-full cursor-pointer ${
-                    sm ? "h-[320px]" : "h-[500px]"
+                    sm ? "h-[250px] sm:h-[280px] md:h-[320px]" : "h-[300px] sm:h-[400px] md:h-[500px]"
                   } object-cover rounded-2xl`}
                 />
               </CarouselItem>
@@ -146,15 +146,15 @@ export default function CountriesDashCard({
         {isHovered && (
           <>
             <div className="">
-              <CarouselPrevious className="left-1" />
+              <CarouselPrevious className="left-1 h-8 w-8 sm:h-10 sm:w-10" />
             </div>
             <div className="">
-              <CarouselNext className="right-1" />
+              <CarouselNext className="right-1 h-8 w-8 sm:h-10 sm:w-10" />
             </div>
             <CarouselIndicators
               currentIndex={currentIndex}
               total={count}
-              onClick={(index) => api?.scrollTo(index)} // Allow clicking on indicators to change image
+              onClick={(index) => api?.scrollTo(index)}
             />
           </>
         )}
@@ -166,10 +166,10 @@ export default function CountriesDashCard({
       >
         <img
           src={countryFlag}
-          className="w-7 h-7 rounded-full object-cover"
+          className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover"
           alt="Country Flag"
         />
-        <span>{location}</span>
+        <span className="text-sm sm:text-base">{location}</span>
       </div>
     </div>
   );
