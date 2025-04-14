@@ -84,7 +84,7 @@ export default function Landing() {
 
   return (
     <MainLayout>
-      <div className="flex flex-col items-center justify-center bg-[#F5F5F7]">
+      <div className="flex flex-col items-center justify-center bg-[#F5F5F7] min-w-[320px]">
         <div className="hero-bg min-h-[85vh] md:min-h-[100vh] w-full flex items-center justify-center">
           <motion.div 
             initial="hidden"
