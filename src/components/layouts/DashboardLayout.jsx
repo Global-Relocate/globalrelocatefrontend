@@ -2,6 +2,8 @@ import { useState, Fragment } from "react";
 import Sidebar from "../navigation/Sidebar";
 import DashNav from "../navigation/DashNav";
 import ProtectedRoute from "@/utils/protected-route";
+import Footer from "../navigation/Footer";
+import PropTypes from "prop-types";
 
 function DashboardLayout({ children }) {
   const [navState, setNavState] = useState(false);
@@ -13,12 +15,19 @@ function DashboardLayout({ children }) {
         <div className="flex">
           <Sidebar navState={navState} />
           <div className="ml-0 sm:ml-64 w-full min-h-screen flex flex-col">
-            <div className="px-3 pt-32 sm:px-8 w-full">{children}</div>
+            <div className="px-3 pt-32 sm:px-8 w-full flex-grow">{children}</div>
           </div>
+        </div>
+        <div className="ml-0 sm:ml-64">
+          <Footer />
         </div>
       </Fragment>
     </ProtectedRoute>
   );
 }
+
+DashboardLayout.propTypes = {
+  children: PropTypes.node.isRequired
+};
 
 export default DashboardLayout;
