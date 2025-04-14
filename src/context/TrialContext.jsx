@@ -36,16 +36,49 @@ export const TrialProvider = ({ children }) => {
       try {
         const response = await getSubscriptionDetails();
         
-        if (response.success) {
-          const { trial } = response.data;
+        if (response && response.success) {
+          const { subscription, trial, overallStatus } = response.data || {};
           
-          // Check if trial has ended (remainingDays is 0)
-          if (trial && trial.remainingDays === 0) {
-            setIsTrialExpired(true);
-            setShowTrialModal(true);
-          } else {
+          // Check if user is an ADMIN or has INFINITE trial
+          const isAdmin = subscription?.plan === "ADMIN";
+          const hasActiveSubscription = overallStatus === "active";
+          const hasInfiniteTrial = 
+            trial?.remainingDays === "INFINITE" || 
+            trial?.end === "INFINITE";
+          
+          // Don't show trial expiration for admin users or those with infinite trial
+          if (isAdmin || hasInfiniteTrial || hasActiveSubscription) {
             setIsTrialExpired(false);
             setShowTrialModal(false);
+          } else if (trial) {
+            // For regular trial users, check if trial has ended
+            let trialEnded = false;
+            
+            if (typeof trial.remainingDays === 'number') {
+              trialEnded = trial.remainingDays <= 0;
+            } else if (trial.remainingDays && trial.remainingDays !== "INFINITE") {
+              // Try to parse remainingDays as a number
+              const days = parseInt(trial.remainingDays, 10);
+              if (!isNaN(days)) {
+                trialEnded = days <= 0;
+              }
+            } else if (trial.end && trial.end !== "INFINITE") {
+              // Check end date if provided as ISO string
+              try {
+                const endDate = new Date(trial.end);
+                const now = new Date();
+                
+                // Verify we got a valid date (not Invalid Date)
+                if (!isNaN(endDate.getTime())) {
+                  trialEnded = now >= endDate;
+                }
+              } catch (e) {
+                console.error('Error parsing trial end date:', e);
+              }
+            }
+            
+            setIsTrialExpired(trialEnded);
+            setShowTrialModal(trialEnded);
           }
         }
       } catch (error) {
