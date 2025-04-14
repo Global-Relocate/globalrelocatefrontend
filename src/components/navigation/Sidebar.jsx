@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { GoArrowUpRight } from "react-icons/go";
 import CounterBadge from "../common/CounterBadge";
-import { useFavorites } from "@/context/favorites-context";
+// import { useFavorites } from "@/context/favorites-context";
 import CountdownTimer from "../common/CountdownTimer";
 import { useTranslation } from "react-i18next";
 import { useNotifications } from '@/context/NotificationsContext';
@@ -17,13 +17,14 @@ import bellIcon from "../../assets/svg/bell.svg";
 import bellActiveIcon from "../../assets/svg/filledbell.svg";
 import favoriteIcon from "../../assets/svg/favorite.svg";
 import filledfavoriteIcon from "../../assets/svg/filledfavorite.svg";
-import communityIcon from "../../assets/svg/community.svg";
-import communityActiveIcon from "../../assets/svg/communities.svg";
+// import communityIcon from "../../assets/svg/community.svg";
+// import communityActiveIcon from "../../assets/svg/communities.svg";
 
+// eslint-disable-next-line react/prop-types
 function Sidebar({ navState }) {
   const { t } = useTranslation();
   const location = useLocation();
-  const { favorites } = useFavorites();
+  // const { favorites } = useFavorites();
   const { unreadCount } = useNotifications();
 
   const navData = [
@@ -80,7 +81,7 @@ function Sidebar({ navState }) {
     <div
       className={`${
         navState ? "translate-x-0" : "-translate-x-full"
-      } sm:translate-x-0 w-64 bg-white fixed h-screen transition-transform duration-300 ease-in-out border-r border-[#D4D4D4] pt-20 z-40`}
+      } sm:translate-x-0 fixed h-screen transition-transform duration-300 ease-in-out border-r border-[#D4D4D4] pt-20 z-40 bg-white w-64 left-0`}
     >
       <div className="h-full flex flex-col justify-between pb-4">
         <div className="flex-1 overflow-y-auto mt-6">
