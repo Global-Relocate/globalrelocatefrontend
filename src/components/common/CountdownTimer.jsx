@@ -1,5 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getSubscriptionDetails } from '@/services/api';
+
+// Helper function to check if current route is a public route
+const isPublicRoute = () => {
+  const publicRoutes = ['/', '/login', '/signup', '/forgotpassword', '/resetpassword', '/verifymail', '/welcome', '/help', '/privacy', '/term'];
+  const currentPath = window.location.pathname;
+  
+  // Check for exact matches
+  if (publicRoutes.includes(currentPath)) {
+    return true;
+  }
+  
+  // Check for partial matches (like /help/some-article)
+  return publicRoutes.some(route => 
+    route !== '/' && currentPath.startsWith(route)
+  );
+};
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -14,6 +30,14 @@ const CountdownTimer = () => {
     let timer;
     
     const fetchSubscriptionAndStartTimer = async () => {
+      // Skip API call on public routes
+      if (isPublicRoute()) {
+        // Set default values for public routes
+        setTimeLeft({ days: 7, hours: 0, minutes: 0, seconds: 0 });
+        setIsLoading(false);
+        return;
+      }
+      
       try {
         const response = await getSubscriptionDetails();
         const remainingDays = response.data?.trial?.remainingDays || 0;
