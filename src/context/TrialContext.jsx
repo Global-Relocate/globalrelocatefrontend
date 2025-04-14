@@ -4,6 +4,22 @@ import { getSubscriptionDetails } from '@/services/api';
 
 const TrialContext = createContext();
 
+// Helper function to check if current route is a public route
+const isPublicRoute = () => {
+  const publicRoutes = ['/', '/login', '/signup', '/forgotpassword', '/resetpassword', '/verifymail', '/welcome', '/help', '/privacy', '/term'];
+  const currentPath = window.location.pathname;
+  
+  // Check for exact matches
+  if (publicRoutes.includes(currentPath)) {
+    return true;
+  }
+  
+  // Check for partial matches (like /help/some-article)
+  return publicRoutes.some(route => 
+    route !== '/' && currentPath.startsWith(route)
+  );
+};
+
 export const TrialProvider = ({ children }) => {
   const [isTrialExpired, setIsTrialExpired] = useState(false);
   const [showTrialModal, setShowTrialModal] = useState(false);
@@ -11,6 +27,12 @@ export const TrialProvider = ({ children }) => {
 
   useEffect(() => {
     const checkTrialStatus = async () => {
+      // Skip checking trial status on public routes
+      if (isPublicRoute()) {
+        setLoading(false);
+        return;
+      }
+      
       try {
         const response = await getSubscriptionDetails();
         
