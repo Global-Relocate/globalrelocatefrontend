@@ -20,7 +20,7 @@ export default function CountriesCard({
       } `}
     >
       <button
-        className="p-2 sm:p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-xs sm:text-sm font-semibold absolute top-3 sm:top-7 right-2 sm:right-4"
+        className="p-2 sm:p-3 flex items-center gap-2 text-black bg-white rounded-3xl hover:bg-black hover:text-white text-xs sm:text-sm font-semibold absolute top-4 sm:top-7 right-3 sm:right-4"
         onClick={(e) => {
           e.stopPropagation();
           onLikeToggle?.();
