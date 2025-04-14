@@ -10,6 +10,7 @@ import OAuthCallback from "./pages/unauthenticated/oauth-callback";
 import NotFound from "./pages/unauthenticated/not-found";
 import { TrialProvider, useTrial } from "./context/TrialContext";
 import TrialExpiredModal from "./components/modals/TrialExpiredModal";
+import { AuthProvider } from "./context/AuthContext";
 
 import Countries from "./pages/user/Countries";
 import AiAssistant from "./pages/user/ai-assistant";
@@ -122,13 +123,15 @@ const AppContent = () => {
 
 function App() {
   return (
-    <TrialProvider>
-      <PostProvider>
-        <CommentProvider>
-          <AppContent />
-        </CommentProvider>
-      </PostProvider>
-    </TrialProvider>
+    <AuthProvider>
+      <TrialProvider>
+        <PostProvider>
+          <CommentProvider>
+            <AppContent />
+          </CommentProvider>
+        </PostProvider>
+      </TrialProvider>
+    </AuthProvider>
   );
 }
 
