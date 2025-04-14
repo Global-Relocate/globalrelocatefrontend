@@ -25,6 +25,7 @@ const CountdownTimer = () => {
     seconds: 0
   });
   const [isLoading, setIsLoading] = useState(true);
+  const [shouldShow, setShouldShow] = useState(true);
 
   useEffect(() => {
     let timer;
@@ -40,40 +41,100 @@ const CountdownTimer = () => {
       
       try {
         const response = await getSubscriptionDetails();
-        const remainingDays = response.data?.trial?.remainingDays || 0;
         
-        if (remainingDays <= 0) {
-          setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        if (!response || !response.success) {
+          setIsLoading(false);
+          setShouldShow(false);
+          return;
+        }
+        
+        const { trial, subscription, overallStatus } = response.data || {};
+        
+        // Check if user should not see the timer:
+        // 1. User is an ADMIN (subscription?.plan === "ADMIN")
+        // 2. Subscription is active (overallStatus === "active")
+        // 3. User has INFINITE trial
+        const isAdmin = subscription?.plan === "ADMIN";
+        const hasActiveSubscription = overallStatus === "active";
+        const hasInfiniteTrial = 
+          trial?.remainingDays === "INFINITE" || 
+          trial?.end === "INFINITE";
+        
+        if (isAdmin || hasActiveSubscription || hasInfiniteTrial) {
+          setShouldShow(false);
           setIsLoading(false);
           return;
         }
-
-        // Calculate target date based on remaining days
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + remainingDays);
-
+        
+        // Initialize target date
+        let targetDate;
+        
+        // Method 1: Check if trial.end is an ISO date string
+        if (trial?.end && trial.end !== "INFINITE" && typeof trial.end === 'string') {
+          try {
+            // Try parsing the ISO date string
+            targetDate = new Date(trial.end);
+            
+            // Verify we got a valid date (not Invalid Date)
+            if (isNaN(targetDate.getTime())) {
+              console.error('Invalid date format from trial.end:', trial.end);
+              targetDate = null;
+            }
+          } catch (e) {
+            console.error('Error parsing trial end date:', e);
+            targetDate = null;
+          }
+        }
+        
+        // Method 2: Use remainingDays if no valid end date was found
+        if (!targetDate && trial?.remainingDays && trial.remainingDays !== "INFINITE") {
+          // If remainingDays is a number, use it
+          if (typeof trial.remainingDays === 'number') {
+            targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + trial.remainingDays);
+          } else {
+            // Try to parse remainingDays as a number
+            const days = parseInt(trial.remainingDays, 10);
+            if (!isNaN(days)) {
+              targetDate = new Date();
+              targetDate.setDate(targetDate.getDate() + days);
+            }
+          }
+        }
+        
+        // If we couldn't determine a target date, don't show the timer
+        if (!targetDate) {
+          console.error('Could not determine trial end date');
+          setShouldShow(false);
+          setIsLoading(false);
+          return;
+        }
+        
+        // Start the timer interval
         timer = setInterval(() => {
-          const now = new Date().getTime();
-          const distance = targetDate.getTime() - now;
-
+          const now = new Date();
+          const distance = targetDate.getTime() - now.getTime();
+          
           if (distance < 0) {
             clearInterval(timer);
             setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
             return;
           }
-
-          setTimeLeft({
-            days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-            hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-            minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-            seconds: Math.floor((distance % (1000 * 60)) / 1000)
-          });
+          
+          // Calculate time components
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+          setTimeLeft({ days, hours, minutes, seconds });
         }, 1000);
 
         setIsLoading(false);
       } catch (error) {
         console.error('Error fetching subscription details:', error);
         setIsLoading(false);
+        setShouldShow(false);
       }
     };
 
@@ -86,6 +147,11 @@ const CountdownTimer = () => {
 
   if (isLoading) {
     return <div className="animate-pulse">Loading...</div>;
+  }
+
+  // Don't show the timer if the shouldShow flag is false
+  if (!shouldShow) {
+    return null;
   }
 
   // Don't show the timer if there's no time left
