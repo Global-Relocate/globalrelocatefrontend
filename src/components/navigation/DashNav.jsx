@@ -56,10 +56,10 @@ function DashNav({ navState, setNavState }) {
   };
 
   const quickLinks = [
-    { href: "/", label: "Home" },
-    { href: "/user/countries", label: "Countries & Data" },
-    { href: "/user/tax-calculator", label: "Tools" },
-    { href: "/upgrade", label: "Pricing" },
+    { href: "/", label: t("landingPage.navbar.home") },
+    { href: "/user/countries", label: t("landingPage.navbar.countriesData") },
+    { href: "/user/tax-calculator", label: t("landingPage.navbar.tools") },
+    { href: "/upgrade", label: t("landingPage.navbar.pricing") },
   ];
 
   return (
@@ -80,7 +80,7 @@ function DashNav({ navState, setNavState }) {
             )}
           </div>
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="logo" className="w-36" />
+            <img src={logo} alt="logo" className="w-36 hidden sm:block" />
           </Link>
         </div>
 
@@ -124,32 +124,32 @@ function DashNav({ navState, setNavState }) {
                 className="cursor-pointer"
                 onClick={() => navigate("/user/profile")}
               >
-                View profile
+                {t("View profile")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => navigate("/help")}
                 className="cursor-pointer"
               >
-                Help Center
+                {t("Help Center")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="cursor-pointer"
                 onClick={() => navigate("/user/feedback")}
               >
-                Give us feedback
+                {t("Give us feedback")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => navigate("/privacy")}
                 className="cursor-pointer"
               >
-                Privacy Policy
+                {t("Privacy Policy")}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 className="cursor-pointer font-bold"
                 onClick={() => navigate("/upgrade")}
               >
-                Upgrade plan
+                {t("Upgrade plan")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -162,7 +162,7 @@ function DashNav({ navState, setNavState }) {
             className="hidden sm:flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200"
           >
             <LogOut className="h-5 w-5" />
-            <span>Logout</span>
+            <span>{t("Logout")}</span>
           </button>
 
           {/* Logout Button - Mobile */}
@@ -177,7 +177,7 @@ function DashNav({ navState, setNavState }) {
                 </button>
               </TooltipTrigger>
               <TooltipContent>
-                <span>Logout</span>
+                <span>{t("Logout")}</span>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
