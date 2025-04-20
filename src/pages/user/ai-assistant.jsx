@@ -108,8 +108,10 @@ function AiAssistant() {
     if (newName && currentSession) {
       try {
         await renameChatSession(currentSession.id, newName);
+        
+        setCurrentSession({...currentSession, title: newName});
         toast.success("Session renamed successfully!");
-      } catch {
+      } catch (error) {
         toast.error("Failed to rename the session. Please try again.");
       }
     }
@@ -134,6 +136,8 @@ function AiAssistant() {
       toast.error("Failed to fetch the session. Please try again.");
     }
   };
+
+
 
   return (
     <DashboardLayout>

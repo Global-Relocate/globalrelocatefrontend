@@ -98,9 +98,9 @@ export const AiChatProvider = ({ children }) => {
   const renameChatSession = async (sessionId, newName) => {
     setLoading(true);
     try {
-      await axiosInstance.put(`/ai/${sessionId}`, { name: newName });
+      await axiosInstance.put(`/ai/${sessionId}`, { title: newName });
       toast.success("Chat session renamed!");
-      fetchAllSessions(); // Refresh the list of sessions
+      fetchAllSessions();
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     } finally {
