@@ -108,8 +108,8 @@ function AiAssistant() {
     if (newName && currentSession) {
       try {
         await renameChatSession(currentSession.id, newName);
-        
-        setCurrentSession({...currentSession, title: newName});
+
+        setCurrentSession({ ...currentSession, title: newName });
         toast.success("Session renamed successfully!");
       } catch (error) {
         toast.error("Failed to rename the session. Please try again.");
@@ -137,7 +137,19 @@ function AiAssistant() {
     }
   };
 
+  const handleShareSession = () => {
+    if (!currentSession) {
+      toast.error("You need an active session to share");
+      return;
+    }
 
+    const shareableLink = `${window.location.origin}/shared-chat/${currentSession.id}`;
+
+    navigator.clipboard
+      .writeText(shareableLink)
+      .then(() => toast.success("Link copied to clipboard!"))
+      .catch(() => toast.error("Failed to copy link"));
+  };
 
   return (
     <DashboardLayout>
@@ -204,7 +216,7 @@ function AiAssistant() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Button className="rounded-2xl bg-[#F6F6F6] text-black hover:text-white">
+          <Button className="rounded-2xl bg-[#F6F6F6] text-black hover:text-white" onClick={handleShareSession}>
             <PiShare /> Share
           </Button>
         </div>
@@ -221,9 +233,7 @@ function AiAssistant() {
               <div
                 key={index}
                 className={`flex my-10 ${
-                  msg.senderId === "aichatId"
-                    ? "justify-start"
-                    : "justify-end"
+                  msg.senderId === "aichatId" ? "justify-start" : "justify-end"
                 }`}
               >
                 <div
