@@ -14,6 +14,7 @@ import { AuthProvider } from "./context/AuthContext";
 
 import Countries from "./pages/user/Countries";
 import AiAssistant from "./pages/user/ai-assistant";
+import SharedChat from "./pages/user/shared-chat";
 import CompareCountries from "./pages/user/compare-countries";
 import TaxCalculator from "./pages/user/tax-calculator";
 import Favorites from "./pages/user/Favorites";
@@ -36,14 +37,15 @@ import ScrollToTop from "./utils/ScrollToTop";
 import { PostProvider } from "@/context/PostContext";
 import { CommentProvider } from "@/context/CommentContext";
 import SinglePost from "@/pages/user/SinglePost";
+import { AiChatProvider } from "@/context/AiChatContext"; // Make sure this is imported
 
 const RouteGuard = ({ children }) => {
   const location = useLocation();
-  
-  if (location.pathname.includes('checkout')) {
+
+  if (location.pathname.includes("checkout")) {
     return <Navigate to="/upgrade" replace />;
   }
-  
+
   return children;
 };
 
@@ -95,17 +97,32 @@ const AppContent = () => {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/term" element={<TermsAndConditions />} />
 
+          {/* SharedChat route - accessible without authentication */}
+          <Route path="/shared-chat/:sessionId" element={
+            <AiChatProvider>
+              <SharedChat />
+            </AiChatProvider>
+          } />
+
           {/* Dashboard routes */}
           <Route path="/user">
             <Route path="countries" element={<Countries />} />
             <Route path="countries/:id" element={<CountryDetails />} />
             <Route path="ai-assistant" element={<AiAssistant />} />
             <Route path="ai-assistant/:sessionId" element={<AiAssistant />} />
+            <Route path="shared-chat/:sessionId" element={<SharedChat />} />
             <Route path="compare" element={<CompareCountries />} />
             <Route path="tax-calculator" element={<TaxCalculator />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="favorites" element={<Favorites />} />
-            <Route path="community" element={<PostProvider><Community /></PostProvider>} />
+            <Route
+              path="community"
+              element={
+                <PostProvider>
+                  <Community />
+                </PostProvider>
+              }
+            />
             <Route path="feedback" element={<Feedback />} />
             <Route path="profile" element={<Profile />} />
           </Route>
@@ -127,7 +144,9 @@ function App() {
       <TrialProvider>
         <PostProvider>
           <CommentProvider>
-            <AppContent />
+            <AiChatProvider>
+              <AppContent />
+            </AiChatProvider>
           </CommentProvider>
         </PostProvider>
       </TrialProvider>
