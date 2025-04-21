@@ -124,18 +124,18 @@ function CountryDetails() {
                 : singleCountry.overview}
             </p>
 
-            <h2 className="font-medium text-2xl my-7">Key Facts</h2>
+            <h2 className="font-bold text-2xl my-7">Key Facts</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <div>
-                <h3 className="font-medium">Capital</h3>
+                <h3 className="font-semibold">Capital</h3>
                 <p>{singleCountry.keyFacts?.capital || "N/A"}</p>
               </div>
               <div>
-                <h3 className="font-medium">Languages</h3>
+                <h3 className="font-semibold">Languages</h3>
                 <p>{singleCountry.keyFacts?.languages?.join(", ") || "N/A"}</p>
               </div>
               <div>
-                <h3 className="font-medium">Currency</h3>
+                <h3 className="font-semibold">Currency</h3>
                 <p>
                   {singleCountry.keyFacts?.currency?.full
                     ? `${singleCountry.keyFacts.currency.full} (${singleCountry.keyFacts.currency.abbreviation})`
@@ -143,7 +143,7 @@ function CountryDetails() {
                 </p>
               </div>
               <div>
-                <h3 className="font-medium">Population</h3>
+                <h3 className="font-semibold">Population</h3>
                 <p>
                   {singleCountry.keyFacts?.population?.inNumbers
                     ? parseInt(
@@ -153,7 +153,7 @@ function CountryDetails() {
                 </p>
               </div>
               <div>
-                <h3 className="font-medium">Dialing Code</h3>
+                <h3 className="font-semibold">Dialing Code</h3>
                 <p>{singleCountry.keyFacts?.dialingCode || "N/A"}</p>
               </div>
             </div>
@@ -202,7 +202,7 @@ function CountryDetails() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <h3 className="font-medium text-lg">Personal Income Tax</h3>
+                  <h3 className="font-semibold text-lg">Personal Income Tax</h3>
                   <p>
                     Federal Rate:{" "}
                     {singleCountry.taxAndFinance?.personalIncomeTax
@@ -215,7 +215,7 @@ function CountryDetails() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-medium text-lg">Corporate Tax</h3>
+                  <h3 className="font-semibold text-lg">Corporate Tax</h3>
                   <p>{singleCountry.taxAndFinance?.corporateTax || "N/A"}</p>
                 </div>
               </div>

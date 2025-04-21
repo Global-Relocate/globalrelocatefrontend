@@ -21,7 +21,7 @@ export default function Footer() {
   };
 
   return (
-    <div className="text-[#7E7E7E] w-full flex items-center justify-center flex-col bg-black min-h-[300px] min-w-[320px]">
+    <div className="text-[#7E7E7E] w-full flex items-center justify-center flex-col bg-black min-h-[300px] min-w-[320px] mt-10">
       <div className="w-[90%] flex-wrap flex items-start justify-start gap-8 md:gap-36 p-4">
         <div>
           <img
