@@ -12,10 +12,9 @@ import { ChevronLeft } from "lucide-react";
 
 function CountryDetails() {
   const { id } = useParams();
-  const countryFlag = useLocation()?.state
+  const countryFlag = useLocation()?.state;
   const { singleCountry, loading, getSingleCountry } = useCountryData();
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (id) {
@@ -34,7 +33,7 @@ function CountryDetails() {
         <ChevronLeft size={20} />
         <span>Back</span>
       </button>
-      
+
       <div className="flex w-full gap-3 flex-wrap items-center justify-between">
         {loading ? (
           <>
@@ -56,9 +55,12 @@ function CountryDetails() {
           <>
             <div className="flex items-start gap-2">
               <img
-                src={countryFlag || "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Flag_of_Switzerland_%28Pantone%29.svg/1200px-Flag_of_Switzerland_%28Pantone%29.svg.png"}
+                src={
+                  singleCountry?.keyFacts?.flag ||
+                  "https://flagcdn.com/w320/ci.png"
+                }
                 className="w-10 h-10 rounded-full object-cover"
-                alt=""
+                alt="Country flag"
               />
               <div className="flex flex-col items-start">
                 <h2 className="text-3xl font-medium">{singleCountry?.name}</h2>
@@ -116,24 +118,108 @@ function CountryDetails() {
           </TabsList>
           <TabsContent value="overview">
             <h2 className="font-medium text-2xl my-7">Background</h2>
-            <p className=" text-[#222222]">
-              The Swiss Confederation was founded in 1291 as a defensive
-              alliance among three cantons. In succeeding years, other
-              localities joined the original three. The Swiss Confederation
-              secured its independence from the Holy Roman Empire in 1499. A
-              constitution of 1848, which was modified in 1874 to allow voters
-              to introduce referenda on proposed laws, replaced the
-              confederation with a centralized federal government. The major
-              European powers have long honored Switzerland's sovereignty and
-              neutrality, and the country was not involved in either World War.
-              The political and economic integration of Europe over the past
-              half-century, as well as Switzerland's role in many UN and
-              international organizations, has strengthened Switzerland's ties
-              with its neighbors. However, the country did not officially become
-              a UN member until 2002. Switzerland remains active in many UN and
-              international organizations but retains a strong commitment to
-              neutrality.
+            <p className="text-[#222222]">
+              {singleCountry.overview === "No overview available"
+                ? "No overview information available for this country."
+                : singleCountry.overview}
             </p>
+
+            <h2 className="font-medium text-2xl my-7">Key Facts</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div>
+                <h3 className="font-medium">Capital</h3>
+                <p>{singleCountry.keyFacts?.capital || "N/A"}</p>
+              </div>
+              <div>
+                <h3 className="font-medium">Languages</h3>
+                <p>{singleCountry.keyFacts?.languages?.join(", ") || "N/A"}</p>
+              </div>
+              <div>
+                <h3 className="font-medium">Currency</h3>
+                <p>
+                  {singleCountry.keyFacts?.currency?.full
+                    ? `${singleCountry.keyFacts.currency.full} (${singleCountry.keyFacts.currency.abbreviation})`
+                    : "N/A"}
+                </p>
+              </div>
+              <div>
+                <h3 className="font-medium">Population</h3>
+                <p>
+                  {singleCountry.keyFacts?.population?.inNumbers
+                    ? parseInt(
+                        singleCountry.keyFacts.population.inNumbers
+                      ).toLocaleString()
+                    : "N/A"}
+                </p>
+              </div>
+              <div>
+                <h3 className="font-medium">Dialing Code</h3>
+                <p>{singleCountry.keyFacts?.dialingCode || "N/A"}</p>
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="visa">
+            <h2 className="font-medium text-2xl my-7">Visa & Immigration</h2>
+            {singleCountry.visaImmigration?.summary !== "No data available" && (
+              <div className="space-y-4">
+                {singleCountry.visaImmigration?.passportsAndVisas && (
+                  <div>
+                    <h3 className="font-medium text-lg">Passports & Visas</h3>
+                    <p>{singleCountry.visaImmigration.passportsAndVisas}</p>
+                  </div>
+                )}
+                {singleCountry.visaImmigration?.shortStays && (
+                  <div>
+                    <h3 className="font-medium text-lg">Short Stays</h3>
+                    <p>{singleCountry.visaImmigration.shortStays}</p>
+                  </div>
+                )}
+                {singleCountry.visaImmigration?.longStays && (
+                  <div>
+                    <h3 className="font-medium text-lg">Long Stays</h3>
+                    <p>{singleCountry.visaImmigration.longStays}</p>
+                  </div>
+                )}
+                {!singleCountry.visaImmigration?.passportsAndVisas &&
+                  !singleCountry.visaImmigration?.shortStays &&
+                  !singleCountry.visaImmigration?.longStays && (
+                    <p>No visa and immigration information available.</p>
+                  )}
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="taxes">
+            <h2 className="font-medium text-2xl my-7">Taxes & Finance</h2>
+            <div className="space-y-4">
+              {singleCountry.taxAndFinance?.summary !== "No data available" && (
+                <div>
+                  <h3 className="font-medium text-lg">Summary</h3>
+                  <p>{singleCountry.taxAndFinance.summary}</p>
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <h3 className="font-medium text-lg">Personal Income Tax</h3>
+                  <p>
+                    Federal Rate:{" "}
+                    {singleCountry.taxAndFinance?.personalIncomeTax
+                      ?.federalRate || "N/A"}
+                  </p>
+                  <p>
+                    Communal Rate:{" "}
+                    {singleCountry.taxAndFinance?.personalIncomeTax
+                      ?.communalRate || "N/A"}
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-medium text-lg">Corporate Tax</h3>
+                  <p>{singleCountry.taxAndFinance?.corporateTax || "N/A"}</p>
+                </div>
+              </div>
+            </div>
           </TabsContent>
           <TabsContent value="visa"></TabsContent>
           <TabsContent value="taxes"></TabsContent>
