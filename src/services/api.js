@@ -27,7 +27,7 @@ class CustomAPIError extends Error {
 
 // Add this helper function to check if the current route is a public/unauthenticated route
 const isPublicRoute = () => {
-  const publicRoutes = ['/', '/login', '/signup', '/forgotpassword', '/resetpassword', '/verifymail', '/welcome', '/help', '/privacy', '/term'];
+  const publicRoutes = ['/', '/login', '/signup', '/forgotpassword', '/resetpassword', '/verifymail', '/welcome', '/help', '/privacy', '/term', "/shared-chat"];
   const currentPath = window.location.pathname;
   
   // Check for exact matches
