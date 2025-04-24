@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CompareCountryCard from "@/components/cards/CompareCountryCard";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import SelectCountryModal from "@/components/modals/SelectCountryModal";
@@ -10,8 +10,9 @@ function CompareCountries() {
   const [openCountryModal, setOpenCountryModal] = useState(false);
   const [countryData, setCountryData] = useState({});
   const [countryIdx, setCountryIdx] = useState(1);
+  const [selectedCountries, setSelectedCountries] = useState([1, 2]);
 
-  const { compareLoader, compareCountries } = useCountryData()
+  const { compareLoader, compareCountries } = useCountryData();
 
   const handleModalClose = () => {
     setOpenCountryModal(false);
@@ -30,40 +31,170 @@ function CompareCountries() {
     handleModalClose();
   };
 
-  const handleCountryCompare = async () => {
-    const idx1 = countryData[1]?.id
-    const idx2 = countryData[2]?.id
-    await compareCountries(idx1, idx2)
-  }
+  const handleAddCountry = () => {
+    if (selectedCountries.length < 5) {
+      const newIndex = Math.max(...selectedCountries) + 1;
+      setSelectedCountries([...selectedCountries, newIndex]);
+    }
+  };
 
+  const handleRemoveCountry = (idx) => {
+    if (selectedCountries.length > 2) {
+      setSelectedCountries(selectedCountries.filter(i => i !== idx));
+      setCountryData(prev => {
+        const newData = { ...prev };
+        delete newData[idx];
+        return newData;
+      });
+    }
+  };
+
+  const handleCountryCompare = async () => {
+    const countryIds = selectedCountries
+      .map(idx => countryData[idx]?.id)
+      .filter(Boolean);
+    
+    if (countryIds.length >= 2) {
+      await compareCountries(...countryIds);
+    }
+  };
+
+  const isValidComparison = selectedCountries.every(idx => countryData[idx]);
+
+  const renderCards = () => {
+    const count = selectedCountries.length;
+    
+    if (count <= 3) {
+      // For 2-3 cards, render in a single row with VS between
+      return (
+        <div className="flex flex-col sm:flex-row gap-4 items-center">
+          {selectedCountries.map((idx, index) => (
+            <>
+              <div key={`card-${idx}`} className="w-full">
+                <CompareCountryCard
+                  onOpen={() => handleModalOpen(idx)}
+                  onClose={handleModalClose}
+                  countryData={countryData}
+                  idx={idx}
+                  onRemove={selectedCountries.length > 2 ? () => handleRemoveCountry(idx) : undefined}
+                  isAdditionalCard={idx > 2}
+                />
+              </div>
+              {index < selectedCountries.length - 1 && (
+                <div key={`vs-${idx}`} className="hidden sm:flex items-center justify-center">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-300 bg-white">
+                    <span className="text-gray-600">VS</span>
+                  </div>
+                </div>
+              )}
+            </>
+          ))}
+        </div>
+      );
+    } else {
+      // For 4 cards, render in 2x2 grid
+      const firstRow = selectedCountries.slice(0, 2);
+      const secondRow = selectedCountries.slice(2, 4);
+      const fifthCard = selectedCountries[4];
+
+      return (
+        <div className="space-y-4">
+          {/* First Row */}
+          <div className="flex gap-4 items-center">
+            {firstRow.map((idx, index) => (
+              <>
+                <div key={`card-${idx}`} className="w-full">
+                  <CompareCountryCard
+                    onOpen={() => handleModalOpen(idx)}
+                    onClose={handleModalClose}
+                    countryData={countryData}
+                    idx={idx}
+                    onRemove={() => handleRemoveCountry(idx)}
+                    isAdditionalCard={idx > 2}
+                  />
+                </div>
+                {index < firstRow.length - 1 && (
+                  <div key={`vs-${idx}`} className="hidden sm:flex items-center justify-center">
+                    <div className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-300 bg-white">
+                      <span className="text-gray-600">VS</span>
+                    </div>
+                  </div>
+                )}
+              </>
+            ))}
+          </div>
+
+          {/* Second Row */}
+          <div className="flex gap-4 items-center">
+            {secondRow.map((idx, index) => (
+              <>
+                <div key={`card-${idx}`} className="w-full">
+                  <CompareCountryCard
+                    onOpen={() => handleModalOpen(idx)}
+                    onClose={handleModalClose}
+                    countryData={countryData}
+                    idx={idx}
+                    onRemove={() => handleRemoveCountry(idx)}
+                    isAdditionalCard={idx > 2}
+                  />
+                </div>
+                {index < secondRow.length - 1 && (
+                  <div key={`vs-${idx}`} className="hidden sm:flex items-center justify-center">
+                    <div className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-300 bg-white">
+                      <span className="text-gray-600">VS</span>
+                    </div>
+                  </div>
+                )}
+              </>
+            ))}
+          </div>
+
+          {/* Fifth Card */}
+          {fifthCard && (
+            <div className="w-full">
+              <CompareCountryCard
+                onOpen={() => handleModalOpen(fifthCard)}
+                onClose={handleModalClose}
+                countryData={countryData}
+                idx={fifthCard}
+                onRemove={() => handleRemoveCountry(fifthCard)}
+                isAdditionalCard={true}
+              />
+            </div>
+          )}
+        </div>
+      );
+    }
+  };
 
   return (
     <DashboardLayout>
       <div>
         <h2 className="text-3xl font-medium">Compare Countries</h2>
-        <div className="flex flex-col md:flex-row w-full mt-7 gap-10 items-center justify-between">
-          <CompareCountryCard
-            onOpen={handleModalOpen}
-            onClose={handleModalClose}
-            countryData={countryData}
-            idx={1}
-          />
-          <div className="border py-2 px-3 rounded-full">
-            <span>VS</span>
-          </div>
-          <CompareCountryCard
-            onOpen={handleModalOpen}
-            onClose={handleModalClose}
-            countryData={countryData}
-            idx={2}
-          />
+        <div className="mt-7 space-y-6">
+          {renderCards()}
+
+          {selectedCountries.length < 5 && (
+            <div className="flex items-center justify-center mt-6">
+              <button
+                onClick={handleAddCountry}
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              >
+                <span className="text-xl text-gray-600">+</span>
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="flex mt-7 w-full items-center justify-end">
           <Button
-            disabled={!countryData[1] || !countryData[2] || compareLoader}
+            disabled={!isValidComparison || compareLoader}
             onClick={handleCountryCompare}
-            className="self-end bg-[#FCA311] text-black hover:text-white px-8 w-32 disabled:cursor-not-allowed"
+            className={`self-end h-12 px-8 disabled:cursor-not-allowed transition-colors ${
+              isValidComparison && !compareLoader
+                ? 'bg-black hover:bg-black/90 text-white'
+                : 'bg-gray-400 text-white hover:bg-gray-500'
+            }`}
           >
             {compareLoader ? <Spinner size="w-6 h-6" /> : "Compare"}
           </Button>
@@ -80,15 +211,3 @@ function CompareCountries() {
 }
 
 export default CompareCountries;
-
-const obj = {
-  alpha2: "AF",
-  alpha3: "AFG",
-  countryCallingCodes: ["+93"],
-  currencies: ["AFN"],
-  emoji: "🇦🇫",
-  ioc: "AFG",
-  languages: ["pus"],
-  name: "Afghanistan",
-  status: "assigned",
-};
