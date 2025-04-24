@@ -1,21 +1,32 @@
-import React from "react";
-import { MdAdd } from "react-icons/md";
+import { MdAdd, MdClose } from "react-icons/md";
 import { ChevronDown } from "lucide-react";
+import PropTypes from "prop-types";
 
-const CompareCountryCard = ({ onOpen, countryData, idx }) => {
-
+const CompareCountryCard = ({ onOpen, countryData, idx, onRemove, isAdditionalCard }) => {
   return (
-    <div className="flex item-center justify-center border border-dashed border-black rounded-md w-full h-[208px]">
+    <div className="flex item-center justify-center border border-dashed border-gray-300 rounded-lg w-full h-[208px] relative">
+      {isAdditionalCard && onRemove && (
+        <button
+          onClick={onRemove}
+          className="absolute -top-3 -right-3 z-10 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+        >
+          <MdClose className="w-4 h-4 text-gray-600" />
+        </button>
+      )}
+      
       {countryData[idx] ? (
         <div className="w-full flex-col items-start flex p-4 justify-between">
           <div className="flex w-full items-start justify-between">
-            <img src={countryData[idx]?.flag} className="bg-gray-200 w-16 h-16 object-cover border rounded-full" />
-
+            <img 
+              src={countryData[idx]?.flag} 
+              className="bg-gray-200 w-16 h-16 object-cover border rounded-full" 
+              alt={countryData[idx]?.name} 
+            />
             <button
               onClick={() => onOpen(idx)}
-              className="p-1 w-max rounded-full bg-black text-white"
+              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
             >
-              <ChevronDown />
+              <ChevronDown className="w-4 h-4 text-gray-600" />
             </button>
           </div>
 
@@ -30,15 +41,23 @@ const CompareCountryCard = ({ onOpen, countryData, idx }) => {
         <div className="flex items-center justify-center flex-col">
           <button
             onClick={() => onOpen(idx)}
-            className="p-5 w-max rounded-full bg-[#FFEBC9] text-black"
+            className="p-4 w-max rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
           >
-            <MdAdd />
+            <MdAdd className="w-5 h-5 text-gray-600" />
           </button>
-          <span>Please select a country</span>
+          <span className="mt-2 text-sm text-gray-600">Click to select country</span>
         </div>
       )}
     </div>
   );
+};
+
+CompareCountryCard.propTypes = {
+  onOpen: PropTypes.func.isRequired,
+  countryData: PropTypes.object.isRequired,
+  idx: PropTypes.number.isRequired,
+  onRemove: PropTypes.func,
+  isAdditionalCard: PropTypes.bool
 };
 
 export default CompareCountryCard;
