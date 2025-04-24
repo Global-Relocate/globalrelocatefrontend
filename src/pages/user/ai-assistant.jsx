@@ -64,10 +64,11 @@ function AiAssistant() {
     }
   };
 
-  const handleSendMessage = async (message) => {
+  const handleSendMessage = async (content, type = 'text') => {
     setIsSending(true);
     let sessionId = currentSession?.id;
 
+    // Create a new session if there isn't one
     if (!sessionId) {
       try {
         const newSession = await startChatSession();
@@ -81,17 +82,44 @@ function AiAssistant() {
       }
     }
 
-    setLocalMessages((prevMessages) => [
-      ...prevMessages,
-      { senderId: "user", message },
-    ]);
+    // Add a temporary message to the UI
+    if (type === 'text') {
+      setLocalMessages((prevMessages) => [
+        ...prevMessages,
+        { senderId: "user", message: content }
+      ]);
+    } else if (type === 'audio') {
+      setLocalMessages((prevMessages) => [
+        ...prevMessages,
+        { senderId: "user", message: "🎤 Voice message" }
+      ]);
+    } else if (type === 'document') {
+      setLocalMessages((prevMessages) => [
+        ...prevMessages,
+        { senderId: "user", message: `📄 Document: ${content.name}` }
+      ]);
+    }
 
     scrollToBottom();
 
     try {
-      await askAI(sessionId, message);
+      // Send to unified API endpoint
+      const formData = new FormData();
+      formData.append('sessionId', sessionId);
+      formData.append('type', type);
+      
+      if (type === 'text') {
+        formData.append('message', content);
+      } else if (type === 'audio') {
+        formData.append('audio', content);
+      } else if (type === 'document') {
+        formData.append('document', content);
+      }
+
+      // Use the askAI function but adapt it to handle different content types
+      await askAI(sessionId, formData, type);
     } catch (error) {
-      toast.error("Failed to send the message. Please try again.");
+      toast.error(`Failed to process ${type} input. Please try again.`);
     } finally {
       setIsSending(false);
     }
