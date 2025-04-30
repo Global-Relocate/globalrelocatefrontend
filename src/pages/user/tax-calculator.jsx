@@ -110,22 +110,22 @@ function TaxCalculator() {
                 />
               </div>
 
-              {/* Family Status */}
+              {/* Account Type */}
               <div className="space-y-2">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <PiUsers className="text-lg" />
-                  Family status
+                  User Account
                 </label>
                 <Select
                   value={formData.familyStatus}
                   onValueChange={(value) => handleInputChange("familyStatus", value)}
                 >
                   <SelectTrigger className="h-12 bg-white text-sm border-gray-300 focus:ring-gray-300">
-                    <SelectValue placeholder="Please select" />
+                    <SelectValue placeholder="Select account type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="single" className="text-sm">Single</SelectItem>
-                    <SelectItem value="married" className="text-sm">Married</SelectItem>
+                    <SelectItem value="individual" className="text-sm">Individual</SelectItem>
+                    <SelectItem value="corporate" className="text-sm">Corporate</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
