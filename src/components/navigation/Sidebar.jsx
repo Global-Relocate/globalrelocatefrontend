@@ -153,7 +153,7 @@ function Sidebar({ navState }) {
     <div
       className={`${
         navState ? "translate-x-0" : "-translate-x-full"
-      } sm:translate-x-0 fixed h-screen transition-transform duration-300 ease-in-out border-r border-[#D4D4D4] pt-20 z-40 bg-white w-64 left-0`}
+      } sm:translate-x-0 fixed h-screen transition-transform duration-300 ease-in-out border-r border-[#F6F6F6] pt-20 z-40 bg-white w-64 left-0`}
     >
       <div className="h-full flex flex-col justify-between pb-4">
         <div className="flex-1 overflow-y-auto mt-6">
