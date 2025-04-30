@@ -99,6 +99,7 @@ function Countries() {
         </h2>
         <div className="flex w-full sm:w-auto md:w-[400px] items-center space-x-2">
           <SearchInput
+            value={searchTerm} // Pass the current searchTerm as value prop
             onChange={handleSearch}
             placeholder={t("userDashboard.countries.searchText")}
           />
