@@ -117,7 +117,7 @@ function SharedChat() {
       </div>
 
       <div className="flex-1 overflow-auto p-4">
-        <div className="w-full max-w-4xl mx-auto">
+        <div className="w-full max-w-3xl mx-auto px-2 md:px-4">
           {messages?.length === 0 ? (
             <div className="flex justify-center items-center h-32">
               <p className="text-gray-500">
@@ -128,14 +128,14 @@ function SharedChat() {
             messages?.map((msg, index) => (
               <div
                 key={index}
-                className={`flex my-10 ${
+                className={`flex my-3 ${
                   msg.senderId === "aichatId" ? "justify-start" : "justify-end"
                 }`}
               >
                 <div
-                  className={`p-4 rounded-lg max-w-[90%] ${
+                  className={`py-2 px-3 rounded-2xl max-w-[85%] ${
                     msg.senderId === "aichatId"
-                      ? "bg-gray-200 text-black"
+                      ? "bg-[#EEEFF8] text-black"
                       : "bg-blue-500 text-white"
                   }`}
                   dangerouslySetInnerHTML={{
