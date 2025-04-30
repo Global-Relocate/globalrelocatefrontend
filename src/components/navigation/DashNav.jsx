@@ -63,7 +63,7 @@ function DashNav({ navState, setNavState }) {
   ];
 
   return (
-    <div className="flex justify-between items-center h-20 px-5 bg-white text-black border border-[#D4D4D4] w-full shadow-sm fixed z-50 top-0">
+    <div className="flex justify-between items-center h-20 px-5 bg-white text-black border-b border-transparent w-full shadow-sm fixed z-50 top-0">
       <div className="flex items-center gap-8 w-full">
         <div className="flex items-center">
           <div className="mr-2 block sm:hidden">
