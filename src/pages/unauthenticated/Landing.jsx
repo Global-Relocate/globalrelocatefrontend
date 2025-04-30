@@ -16,6 +16,9 @@ import australia from "../../assets/images/australia.png";
 import chinaFlag from "../../assets/images/china-flag.png";
 import nigeriaFlag from "../../assets/images/nigeria-flag.png";
 
+// Import the background image directly
+import bgIllustration from "../../assets/images/bg_illustration.png";
+
 // features
 import people from "../../assets/images/people_image.png";
 import cardimg1 from "../../assets/images/cardimg_1.png";
@@ -85,7 +88,16 @@ export default function Landing() {
   return (
     <MainLayout>
       <div className="flex flex-col items-center justify-center bg-[#F5F5F7] min-w-[320px]">
-        <div className="hero-bg min-h-[85vh] md:min-h-[100vh] w-full flex items-center justify-center">
+        {/* Apply inline background style as a fallback along with the class */}
+        <div 
+          className="hero-bg min-h-[85vh] md:min-h-[100vh] w-full flex items-center justify-center"
+          style={{
+            backgroundImage: `url(${bgIllustration})`,
+            backgroundSize: '75%',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
           <motion.div 
             initial="hidden"
             animate="visible"
