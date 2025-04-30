@@ -4,9 +4,14 @@ import DashNav from "../navigation/DashNav";
 import ProtectedRoute from "@/utils/protected-route";
 import Footer from "../navigation/Footer";
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 
 function DashboardLayout({ children }) {
   const [navState, setNavState] = useState(false);
+  const location = useLocation();
+  
+  // Check if the current path is related to AI Assistant
+  const isAiAssistantPath = location.pathname.includes('/user/ai-assistant');
 
   return (
     <ProtectedRoute>
@@ -18,9 +23,12 @@ function DashboardLayout({ children }) {
             <div className="px-3 pt-32 sm:px-8 w-full flex-grow">{children}</div>
           </div>
         </div>
-        <div className="ml-0 sm:ml-64">
-          <Footer />
-        </div>
+        {/* Conditionally render the Footer based on path */}
+        {!isAiAssistantPath && (
+          <div className="ml-0 sm:ml-64">
+            <Footer />
+          </div>
+        )}
       </Fragment>
     </ProtectedRoute>
   );
