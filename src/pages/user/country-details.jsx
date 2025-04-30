@@ -96,22 +96,22 @@ function CountryDetails() {
 
       {singleCountry && (
         <Tabs defaultValue="overview" className="mt-5">
-          <TabsList className="flex overflow-x-auto w-full justify-start gap-2 bg-white">
+          <TabsList className="flex overflow-x-auto overflow-y-hidden w-full justify-start gap-2 bg-white whitespace-nowrap pb-1">
             <TabsTrigger
               value="overview"
-              className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none"
+              className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none flex-shrink-0"
             >
               Overview
             </TabsTrigger>
             <TabsTrigger
               value="visa"
-              className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none"
+              className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none flex-shrink-0"
             >
               Visa & Immigration
             </TabsTrigger>
             <TabsTrigger
               value="taxes"
-              className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none"
+              className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none flex-shrink-0"
             >
               Taxes
             </TabsTrigger>
