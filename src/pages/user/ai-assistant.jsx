@@ -5,10 +5,13 @@ import DOMPurify from "dompurify";
 import AiChatInput from "@/components/forms/AiChatInput";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import { Button } from "@/components/ui/button";
-import { BiEdit, BiPlus } from "react-icons/bi";
-import { PiShare } from "react-icons/pi";
+import { BiEdit } from "react-icons/bi";
+import { PiShareFat } from "react-icons/pi";
 import { TbDots } from "react-icons/tb";
-import { MdDelete } from "react-icons/md";
+import { MdDelete, MdAdd } from "react-icons/md";
+import { IoChevronDownOutline } from "react-icons/io5";
+
+import aiActiveIcon from "../../assets/svg/ai-assistant.svg";
 
 import {
   DropdownMenu,
@@ -68,7 +71,6 @@ function AiAssistant() {
     setIsSending(true);
     let sessionId = currentSession?.id;
 
-    // Create a new session if there isn't one
     if (!sessionId) {
       try {
         const newSession = await startChatSession();
@@ -82,7 +84,6 @@ function AiAssistant() {
       }
     }
 
-    // Add a temporary message to the UI
     if (type === 'text') {
       setLocalMessages((prevMessages) => [
         ...prevMessages,
@@ -103,7 +104,6 @@ function AiAssistant() {
     scrollToBottom();
 
     try {
-      // Send to unified API endpoint
       const formData = new FormData();
       formData.append('sessionId', sessionId);
       formData.append('type', type);
@@ -116,7 +116,6 @@ function AiAssistant() {
         formData.append('document', content);
       }
 
-      // Use the askAI function but adapt it to handle different content types
       await askAI(sessionId, formData, type);
     } catch (error) {
       toast.error(`Failed to process ${type} input. Please try again.`);
@@ -181,113 +180,126 @@ function AiAssistant() {
 
   return (
     <DashboardLayout>
-      <AiChatInput onSendMessage={handleSendMessage} />
+      <div className="flex flex-col h-[calc(100vh-160px)]">
+        {/* <div className="h-[72px] mb-12"> */}
+          <AiChatInput onSendMessage={handleSendMessage} />
+        {/* </div> */}
 
-      <div className="flex w-full items-center justify-between">
-        <div className="flex items-center gap-x-2">
-          <Button
-            className="text-3xl rounded-2xl outline-none border-none px-0"
-            size="icon"
-            onClick={handleStartNewSession}
-          >
-            <BiPlus />
-          </Button>
+        <div className="flex w-full items-center justify-between mb-4">
+          <div className="flex items-center gap-x-2">
+            <Button
+              className="rounded-[12px] bg-black text-white"
+              size="icon"
+              onClick={handleStartNewSession}
+            >
+              <MdAdd size={32} />
+            </Button>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost">
-                {currentSession ? currentSession.title : "New Chat"}
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuGroup>
-                {sessions
-                  ?.filter((s) => s.id !== currentSession?.id)
-                  .map((session) => (
-                    <DropdownMenuItem
-                      key={session.id}
-                      onClick={() => handleSwitchSession(session.id)}
-                    >
-                      {session.title || `Session ${session.id}`}
-                    </DropdownMenuItem>
-                  ))}
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-
-        <div className="flex gap-3 items-center">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                size="icon"
-                className="rounded-2xl bg-[#F6F6F6] text-black hover:text-white"
-              >
-                <TbDots />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuGroup>
-                <DropdownMenuItem onClick={handleRenameSession}>
-                  Rename
-                  <DropdownMenuShortcut>
-                    <BiEdit />
-                  </DropdownMenuShortcut>
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={handleDeleteSession}>
-                  Delete Conversation
-                  <DropdownMenuShortcut>
-                    <MdDelete />
-                  </DropdownMenuShortcut>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <Button className="rounded-2xl bg-[#F6F6F6] text-black hover:text-white" onClick={handleShareSession}>
-            <PiShare /> Share
-          </Button>
-        </div>
-      </div>
-
-      <div className="w-full flex flex-col mt-3 items-center h-[65vh] overflow-auto">
-        {!currentSession && localMessages?.length < 1 && (
-          <h2 className="text-3xl mt-52">Hello, {displayName}.</h2>
-        )}
-
-        {currentSession && (
-          <div className="w-full max-w-4xl h-full overflow-auto">
-            {localMessages?.map((msg, index) => (
-              <div
-                key={index}
-                className={`flex my-10 ${
-                  msg.senderId === "aichatId" ? "justify-start" : "justify-end"
-                }`}
-              >
-                <div
-                  className={`p-4 rounded-lg max-w-[90%] ${
-                    msg.senderId === "aichatId"
-                      ? "bg-gray-200 text-black"
-                      : "bg-blue-500 text-white"
-                  }`}
-                  dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(msg.message),
-                  }}
-                />
-              </div>
-            ))}
-
-            {isSending && (
-              <div className="flex justify-start">
-                <div className="px-4 py-1 rounded-lg bg-gray-200 text-black">
-                  <div className="typing-animation">...</div>
-                </div>
-              </div>
-            )}
-
-            <div ref={chatContainerRef} />
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center gap-1">
+                  {currentSession ? currentSession.title : "New Chat"}
+                  <IoChevronDownOutline className="text-black" size={16} />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuGroup>
+                  {sessions
+                    ?.filter((s) => s.id !== currentSession?.id)
+                    .map((session) => (
+                      <DropdownMenuItem
+                        key={session.id}
+                        onClick={() => handleSwitchSession(session.id)}
+                      >
+                        {session.title || `Session ${session.id}`}
+                      </DropdownMenuItem>
+                    ))}
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
-        )}
+
+          <div className="flex gap-3 items-center">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  size="icon"
+                  className="rounded-[12px] bg-[#F6F6F6] text-black hover:text-black hover:bg-[#F6F6F6] shadow-none"
+                >
+                  <TbDots />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuGroup>
+                  <DropdownMenuItem onClick={handleRenameSession}>
+                    Rename
+                    <DropdownMenuShortcut>
+                      <BiEdit />
+                    </DropdownMenuShortcut>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleDeleteSession}>
+                    Delete Conversation
+                    <DropdownMenuShortcut>
+                      <MdDelete />
+                    </DropdownMenuShortcut>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <Button 
+              className="rounded-[12px] bg-[#F6F6F6] text-black hover:text-black hover:bg-[#F6F6F6] flex items-center gap-2 shadow-none" 
+              onClick={handleShareSession}
+            >
+              <PiShareFat /> Share
+            </Button>
+          </div>
+        </div>
+
+        <div className="flex-grow overflow-auto px-4 pb-36 mb-16">
+          {!currentSession && localMessages?.length < 1 && (
+            <div className="text-center mt-32 flex items-center justify-center gap-3">
+              <div className="flex items-center">
+                <img src={aiActiveIcon} alt="AI Assistant" className="w-8 h-8" />
+                <h2 className="text-3xl ml-3" style={{ position: 'relative', top: '-2px' }}>Hello, {displayName}.</h2>
+              </div>
+            </div>
+          )}
+
+          {currentSession && (
+            <div className="w-full max-w-3xl mx-auto px-2 md:px-4">
+              {localMessages?.map((msg, index) => (
+                <div
+                  key={index}
+                  className={`flex my-3 ${
+                    msg.senderId === "aichatId" ? "justify-start" : "justify-end"
+                  }`}
+                >
+                  <div
+                    className={`py-2 px-3 rounded-2xl max-w-[85%] ${
+                      msg.senderId === "aichatId"
+                        ? "bg-[#EEEFF8] text-black"
+                        : "bg-blue-500 text-white"
+                    }`}
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(msg.message),
+                    }}
+                  />
+                </div>
+              ))}
+
+              {isSending && (
+                <div className="flex justify-start my-3">
+                  <div className="px-3 py-2 rounded-2xl bg-[#EEEFF8] text-black">
+                    <div className="typing-animation">...</div>
+                  </div>
+                </div>
+              )}
+
+              <div ref={chatContainerRef} className="h-2" />
+            </div>
+          )}
+        </div>
       </div>
     </DashboardLayout>
   );
