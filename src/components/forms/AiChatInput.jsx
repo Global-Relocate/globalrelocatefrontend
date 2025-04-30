@@ -1,9 +1,9 @@
 import { ArrowUp } from "lucide-react";
 import React, { useState, useRef } from "react";
 import { BiMicrophone, BiMicrophoneOff } from "react-icons/bi";
-import { MdFileUpload } from "react-icons/md";
+import { MdAdd } from "react-icons/md";
+import { IoStop } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import {
   Dialog,
@@ -12,6 +12,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 export default function AiChatInput({ onSendMessage }) {
   const [prompt, setPrompt] = useState("");
@@ -22,9 +23,39 @@ export default function AiChatInput({ onSendMessage }) {
   
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
+  const recognitionRef = useRef(null);
   
   const initPrompt = useLocation()?.state;
   const navigate = useNavigate();
+
+  // Initialize speech recognition
+  const initializeSpeechRecognition = () => {
+    // Check if speech recognition is supported
+    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      // Handle result event
+      recognition.onresult = (event) => {
+        const transcript = Array.from(event.results)
+          .map(result => result[0].transcript)
+          .join('');
+        setPrompt(transcript);
+      };
+      
+      // Handle errors
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        stopSpeechToText();
+      };
+      
+      return recognition;
+    }
+    return null;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,58 +63,36 @@ export default function AiChatInput({ onSendMessage }) {
     if (!modifiedPrompt) return;
     
     console.log(modifiedPrompt);
-    await onSendMessage(modifiedPrompt); // Call the onSendMessage prop with the prompt
-    setPrompt(""); // Clear the input after sending
+    await onSendMessage(modifiedPrompt);
+    setPrompt("");
 
     navigate("/user/ai-assistant", { state: { modifiedPrompt } });
   };
 
-  const startRecording = async () => {
+  const startSpeechToText = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = mediaRecorder;
-      audioChunksRef.current = [];
-
-      mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
-          audioChunksRef.current.push(event.data);
-        }
-      };
-
-      mediaRecorder.onstop = async () => {
-        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
-        await processVoiceInput(audioBlob);
-      };
-
-      mediaRecorder.start();
-      setIsRecording(true);
-      toast.info("Recording started...");
+      // Initialize speech recognition if not already done
+      if (!recognitionRef.current) {
+        recognitionRef.current = initializeSpeechRecognition();
+      }
+      
+      if (recognitionRef.current) {
+        recognitionRef.current.start();
+        setIsRecording(true);
+        // Removed toast notifications
+      } else {
+        console.error("Speech recognition is not supported in your browser");
+      }
     } catch (error) {
-      toast.error("Failed to access microphone. Please check permissions.");
-      console.error("Error accessing microphone:", error);
+      console.error("Error starting speech recognition:", error);
     }
   };
 
-  const stopRecording = () => {
-    if (mediaRecorderRef.current && isRecording) {
-      mediaRecorderRef.current.stop();
+  const stopSpeechToText = () => {
+    if (recognitionRef.current && isRecording) {
+      recognitionRef.current.stop();
       setIsRecording(false);
-      toast.info("Processing your voice...");
-
-      // Stop all audio tracks
-      mediaRecorderRef.current.stream.getTracks().forEach((track) => track.stop());
-    }
-  };
-
-  const processVoiceInput = async (audioBlob) => {
-    try {
-      // Simply pass the audio blob to the same handler
-      await onSendMessage(audioBlob, 'audio');
-      toast.success("Voice message sent!");
-    } catch (error) {
-      toast.error("Failed to process voice recording.");
-      console.error("Error processing voice:", error);
+      // Removed toast notifications
     }
   };
 
@@ -101,10 +110,8 @@ export default function AiChatInput({ onSendMessage }) {
     }
 
     try {
-      // Pass the file directly to the same handler
       await onSendMessage(selectedFile, 'document');
       
-      // Update UI and close dialog
       toast.success("Document uploaded successfully!");
       setUploadDialogOpen(false);
       setSelectedFile(null);
@@ -115,14 +122,23 @@ export default function AiChatInput({ onSendMessage }) {
     }
   };
 
+  // Toggle speech recognition
+  const toggleSpeechRecognition = () => {
+    if (isRecording) {
+      stopSpeechToText();
+    } else {
+      startSpeechToText();
+    }
+  };
+
   return (
     <>
       <div className="left-2 md:left-64 right-0 fixed bottom-3 md:bottom-7 z-50 flex items-center justify-center">
         <form
           onSubmit={handleSubmit}
-          className="px-4 py-3 rounded-[100px] shadow-md flex items-center gap-2 justify-center w-[700px] bg-white"
+          className="px-4 py-3 rounded-[100px] border border-[#E9E9E9] flex items-center gap-2 justify-center w-[700px] bg-white"
         >
-          <div className="w-full flex items-center pr-2 bg-[#F6F6F6] border border-gray-600 rounded-3xl">
+          <div className="w-full flex items-center pr-2 bg-[#F6F6F6] border border-[#D4D4D4] rounded-3xl">
             <input
               type="text"
               onChange={(e) => setPrompt(e.target.value)}
@@ -130,33 +146,42 @@ export default function AiChatInput({ onSendMessage }) {
               placeholder="Ask AI Anything..."
               className="w-full h-full px-4 py-3 rounded-3xl bg-[#F6F6F6] focus:outline-none text-sm"
             />
-            <Button
+            
+            {/* File upload button (plus icon) - black color & larger size */}
+            <button
               type="button"
-              size="icon"
-              className="rounded-2xl bg-[#F6F6F6] text-black hover:text-white"
               onClick={() => setUploadDialogOpen(true)}
+              className="text-black hover:text-gray-700 p-1 transition-colors"
             >
-              <MdFileUpload />
-            </Button>
-            <Button
+              <MdAdd size={24} />
+            </button>
+            
+            {/* Microphone button - black color */}
+            <button
               type="button"
-              size="icon"
-              className={`rounded-2xl ${
+              onClick={toggleSpeechRecognition}
+              className={`p-1 transition-colors ${
                 isRecording
-                  ? "bg-red-500 text-white"
-                  : "bg-[#F6F6F6] text-black hover:text-white"
+                  ? "text-red-500"
+                  : "text-black hover:text-gray-700"
               }`}
-              onClick={isRecording ? stopRecording : startRecording}
             >
-              {isRecording ? <BiMicrophoneOff /> : <BiMicrophone />}
-            </Button>
+              {isRecording ? <BiMicrophoneOff size={20} /> : <BiMicrophone size={20} />}
+            </button>
           </div>
+          
+          {/* Send/Stop button with conditional background color and icon */}
           <button 
-            type="submit" 
-            className="bg-black text-white rounded-full p-1"
-            disabled={!prompt.trim()}
+            type={isRecording ? "button" : "submit"}
+            onClick={isRecording ? stopSpeechToText : undefined}
+            className={`rounded-full p-2 transition-colors ${
+              isRecording || prompt.trim() 
+                ? "bg-black text-white" 
+                : "bg-gray-300 text-white cursor-not-allowed"
+            }`}
+            disabled={!isRecording && !prompt.trim()}
           >
-            <ArrowUp />
+            {isRecording ? <IoStop size={20} /> : <ArrowUp size={20} />}
           </button>
         </form>
       </div>
