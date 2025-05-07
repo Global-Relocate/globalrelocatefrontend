@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
 
@@ -67,7 +67,7 @@ function AiAssistant() {
     }
   };
 
-  const handleSendMessage = async (content, type = 'text') => {
+  const handleSendMessage = async (content, type = "text") => {
     setIsSending(true);
     let sessionId = currentSession?.id;
 
@@ -84,39 +84,49 @@ function AiAssistant() {
       }
     }
 
-    if (type === 'text') {
+    if (type === "text") {
       setLocalMessages((prevMessages) => [
         ...prevMessages,
-        { senderId: "user", message: content }
+        { senderId: "user", message: content },
       ]);
-    } else if (type === 'audio') {
+    } else if (type === "audio") {
       setLocalMessages((prevMessages) => [
         ...prevMessages,
-        { senderId: "user", message: "🎤 Voice message" }
+        { senderId: "user", message: "🎤 Voice message" },
       ]);
-    } else if (type === 'document') {
+    } else if (type === "document") {
       setLocalMessages((prevMessages) => [
         ...prevMessages,
-        { senderId: "user", message: `📄 Document: ${content.name}` }
+        { senderId: "user", message: `📄 Document: ${content.name}` },
       ]);
     }
 
     scrollToBottom();
 
     try {
-      const formData = new FormData();
-      formData.append('sessionId', sessionId);
-      formData.append('type', type);
-      
-      if (type === 'text') {
-        formData.append('message', content);
-      } else if (type === 'audio') {
-        formData.append('audio', content);
-      } else if (type === 'document') {
-        formData.append('document', content);
+      // const formData = new FormData();
+      // formData.append("sessionId", sessionId);
+      // formData.append("type", type);
+      // if (type === "text") {
+      //   formData.append("message", content);
+      // } else if (type === "audio") {
+      //   formData.append("audio", content);
+      // } else if (type === "document") {
+      //   formData.append("document", content);
+      // }
+
+      if (type === "text") {
+        await askAI(sessionId, content);
+      } else {
+        const formData = new FormData();
+        formData.append("sessionId", sessionId);
+        formData.append("type", type);
+        if (type === "audio") formData.append("audio", content);
+        if (type === "document") formData.append("document", content);
+        await askAI(sessionId, formData);
       }
 
-      await askAI(sessionId, formData, type);
+      // await askAI(sessionId, formData, type);
     } catch (error) {
       toast.error(`Failed to process ${type} input. Please try again.`);
     } finally {
@@ -182,7 +192,7 @@ function AiAssistant() {
     <DashboardLayout>
       <div className="flex flex-col h-[calc(100vh-160px)]">
         {/* <div className="h-[72px] mb-12"> */}
-          <AiChatInput onSendMessage={handleSendMessage} />
+        <AiChatInput onSendMessage={handleSendMessage} />
         {/* </div> */}
 
         <div className="flex w-full items-center justify-between mb-4">
@@ -247,8 +257,8 @@ function AiAssistant() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button 
-              className="rounded-[12px] bg-[#F6F6F6] text-black hover:text-black hover:bg-[#F6F6F6] flex items-center gap-2 shadow-none" 
+            <Button
+              className="rounded-[12px] bg-[#F6F6F6] text-black hover:text-black hover:bg-[#F6F6F6] flex items-center gap-2 shadow-none"
               onClick={handleShareSession}
             >
               <PiShareFat /> Share
@@ -260,8 +270,17 @@ function AiAssistant() {
           {!currentSession && localMessages?.length < 1 && (
             <div className="text-center mt-32 flex items-center justify-center gap-3">
               <div className="flex items-center">
-                <img src={aiActiveIcon} alt="AI Assistant" className="w-8 h-8" />
-                <h2 className="text-3xl ml-3" style={{ position: 'relative', top: '-2px' }}>Hello, {displayName}.</h2>
+                <img
+                  src={aiActiveIcon}
+                  alt="AI Assistant"
+                  className="w-8 h-8"
+                />
+                <h2
+                  className="text-3xl ml-3"
+                  style={{ position: "relative", top: "-2px" }}
+                >
+                  Hello, {displayName}.
+                </h2>
               </div>
             </div>
           )}
@@ -272,7 +291,9 @@ function AiAssistant() {
                 <div
                   key={index}
                   className={`flex my-3 ${
-                    msg.senderId === "aichatId" ? "justify-start" : "justify-end"
+                    msg.senderId === "aichatId"
+                      ? "justify-start"
+                      : "justify-end"
                   }`}
                 >
                   <div

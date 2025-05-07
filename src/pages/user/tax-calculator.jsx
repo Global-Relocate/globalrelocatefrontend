@@ -11,12 +11,14 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import TaxSummary from "@/components/ui/tax-summary";
+import axios from "axios";
 
 // Icons
 import { PiGlobeHemisphereWestLight } from "react-icons/pi";
 import { PiMoneyLight } from "react-icons/pi";
 import { FiMinusCircle } from "react-icons/fi";
 import { PiUsers } from "react-icons/pi";
+import { countryCurrencyCodes, countryTaxRates } from "@/seed/currency";
 
 function TaxCalculator() {
   const [formData, setFormData] = useState({
@@ -46,21 +48,40 @@ function TaxCalculator() {
     );
   };
 
-  const calculateTax = () => {
-    // This is a simple example calculation
-    // In a real app, this would be more complex and probably call an API
+  const calculateTax = async () => {
+    const country = formData.country;
+    const currency = countryCurrencyCodes[country];
     const income = parseFloat(formData.annualIncome);
     const deductions = parseFloat(formData.totalDeductions);
     const taxableIncome = income - deductions;
-    
-    // Simple 25% tax rate for example
-    const taxAmount = taxableIncome * 0.25;
-    const effectiveRate = 25;
+    const accountType = formData.familyStatus;
+    const vat = countryTaxRates[formData.country].vat;
+    const corporate = countryTaxRates[country].corporate;
+
+    const taxAmount =
+      accountType === "individual"
+        ? (taxableIncome * vat) / 100
+        : (taxableIncome * corporate) / 100;
+    const effectiveRate =
+      accountType === "individual"
+        ? `${countryTaxRates[country].vat}`
+        : `${countryTaxRates[country].corporate}`;
+
     const takeHomeAmount = income - taxAmount;
+    const lowerCurrency = currency.toLowerCase();
+
+    const response = await axios.get(
+      `https://latest.currency-api.pages.dev/v1/currencies/${lowerCurrency}.json`
+    );
+
+    const exchangeRate = parseFloat(`${response.data[lowerCurrency].usd}`);
 
     setTaxSummary({
+      country,
+      currency,
       taxAmount,
       effectiveRate,
+      exchangeRate,
       takeHomeAmount,
     });
   };
@@ -88,7 +109,9 @@ function TaxCalculator() {
                 </label>
                 <CountryDropdown
                   value={formData.country}
-                  onChange={(country) => handleInputChange("country", country.alpha2)}
+                  onChange={(country) =>
+                    handleInputChange("country", country.alpha2)
+                  }
                   placeholder="Select your country"
                   textSize="sm"
                 />
@@ -104,7 +127,9 @@ function TaxCalculator() {
                   type="number"
                   placeholder="Enter your annual income"
                   value={formData.annualIncome}
-                  onChange={(e) => handleInputChange("annualIncome", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("annualIncome", e.target.value)
+                  }
                   className="h-12 bg-white text-sm placeholder:text-gray-400"
                   borderColor="gray-300"
                 />
@@ -118,14 +143,20 @@ function TaxCalculator() {
                 </label>
                 <Select
                   value={formData.familyStatus}
-                  onValueChange={(value) => handleInputChange("familyStatus", value)}
+                  onValueChange={(value) =>
+                    handleInputChange("familyStatus", value)
+                  }
                 >
                   <SelectTrigger className="h-12 bg-white text-sm border-gray-300 focus:ring-gray-300">
                     <SelectValue placeholder="Select account type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="individual" className="text-sm">Individual</SelectItem>
-                    <SelectItem value="corporate" className="text-sm">Corporate</SelectItem>
+                    <SelectItem value="individual" className="text-sm">
+                      Individual
+                    </SelectItem>
+                    <SelectItem value="corporate" className="text-sm">
+                      Corporate
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>

@@ -1,4 +1,11 @@
-const TaxSummary = ({ taxAmount, effectiveRate, takeHomeAmount }) => {
+const TaxSummary = ({
+  country,
+  currency,
+  taxAmount,
+  effectiveRate,
+  exchangeRate,
+  takeHomeAmount,
+}) => {
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-medium">Tax summary</h2>
@@ -7,9 +14,11 @@ const TaxSummary = ({ taxAmount, effectiveRate, takeHomeAmount }) => {
           {/* Tax Amount */}
           <div className="p-6 rounded-xl bg-[#EFF6FB]">
             <p className="text-sm text-gray-600">Tax amount</p>
-            <h3 className="text-3xl font-semibold mt-2">£{taxAmount.toLocaleString()}</h3>
+            <h3 className="text-3xl font-semibold mt-2">
+              {currency} {taxAmount.toLocaleString()}
+            </h3>
             <p className="text-sm text-gray-500 mt-1">
-              USD ${(taxAmount * 1.27).toLocaleString()}
+              USD ${(taxAmount * exchangeRate).toLocaleString()}
             </p>
           </div>
 
@@ -22,7 +31,9 @@ const TaxSummary = ({ taxAmount, effectiveRate, takeHomeAmount }) => {
           {/* Take Home Amount */}
           <div className="p-6 rounded-xl bg-[#EFFBF4]">
             <p className="text-sm text-gray-600">Take home amount</p>
-            <h3 className="text-3xl font-semibold mt-2">£{takeHomeAmount.toLocaleString()}</h3>
+            <h3 className="text-3xl font-semibold mt-2">
+              {currency} {takeHomeAmount.toLocaleString()}
+            </h3>
           </div>
         </div>
       </div>
@@ -30,4 +41,4 @@ const TaxSummary = ({ taxAmount, effectiveRate, takeHomeAmount }) => {
   );
 };
 
-export default TaxSummary; 
+export default TaxSummary;

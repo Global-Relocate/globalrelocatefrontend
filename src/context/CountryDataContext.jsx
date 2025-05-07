@@ -1,11 +1,5 @@
 import axiosInstance from "@/config/axiosInstance";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  useCallback,
-} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const CountryDataContext = createContext();
@@ -54,7 +48,7 @@ export const CountryDataProvider = ({ children }) => {
     try {
       await axiosInstance.post(`/countries/favourite/add/${id}`);
       fetchCountries(true, true);
-      getFavouriteCountries()
+      getFavouriteCountries();
       toast.success("Added to favourite!");
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -65,7 +59,7 @@ export const CountryDataProvider = ({ children }) => {
     try {
       await axiosInstance.post(`/countries/favourite/remove/${id}`);
       fetchCountries(true, true);
-      getFavouriteCountries()
+      getFavouriteCountries();
       toast.success("Remove from favourite!");
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -82,6 +76,7 @@ export const CountryDataProvider = ({ children }) => {
     }
     setLoading(false);
   };
+
   const getCountryList = async () => {
     setLoading(true);
     try {
@@ -93,12 +88,12 @@ export const CountryDataProvider = ({ children }) => {
       setLoading(false);
     }
   };
-  const compareCountries = async (firstCountryId, secondCountryId) => {
+
+  const compareCountries = async (...countryIds) => {
     setCompareLoader(true);
     try {
       const response = await axiosInstance.post(`/countries/compare`, {
-        firstCountryId,
-        secondCountryId,
+        countries: countryIds,
       });
       setCompareData(response.data.data);
     } catch (error) {

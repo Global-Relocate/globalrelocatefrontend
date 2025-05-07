@@ -1,10 +1,5 @@
 import axiosInstance from "@/config/axiosInstance";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const AiChatContext = createContext();
@@ -33,7 +28,7 @@ export const AiChatProvider = ({ children }) => {
     setLoading(true);
     try {
       const { data } = await axiosInstance.get("/ai/start");
-      console.log("session", data)
+      console.log("session", data);
       const newSession = { id: data.data.sessionId, title: data.data.title };
       setCurrentSession(newSession);
       setMessages([]); // Clear messages for the new session
@@ -48,10 +43,10 @@ export const AiChatProvider = ({ children }) => {
   };
 
   // Send a message to the AI
-  const askAI = async (sessionId, message) => {
+  const askAI = async (sessionId, content) => {
     setLoading(true);
     try {
-      await axiosInstance.post(`/ai/${sessionId}`, { message });
+      await axiosInstance.post(`/ai/${sessionId}`, { message: content });
       // Fetch the updated session to get the latest messages
       await fetchSingleSession(sessionId);
     } catch (error) {

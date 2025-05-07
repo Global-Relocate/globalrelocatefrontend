@@ -6,14 +6,36 @@ import MentionsTab from "@/components/profile/tabs/MentionsTab";
 import FollowingTab from "@/components/profile/tabs/FollowingTab";
 
 function Notifications() {
-  const [activeTab, setActiveTab] = useState('all');
+  const [activeTab, setActiveTab] = useState("all");
 
   return (
     <DashboardLayout>
       <div className="w-full flex flex-col">
         <div className="px-4 md:px-8 lg:px-20 pt-2 pb-4">
+          <h1 className="text-3xl font-medium mb-6">Travel News</h1>
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              paddingTop: "300px",
+            }}
+          >
+            <iframe
+              src="https://rss.app/embed/v1/list/t8QjCntNXPNS1BD9"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                border: 0,
+              }}
+            ></iframe>
+          </div>
+        </div>
+        <div className="px-4 md:px-8 lg:px-20 pt-2 pb-4">
           <h1 className="text-3xl font-medium mb-6">Notifications</h1>
-          
+
           {/* Tabs
           <div className="flex gap-4 mb-6">
             <FilterButton
@@ -35,9 +57,9 @@ function Notifications() {
 
           {/* Tab Content */}
           <div className="w-full">
-            {activeTab === 'all' && <AllNotificationsTab />}
-            {activeTab === 'mentions' && <MentionsTab />}
-            {activeTab === 'following' && <FollowingTab />}
+            {activeTab === "all" && <AllNotificationsTab />}
+            {activeTab === "mentions" && <MentionsTab />}
+            {activeTab === "following" && <FollowingTab />}
           </div>
         </div>
       </div>
