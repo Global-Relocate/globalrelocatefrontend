@@ -72,6 +72,22 @@
       "title": "Paesi",
       "noDataText": "Nessun dato disponibile!",
       "searchText": "Cerca paesi"
+    },
+    "country": {
+      "countryIn": "Paese in",
+      "addFavorite": "Aggiungi ai preferiti",
+      "share": "Condividi",
+      "overview": "Panoramica",
+      "map": "Mappa",
+      "keyFacts": "Fatti chiave",
+      "visaMigration": "Visto e Immigrazione",
+      "taxes": "Tasse",
+      "flag": "Bandiera",
+      "capital": "Capitale",
+      "languages": "Lingue",
+      "currency": "Valuta",
+      "population": "Popolazione",
+      "dialingCode": "Prefisso telefonico"
     }
   },
   "drawers": {

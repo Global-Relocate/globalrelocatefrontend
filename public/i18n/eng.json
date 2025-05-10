@@ -72,9 +72,24 @@
       "title": "Countries",
       "noDataText": "No data available!",
       "searchText": "Search for countries"
+    },
+    "country": {
+      "countryIn": "Country in",
+      "addFavorite": "Add to favorites",
+      "share": "Share",
+      "overview": "Overview",
+      "map": "Map",
+      "keyFacts": "Key facts",
+      "visaMigration": "Visa & Immigration",
+      "taxes": "Taxes",
+      "flag": "Flag",
+      "capital": "Capital",
+      "languages": "Languages",
+      "currency": "Currency",
+      "population": "Population",
+      "dialingCode": "Dialing Code"
     }
   },
-
   "drawers": {
     "selectLanguages": {
       "confirm": "Confirm Changes"

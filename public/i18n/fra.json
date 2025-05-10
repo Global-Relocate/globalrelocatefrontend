@@ -72,9 +72,24 @@
       "title": "Pays",
       "noDataText": "Aucune donnée disponible !",
       "searchText": "Rechercher des pays"
+    },
+    "country": {
+      "countryIn": "Pays en",
+      "addFavorite": "Ajouter aux favoris",
+      "share": "Partager",
+      "overview": "Aperçu",
+      "map": "Carte",
+      "keyFacts": "Faits clés",
+      "visaMigration": "Visa et Immigration",
+      "taxes": "Impôts",
+      "flag": "Drapeau",
+      "capital": "Capitale",
+      "languages": "Langues",
+      "currency": "Devise",
+      "population": "Population",
+      "dialingCode": "Indicatif téléphonique"
     }
   },
-
   "drawers": {
     "selectLanguages": {
       "confirm": "Confirmer les changements"

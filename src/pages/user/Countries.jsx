@@ -132,7 +132,7 @@ function Countries() {
         ) : (
           <>
             {filteredCountries.length < 1 && (
-              <h2> {t("userDashboard.countries.noDataText")}</h2>
+              <h2>{t("userDashboard.countries.noDataText")}</h2>
             )}
             {filteredCountries.map((item, i) => {
               const isLastElement = i === filteredCountries.length - 1;

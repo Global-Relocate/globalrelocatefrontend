@@ -13,13 +13,13 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { useTranslation } from "react-i18next";
 
 function CountryDetails() {
   const { id } = useParams();
+  const { t } = useTranslation();
   const { singleCountry, loading, getSingleCountry } = useCountryData();
   const navigate = useNavigate();
 
@@ -71,18 +71,21 @@ function CountryDetails() {
               />
               <div className="flex flex-col items-start">
                 <h2 className="text-3xl font-medium">{singleCountry?.name}</h2>
-                <span>Country in {singleCountry?.continent}</span>
+                <span>
+                  {t("userDashboard.country.countryIn")}{" "}
+                  {singleCountry?.continent}
+                </span>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
               <Button variant="outline" className="rounded-3xl border">
                 {" "}
-                <BiHeart /> Add to favorites
+                <BiHeart /> {t("userDashboard.country.addFavorite")}
               </Button>
               <Button variant="outline" className="rounded-3xl border">
                 {" "}
-                <PiShare /> Share
+                <PiShare /> {t("userDashboard.country.share")}
               </Button>
             </div>
           </>
@@ -119,8 +122,6 @@ function CountryDetails() {
                     );
                   })}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
               </Carousel>
             ) : (
               <>
@@ -142,61 +143,120 @@ function CountryDetails() {
               value="overview"
               className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none flex-shrink-0"
             >
-              Overview
+              {t("userDashboard.country.overview")}
             </TabsTrigger>
             <TabsTrigger
               value="visa"
               className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none flex-shrink-0"
             >
-              Visa & Immigration
+              {t("userDashboard.country.visaMigration")}
             </TabsTrigger>
             <TabsTrigger
               value="taxes"
               className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none flex-shrink-0"
             >
-              Taxes
+              {t("userDashboard.country.taxes")}
             </TabsTrigger>
           </TabsList>
           <TabsContent value="overview">
-            <h2 className="font-medium text-2xl my-7">Background</h2>
+            <h2 className="font-medium text-2xl my-7">
+              {singleCountry.name} {t("userDashboard.country.overview")}
+            </h2>
             <p className="text-[#222222]">
               {singleCountry.overview === "No overview available"
                 ? "No overview information available for this country."
                 : singleCountry.overview}
             </p>
 
-            <h2 className="font-bold text-2xl my-7">Key Facts</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <div>
-                <h3 className="font-semibold">Capital</h3>
-                <p>{singleCountry.keyFacts?.capital || "N/A"}</p>
+            <div className="mt-20 mb-6">
+              <hr />
+              <div className="my-5">
+                <h2 className="text-2xl mt-2 mb-8">
+                  {t("userDashboard.country.keyFacts")}
+                </h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  <div>
+                    <h3 className="font-black mb-4">
+                      {t("userDashboard.country.flag")}
+                    </h3>
+                    <p>
+                      <img
+                        src={
+                          singleCountry?.keyFacts?.flag ||
+                          "https://flagcdn.com/w320/ci.png"
+                        }
+                        className="w-6 h-6 rounded-full object-cover"
+                        alt="Country flag"
+                      />
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-black mb-4">
+                      {t("userDashboard.country.capital")}
+                    </h3>
+                    <p className="text-md">
+                      {singleCountry.keyFacts?.capital || "N/A"}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-black mb-4">
+                      {t("userDashboard.country.languages")}
+                    </h3>
+                    <p className="text-md">
+                      {singleCountry.keyFacts?.languages?.join(", ") || "N/A"}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-black mb-4">
+                      {t("userDashboard.country.currency")}
+                    </h3>
+                    <p className="text-md">
+                      {singleCountry.keyFacts?.currency?.full
+                        ? `${singleCountry.keyFacts.currency.full} (${singleCountry.keyFacts.currency.abbreviation})`
+                        : "N/A"}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-black mb-4">
+                      {t("userDashboard.country.population")}
+                    </h3>
+                    <p className="text-md">
+                      {singleCountry.keyFacts?.population?.inNumbers
+                        ? parseInt(
+                            singleCountry.keyFacts.population.inNumbers
+                          ).toLocaleString()
+                        : "N/A"}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-black mb-4">
+                      {t("userDashboard.country.dialingCode")}
+                    </h3>
+                    <p className="text-md">
+                      {singleCountry.keyFacts?.dialingCode || "N/A"}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold">Languages</h3>
-                <p>{singleCountry.keyFacts?.languages?.join(", ") || "N/A"}</p>
+              <hr />
+            </div>
+
+            <div className="mt-20 mb-6">
+              <div className="my-5">
+                <h2 className="text-2xl mt-2 mb-8">
+                  {t("userDashboard.country.map")}
+                </h2>
+                <div className="rounded-2xl w-full">
+                  <iframe
+                    src={`https://maps.google.com/maps?q=${singleCountry.name}&hl=en&z=6&maptype=satellite&output=embed`}
+                    className="w-full h-[450px] rounded-3xl outline-none"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold">Currency</h3>
-                <p>
-                  {singleCountry.keyFacts?.currency?.full
-                    ? `${singleCountry.keyFacts.currency.full} (${singleCountry.keyFacts.currency.abbreviation})`
-                    : "N/A"}
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold">Population</h3>
-                <p>
-                  {singleCountry.keyFacts?.population?.inNumbers
-                    ? parseInt(
-                        singleCountry.keyFacts.population.inNumbers
-                      ).toLocaleString()
-                    : "N/A"}
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold">Dialing Code</h3>
-                <p>{singleCountry.keyFacts?.dialingCode || "N/A"}</p>
-              </div>
+              <hr />
             </div>
           </TabsContent>
 

@@ -73,6 +73,22 @@
       "title": "Länder",
       "noDataText": "Keine Daten verfügbar!",
       "searchText": "Nach Ländern suchen"
+    },
+    "country": {
+      "countryIn": "Land in",
+      "addFavorite": "Zu Favoriten hinzufügen",
+      "share": "Teilen",
+      "overview": "Übersicht",
+      "map": "Karte",
+      "keyFacts": "Wichtige Fakten",
+      "visaMigration": "Visum & Einwanderung",
+      "taxes": "Steuern",
+      "flag": "Flagge",
+      "capital": "Hauptstadt",
+      "languages": "Sprachen",
+      "currency": "Währung",
+      "population": "Bevölkerung",
+      "dialingCode": "Vorwahl"
     }
   },
 
