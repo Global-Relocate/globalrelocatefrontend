@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoArrowBack } from "react-icons/io5";
-import PropTypes from 'prop-types';
-import { getSubscriptionDetails, createCheckoutSession } from '@/services/api';
-import { showToast } from '@/components/ui/toast';
+import PropTypes from "prop-types";
+import { getSubscriptionDetails, createCheckoutSession } from "@/services/api";
+import { showToast } from "@/components/ui/toast";
 import logo from "../../assets/svg/logo.svg"; // Import the logo
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import MainLayout from "@/components/layouts/MainLayout";
 import Navbar from "@/components/navigation/Navbar";
 
@@ -18,8 +18,19 @@ const LoadingScreen = () => (
   </div>
 );
 
-const PricingCard = ({ title, price, isCurrentPlan, features, buttonText, onUpgrade }) => (
-  <div className={`p-8 rounded-lg border flex flex-col h-full justify-between ${isCurrentPlan ? 'bg-[#F6F6F6]' : 'bg-white'}`}>
+const PricingCard = ({
+  title,
+  price,
+  isCurrentPlan,
+  features,
+  buttonText,
+  onUpgrade,
+}) => (
+  <div
+    className={`p-8 rounded-lg border flex flex-col h-full justify-between ${
+      isCurrentPlan ? "bg-[#F6F6F6]" : "bg-white"
+    }`}
+  >
     <div>
       <div className="mb-8">
         <h3 className="text-2xl font-semibold mb-2">{title}</h3>
@@ -47,9 +58,9 @@ const PricingCard = ({ title, price, isCurrentPlan, features, buttonText, onUpgr
       <Button
         variant={isCurrentPlan ? "outline" : "default"}
         className={`w-full ${
-          isCurrentPlan 
-            ? 'text-gray-600 hover:bg-gray-100 hover:text-gray-800' 
-            : 'bg-[#FCA311] hover:bg-[#FCA311]/90 text-white'
+          isCurrentPlan
+            ? "text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+            : "bg-[#FCA311] hover:bg-[#FCA311]/90 text-white"
         }`}
         onClick={() => !isCurrentPlan && onUpgrade()}
         disabled={isCurrentPlan}
@@ -83,7 +94,7 @@ const Upgrade = () => {
     const fetchSubscriptionDetails = async () => {
       try {
         const response = await getSubscriptionDetails();
-        setCurrentPlan(response.data?.plan || 'FREE');
+        setCurrentPlan(response.data?.plan || "FREE");
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -94,26 +105,27 @@ const Upgrade = () => {
     fetchSubscriptionDetails();
   }, []);
 
-  const handleUpgrade = async () => {
+  const handleUpgrade = async (type) => {
     try {
-      const planType = 'MONTHLY';
-      
+      const planType = type;
+
       const response = await createCheckoutSession(planType);
       showToast({
-        message: 'Redirecting to payment page...',
-        type: 'success'
+        message: "Redirecting to payment page...",
+        type: "success",
       });
-      
+
       if (response.data?.checkout_link) {
         window.location.href = response.data.checkout_link;
       } else {
-        throw new Error('Invalid checkout response');
+        throw new Error("Invalid checkout response");
       }
     } catch (err) {
-      console.error('Error creating checkout session:', err);
+      console.error("Error creating checkout session:", err);
       showToast({
-        message: err.message || 'Failed to create checkout session. Please try again.',
-        type: 'error'
+        message:
+          err.message || "Failed to create checkout session. Please try again.",
+        type: "error",
       });
     }
   };
@@ -127,7 +139,7 @@ const Upgrade = () => {
         "Basic country information",
         "Community access (read-only)",
         "Limited tax calculator",
-        "Basic cost comparison"
+        "Basic cost comparison",
       ],
     },
     {
@@ -139,7 +151,7 @@ const Upgrade = () => {
         "Complete tax calculator",
         "Cost comparison tools",
         "Basic relocation guides",
-        "Email support"
+        "Email support",
       ],
     },
     {
@@ -154,7 +166,7 @@ const Upgrade = () => {
         "Cost of living insights",
         "Visa requirement guides",
         "Priority support",
-        "Custom relocation roadmap"
+        "Custom relocation roadmap",
       ],
     },
   ];
@@ -187,7 +199,9 @@ const Upgrade = () => {
           <div className="text-center mb-12">
             <h1 className="text-3xl font-semibold mb-4">Upgrade your plan</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Choose the perfect plan to support your global relocation journey. Get access to comprehensive tools and insights to make your move seamless.
+              Choose the perfect plan to support your global relocation journey.
+              Get access to comprehensive tools and insights to make your move
+              seamless.
             </p>
           </div>
 
@@ -197,8 +211,12 @@ const Upgrade = () => {
                 key={plan.title}
                 {...plan}
                 isCurrentPlan={currentPlan === plan.title.toUpperCase()}
-                buttonText={currentPlan === plan.title.toUpperCase() ? "Your current plan" : "Get started"}
-                onUpgrade={handleUpgrade}
+                buttonText={
+                  currentPlan === plan.title.toUpperCase()
+                    ? "Your current plan"
+                    : "Get started"
+                }
+                onUpgrade={() => handleUpgrade(plan.title.toUpperCase())}
               />
             ))}
           </div>

@@ -7,7 +7,7 @@ import { X, Menu, LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { LuUserRound } from "react-icons/lu";
 import { IoChevronDownOutline } from "react-icons/io5";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -45,7 +45,11 @@ const Navbar = () => {
   // Handle click outside to close drawer
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (drawerRef.current && !drawerRef.current.contains(event.target) && isDrawerOpen) {
+      if (
+        drawerRef.current &&
+        !drawerRef.current.contains(event.target) &&
+        isDrawerOpen
+      ) {
         setIsDrawerOpen(false);
       }
     };
@@ -86,16 +90,17 @@ const Navbar = () => {
 
   const isActivePath = (path) => location.pathname === path;
 
-  const NavLinks = ({ mobile = false, onClick = () => { } }) => (
+  const NavLinks = ({ mobile = false, onClick = () => {} }) => (
     <ul className={`${mobile ? "flex flex-col space-y-6" : "flex space-x-8"}`}>
       {navLinks.map(({ href, label }) => (
         <li key={href}>
           <Link
             to={href}
-            className={`transition-colors duration-200 ${isActivePath(href)
-              ? "text-black hover:text-[#404040]"
-              : "text-[#404040] hover:text-black"
-              }`}
+            className={`transition-colors duration-200 ${
+              isActivePath(href)
+                ? "text-black hover:text-[#404040]"
+                : "text-[#404040] hover:text-black"
+            }`}
             onClick={onClick}
           >
             {label}
@@ -107,16 +112,15 @@ const Navbar = () => {
 
   NavLinks.propTypes = {
     mobile: PropTypes.bool,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
   };
 
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-gray-200"
-          : "bg-transparent"
-          }`}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white/80 backdrop-blur-md" : "bg-transparent"
+        }`}
       >
         <nav className="max-w-[1440px] mx-auto px-6 lg:px-10 py-4">
           <div className="flex items-center justify-between">
@@ -200,19 +204,25 @@ const Navbar = () => {
       </header>
 
       {/* Mobile Drawer - Moved outside of header to be independent */}
-      <div 
-        className={`fixed inset-0 z-[150] ${isDrawerOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+      <div
+        className={`fixed inset-0 z-[150] ${
+          isDrawerOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
       >
         {/* Overlay */}
-        <div 
-          className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${isDrawerOpen ? "opacity-100" : "opacity-0"}`}
+        <div
+          className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${
+            isDrawerOpen ? "opacity-100" : "opacity-0"
+          }`}
           onClick={() => setIsDrawerOpen(false)}
         ></div>
-        
+
         {/* Drawer */}
         <div
           ref={drawerRef}
-          className={`absolute right-0 top-0 bottom-0 w-full sm:w-[380px] bg-white mobile-drawer transition-transform duration-300 ${isDrawerOpen ? "translate-x-0" : "translate-x-full"}`}
+          className={`absolute right-0 top-0 bottom-0 w-full sm:w-[380px] bg-white mobile-drawer transition-transform duration-300 ${
+            isDrawerOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         >
           <div className="mobile-drawer-content">
             <div className="flex justify-between items-center p-6 border-b border-gray-100 bg-white sticky top-0 z-10">

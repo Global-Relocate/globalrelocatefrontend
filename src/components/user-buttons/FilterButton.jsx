@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "../ui/button";
 
 function FilterButton({ isActive, title, onClick, ...props }) {

@@ -147,9 +147,15 @@ function Countries() {
                     isLiked={item.isLiked}
                     // onLikeToggle={() => toggleFavorite(item)}
                     onClick={() =>
-                      navigate(`/user/countries/${item.countryId}`, { state: item.countryFlag })
+                      navigate(`/user/countries/${item.countryId}`, {
+                        state: item.countryFlag,
+                      })
                     }
-                    images={[swizerland, nigeria, swizerland, nigeria]}
+                    images={
+                      item.countryImages.length > 0
+                        ? item.countryImages
+                        : [swizerland, nigeria, swizerland, nigeria]
+                    }
                     countryFlag={item.countryFlag}
                   />
                 </div>

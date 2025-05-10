@@ -27,17 +27,29 @@ class CustomAPIError extends Error {
 
 // Add this helper function to check if the current route is a public/unauthenticated route
 const isPublicRoute = () => {
-  const publicRoutes = ['/', '/login', '/signup', '/forgotpassword', '/resetpassword', '/verifymail', '/welcome', '/help', '/privacy', '/term', "/shared-chat"];
+  const publicRoutes = [
+    "/",
+    "/login",
+    "/signup",
+    "/forgotpassword",
+    "/resetpassword",
+    "/verifymail",
+    "/welcome",
+    "/help",
+    "/privacy",
+    "/term",
+    "/shared-chat",
+  ];
   const currentPath = window.location.pathname;
-  
+
   // Check for exact matches
   if (publicRoutes.includes(currentPath)) {
     return true;
   }
-  
+
   // Check for partial matches (like /help/some-article)
-  return publicRoutes.some(route => 
-    route !== '/' && currentPath.startsWith(route)
+  return publicRoutes.some(
+    (route) => route !== "/" && currentPath.startsWith(route)
   );
 };
 
@@ -61,24 +73,32 @@ api.interceptors.response.use(
     }
 
     const { response } = error;
-    
+
     // Check if we're on a public route
     if (isPublicRoute()) {
       // Suppress all 401/403 auth errors on public routes
       if (response.status === 401 || response.status === 403) {
-        console.log(`Suppressing ${response.status} error on public route:`, response.config.url);
+        console.log(
+          `Suppressing ${response.status} error on public route:`,
+          response.config.url
+        );
         // Return empty data instead of throwing for endpoints on public routes
         return { success: false, data: null, message: null };
       }
 
       // Also suppress errors with auth-related error messages
-      const errorMsg = response.data?.message || response.data?.error || '';
-      if (typeof errorMsg === 'string' && 
-          (errorMsg.toLowerCase().includes('unauthorized') || 
-           errorMsg.toLowerCase().includes('unauthenticated') ||
-           errorMsg.toLowerCase().includes('token') ||
-           errorMsg.toLowerCase().includes('auth'))) {
-        console.log(`Suppressing auth-related error on public route:`, response.config.url);
+      const errorMsg = response.data?.message || response.data?.error || "";
+      if (
+        typeof errorMsg === "string" &&
+        (errorMsg.toLowerCase().includes("unauthorized") ||
+          errorMsg.toLowerCase().includes("unauthenticated") ||
+          errorMsg.toLowerCase().includes("token") ||
+          errorMsg.toLowerCase().includes("auth"))
+      ) {
+        console.log(
+          `Suppressing auth-related error on public route:`,
+          response.config.url
+        );
         return { success: false, data: null, message: null };
       }
     }
@@ -800,9 +820,9 @@ export const createCheckoutSession = async (plan) => {
   console.log("Creating checkout session at:", `${VITE_API_URL}${endpoint}`);
 
   try {
-    if (!["YEARLY", "MONTHLY"].includes(plan)) {
+    if (!["BASIC", "PREMIUM"].includes(plan)) {
       throw new CustomAPIError(
-        "Invalid plan type. Must be either YEARLY or MONTHLY",
+        "Invalid plan type. Must be either BASIC or PREMIUM",
         400
       );
     }
@@ -889,13 +909,16 @@ export const createBillingPortalSession = async () => {
 
 export const getSubscriptionDetails = async () => {
   const endpoint = "/subscription";
-  
+
   // Check if we're on a public route and if there's no token before making the call
-  if (isPublicRoute() && !(localStorage.getItem('token') || sessionStorage.getItem('token'))) {
-    console.log('Skipping subscription check on public route');
+  if (
+    isPublicRoute() &&
+    !(localStorage.getItem("token") || sessionStorage.getItem("token"))
+  ) {
+    console.log("Skipping subscription check on public route");
     return { success: false, data: null };
   }
-  
+
   console.log(
     "Fetching subscription details from:",
     `${VITE_API_URL}${endpoint}`
@@ -1071,16 +1094,11 @@ export const getNotifications = async (page = 1, limit = 10, type = null) => {
   }
 };
 
-export const markNotificationsAsRead = async (notificationIds) => {
-  const endpoint = `/notifications/${notificationIds}`;
-  console.log(
-    "Marking notifications as read at:",
-    `${VITE_API_URL}${endpoint}`
-  );
+export const markNotificationsAsRead = async (notificationId) => {
+  const endpoint = `/notifications/${notificationId}`;
 
   try {
     const response = await api.post(endpoint);
-    console.log("Notifications marked as read successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to mark notifications as read");

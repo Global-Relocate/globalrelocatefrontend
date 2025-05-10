@@ -1,8 +1,8 @@
-import { createContext, useContext, useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { markNotificationsAsRead } from '@/services/api';
+import { createContext, useContext, useState, useCallback } from "react";
+import PropTypes from "prop-types";
+import { markNotificationsAsRead } from "@/services/api";
 import { showToast } from "@/components/ui/toast";
-import axiosInstance from '@/config/axiosInstance';
+import axiosInstance from "@/config/axiosInstance";
 
 const NotificationsContext = createContext();
 
@@ -11,68 +11,91 @@ export function NotificationsProvider({ children }) {
   const [unreadCount, setUnreadCount] = useState(0);
 
   const updateUnreadCount = useCallback((notifs) => {
-    const count = notifs.filter(n => !n.isRead).length;
+    const count = notifs.filter((n) => !n.isRead).length;
     setUnreadCount(count);
   }, []);
 
-  const markAsRead = useCallback(async (notificationId) => {
-    try {
-      const response = await markNotificationsAsRead([notificationId]);
-      
-      if (response.success) {
-        setNotifications(prev => {
-          const updated = prev.map(notification => 
-            notification.id === notificationId 
-              ? { ...notification, isRead: true }
-              : notification
-          );
-          updateUnreadCount(updated);
-          return updated;
-        });
-        
-        showToast({
-          message: "Notification marked as read",
-          type: "success"
-        });
-      }
-    } catch (error) {
-      console.error('Error marking notification as read:', error);
-      showToast({
-        message: "Failed to mark notification as read",
-        type: "error"
-      });
-    }
-  }, [updateUnreadCount]);
+  const markAsRead = useCallback(
+    async (notificationId) => {
+      try {
+        const response = await markNotificationsAsRead(notificationId);
 
-  const deleteNotification = useCallback(async (notificationId) => {
-    try {
-      const response = await axiosInstance.delete(`/notifications/${notificationId}`);
-      
-      if (response.data.success) {
-        // Update local state by filtering out the deleted notification
-        setNotifications(prev => {
-          const updated = prev.filter(notification => notification.id !== notificationId);
-          updateUnreadCount(updated);
-          return updated;
-        });
-        
+        if (response.success) {
+          setNotifications((prev) => {
+            const updated = prev.map((notification) => {
+              if (notificationId === "all") {
+                return { ...notification, isRead: true };
+              }
+              return notification.id === notificationId
+                ? { ...notification, isRead: true }
+                : notification;
+            });
+
+            updateUnreadCount(updated);
+            return updated;
+          });
+
+          showToast({
+            message:
+              notificationId === "all"
+                ? "All notifications marked as read"
+                : "Notification marked as read",
+            type: "success",
+          });
+        }
+      } catch (error) {
+        console.error("Error marking notification(s) as read:", error);
         showToast({
-          message: "Notification deleted successfully",
-          type: "success"
+          message: "Failed to mark notification(s) as read",
+          type: "error",
         });
       }
-    } catch (error) {
-      console.error('Error deleting notification:', error);
-      showToast({
-        message: "Failed to delete notification",
-        type: "error"
-      });
-    }
-  }, [updateUnreadCount]);
+    },
+    [updateUnreadCount]
+  );
+
+  const deleteNotification = useCallback(
+    async (notificationId) => {
+      const url =
+        notificationId === "all"
+          ? "/notifications/all"
+          : `/notifications/${notificationId}`;
+
+      try {
+        const response = await axiosInstance.delete(url);
+
+        if (response.data.success) {
+          setNotifications((prev) => {
+            const updated =
+              notificationId === "all"
+                ? []
+                : prev.filter((n) => n.id !== notificationId);
+            updateUnreadCount(updated);
+            return updated;
+          });
+
+          showToast({
+            message:
+              notificationId === "all"
+                ? "All notifications deleted successfully"
+                : "Notification deleted successfully",
+            type: "success",
+          });
+        }
+      } catch (error) {
+        console.error("Error deleting notification(s):", error);
+        showToast({
+          message: "Failed to delete notification(s)",
+          type: "error",
+        });
+      }
+    },
+    [updateUnreadCount]
+  );
 
   const showLessLikeThis = useCallback((notificationId) => {
     // Implementation for showing less notifications like this
-    console.log('Show less notifications like:', notificationId);
+    console.log("Show less notifications like:", notificationId);
   }, []);
 
   const value = {
@@ -99,7 +122,9 @@ NotificationsProvider.propTypes = {
 export function useNotifications() {
   const context = useContext(NotificationsContext);
   if (context === undefined) {
-    throw new Error('useNotifications must be used within a NotificationsProvider');
+    throw new Error(
+      "useNotifications must be used within a NotificationsProvider"
+    );
   }
   return context;
-} 
+}

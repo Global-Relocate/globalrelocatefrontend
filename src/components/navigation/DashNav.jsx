@@ -16,7 +16,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { LuUserRound } from "react-icons/lu";
 import AccountSettings from "../../pages/user/account-settings";
 import PropTypes from "prop-types";
-import { getUserProfile } from '@/services/api';
+import { getUserProfile } from "@/services/api";
 import { LogOut } from "lucide-react";
 import {
   Tooltip,
@@ -43,7 +43,7 @@ function DashNav({ navState, setNavState }) {
           setProfilePic(response.data.profilePic);
         }
       } catch (error) {
-        console.error('Error fetching profile picture:', error);
+        console.error("Error fetching profile picture:", error);
       }
     };
 
@@ -63,7 +63,7 @@ function DashNav({ navState, setNavState }) {
   ];
 
   return (
-    <div className="flex justify-between items-center h-20 px-5 bg-white text-black border-b border-transparent w-full shadow-sm fixed z-50 top-0">
+    <div className="flex justify-between items-center h-20 px-5 bg-white text-black w-full fixed z-50 top-0">
       <div className="flex items-center gap-8 w-full">
         <div className="flex items-center">
           <div className="mr-2 block sm:hidden">
@@ -80,7 +80,11 @@ function DashNav({ navState, setNavState }) {
             )}
           </div>
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="logo" className="w-36 hidden sm:block" />
+            <img
+              src={logo}
+              alt="Global relocate logo"
+              className="h-12 hidden sm:block ml-5"
+            />
           </Link>
         </div>
 
@@ -107,9 +111,9 @@ function DashNav({ navState, setNavState }) {
             <DropdownMenuTrigger className="flex items-center justify-start space-x-1 p-2 rounded-3xl cursor-pointer hover:bg-gray-100 outline-none">
               <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-[#8F8F8F] overflow-hidden">
                 {profilePic ? (
-                  <img 
-                    src={profilePic} 
-                    alt="Profile" 
+                  <img
+                    src={profilePic}
+                    alt="Profile"
                     className="w-full h-full object-cover"
                   />
                 ) : (
