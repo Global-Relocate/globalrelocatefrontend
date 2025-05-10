@@ -29,6 +29,7 @@
     "country-data-list": "^1.4.0",
     "deepvault": "^1.0.1",
     "dompurify": "^3.2.5",
+    "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.5.2",
     "emoji-picker-react": "^4.12.0",
     "framer-motion": "^12.4.11",

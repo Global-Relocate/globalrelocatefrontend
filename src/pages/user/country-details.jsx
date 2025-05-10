@@ -2,17 +2,24 @@ import DashboardLayout from "@/components/layouts/DashboardLayout";
 import swizerland from "../../assets/images/swizerland.png";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { BiHeart, BiShare } from "react-icons/bi";
+import { BiHeart } from "react-icons/bi";
 import { PiShare } from "react-icons/pi";
 import { useCountryData } from "@/context/CountryDataContext";
 import { useEffect } from "react";
-import { useLocation, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronLeft } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 function CountryDetails() {
   const { id } = useParams();
-  const countryFlag = useLocation()?.state;
   const { singleCountry, loading, getSingleCountry } = useCountryData();
   const navigate = useNavigate();
 
@@ -20,7 +27,7 @@ function CountryDetails() {
     if (id) {
       getSingleCountry(id);
     }
-  }, []);
+  }, [id]);
 
   console.log(singleCountry);
 
@@ -82,15 +89,49 @@ function CountryDetails() {
         )}
       </div>
 
-      <div className="w-full h-[500px] rounded-xl">
+      <div className="w-full rounded-2xl">
         {loading ? (
-          <Skeleton className="w-full h-full mt-5 rounded-xl" />
+          <Skeleton className="w-full h-full mt-5 rounded-2xl" />
         ) : (
-          <img
-            src={swizerland}
-            className="w-full h-full object-cover object-center mt-5 rounded-xl"
-            alt=""
-          />
+          <>
+            {singleCountry?.images.length > 0 ? (
+              <Carousel
+                opts={{
+                  loop: true,
+                }}
+                plugins={[
+                  Autoplay({
+                    delay: 4500,
+                  }),
+                ]}
+                className="w-full rounded-2xl"
+              >
+                <CarouselContent className="rounded-2xl">
+                  {singleCountry.images.map((item, i) => {
+                    return (
+                      <CarouselItem key={i} className="rounded-2xl pb-6">
+                        <img
+                          src={item}
+                          alt="Images"
+                          className="w-full h-full mt-5 rounded-2xl"
+                        />
+                      </CarouselItem>
+                    );
+                  })}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            ) : (
+              <>
+                <img
+                  src={swizerland}
+                  className="w-full h-full object-cover object-center mt-5 rounded-xl"
+                  alt="country image"
+                />
+              </>
+            )}
+          </>
         )}
       </div>
 
