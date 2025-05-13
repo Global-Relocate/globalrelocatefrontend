@@ -25,6 +25,7 @@ import {
 import { useAIChat } from "@/context/AiChatContext";
 import { AuthContext } from "@/context/AuthContext";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 function AiAssistant() {
   const {
@@ -46,6 +47,7 @@ function AiAssistant() {
   const chatContainerRef = useRef(null);
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
+  const { t } = useTranslation();
   const displayName = user?.username || user?.name || "User";
 
   useEffect(() => {
@@ -208,7 +210,9 @@ function AiAssistant() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center gap-1">
-                  {currentSession ? currentSession.title : "New Chat"}
+                  {currentSession
+                    ? currentSession.title
+                    : t("userDashboard.ai.newChat")}
                   <IoChevronDownOutline className="text-black" size={16} />
                 </Button>
               </DropdownMenuTrigger>
@@ -242,13 +246,13 @@ function AiAssistant() {
               <DropdownMenuContent className="w-56">
                 <DropdownMenuGroup>
                   <DropdownMenuItem onClick={handleRenameSession}>
-                    Rename
+                    {t("userDashboard.ai.rename")}
                     <DropdownMenuShortcut>
                       <BiEdit />
                     </DropdownMenuShortcut>
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={handleDeleteSession}>
-                    Delete Conversation
+                    {t("userDashboard.ai.deleteConversation")}
                     <DropdownMenuShortcut>
                       <MdDelete />
                     </DropdownMenuShortcut>
@@ -261,7 +265,7 @@ function AiAssistant() {
               className="rounded-[12px] bg-[#F6F6F6] text-black hover:text-black hover:bg-[#F6F6F6] flex items-center gap-2 shadow-none"
               onClick={handleShareSession}
             >
-              <PiShareFat /> Share
+              <PiShareFat /> {t("userDashboard.ai.share")}
             </Button>
           </div>
         </div>
@@ -279,7 +283,7 @@ function AiAssistant() {
                   className="text-3xl ml-3"
                   style={{ position: "relative", top: "-2px" }}
                 >
-                  Hello, {displayName}.
+                  {t("userDashboard.ai.hello")}, {displayName}.
                 </h2>
               </div>
             </div>

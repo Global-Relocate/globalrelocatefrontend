@@ -1,6 +1,7 @@
 import axiosInstance from "@/config/axiosInstance";
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
+import { useLanguage } from "./LanguageContext";
 
 const AiChatContext = createContext();
 
@@ -9,6 +10,7 @@ export const AiChatProvider = ({ children }) => {
   const [currentSession, setCurrentSession] = useState(null);
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
+  const { selectedLanguage } = useLanguage();
 
   // Fetch all sessions
   const fetchAllSessions = async () => {
@@ -46,7 +48,10 @@ export const AiChatProvider = ({ children }) => {
   const askAI = async (sessionId, content) => {
     setLoading(true);
     try {
-      await axiosInstance.post(`/ai/${sessionId}`, { message: content });
+      await axiosInstance.post(`/ai/${sessionId}`, {
+        message: content,
+        language: selectedLanguage.name,
+      });
       // Fetch the updated session to get the latest messages
       await fetchSingleSession(sessionId);
     } catch (error) {

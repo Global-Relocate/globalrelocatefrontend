@@ -38,7 +38,7 @@ function CountryDetails() {
         className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6"
       >
         <ChevronLeft size={20} />
-        <span>Back</span>
+        <span>{t("userDashboard.country.back")}</span>
       </button>
 
       <div className="flex w-full gap-3 flex-wrap items-center justify-between">
@@ -164,7 +164,7 @@ function CountryDetails() {
             </h2>
             <p className="text-[#222222]">
               {singleCountry.overview === "No overview available"
-                ? "No overview information available for this country."
+                ? t("userDashboard.country.noOverview")
                 : singleCountry.overview}
             </p>
 
@@ -285,7 +285,7 @@ function CountryDetails() {
                 {!singleCountry.visaImmigration?.passportsAndVisas &&
                   !singleCountry.visaImmigration?.shortStays &&
                   !singleCountry.visaImmigration?.longStays && (
-                    <p>No visa and immigration information available.</p>
+                    <p>{t("userDashboard.country.noVisaInfo")}</p>
                   )}
               </div>
             )}

@@ -64,7 +64,7 @@ function DashNav({ navState, setNavState }) {
 
   return (
     <div className="flex justify-between items-center h-20 px-5 bg-white text-black w-full fixed z-50 top-0">
-      <div className="flex items-center gap-8 w-full">
+      <div className="flex items-center justify-center gap-8 w-full">
         <div className="flex items-center">
           <div className="mr-2 block sm:hidden">
             {!navState ? (

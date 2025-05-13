@@ -88,7 +88,22 @@
       "languages": "Sprachen",
       "currency": "Währung",
       "population": "Bevölkerung",
-      "dialingCode": "Vorwahl"
+      "dialingCode": "Vorwahl",
+      "back": "Zurück",
+      "noOverview": "Keine Übersicht für dieses Land verfügbar.",
+      "noVisaInfo": "Keine Informationen zu Visum und Einwanderung verfügbar."
+    },
+    "ai": {
+      "rename": "Umbenennen",
+      "deleteConversation": "Konversation löschen",
+      "share": "Teilen",
+      "hello": "Hallo",
+      "newChat": "Neuer Chat",
+      "askAI": "Frage die KI irgendetwas...",
+      "uploadDocument": "Dokument hochladen",
+      "uploadDocumentDesc": "Lade ein Dokument hoch, um es vom KI-Assistenten verarbeiten zu lassen",
+      "cancel": "Abbrechen",
+      "upload": "Hochladen"
     }
   },
 

@@ -87,7 +87,22 @@
       "languages": "Langues",
       "currency": "Devise",
       "population": "Population",
-      "dialingCode": "Indicatif téléphonique"
+      "dialingCode": "Indicatif téléphonique",
+      "back": "Retour",
+      "noOverview": "Aucun aperçu disponible pour ce pays.",
+      "noVisaInfo": "Aucune information sur les visas et l'immigration disponible."
+    },
+    "ai": {
+      "rename": "Renommer",
+      "deleteConversation": "Supprimer la conversation",
+      "share": "Partager",
+      "hello": "Bonjour",
+      "newChat": "Nouvelle discussion",
+      "askAI": "Demandez n'importe quoi à l'IA...",
+      "uploadDocument": "Téléverser un document",
+      "uploadDocumentDesc": "Téléversez un document à traiter avec l'assistant IA",
+      "cancel": "Annuler",
+      "upload": "Téléverser"
     }
   },
   "drawers": {

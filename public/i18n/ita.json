@@ -87,7 +87,22 @@
       "languages": "Lingue",
       "currency": "Valuta",
       "population": "Popolazione",
-      "dialingCode": "Prefisso telefonico"
+      "dialingCode": "Prefisso telefonico",
+      "back": "Indietro",
+      "noOverview": "Nessuna panoramica disponibile per questo paese.",
+      "noVisaInfo": "Nessuna informazione su visto e immigrazione disponibile."
+    },
+    "ai": {
+      "rename": "Rinomina",
+      "deleteConversation": "Elimina conversazione",
+      "share": "Condividi",
+      "hello": "Ciao",
+      "newChat": "Nuova chat",
+      "askAI": "Chiedi qualsiasi cosa all'IA...",
+      "uploadDocument": "Carica documento",
+      "uploadDocumentDesc": "Carica un documento da elaborare con l'assistente IA",
+      "cancel": "Annulla",
+      "upload": "Carica"
     }
   },
   "drawers": {

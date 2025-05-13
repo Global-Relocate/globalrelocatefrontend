@@ -87,7 +87,22 @@
       "languages": "Languages",
       "currency": "Currency",
       "population": "Population",
-      "dialingCode": "Dialing Code"
+      "dialingCode": "Dialing Code",
+      "back": "Back",
+      "noOverview": "No overview available for this country.",
+      "noVisaInfo": "No visa and immigration information available."
+    },
+    "ai": {
+      "rename": "Rename",
+      "deleteConversation": "Delete conversation",
+      "share": "Share",
+      "hello": "Hello",
+      "newChat": "New Chat",
+      "askAI": "Ask AI Anything...",
+      "uploadDocument": "Upload Document",
+      "uploadDocumentDesc": "Upload a document to process with AI assistant",
+      "cancel": "Cancel",
+      "upload": "Upload"
     }
   },
   "drawers": {

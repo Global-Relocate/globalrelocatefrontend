@@ -13,6 +13,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export default function AiChatInput({ onSendMessage }) {
   const [prompt, setPrompt] = useState("");
@@ -20,38 +21,40 @@ export default function AiChatInput({ onSendMessage }) {
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
-  
+
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
   const recognitionRef = useRef(null);
-  
+
   const initPrompt = useLocation()?.state;
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   // Initialize speech recognition
   const initializeSpeechRecognition = () => {
     // Check if speech recognition is supported
-    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
+      const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
       const recognition = new SpeechRecognition();
       recognition.continuous = true;
       recognition.interimResults = true;
-      recognition.lang = 'en-US';
-      
+      recognition.lang = "en-US";
+
       // Handle result event
       recognition.onresult = (event) => {
         const transcript = Array.from(event.results)
-          .map(result => result[0].transcript)
-          .join('');
+          .map((result) => result[0].transcript)
+          .join("");
         setPrompt(transcript);
       };
-      
+
       // Handle errors
       recognition.onerror = (event) => {
-        console.error('Speech recognition error:', event.error);
+        console.error("Speech recognition error:", event.error);
         stopSpeechToText();
       };
-      
+
       return recognition;
     }
     return null;
@@ -61,7 +64,7 @@ export default function AiChatInput({ onSendMessage }) {
     e.preventDefault();
     const modifiedPrompt = prompt.trim();
     if (!modifiedPrompt) return;
-    
+
     console.log(modifiedPrompt);
     await onSendMessage(modifiedPrompt);
     setPrompt("");
@@ -75,7 +78,7 @@ export default function AiChatInput({ onSendMessage }) {
       if (!recognitionRef.current) {
         recognitionRef.current = initializeSpeechRecognition();
       }
-      
+
       if (recognitionRef.current) {
         recognitionRef.current.start();
         setIsRecording(true);
@@ -110,8 +113,8 @@ export default function AiChatInput({ onSendMessage }) {
     }
 
     try {
-      await onSendMessage(selectedFile, 'document');
-      
+      await onSendMessage(selectedFile, "document");
+
       toast.success("Document uploaded successfully!");
       setUploadDialogOpen(false);
       setSelectedFile(null);
@@ -143,10 +146,10 @@ export default function AiChatInput({ onSendMessage }) {
               type="text"
               onChange={(e) => setPrompt(e.target.value)}
               value={prompt}
-              placeholder="Ask AI Anything..."
+              placeholder={t("userDashboard.ai.askAI")}
               className="w-full h-full px-4 py-3 rounded-3xl bg-[#F6F6F6] focus:outline-none text-sm"
             />
-            
+
             {/* File upload button (plus icon) - black color & larger size */}
             <button
               type="button"
@@ -155,28 +158,30 @@ export default function AiChatInput({ onSendMessage }) {
             >
               <MdAdd size={24} />
             </button>
-            
+
             {/* Microphone button - black color */}
             <button
               type="button"
               onClick={toggleSpeechRecognition}
               className={`p-1 transition-colors ${
-                isRecording
-                  ? "text-red-500"
-                  : "text-black hover:text-gray-700"
+                isRecording ? "text-red-500" : "text-black hover:text-gray-700"
               }`}
             >
-              {isRecording ? <BiMicrophoneOff size={20} /> : <BiMicrophone size={20} />}
+              {isRecording ? (
+                <BiMicrophoneOff size={20} />
+              ) : (
+                <BiMicrophone size={20} />
+              )}
             </button>
           </div>
-          
+
           {/* Send/Stop button with conditional background color and icon */}
-          <button 
+          <button
             type={isRecording ? "button" : "submit"}
             onClick={isRecording ? stopSpeechToText : undefined}
             className={`rounded-full p-2 transition-colors ${
-              isRecording || prompt.trim() 
-                ? "bg-black text-white" 
+              isRecording || prompt.trim()
+                ? "bg-black text-white"
                 : "bg-gray-300 text-white cursor-not-allowed"
             }`}
             disabled={!isRecording && !prompt.trim()}
@@ -190,9 +195,9 @@ export default function AiChatInput({ onSendMessage }) {
       <Dialog open={uploadDialogOpen} onOpenChange={setUploadDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Upload Document</DialogTitle>
+            <DialogTitle>{t("userDashboard.ai.uploadDocument")}</DialogTitle>
             <DialogDescription>
-              Upload a document to process with AI assistant
+              {t("userDashboard.ai.uploadDocumentDesc")}
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col gap-4">
@@ -203,7 +208,8 @@ export default function AiChatInput({ onSendMessage }) {
             />
             {selectedFile && (
               <div className="text-sm text-gray-500">
-                Selected: {selectedFile.name} ({(selectedFile.size / 1024).toFixed(2)} KB)
+                Selected: {selectedFile.name} (
+                {(selectedFile.size / 1024).toFixed(2)} KB)
               </div>
             )}
             {uploadProgress > 0 && (
@@ -215,9 +221,14 @@ export default function AiChatInput({ onSendMessage }) {
               </div>
             )}
             <div className="flex justify-end gap-2">
-              <Button variant="outline" onClick={() => setUploadDialogOpen(false)}>Cancel</Button>
+              <Button
+                variant="outline"
+                onClick={() => setUploadDialogOpen(false)}
+              >
+                {t("userDashboard.ai.cancel")}
+              </Button>
               <Button onClick={handleFileUpload} disabled={!selectedFile}>
-                Upload
+                {t("userDashboard.ai.upload")}
               </Button>
             </div>
           </div>

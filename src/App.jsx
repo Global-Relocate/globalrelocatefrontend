@@ -90,7 +90,10 @@ const AppContent = () => {
           <Route path="/user/countries" element={<Countries />} />
           <Route path="/user/countries/:id" element={<CountryDetails />} />
           <Route path="/user/ai-assistant" element={<AiAssistant />} />
-          <Route path="/user/ai-assistant/:sessionId" element={<AiAssistant />} />
+          <Route
+            path="/user/ai-assistant/:sessionId"
+            element={<AiAssistant />}
+          />
           <Route path="/user/compare" element={<CompareCountries />} />
           <Route path="/user/tax-calculator" element={<TaxCalculator />} />
           <Route path="/user/notifications" element={<Notifications />} />
