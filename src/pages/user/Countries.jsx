@@ -1,9 +1,9 @@
 import SearchInput from "@/components/inputs/SearchInput";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import CountriesDashCard from "@/components/cards/CountriesDashCard";
-import { useFavorites } from "@/context/favorites-context";
+// import { useFavorites } from "@/context/favorites-context";
 import FilterButton from "@/components/user-buttons/FilterButton";
 import { useCountryData } from "@/context/CountryDataContext";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 function Countries() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { toggleFavorite } = useFavorites();
+  // const { toggleFavorite } = useFavorites();
   const {
     countries,
     loading,
@@ -110,7 +110,7 @@ function Countries() {
         {filterOptions.map((filter) => (
           <FilterButton
             key={filter}
-            title={filter}
+            title={t(`userDashboard.continents.${filter.toLowerCase()}`)}
             isActive={activeFilter === filter}
             onClick={() => handleFilter(filter)}
           />

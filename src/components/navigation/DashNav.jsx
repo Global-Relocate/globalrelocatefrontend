@@ -128,32 +128,32 @@ function DashNav({ navState, setNavState }) {
                 className="cursor-pointer"
                 onClick={() => navigate("/user/profile")}
               >
-                {t("View profile")}
+                {t("landingPage.navbar.viewProfile")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => navigate("/help")}
                 className="cursor-pointer"
               >
-                {t("Help Center")}
+                {t("landingPage.navbar.helpCenter")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="cursor-pointer"
                 onClick={() => navigate("/user/feedback")}
               >
-                {t("Give us feedback")}
+                {t("landingPage.navbar.giveFeedback")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => navigate("/privacy")}
                 className="cursor-pointer"
               >
-                {t("Privacy Policy")}
+                {t("landingPage.navbar.privacyPolicy")}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 className="cursor-pointer font-bold"
                 onClick={() => navigate("/upgrade")}
               >
-                {t("Upgrade plan")}
+                {t("landingPage.navbar.upgradePlan")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

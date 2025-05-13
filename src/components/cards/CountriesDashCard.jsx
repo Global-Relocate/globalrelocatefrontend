@@ -80,12 +80,12 @@ export default function CountriesDashCard({
   };
 
   const toggleFavorite = async () => {
-    if(isLiked){
+    if (isLiked) {
       await onRemoveFromFavourite();
-    }else{
+    } else {
       await onAddToFavourite();
     }
-  }
+  };
 
   const countryImages = images;
 
@@ -136,7 +136,9 @@ export default function CountriesDashCard({
                   onClick={onClick}
                   alt="Main Image"
                   className={`w-full cursor-pointer ${
-                    sm ? "h-[250px] sm:h-[280px] md:h-[320px]" : "h-[300px] sm:h-[400px] md:h-[500px]"
+                    sm
+                      ? "h-[250px] sm:h-[280px] md:h-[320px]"
+                      : "h-[300px] sm:h-[400px] md:h-[500px]"
                   } object-cover rounded-2xl`}
                 />
               </CarouselItem>
