@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/carousel";
 import { GoHeart } from "react-icons/go";
 import { useCountryData } from "@/context/CountryDataContext";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Custom CarouselIndicators component
 const CarouselIndicators = ({ currentIndex, total, onClick }) => {
@@ -43,6 +45,8 @@ export default function CountriesDashCard({
   const [currentIndex, setCurrentIndex] = useState(0); // State to track current index
   const [api, setApi] = useState();
   const [count, setCount] = useState(0);
+  const { t } = useTranslation();
+  const { selectedLanguage } = useLanguage();
 
   useEffect(() => {
     if (!api) {
@@ -171,7 +175,13 @@ export default function CountriesDashCard({
           className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover"
           alt="Country Flag"
         />
-        <span className="text-sm sm:text-base">{location}</span>
+        <span className="text-sm sm:text-base">
+          {selectedLanguage.name === "English" ||
+          t(`userDashboard.continents.countries.${location}`) ===
+            `userDashboard.continents.countries.${location}`
+            ? location
+            : t(`userDashboard.continents.countries.${location}`)}
+        </span>
       </div>
     </div>
   );
