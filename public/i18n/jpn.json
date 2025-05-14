@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "ホーム",
+      "countriesData": "国とデータ",
+      "community": "コミュニティ",
+      "tools": "ツール",
+      "pricing": "料金プラン",
+      "viewProfile": "プロフィールを見る",
+      "helpCenter": "ヘルプセンター",
+      "giveFeedback": "フィードバックを送る",
+      "privacyPolicy": "プライバシーポリシー",
+      "upgradePlan": "プランをアップグレード"
+    },
+    "showcase": {
+      "title": "賢く移住して、より良く生きよう。",
+      "para": "AIを活用した移住、法的支援、グローバルライフのためのワンストッププラットフォーム。",
+      "buttonText": "始める"
+    },
+    "features": {
+      "title": "機能",
+      "cards": {
+        "card1": {
+          "title": "国を比較",
+          "para": "生活費、税率、生活の質などの指標で国を比較し、情報に基づいた意思決定をしましょう。"
+        },
+        "card2": {
+          "title": "AIによるスマートなインサイト",
+          "para": "共通の関心を持つ世界中のノマドとフォーラムやグループでつながろう。"
+        },
+        "card3": {
+          "title": "国とデータ",
+          "para": "共通の関心を持つ世界中のノマドとフォーラムやグループでつながろう。"
+        }
+      }
+    },
+    "countries": {
+      "title": "人気の国々",
+      "para": "人気の移住先をチェックして、移住の計画を始めましょう"
+    },
+    "whyChooseUs": {
+      "title": "私たちが選ばれる理由",
+      "card1": {
+        "title": "AIデータで時間を節約",
+        "para": "常に最新で信頼できる情報をご提供。"
+      },
+      "card2": {
+        "title": "信頼できるコンタクトと情報源",
+        "para": "コミュニティ主導のプラットフォームだから信頼性抜群。"
+      },
+      "card3": {
+        "title": "ワンストップソリューション",
+        "para": "ビザから生活費まで、すべてが一か所で手に入ります。"
+      },
+      "card4": {
+        "title": "パーソナライズされた通知",
+        "para": "カスタマイズされた通知とお気に入り機能で常に最新情報をキャッチ。"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "国々",
+      "aiAssistant": "AIアシスタント",
+      "compareCountries": "国を比較",
+      "taxCalculator": "税金計算機",
+      "notifications": "通知",
+      "favourites": "お気に入り",
+      "community": "コミュニティ",
+      "cta": {
+        "title": "Proを試す",
+        "para": "現在は3日間の無料プランをご利用中です。継続するにはアップグレードが必要です。",
+        "buttonText": "詳細を見る"
+      }
+    },
+    "countries": {
+      "title": "国々",
+      "noDataText": "利用可能なデータがありません！",
+      "searchText": "国を検索"
+    },
+    "country": {
+      "countryIn": "国：",
+      "addFavorite": "お気に入りに追加",
+      "share": "共有",
+      "overview": "概要",
+      "map": "地図",
+      "keyFacts": "基本情報",
+      "visaMigration": "ビザと移住",
+      "taxes": "税金",
+      "flag": "国旗",
+      "capital": "首都",
+      "languages": "言語",
+      "currency": "通貨",
+      "population": "人口",
+      "dialingCode": "電話コード",
+      "back": "戻る",
+      "noOverview": "この国の概要情報はありません。",
+      "noVisaInfo": "この国のビザおよび移住情報は利用できません。"
+    },
+    "ai": {
+      "rename": "名前を変更",
+      "deleteConversation": "会話を削除",
+      "share": "共有",
+      "hello": "こんにちは",
+      "newChat": "新しいチャット",
+      "askAI": "AIに何でも聞いてください...",
+      "uploadDocument": "ドキュメントをアップロード",
+      "uploadDocumentDesc": "AIアシスタントによる分析のためにドキュメントをアップロードしてください",
+      "cancel": "キャンセル",
+      "upload": "アップロード"
+    },
+    "settings": {
+      "accountSettings": "アカウント設定",
+      "editProfile": "プロフィールを編集",
+      "profile": "プロフィール",
+      "account": "アカウント",
+      "preferences": "設定",
+      "avatar": "アバター",
+      "fullName": "フルネーム",
+      "username": "ユーザー名",
+      "bio": "自己紹介",
+      "country": "国",
+      "emailAddress": "メールアドレス",
+      "verified": "認証済み",
+      "subscription": "サブスクリプション",
+      "subscriptionDesc": "現在は3日間の無料プランをご利用中です。継続するにはアップグレードが必要です。",
+      "deleteAccount": "アカウントを削除",
+      "deleteDesc": "アカウントとデータを完全に削除します",
+      "language": "言語",
+      "chooseLanguage": "言語を選択",
+      "selectLanguage": "言語を選択",
+      "learnMore": "詳細を見る",
+      "saveChanges": "変更を保存",
+      "cancel": "キャンセル",
+      "saving": "保存中...",
+      "unsavedChanges": "未保存の変更があります",
+      "addName": "名前を追加",
+      "addBio": "自己紹介を追加して、自分自身を紹介しましょう。",
+      "addUsername": "ユーザー名を追加",
+      "addLocation": "場所を追加",
+      "confirmAccountDelete": "アカウント削除の確認",
+      "confirmAccountDeleteDesc": "アカウントを削除する前に、データがどうなるかをご確認ください：",
+      "confirm": "確認",
+      "neverMind": "やめる",
+      "confirmDeleteWarning": "注意：アカウント削除は取り消せません。",
+      "confirmDeleteList1": "プロフィール、設定、プリファレンスは削除されます。",
+      "confirmDeleteList2": "アカウント削除後、すべてのデータは30日以内に完全削除されます。",
+      "deleting": "削除中...",
+      "youHave": "現在の状態：",
+      "administrator": "管理者"
+    },
+    "continents": {
+      "all": "すべて",
+      "europe": "ヨーロッパ",
+      "asia": "アジア",
+      "africa": "アフリカ",
+      "south america": "南アメリカ",
+      "north america": "北アメリカ",
+      "antarctica": "南極",
+      "oceania": "オセアニア"
+    },
+    "tax": {
+      "taxCalculator": "税金計算機",
+      "taxCacluatorDesc": "各国における税金の負担を計算します",
+      "country": "国",
+      "annualIncome": "年間収入",
+      "userAccount": "ユーザータイプ",
+      "totalDeductions": "控除合計",
+      "selectCountry": "国を選択",
+      "selectAccount": "アカウント種別を選択",
+      "enterIncome": "年間収入を入力",
+      "enterDeductions": "控除額を入力",
+      "calculateTax": "税金を計算",
+      "individual": "個人",
+      "corporate": "法人",
+      "taxSummary": "税金概要",
+      "taxAmount": "税額",
+      "effectiveRate": "実効税率",
+      "takeHomeAmount": "手取り金額"
+    },
+    "upgradePage": {
+      "back": "戻る",
+      "upgradePlan": "プランをアップグレード",
+      "upgradePlanDesc": "移住を支援する最適なプランをお選びください。便利なツールと情報にアクセス可能です。",
+      "currentPlan": "現在のプラン",
+      "getStarted": "始める",
+      "free": "無料",
+      "basic": "ベーシック",
+      "premium": "プレミアム",
+      "perMonth": "月額",
+      "forEveryone": "すべての人に",
+      "freePlan": {
+        "item1": "3日間のトライアルアクセス",
+        "item2": "基本的な国情報",
+        "item3": "読み取り専用のコミュニティアクセス",
+        "item4": "限定の税金計算ツール",
+        "item5": "基本的な比較機能"
+      },
+      "basicPlan": {
+        "item1": "詳細な国情報",
+        "item2": "コミュニティへの投稿と参加",
+        "item3": "完全な税金計算機",
+        "item4": "コスト比較ツール",
+        "item5": "基本的な移住ガイド",
+        "item6": "Eメールサポート"
+      },
+      "premiumPlan": {
+        "item1": "ベーシックプランのすべての機能",
+        "item2": "無制限の国データアクセス",
+        "item3": "フルコミュニティ機能",
+        "item4": "高度な税金計算機能",
+        "item5": "AI移住アシスタント",
+        "item6": "生活費データ",
+        "item7": "ビザ要件ガイド",
+        "item8": "優先サポート",
+        "item9": "パーソナライズされた移住計画"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "変更を確定"
+    }
+  },
+  "footer": {
+    "terms": "利用規約",
+    "privacy": "プライバシー",
+    "subscribeNewsletter": "ニュースレターを購読する",
+    "subscribeNewsDesc": "最新の移住ニュースをお届けします",
+    "enterEmail": "メールアドレスを入力",
+    "subscribe": "購読する"
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Kezdőlap",
+      "countriesData": "Országok és adatok",
+      "community": "Közösség",
+      "tools": "Eszközök",
+      "pricing": "Árak",
+      "viewProfile": "Profil megtekintése",
+      "helpCenter": "Súgóközpont",
+      "giveFeedback": "Visszajelzés küldése",
+      "privacyPolicy": "Adatvédelmi irányelvek",
+      "upgradePlan": "Terv frissítése"
+    },
+    "showcase": {
+      "title": "Jobb élet okos bevándorlással",
+      "para": "AI-alapú platform globális bevándorláshoz, jogi segítséghez és életmódhoz",
+      "buttonText": "Kezdd el most"
+    },
+    "features": {
+      "title": "Funkciók",
+      "cards": {
+        "card1": {
+          "title": "Országok összehasonlítása",
+          "para": "Hasonlítsd össze a megélhetési költségeket, adókat és életminőséget a jobb döntés érdekében"
+        },
+        "card2": {
+          "title": "Intelligens elemzés",
+          "para": "Kapcsolódj digitális partnerekkel fórumokon és bevándorlási csoportokban"
+        },
+        "card3": {
+          "title": "Országinformációk",
+          "para": "Naprakész országadatok jobb tervezéshez"
+        }
+      }
+    },
+    "countries": {
+      "title": "Népszerű országok",
+      "para": "Fedezd fel a legkeresettebb országokat bevándorláshoz"
+    },
+    "whyChooseUs": {
+      "title": "Miért válassz minket",
+      "card1": {
+        "title": "AI időt spórol",
+        "para": "Mindig friss és megbízható információk"
+      },
+      "card2": {
+        "title": "Megbízható közösségek",
+        "para": "A platform a bizalomra épül"
+      },
+      "card3": {
+        "title": "Teljes körű megoldás",
+        "para": "Vízumtól a megélhetési költségekig – minden egy helyen"
+      },
+      "card4": {
+        "title": "Személyre szabott értesítések",
+        "para": "Kapj számodra releváns figyelmeztetéseket"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Országok",
+      "aiAssistant": "AI asszisztens",
+      "compareCountries": "Országok összehasonlítása",
+      "taxCalculator": "Adószámító",
+      "notifications": "Értesítések",
+      "favourites": "Kedvencek",
+      "community": "Közösség",
+      "cta": {
+        "title": "Próbáld ki a Pro csomagot",
+        "para": "Jelenleg 3 napos ingyenes próbaidőszakban vagy. Váltás a Pro csomagra a folytatáshoz.",
+        "buttonText": "Tudj meg többet"
+      }
+    },
+    "countries": {
+      "title": "Országok",
+      "noDataText": "Nincs adat!",
+      "searchText": "Ország keresése"
+    },
+    "country": {
+      "countryIn": "Ország:",
+      "addFavorite": "Hozzáadás a kedvencekhez",
+      "share": "Megosztás",
+      "overview": "Áttekintés",
+      "map": "Térkép",
+      "keyFacts": "Főbb tények",
+      "visaMigration": "Vízum és bevándorlás",
+      "taxes": "Adók",
+      "flag": "Zászló",
+      "capital": "Főváros",
+      "languages": "Nyelvek",
+      "currency": "Pénznem",
+      "population": "Népesség",
+      "dialingCode": "Hívókód",
+      "back": "Vissza",
+      "noOverview": "Nincs elérhető áttekintés ehhez az országhoz",
+      "noVisaInfo": "Nincs elérhető vízum- vagy bevándorlási információ ehhez az országhoz"
+    },
+    "ai": {
+      "rename": "Átnevezés",
+      "deleteConversation": "Beszélgetés törlése",
+      "share": "Megosztás",
+      "hello": "Helló",
+      "newChat": "Új csevegés",
+      "askAI": "Kérdezd meg az AI-t...",
+      "uploadDocument": "Dokumentum feltöltése",
+      "uploadDocumentDesc": "Tölts fel egy dokumentumot elemzésre az AI asszisztensnek",
+      "cancel": "Mégse",
+      "upload": "Feltöltés"
+    },
+    "settings": {
+      "accountSettings": "Fiókbeállítások",
+      "editProfile": "Profil szerkesztése",
+      "profile": "Profil",
+      "account": "Fiók",
+      "preferences": "Beállítások",
+      "avatar": "Profilkép",
+      "fullName": "Teljes név",
+      "username": "Felhasználónév",
+      "bio": "Bemutatkozás",
+      "country": "Ország",
+      "emailAddress": "Email cím",
+      "verified": "Ellenőrzött",
+      "subscription": "Előfizetés",
+      "subscriptionDesc": "Jelenleg 3 napos ingyenes próbaidőszakot használsz. Váltás a Pro csomagra a folytatáshoz.",
+      "deleteAccount": "Fiók törlése",
+      "deleteDesc": "Fiók és adatok ideiglenes törlése",
+      "language": "Nyelv",
+      "chooseLanguage": "Nyelv kiválasztása",
+      "selectLanguage": "Válaszd ki a nyelvet",
+      "learnMore": "Tudj meg többet",
+      "saveChanges": "Változtatások mentése",
+      "cancel": "Mégse",
+      "saving": "Mentés...",
+      "unsavedChanges": "Nincsenek mentetlen változások",
+      "addName": "Név hozzáadása",
+      "addBio": "Bemutatkozás hozzáadása",
+      "addUsername": "Felhasználónév hozzáadása",
+      "addLocation": "Helyszín hozzáadása",
+      "confirmAccountDelete": "Fiók törlésének megerősítése",
+      "confirmAccountDeleteDesc": "Erősítsd meg, hogy törölni szeretnéd a fiókodat:",
+      "confirm": "Megerősítés",
+      "neverMind": "Mégse",
+      "confirmDeleteWarning": "Figyelmeztetés: a fiók törlése után nem visszaállítható",
+      "confirmDeleteList1": "Profilinformációk, beállítások és preferenciák törlésre kerülnek",
+      "confirmDeleteList2": "Az adataid 30 napon belül törlésre kerülnek",
+      "deleting": "Törlés...",
+      "youHave": "Jelenlegi szerepköröd:",
+      "administrator": "Adminisztrátor"
+    },
+    "continents": {
+      "all": "Összes",
+      "europe": "Európa",
+      "asia": "Ázsia",
+      "africa": "Afrika",
+      "south america": "Dél-Amerika",
+      "north america": "Észak-Amerika",
+      "antarctica": "Antarktisz",
+      "oceania": "Óceánia"
+    },
+    "tax": {
+      "taxCalculator": "Adószámító",
+      "taxCacluatorDesc": "Számítsd ki az adókat különböző országokhoz",
+      "country": "Ország",
+      "annualIncome": "Éves jövedelem",
+      "userAccount": "Fióktípus",
+      "totalDeductions": "Összes levonás",
+      "selectCountry": "Ország kiválasztása",
+      "selectAccount": "Fióktípus kiválasztása",
+      "enterIncome": "Éves jövedelem megadása",
+      "enterDeductions": "Levonások megadása",
+      "calculateTax": "Adó kiszámítása",
+      "individual": "Magánszemély",
+      "corporate": "Vállalati",
+      "taxSummary": "Adóösszegzés",
+      "taxAmount": "Adó összege",
+      "effectiveRate": "Hatékony adókulcs",
+      "takeHomeAmount": "Nettó jövedelem"
+    },
+    "upgradePage": {
+      "back": "Vissza",
+      "upgradePlan": "Terv frissítése",
+      "upgradePlanDesc": "Válaszd ki a megfelelő bevándorlási tervet az eszközökhöz való hozzáféréshez",
+      "currentPlan": "Jelenlegi terv",
+      "getStarted": "Kezdés",
+      "free": "Ingyenes",
+      "basic": "Alap",
+      "premium": "Prémium",
+      "perMonth": "Havonta",
+      "forEveryone": "Mindenkinek",
+      "freePlan": {
+        "item1": "3 napos ingyenes próba",
+        "item2": "Alapvető országinformációk",
+        "item3": "Csak olvasási hozzáférés a fórumhoz",
+        "item4": "Korlátozott adószámító",
+        "item5": "Alap összehasonlító eszközök"
+      },
+      "basicPlan": {
+        "item1": "Bővített országinformációk",
+        "item2": "Hozzászólás és bejegyzés a fórumon",
+        "item3": "Teljes adószámító",
+        "item4": "Költség-összehasonlító eszközök",
+        "item5": "Alapszintű bevándorlási segítség",
+        "item6": "Emailes támogatás"
+      },
+      "premiumPlan": {
+        "item1": "Minden funkció az alapcsomagból",
+        "item2": "Teljes hozzáférés az országinformációkhoz",
+        "item3": "Teljes közösségi hozzáférés",
+        "item4": "Fejlett adózási eszközök",
+        "item5": "Intelligens bevándorlási tanácsadó",
+        "item6": "Költség-információk",
+        "item7": "Vízumkérelmi támogatás",
+        "item8": "Korai figyelmeztetések",
+        "item9": "Személyre szabott bevándorlási csomagok"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Nyelv megerősítése"
+    }
+  },
+  "footer": {
+    "terms": "Felhasználási feltételek",
+    "privacy": "Adatvédelem",
+    "subscribeNewsletter": "Iratkozz fel hírlevelünkre",
+    "subscribeNewsDesc": "Kapj friss híreket a bevándorlásról",
+    "enterEmail": "Email cím megadása",
+    "subscribe": "Feliratkozás"
+  }
+}

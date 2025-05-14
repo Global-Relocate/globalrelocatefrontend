@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Strona Główna",
+      "countriesData": "Kraje i Dane",
+      "community": "Społeczność",
+      "tools": "Narzędzia",
+      "pricing": "Cennik",
+      "viewProfile": "Zobacz Profil",
+      "helpCenter": "Centrum Pomocy",
+      "giveFeedback": "Zostaw Opinię",
+      "privacyPolicy": "Polityka Prywatności",
+      "upgradePlan": "Ulepsz Plan"
+    },
+    "showcase": {
+      "title": "Lepsze Życie Dla Inteligentnej Imigracji",
+      "para": "Jedna platforma dla globalnej imigracji, wsparcia prawnego i stylu życia z wykorzystaniem sztucznej inteligencji",
+      "buttonText": "Rozpocznij Teraz"
+    },
+    "features": {
+      "title": "Cechy",
+      "cards": {
+        "card1": {
+          "title": "Porównaj Kraje",
+          "para": "Porównaj koszty życia, podatki i jakość życia, aby podejmować lepsze decyzje"
+        },
+        "card2": {
+          "title": "Inteligentna Analiza",
+          "para": "Połącz się z cyfrowymi partnerami imigracyjnymi na forach i grupach"
+        },
+        "card3": {
+          "title": "Dane o Krajach",
+          "para": "Połącz się z cyfrowymi partnerami imigracyjnymi na forach i grupach"
+        }
+      }
+    },
+    "countries": {
+      "title": "Popularne Kraje",
+      "para": "Poznaj kraje z największą liczbą imigrantów i rozpocznij swoją podróż"
+    },
+    "whyChooseUs": {
+      "title": "Dlaczego Nas Wybrać",
+      "card1": {
+        "title": "AI Oszczędza Czas",
+        "para": "Zawsze aktualne i wiarygodne informacje"
+      },
+      "card2": {
+        "title": "Zaufana Społeczność",
+        "para": "Platforma zbudowana na zaufaniu"
+      },
+      "card3": {
+        "title": "Wszystko w Jednym",
+        "para": "Od aplikacji wizowych po koszty życia, wszystko na jednej platformie"
+      },
+      "card4": {
+        "title": "Personalizowane Powiadomienia",
+        "para": "Otrzymuj aktualizacje dopasowane do Ciebie"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Kraje",
+      "aiAssistant": "Asystent AI",
+      "compareCountries": "Porównaj Kraje",
+      "taxCalculator": "Kalkulator Podatkowy",
+      "notifications": "Powiadomienia",
+      "favourites": "Ulubione",
+      "community": "Społeczność",
+      "cta": {
+        "title": "Wypróbuj Plan Pro",
+        "para": "Obecnie korzystasz z darmowego okresu próbnego 3 dni. Ulepsz, aby kontynuować.",
+        "buttonText": "Więcej Informacji"
+      }
+    },
+    "countries": {
+      "title": "Kraje",
+      "noDataText": "Brak Danych!",
+      "searchText": "Wyszukaj Kraj"
+    },
+    "country": {
+      "countryIn": "Kraj:",
+      "addFavorite": "Dodaj do Ulubionych",
+      "share": "Udostępnij",
+      "overview": "Podsumowanie",
+      "map": "Mapa",
+      "keyFacts": "Kluczowe Fakty",
+      "visaMigration": "Wiza i Migracja",
+      "taxes": "Podatki",
+      "flag": "Flaga",
+      "capital": "Stolica",
+      "languages": "Języki",
+      "currency": "Waluta",
+      "population": "Populacja",
+      "dialingCode": "Kod Telefoniczny",
+      "back": "Wróć",
+      "noOverview": "Brak dostępnego podsumowania dla tego kraju",
+      "noVisaInfo": "Brak dostępnych informacji o wizach i migracji dla tego kraju"
+    },
+    "ai": {
+      "rename": "Zmień Nazwę",
+      "deleteConversation": "Usuń Rozmowę",
+      "share": "Udostępnij",
+      "hello": "Cześć",
+      "newChat": "Nowa Rozmowa",
+      "askAI": "Zadaj pytanie AI...",
+      "uploadDocument": "Prześlij Dokument",
+      "uploadDocumentDesc": "Prześlij dokument do analizy przez Asystenta AI",
+      "cancel": "Anuluj",
+      "upload": "Prześlij"
+    },
+    "settings": {
+      "accountSettings": "Ustawienia Konta",
+      "editProfile": "Edytuj Profil",
+      "profile": "Profil",
+      "account": "Konto",
+      "preferences": "Preferencje",
+      "avatar": "Awatar",
+      "fullName": "Pełne Imię",
+      "username": "Nazwa Użytkownika",
+      "bio": "Biografia",
+      "country": "Kraj",
+      "emailAddress": "Adres E-mail",
+      "verified": "Zweryfikowane",
+      "subscription": "Subskrypcja",
+      "subscriptionDesc": "Obecnie korzystasz z darmowego okresu próbnego 3 dni. Ulepsz, aby kontynuować.",
+      "deleteAccount": "Usuń Konto",
+      "deleteDesc": "Trwale usuń swoje konto i dane",
+      "language": "Język",
+      "chooseLanguage": "Wybierz Język",
+      "selectLanguage": "Wybierz Język",
+      "learnMore": "Dowiedz się Więcej",
+      "saveChanges": "Zapisz Zmiany",
+      "cancel": "Anuluj",
+      "saving": "Trwa zapisywanie...",
+      "unsavedChanges": "Istnieją niezapisane zmiany",
+      "addName": "Dodaj swoje imię",
+      "addBio": "Dodaj swoją biografię",
+      "addUsername": "Dodaj nazwę użytkownika",
+      "addLocation": "Dodaj lokalizację",
+      "confirmAccountDelete": "Potwierdź Usunięcie Konta",
+      "confirmAccountDeleteDesc": "Potwierdź, że chcesz usunąć swoje konto:",
+      "confirm": "Potwierdź",
+      "neverMind": "Zignoruj",
+      "confirmDeleteWarning": "Ostrzeżenie: Twoje konto nie będzie mogło zostać przywrócone po usunięciu",
+      "confirmDeleteList1": "Twoje dane profilowe, ustawienia i preferencje zostaną usunięte",
+      "confirmDeleteList2": "Twoje dane zostaną trwale usunięte po 30 dniach",
+      "deleting": "Trwa usuwanie...",
+      "youHave": "Masz obecnie rolę:",
+      "administrator": "Administrator"
+    },
+    "continents": {
+      "all": "Wszystkie",
+      "europe": "Europa",
+      "asia": "Azja",
+      "africa": "Afryka",
+      "south america": "Ameryka Południowa",
+      "north america": "Ameryka Północna",
+      "antarctica": "Antarktyda",
+      "oceania": "Oceania"
+    },
+    "tax": {
+      "taxCalculator": "Kalkulator Podatkowy",
+      "taxCacluatorDesc": "Oblicz podatki w różnych krajach",
+      "country": "Kraj",
+      "annualIncome": "Dochód Roczny",
+      "userAccount": "Typ Konta",
+      "totalDeductions": "Łączne Odliczenia",
+      "selectCountry": "Wybierz Kraj",
+      "selectAccount": "Wybierz Typ Konta",
+      "enterIncome": "Wprowadź Dochód Roczny",
+      "enterDeductions": "Wprowadź Odliczenia",
+      "calculateTax": "Oblicz Podatek",
+      "individual": "Indywidualny",
+      "corporate": "Korpo",
+      "taxSummary": "Podsumowanie Podatkowe",
+      "taxAmount": "Kwota Podatku",
+      "effectiveRate": "Stawka Efektywna",
+      "takeHomeAmount": "Kwota do Wypłaty"
+    },
+    "upgradePage": {
+      "back": "Wróć",
+      "upgradePlan": "Ulepsz Plan",
+      "upgradePlanDesc": "Wybierz plan imigracyjny, który najlepiej Ci odpowiada, aby uzyskać dostęp do narzędzi",
+      "currentPlan": "Aktualny Plan",
+      "getStarted": "Zacznij",
+      "free": "Darmowy",
+      "basic": "Podstawowy",
+      "premium": "Premium",
+      "perMonth": "Na Miesiąc",
+      "forEveryone": "Dla każdego",
+      "freePlan": {
+        "item1": "3 dni darmowego okresu próbnego",
+        "item2": "Podstawowe informacje o kraju",
+        "item3": "Tylko do odczytu na forum",
+        "item4": "Ograniczony kalkulator podatkowy",
+        "item5": "Podstawowe narzędzie porównania"
+      },
+      "basicPlan": {
+        "item1": "Rozszerzone informacje o krajach",
+        "item2": "Twórz posty i komentuj na forach",
+        "item3": "Pełny kalkulator podatkowy",
+        "item4": "Narzędzie porównania kosztów",
+        "item5": "Podstawowa pomoc imigracyjna",
+        "item6": "Wsparcie e-mailowe"
+      },
+      "premiumPlan": {
+        "item1": "Wszystkie funkcje planu podstawowego",
+        "item2": "Dostęp do nieograniczonych informacji o krajach",
+        "item3": "Dostęp do pełnej społeczności",
+        "item4": "Zaawansowane funkcje podatkowe",
+        "item5": "Inteligentny asystent imigracyjny",
+        "item6": "Informacje o kosztach życia",
+        "item7": "Porady dotyczące aplikacji wizowych",
+        "item8": "Pomoc priorytetowa",
+        "item9": "Indywidualne plany imigracyjne"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Potwierdź Zmianę Języka"
+    }
+  },
+  "footer": {
+    "terms": "Warunki Usługi",
+    "privacy": "Polityka Prywatności",
+    "subscribeNewsletter": "Subskrybuj Newsletter",
+    "subscribeNewsDesc": "Otrzymuj najnowsze informacje o imigracji",
+    "enterEmail": "Wprowadź swój adres e-mail",
+    "subscribe": "Zapisz się"
+  }
+}

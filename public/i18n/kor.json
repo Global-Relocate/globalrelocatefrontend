@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "홈",
+      "countriesData": "국가 및 데이터",
+      "community": "커뮤니티",
+      "tools": "도구",
+      "pricing": "요금제",
+      "viewProfile": "프로필 보기",
+      "helpCenter": "도움말 센터",
+      "giveFeedback": "피드백 제출",
+      "privacyPolicy": "개인정보 처리방침",
+      "upgradePlan": "플랜 업그레이드"
+    },
+    "showcase": {
+      "title": "똑똑하게 이주하고, 더 나은 삶을 살아보세요.",
+      "para": "AI 기반의 이주, 법률 지원 및 글로벌 라이프스타일을 위한 올인원 플랫폼입니다.",
+      "buttonText": "시작하기"
+    },
+    "features": {
+      "title": "기능",
+      "cards": {
+        "card1": {
+          "title": "국가 비교",
+          "para": "생활비, 세율, 삶의 질 등 다양한 지표로 국가를 비교하고 정보에 기반한 결정을 내리세요."
+        },
+        "card2": {
+          "title": "AI 스마트 인사이트",
+          "para": "전 세계의 디지털 노마드들과 포럼 및 그룹에서 소통해보세요."
+        },
+        "card3": {
+          "title": "국가 및 데이터",
+          "para": "전 세계의 디지털 노마드들과 포럼 및 그룹에서 소통해보세요."
+        }
+      }
+    },
+    "countries": {
+      "title": "인기 국가",
+      "para": "이주에 인기 있는 국가들을 살펴보고 계획을 시작해보세요."
+    },
+    "whyChooseUs": {
+      "title": "우리를 선택하는 이유",
+      "card1": {
+        "title": "AI 기반 데이터로 시간 절약",
+        "para": "최신이고 신뢰할 수 있는 정보를 항상 제공합니다."
+      },
+      "card2": {
+        "title": "신뢰할 수 있는 네트워크",
+        "para": "커뮤니티 중심 플랫폼으로 신뢰를 얻었습니다."
+      },
+      "card3": {
+        "title": "올인원 솔루션",
+        "para": "비자부터 생활비까지 모두 한곳에서 해결하세요."
+      },
+      "card4": {
+        "title": "맞춤형 알림",
+        "para": "맞춤 알림과 즐겨찾기 기능으로 최신 정보를 받아보세요."
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "국가",
+      "aiAssistant": "AI 어시스턴트",
+      "compareCountries": "국가 비교",
+      "taxCalculator": "세금 계산기",
+      "notifications": "알림",
+      "favourites": "즐겨찾기",
+      "community": "커뮤니티",
+      "cta": {
+        "title": "Pro 체험하기",
+        "para": "현재 3일간 무료 체험 중입니다. 계속 사용하려면 업그레이드가 필요합니다.",
+        "buttonText": "자세히 보기"
+      }
+    },
+    "countries": {
+      "title": "국가",
+      "noDataText": "사용 가능한 데이터가 없습니다!",
+      "searchText": "국가 검색"
+    },
+    "country": {
+      "countryIn": "국가:",
+      "addFavorite": "즐겨찾기 추가",
+      "share": "공유",
+      "overview": "개요",
+      "map": "지도",
+      "keyFacts": "주요 정보",
+      "visaMigration": "비자 및 이주",
+      "taxes": "세금",
+      "flag": "국기",
+      "capital": "수도",
+      "languages": "언어",
+      "currency": "통화",
+      "population": "인구",
+      "dialingCode": "전화 코드",
+      "back": "뒤로",
+      "noOverview": "이 국가에 대한 개요 정보가 없습니다.",
+      "noVisaInfo": "이 국가에 대한 비자 및 이주 정보가 없습니다."
+    },
+    "ai": {
+      "rename": "이름 변경",
+      "deleteConversation": "대화 삭제",
+      "share": "공유",
+      "hello": "안녕하세요",
+      "newChat": "새 채팅",
+      "askAI": "AI에게 질문해보세요...",
+      "uploadDocument": "문서 업로드",
+      "uploadDocumentDesc": "AI 분석을 위해 문서를 업로드하세요.",
+      "cancel": "취소",
+      "upload": "업로드"
+    },
+    "settings": {
+      "accountSettings": "계정 설정",
+      "editProfile": "프로필 수정",
+      "profile": "프로필",
+      "account": "계정",
+      "preferences": "환경설정",
+      "avatar": "아바타",
+      "fullName": "이름",
+      "username": "사용자 이름",
+      "bio": "소개",
+      "country": "국가",
+      "emailAddress": "이메일 주소",
+      "verified": "인증됨",
+      "subscription": "구독",
+      "subscriptionDesc": "현재 3일간 무료 체험 중입니다. 계속 사용하려면 업그레이드가 필요합니다.",
+      "deleteAccount": "계정 삭제",
+      "deleteDesc": "계정과 데이터를 영구적으로 삭제합니다",
+      "language": "언어",
+      "chooseLanguage": "언어 선택",
+      "selectLanguage": "언어 선택",
+      "learnMore": "자세히 알아보기",
+      "saveChanges": "변경사항 저장",
+      "cancel": "취소",
+      "saving": "저장 중...",
+      "unsavedChanges": "저장되지 않은 변경사항이 있습니다",
+      "addName": "이름 추가",
+      "addBio": "자기소개를 추가해보세요.",
+      "addUsername": "사용자 이름 추가",
+      "addLocation": "위치 추가",
+      "confirmAccountDelete": "계정 삭제 확인",
+      "confirmAccountDeleteDesc": "계정을 삭제하기 전에 다음 내용을 확인하세요:",
+      "confirm": "확인",
+      "neverMind": "취소",
+      "confirmDeleteWarning": "경고: 계정 삭제는 되돌릴 수 없습니다.",
+      "confirmDeleteList1": "프로필, 설정, 환경설정이 삭제됩니다.",
+      "confirmDeleteList2": "삭제 후 30일 이내에 모든 데이터가 완전히 삭제됩니다.",
+      "deleting": "삭제 중...",
+      "youHave": "현재 상태:",
+      "administrator": "관리자"
+    },
+    "continents": {
+      "all": "전체",
+      "europe": "유럽",
+      "asia": "아시아",
+      "africa": "아프리카",
+      "south america": "남아메리카",
+      "north america": "북아메리카",
+      "antarctica": "남극",
+      "oceania": "오세아니아"
+    },
+    "tax": {
+      "taxCalculator": "세금 계산기",
+      "taxCacluatorDesc": "각 국가의 세금 부담을 계산합니다",
+      "country": "국가",
+      "annualIncome": "연소득",
+      "userAccount": "사용자 유형",
+      "totalDeductions": "총 공제액",
+      "selectCountry": "국가 선택",
+      "selectAccount": "계정 유형 선택",
+      "enterIncome": "연소득 입력",
+      "enterDeductions": "공제액 입력",
+      "calculateTax": "세금 계산",
+      "individual": "개인",
+      "corporate": "법인",
+      "taxSummary": "세금 요약",
+      "taxAmount": "세금 금액",
+      "effectiveRate": "실효세율",
+      "takeHomeAmount": "실수령액"
+    },
+    "upgradePage": {
+      "back": "뒤로",
+      "upgradePlan": "플랜 업그레이드",
+      "upgradePlanDesc": "이주를 돕는 최적의 플랜을 선택하세요. 다양한 도구와 정보에 접근할 수 있습니다.",
+      "currentPlan": "현재 플랜",
+      "getStarted": "시작하기",
+      "free": "무료",
+      "basic": "베이직",
+      "premium": "프리미엄",
+      "perMonth": "월",
+      "forEveryone": "모두를 위한",
+      "freePlan": {
+        "item1": "3일 체험 이용 가능",
+        "item2": "기본 국가 정보",
+        "item3": "읽기 전용 커뮤니티 접근",
+        "item4": "제한된 세금 계산기",
+        "item5": "기본 비교 기능"
+      },
+      "basicPlan": {
+        "item1": "확장된 국가 정보",
+        "item2": "커뮤니티 참여 및 게시",
+        "item3": "전체 세금 계산기",
+        "item4": "비용 비교 도구",
+        "item5": "기본 이주 가이드",
+        "item6": "이메일 지원"
+      },
+      "premiumPlan": {
+        "item1": "베이직 플랜의 모든 기능",
+        "item2": "무제한 국가 데이터 접근",
+        "item3": "전체 커뮤니티 기능",
+        "item4": "고급 세금 계산 기능",
+        "item5": "AI 이주 어시스턴트",
+        "item6": "생활비 데이터",
+        "item7": "비자 요구사항 가이드",
+        "item8": "우선 지원",
+        "item9": "맞춤형 이주 계획"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "변경 확인"
+    }
+  },
+  "footer": {
+    "terms": "이용약관",
+    "privacy": "개인정보처리방침",
+    "subscribeNewsletter": "뉴스레터 구독",
+    "subscribeNewsDesc": "최신 이주 관련 뉴스를 받아보세요",
+    "enterEmail": "이메일 주소 입력",
+    "subscribe": "구독하기"
+  }
+}

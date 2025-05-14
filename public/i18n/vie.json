@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Trang Chủ",
+      "countriesData": "Các Quốc Gia và Dữ Liệu",
+      "community": "Cộng Đồng",
+      "tools": "Công Cụ",
+      "pricing": "Giá Cả",
+      "viewProfile": "Xem Hồ Sơ",
+      "helpCenter": "Trung Tâm Trợ Giúp",
+      "giveFeedback": "Đưa Ra Phản Hồi",
+      "privacyPolicy": "Chính Sách Bảo Mật",
+      "upgradePlan": "Nâng Cấp Kế Hoạch"
+    },
+    "showcase": {
+      "title": "Cuộc Sống Tốt Hơn Cho Di Cư Thông Minh",
+      "para": "Nền tảng duy nhất cho di cư, hỗ trợ pháp lý và lối sống toàn cầu với trí tuệ nhân tạo.",
+      "buttonText": "Bắt Đầu Ngay"
+    },
+    "features": {
+      "title": "Tính Năng",
+      "cards": {
+        "card1": {
+          "title": "So Sánh Các Quốc Gia",
+          "para": "So sánh chi phí sinh hoạt, thuế và chất lượng sống để đưa ra quyết định tốt hơn."
+        },
+        "card2": {
+          "title": "Phân Tích Thông Minh",
+          "para": "Kết nối với hàng nghìn di cư số qua các diễn đàn và nhóm."
+        },
+        "card3": {
+          "title": "Dữ Liệu Quốc Gia",
+          "para": "Kết nối với hàng nghìn di cư số qua các diễn đàn và nhóm."
+        }
+      }
+    },
+    "countries": {
+      "title": "Các Quốc Gia Phổ Biến",
+      "para": "Khám phá các quốc gia di cư phổ biến và bắt đầu hành trình của bạn."
+    },
+    "whyChooseUs": {
+      "title": "Tại Sao Chọn Chúng Tôi",
+      "card1": {
+        "title": "Trí Tuệ Nhân Tạo Tiết Kiệm Thời Gian",
+        "para": "Luôn có thông tin cập nhật và đáng tin cậy."
+      },
+      "card2": {
+        "title": "Cộng Đồng Đáng Tin Cậy",
+        "para": "Nền tảng cộng đồng, được xây dựng trên cơ sở tin tưởng."
+      },
+      "card3": {
+        "title": "Tất Cả Trong Một",
+        "para": "Từ thủ tục visa đến chi phí sinh hoạt, tất cả đều có trên một nền tảng."
+      },
+      "card4": {
+        "title": "Cảnh Báo Cá Nhân Hóa",
+        "para": "Cập nhật với các cảnh báo và tùy chọn cá nhân hóa của bạn."
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Các Quốc Gia",
+      "aiAssistant": "Trợ Lý AI",
+      "compareCountries": "So Sánh Các Quốc Gia",
+      "taxCalculator": "Máy Tính Thuế",
+      "notifications": "Thông Báo",
+      "favourites": "Yêu Thích",
+      "community": "Cộng Đồng",
+      "cta": {
+        "title": "Dùng Thử Kế Hoạch Pro",
+        "para": "Bạn đang sử dụng bản dùng thử miễn phí 3 ngày. Hãy nâng cấp để tiếp tục.",
+        "buttonText": "Tìm Hiểu Thêm"
+      }
+    },
+    "countries": {
+      "title": "Các Quốc Gia",
+      "noDataText": "Không Có Dữ Liệu!",
+      "searchText": "Tìm Quốc Gia"
+    },
+    "country": {
+      "countryIn": "Quốc Gia:",
+      "addFavorite": "Thêm Vào Yêu Thích",
+      "share": "Chia Sẻ",
+      "overview": "Tổng Quan",
+      "map": "Bản Đồ",
+      "keyFacts": "Thông Tin Quan Trọng",
+      "visaMigration": "Visa và Di Cư",
+      "taxes": "Thuế",
+      "flag": "Cờ",
+      "capital": "Thủ Đô",
+      "languages": "Ngôn Ngữ",
+      "currency": "Tiền Tệ",
+      "population": "Dân Số",
+      "dialingCode": "Mã Gọi Điện",
+      "back": "Quay Lại",
+      "noOverview": "Không có thông tin tổng quan cho quốc gia này.",
+      "noVisaInfo": "Không có thông tin visa hoặc di cư cho quốc gia này."
+    },
+    "ai": {
+      "rename": "Đổi Tên",
+      "deleteConversation": "Xóa Cuộc Trò Chuyện",
+      "share": "Chia Sẻ",
+      "hello": "Xin Chào",
+      "newChat": "Trò Chuyện Mới",
+      "askAI": "Hỏi Trợ Lý AI...",
+      "uploadDocument": "Tải Tài Liệu Lên",
+      "uploadDocumentDesc": "Tải tài liệu lên để trợ lý AI phân tích.",
+      "cancel": "Hủy",
+      "upload": "Tải Lên"
+    },
+    "settings": {
+      "accountSettings": "Cài Đặt Tài Khoản",
+      "editProfile": "Chỉnh Sửa Hồ Sơ",
+      "profile": "Hồ Sơ",
+      "account": "Tài Khoản",
+      "preferences": "Tùy Chọn",
+      "avatar": "Ảnh Đại Diện",
+      "fullName": "Họ Tên",
+      "username": "Tên Người Dùng",
+      "bio": "Tiểu Sử",
+      "country": "Quốc Gia",
+      "emailAddress": "Địa Chỉ Email",
+      "verified": "Đã Xác Minh",
+      "subscription": "Đăng Ký",
+      "subscriptionDesc": "Bạn hiện đang sử dụng bản dùng thử miễn phí 3 ngày. Hãy nâng cấp để tiếp tục.",
+      "deleteAccount": "Xóa Tài Khoản",
+      "deleteDesc": "Xóa tài khoản và tất cả dữ liệu của bạn vĩnh viễn",
+      "language": "Ngôn Ngữ",
+      "chooseLanguage": "Chọn Ngôn Ngữ",
+      "selectLanguage": "Chọn Ngôn Ngữ",
+      "learnMore": "Tìm Hiểu Thêm",
+      "saveChanges": "Lưu Thay Đổi",
+      "cancel": "Hủy",
+      "saving": "Đang Lưu...",
+      "unsavedChanges": "Có thay đổi chưa được lưu",
+      "addName": "Thêm Tên Của Bạn",
+      "addBio": "Thêm Tiểu Sử Của Bạn",
+      "addUsername": "Thêm Tên Người Dùng",
+      "addLocation": "Thêm Vị Trí",
+      "confirmAccountDelete": "Xác Nhận Xóa Tài Khoản",
+      "confirmAccountDeleteDesc": "Xác nhận bạn muốn xóa tài khoản của mình:",
+      "confirm": "Xác Nhận",
+      "neverMind": "Không Cần",
+      "confirmDeleteWarning": "Cảnh Báo: Tài khoản của bạn sẽ không thể phục hồi sau khi xóa.",
+      "confirmDeleteList1": "Hồ sơ, cài đặt và tùy chọn của bạn sẽ bị xóa.",
+      "confirmDeleteList2": "Tất cả dữ liệu của bạn sẽ bị xóa vĩnh viễn sau 30 ngày.",
+      "deleting": "Đang Xóa...",
+      "youHave": "Vai trò hiện tại của bạn:",
+      "administrator": "Quản Trị Viên"
+    },
+    "continents": {
+      "all": "Tất Cả",
+      "europe": "Châu Âu",
+      "asia": "Châu Á",
+      "africa": "Châu Phi",
+      "south america": "Nam Mỹ",
+      "north america": "Bắc Mỹ",
+      "antarctica": "Nam Cực",
+      "oceania": "Châu Đại Dương"
+    },
+    "tax": {
+      "taxCalculator": "Máy Tính Thuế",
+      "taxCacluatorDesc": "Tính toán thuế tại các quốc gia khác nhau",
+      "country": "Quốc Gia",
+      "annualIncome": "Thu Nhập Hàng Năm",
+      "userAccount": "Loại Tài Khoản",
+      "totalDeductions": "Tổng Khấu Trừ",
+      "selectCountry": "Chọn Quốc Gia",
+      "selectAccount": "Chọn Loại Tài Khoản",
+      "enterIncome": "Nhập Thu Nhập Hàng Năm",
+      "enterDeductions": "Nhập Khấu Trừ",
+      "calculateTax": "Tính Thuế",
+      "individual": "Cá Nhân",
+      "corporate": "Doanh Nghiệp",
+      "taxSummary": "Tóm Tắt Thuế",
+      "taxAmount": "Số Tiền Thuế",
+      "effectiveRate": "Tỷ Lệ Hiệu Quả",
+      "takeHomeAmount": "Số Tiền Nhận Về"
+    },
+    "upgradePage": {
+      "back": "Quay Lại",
+      "upgradePlan": "Nâng Cấp Kế Hoạch",
+      "upgradePlanDesc": "Chọn kế hoạch di cư phù hợp và sử dụng các công cụ.",
+      "currentPlan": "Kế Hoạch Hiện Tại",
+      "getStarted": "Bắt Đầu",
+      "free": "Miễn Phí",
+      "basic": "Cơ Bản",
+      "premium": "Cao Cấp",
+      "perMonth": "Mỗi Tháng",
+      "forEveryone": "Phù Hợp Cho Mọi Người",
+      "freePlan": {
+        "item1": "Dùng Thử 3 Ngày",
+        "item2": "Thông Tin Quốc Gia Cơ Bản",
+        "item3": "Chỉ Đọc Diễn Đàn",
+        "item4": "Máy Tính Thuế Hạn Chế",
+        "item5": "Công Cụ So Sánh Cơ Bản"
+      },
+      "basicPlan": {
+        "item1": "Thông Tin Quốc Gia Mở Rộng",
+        "item2": "Quyền Đăng Bài và Bình Luận Cộng Đồng",
+        "item3": "Máy Tính Thuế Hoàn Chỉnh",
+        "item4": "Công Cụ So Sánh Chi Phí",
+        "item5": "Hướng Dẫn Di Cư Cơ Bản",
+        "item6": "Hỗ Trợ Qua Email"
+      },
+      "premiumPlan": {
+        "item1": "Tất Cả Lợi Ích Của Kế Hoạch Cơ Bản",
+        "item2": "Truy Cập Thông Tin Quốc Gia Vô Hạn",
+        "item3": "Truy Cập Cộng Đồng Đầy Đủ",
+        "item4": "Tính Năng Thuế Nâng Cao",
+        "item5": "Trợ Lý Di Cư Thông Minh",
+        "item6": "Thông Tin Chi Phí Sinh Hoạt",
+        "item7": "Hướng Dẫn Yêu Cầu Visa",
+        "item8": "Hỗ Trợ Ưu Tiên",
+        "item9": "Kế Hoạch Di Cư Tùy Chỉnh"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Xác Nhận Thay Đổi"
+    }
+  },
+  "footer": {
+    "terms": "Điều Khoản Dịch Vụ",
+    "privacy": "Chính Sách Bảo Mật",
+    "subscribeNewsletter": "Đăng Ký Nhận Bản Tin",
+    "subscribeNewsDesc": "Nhận các bản cập nhật di cư mới nhất",
+    "enterEmail": "Nhập Địa Chỉ Email",
+    "subscribe": "Đăng Ký"
+  }
+}

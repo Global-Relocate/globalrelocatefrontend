@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Início",
+      "countriesData": "Países e Dados",
+      "community": "Comunidade",
+      "tools": "Ferramentas",
+      "pricing": "Preços",
+      "viewProfile": "Ver Perfil",
+      "helpCenter": "Central de Ajuda",
+      "giveFeedback": "Dê seu feedback",
+      "privacyPolicy": "Política de Privacidade",
+      "upgradePlan": "Atualizar Plano"
+    },
+    "showcase": {
+      "title": "Relocalize de forma inteligente, viva melhor.",
+      "para": "Sua plataforma com IA para uma mudança tranquila, orientação legal e vida global.",
+      "buttonText": "Começar"
+    },
+    "features": {
+      "title": "Recursos",
+      "cards": {
+        "card1": {
+          "title": "Comparar Países",
+          "para": "Tome decisões informadas comparando diferentes países lado a lado, analisando fatores como custo de vida, taxas de impostos e qualidade de vida."
+        },
+        "card2": {
+          "title": "Informações inteligentes com IA",
+          "para": "Participe de fóruns e grupos com nômades globais com interesses semelhantes."
+        },
+        "card3": {
+          "title": "Países e Dados",
+          "para": "Participe de fóruns e grupos com nômades globais com interesses semelhantes."
+        }
+      }
+    },
+    "countries": {
+      "title": "Países Populares",
+      "para": "Explore destinos populares e comece a planejar sua mudança"
+    },
+    "whyChooseUs": {
+      "title": "Por Que Escolher a Gente",
+      "card1": {
+        "title": "Dados com Suporte de IA que Economizam Tempo",
+        "para": "Informações sempre atualizadas e confiáveis."
+      },
+      "card2": {
+        "title": "Contatos Verificados e Fontes Confiáveis:",
+        "para": "Uma plataforma baseada na comunidade garantindo credibilidade."
+      },
+      "card3": {
+        "title": "Solução Tudo-em-Um",
+        "para": "Tudo, de vistos ao custo de vida, em um só lugar."
+      },
+      "card4": {
+        "title": "Alertas Personalizados",
+        "para": "Fique à frente com notificações personalizadas e um recurso de favoritos."
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Países",
+      "aiAssistant": "Assistente de IA",
+      "compareCountries": "Comparar Países",
+      "taxCalculator": "Calculadora de Impostos",
+      "notifications": "Notificações",
+      "favourites": "Favoritos",
+      "community": "Comunidade",
+      "cta": {
+        "title": "Experimente o Pro",
+        "para": "Você está atualmente no plano gratuito válido por 3 dias. Atualize agora para continuar usando o Global Relocate.",
+        "buttonText": "Saiba Mais"
+      }
+    },
+    "countries": {
+      "title": "Países",
+      "noDataText": "Nenhum dado disponível!",
+      "searchText": "Pesquisar países"
+    },
+    "country": {
+      "countryIn": "País em",
+      "addFavorite": "Adicionar aos favoritos",
+      "share": "Compartilhar",
+      "overview": "Visão geral",
+      "map": "Mapa",
+      "keyFacts": "Fatos chave",
+      "visaMigration": "Visto e Imigração",
+      "taxes": "Impostos",
+      "flag": "Bandeira",
+      "capital": "Capital",
+      "languages": "Idiomas",
+      "currency": "Moeda",
+      "population": "População",
+      "dialingCode": "Código de Discagem",
+      "back": "Voltar",
+      "noOverview": "Nenhuma visão geral disponível para este país.",
+      "noVisaInfo": "Nenhuma informação de visto e imigração disponível."
+    },
+    "ai": {
+      "rename": "Renomear",
+      "deleteConversation": "Excluir conversa",
+      "share": "Compartilhar",
+      "hello": "Olá",
+      "newChat": "Nova Conversa",
+      "askAI": "Pergunte à IA qualquer coisa...",
+      "uploadDocument": "Enviar Documento",
+      "uploadDocumentDesc": "Envie um documento para processar com o assistente de IA",
+      "cancel": "Cancelar",
+      "upload": "Enviar"
+    },
+    "settings": {
+      "accountSettings": "Configurações da conta",
+      "editProfile": "Editar perfil",
+      "profile": "Perfil",
+      "account": "Conta",
+      "preferences": "Preferências",
+      "avatar": "Avatar",
+      "fullName": "Nome completo",
+      "username": "Nome de usuário",
+      "bio": "Biografia",
+      "country": "País",
+      "emailAddress": "Endereço de e-mail",
+      "verified": "Verificado",
+      "subscription": "Assinatura",
+      "subscriptionDesc": "Você está atualmente no plano gratuito válido por 3 dias. Atualize agora para continuar usando o Global Relocate.",
+      "deleteAccount": "Excluir Conta",
+      "deleteDesc": "Exclua permanentemente sua conta e dados",
+      "language": "Idioma",
+      "chooseLanguage": "Escolha um idioma",
+      "selectLanguage": "Selecionar idioma",
+      "learnMore": "Saiba mais",
+      "saveChanges": "Salvar Alterações",
+      "cancel": "Cancelar",
+      "saving": "Salvando...",
+      "unsavedChanges": "Você tem alterações não salvas",
+      "addName": "Adicionar nome",
+      "addBio": "Adicione uma biografia para contar sua história.",
+      "addUsername": "Adicionar nome de usuário",
+      "addLocation": "Adicionar localização",
+      "confirmAccountDelete": "Confirmar Exclusão de Conta",
+      "confirmAccountDeleteDesc": "Antes de excluir sua conta, entenda o que acontecerá com seus dados:",
+      "confirm": "Confirmar",
+      "neverMind": "Deixa pra lá",
+      "confirmDeleteWarning": "Lembre-se de que excluir sua conta não pode ser desfeito.",
+      "confirmDeleteList1": "Os detalhes do seu perfil, preferências e configurações serão removidos.",
+      "confirmDeleteList2": "Todos os dados serão excluídos permanentemente 30 dias após a exclusão da conta.",
+      "deleting": "Excluindo...",
+      "youHave": "Você tem:",
+      "administrator": "Administrador"
+    },
+    "continents": {
+      "all": "Todos",
+      "europe": "Europa",
+      "asia": "Ásia",
+      "africa": "África",
+      "south america": "América do Sul",
+      "north america": "América do Norte",
+      "antarctica": "Antártica",
+      "oceania": "Oceania"
+    },
+    "tax": {
+      "taxCalculator": "Calculadora de Impostos",
+      "taxCacluatorDesc": "Calcule sua estimativa de impostos em diferentes países",
+      "country": "País",
+      "annualIncome": "Renda anual",
+      "userAccount": "Conta do usuário",
+      "totalDeductions": "Deduções totais",
+      "selectCountry": "Selecione seu país",
+      "selectAccount": "Selecione o tipo de conta",
+      "enterIncome": "Digite sua renda anual",
+      "enterDeductions": "Digite as deduções totais",
+      "calculateTax": "Calcular Imposto",
+      "individual": "Individual",
+      "corporate": "Corporativo",
+      "taxSummary": "Resumo Fiscal",
+      "taxAmount": "Valor do imposto",
+      "effectiveRate": "Taxa efetiva",
+      "takeHomeAmount": "Valor líquido"
+    },
+    "upgradePage": {
+      "back": "Voltar",
+      "upgradePlan": "Atualize seu plano",
+      "upgradePlanDesc": "Escolha o plano ideal para apoiar sua jornada de realocação global. Tenha acesso a ferramentas e insights completos para tornar sua mudança tranquila.",
+      "currentPlan": "Seu plano atual",
+      "getStarted": "Começar",
+      "free": "Gratuito",
+      "basic": "Básico",
+      "premium": "Premium",
+      "perMonth": "por mês",
+      "forEveryone": "Para todos",
+      "freePlan": {
+        "item1": "Acesso de teste por 3 dias",
+        "item2": "Informações básicas sobre países",
+        "item3": "Acesso à comunidade (somente leitura)",
+        "item4": "Calculadora de impostos limitada",
+        "item5": "Comparação básica de custos"
+      },
+      "basicPlan": {
+        "item1": "Informações completas sobre países",
+        "item2": "Participação na comunidade",
+        "item3": "Calculadora de impostos completa",
+        "item4": "Ferramentas de comparação de custos",
+        "item5": "Guias básicos de realocação",
+        "item6": "Suporte por e-mail"
+      },
+      "premiumPlan": {
+        "item1": "Todos os recursos do Básico",
+        "item2": "Acesso ilimitado a dados dos países",
+        "item3": "Participação completa na comunidade",
+        "item4": "Calculadora de impostos avançada",
+        "item5": "Assistente de realocação com IA",
+        "item6": "Informações sobre custo de vida",
+        "item7": "Guias de requisitos de visto",
+        "item8": "Suporte prioritário",
+        "item9": "Roteiro de realocação personalizado"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Confirmar Alterações"
+    }
+  },
+  "footer": {
+    "terms": "Termos",
+    "privacy": "Privacidade",
+    "subscribeNewsletter": "Assine nossa newsletter",
+    "subscribeNewsDesc": "Fique atualizado com os últimos insights sobre realocação global",
+    "enterEmail": "Digite seu e-mail",
+    "subscribe": "Assinar"
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Beranda",
+      "countriesData": "Negara & Data",
+      "community": "Komunitas",
+      "tools": "Alat",
+      "pricing": "Harga",
+      "viewProfile": "Lihat Profil",
+      "helpCenter": "Pusat Bantuan",
+      "giveFeedback": "Beri Masukan",
+      "privacyPolicy": "Kebijakan Privasi",
+      "upgradePlan": "Tingkatkan Paket"
+    },
+    "showcase": {
+      "title": "Hidup Lebih Baik dengan Imigrasi Cerdas",
+      "para": "Platform berbasis AI untuk imigrasi global, bantuan hukum, dan gaya hidup",
+      "buttonText": "Mulai Sekarang"
+    },
+    "features": {
+      "title": "Fitur",
+      "cards": {
+        "card1": {
+          "title": "Bandingkan Negara",
+          "para": "Bandingkan biaya hidup, pajak, dan kualitas hidup untuk keputusan yang lebih baik"
+        },
+        "card2": {
+          "title": "Analisis Pintar",
+          "para": "Terhubung dengan mitra digital melalui forum & grup imigrasi"
+        },
+        "card3": {
+          "title": "Informasi Negara",
+          "para": "Data negara terkini untuk perencanaan yang lebih baik"
+        }
+      }
+    },
+    "countries": {
+      "title": "Negara Populer",
+      "para": "Jelajahi negara tujuan imigrasi yang paling diminati"
+    },
+    "whyChooseUs": {
+      "title": "Mengapa Memilih Kami",
+      "card1": {
+        "title": "AI Menghemat Waktu",
+        "para": "Selalu mendapatkan informasi yang segar dan dapat diandalkan"
+      },
+      "card2": {
+        "title": "Komunitas Tepercaya",
+        "para": "Platform dibangun di atas kepercayaan"
+      },
+      "card3": {
+        "title": "Solusi Lengkap",
+        "para": "Dari visa hingga biaya hidup – semuanya di satu tempat"
+      },
+      "card4": {
+        "title": "Notifikasi Khusus",
+        "para": "Dapatkan peringatan yang relevan untuk Anda"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Negara",
+      "aiAssistant": "Asisten AI",
+      "compareCountries": "Bandingkan Negara",
+      "taxCalculator": "Kalkulator Pajak",
+      "notifications": "Notifikasi",
+      "favourites": "Favorit",
+      "community": "Komunitas",
+      "cta": {
+        "title": "Coba Paket Pro",
+        "para": "Saat ini Anda berada di uji coba gratis 3 hari. Tingkatkan ke Pro untuk melanjutkan.",
+        "buttonText": "Pelajari Lebih Lanjut"
+      }
+    },
+    "countries": {
+      "title": "Negara",
+      "noDataText": "Tidak ada data!",
+      "searchText": "Cari negara"
+    },
+    "country": {
+      "countryIn": "Negara:",
+      "addFavorite": "Tambah ke Favorit",
+      "share": "Bagikan",
+      "overview": "Ringkasan",
+      "map": "Peta",
+      "keyFacts": "Fakta Utama",
+      "visaMigration": "Visa & Imigrasi",
+      "taxes": "Pajak",
+      "flag": "Bendera",
+      "capital": "Ibu Kota",
+      "languages": "Bahasa",
+      "currency": "Mata Uang",
+      "population": "Populasi",
+      "dialingCode": "Kode Telepon",
+      "back": "Kembali",
+      "noOverview": "Tidak ada ringkasan yang tersedia untuk negara ini",
+      "noVisaInfo": "Tidak ada informasi visa atau imigrasi yang tersedia untuk negara ini"
+    },
+    "ai": {
+      "rename": "Ganti Nama",
+      "deleteConversation": "Hapus Percakapan",
+      "share": "Bagikan",
+      "hello": "Halo",
+      "newChat": "Obrolan Baru",
+      "askAI": "Tanyakan pada AI...",
+      "uploadDocument": "Unggah Dokumen",
+      "uploadDocumentDesc": "Unggah dokumen untuk dianalisis oleh asisten AI",
+      "cancel": "Batal",
+      "upload": "Unggah"
+    },
+    "settings": {
+      "accountSettings": "Pengaturan Akun",
+      "editProfile": "Edit Profil",
+      "profile": "Profil",
+      "account": "Akun",
+      "preferences": "Preferensi",
+      "avatar": "Foto Profil",
+      "fullName": "Nama Lengkap",
+      "username": "Nama Pengguna",
+      "bio": "Tentang Saya",
+      "country": "Negara",
+      "emailAddress": "Alamat Email",
+      "verified": "Terverifikasi",
+      "subscription": "Langganan",
+      "subscriptionDesc": "Saat ini Anda menggunakan uji coba gratis 3 hari. Tingkatkan ke Pro untuk melanjutkan.",
+      "deleteAccount": "Hapus Akun",
+      "deleteDesc": "Nonaktifkan akun dan data Anda sementara",
+      "language": "Bahasa",
+      "chooseLanguage": "Pilih Bahasa",
+      "selectLanguage": "Pilih bahasa",
+      "learnMore": "Pelajari Lebih Lanjut",
+      "saveChanges": "Simpan Perubahan",
+      "cancel": "Batal",
+      "saving": "Menyimpan...",
+      "unsavedChanges": "Tidak ada perubahan yang belum disimpan",
+      "addName": "Tambahkan nama",
+      "addBio": "Tambahkan bio",
+      "addUsername": "Tambahkan nama pengguna",
+      "addLocation": "Tambahkan lokasi",
+      "confirmAccountDelete": "Konfirmasi Penghapusan Akun",
+      "confirmAccountDeleteDesc": "Konfirmasikan bahwa Anda ingin menghapus akun Anda:",
+      "confirm": "Konfirmasi",
+      "neverMind": "Batal",
+      "confirmDeleteWarning": "Peringatan: Menghapus akun tidak dapat dibatalkan",
+      "confirmDeleteList1": "Informasi profil, pengaturan, dan preferensi Anda akan dihapus",
+      "confirmDeleteList2": "Data Anda akan dihapus dalam 30 hari",
+      "deleting": "Menghapus...",
+      "youHave": "Peran Anda saat ini:",
+      "administrator": "Administrator"
+    },
+    "continents": {
+      "all": "Semua",
+      "europe": "Eropa",
+      "asia": "Asia",
+      "africa": "Afrika",
+      "south america": "Amerika Selatan",
+      "north america": "Amerika Utara",
+      "antarctica": "Antarktika",
+      "oceania": "Oseania"
+    },
+    "tax": {
+      "taxCalculator": "Kalkulator Pajak",
+      "taxCacluatorDesc": "Hitung pajak untuk berbagai negara",
+      "country": "Negara",
+      "annualIncome": "Pendapatan Tahunan",
+      "userAccount": "Jenis Akun",
+      "totalDeductions": "Total Potongan",
+      "selectCountry": "Pilih negara",
+      "selectAccount": "Pilih jenis akun",
+      "enterIncome": "Masukkan pendapatan tahunan",
+      "enterDeductions": "Masukkan potongan",
+      "calculateTax": "Hitung Pajak",
+      "individual": "Individu",
+      "corporate": "Perusahaan",
+      "taxSummary": "Ringkasan Pajak",
+      "taxAmount": "Jumlah Pajak",
+      "effectiveRate": "Tarif Efektif",
+      "takeHomeAmount": "Pendapatan Bersih"
+    },
+    "upgradePage": {
+      "back": "Kembali",
+      "upgradePlan": "Tingkatkan Paket",
+      "upgradePlanDesc": "Pilih paket imigrasi yang tepat untuk mengakses alat",
+      "currentPlan": "Paket Saat Ini",
+      "getStarted": "Mulai",
+      "free": "Gratis",
+      "basic": "Dasar",
+      "premium": "Premium",
+      "perMonth": "per bulan",
+      "forEveryone": "Untuk semua orang",
+      "freePlan": {
+        "item1": "Uji coba gratis 3 hari",
+        "item2": "Informasi negara dasar",
+        "item3": "Akses baca saja ke forum",
+        "item4": "Kalkulator pajak terbatas",
+        "item5": "Alat perbandingan dasar"
+      },
+      "basicPlan": {
+        "item1": "Informasi negara diperluas",
+        "item2": "Komentar dan posting di forum",
+        "item3": "Kalkulator pajak lengkap",
+        "item4": "Alat perbandingan biaya",
+        "item5": "Bantuan imigrasi dasar",
+        "item6": "Dukungan email"
+      },
+      "premiumPlan": {
+        "item1": "Semua fitur dari paket dasar",
+        "item2": "Akses penuh ke informasi negara",
+        "item3": "Akses penuh komunitas",
+        "item4": "Alat pajak tingkat lanjut",
+        "item5": "Konsultan imigrasi pintar",
+        "item6": "Informasi biaya hidup",
+        "item7": "Dukungan aplikasi visa",
+        "item8": "Peringatan dini",
+        "item9": "Paket imigrasi yang dipersonalisasi"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Konfirmasi Bahasa"
+    }
+  },
+  "footer": {
+    "terms": "Syarat & Ketentuan",
+    "privacy": "Privasi",
+    "subscribeNewsletter": "Berlangganan Buletin",
+    "subscribeNewsDesc": "Dapatkan kabar terbaru tentang imigrasi",
+    "enterEmail": "Masukkan alamat email",
+    "subscribe": "Berlangganan"
+  }
+}

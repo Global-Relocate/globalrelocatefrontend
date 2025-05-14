@@ -1,4 +1,4 @@
-import React, { useCallback, useState, forwardRef, useEffect } from "react";
+import { useCallback, useState, forwardRef, useEffect } from "react";
 
 // shadcn
 import {
@@ -60,22 +60,25 @@ const languageMap = {
 const uniqueLanguages = Object.entries(languageMap).map(([code, data]) => ({
   code,
   name: data.name,
-  country: data.country
+  country: data.country,
 }));
 
 const LanguageDropdownComponent = forwardRef(
-  ({
-    onChange,
-    value,
-    disabled = false,
-    placeholder = "Select language",
-    slim = false,
-    inline = false,
-    multiple = false,
-    className,
-    height = "h-10",
-    ...props
-  }, ref) => {
+  (
+    {
+      onChange,
+      value,
+      disabled = false,
+      placeholder = "Select language",
+      slim = false,
+      inline = false,
+      multiple = false,
+      className,
+      height = "h-10",
+      ...props
+    },
+    ref
+  ) => {
     const [open, setOpen] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
@@ -83,10 +86,10 @@ const LanguageDropdownComponent = forwardRef(
     useEffect(() => {
       if (value) {
         // First try to find by country code
-        let language = uniqueLanguages.find(lang => lang.country === value);
+        let language = uniqueLanguages.find((lang) => lang.country === value);
         // If not found, try to find by language code
         if (!language) {
-          language = uniqueLanguages.find(lang => lang.code === value);
+          language = uniqueLanguages.find((lang) => lang.code === value);
         }
         if (language) {
           setSelectedLanguage(language);
@@ -100,13 +103,17 @@ const LanguageDropdownComponent = forwardRef(
       (language) => {
         setSelectedLanguage(language);
         // Pass both the language code and the full language object
-        onChange?.({ code: language.code, name: language.name, country: language.country });
+        onChange?.({
+          code: language.code,
+          name: language.name,
+          country: language.country,
+        });
         setOpen(false);
       },
       [onChange]
     );
 
-    const filteredLanguages = uniqueLanguages.filter(language =>
+    const filteredLanguages = uniqueLanguages.filter((language) =>
       language.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
@@ -159,8 +166,8 @@ const LanguageDropdownComponent = forwardRef(
           <Command className="w-full max-h-[200px] sm:max-h-[270px] overflow-y-auto">
             <CommandList>
               <div className="sticky top-0 z-10 bg-popover">
-                <CommandInput 
-                  placeholder="Search language..." 
+                <CommandInput
+                  placeholder="Search language..."
                   onValueChange={setSearchQuery}
                   value={searchQuery}
                   className="h-10 text-base placeholder:text-gray-400 focus:placeholder:text-gray-400"
@@ -206,4 +213,4 @@ const LanguageDropdownComponent = forwardRef(
 
 LanguageDropdownComponent.displayName = "LanguageDropdownComponent";
 
-export const LanguageDropdown = LanguageDropdownComponent; 
+export const LanguageDropdown = LanguageDropdownComponent;

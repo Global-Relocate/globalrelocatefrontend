@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Koti",
+      "countriesData": "Maat & Tiedot",
+      "community": "Yhteisö",
+      "tools": "Työkalut",
+      "pricing": "Hinnat",
+      "viewProfile": "Näytä profiili",
+      "helpCenter": "Apukeskus",
+      "giveFeedback": "Anna palautetta",
+      "privacyPolicy": "Tietosuojakäytäntö",
+      "upgradePlan": "Päivitä suunnitelma"
+    },
+    "showcase": {
+      "title": "Parempi elämä älykkään maahanmuuton avulla",
+      "para": "Alusta globaalille maahanmuutolle, oikeusapulle ja elämäntavalle, jossa on tekoäly",
+      "buttonText": "Aloita nyt"
+    },
+    "features": {
+      "title": "Ominaisuudet",
+      "cards": {
+        "card1": {
+          "title": "Vertaile maita",
+          "para": "Vertaile elinkustannuksia, veroja ja elämänlaatua parempien päätösten tekemiseksi"
+        },
+        "card2": {
+          "title": "Älykäs analyysi",
+          "para": "Yhdistä digitaaliset kumppanit maahanmuuttofoorumeilla ja ryhmissä"
+        },
+        "card3": {
+          "title": "Maatiedot",
+          "para": "Hanki ajantasaisia tietoja maista paremman suunnittelun tueksi"
+        }
+      }
+    },
+    "countries": {
+      "title": "Suositut maat",
+      "para": "Tutustu maihin, joissa on eniten maahanmuuttajia ja aloita matkasi"
+    },
+    "whyChooseUs": {
+      "title": "Miksi valita meidät",
+      "card1": {
+        "title": "Tekoäly säästää aikaa",
+        "para": "Aina ajantasaiset ja luotettavat tiedot"
+      },
+      "card2": {
+        "title": "Luotettava yhteisö",
+        "para": "Alusta, joka on rakennettu luottamukselle"
+      },
+      "card3": {
+        "title": "Kaikki yhdessä ratkaisussa",
+        "para": "Viisumihakemuksista elinkustannuksiin – kaikki yhdessä paikassa"
+      },
+      "card4": {
+        "title": "Henkilökohtaiset ilmoitukset",
+        "para": "Saat päivityksiä, jotka sopivat kiinnostuksen kohteisiisi"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Maat",
+      "aiAssistant": "Tekoälyavustaja",
+      "compareCountries": "Vertaile maita",
+      "taxCalculator": "Verolaskuri",
+      "notifications": "Ilmoitukset",
+      "favourites": "Suosikit",
+      "community": "Yhteisö",
+      "cta": {
+        "title": "Kokeile Pro-suunnitelmaa",
+        "para": "Olet tällä hetkellä ilmaisella 3 päivän kokeilujaksolla. Päivitä jatkaaksesi.",
+        "buttonText": "Lue lisää"
+      }
+    },
+    "countries": {
+      "title": "Maat",
+      "noDataText": "Ei tietoja!",
+      "searchText": "Hae maa"
+    },
+    "country": {
+      "countryIn": "Maa:",
+      "addFavorite": "Lisää suosikiksi",
+      "share": "Jaa",
+      "overview": "Yleiskatsaus",
+      "map": "Kartta",
+      "keyFacts": "Avainfaktat",
+      "visaMigration": "Viisumit & Maahanmuutto",
+      "taxes": "Verot",
+      "flag": "Lippu",
+      "capital": "Pääkaupunki",
+      "languages": "Kielet",
+      "currency": "Valuutta",
+      "population": "Väestö",
+      "dialingCode": "Puhelukoodi",
+      "back": "Takaisin",
+      "noOverview": "Ei yleiskatsausta saatavilla tälle maalle",
+      "noVisaInfo": "Ei viisumi- ja maahanmuutto-tietoja saatavilla tälle maalle"
+    },
+    "ai": {
+      "rename": "Nimeä uudelleen",
+      "deleteConversation": "Poista keskustelu",
+      "share": "Jaa",
+      "hello": "Hei",
+      "newChat": "Uusi keskustelu",
+      "askAI": "Kysy tekoälyltä...",
+      "uploadDocument": "Lataa asiakirja",
+      "uploadDocumentDesc": "Lataa asiakirja analysoitavaksi tekoälyavustajan kanssa",
+      "cancel": "Peruuta",
+      "upload": "Lataa"
+    },
+    "settings": {
+      "accountSettings": "Tiliasetukset",
+      "editProfile": "Muokkaa profiilia",
+      "profile": "Profiili",
+      "account": "Tili",
+      "preferences": "Asetukset",
+      "avatar": "Avatar",
+      "fullName": "Koko nimi",
+      "username": "Käyttäjätunnus",
+      "bio": "Bio",
+      "country": "Maa",
+      "emailAddress": "Sähköpostiosoite",
+      "verified": "Vahvistettu",
+      "subscription": "Tilaus",
+      "subscriptionDesc": "Olet tällä hetkellä ilmaisella 3 päivän kokeilujaksolla. Päivitä jatkaaksesi.",
+      "deleteAccount": "Poista tili",
+      "deleteDesc": "Poista tili ja tiedot väliaikaisesti",
+      "language": "Kieli",
+      "chooseLanguage": "Valitse kieli",
+      "selectLanguage": "Valitse kieli",
+      "learnMore": "Lue lisää",
+      "saveChanges": "Tallenna muutokset",
+      "cancel": "Peruuta",
+      "saving": "Tallennetaan...",
+      "unsavedChanges": "Ei tallennettuja muutoksia",
+      "addName": "Lisää nimesi",
+      "addBio": "Lisää bio",
+      "addUsername": "Lisää käyttäjätunnus",
+      "addLocation": "Lisää sijainti",
+      "confirmAccountDelete": "Vahvista tilin poistaminen",
+      "confirmAccountDeleteDesc": "Vahvista, että haluat poistaa tilisi:",
+      "confirm": "Vahvista",
+      "neverMind": "Ei se mitään",
+      "confirmDeleteWarning": "Varoitus: Tiliäsi ei voi palauttaa poistamisen jälkeen",
+      "confirmDeleteList1": "Profiilitiedot, asetukset ja mieltymykset poistetaan",
+      "confirmDeleteList2": "Tietosi poistetaan 30 päivän sisällä",
+      "deleting": "Poistetaan...",
+      "youHave": "Sinulla on tällä hetkellä rooli:",
+      "administrator": "Ylläpitäjä"
+    },
+    "continents": {
+      "all": "Kaikki",
+      "europe": "Eurooppa",
+      "asia": "Aasia",
+      "africa": "Afrikka",
+      "south america": "Etelä-Amerikka",
+      "north america": "Pohjois-Amerikka",
+      "antarctica": "Antarktis",
+      "oceania": "Oseania"
+    },
+    "tax": {
+      "taxCalculator": "Verolaskuri",
+      "taxCacluatorDesc": "Laske verot eri maissa",
+      "country": "Maa",
+      "annualIncome": "Vuositulot",
+      "userAccount": "Tili tyyppi",
+      "totalDeductions": "Kokonaisvähennykset",
+      "selectCountry": "Valitse maa",
+      "selectAccount": "Valitse tili tyyppi",
+      "enterIncome": "Syötä vuositulo",
+      "enterDeductions": "Syötä vähennykset",
+      "calculateTax": "Laske vero",
+      "individual": "Yksilö",
+      "corporate": "Yritys",
+      "taxSummary": "Veroyhteenveto",
+      "taxAmount": "Vero määrä",
+      "effectiveRate": "Tehokas veroprosentti",
+      "takeHomeAmount": "Nettomäärä"
+    },
+    "upgradePage": {
+      "back": "Takaisin",
+      "upgradePlan": "Päivitä suunnitelma",
+      "upgradePlanDesc": "Valitse maahanmuuttopaketti, joka sopii sinulle parhaiten saadaksesi pääsyn työkaluihin",
+      "currentPlan": "Nykyinen suunnitelma",
+      "getStarted": "Aloita",
+      "free": "Ilmainen",
+      "basic": "Perus",
+      "premium": "Premium",
+      "perMonth": "Kuukausittain",
+      "forEveryone": "Kaikille",
+      "freePlan": {
+        "item1": "3 päivän ilmainen kokeilujakso",
+        "item2": "Perustiedot maista",
+        "item3": "Vain lukufoorumi",
+        "item4": "Rajoitettu verolaskuri",
+        "item5": "Perus vertailutyökalut"
+      },
+      "basicPlan": {
+        "item1": "Laajennetut maatiedot",
+        "item2": "Luo viestejä ja kommentoi foorumilla",
+        "item3": "Täydellinen verolaskuri",
+        "item4": "Kustannusvertailutyökalut",
+        "item5": "Perus maahanmuuttopalvelut",
+        "item6": "Sähköpostituki"
+      },
+      "premiumPlan": {
+        "item1": "Kaikki perussuunnitelman ominaisuudet",
+        "item2": "Pääsy rajoittamattomiin maatietoihin",
+        "item3": "Täysi pääsy yhteisöön",
+        "item4": "Laajennetut verotyökalut",
+        "item5": "Älykäs maahanmuuttoneuvoja",
+        "item6": "Kustannustiedot",
+        "item7": "Viisumihakemustuki",
+        "item8": "Ennakoitu tuki",
+        "item9": "Henkilökohtaiset maahanmuuttopaketit"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Vahvista kielenvaihto"
+    }
+  },
+  "footer": {
+    "terms": "Käyttöehdot",
+    "privacy": "Tietosuojakäytäntö",
+    "subscribeNewsletter": "Tilaa uutiskirje",
+    "subscribeNewsDesc": "Saat viimeisimmät päivitykset maahanmuutosta",
+    "enterEmail": "Syötä sähköpostiosoitteesi",
+    "subscribe": "Tilaa"
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Acasă",
+      "countriesData": "Țări și date",
+      "community": "Comunitate",
+      "tools": "Unelte",
+      "pricing": "Prețuri",
+      "viewProfile": "Vezi profilul",
+      "helpCenter": "Centru de ajutor",
+      "giveFeedback": "Trimite feedback",
+      "privacyPolicy": "Politica de confidențialitate",
+      "upgradePlan": "Actualizează planul"
+    },
+    "showcase": {
+      "title": "O viață mai bună prin imigrație inteligentă",
+      "para": "Platformă AI pentru imigrație globală, asistență legală și stil de viață",
+      "buttonText": "Începe acum"
+    },
+    "features": {
+      "title": "Caracteristici",
+      "cards": {
+        "card1": {
+          "title": "Compară țări",
+          "para": "Compară costurile de trai, taxele și calitatea vieții pentru o alegere mai bună"
+        },
+        "card2": {
+          "title": "Analiză inteligentă",
+          "para": "Conectează-te cu parteneri digitali pe forumuri și grupuri de imigrare"
+        },
+        "card3": {
+          "title": "Informații despre țări",
+          "para": "Obține date actualizate despre țări pentru planificare mai bună"
+        }
+      }
+    },
+    "countries": {
+      "title": "Țări populare",
+      "para": "Explorează cele mai căutate țări pentru imigrare"
+    },
+    "whyChooseUs": {
+      "title": "De ce să ne alegi pe noi",
+      "card1": {
+        "title": "AI economisește timp",
+        "para": "Informații mereu actualizate și de încredere"
+      },
+      "card2": {
+        "title": "Comunități de încredere",
+        "para": "Platformă construită pe încredere"
+      },
+      "card3": {
+        "title": "Soluție completă",
+        "para": "De la vize la costul vieții – totul într-un singur loc"
+      },
+      "card4": {
+        "title": "Alerte personalizate",
+        "para": "Primește notificări relevante pentru tine"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Țări",
+      "aiAssistant": "Asistent AI",
+      "compareCountries": "Compară țări",
+      "taxCalculator": "Calculator taxe",
+      "notifications": "Notificări",
+      "favourites": "Favorite",
+      "community": "Comunitate",
+      "cta": {
+        "title": "Încearcă planul Pro",
+        "para": "În prezent folosești o perioadă de probă gratuită de 3 zile. Treci la Pro pentru a continua.",
+        "buttonText": "Află mai multe"
+      }
+    },
+    "countries": {
+      "title": "Țări",
+      "noDataText": "Fără date!",
+      "searchText": "Caută o țară"
+    },
+    "country": {
+      "countryIn": "Țară:",
+      "addFavorite": "Adaugă la favorite",
+      "share": "Distribuie",
+      "overview": "Prezentare generală",
+      "map": "Hartă",
+      "keyFacts": "Informații cheie",
+      "visaMigration": "Viză și imigrație",
+      "taxes": "Taxe",
+      "flag": "Steag",
+      "capital": "Capitală",
+      "languages": "Limbi",
+      "currency": "Monedă",
+      "population": "Populație",
+      "dialingCode": "Prefix telefonic",
+      "back": "Înapoi",
+      "noOverview": "Nu există prezentare generală disponibilă pentru această țară",
+      "noVisaInfo": "Nu există informații despre viză și imigrație pentru această țară"
+    },
+    "ai": {
+      "rename": "Redenumește",
+      "deleteConversation": "Șterge conversația",
+      "share": "Distribuie",
+      "hello": "Salut",
+      "newChat": "Chat nou",
+      "askAI": "Întreabă AI...",
+      "uploadDocument": "Încarcă document",
+      "uploadDocumentDesc": "Încarcă un document pentru analiză de către asistentul AI",
+      "cancel": "Anulează",
+      "upload": "Încarcă"
+    },
+    "settings": {
+      "accountSettings": "Setări cont",
+      "editProfile": "Editează profilul",
+      "profile": "Profil",
+      "account": "Cont",
+      "preferences": "Preferințe",
+      "avatar": "Avatar",
+      "fullName": "Nume complet",
+      "username": "Nume utilizator",
+      "bio": "Bio",
+      "country": "Țară",
+      "emailAddress": "Adresă de e-mail",
+      "verified": "Verificat",
+      "subscription": "Abonament",
+      "subscriptionDesc": "Folosești în prezent o perioadă de probă gratuită de 3 zile. Treci la Pro pentru a continua.",
+      "deleteAccount": "Șterge contul",
+      "deleteDesc": "Șterge temporar contul și datele",
+      "language": "Limbă",
+      "chooseLanguage": "Alege limba",
+      "selectLanguage": "Selectează limba",
+      "learnMore": "Află mai multe",
+      "saveChanges": "Salvează modificările",
+      "cancel": "Anulează",
+      "saving": "Se salvează...",
+      "unsavedChanges": "Nicio modificare nesalvată",
+      "addName": "Adaugă un nume",
+      "addBio": "Adaugă o descriere",
+      "addUsername": "Adaugă nume utilizator",
+      "addLocation": "Adaugă locație",
+      "confirmAccountDelete": "Confirmă ștergerea contului",
+      "confirmAccountDeleteDesc": "Confirmă că dorești să-ți ștergi contul:",
+      "confirm": "Confirmă",
+      "neverMind": "Renunță",
+      "confirmDeleteWarning": "Avertisment: contul nu poate fi recuperat după ștergere",
+      "confirmDeleteList1": "Informațiile de profil, setările și preferințele vor fi șterse",
+      "confirmDeleteList2": "Datele tale vor fi șterse în termen de 30 de zile",
+      "deleting": "Se șterge...",
+      "youHave": "Ai în prezent rolul:",
+      "administrator": "Administrator"
+    },
+    "continents": {
+      "all": "Toate",
+      "europe": "Europa",
+      "asia": "Asia",
+      "africa": "Africa",
+      "south america": "America de Sud",
+      "north america": "America de Nord",
+      "antarctica": "Antarctica",
+      "oceania": "Oceania"
+    },
+    "tax": {
+      "taxCalculator": "Calculator taxe",
+      "taxCacluatorDesc": "Calculează taxele pentru diverse țări",
+      "country": "Țară",
+      "annualIncome": "Venit anual",
+      "userAccount": "Tip cont",
+      "totalDeductions": "Deduceri totale",
+      "selectCountry": "Selectează țara",
+      "selectAccount": "Selectează tipul contului",
+      "enterIncome": "Introdu venit anual",
+      "enterDeductions": "Introdu deducerile",
+      "calculateTax": "Calculează taxa",
+      "individual": "Individual",
+      "corporate": "Corporate",
+      "taxSummary": "Sumar taxe",
+      "taxAmount": "Suma taxei",
+      "effectiveRate": "Rată efectivă",
+      "takeHomeAmount": "Venit net"
+    },
+    "upgradePage": {
+      "back": "Înapoi",
+      "upgradePlan": "Actualizează planul",
+      "upgradePlanDesc": "Alege planul de imigrare potrivit pentru a accesa uneltele",
+      "currentPlan": "Planul actual",
+      "getStarted": "Începe",
+      "free": "Gratuit",
+      "basic": "De bază",
+      "premium": "Premium",
+      "perMonth": "Pe lună",
+      "forEveryone": "Pentru toată lumea",
+      "freePlan": {
+        "item1": "Perioadă de probă gratuită de 3 zile",
+        "item2": "Informații de bază despre țări",
+        "item3": "Acces doar pentru citire pe forum",
+        "item4": "Calculator taxe limitat",
+        "item5": "Unelte de bază pentru comparații"
+      },
+      "basicPlan": {
+        "item1": "Informații extinse despre țări",
+        "item2": "Postează și comentează pe forum",
+        "item3": "Calculator taxe complet",
+        "item4": "Unelte pentru compararea costurilor",
+        "item5": "Asistență imigrări de bază",
+        "item6": "Suport prin e-mail"
+      },
+      "premiumPlan": {
+        "item1": "Toate funcțiile planului de bază",
+        "item2": "Acces complet la informații despre țări",
+        "item3": "Acces complet la comunitate",
+        "item4": "Unelte fiscale avansate",
+        "item5": "Consultant imigrări inteligent",
+        "item6": "Informații despre costuri",
+        "item7": "Asistență pentru aplicații de viză",
+        "item8": "Alerte în avans",
+        "item9": "Pachete personalizate de imigrare"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Confirmă limba selectată"
+    }
+  },
+  "footer": {
+    "terms": "Termeni de utilizare",
+    "privacy": "Confidențialitate",
+    "subscribeNewsletter": "Abonează-te la newsletter",
+    "subscribeNewsDesc": "Primește cele mai noi actualizări despre imigrare",
+    "enterEmail": "Introdu adresa de e-mail",
+    "subscribe": "Abonează-te"
+  }
+}

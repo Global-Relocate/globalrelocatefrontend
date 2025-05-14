@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Hjem",
+      "countriesData": "Land & Data",
+      "community": "Fellesskap",
+      "tools": "Verktøy",
+      "pricing": "Priser",
+      "viewProfile": "Se profil",
+      "helpCenter": "Hjelpesenter",
+      "giveFeedback": "Gi tilbakemelding",
+      "privacyPolicy": "Personvernpolicy",
+      "upgradePlan": "Oppgrader plan"
+    },
+    "showcase": {
+      "title": "Bedre liv med smart innvandring",
+      "para": "Plattform for global innvandring, rettshjelp og livsstil med kunstig intelligens",
+      "buttonText": "Kom i gang nå"
+    },
+    "features": {
+      "title": "Funksjoner",
+      "cards": {
+        "card1": {
+          "title": "Sammenlign land",
+          "para": "Sammenlign levekostnader, skatter og livskvalitet for bedre beslutninger"
+        },
+        "card2": {
+          "title": "Smart analyse",
+          "para": "Koble digitale partnere i innvandringsfora og grupper"
+        },
+        "card3": {
+          "title": "Landinformasjon",
+          "para": "Få oppdatert informasjon om land for bedre planlegging"
+        }
+      }
+    },
+    "countries": {
+      "title": "Populære land",
+      "para": "Utforsk landene med flest innvandrere og start reisen din"
+    },
+    "whyChooseUs": {
+      "title": "Hvorfor velge oss",
+      "card1": {
+        "title": "AI sparer tid",
+        "para": "Alltid oppdatert og pålitelig informasjon"
+      },
+      "card2": {
+        "title": "Pålitelige fellesskap",
+        "para": "En plattform bygget på tillit"
+      },
+      "card3": {
+        "title": "Alt i ett løsning",
+        "para": "Fra visumsøknader til levekostnader – alt på ett sted"
+      },
+      "card4": {
+        "title": "Personlige varsler",
+        "para": "Få oppdateringer som passer din interesse"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Land",
+      "aiAssistant": "AI-assistent",
+      "compareCountries": "Sammenlign land",
+      "taxCalculator": "Skatteberegner",
+      "notifications": "Varsler",
+      "favourites": "Favoritter",
+      "community": "Fellesskap",
+      "cta": {
+        "title": "Prøv Pro-planen",
+        "para": "Du er for øyeblikket på en gratis 3-dagers prøveperiode. Oppgrader for å fortsette.",
+        "buttonText": "Les mer"
+      }
+    },
+    "countries": {
+      "title": "Land",
+      "noDataText": "Ingen data!",
+      "searchText": "Søk etter land"
+    },
+    "country": {
+      "countryIn": "Land:",
+      "addFavorite": "Legg til som favoritt",
+      "share": "Del",
+      "overview": "Oversikt",
+      "map": "Kart",
+      "keyFacts": "Nøkkelfakta",
+      "visaMigration": "Visum & Innvandring",
+      "taxes": "Skatter",
+      "flag": "Flagg",
+      "capital": "Hovedstad",
+      "languages": "Språk",
+      "currency": "Valuta",
+      "population": "Befolkning",
+      "dialingCode": "Ringekode",
+      "back": "Tilbake",
+      "noOverview": "Ingen oversikt tilgjengelig for dette landet",
+      "noVisaInfo": "Ingen visum- og innvandringsinformasjon tilgjengelig for dette landet"
+    },
+    "ai": {
+      "rename": "Gi nytt navn",
+      "deleteConversation": "Slett samtale",
+      "share": "Del",
+      "hello": "Hei",
+      "newChat": "Ny samtale",
+      "askAI": "Spør AI...",
+      "uploadDocument": "Last opp dokument",
+      "uploadDocumentDesc": "Last opp dokument for analyse med AI-assistenten",
+      "cancel": "Avbryt",
+      "upload": "Last opp"
+    },
+    "settings": {
+      "accountSettings": "Kontoinnstillinger",
+      "editProfile": "Rediger profil",
+      "profile": "Profil",
+      "account": "Konto",
+      "preferences": "Innstillinger",
+      "avatar": "Avatar",
+      "fullName": "Fullt navn",
+      "username": "Brukernavn",
+      "bio": "Bio",
+      "country": "Land",
+      "emailAddress": "E-postadresse",
+      "verified": "Verifisert",
+      "subscription": "Abonnement",
+      "subscriptionDesc": "Du er for øyeblikket på en gratis 3-dagers prøveperiode. Oppgrader for å fortsette.",
+      "deleteAccount": "Slett konto",
+      "deleteDesc": "Slett konto og data midlertidig",
+      "language": "Språk",
+      "chooseLanguage": "Velg språk",
+      "selectLanguage": "Velg språk",
+      "learnMore": "Les mer",
+      "saveChanges": "Lagre endringer",
+      "cancel": "Avbryt",
+      "saving": "Lagrer...",
+      "unsavedChanges": "Ingen lagrede endringer",
+      "addName": "Legg til navn",
+      "addBio": "Legg til bio",
+      "addUsername": "Legg til brukernavn",
+      "addLocation": "Legg til plassering",
+      "confirmAccountDelete": "Bekreft kontosletting",
+      "confirmAccountDeleteDesc": "Bekreft at du vil slette kontoen din:",
+      "confirm": "Bekreft",
+      "neverMind": "Ingen ting",
+      "confirmDeleteWarning": "Advarsel: Kontoen kan ikke gjenopprettes etter sletting",
+      "confirmDeleteList1": "Profilinformasjon, innstillinger og preferanser vil bli slettet",
+      "confirmDeleteList2": "Dataene dine vil bli slettet innen 30 dager",
+      "deleting": "Sletter...",
+      "youHave": "Du har for øyeblikket rollen:",
+      "administrator": "Administrator"
+    },
+    "continents": {
+      "all": "Alle",
+      "europe": "Europa",
+      "asia": "Asia",
+      "africa": "Afrika",
+      "south america": "Sør-Amerika",
+      "north america": "Nord-Amerika",
+      "antarctica": "Antarktis",
+      "oceania": "Oseania"
+    },
+    "tax": {
+      "taxCalculator": "Skatteberegner",
+      "taxCacluatorDesc": "Beregn skatter for forskjellige land",
+      "country": "Land",
+      "annualIncome": "Årsinntekt",
+      "userAccount": "Kontotype",
+      "totalDeductions": "Totale fradrag",
+      "selectCountry": "Velg land",
+      "selectAccount": "Velg kontotype",
+      "enterIncome": "Skriv inn årsinntekt",
+      "enterDeductions": "Skriv inn fradrag",
+      "calculateTax": "Beregn skatt",
+      "individual": "Individuell",
+      "corporate": "Bedrift",
+      "taxSummary": "Skatteoversikt",
+      "taxAmount": "Skattebeløp",
+      "effectiveRate": "Effektiv skattesats",
+      "takeHomeAmount": "Nettoinntekt"
+    },
+    "upgradePage": {
+      "back": "Tilbake",
+      "upgradePlan": "Oppgrader plan",
+      "upgradePlanDesc": "Velg innvandringsplanen som passer best for deg for å få tilgang til verktøyene",
+      "currentPlan": "Nåværende plan",
+      "getStarted": "Kom i gang",
+      "free": "Gratis",
+      "basic": "Grunnleggende",
+      "premium": "Premium",
+      "perMonth": "Per måned",
+      "forEveryone": "For alle",
+      "freePlan": {
+        "item1": "3-dagers gratis prøveperiode",
+        "item2": "Grunnleggende landinformasjon",
+        "item3": "Kun lese-tilgang til forum",
+        "item4": "Begrenset skatteberegner",
+        "item5": "Grunnleggende sammenligningsverktøy"
+      },
+      "basicPlan": {
+        "item1": "Utvidet landinformasjon",
+        "item2": "Lag innlegg og kommenter på forum",
+        "item3": "Full skatteberegner",
+        "item4": "Kostnadssammenligningsverktøy",
+        "item5": "Grunnleggende innvandringsstøtte",
+        "item6": "E-poststøtte"
+      },
+      "premiumPlan": {
+        "item1": "Alle funksjonene fra Grunnleggende plan",
+        "item2": "Full tilgang til landinformasjon",
+        "item3": "Full tilgang til fellesskap",
+        "item4": "Utvidede skatteverktøy",
+        "item5": "Smart innvandringsrådgiver",
+        "item6": "Kostnadsinformasjon",
+        "item7": "Visumsøknadsstøtte",
+        "item8": "Forhåndsvarsler",
+        "item9": "Personlige innvandringspakker"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Bekreft språkvalg"
+    }
+  },
+  "footer": {
+    "terms": "Vilkår for bruk",
+    "privacy": "Personvern",
+    "subscribeNewsletter": "Abonner på nyhetsbrev",
+    "subscribeNewsDesc": "Få de nyeste oppdateringene om innvandring",
+    "enterEmail": "Skriv inn e-postadressen din",
+    "subscribe": "Abonner"
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Hem",
+      "countriesData": "Länder & Data",
+      "community": "Gemenskap",
+      "tools": "Verktyg",
+      "pricing": "Prissättning",
+      "viewProfile": "Visa profil",
+      "helpCenter": "Hjälpcenter",
+      "giveFeedback": "Ge feedback",
+      "privacyPolicy": "Integritetspolicy",
+      "upgradePlan": "Uppgradera plan"
+    },
+    "showcase": {
+      "title": "Bättre liv för smart immigration",
+      "para": "En plattform för global immigration, rättsstöd och livsstil med hjälp av AI",
+      "buttonText": "Kom igång nu"
+    },
+    "features": {
+      "title": "Funktioner",
+      "cards": {
+        "card1": {
+          "title": "Jämför länder",
+          "para": "Jämför levnadskostnader, skatter och livskvalitet för bättre beslut"
+        },
+        "card2": {
+          "title": "Intelligent analys",
+          "para": "Anslut med digitala partners för immigration i forum och grupper"
+        },
+        "card3": {
+          "title": "Landdata",
+          "para": "Få uppdaterad information om länder för bättre planering"
+        }
+      }
+    },
+    "countries": {
+      "title": "Populära länder",
+      "para": "Lär dig om de länder med flest immigranter och starta din resa"
+    },
+    "whyChooseUs": {
+      "title": "Varför välja oss",
+      "card1": {
+        "title": "AI sparar tid",
+        "para": "Alltid aktuell och pålitlig data"
+      },
+      "card2": {
+        "title": "Betrodd gemenskap",
+        "para": "En plattform baserad på förtroende"
+      },
+      "card3": {
+        "title": "Allt i ett",
+        "para": "Från visumansökningar till levnadskostnader – allt på en plattform"
+      },
+      "card4": {
+        "title": "Personliga notiser",
+        "para": "Få uppdateringar som matchar dina intressen"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Länder",
+      "aiAssistant": "AI-assistent",
+      "compareCountries": "Jämför länder",
+      "taxCalculator": "Skatteberäknare",
+      "notifications": "Notifikationer",
+      "favourites": "Favoriter",
+      "community": "Gemenskap",
+      "cta": {
+        "title": "Prova Pro-planen",
+        "para": "Du är nu på en gratis 3-dagars provperiod. Uppgradera för att fortsätta.",
+        "buttonText": "Läs mer"
+      }
+    },
+    "countries": {
+      "title": "Länder",
+      "noDataText": "Inga data!",
+      "searchText": "Sök land"
+    },
+    "country": {
+      "countryIn": "Land:",
+      "addFavorite": "Lägg till favorit",
+      "share": "Dela",
+      "overview": "Översikt",
+      "map": "Karta",
+      "keyFacts": "Nyckelfakta",
+      "visaMigration": "Visum & Migration",
+      "taxes": "Skatter",
+      "flag": "Flagga",
+      "capital": "Huvudstad",
+      "languages": "Språk",
+      "currency": "Valuta",
+      "population": "Befolkning",
+      "dialingCode": "Dialkod",
+      "back": "Tillbaka",
+      "noOverview": "Ingen översikt tillgänglig för detta land",
+      "noVisaInfo": "Ingen information om visum och migration tillgänglig för detta land"
+    },
+    "ai": {
+      "rename": "Byt namn",
+      "deleteConversation": "Radera konversation",
+      "share": "Dela",
+      "hello": "Hej",
+      "newChat": "Ny chatt",
+      "askAI": "Fråga AI...",
+      "uploadDocument": "Ladda upp dokument",
+      "uploadDocumentDesc": "Ladda upp ett dokument för att analysera med AI-assistenten",
+      "cancel": "Avbryt",
+      "upload": "Ladda upp"
+    },
+    "settings": {
+      "accountSettings": "Kontoinställningar",
+      "editProfile": "Redigera profil",
+      "profile": "Profil",
+      "account": "Konto",
+      "preferences": "Inställningar",
+      "avatar": "Avatar",
+      "fullName": "Fullständigt namn",
+      "username": "Användarnamn",
+      "bio": "Biografi",
+      "country": "Land",
+      "emailAddress": "E-postadress",
+      "verified": "Verifierad",
+      "subscription": "Prenumeration",
+      "subscriptionDesc": "Du är för närvarande på en gratis 3-dagars provperiod. Uppgradera för att fortsätta.",
+      "deleteAccount": "Radera konto",
+      "deleteDesc": "Tillfälligt radera ditt konto och data",
+      "language": "Språk",
+      "chooseLanguage": "Välj språk",
+      "selectLanguage": "Välj språk",
+      "learnMore": "Läs mer",
+      "saveChanges": "Spara ändringar",
+      "cancel": "Avbryt",
+      "saving": "Sparar...",
+      "unsavedChanges": "Det finns osparade ändringar",
+      "addName": "Lägg till ditt namn",
+      "addBio": "Lägg till din biografi",
+      "addUsername": "Lägg till användarnamn",
+      "addLocation": "Lägg till plats",
+      "confirmAccountDelete": "Bekräfta radering av konto",
+      "confirmAccountDeleteDesc": "Bekräfta att du vill radera ditt konto:",
+      "confirm": "Bekräfta",
+      "neverMind": "Aldrig sin",
+      "confirmDeleteWarning": "Varning: Ditt konto kan inte återställas efter radering",
+      "confirmDeleteList1": "Dina profiluppgifter, inställningar och preferenser kommer att raderas",
+      "confirmDeleteList2": "Din data kommer att raderas inom 30 dagar",
+      "deleting": "Raderar...",
+      "youHave": "Du har för närvarande rollen:",
+      "administrator": "Administratör"
+    },
+    "continents": {
+      "all": "Alla",
+      "europe": "Europa",
+      "asia": "Asien",
+      "africa": "Afrika",
+      "south america": "Sydamerika",
+      "north america": "Nordamerika",
+      "antarctica": "Antarktis",
+      "oceania": "Oceanien"
+    },
+    "tax": {
+      "taxCalculator": "Skatteberäknare",
+      "taxCacluatorDesc": "Beräkna skatter i olika länder",
+      "country": "Land",
+      "annualIncome": "Årlig inkomst",
+      "userAccount": "Kontotyp",
+      "totalDeductions": "Totala avdrag",
+      "selectCountry": "Välj land",
+      "selectAccount": "Välj kontotyp",
+      "enterIncome": "Ange årlig inkomst",
+      "enterDeductions": "Ange avdrag",
+      "calculateTax": "Beräkna skatt",
+      "individual": "Individuell",
+      "corporate": "Företag",
+      "taxSummary": "Skatteöversikt",
+      "taxAmount": "Skattebelopp",
+      "effectiveRate": "Effektiv skattesats",
+      "takeHomeAmount": "Netto belopp"
+    },
+    "upgradePage": {
+      "back": "Tillbaka",
+      "upgradePlan": "Uppgradera plan",
+      "upgradePlanDesc": "Välj den immigrationsplan som passar dig bäst för att få tillgång till verktyg",
+      "currentPlan": "Aktuell plan",
+      "getStarted": "Kom igång",
+      "free": "Gratis",
+      "basic": "Bas",
+      "premium": "Premium",
+      "perMonth": "Per månad",
+      "forEveryone": "För alla",
+      "freePlan": {
+        "item1": "3 dagars gratis provperiod",
+        "item2": "Grundläggande landinformation",
+        "item3": "Endast läsning på forumet",
+        "item4": "Begränsad skatteberäknare",
+        "item5": "Grundläggande jämförelseverktyg"
+      },
+      "basicPlan": {
+        "item1": "Utökad landinformation",
+        "item2": "Skapa inlägg och kommentera på forum",
+        "item3": "Full skatteberäknare",
+        "item4": "Kostnadsjämförelseverktyg",
+        "item5": "Grundläggande immigrationshjälp",
+        "item6": "E-postsupport"
+      },
+      "premiumPlan": {
+        "item1": "Alla funktioner från Basplan",
+        "item2": "Tillgång till obegränsad landinformation",
+        "item3": "Full tillgång till gemenskap",
+        "item4": "Utökade skattefunktioner",
+        "item5": "Intelligent immigrationsassistent",
+        "item6": "Kostnadsinformation",
+        "item7": "Visumansökningsråd",
+        "item8": "Prioriterad support",
+        "item9": "Personliga immigrationsplaner"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Bekräfta språkbyte"
+    }
+  },
+  "footer": {
+    "terms": "Användarvillkor",
+    "privacy": "Integritetspolicy",
+    "subscribeNewsletter": "Prenumerera på nyhetsbrev",
+    "subscribeNewsDesc": "Få de senaste nyheterna om immigration",
+    "enterEmail": "Ange din e-postadress",
+    "subscribe": "Prenumerera"
+  }
+}

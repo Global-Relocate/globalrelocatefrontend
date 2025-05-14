@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Home",
+      "countriesData": "Landen en Gegevens",
+      "community": "Gemeenschap",
+      "tools": "Hulpmiddelen",
+      "pricing": "Prijzen",
+      "viewProfile": "Bekijk Profiel",
+      "helpCenter": "Helpcentrum",
+      "giveFeedback": "Geef Feedback",
+      "privacyPolicy": "Privacybeleid",
+      "upgradePlan": "Upgrade Plan"
+    },
+    "showcase": {
+      "title": "Beter Leven voor Slimme Immigratie",
+      "para": "Een enkel platform voor wereldwijde immigratie, juridische ondersteuning en levensstijl met kunstmatige intelligentie",
+      "buttonText": "Begin Nu"
+    },
+    "features": {
+      "title": "Kenmerken",
+      "cards": {
+        "card1": {
+          "title": "Vergelijk Landen",
+          "para": "Vergelijk de kosten van levensonderhoud, belastingen en levenskwaliteit voor betere beslissingen"
+        },
+        "card2": {
+          "title": "Slimme Analyse",
+          "para": "Verbind met digitale immigrantenpartners in forums en groepen"
+        },
+        "card3": {
+          "title": "Landgegevens",
+          "para": "Verbind met digitale immigrantenpartners in forums en groepen"
+        }
+      }
+    },
+    "countries": {
+      "title": "Populaire Landen",
+      "para": "Verken de landen met de meeste immigranten en begin je reis"
+    },
+    "whyChooseUs": {
+      "title": "Waarom Kiezen Voor Ons",
+      "card1": {
+        "title": "AI Bespaart Tijd",
+        "para": "Altijd actuele en betrouwbare informatie"
+      },
+      "card2": {
+        "title": "Betrouwbare Gemeenschap",
+        "para": "Een platform dat is opgebouwd uit vertrouwen"
+      },
+      "card3": {
+        "title": "Alles-in-één",
+        "para": "Van visumaanvragen tot kosten van levensonderhoud, alles op één platform"
+      },
+      "card4": {
+        "title": "Persoonlijke Meldingen",
+        "para": "Ontvang updates die op jou zijn afgestemd"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Landen",
+      "aiAssistant": "AI Assistent",
+      "compareCountries": "Vergelijk Landen",
+      "taxCalculator": "Belastingcalculator",
+      "notifications": "Meldingen",
+      "favourites": "Favorieten",
+      "community": "Gemeenschap",
+      "cta": {
+        "title": "Pro Plan Proberen",
+        "para": "Je gebruikt momenteel een gratis proefversie van 3 dagen. Upgrade om door te gaan.",
+        "buttonText": "Meer Informatie"
+      }
+    },
+    "countries": {
+      "title": "Landen",
+      "noDataText": "Geen Gegevens!",
+      "searchText": "Zoek Land"
+    },
+    "country": {
+      "countryIn": "Land:",
+      "addFavorite": "Toevoegen aan Favorieten",
+      "share": "Deel",
+      "overview": "Overzicht",
+      "map": "Kaart",
+      "keyFacts": "Feiten",
+      "visaMigration": "Visum en Migratie",
+      "taxes": "Belastingen",
+      "flag": "Vlag",
+      "capital": "Hoofdstad",
+      "languages": "Talen",
+      "currency": "Valuta",
+      "population": "Bevolking",
+      "dialingCode": "Telefoonnummer",
+      "back": "Terug",
+      "noOverview": "Geen overzicht beschikbaar voor dit land",
+      "noVisaInfo": "Geen visum- of migratie-informatie beschikbaar voor dit land"
+    },
+    "ai": {
+      "rename": "Hernoemen",
+      "deleteConversation": "Verwijder Gesprek",
+      "share": "Deel",
+      "hello": "Hallo",
+      "newChat": "Nieuw Gesprek",
+      "askAI": "Vraag AI...",
+      "uploadDocument": "Upload Document",
+      "uploadDocumentDesc": "Upload een document voor AI-assistent om te analyseren",
+      "cancel": "Annuleren",
+      "upload": "Uploaden"
+    },
+    "settings": {
+      "accountSettings": "Account Instellingen",
+      "editProfile": "Bewerk Profiel",
+      "profile": "Profiel",
+      "account": "Account",
+      "preferences": "Voorkeuren",
+      "avatar": "Avatar",
+      "fullName": "Volledige Naam",
+      "username": "Gebruikersnaam",
+      "bio": "Biografie",
+      "country": "Land",
+      "emailAddress": "E-mailadres",
+      "verified": "Geverifieerd",
+      "subscription": "Abonnement",
+      "subscriptionDesc": "Je gebruikt momenteel een gratis proefversie van 3 dagen. Upgrade om door te gaan.",
+      "deleteAccount": "Verwijder Account",
+      "deleteDesc": "Verwijder je account en gegevens permanent",
+      "language": "Taal",
+      "chooseLanguage": "Kies Taal",
+      "selectLanguage": "Selecteer Taal",
+      "learnMore": "Leer Meer",
+      "saveChanges": "Wijzigingen Opslaan",
+      "cancel": "Annuleren",
+      "saving": "Bezig met opslaan...",
+      "unsavedChanges": "Er zijn niet-opgeslagen wijzigingen",
+      "addName": "Voeg je naam toe",
+      "addBio": "Voeg je biografie toe",
+      "addUsername": "Voeg een gebruikersnaam toe",
+      "addLocation": "Voeg locatie toe",
+      "confirmAccountDelete": "Bevestig accountverwijdering",
+      "confirmAccountDeleteDesc": "Bevestig dat je je account wilt verwijderen:",
+      "confirm": "Bevestigen",
+      "neverMind": "Laat maar",
+      "confirmDeleteWarning": "Waarschuwing: Je account kan niet worden hersteld na verwijdering",
+      "confirmDeleteList1": "Je profiel, instellingen en voorkeuren worden verwijderd",
+      "confirmDeleteList2": "Je gegevens worden permanent verwijderd na 30 dagen",
+      "deleting": "Bezig met verwijderen...",
+      "youHave": "Je hebt momenteel de rol van:",
+      "administrator": "Administrator"
+    },
+    "continents": {
+      "all": "Alles",
+      "europe": "Europa",
+      "asia": "Azië",
+      "africa": "Afrika",
+      "south america": "Zuid-Amerika",
+      "north america": "Noord-Amerika",
+      "antarctica": "Antarctica",
+      "oceania": "Oceanië"
+    },
+    "tax": {
+      "taxCalculator": "Belastingcalculator",
+      "taxCacluatorDesc": "Bereken belastingen in verschillende landen",
+      "country": "Land",
+      "annualIncome": "Jaarinkomen",
+      "userAccount": "Accounttype",
+      "totalDeductions": "Totale aftrekken",
+      "selectCountry": "Selecteer Land",
+      "selectAccount": "Selecteer Accounttype",
+      "enterIncome": "Voer jaarinkomen in",
+      "enterDeductions": "Voer aftrekken in",
+      "calculateTax": "Bereken Belasting",
+      "individual": "Individu",
+      "corporate": "Bedrijf",
+      "taxSummary": "Belastingoverzicht",
+      "taxAmount": "Belastingsbedrag",
+      "effectiveRate": "Effectief tarief",
+      "takeHomeAmount": "Nettoloon"
+    },
+    "upgradePage": {
+      "back": "Terug",
+      "upgradePlan": "Upgrade Plan",
+      "upgradePlanDesc": "Kies het immigratieplan dat het beste bij je past en krijg toegang tot hulpmiddelen",
+      "currentPlan": "Huidig Plan",
+      "getStarted": "Begin",
+      "free": "Gratis",
+      "basic": "Basis",
+      "premium": "Premium",
+      "perMonth": "Per Maand",
+      "forEveryone": "Geschikt voor iedereen",
+      "freePlan": {
+        "item1": "3 dagen gratis proefperiode",
+        "item2": "Basislandinformatie",
+        "item3": "Alleen lezen in forum",
+        "item4": "Beperkte belastingcalculator",
+        "item5": "Basisvergelijkingstool"
+      },
+      "basicPlan": {
+        "item1": "Uitgebreide landinformatie",
+        "item2": "Plaats berichten en reageer op forums",
+        "item3": "Volledige belastingcalculator",
+        "item4": "Kostenvergelijkingstool",
+        "item5": "Basisimmigratieadvies",
+        "item6": "E-mailondersteuning"
+      },
+      "premiumPlan": {
+        "item1": "Alle functies van het Basisplan",
+        "item2": "Toegang tot onbeperkte landinformatie",
+        "item3": "Toegang tot volledige gemeenschap",
+        "item4": "Geavanceerde belastingfuncties",
+        "item5": "Slimme immigratie-assistent",
+        "item6": "Levensonderhoudkosteninformatie",
+        "item7": "Visumaanvraagadvies",
+        "item8": "Spoedondersteuning",
+        "item9": "Op maat gemaakte immigratieplannen"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Bevestig Taalverandering"
+    }
+  },
+  "footer": {
+    "terms": "Servicevoorwaarden",
+    "privacy": "Privacybeleid",
+    "subscribeNewsletter": "Schrijf je in voor de nieuwsbrief",
+    "subscribeNewsDesc": "Ontvang het laatste nieuws over immigratie",
+    "enterEmail": "Voer je e-mailadres in",
+    "subscribe": "Inschrijven"
+  }
+}

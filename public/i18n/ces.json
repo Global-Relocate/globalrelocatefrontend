@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Domů",
+      "countriesData": "Země a data",
+      "community": "Komunita",
+      "tools": "Nástroje",
+      "pricing": "Ceník",
+      "viewProfile": "Zobrazit profil",
+      "helpCenter": "Centrum nápovědy",
+      "giveFeedback": "Dejte zpětnou vazbu",
+      "privacyPolicy": "Zásady ochrany osobních údajů",
+      "upgradePlan": "Upgradujte plán"
+    },
+    "showcase": {
+      "title": "Lepší život díky chytré imigraci",
+      "para": "Platforma pro globální imigraci, právní pomoc a životní styl s umělou inteligencí",
+      "buttonText": "Začněte hned"
+    },
+    "features": {
+      "title": "Vlastnosti",
+      "cards": {
+        "card1": {
+          "title": "Porovnejte země",
+          "para": "Porovnejte náklady na život, daně a kvalitu života pro lepší rozhodnutí"
+        },
+        "card2": {
+          "title": "Chytrá analýza",
+          "para": "Spojte digitální partnery v imigračních fórech a skupinách"
+        },
+        "card3": {
+          "title": "Informace o zemích",
+          "para": "Získejte aktuální informace o zemích pro lepší plánování"
+        }
+      }
+    },
+    "countries": {
+      "title": "Populární země",
+      "para": "Prozkoumejte země s nejvíce přistěhovalci a začněte svou cestu"
+    },
+    "whyChooseUs": {
+      "title": "Proč si vybrat nás",
+      "card1": {
+        "title": "AI šetří čas",
+        "para": "Vždy aktuální a spolehlivé informace"
+      },
+      "card2": {
+        "title": "Spolehlivé komunity",
+        "para": "Platforma postavená na důvěře"
+      },
+      "card3": {
+        "title": "Kompletní řešení",
+        "para": "Od žádostí o víza až po náklady na život – vše na jednom místě"
+      },
+      "card4": {
+        "title": "Osobní upozornění",
+        "para": "Získejte aktualizace podle svého zájmu"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Země",
+      "aiAssistant": "AI asistent",
+      "compareCountries": "Porovnat země",
+      "taxCalculator": "Kalkulátor daní",
+      "notifications": "Oznámení",
+      "favourites": "Oblíbené",
+      "community": "Komunita",
+      "cta": {
+        "title": "Vyzkoušejte Pro plán",
+        "para": "Momentálně používáte bezplatnou 3denní zkušební verzi. Pro pokračování přejděte na verzi Pro.",
+        "buttonText": "Zjistit více"
+      }
+    },
+    "countries": {
+      "title": "Země",
+      "noDataText": "Žádná data!",
+      "searchText": "Hledat zemi"
+    },
+    "country": {
+      "countryIn": "Země:",
+      "addFavorite": "Přidat k oblíbeným",
+      "share": "Sdílet",
+      "overview": "Přehled",
+      "map": "Mapa",
+      "keyFacts": "Klíčová fakta",
+      "visaMigration": "Víza a imigrace",
+      "taxes": "Daně",
+      "flag": "Vlajka",
+      "capital": "Hlavní město",
+      "languages": "Jazyky",
+      "currency": "Měna",
+      "population": "Populace",
+      "dialingCode": "Telefonní kód",
+      "back": "Zpět",
+      "noOverview": "Žádný přehled dostupný pro tuto zemi",
+      "noVisaInfo": "Žádné informace o vízech a imigraci pro tuto zemi"
+    },
+    "ai": {
+      "rename": "Přejmenovat",
+      "deleteConversation": "Smazat konverzaci",
+      "share": "Sdílet",
+      "hello": "Ahoj",
+      "newChat": "Nový chat",
+      "askAI": "Zeptejte se AI...",
+      "uploadDocument": "Nahrát dokument",
+      "uploadDocumentDesc": "Nahrát dokument pro analýzu AI asistentem",
+      "cancel": "Zrušit",
+      "upload": "Nahrát"
+    },
+    "settings": {
+      "accountSettings": "Nastavení účtu",
+      "editProfile": "Upravit profil",
+      "profile": "Profil",
+      "account": "Účet",
+      "preferences": "Nastavení",
+      "avatar": "Avatar",
+      "fullName": "Celé jméno",
+      "username": "Uživatelské jméno",
+      "bio": "Bio",
+      "country": "Země",
+      "emailAddress": "E-mailová adresa",
+      "verified": "Ověřeno",
+      "subscription": "Předplatné",
+      "subscriptionDesc": "Momentálně používáte bezplatnou 3denní zkušební verzi. Pro pokračování přejděte na verzi Pro.",
+      "deleteAccount": "Smazat účet",
+      "deleteDesc": "Dočasně smažte účet a data",
+      "language": "Jazyk",
+      "chooseLanguage": "Vyberte jazyk",
+      "selectLanguage": "Vyberte jazyk",
+      "learnMore": "Zjistit více",
+      "saveChanges": "Uložit změny",
+      "cancel": "Zrušit",
+      "saving": "Ukládám...",
+      "unsavedChanges": "Žádné neuložené změny",
+      "addName": "Přidejte jméno",
+      "addBio": "Přidejte bio",
+      "addUsername": "Přidejte uživatelské jméno",
+      "addLocation": "Přidejte umístění",
+      "confirmAccountDelete": "Potvrdit smazání účtu",
+      "confirmAccountDeleteDesc": "Potvrďte, že chcete smazat svůj účet:",
+      "confirm": "Potvrdit",
+      "neverMind": "Nic",
+      "confirmDeleteWarning": "Varování: Účet nelze obnovit po smazání",
+      "confirmDeleteList1": "Informace o profilu, nastavení a preference budou smazány",
+      "confirmDeleteList2": "Vaše data budou smazána do 30 dnů",
+      "deleting": "Mazání...",
+      "youHave": "Máte momentálně roli:",
+      "administrator": "Administrátor"
+    },
+    "continents": {
+      "all": "Všechny",
+      "europe": "Evropa",
+      "asia": "Asie",
+      "africa": "Afrika",
+      "south america": "Jižní Amerika",
+      "north america": "Severní Amerika",
+      "antarctica": "Antarktida",
+      "oceania": "Oceánie"
+    },
+    "tax": {
+      "taxCalculator": "Kalkulátor daní",
+      "taxCacluatorDesc": "Spočítejte daně pro různé země",
+      "country": "Země",
+      "annualIncome": "Roční příjem",
+      "userAccount": "Typ účtu",
+      "totalDeductions": "Celkové odpočty",
+      "selectCountry": "Vyberte zemi",
+      "selectAccount": "Vyberte typ účtu",
+      "enterIncome": "Zadejte roční příjem",
+      "enterDeductions": "Zadejte odpočty",
+      "calculateTax": "Spočítat daň",
+      "individual": "Jednotlivec",
+      "corporate": "Korporátní",
+      "taxSummary": "Souhrn daní",
+      "taxAmount": "Výše daně",
+      "effectiveRate": "Efektivní sazba daně",
+      "takeHomeAmount": "Čistý příjem"
+    },
+    "upgradePage": {
+      "back": "Zpět",
+      "upgradePlan": "Upgradujte plán",
+      "upgradePlanDesc": "Vyberte imigrační plán, který vám nejlépe vyhovuje, pro přístup k nástrojům",
+      "currentPlan": "Aktuální plán",
+      "getStarted": "Začněte",
+      "free": "Zdarma",
+      "basic": "Základní",
+      "premium": "Prémiový",
+      "perMonth": "Za měsíc",
+      "forEveryone": "Pro každého",
+      "freePlan": {
+        "item1": "3denní bezplatná zkušební verze",
+        "item2": "Základní informace o zemích",
+        "item3": "Pouze čtecí přístup k fóru",
+        "item4": "Omezený kalkulátor daní",
+        "item5": "Základní nástroje pro porovnávání"
+      },
+      "basicPlan": {
+        "item1": "Rozšířené informace o zemích",
+        "item2": "Publikujte příspěvky a komentujte na fóru",
+        "item3": "Plný kalkulátor daní",
+        "item4": "Nástroj pro porovnávání nákladů",
+        "item5": "Základní podpora imigrace",
+        "item6": "E-mailová podpora"
+      },
+      "premiumPlan": {
+        "item1": "Všechny funkce základního plánu",
+        "item2": "Plný přístup k informacím o zemích",
+        "item3": "Plný přístup ke komunitě",
+        "item4": "Rozšířené nástroje pro daně",
+        "item5": "Chytrý imigrační poradce",
+        "item6": "Informace o nákladech",
+        "item7": "Podpora žádostí o víza",
+        "item8": "Předběžná upozornění",
+        "item9": "Osobní imigrační balíčky"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Potvrdit výběr jazyka"
+    }
+  },
+  "footer": {
+    "terms": "Podmínky použití",
+    "privacy": "Ochrana soukromí",
+    "subscribeNewsletter": "Přihlaste se k odběru novinek",
+    "subscribeNewsDesc": "Získejte nejnovější aktualizace o imigraci",
+    "enterEmail": "Zadejte svůj e-mail",
+    "subscribe": "Přihlásit se"
+  }
+}

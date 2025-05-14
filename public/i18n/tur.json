@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Ana Sayfa",
+      "countriesData": "Ülkeler ve Veriler",
+      "community": "Topluluk",
+      "tools": "Araçlar",
+      "pricing": "Fiyatlandırma",
+      "viewProfile": "Profili Görüntüle",
+      "helpCenter": "Yardım Merkezi",
+      "giveFeedback": "Geri Bildirim Ver",
+      "privacyPolicy": "Gizlilik Politikası",
+      "upgradePlan": "Planı Yükselt"
+    },
+    "showcase": {
+      "title": "Akıllı Göç için Daha İyi Bir Yaşam",
+      "para": "Yapay zeka destekli göç, hukuki destek ve küresel yaşam tarzı için tek platform.",
+      "buttonText": "Hemen Başla"
+    },
+    "features": {
+      "title": "Özellikler",
+      "cards": {
+        "card1": {
+          "title": "Ülkeleri Karşılaştır",
+          "para": "Yaşam maliyeti, vergiler ve yaşam kalitesini karşılaştırarak daha iyi kararlar alabilirsiniz."
+        },
+        "card2": {
+          "title": "Akıllı Analitikler",
+          "para": "Forumlar ve gruplarda binlerce dijital göçmen ile bağlantı kurun."
+        },
+        "card3": {
+          "title": "Ülke ve Veriler",
+          "para": "Forumlar ve gruplarda binlerce dijital göçmen ile bağlantı kurun."
+        }
+      }
+    },
+    "countries": {
+      "title": "Popüler Ülkeler",
+      "para": "Popüler göçmen ülkelerini keşfedin ve yolculuğunuza başlayın."
+    },
+    "whyChooseUs": {
+      "title": "Bizi Neden Seçmelisiniz",
+      "card1": {
+        "title": "Yapay Zeka Zaman Kazandırır",
+        "para": "Her zaman güncel ve güvenilir bilgilere ulaşın."
+      },
+      "card2": {
+        "title": "Güvenilir Topluluk",
+        "para": "Topluluk odaklı bir platform, güvene dayalı olarak inşa edilmiştir."
+      },
+      "card3": {
+        "title": "Her Şey Bir Arada",
+        "para": "Vize işlemlerinden yaşam maliyetlerine kadar her şey bir arada."
+      },
+      "card4": {
+        "title": "Özelleştirilmiş Uyarılar",
+        "para": "Kişiselleştirilmiş uyarılar ve tercihlerinizle güncel kalın."
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Ülkeler",
+      "aiAssistant": "Yapay Zeka Asistanı",
+      "compareCountries": "Ülkeleri Karşılaştır",
+      "taxCalculator": "Vergi Hesaplayıcı",
+      "notifications": "Bildirimler",
+      "favourites": "Favoriler",
+      "community": "Topluluk",
+      "cta": {
+        "title": "Pro Planı Deneyin",
+        "para": "Şu anda 3 günlük ücretsiz denemenizi kullanıyorsunuz. Devam etmek için lütfen yükseltme yapın.",
+        "buttonText": "Daha Fazla Bilgi Edinin"
+      }
+    },
+    "countries": {
+      "title": "Ülkeler",
+      "noDataText": "Veri bulunamadı!",
+      "searchText": "Ülke Ara"
+    },
+    "country": {
+      "countryIn": "Ülke:",
+      "addFavorite": "Favorilere Ekle",
+      "share": "Paylaş",
+      "overview": "Genel Bakış",
+      "map": "Harita",
+      "keyFacts": "Temel Bilgiler",
+      "visaMigration": "Vize ve Göç",
+      "taxes": "Vergiler",
+      "flag": "Bayrak",
+      "capital": "Başkent",
+      "languages": "Diller",
+      "currency": "Para Birimi",
+      "population": "Nüfus",
+      "dialingCode": "Telefon Kodu",
+      "back": "Geri",
+      "noOverview": "Bu ülke için genel bakış bilgisi bulunmamaktadır.",
+      "noVisaInfo": "Bu ülke için vize veya göçmenlik bilgisi bulunmamaktadır."
+    },
+    "ai": {
+      "rename": "Adı Değiştir",
+      "deleteConversation": "Konuşmayı Sil",
+      "share": "Paylaş",
+      "hello": "Merhaba",
+      "newChat": "Yeni Sohbet",
+      "askAI": "Asistan'a Sor...",
+      "uploadDocument": "Belge Yükle",
+      "uploadDocumentDesc": "Yapay zeka için belge yükleyin.",
+      "cancel": "İptal",
+      "upload": "Yükle"
+    },
+    "settings": {
+      "accountSettings": "Hesap Ayarları",
+      "editProfile": "Profili Düzenle",
+      "profile": "Profil",
+      "account": "Hesap",
+      "preferences": "Tercihler",
+      "avatar": "Avatar",
+      "fullName": "Tam Ad",
+      "username": "Kullanıcı Adı",
+      "bio": "Biyografi",
+      "country": "Ülke",
+      "emailAddress": "E-posta Adresi",
+      "verified": "Doğrulanmış",
+      "subscription": "Abonelik",
+      "subscriptionDesc": "Şu anda 3 günlük ücretsiz denemeyi kullanıyorsunuz. Devam etmek için yükseltme yapın.",
+      "deleteAccount": "Hesabı Sil",
+      "deleteDesc": "Hesabınızı ve tüm verilerinizi kalıcı olarak silin",
+      "language": "Dil",
+      "chooseLanguage": "Dil Seçin",
+      "selectLanguage": "Dil Seçin",
+      "learnMore": "Daha Fazla Bilgi Edinin",
+      "saveChanges": "Değişiklikleri Kaydet",
+      "cancel": "İptal",
+      "saving": "Kaydediliyor...",
+      "unsavedChanges": "Kaydedilmemiş değişiklikleriniz var",
+      "addName": "Adınızı Ekleyin",
+      "addBio": "Biyografinizi Ekleyin.",
+      "addUsername": "Kullanıcı Adı Ekleyin",
+      "addLocation": "Konum Ekleyin",
+      "confirmAccountDelete": "Hesap Silme Onayı",
+      "confirmAccountDeleteDesc": "Hesabınızı silmek istediğinizi onaylayın:",
+      "confirm": "Onayla",
+      "neverMind": "Boşver",
+      "confirmDeleteWarning": "Uyarı: Bir kez silindikten sonra hesabınız geri alınamaz.",
+      "confirmDeleteList1": "Profiliniz, ayarlarınız ve tercihleriniz silinecektir.",
+      "confirmDeleteList2": "Tüm veriler 30 gün içinde kalıcı olarak silinecektir.",
+      "deleting": "Siliniyor...",
+      "youHave": "Mevcut rolünüz:",
+      "administrator": "Yönetici"
+    },
+    "continents": {
+      "all": "Tüm",
+      "europe": "Avrupa",
+      "asia": "Asya",
+      "africa": "Afrika",
+      "south america": "Güney Amerika",
+      "north america": "Kuzey Amerika",
+      "antarctica": "Antarktika",
+      "oceania": "Okyanusya"
+    },
+    "tax": {
+      "taxCalculator": "Vergi Hesaplayıcı",
+      "taxCacluatorDesc": "Farklı ülkelerdeki vergi yükünü hesaplayın",
+      "country": "Ülke",
+      "annualIncome": "Yıllık Gelir",
+      "userAccount": "Hesap Türü",
+      "totalDeductions": "Toplam İndirimler",
+      "selectCountry": "Ülke Seçin",
+      "selectAccount": "Hesap Türünü Seçin",
+      "enterIncome": "Yıllık Gelir Girin",
+      "enterDeductions": "İndirimleri Girin",
+      "calculateTax": "Vergiyi Hesapla",
+      "individual": "Bireysel",
+      "corporate": "Kurumsal",
+      "taxSummary": "Vergi Özeti",
+      "taxAmount": "Vergi Tutarı",
+      "effectiveRate": "Etkili Oran",
+      "takeHomeAmount": "Evde Alınan Tutar"
+    },
+    "upgradePage": {
+      "back": "Geri",
+      "upgradePlan": "Planı Yükselt",
+      "upgradePlanDesc": "Doğru göç planını seçin ve araçları kullanın.",
+      "currentPlan": "Mevcut Plan",
+      "getStarted": "Başlayın",
+      "free": "Ücretsiz",
+      "basic": "Temel",
+      "premium": "Premium",
+      "perMonth": "Aylık",
+      "forEveryone": "Herkes İçin Uygun",
+      "freePlan": {
+        "item1": "3 Günlük Deneme",
+        "item2": "Temel Ülke Bilgileri",
+        "item3": "Toplulukta yalnızca Okuma İzni",
+        "item4": "Sınırlı Vergi Hesaplayıcı",
+        "item5": "Temel Karşılaştırma Aracı"
+      },
+      "basicPlan": {
+        "item1": "Genişletilmiş Ülke Bilgileri",
+        "item2": "Topluluktaki Gönderi ve Yorum İzinleri",
+        "item3": "Tam Vergi Hesaplayıcı",
+        "item4": "Gider Karşılaştırma Aracı",
+        "item5": "Temel Göç Rehberi",
+        "item6": "E-posta Desteği"
+      },
+      "premiumPlan": {
+        "item1": "Temel Planın Tüm Avantajları",
+        "item2": "Sonsuz Ülke Bilgisi Erişimi",
+        "item3": "Tam Topluluk Erişimi",
+        "item4": "Gelişmiş Vergi Özellikleri",
+        "item5": "Akıllı Göç Asistanı",
+        "item6": "Yaşam Maliyeti Bilgileri",
+        "item7": "Vize Gereksinimleri Rehberi",
+        "item8": "Öncelikli Destek",
+        "item9": "Özel Göç Planları"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Değişiklikleri Onayla"
+    }
+  },
+  "footer": {
+    "terms": "Hizmet Şartları",
+    "privacy": "Gizlilik Politikası",
+    "subscribeNewsletter": "Bültene Abone Ol",
+    "subscribeNewsDesc": "En son göç güncellemelerini alın",
+    "enterEmail": "E-posta Adresinizi Girin",
+    "subscribe": "Abone Ol"
+  }
+}

@@ -49,7 +49,6 @@ const SelectLanguages = () => {
         <div className="pt-2">
           <SheetHeader className=" pb-4">
             <SheetTitle className="text-left">Select language</SheetTitle>
-
           </SheetHeader>
         </div>
         <div className="mt-10">
@@ -62,14 +61,15 @@ const SelectLanguages = () => {
           />
         </div>
         <div className="mt-6">
-
-          <Button onClick={() => setIsSheetOpen(false)} className="w-full h-[40px] bg-[#FCA311] text-black hover:text-white">
+          <Button
+            onClick={() => setIsSheetOpen(false)}
+            className="w-full h-[40px] bg-[#FCA311] text-black hover:text-white"
+          >
             {t("drawers.selectLanguages.confirm")}
           </Button>
-
         </div>
       </SheetContent>
-    </Sheet >
+    </Sheet>
   );
 };
 

@@ -1,0 +1,233 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "首页",
+      "countriesData": "国家与数据",
+      "community": "社区",
+      "tools": "工具",
+      "pricing": "价格",
+      "viewProfile": "查看资料",
+      "helpCenter": "帮助中心",
+      "giveFeedback": "提交反馈",
+      "privacyPolicy": "隐私政策",
+      "upgradePlan": "升级方案"
+    },
+    "showcase": {
+      "title": "智能迁移，开启更美好生活",
+      "para": "一个为移民、法律支持和全球生活方式打造的 AI 驱动的一体化平台。",
+      "buttonText": "立即开始"
+    },
+    "features": {
+      "title": "功能",
+      "cards": {
+        "card1": {
+          "title": "国家比较",
+          "para": "根据生活成本、税率和生活质量等方面比较国家，做出明智的选择。"
+        },
+        "card2": {
+          "title": "AI 智能洞察",
+          "para": "与全球数千名数字游民在论坛和小组中互动。"
+        },
+        "card3": {
+          "title": "国家与数据",
+          "para": "与全球数千名数字游民在论坛和小组中互动。"
+        }
+      }
+    },
+    "countries": {
+      "title": "热门国家",
+      "para": "浏览热门移民国家，开启您的旅程。"
+    },
+    "whyChooseUs": {
+      "title": "为什么选择我们",
+      "card1": {
+        "title": "AI 数据节省时间",
+        "para": "您始终可以获得最新且值得信赖的信息。"
+      },
+      "card2": {
+        "title": "值得信赖的社区",
+        "para": "一个社区驱动的平台，建立在信任之上。"
+      },
+      "card3": {
+        "title": "一体化解决方案",
+        "para": "从签证到生活成本，一站式解决。"
+      },
+      "card4": {
+        "title": "个性化提醒",
+        "para": "通过个性化提醒和收藏夹功能获取更新。"
+      }
+    }
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "国家",
+      "aiAssistant": "AI 助手",
+      "compareCountries": "比较国家",
+      "taxCalculator": "税务计算器",
+      "notifications": "通知",
+      "favourites": "收藏夹",
+      "community": "社区",
+      "cta": {
+        "title": "体验专业版",
+        "para": "您当前正在享受 3 天免费试用。要继续使用，请升级。",
+        "buttonText": "了解更多"
+      }
+    },
+    "countries": {
+      "title": "国家",
+      "noDataText": "无可用数据！",
+      "searchText": "搜索国家"
+    },
+    "country": {
+      "countryIn": "所在国家：",
+      "addFavorite": "添加收藏",
+      "share": "分享",
+      "overview": "概况",
+      "map": "地图",
+      "keyFacts": "关键数据",
+      "visaMigration": "签证与移民",
+      "taxes": "税收",
+      "flag": "国旗",
+      "capital": "首都",
+      "languages": "语言",
+      "currency": "货币",
+      "population": "人口",
+      "dialingCode": "国际区号",
+      "back": "返回",
+      "noOverview": "该国家暂无概况信息。",
+      "noVisaInfo": "该国家暂无签证与移民信息。"
+    },
+    "ai": {
+      "rename": "重命名",
+      "deleteConversation": "删除对话",
+      "share": "分享",
+      "hello": "你好",
+      "newChat": "新对话",
+      "askAI": "向 AI 提问……",
+      "uploadDocument": "上传文件",
+      "uploadDocumentDesc": "上传文件供 AI 分析。",
+      "cancel": "取消",
+      "upload": "上传"
+    },
+    "settings": {
+      "accountSettings": "账户设置",
+      "editProfile": "编辑资料",
+      "profile": "个人资料",
+      "account": "账户",
+      "preferences": "偏好设置",
+      "avatar": "头像",
+      "fullName": "全名",
+      "username": "用户名",
+      "bio": "个人简介",
+      "country": "国家",
+      "emailAddress": "电子邮件地址",
+      "verified": "已验证",
+      "subscription": "订阅",
+      "subscriptionDesc": "您当前正在享受 3 天免费试用。要继续使用，请升级。",
+      "deleteAccount": "删除账户",
+      "deleteDesc": "永久删除您的账户及所有数据",
+      "language": "语言",
+      "chooseLanguage": "选择语言",
+      "selectLanguage": "选择语言",
+      "learnMore": "了解更多",
+      "saveChanges": "保存更改",
+      "cancel": "取消",
+      "saving": "保存中...",
+      "unsavedChanges": "您有未保存的更改",
+      "addName": "添加姓名",
+      "addBio": "添加一个个人简介吧。",
+      "addUsername": "添加用户名",
+      "addLocation": "添加位置",
+      "confirmAccountDelete": "确认删除账户",
+      "confirmAccountDeleteDesc": "在删除账户之前，请确认以下信息：",
+      "confirm": "确认",
+      "neverMind": "不用了",
+      "confirmDeleteWarning": "警告：账户删除后无法恢复。",
+      "confirmDeleteList1": "您的资料、设置和偏好将被删除。",
+      "confirmDeleteList2": "在删除后 30 天内，所有数据将被永久清除。",
+      "deleting": "正在删除...",
+      "youHave": "您当前身份：",
+      "administrator": "管理员"
+    },
+    "continents": {
+      "all": "全部",
+      "europe": "欧洲",
+      "asia": "亚洲",
+      "africa": "非洲",
+      "south america": "南美洲",
+      "north america": "北美洲",
+      "antarctica": "南极洲",
+      "oceania": "大洋洲"
+    },
+    "tax": {
+      "taxCalculator": "税务计算器",
+      "taxCacluatorDesc": "计算不同国家的税负",
+      "country": "国家",
+      "annualIncome": "年收入",
+      "userAccount": "用户账户类型",
+      "totalDeductions": "总扣除额",
+      "selectCountry": "选择国家",
+      "selectAccount": "选择账户类型",
+      "enterIncome": "输入年收入",
+      "enterDeductions": "输入扣除额",
+      "calculateTax": "计算税费",
+      "individual": "个人",
+      "corporate": "公司",
+      "taxSummary": "税务摘要",
+      "taxAmount": "应纳税金额",
+      "effectiveRate": "实际税率",
+      "takeHomeAmount": "实际收入"
+    },
+    "upgradePage": {
+      "back": "返回",
+      "upgradePlan": "升级方案",
+      "upgradePlanDesc": "选择最适合您的移民需求的方案，解锁各种工具与数据。",
+      "currentPlan": "当前方案",
+      "getStarted": "立即开始",
+      "free": "免费",
+      "basic": "基础版",
+      "premium": "高级版",
+      "perMonth": "每月",
+      "forEveryone": "适合所有人",
+      "freePlan": {
+        "item1": "3 天试用体验",
+        "item2": "基础国家信息",
+        "item3": "社区只读权限",
+        "item4": "有限税务计算器",
+        "item5": "基本比较功能"
+      },
+      "basicPlan": {
+        "item1": "扩展的国家数据",
+        "item2": "社区发帖与互动",
+        "item3": "完整的税务计算器",
+        "item4": "成本比较工具",
+        "item5": "基础移民指南",
+        "item6": "邮件支持"
+      },
+      "premiumPlan": {
+        "item1": "包含基础版所有功能",
+        "item2": "无限国家数据访问",
+        "item3": "完整社区功能",
+        "item4": "高级税务功能",
+        "item5": "AI 移民助手",
+        "item6": "生活成本数据",
+        "item7": "签证要求指南",
+        "item8": "优先支持",
+        "item9": "个性化移民计划"
+      }
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "确认更改"
+    }
+  },
+  "footer": {
+    "terms": "服务条款",
+    "privacy": "隐私政策",
+    "subscribeNewsletter": "订阅简报",
+    "subscribeNewsDesc": "接收最新移民相关资讯",
+    "enterEmail": "输入电子邮件地址",
+    "subscribe": "订阅"
+  }
+}
