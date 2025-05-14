@@ -5,10 +5,11 @@ import { IoArrowBack } from "react-icons/io5";
 import PropTypes from "prop-types";
 import { getSubscriptionDetails, createCheckoutSession } from "@/services/api";
 import { showToast } from "@/components/ui/toast";
-import logo from "../../assets/svg/logo.svg"; // Import the logo
+import logo from "../../assets/svg/logo.svg";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "@/components/layouts/MainLayout";
 import Navbar from "@/components/navigation/Navbar";
+import { useTranslation } from "react-i18next";
 
 // Loading component
 const LoadingScreen = () => (
@@ -18,73 +19,12 @@ const LoadingScreen = () => (
   </div>
 );
 
-const PricingCard = ({
-  title,
-  price,
-  isCurrentPlan,
-  features,
-  buttonText,
-  onUpgrade,
-}) => (
-  <div
-    className={`p-8 rounded-lg border flex flex-col h-full justify-between ${
-      isCurrentPlan ? "bg-[#F6F6F6]" : "bg-white"
-    }`}
-  >
-    <div>
-      <div className="mb-8">
-        <h3 className="text-2xl font-semibold mb-2">{title}</h3>
-        <div className="flex items-end gap-1">
-          <span className="text-2xl font-semibold">${price}</span>
-          <span className="text-gray-600">/per month</span>
-        </div>
-      </div>
-
-      <div className="mb-4">
-        <p className="text-gray-600">For everyone</p>
-      </div>
-
-      <div className="space-y-4 mb-8">
-        {features.map((feature, index) => (
-          <div key={index} className="flex items-center gap-2">
-            <FaCheckCircle className="text-[#7981DD] flex-shrink-0" />
-            <span className="text-gray-600">{feature}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <div className="mt-auto">
-      <Button
-        variant={isCurrentPlan ? "outline" : "default"}
-        className={`w-full ${
-          isCurrentPlan
-            ? "text-gray-600 hover:bg-gray-100 hover:text-gray-800"
-            : "bg-[#FCA311] hover:bg-[#FCA311]/90 text-white"
-        }`}
-        onClick={() => !isCurrentPlan && onUpgrade()}
-        disabled={isCurrentPlan}
-      >
-        {buttonText}
-      </Button>
-    </div>
-  </div>
-);
-
-PricingCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  isCurrentPlan: PropTypes.bool.isRequired,
-  features: PropTypes.arrayOf(PropTypes.string).isRequired,
-  buttonText: PropTypes.string.isRequired,
-  onUpgrade: PropTypes.func.isRequired,
-};
-
 const Upgrade = () => {
   const [currentPlan, setCurrentPlan] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleBack = () => {
     navigate(-1);
@@ -135,38 +75,38 @@ const Upgrade = () => {
       title: "Free",
       price: "0",
       features: [
-        "3-day trial access",
-        "Basic country information",
-        "Community access (read-only)",
-        "Limited tax calculator",
-        "Basic cost comparison",
+        t("userDashboard.upgradePage.freePlan.item1"),
+        t("userDashboard.upgradePage.freePlan.item2"),
+        t("userDashboard.upgradePage.freePlan.item3"),
+        t("userDashboard.upgradePage.freePlan.item4"),
+        t("userDashboard.upgradePage.freePlan.item5"),
       ],
     },
     {
       title: "Basic",
       price: "5",
       features: [
-        "Full country information",
-        "Community participation",
-        "Complete tax calculator",
-        "Cost comparison tools",
-        "Basic relocation guides",
-        "Email support",
+        t("userDashboard.upgradePage.basicPlan.item1"),
+        t("userDashboard.upgradePage.basicPlan.item2"),
+        t("userDashboard.upgradePage.basicPlan.item3"),
+        t("userDashboard.upgradePage.basicPlan.item4"),
+        t("userDashboard.upgradePage.basicPlan.item5"),
+        t("userDashboard.upgradePage.basicPlan.item6"),
       ],
     },
     {
       title: "Premium",
       price: "100",
       features: [
-        "All Basic features",
-        "Unlimited country data access",
-        "Full community participation",
-        "Advanced tax calculator",
-        "AI relocation assistant",
-        "Cost of living insights",
-        "Visa requirement guides",
-        "Priority support",
-        "Custom relocation roadmap",
+        t("userDashboard.upgradePage.premiumPlan.item1"),
+        t("userDashboard.upgradePage.premiumPlan.item2"),
+        t("userDashboard.upgradePage.premiumPlan.item3"),
+        t("userDashboard.upgradePage.premiumPlan.item4"),
+        t("userDashboard.upgradePage.premiumPlan.item5"),
+        t("userDashboard.upgradePage.premiumPlan.item6"),
+        t("userDashboard.upgradePage.premiumPlan.item7"),
+        t("userDashboard.upgradePage.premiumPlan.item8"),
+        t("userDashboard.upgradePage.premiumPlan.item9"),
       ],
     },
   ];
@@ -183,6 +123,74 @@ const Upgrade = () => {
     );
   }
 
+  const PricingCard = ({
+    title,
+    price,
+    isCurrentPlan,
+    features,
+    buttonText,
+    onUpgrade,
+  }) => (
+    <div
+      className={`p-8 rounded-lg border flex flex-col h-full justify-between ${
+        isCurrentPlan ? "bg-[#F6F6F6]" : "bg-white"
+      }`}
+    >
+      <div>
+        <div className="mb-8">
+          <h3 className="text-2xl font-semibold mb-2">
+            {t(`userDashboard.upgradePage.${title.toLowerCase()}`)}
+          </h3>
+          <div className="flex items-end gap-1">
+            <span className="text-2xl font-semibold">${price}</span>
+            <span className="text-gray-600">
+              /{t("userDashboard.upgradePage.perMonth")}
+            </span>
+          </div>
+        </div>
+
+        <div className="mb-4">
+          <p className="text-gray-600">
+            {t("userDashboard.upgradePage.forEveryone")}
+          </p>
+        </div>
+
+        <div className="space-y-4 mb-8">
+          {features.map((feature, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <FaCheckCircle className="text-[#7981DD] flex-shrink-0" />
+              <span className="text-gray-600">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-auto">
+        <Button
+          variant={isCurrentPlan ? "outline" : "default"}
+          className={`w-full ${
+            isCurrentPlan
+              ? "text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+              : "bg-[#FCA311] hover:bg-[#FCA311]/90 text-white"
+          }`}
+          onClick={() => !isCurrentPlan && onUpgrade()}
+          disabled={isCurrentPlan}
+        >
+          {buttonText}
+        </Button>
+      </div>
+    </div>
+  );
+
+  PricingCard.propTypes = {
+    title: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    isCurrentPlan: PropTypes.bool.isRequired,
+    features: PropTypes.arrayOf(PropTypes.string).isRequired,
+    buttonText: PropTypes.string.isRequired,
+    onUpgrade: PropTypes.func.isRequired,
+  };
+
   return (
     <MainLayout>
       <Navbar />
@@ -193,15 +201,15 @@ const Upgrade = () => {
             className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-8"
           >
             <IoArrowBack size={20} />
-            <span>Back</span>
+            <span>{t("userDashboard.upgradePage.back")}</span>
           </button>
 
           <div className="text-center mb-12">
-            <h1 className="text-3xl font-semibold mb-4">Upgrade your plan</h1>
+            <h1 className="text-3xl font-semibold mb-4">
+              {t("userDashboard.upgradePage.upgradePlan")}
+            </h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Choose the perfect plan to support your global relocation journey.
-              Get access to comprehensive tools and insights to make your move
-              seamless.
+              {t("userDashboard.upgradePage.upgradePlanDesc")}
             </p>
           </div>
 
@@ -213,8 +221,8 @@ const Upgrade = () => {
                 isCurrentPlan={currentPlan === plan.title.toUpperCase()}
                 buttonText={
                   currentPlan === plan.title.toUpperCase()
-                    ? "Your current plan"
-                    : "Get started"
+                    ? t("userDashboard.upgradePage.currentPlan")
+                    : t("userDashboard.upgradePage.getStarted")
                 }
                 onUpgrade={() => handleUpgrade(plan.title.toUpperCase())}
               />

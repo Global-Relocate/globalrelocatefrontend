@@ -355,12 +355,76 @@
         "Zambia": "Zambia ",
         "Zimbabwe": "Zimbabwe "
       }
+    },
+    "tax": {
+      "taxCalculator": "Steuerrechner",
+      "taxCacluatorDesc": "Berechnen Sie Ihre geschätzte Steuerbelastung in verschiedenen Ländern",
+      "country": "Land",
+      "annualIncome": "Jahreseinkommen",
+      "userAccount": "Benutzerkonto",
+      "totalDeductions": "Gesamtabzüge",
+      "selectCountry": "Wählen Sie Ihr Land",
+      "selectAccount": "Kontotyp auswählen",
+      "enterIncome": "Geben Sie Ihr Jahreseinkommen ein",
+      "enterDeductions": "Geben Sie die Gesamtabzüge ein",
+      "calculateTax": "Steuer berechnen",
+      "individual": "Einzelperson",
+      "corporate": "Unternehmen",
+      "taxSummary": "Steuerübersicht",
+      "taxAmount": "Steuerbetrag",
+      "effectiveRate": "Effektiver Steuersatz",
+      "takeHomeAmount": "Nettobetrag"
+    },
+    "upgradePage": {
+      "back": "Zurück",
+      "upgradePlan": "Upgrade deines Plans",
+      "upgradePlanDesc": "Wähle den perfekten Plan für deinen globalen Umzug. Erhalte Zugang zu umfassenden Tools und Einblicken, um deinen Umzug reibungslos zu gestalten.",
+      "currentPlan": "Dein aktueller Plan",
+      "getStarted": "Loslegen",
+      "free": "Kostenlos",
+      "basic": "Basis",
+      "premium": "Premium",
+      "perMonth": "pro Monat",
+      "forEveryone": "Für alle",
+      "freePlan": {
+        "item1": "3-tägiger Testzugang",
+        "item2": "Grundlegende Länderinformationen",
+        "item3": "Community-Zugang (nur lesen)",
+        "item4": "Eingeschränkter Steuerrechner",
+        "item5": "Einfache Kostenvergleiche"
+      },
+      "basicPlan": {
+        "item1": "Vollständige Länderinformationen",
+        "item2": "Teilnahme an der Community",
+        "item3": "Vollständiger Steuerrechner",
+        "item4": "Kostenvergleichstools",
+        "item5": "Grundlegende Umzugsleitfäden",
+        "item6": "E-Mail-Support"
+      },
+      "premiumPlan": {
+        "item1": "Alle Basisfunktionen",
+        "item2": "Unbegrenzter Zugang zu Länderdaten",
+        "item3": "Volle Community-Teilnahme",
+        "item4": "Erweiterter Steuerrechner",
+        "item5": "KI-gestützter Umzugsassistent",
+        "item6": "Einblicke in Lebenshaltungskosten",
+        "item7": "Visa-Anforderungsleitfäden",
+        "item8": "Priorisierter Support",
+        "item9": "Individueller Umzugsfahrplan"
+      }
     }
   },
-
   "drawers": {
     "selectLanguages": {
       "confirm": "Änderungen bestätigen"
     }
+  },
+  "footer": {
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Datenschutz",
+    "subscribeNewsletter": "Abonniere unseren Newsletter",
+    "subscribeNewsDesc": "Bleibe auf dem Laufenden über globale Umzugsinformationen",
+    "enterEmail": "E-Mail eingeben",
+    "subscribe": "Abonnieren"
   }
 }

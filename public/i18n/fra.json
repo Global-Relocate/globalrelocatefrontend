@@ -354,11 +354,76 @@
         "Zambia": "Zambia ",
         "Zimbabwe": "Zimbabwe"
       }
+    },
+    "tax": {
+      "taxCalculator": "Calculateur d'impôts",
+      "taxCacluatorDesc": "Calculez votre charge fiscale estimée dans différents pays",
+      "country": "Pays",
+      "annualIncome": "Revenu annuel",
+      "userAccount": "Compte utilisateur",
+      "totalDeductions": "Déductions totales",
+      "selectCountry": "Sélectionnez votre pays",
+      "selectAccount": "Sélectionnez le type de compte",
+      "enterIncome": "Entrez votre revenu annuel",
+      "enterDeductions": "Entrez le total des déductions",
+      "calculateTax": "Calculer l'impôt",
+      "individual": "Individuel",
+      "corporate": "Entreprise",
+      "taxSummary": "Résumé fiscal",
+      "taxAmount": "Montant de l'impôt",
+      "effectiveRate": "Taux effectif",
+      "takeHomeAmount": "Montant net"
+    },
+    "upgradePage": {
+      "back": "Retour",
+      "upgradePlan": "Améliorez votre plan",
+      "upgradePlanDesc": "Choisissez le plan idéal pour accompagner votre parcours de relocalisation. Accédez à des outils et des informations complètes pour faciliter votre déménagement.",
+      "currentPlan": "Votre plan actuel",
+      "getStarted": "Commencer",
+      "free": "Gratuit",
+      "basic": "De base",
+      "premium": "Premium",
+      "perMonth": "par mois",
+      "forEveryone": "Pour tout le monde",
+      "freePlan": {
+        "item1": "Accès d'essai de 3 jours",
+        "item2": "Informations de base sur les pays",
+        "item3": "Accès à la communauté (lecture seule)",
+        "item4": "Calculateur d'impôts limité",
+        "item5": "Comparaison de coût basique"
+      },
+      "basicPlan": {
+        "item1": "Informations complètes sur les pays",
+        "item2": "Participation à la communauté",
+        "item3": "Calculateur d'impôts complet",
+        "item4": "Outils de comparaison des coûts",
+        "item5": "Guides de relocalisation de base",
+        "item6": "Support par e-mail"
+      },
+      "premiumPlan": {
+        "item1": "Toutes les fonctionnalités du plan de base",
+        "item2": "Accès illimité aux données des pays",
+        "item3": "Participation complète à la communauté",
+        "item4": "Calculateur d'impôts avancé",
+        "item5": "Assistant de relocalisation IA",
+        "item6": "Aperçus du coût de la vie",
+        "item7": "Guides des exigences en matière de visa",
+        "item8": "Support prioritaire",
+        "item9": "Feuille de route personnalisée pour la relocalisation"
+      }
     }
   },
   "drawers": {
     "selectLanguages": {
       "confirm": "Confirmer les changements"
     }
+  },
+  "footer": {
+    "terms": "Conditions",
+    "privacy": "Confidentialité",
+    "subscribeNewsletter": "Abonnez-vous à notre newsletter",
+    "subscribeNewsDesc": "Restez informé avec les dernières actualités sur la relocalisation mondiale",
+    "enterEmail": "Entrez votre email",
+    "subscribe": "S’abonner"
   }
 }

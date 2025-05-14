@@ -354,11 +354,76 @@
         "Zambia": "Zambia ",
         "Zimbabwe": "Zimbabwe "
       }
+    },
+    "tax": {
+      "taxCalculator": "Calculadora de impuestos",
+      "taxCacluatorDesc": "Calcule su carga fiscal estimada en diferentes países",
+      "country": "País",
+      "annualIncome": "Ingresos anuales",
+      "userAccount": "Cuenta de usuario",
+      "totalDeductions": "Deducciones totales",
+      "selectCountry": "Seleccione su país",
+      "selectAccount": "Seleccione el tipo de cuenta",
+      "enterIncome": "Ingrese sus ingresos anuales",
+      "enterDeductions": "Ingrese el total de deducciones",
+      "calculateTax": "Calcular impuesto",
+      "individual": "Individual",
+      "corporate": "Corporativo",
+      "taxSummary": "Resumen de impuestos",
+      "taxAmount": "Monto del impuesto",
+      "effectiveRate": "Tasa efectiva",
+      "takeHomeAmount": "Monto neto"
+    },
+    "upgradePage": {
+      "back": "Volver",
+      "upgradePlan": "Mejora tu plan",
+      "upgradePlanDesc": "Elige el plan perfecto para apoyar tu mudanza global. Accede a herramientas completas y conocimientos para que tu traslado sea fluido.",
+      "currentPlan": "Tu plan actual",
+      "getStarted": "Comenzar",
+      "free": "Gratis",
+      "basic": "Básico",
+      "premium": "Premium",
+      "perMonth": "por mes",
+      "forEveryone": "Para todos",
+      "freePlan": {
+        "item1": "Acceso de prueba de 3 días",
+        "item2": "Información básica del país",
+        "item3": "Acceso a la comunidad (solo lectura)",
+        "item4": "Calculadora de impuestos limitada",
+        "item5": "Comparación básica de costos"
+      },
+      "basicPlan": {
+        "item1": "Información completa del país",
+        "item2": "Participación en la comunidad",
+        "item3": "Calculadora de impuestos completa",
+        "item4": "Herramientas de comparación de costos",
+        "item5": "Guías básicas de reubicación",
+        "item6": "Soporte por correo electrónico"
+      },
+      "premiumPlan": {
+        "item1": "Todas las funciones básicas",
+        "item2": "Acceso ilimitado a datos de países",
+        "item3": "Participación total en la comunidad",
+        "item4": "Calculadora de impuestos avanzada",
+        "item5": "Asistente de reubicación con IA",
+        "item6": "Perspectivas del costo de vida",
+        "item7": "Guías de requisitos de visa",
+        "item8": "Soporte prioritario",
+        "item9": "Hoja de ruta personalizada para la reubicación"
+      }
     }
   },
   "drawers": {
     "selectLanguages": {
       "confirm": "Confirmar cambios"
     }
+  },
+  "footer": {
+    "terms": "Términos",
+    "privacy": "Privacidad",
+    "subscribeNewsletter": "Suscríbete a nuestro boletín",
+    "subscribeNewsDesc": "Mantente al día con las últimas novedades sobre reubicación global",
+    "enterEmail": "Ingresa tu correo electrónico",
+    "subscribe": "Suscribirse"
   }
 }

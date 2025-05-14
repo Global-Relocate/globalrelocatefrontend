@@ -19,6 +19,7 @@ import { PiMoneyLight } from "react-icons/pi";
 import { FiMinusCircle } from "react-icons/fi";
 import { PiUsers } from "react-icons/pi";
 import { countryCurrencyCodes, countryTaxRates } from "@/seed/currency";
+import { useTranslation } from "react-i18next";
 
 function TaxCalculator() {
   const [formData, setFormData] = useState({
@@ -29,6 +30,7 @@ function TaxCalculator() {
   });
 
   const [taxSummary, setTaxSummary] = useState(null);
+  const { t } = useTranslation();
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({
@@ -92,9 +94,11 @@ function TaxCalculator() {
         <div className="overflow-hidden rounded-2xl mb-16">
           {/* Header Section - Purple background */}
           <div className="bg-[#5762D5] text-white px-6 py-8">
-            <h2 className="text-3xl font-medium">Tax Calculator</h2>
+            <h2 className="text-3xl font-medium">
+              {t(`userDashboard.tax.taxCalculator`)}
+            </h2>
             <p className="text-base mt-1 opacity-90">
-              Calculate your estimated tax burden across different countries
+              {t(`userDashboard.tax.taxCacluatorDesc`)}
             </p>
           </div>
 
@@ -105,14 +109,14 @@ function TaxCalculator() {
               <div className="space-y-2">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <PiGlobeHemisphereWestLight className="text-lg" />
-                  Country
+                  {t(`userDashboard.tax.country`)}
                 </label>
                 <CountryDropdown
                   value={formData.country}
                   onChange={(country) =>
                     handleInputChange("country", country.alpha2)
                   }
-                  placeholder="Select your country"
+                  placeholder={t(`userDashboard.tax.selectCountry`)}
                   textSize="sm"
                 />
               </div>
@@ -121,11 +125,11 @@ function TaxCalculator() {
               <div className="space-y-2">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <PiMoneyLight className="text-lg" />
-                  Annual income
+                  {t(`userDashboard.tax.annualIncome`)}
                 </label>
                 <Input
                   type="number"
-                  placeholder="Enter your annual income"
+                  placeholder={t(`userDashboard.tax.enterIncome`)}
                   value={formData.annualIncome}
                   onChange={(e) =>
                     handleInputChange("annualIncome", e.target.value)
@@ -139,7 +143,7 @@ function TaxCalculator() {
               <div className="space-y-2">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <PiUsers className="text-lg" />
-                  User Account
+                  {t(`userDashboard.tax.userAccount`)}
                 </label>
                 <Select
                   value={formData.familyStatus}
@@ -148,14 +152,16 @@ function TaxCalculator() {
                   }
                 >
                   <SelectTrigger className="h-12 bg-white text-sm border-gray-300 focus:ring-gray-300">
-                    <SelectValue placeholder="Select account type" />
+                    <SelectValue
+                      placeholder={t(`userDashboard.tax.selectAccount`)}
+                    />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="individual" className="text-sm">
-                      Individual
+                      {t(`userDashboard.tax.individual`)}
                     </SelectItem>
                     <SelectItem value="corporate" className="text-sm">
-                      Corporate
+                      {t(`userDashboard.tax.corporate`)}
                     </SelectItem>
                   </SelectContent>
                 </Select>
@@ -165,11 +171,11 @@ function TaxCalculator() {
               <div className="space-y-2">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <FiMinusCircle className="text-lg" />
-                  Total deductions
+                  {t(`userDashboard.tax.totalDeductions`)}
                 </label>
                 <Input
                   type="number"
-                  placeholder="Enter total deductions"
+                  placeholder={t(`userDashboard.tax.enterDeductions`)}
                   value={formData.totalDeductions}
                   onChange={(e) =>
                     handleInputChange("totalDeductions", e.target.value)
@@ -188,7 +194,7 @@ function TaxCalculator() {
                 className="w-full sm:w-auto px-8 bg-black hover:bg-black/90 text-white rounded-lg"
                 size="lg"
               >
-                Calculate Tax
+                {t(`userDashboard.tax.calculateTax`)}
               </Button>
             </div>
 

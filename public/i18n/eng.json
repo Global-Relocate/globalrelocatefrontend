@@ -158,11 +158,76 @@
       "north america": "North America",
       "antarctica": "Antarctica",
       "oceania": "Oceania"
+    },
+    "tax": {
+      "taxCalculator": "Tax Calculator",
+      "taxCacluatorDesc": "Calculate your estimated tax burden across different countries",
+      "country": "Country",
+      "annualIncome": "Annual income",
+      "userAccount": "User Account",
+      "totalDeductions": "Total deductions",
+      "selectCountry": "Select your country",
+      "selectAccount": "Select account type",
+      "enterIncome": "Enter your annual income",
+      "enterDeductions": "Enter total deductions",
+      "calculateTax": "Calculate Tax",
+      "individual": "Individual",
+      "corporate": "Corporate",
+      "taxSummary": "Tax Summary",
+      "taxAmount": "Tax amount",
+      "effectiveRate": "Effective rate",
+      "takeHomeAmount": "Take home amount"
+    },
+    "upgradePage": {
+      "back": "Back",
+      "upgradePlan": "Upgrade your plan",
+      "upgradePlanDesc": "Choose the perfect plan to support your global relocation journey. Get access to comprehensive tools and insights to make your move seamless.",
+      "currentPlan": "Your current plan",
+      "getStarted": "Get started",
+      "free": "Free",
+      "basic": "Basic",
+      "premium": "Premium",
+      "perMonth": "per month",
+      "forEveryone": "For everyone",
+      "freePlan": {
+        "item1": "3-day trial access",
+        "item2": "Basic country information",
+        "item3": "Community access (read-only)",
+        "item4": "Limited tax calculator",
+        "item5": "Basic cost comparison"
+      },
+      "basicPlan": {
+        "item1": "Full country information",
+        "item2": "Community participation",
+        "item3": "Complete tax calculator",
+        "item4": "Cost comparison tools",
+        "item5": "Basic relocation guides",
+        "item6": "Email support"
+      },
+      "premiumPlan": {
+        "item1": "All Basic features",
+        "item2": "Unlimited country data access",
+        "item3": "Full community participation",
+        "item4": "Advanced tax calculator",
+        "item5": "AI relocation assistant",
+        "item6": "Cost of living insights",
+        "item7": "Visa requirement guides",
+        "item8": "Priority support",
+        "item9": "Custom relocation roadmap"
+      }
     }
   },
   "drawers": {
     "selectLanguages": {
       "confirm": "Confirm Changes"
     }
+  },
+  "footer": {
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "subscribeNewsletter": "Subscribe to our newsletter",
+    "subscribeNewsDesc": "Stay updated with the latest insights on global relocation",
+    "enterEmail": "Enter your email",
+    "subscribe": "Subscribe"
   }
 }
