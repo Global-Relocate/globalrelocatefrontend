@@ -63,8 +63,7 @@ function CountryDetails() {
             <div className="flex items-start gap-2">
               <img
                 src={
-                  singleCountry?.keyFacts?.flag ||
-                  "https://flagcdn.com/w320/ci.png"
+                  singleCountry?.name === "Afghanistan" ? "https://flagcdn.com/w320/af.png" : singleCountry?.keyFacts?.flag 
                 }
                 className="w-10 h-10 rounded-full object-cover"
                 alt="Country flag"
@@ -104,7 +103,7 @@ function CountryDetails() {
                 }}
                 plugins={[
                   Autoplay({
-                    delay: 4500,
+                    delay: 5000,
                   }),
                 ]}
                 className="w-full rounded-2xl"

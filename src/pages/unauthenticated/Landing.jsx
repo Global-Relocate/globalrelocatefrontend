@@ -24,6 +24,8 @@ import people from "../../assets/images/people_image.png";
 import cardimg1 from "../../assets/images/cardimg_1.png";
 import cardimg2 from "../../assets/images/cardimg_2.png";
 import { useTranslation } from "react-i18next";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
 
 export default function Landing() {
   const { t } = useTranslation();
@@ -90,15 +92,19 @@ export default function Landing() {
       <div className="flex flex-col items-center justify-center bg-[#F5F5F7] min-w-[320px]">
         {/* Apply inline background style as a fallback along with the class */}
         <div 
-          className="hero-bg min-h-[85vh] md:min-h-[100vh] w-full flex items-center justify-center"
+          className="hero-bg min-h-[40vh] md:min-h-[100vh] w-full flex items-center justify-center"
           style={{
             backgroundImage: `url(${bgIllustration})`,
             backgroundSize: '75%',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
-          }}
-        >
-          <motion.div 
+          }}>
+              <DotLottieReact
+      src="lottie.json"
+      loop
+      autoplay
+    />
+        <motion.div 
             initial="hidden"
             animate="visible"
             variants={heroTextVariants}

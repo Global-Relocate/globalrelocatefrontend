@@ -171,7 +171,7 @@ export default function CountriesDashCard({
         className="flex items-center cursor-pointer justify-start space-x-2"
       >
         <img
-          src={countryFlag}
+          src={location === "Afghanistan" ? "https://flagcdn.com/w320/af.png" : countryFlag }
           className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover"
           alt="Country Flag"
         />
