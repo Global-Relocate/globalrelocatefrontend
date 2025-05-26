@@ -1,0 +1,20 @@
+- Bigger logo on the footer ✅
+- More information on the footer ✅
+- 6 more images on the landing page ✅
+- A fast pop-up in the pricing page ✅
+- Scrolling with the mouse (select language) ✅
+- Re check the header ✅
+- Increase the size of the text (header) ✅
+- Share button on images
+- Path for the countries images (name of countries)
+- More information on the countries & Data
+- New session started (lang) ✅
+- Link copied to clipboard (lang change) ✅
+- Upload documents (in German)
+- Compare countries in Germany (languages)
+- More details on compare countries
+- Tax calculator https://www.brutto-netto-rechner.info/ (use this platform)
+- Notification icon (header) ✅
+- Added nav buttons to the country images carousel ✅
+- Changed the Afghanistan flag ✅
+- Added a lottie animation to the landing page ✅

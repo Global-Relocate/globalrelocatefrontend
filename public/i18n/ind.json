@@ -2,61 +2,101 @@
   "landingPage": {
     "navbar": {
       "home": "Beranda",
-      "countriesData": "Negara & Data",
+      "countriesData": "Data Negara",
       "community": "Komunitas",
       "tools": "Alat",
       "pricing": "Harga",
       "viewProfile": "Lihat Profil",
       "helpCenter": "Pusat Bantuan",
-      "giveFeedback": "Beri Masukan",
+      "giveFeedback": "Berikan Masukan",
       "privacyPolicy": "Kebijakan Privasi",
-      "upgradePlan": "Tingkatkan Paket"
+      "upgradePlan": "Upgrade Paket",
+      "logIn": "Masuk",
+      "getStarted": "Mulai",
+      "logout": "Keluar"
     },
     "showcase": {
-      "title": "Hidup Lebih Baik dengan Imigrasi Cerdas",
-      "para": "Platform berbasis AI untuk imigrasi global, bantuan hukum, dan gaya hidup",
-      "buttonText": "Mulai Sekarang"
+      "title": "Pindah lebih cerdas, hidup lebih baik.",
+      "para": "Platform bertenaga AI Anda untuk relokasi tanpa hambatan, panduan hukum, dan kehidupan global.",
+      "buttonText": "Mulai"
     },
     "features": {
       "title": "Fitur",
       "cards": {
         "card1": {
           "title": "Bandingkan Negara",
-          "para": "Bandingkan biaya hidup, pajak, dan kualitas hidup untuk keputusan yang lebih baik"
+          "para": "Buat keputusan yang tepat dengan membandingkan berbagai negara secara berdampingan, menganalisis faktor-faktor kunci seperti biaya hidup, tarif pajak, dan kualitas hidup."
         },
         "card2": {
-          "title": "Analisis Pintar",
-          "para": "Terhubung dengan mitra digital melalui forum & grup imigrasi"
+          "title": "Wawasan Cerdas dengan AI",
+          "para": "Bergabunglah dengan forum dan grup dengan nomaden digital global yang berpikiran sama."
         },
         "card3": {
-          "title": "Informasi Negara",
-          "para": "Data negara terkini untuk perencanaan yang lebih baik"
+          "title": "Negara dan Data",
+          "para": "Bergabunglah dengan forum dan grup dengan nomaden digital global yang berpikiran sama."
         }
       }
     },
     "countries": {
       "title": "Negara Populer",
-      "para": "Jelajahi negara tujuan imigrasi yang paling diminati"
+      "para": "Jelajahi destinasi populer dan mulai rencanakan kepindahan Anda"
     },
     "whyChooseUs": {
       "title": "Mengapa Memilih Kami",
       "card1": {
-        "title": "AI Menghemat Waktu",
-        "para": "Selalu mendapatkan informasi yang segar dan dapat diandalkan"
+        "title": "Data Berbasis AI yang Hemat Waktu",
+        "para": "Informasi yang selalu terkini dan dapat diandalkan."
       },
       "card2": {
-        "title": "Komunitas Tepercaya",
-        "para": "Platform dibangun di atas kepercayaan"
+        "title": "Kontak Terverifikasi dan Sumber Terpercaya:",
+        "para": "Platform berbasis komunitas yang menjamin kredibilitas."
       },
       "card3": {
         "title": "Solusi Lengkap",
-        "para": "Dari visa hingga biaya hidup – semuanya di satu tempat"
+        "para": "Segala sesuatu mulai dari visa hingga biaya hidup di satu tempat."
       },
       "card4": {
-        "title": "Notifikasi Khusus",
-        "para": "Dapatkan peringatan yang relevan untuk Anda"
+        "title": "Peringatan yang Dipersonalisasi",
+        "para": "Tetap selangkah lebih maju dengan notifikasi yang dipersonalisasi dan fitur favorit."
       }
     }
+  },
+  "loginPage": {
+    "close": "Tutup",
+    "createAccount": "Buat Akun",
+    "logIntoGR": "Masuk ke Global Relocate",
+    "password": "Kata Sandi",
+    "enterPassword": "Masukkan kata sandi Anda",
+    "continueWithGoogle": "Lanjutkan dengan Google",
+    "cantLogin": "Tidak bisa masuk?",
+    "tosDesc": "Dengan mengklik buat akun, Anda menyetujui ",
+    "tos": "Ketentuan Layanan",
+    "privacyPolicy": "Kebijakan Privasi",
+    "and": "dan",
+    "or": "ATAU",
+    "processing": "Memproses...",
+    "continue": "Lanjutkan",
+    "hidePassword": "Sembunyikan kata sandi",
+    "showPassword": "Tampilkan kata sandi"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Mari buat akun Anda",
+    "chooseAccountType": "Pilih jenis akun",
+    "createPersonalAccount": "Saya membuat akun pribadi",
+    "createCorporateAccount": "Saya membuat akun perusahaan",
+    "continue": "Lanjutkan",
+    "chooseSignMethod": "Pilih metode pendaftaran",
+    "continueWithEmail": "Lanjutkan dengan email",
+    "alreadyHaveAccount": "Sudah punya akun?",
+    "fullName": "Nama Lengkap",
+    "chooseUsername": "Pilih nama pengguna",
+    "enterYourFullName": "Masukkan nama lengkap Anda",
+    "confirmPassword": "Konfirmasi Kata Sandi",
+    "country": "Negara"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Selamat Datang",
+    "welcomeText": "Platform bertenaga AI Anda untuk relokasi tanpa hambatan, panduan hukum, dan kehidupan global."
   },
   "userDashboard": {
     "sidebar": {
@@ -68,44 +108,44 @@
       "favourites": "Favorit",
       "community": "Komunitas",
       "cta": {
-        "title": "Coba Paket Pro",
-        "para": "Saat ini Anda berada di uji coba gratis 3 hari. Tingkatkan ke Pro untuk melanjutkan.",
+        "title": "Coba Pro",
+        "para": "Anda saat ini menggunakan paket gratis, berlaku selama 3 hari. Tingkatkan sekarang untuk terus menggunakan Global Relocate.",
         "buttonText": "Pelajari Lebih Lanjut"
       }
     },
     "countries": {
       "title": "Negara",
       "noDataText": "Tidak ada data!",
-      "searchText": "Cari negara"
+      "searchText": "Cari Negara"
     },
     "country": {
-      "countryIn": "Negara:",
+      "countryIn": "Negara di",
       "addFavorite": "Tambah ke Favorit",
       "share": "Bagikan",
-      "overview": "Ringkasan",
+      "overview": "Ikhtisar",
       "map": "Peta",
-      "keyFacts": "Fakta Utama",
-      "visaMigration": "Visa & Imigrasi",
+      "keyFacts": "Fakta Kunci",
+      "visaMigration": "Visa & Migrasi",
       "taxes": "Pajak",
       "flag": "Bendera",
       "capital": "Ibu Kota",
       "languages": "Bahasa",
       "currency": "Mata Uang",
       "population": "Populasi",
-      "dialingCode": "Kode Telepon",
+      "dialingCode": "Kode Panggil",
       "back": "Kembali",
-      "noOverview": "Tidak ada ringkasan yang tersedia untuk negara ini",
-      "noVisaInfo": "Tidak ada informasi visa atau imigrasi yang tersedia untuk negara ini"
+      "noOverview": "Tidak ada ikhtisar yang tersedia untuk negara ini.",
+      "noVisaInfo": "Tidak ada informasi visa dan imigrasi yang tersedia."
     },
     "ai": {
-      "rename": "Ganti Nama",
+      "rename": "Ubah Nama",
       "deleteConversation": "Hapus Percakapan",
       "share": "Bagikan",
       "hello": "Halo",
       "newChat": "Obrolan Baru",
-      "askAI": "Tanyakan pada AI...",
+      "askAI": "Tanyakan apa saja pada AI...",
       "uploadDocument": "Unggah Dokumen",
-      "uploadDocumentDesc": "Unggah dokumen untuk dianalisis oleh asisten AI",
+      "uploadDocumentDesc": "Unggah dokumen untuk diproses dengan asisten AI",
       "cancel": "Batal",
       "upload": "Unggah"
     },
@@ -115,38 +155,38 @@
       "profile": "Profil",
       "account": "Akun",
       "preferences": "Preferensi",
-      "avatar": "Foto Profil",
+      "avatar": "Avatar",
       "fullName": "Nama Lengkap",
       "username": "Nama Pengguna",
-      "bio": "Tentang Saya",
+      "bio": "Bio",
       "country": "Negara",
       "emailAddress": "Alamat Email",
       "verified": "Terverifikasi",
       "subscription": "Langganan",
-      "subscriptionDesc": "Saat ini Anda menggunakan uji coba gratis 3 hari. Tingkatkan ke Pro untuk melanjutkan.",
+      "subscriptionDesc": "Anda saat ini menggunakan paket gratis, berlaku selama 3 hari. Tingkatkan sekarang untuk terus menggunakan Global Relocate.",
       "deleteAccount": "Hapus Akun",
-      "deleteDesc": "Nonaktifkan akun dan data Anda sementara",
+      "deleteDesc": "Hapus akun dan data Anda secara permanen",
       "language": "Bahasa",
-      "chooseLanguage": "Pilih Bahasa",
+      "chooseLanguage": "Pilih bahasa",
       "selectLanguage": "Pilih bahasa",
       "learnMore": "Pelajari Lebih Lanjut",
       "saveChanges": "Simpan Perubahan",
       "cancel": "Batal",
       "saving": "Menyimpan...",
-      "unsavedChanges": "Tidak ada perubahan yang belum disimpan",
-      "addName": "Tambahkan nama",
-      "addBio": "Tambahkan bio",
-      "addUsername": "Tambahkan nama pengguna",
-      "addLocation": "Tambahkan lokasi",
-      "confirmAccountDelete": "Konfirmasi Penghapusan Akun",
-      "confirmAccountDeleteDesc": "Konfirmasikan bahwa Anda ingin menghapus akun Anda:",
+      "unsavedChanges": "Anda memiliki perubahan yang belum disimpan",
+      "addName": "Tambahkan Nama",
+      "addBio": "Tambahkan bio untuk menceritakan kisah Anda.",
+      "addUsername": "Tambahkan Nama Pengguna",
+      "addLocation": "Tambahkan Lokasi",
+      "confirmAccountDelete": "Konfirmasi Hapus Akun",
+      "confirmAccountDeleteDesc": "Sebelum menghapus akun Anda, luangkan waktu sejenak untuk memahami apa yang akan terjadi pada data Anda:",
       "confirm": "Konfirmasi",
-      "neverMind": "Batal",
-      "confirmDeleteWarning": "Peringatan: Menghapus akun tidak dapat dibatalkan",
-      "confirmDeleteList1": "Informasi profil, pengaturan, dan preferensi Anda akan dihapus",
-      "confirmDeleteList2": "Data Anda akan dihapus dalam 30 hari",
+      "neverMind": "Tidak apa-apa",
+      "confirmDeleteWarning": "Perlu diketahui bahwa penghapusan akun Anda tidak dapat dibatalkan.",
+      "confirmDeleteList1": "Detail profil, preferensi, dan pengaturan Anda akan dihapus.",
+      "confirmDeleteList2": "Semua data akan dihapus secara permanen dalam 30 hari setelah penghapusan akun.",
       "deleting": "Menghapus...",
-      "youHave": "Peran Anda saat ini:",
+      "youHave": "Anda memiliki:",
       "administrator": "Administrator"
     },
     "continents": {
@@ -156,78 +196,110 @@
       "africa": "Afrika",
       "south america": "Amerika Selatan",
       "north america": "Amerika Utara",
-      "antarctica": "Antarktika",
+      "antarctica": "Antartika",
       "oceania": "Oseania"
     },
     "tax": {
       "taxCalculator": "Kalkulator Pajak",
-      "taxCacluatorDesc": "Hitung pajak untuk berbagai negara",
+      "taxCacluatorDesc": "Hitung perkiraan beban pajak Anda di berbagai negara",
       "country": "Negara",
       "annualIncome": "Pendapatan Tahunan",
-      "userAccount": "Jenis Akun",
+      "userAccount": "Akun Pengguna",
       "totalDeductions": "Total Potongan",
-      "selectCountry": "Pilih negara",
+      "selectCountry": "Pilih negara Anda",
       "selectAccount": "Pilih jenis akun",
-      "enterIncome": "Masukkan pendapatan tahunan",
-      "enterDeductions": "Masukkan potongan",
+      "enterIncome": "Masukkan pendapatan tahunan Anda",
+      "enterDeductions": "Masukkan total potongan",
       "calculateTax": "Hitung Pajak",
       "individual": "Individu",
       "corporate": "Perusahaan",
       "taxSummary": "Ringkasan Pajak",
       "taxAmount": "Jumlah Pajak",
       "effectiveRate": "Tarif Efektif",
-      "takeHomeAmount": "Pendapatan Bersih"
+      "takeHomeAmount": "Jumlah Bersih"
     },
     "upgradePage": {
       "back": "Kembali",
-      "upgradePlan": "Tingkatkan Paket",
-      "upgradePlanDesc": "Pilih paket imigrasi yang tepat untuk mengakses alat",
-      "currentPlan": "Paket Saat Ini",
+      "upgradePlan": "Upgrade Paket Anda",
+      "upgradePlanDesc": "Pilih paket yang sempurna untuk mendukung perjalanan relokasi global Anda. Dapatkan akses ke alat dan wawasan komprehensif untuk membuat kepindahan Anda lancar.",
+      "currentPlan": "Paket Anda Saat Ini",
       "getStarted": "Mulai",
       "free": "Gratis",
       "basic": "Dasar",
       "premium": "Premium",
       "perMonth": "per bulan",
-      "forEveryone": "Untuk semua orang",
+      "forEveryone": "Untuk Semua Orang",
       "freePlan": {
-        "item1": "Uji coba gratis 3 hari",
+        "item1": "Akses uji coba 3 hari",
         "item2": "Informasi negara dasar",
-        "item3": "Akses baca saja ke forum",
+        "item3": "Akses komunitas (hanya baca)",
         "item4": "Kalkulator pajak terbatas",
-        "item5": "Alat perbandingan dasar"
+        "item5": "Perbandingan biaya dasar"
       },
       "basicPlan": {
-        "item1": "Informasi negara diperluas",
-        "item2": "Komentar dan posting di forum",
-        "item3": "Kalkulator pajak lengkap",
+        "item1": "Informasi negara lengkap",
+        "item2": "Partisipasi komunitas",
+        "item3": "Kalkulator pajak penuh",
         "item4": "Alat perbandingan biaya",
-        "item5": "Bantuan imigrasi dasar",
+        "item5": "Panduan relokasi dasar",
         "item6": "Dukungan email"
       },
       "premiumPlan": {
-        "item1": "Semua fitur dari paket dasar",
-        "item2": "Akses penuh ke informasi negara",
-        "item3": "Akses penuh komunitas",
-        "item4": "Alat pajak tingkat lanjut",
-        "item5": "Konsultan imigrasi pintar",
-        "item6": "Informasi biaya hidup",
-        "item7": "Dukungan aplikasi visa",
-        "item8": "Peringatan dini",
-        "item9": "Paket imigrasi yang dipersonalisasi"
+        "item1": "Semua fitur dasar",
+        "item2": "Akses data negara tanpa batas",
+        "item3": "Partisipasi komunitas penuh",
+        "item4": "Kalkulator pajak lanjutan",
+        "item5": "Asisten relokasi AI",
+        "item6": "Wawasan biaya hidup",
+        "item7": "Panduan persyaratan visa",
+        "item8": "Dukungan prioritas",
+        "item9": "Peta jalan relokasi yang dipersonalisasi"
       }
     }
   },
   "drawers": {
     "selectLanguages": {
-      "confirm": "Konfirmasi Bahasa"
+      "confirm": "Konfirmasi Perubahan"
     }
   },
   "footer": {
-    "terms": "Syarat & Ketentuan",
+    "sitemap": "Peta Situs",
+    "company": "Perusahaan",
+    "terms": "Ketentuan",
     "privacy": "Privasi",
-    "subscribeNewsletter": "Berlangganan Buletin",
-    "subscribeNewsDesc": "Dapatkan kabar terbaru tentang imigrasi",
-    "enterEmail": "Masukkan alamat email",
-    "subscribe": "Berlangganan"
+    "contact": "Hubungi Kami",
+    "subscribeNewsletter": "Berlangganan Buletin Kami",
+    "subscribeNewsDesc": "Tetap up-to-date dengan wawasan terbaru tentang relokasi global",
+    "enterEmail": "Masukkan email Anda",
+    "subscribe": "Berlangganan",
+    "copyright": "Semua konten di situs web ini dilindungi oleh hak cipta."
+  },
+  "toast": {
+    "thanksNewsletter": "Terima kasih telah berlangganan buletin kami!",
+    "linkCopied": "Tautan disalin ke clipboard!",
+    "linkCopyFailed": "Gagal menyalin tautan",
+    "newSessionStarted": "Sesi baru dimulai",
+    "newSessionFailed": "Gagal memulai sesi baru. Silakan coba lagi.",
+    "redirectToPayPage": "Mengarahkan ke halaman pembayaran...",
+    "activeSessionShare": "Anda memerlukan sesi aktif untuk berbagi",
+    "sessionDeleteFailed": "Gagal menghapus sesi. Silakan coba lagi.",
+    "sessionDeleteSuccess": "Sesi berhasil dihapus!",
+    "sessionRenameSuccess": "Sesi berhasil diganti namanya!",
+    "sessionRenameFailed": "Gagal mengganti nama sesi. Silakan coba lagi.",
+    "enterSessionName": "Masukkan nama baru untuk sesi ini:"
+  },
+  "formErrors": {
+    "invalidEmail": "Format email tidak valid",
+    "emailRequired": "Email wajib diisi",
+    "fullNameRequired": "Nama lengkap wajib diisi",
+    "enterFullName": "Silakan masukkan nama lengkap Anda",
+    "passwordRequired": "Kata sandi wajib diisi",
+    "minPassword": "Kata sandi harus minimal 8 karakter",
+    "passwordsMismatch": "Kata sandi tidak cocok",
+    "weakPassword": "Kata sandi terlalu lemah",
+    "selectCountry": "Silakan pilih negara",
+    "usernameRequired": "Nama pengguna wajib diisi",
+    "minUsername": "Nama pengguna harus minimal 3 karakter",
+    "cpasswordRequired": "Konfirmasi kata sandi wajib diisi"
   }
 }

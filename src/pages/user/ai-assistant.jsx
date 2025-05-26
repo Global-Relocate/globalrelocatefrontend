@@ -80,7 +80,7 @@ function AiAssistant() {
         setCurrentSession(newSession);
         await fetchAllSessions();
       } catch (error) {
-        toast.error("Failed to start a new session. Please try again.");
+        toast.error(t("toast.newSessionFailed"));
         setIsSending(false);
         return;
       }
@@ -143,15 +143,16 @@ function AiAssistant() {
   };
 
   const handleRenameSession = async () => {
-    const newName = prompt("Enter a new name for this session:");
+    const userInput = prompt(t("toast.enterSessionName")).trim();
+    const newName = userInput.replace(/[^a-zA-Z0-9\s]/g, '');
     if (newName && currentSession) {
       try {
         await renameChatSession(currentSession.id, newName);
 
         setCurrentSession({ ...currentSession, title: newName });
-        toast.success("Session renamed successfully!");
+        toast.success(t("toast.sessionRenameSuccess"));
       } catch (error) {
-        toast.error("Failed to rename the session. Please try again.");
+        toast.error(t("toast.sessionRenameFailed"));
       }
     }
   };
@@ -161,9 +162,9 @@ function AiAssistant() {
       try {
         await clearChatSession(currentSession.id);
         setCurrentSession(null);
-        toast.success("Session deleted successfully!");
+        toast.success(t("toast.sessionDeleteSuccess"));
       } catch {
-        toast.error("Failed to delete the session. Please try again.");
+        toast.error(t("toast.sessionDeleteFailed"));
       }
     }
   };
@@ -172,13 +173,13 @@ function AiAssistant() {
     try {
       await fetchSingleSession(sessionId);
     } catch {
-      toast.error("Failed to fetch the session. Please try again.");
+      toast.error(t("toast.newSessionFailed"));
     }
   };
 
   const handleShareSession = () => {
     if (!currentSession) {
-      toast.error("You need an active session to share");
+      toast.error(t("toast.activeSessionShare"));
       return;
     }
 
@@ -186,8 +187,8 @@ function AiAssistant() {
 
     navigator.clipboard
       .writeText(shareableLink)
-      .then(() => toast.success("Link copied to clipboard!"))
-      .catch(() => toast.error("Failed to copy link"));
+      .then(() => toast.success(t("toast.linkCopied")))
+      .catch(() => toast.error(t("toast.linkCopyFailed")));
   };
 
   return (

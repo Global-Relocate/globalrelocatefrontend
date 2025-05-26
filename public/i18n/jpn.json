@@ -5,16 +5,19 @@
       "countriesData": "国とデータ",
       "community": "コミュニティ",
       "tools": "ツール",
-      "pricing": "料金プラン",
+      "pricing": "価格",
       "viewProfile": "プロフィールを見る",
       "helpCenter": "ヘルプセンター",
       "giveFeedback": "フィードバックを送る",
       "privacyPolicy": "プライバシーポリシー",
-      "upgradePlan": "プランをアップグレード"
+      "upgradePlan": "プランをアップグレード",
+      "logIn": "ログイン",
+      "getStarted": "始める",
+      "logout": "ログアウト"
     },
     "showcase": {
-      "title": "賢く移住して、より良く生きよう。",
-      "para": "AIを活用した移住、法的支援、グローバルライフのためのワンストッププラットフォーム。",
+      "title": "賢く移住して、より良い生活を。",
+      "para": "AI搭載のプラットフォームで、スムーズな移住、法律ガイダンス、グローバルな生活を実現。",
       "buttonText": "始める"
     },
     "features": {
@@ -22,45 +25,82 @@
       "cards": {
         "card1": {
           "title": "国を比較",
-          "para": "生活費、税率、生活の質などの指標で国を比較し、情報に基づいた意思決定をしましょう。"
+          "para": "生活費、税率、生活の質などの主要な要素を比較して、賢明な決断を下しましょう。"
         },
         "card2": {
-          "title": "AIによるスマートなインサイト",
-          "para": "共通の関心を持つ世界中のノマドとフォーラムやグループでつながろう。"
+          "title": "AIでスマート情報",
+          "para": "志を同じくするノマドたちとフォーラムやグループで交流しましょう。"
         },
         "card3": {
           "title": "国とデータ",
-          "para": "共通の関心を持つ世界中のノマドとフォーラムやグループでつながろう。"
+          "para": "志を同じくするノマドたちとフォーラムやグループで交流しましょう。"
         }
       }
     },
     "countries": {
       "title": "人気の国々",
-      "para": "人気の移住先をチェックして、移住の計画を始めましょう"
+      "para": "人気の移住先を探索して、計画を始めましょう"
     },
     "whyChooseUs": {
-      "title": "私たちが選ばれる理由",
+      "title": "なぜ私たちを選ぶのか",
       "card1": {
-        "title": "AIデータで時間を節約",
-        "para": "常に最新で信頼できる情報をご提供。"
+        "title": "時間を節約するAI対応データ",
+        "para": "常に最新で信頼できる情報を提供します。"
       },
       "card2": {
-        "title": "信頼できるコンタクトと情報源",
-        "para": "コミュニティ主導のプラットフォームだから信頼性抜群。"
+        "title": "確認済みの連絡先と信頼できる情報源",
+        "para": "信頼性を保証するコミュニティベースのプラットフォーム。"
       },
       "card3": {
-        "title": "ワンストップソリューション",
-        "para": "ビザから生活費まで、すべてが一か所で手に入ります。"
+        "title": "オールインワンの解決策",
+        "para": "ビザから生活費まで、すべてが1か所に。"
       },
       "card4": {
         "title": "パーソナライズされた通知",
-        "para": "カスタマイズされた通知とお気に入り機能で常に最新情報をキャッチ。"
+        "para": "お気に入り機能とカスタム通知で一歩先へ。"
       }
     }
   },
+  "loginPage": {
+    "close": "閉じる",
+    "createAccount": "アカウントを作成",
+    "logIntoGR": "Global Relocate にログイン",
+    "password": "パスワード",
+    "enterPassword": "パスワードを入力",
+    "continueWithGoogle": "Googleで続ける",
+    "cantLogin": "ログインできませんか？",
+    "tosDesc": "アカウントを作成することで、以下に同意したことになります：",
+    "tos": "利用規約",
+    "privacyPolicy": "プライバシーポリシー",
+    "and": "および",
+    "or": "または",
+    "processing": "処理中...",
+    "continue": "続ける",
+    "hidePassword": "パスワードを非表示",
+    "showPassword": "パスワードを表示"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "アカウントを作成しましょう",
+    "chooseAccountType": "アカウントの種類を選択",
+    "createPersonalAccount": "個人アカウントを作成する",
+    "createCorporateAccount": "法人アカウントを作成する",
+    "continue": "続ける",
+    "chooseSignMethod": "サインアップ方法を選択",
+    "continueWithEmail": "メールで続ける",
+    "alreadyHaveAccount": "すでにアカウントをお持ちですか？",
+    "fullName": "氏名",
+    "chooseUsername": "ユーザー名を選択",
+    "enterYourFullName": "氏名を入力してください",
+    "confirmPassword": "パスワードを確認",
+    "country": "国"
+  },
+  "welcomePage": {
+    "welcomeAboard": "ようこそ",
+    "welcomeText": "AI搭載のプラットフォームで、スムーズな移住、法律ガイダンス、グローバルな生活を実現。"
+  },
   "userDashboard": {
     "sidebar": {
-      "countries": "国々",
+      "countries": "国",
       "aiAssistant": "AIアシスタント",
       "compareCountries": "国を比較",
       "taxCalculator": "税金計算機",
@@ -69,33 +109,33 @@
       "community": "コミュニティ",
       "cta": {
         "title": "Proを試す",
-        "para": "現在は3日間の無料プランをご利用中です。継続するにはアップグレードが必要です。",
+        "para": "現在、無料プランをご利用中です（3日間有効）。引き続きGlobal Relocateを利用するにはアップグレードしてください。",
         "buttonText": "詳細を見る"
       }
     },
     "countries": {
-      "title": "国々",
+      "title": "国",
       "noDataText": "利用可能なデータがありません！",
       "searchText": "国を検索"
     },
     "country": {
-      "countryIn": "国：",
+      "countryIn": "この国に関する情報",
       "addFavorite": "お気に入りに追加",
       "share": "共有",
       "overview": "概要",
       "map": "地図",
-      "keyFacts": "基本情報",
-      "visaMigration": "ビザと移住",
+      "keyFacts": "主要情報",
+      "visaMigration": "ビザと移民",
       "taxes": "税金",
       "flag": "国旗",
       "capital": "首都",
       "languages": "言語",
       "currency": "通貨",
       "population": "人口",
-      "dialingCode": "電話コード",
+      "dialingCode": "国番号",
       "back": "戻る",
-      "noOverview": "この国の概要情報はありません。",
-      "noVisaInfo": "この国のビザおよび移住情報は利用できません。"
+      "noOverview": "この国の概要情報は利用できません。",
+      "noVisaInfo": "ビザと移民情報は利用できません。"
     },
     "ai": {
       "rename": "名前を変更",
@@ -105,7 +145,7 @@
       "newChat": "新しいチャット",
       "askAI": "AIに何でも聞いてください...",
       "uploadDocument": "ドキュメントをアップロード",
-      "uploadDocumentDesc": "AIアシスタントによる分析のためにドキュメントをアップロードしてください",
+      "uploadDocumentDesc": "AIアシスタントで処理するドキュメントをアップロード",
       "cancel": "キャンセル",
       "upload": "アップロード"
     },
@@ -116,14 +156,14 @@
       "account": "アカウント",
       "preferences": "設定",
       "avatar": "アバター",
-      "fullName": "フルネーム",
+      "fullName": "氏名",
       "username": "ユーザー名",
       "bio": "自己紹介",
       "country": "国",
       "emailAddress": "メールアドレス",
       "verified": "認証済み",
       "subscription": "サブスクリプション",
-      "subscriptionDesc": "現在は3日間の無料プランをご利用中です。継続するにはアップグレードが必要です。",
+      "subscriptionDesc": "現在、無料プランをご利用中です（3日間有効）。アップグレードしてGlobal Relocateを引き続きご利用ください。",
       "deleteAccount": "アカウントを削除",
       "deleteDesc": "アカウントとデータを完全に削除します",
       "language": "言語",
@@ -133,20 +173,20 @@
       "saveChanges": "変更を保存",
       "cancel": "キャンセル",
       "saving": "保存中...",
-      "unsavedChanges": "未保存の変更があります",
+      "unsavedChanges": "保存されていない変更があります",
       "addName": "名前を追加",
-      "addBio": "自己紹介を追加して、自分自身を紹介しましょう。",
+      "addBio": "自己紹介を追加してください。",
       "addUsername": "ユーザー名を追加",
       "addLocation": "場所を追加",
       "confirmAccountDelete": "アカウント削除の確認",
-      "confirmAccountDeleteDesc": "アカウントを削除する前に、データがどうなるかをご確認ください：",
+      "confirmAccountDeleteDesc": "アカウントを削除する前に、データに関して何が起こるかをご確認ください：",
       "confirm": "確認",
-      "neverMind": "やめる",
-      "confirmDeleteWarning": "注意：アカウント削除は取り消せません。",
-      "confirmDeleteList1": "プロフィール、設定、プリファレンスは削除されます。",
-      "confirmDeleteList2": "アカウント削除後、すべてのデータは30日以内に完全削除されます。",
+      "neverMind": "やっぱりやめる",
+      "confirmDeleteWarning": "アカウントを削除すると元に戻せません。",
+      "confirmDeleteList1": "プロフィール情報、設定などが削除されます。",
+      "confirmDeleteList2": "アカウント削除後30日以内に全データが完全に削除されます。",
       "deleting": "削除中...",
-      "youHave": "現在の状態：",
+      "youHave": "あなたは：",
       "administrator": "管理者"
     },
     "continents": {
@@ -161,14 +201,14 @@
     },
     "tax": {
       "taxCalculator": "税金計算機",
-      "taxCacluatorDesc": "各国における税金の負担を計算します",
+      "taxCacluatorDesc": "国ごとの推定税負担を計算",
       "country": "国",
-      "annualIncome": "年間収入",
-      "userAccount": "ユーザータイプ",
+      "annualIncome": "年収",
+      "userAccount": "ユーザーアカウント",
       "totalDeductions": "控除合計",
       "selectCountry": "国を選択",
-      "selectAccount": "アカウント種別を選択",
-      "enterIncome": "年間収入を入力",
+      "selectAccount": "アカウントタイプを選択",
+      "enterIncome": "年収を入力",
       "enterDeductions": "控除額を入力",
       "calculateTax": "税金を計算",
       "individual": "個人",
@@ -176,12 +216,12 @@
       "taxSummary": "税金概要",
       "taxAmount": "税額",
       "effectiveRate": "実効税率",
-      "takeHomeAmount": "手取り金額"
+      "takeHomeAmount": "手取り額"
     },
     "upgradePage": {
       "back": "戻る",
       "upgradePlan": "プランをアップグレード",
-      "upgradePlanDesc": "移住を支援する最適なプランをお選びください。便利なツールと情報にアクセス可能です。",
+      "upgradePlanDesc": "あなたのグローバル移住をサポートする最適なプランを選びましょう。充実したツールとインサイトでスムーズな移住を実現。",
       "currentPlan": "現在のプラン",
       "getStarted": "始める",
       "free": "無料",
@@ -190,30 +230,30 @@
       "perMonth": "月額",
       "forEveryone": "すべての人に",
       "freePlan": {
-        "item1": "3日間のトライアルアクセス",
+        "item1": "3日間の試用アクセス",
         "item2": "基本的な国情報",
-        "item3": "読み取り専用のコミュニティアクセス",
-        "item4": "限定の税金計算ツール",
-        "item5": "基本的な比較機能"
+        "item3": "コミュニティへの閲覧専用アクセス",
+        "item4": "制限付き税金計算機",
+        "item5": "基本的なコスト比較"
       },
       "basicPlan": {
-        "item1": "詳細な国情報",
-        "item2": "コミュニティへの投稿と参加",
+        "item1": "完全な国情報",
+        "item2": "コミュニティ参加可能",
         "item3": "完全な税金計算機",
         "item4": "コスト比較ツール",
         "item5": "基本的な移住ガイド",
-        "item6": "Eメールサポート"
+        "item6": "メールサポート"
       },
       "premiumPlan": {
-        "item1": "ベーシックプランのすべての機能",
+        "item1": "ベーシックのすべての機能",
         "item2": "無制限の国データアクセス",
-        "item3": "フルコミュニティ機能",
-        "item4": "高度な税金計算機能",
+        "item3": "完全なコミュニティ参加",
+        "item4": "高度な税金計算機",
         "item5": "AI移住アシスタント",
-        "item6": "生活費データ",
+        "item6": "生活費のインサイト",
         "item7": "ビザ要件ガイド",
         "item8": "優先サポート",
-        "item9": "パーソナライズされた移住計画"
+        "item9": "カスタム移住ロードマップ"
       }
     }
   },
@@ -223,11 +263,43 @@
     }
   },
   "footer": {
+    "sitemap": "サイトマップ",
+    "company": "会社情報",
     "terms": "利用規約",
     "privacy": "プライバシー",
-    "subscribeNewsletter": "ニュースレターを購読する",
-    "subscribeNewsDesc": "最新の移住ニュースをお届けします",
+    "contact": "お問い合わせ",
+    "subscribeNewsletter": "ニュースレターに登録する",
+    "subscribeNewsDesc": "グローバル移住に関する最新情報を受け取ろう",
     "enterEmail": "メールアドレスを入力",
-    "subscribe": "購読する"
+    "subscribe": "登録する",
+    "copyright": "本ウェブサイト上のすべてのコンテンツは著作権によって保護されています。"
+  },
+  "toast": {
+    "thanksNewsletter": "ニュースレターのご購読ありがとうございます！",
+    "linkCopied": "リンクをクリップボードにコピーしました！",
+    "linkCopyFailed": "リンクのコピーに失敗しました",
+    "newSessionStarted": "新しいセッションが開始されました",
+    "newSessionFailed": "新しいセッションを開始できませんでした。もう一度お試しください。",
+    "redirectToPayPage": "支払いページへリダイレクト中...",
+    "activeSessionShare": "共有するにはアクティブなセッションが必要です",
+    "sessionDeleteFailed": "セッションの削除に失敗しました。もう一度お試しください。",
+    "sessionDeleteSuccess": "セッションを削除しました！",
+    "sessionRenameSuccess": "セッション名を変更しました！",
+    "sessionRenameFailed": "セッション名の変更に失敗しました。もう一度お試しください。",
+    "enterSessionName": "このセッションの新しい名前を入力してください："
+  },
+  "formErrors": {
+    "invalidEmail": "無効なメール形式です",
+    "emailRequired": "メールアドレスは必須です",
+    "fullNameRequired": "氏名は必須です",
+    "enterFullName": "氏名を入力してください",
+    "passwordRequired": "パスワードは必須です",
+    "minPassword": "パスワードは8文字以上である必要があります",
+    "passwordsMismatch": "パスワードが一致しません",
+    "weakPassword": "パスワードが弱すぎます",
+    "selectCountry": "国を選択してください",
+    "usernameRequired": "ユーザー名は必須です",
+    "minUsername": "ユーザー名は3文字以上である必要があります",
+    "cpasswordRequired": "確認用パスワードは必須です"
   }
 }

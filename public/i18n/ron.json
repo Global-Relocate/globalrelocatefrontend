@@ -4,108 +4,148 @@
       "home": "Acasă",
       "countriesData": "Țări și date",
       "community": "Comunitate",
-      "tools": "Unelte",
+      "tools": "Instrumente",
       "pricing": "Prețuri",
-      "viewProfile": "Vezi profilul",
+      "viewProfile": "Vizualizează profilul",
       "helpCenter": "Centru de ajutor",
-      "giveFeedback": "Trimite feedback",
+      "giveFeedback": "Oferă-ne feedback",
       "privacyPolicy": "Politica de confidențialitate",
-      "upgradePlan": "Actualizează planul"
+      "upgradePlan": "Upgrade plan",
+      "logIn": "Autentificare",
+      "getStarted": "Începe",
+      "logout": "Deconectare"
     },
     "showcase": {
-      "title": "O viață mai bună prin imigrație inteligentă",
-      "para": "Platformă AI pentru imigrație globală, asistență legală și stil de viață",
-      "buttonText": "Începe acum"
+      "title": "Mută-te mai inteligent, trăiește mai bine.",
+      "para": "Platforma ta bazată pe inteligență artificială pentru o relocare fără probleme, ghidare juridică și viață globală.",
+      "buttonText": "Începe"
     },
     "features": {
-      "title": "Caracteristici",
+      "title": "Funcții",
       "cards": {
         "card1": {
           "title": "Compară țări",
-          "para": "Compară costurile de trai, taxele și calitatea vieții pentru o alegere mai bună"
+          "para": "Ia decizii informate comparând diverse țări una lângă alta, analizând factori cheie precum costul vieții, ratele de impozitare și calitatea vieții."
         },
         "card2": {
-          "title": "Analiză inteligentă",
-          "para": "Conectează-te cu parteneri digitali pe forumuri și grupuri de imigrare"
+          "title": "Informații inteligente cu AI",
+          "para": "Alătură-te forumurilor și grupurilor cu nomazi digitali globali asemănători."
         },
         "card3": {
-          "title": "Informații despre țări",
-          "para": "Obține date actualizate despre țări pentru planificare mai bună"
+          "title": "Țări și date",
+          "para": "Alătură-te forumurilor și grupurilor cu nomazi digitali globali asemănători."
         }
       }
     },
     "countries": {
       "title": "Țări populare",
-      "para": "Explorează cele mai căutate țări pentru imigrare"
+      "para": "Explorează destinații populare și începe să-ți planifici mutarea"
     },
     "whyChooseUs": {
       "title": "De ce să ne alegi pe noi",
       "card1": {
-        "title": "AI economisește timp",
-        "para": "Informații mereu actualizate și de încredere"
+        "title": "Date asistate de AI care economisesc timp",
+        "para": "Întotdeauna informații actualizate și fiabile."
       },
       "card2": {
-        "title": "Comunități de încredere",
-        "para": "Platformă construită pe încredere"
+        "title": "Contacte verificate și surse de încredere:",
+        "para": "O platformă bazată pe comunitate care garantează credibilitatea."
       },
       "card3": {
-        "title": "Soluție completă",
-        "para": "De la vize la costul vieții – totul într-un singur loc"
+        "title": "Soluție all-in-one",
+        "para": "Totul, de la vize la costul vieții, într-un singur loc."
       },
       "card4": {
         "title": "Alerte personalizate",
-        "para": "Primește notificări relevante pentru tine"
+        "para": "Fii cu un pas înainte cu notificări personalizate și o funcție de favorite."
       }
     }
+  },
+  "loginPage": {
+    "close": "Închide",
+    "createAccount": "Creează cont",
+    "logIntoGR": "Autentifică-te în Global Relocate",
+    "password": "Parolă",
+    "enterPassword": "Introdu parola ta",
+    "continueWithGoogle": "Continuă cu Google",
+    "cantLogin": "Nu poți să te autentifici?",
+    "tosDesc": "Făcând clic pe creează cont, ești de acord cu ",
+    "tos": "Termenii și condițiile noastre",
+    "privacyPolicy": "Politica de confidențialitate",
+    "and": "și",
+    "or": "SAU",
+    "processing": "Procesare...",
+    "continue": "Continuă",
+    "hidePassword": "Ascunde parola",
+    "showPassword": "Arată parola"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Să-ți creăm contul",
+    "chooseAccountType": "Alege un tip de cont",
+    "createPersonalAccount": "Creez un cont personal",
+    "createCorporateAccount": "Creez un cont corporativ",
+    "continue": "Continuă",
+    "chooseSignMethod": "Alege metoda de înregistrare",
+    "continueWithEmail": "Continuă cu e-mailul",
+    "alreadyHaveAccount": "Ai deja un cont?",
+    "fullName": "Nume complet",
+    "chooseUsername": "Alege un nume de utilizator",
+    "enterYourFullName": "Introdu numele tău complet",
+    "confirmPassword": "Confirmă parola",
+    "country": "Țară"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Bun venit la bord",
+    "welcomeText": "Platforma ta bazată pe inteligență artificială pentru o relocare fără probleme, ghidare juridică și viață globală."
   },
   "userDashboard": {
     "sidebar": {
       "countries": "Țări",
       "aiAssistant": "Asistent AI",
       "compareCountries": "Compară țări",
-      "taxCalculator": "Calculator taxe",
+      "taxCalculator": "Calculator de taxe",
       "notifications": "Notificări",
       "favourites": "Favorite",
       "community": "Comunitate",
       "cta": {
-        "title": "Încearcă planul Pro",
-        "para": "În prezent folosești o perioadă de probă gratuită de 3 zile. Treci la Pro pentru a continua.",
+        "title": "Încearcă Pro",
+        "para": "Ești în prezent pe planul gratuit, valabil 3 zile. Actualizează acum pentru a continua să folosești Global Relocate.",
         "buttonText": "Află mai multe"
       }
     },
     "countries": {
       "title": "Țări",
-      "noDataText": "Fără date!",
-      "searchText": "Caută o țară"
+      "noDataText": "Nu există date disponibile!",
+      "searchText": "Căută țări"
     },
     "country": {
-      "countryIn": "Țară:",
+      "countryIn": "Țară în",
       "addFavorite": "Adaugă la favorite",
-      "share": "Distribuie",
+      "share": "Partajează",
       "overview": "Prezentare generală",
       "map": "Hartă",
-      "keyFacts": "Informații cheie",
-      "visaMigration": "Viză și imigrație",
-      "taxes": "Taxe",
+      "keyFacts": "Fapte cheie",
+      "visaMigration": "Viză și migrație",
+      "taxes": "Impozite",
       "flag": "Steag",
       "capital": "Capitală",
       "languages": "Limbi",
       "currency": "Monedă",
       "population": "Populație",
-      "dialingCode": "Prefix telefonic",
+      "dialingCode": "Cod de apelare",
       "back": "Înapoi",
-      "noOverview": "Nu există prezentare generală disponibilă pentru această țară",
-      "noVisaInfo": "Nu există informații despre viză și imigrație pentru această țară"
+      "noOverview": "Nicio prezentare generală disponibilă pentru această țară.",
+      "noVisaInfo": "Nicio informație despre viză și imigrație disponibilă."
     },
     "ai": {
       "rename": "Redenumește",
       "deleteConversation": "Șterge conversația",
-      "share": "Distribuie",
+      "share": "Partajează",
       "hello": "Salut",
       "newChat": "Chat nou",
-      "askAI": "Întreabă AI...",
+      "askAI": "Întreabă AI orice...",
       "uploadDocument": "Încarcă document",
-      "uploadDocumentDesc": "Încarcă un document pentru analiză de către asistentul AI",
+      "uploadDocumentDesc": "Încarcă un document pentru a procesa cu asistentul AI",
       "cancel": "Anulează",
       "upload": "Încarcă"
     },
@@ -123,30 +163,30 @@
       "emailAddress": "Adresă de e-mail",
       "verified": "Verificat",
       "subscription": "Abonament",
-      "subscriptionDesc": "Folosești în prezent o perioadă de probă gratuită de 3 zile. Treci la Pro pentru a continua.",
+      "subscriptionDesc": "Ești în prezent pe planul gratuit, valabil 3 zile. Actualizează acum pentru a continua să folosești Global Relocate.",
       "deleteAccount": "Șterge contul",
-      "deleteDesc": "Șterge temporar contul și datele",
+      "deleteDesc": "Șterge definitiv contul și datele tale",
       "language": "Limbă",
-      "chooseLanguage": "Alege limba",
+      "chooseLanguage": "Alege o limbă",
       "selectLanguage": "Selectează limba",
       "learnMore": "Află mai multe",
       "saveChanges": "Salvează modificările",
       "cancel": "Anulează",
       "saving": "Se salvează...",
-      "unsavedChanges": "Nicio modificare nesalvată",
-      "addName": "Adaugă un nume",
-      "addBio": "Adaugă o descriere",
+      "unsavedChanges": "Ai modificări nesalvate",
+      "addName": "Adaugă nume",
+      "addBio": "Adaugă o biografie pentru a-ți spune povestea.",
       "addUsername": "Adaugă nume utilizator",
       "addLocation": "Adaugă locație",
       "confirmAccountDelete": "Confirmă ștergerea contului",
-      "confirmAccountDeleteDesc": "Confirmă că dorești să-ți ștergi contul:",
+      "confirmAccountDeleteDesc": "Înainte de a-ți șterge contul, te rugăm să acorzi un moment pentru a înțelege ce se va întâmpla cu datele tale:",
       "confirm": "Confirmă",
-      "neverMind": "Renunță",
-      "confirmDeleteWarning": "Avertisment: contul nu poate fi recuperat după ștergere",
-      "confirmDeleteList1": "Informațiile de profil, setările și preferințele vor fi șterse",
-      "confirmDeleteList2": "Datele tale vor fi șterse în termen de 30 de zile",
+      "neverMind": "Nu contează",
+      "confirmDeleteWarning": "Rețineți că ștergerea contului nu poate fi anulată.",
+      "confirmDeleteList1": "Detaliile profilului tău, preferințele și setările vor fi eliminate.",
+      "confirmDeleteList2": "Toate datele vor fi șterse permanent în 30 de zile de la ștergerea contului.",
       "deleting": "Se șterge...",
-      "youHave": "Ai în prezent rolul:",
+      "youHave": "Ai:",
       "administrator": "Administrator"
     },
     "continents": {
@@ -160,74 +200,106 @@
       "oceania": "Oceania"
     },
     "tax": {
-      "taxCalculator": "Calculator taxe",
-      "taxCacluatorDesc": "Calculează taxele pentru diverse țări",
+      "taxCalculator": "Calculator de taxe",
+      "taxCacluatorDesc": "Calculează-ți sarcina fiscală estimată în diferite țări",
       "country": "Țară",
       "annualIncome": "Venit anual",
-      "userAccount": "Tip cont",
+      "userAccount": "Cont utilizator",
       "totalDeductions": "Deduceri totale",
-      "selectCountry": "Selectează țara",
-      "selectAccount": "Selectează tipul contului",
-      "enterIncome": "Introdu venit anual",
-      "enterDeductions": "Introdu deducerile",
+      "selectCountry": "Selectează-ți țara",
+      "selectAccount": "Selectează tipul de cont",
+      "enterIncome": "Introdu venitul tău anual",
+      "enterDeductions": "Introdu deducerile totale",
       "calculateTax": "Calculează taxa",
       "individual": "Individual",
-      "corporate": "Corporate",
-      "taxSummary": "Sumar taxe",
+      "corporate": "Corporativ",
+      "taxSummary": "Rezumat taxe",
       "taxAmount": "Suma taxei",
       "effectiveRate": "Rată efectivă",
-      "takeHomeAmount": "Venit net"
+      "takeHomeAmount": "Sumă netă"
     },
     "upgradePage": {
       "back": "Înapoi",
-      "upgradePlan": "Actualizează planul",
-      "upgradePlanDesc": "Alege planul de imigrare potrivit pentru a accesa uneltele",
-      "currentPlan": "Planul actual",
+      "upgradePlan": "Actualizează-ți planul",
+      "upgradePlanDesc": "Alege planul perfect pentru a-ți susține călătoria de relocare globală. Obține acces la instrumente și informații complete pentru a-ți face mutarea fără probleme.",
+      "currentPlan": "Planul tău actual",
       "getStarted": "Începe",
       "free": "Gratuit",
       "basic": "De bază",
       "premium": "Premium",
-      "perMonth": "Pe lună",
+      "perMonth": "pe lună",
       "forEveryone": "Pentru toată lumea",
       "freePlan": {
-        "item1": "Perioadă de probă gratuită de 3 zile",
-        "item2": "Informații de bază despre țări",
-        "item3": "Acces doar pentru citire pe forum",
-        "item4": "Calculator taxe limitat",
-        "item5": "Unelte de bază pentru comparații"
+        "item1": "Acces de probă de 3 zile",
+        "item2": "Informații de bază despre țară",
+        "item3": "Acces la comunitate (doar citire)",
+        "item4": "Calculator de taxe limitat",
+        "item5": "Comparație de costuri de bază"
       },
       "basicPlan": {
-        "item1": "Informații extinse despre țări",
-        "item2": "Postează și comentează pe forum",
-        "item3": "Calculator taxe complet",
-        "item4": "Unelte pentru compararea costurilor",
-        "item5": "Asistență imigrări de bază",
+        "item1": "Informații complete despre țară",
+        "item2": "Participare la comunitate",
+        "item3": "Calculator de taxe complet",
+        "item4": "Instrumente de comparare a costurilor",
+        "item5": "Ghiduri de bază pentru relocare",
         "item6": "Suport prin e-mail"
       },
       "premiumPlan": {
-        "item1": "Toate funcțiile planului de bază",
-        "item2": "Acces complet la informații despre țări",
-        "item3": "Acces complet la comunitate",
-        "item4": "Unelte fiscale avansate",
-        "item5": "Consultant imigrări inteligent",
-        "item6": "Informații despre costuri",
-        "item7": "Asistență pentru aplicații de viză",
-        "item8": "Alerte în avans",
-        "item9": "Pachete personalizate de imigrare"
+        "item1": "Toate caracteristicile de bază",
+        "item2": "Acces nelimitat la datele țării",
+        "item3": "Participare completă la comunitate",
+        "item4": "Calculator de taxe avansat",
+        "item5": "Asistent AI pentru relocare",
+        "item6": "Informații despre costul vieții",
+        "item7": "Ghiduri privind cerințele de viză",
+        "item8": "Suport prioritar",
+        "item9": "Foaie de parcurs personalizată pentru relocare"
       }
     }
   },
   "drawers": {
     "selectLanguages": {
-      "confirm": "Confirmă limba selectată"
+      "confirm": "Confirmă modificările"
     }
   },
   "footer": {
-    "terms": "Termeni de utilizare",
+    "sitemap": "Hartă site",
+    "company": "Companie",
+    "terms": "Termeni",
     "privacy": "Confidențialitate",
-    "subscribeNewsletter": "Abonează-te la newsletter",
-    "subscribeNewsDesc": "Primește cele mai noi actualizări despre imigrare",
-    "enterEmail": "Introdu adresa de e-mail",
-    "subscribe": "Abonează-te"
+    "contact": "Contactează-ne",
+    "subscribeNewsletter": "Abonează-te la newsletter-ul nostru",
+    "subscribeNewsDesc": "Fii la curent cu cele mai recente informații despre relocarea globală",
+    "enterEmail": "Introdu adresa ta de e-mail",
+    "subscribe": "Abonează-te",
+    "copyright": "Tot conținutul de pe acest site este protejat prin drepturi de autor."
+  },
+  "toast": {
+    "thanksNewsletter": "Mulțumim pentru abonarea la newsletter-ul nostru!",
+    "linkCopied": "Link copiat în clipboard!",
+    "linkCopyFailed": "Copierea linkului a eșuat",
+    "newSessionStarted": "Sesiune nouă începută",
+    "newSessionFailed": "Nu s-a putut începe o sesiune nouă. Te rugăm să încerci din nou.",
+    "redirectToPayPage": "Se redirecționează către pagina de plată...",
+    "activeSessionShare": "Ai nevoie de o sesiune activă pentru a partaja",
+    "sessionDeleteFailed": "Ștergerea sesiunii a eșuat. Te rugăm să încerci din nou.",
+    "sessionDeleteSuccess": "Sesiune ștearsă cu succes!",
+    "sessionRenameSuccess": "Sesiune redenumită cu succes!",
+    "sessionRenameFailed": "Redenumirea sesiunii a eșuat. Te rugăm să încerci din nou.",
+    "enterSessionName": "Introdu un nume nou pentru această sesiune:"
+  },
+  "formErrors": {
+    "invalidEmail": "Format e-mail invalid",
+    "emailRequired": "E-mailul este obligatoriu",
+    "fullNameRequired": "Numele complet este obligatoriu",
+    "enterFullName": "Te rugăm să introduci numele tău complet",
+    "passwordRequired": "Parola este obligatorie",
+    "minPassword": "Parola trebuie să aibă cel puțin 8 caractere",
+    "passwordsMismatch": "Parolele nu se potrivesc",
+    "weakPassword": "Parola este prea slabă",
+    "selectCountry": "Te rugăm să selectezi o țară",
+    "usernameRequired": "Numele de utilizator este obligatoriu",
+    "minUsername": "Numele de utilizator trebuie să aibă cel puțin 3 caractere",
+    "cpasswordRequired": "Confirmarea parolei este obligatorie"
   }
 }

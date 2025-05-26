@@ -2,110 +2,150 @@
   "landingPage": {
     "navbar": {
       "home": "Hjem",
-      "countriesData": "Land & Data",
+      "countriesData": "Land og data",
       "community": "Fellesskap",
       "tools": "Verktøy",
       "pricing": "Priser",
-      "viewProfile": "Se profil",
+      "viewProfile": "Vis profil",
       "helpCenter": "Hjelpesenter",
-      "giveFeedback": "Gi tilbakemelding",
-      "privacyPolicy": "Personvernpolicy",
-      "upgradePlan": "Oppgrader plan"
+      "giveFeedback": "Gi oss tilbakemelding",
+      "privacyPolicy": "Personvernregler",
+      "upgradePlan": "Oppgrader plan",
+      "logIn": "Logg inn",
+      "getStarted": "Kom i gang",
+      "logout": "Logg ut"
     },
     "showcase": {
-      "title": "Bedre liv med smart innvandring",
-      "para": "Plattform for global innvandring, rettshjelp og livsstil med kunstig intelligens",
-      "buttonText": "Kom i gang nå"
+      "title": "Flytt smartere, lev bedre.",
+      "para": "Din AI-drevne plattform for sømløs flytting, juridisk veiledning og globalt liv.",
+      "buttonText": "Kom i gang"
     },
     "features": {
       "title": "Funksjoner",
       "cards": {
         "card1": {
           "title": "Sammenlign land",
-          "para": "Sammenlign levekostnader, skatter og livskvalitet for bedre beslutninger"
+          "para": "Ta informerte beslutninger ved å sammenligne ulike land side om side, analysere nøkkelfaktorer som levekostnader, skattesatser og livskvalitet."
         },
         "card2": {
-          "title": "Smart analyse",
-          "para": "Koble digitale partnere i innvandringsfora og grupper"
+          "title": "Smarte innsikter med AI",
+          "para": "Bli med i forum og grupper med likesinnede globale nomader."
         },
         "card3": {
-          "title": "Landinformasjon",
-          "para": "Få oppdatert informasjon om land for bedre planlegging"
+          "title": "Land og data",
+          "para": "Bli med i forum og grupper med likesinnede globale nomader."
         }
       }
     },
     "countries": {
       "title": "Populære land",
-      "para": "Utforsk landene med flest innvandrere og start reisen din"
+      "para": "Utforsk populære destinasjoner og begynn å planlegge flyttingen din"
     },
     "whyChooseUs": {
       "title": "Hvorfor velge oss",
       "card1": {
-        "title": "AI sparer tid",
-        "para": "Alltid oppdatert og pålitelig informasjon"
+        "title": "Tidsbesparende AI-støttet data",
+        "para": "Alltid oppdatert og pålitelig informasjon."
       },
       "card2": {
-        "title": "Pålitelige fellesskap",
-        "para": "En plattform bygget på tillit"
+        "title": "Verifiserte kontakter og pålitelige kilder:",
+        "para": "En fellesskapsdrevet plattform som garanterer troverdighet."
       },
       "card3": {
-        "title": "Alt i ett løsning",
-        "para": "Fra visumsøknader til levekostnader – alt på ett sted"
+        "title": "Alt-i-ett-løsning",
+        "para": "Alt fra visum til levekostnader på ett sted."
       },
       "card4": {
-        "title": "Personlige varsler",
-        "para": "Få oppdateringer som passer din interesse"
+        "title": "Personaliserte varsler",
+        "para": "Hold deg i forkant med tilpassede varsler og en favorittfunksjon."
       }
     }
+  },
+  "loginPage": {
+    "close": "Lukk",
+    "createAccount": "Opprett konto",
+    "logIntoGR": "Logg inn på Global Relocate",
+    "password": "Passord",
+    "enterPassword": "Skriv inn passordet ditt",
+    "continueWithGoogle": "Fortsett med Google",
+    "cantLogin": "Kan ikke logge inn?",
+    "tosDesc": "Ved å klikke på opprett konto godtar du våre ",
+    "tos": "Vilkår for bruk",
+    "privacyPolicy": "Personvernregler",
+    "and": "og",
+    "or": "ELLER",
+    "processing": "Behandler...",
+    "continue": "Fortsett",
+    "hidePassword": "Skjul passord",
+    "showPassword": "Vis passord"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "La oss opprette kontoen din",
+    "chooseAccountType": "Velg en kontotype",
+    "createPersonalAccount": "Jeg oppretter en personlig konto",
+    "createCorporateAccount": "Jeg oppretter en bedriftskonto",
+    "continue": "Fortsett",
+    "chooseSignMethod": "Velg registreringsmetode",
+    "continueWithEmail": "Fortsett med e-post",
+    "alreadyHaveAccount": "Har du allerede en konto?",
+    "fullName": "Fullt navn",
+    "chooseUsername": "Velg et brukernavn",
+    "enterYourFullName": "Skriv inn ditt fulle navn",
+    "confirmPassword": "Bekreft passord",
+    "country": "Land"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Velkommen om bord",
+    "welcomeText": "Din AI-drevne plattform for sømløs flytting, juridisk veiledning og globalt liv."
   },
   "userDashboard": {
     "sidebar": {
       "countries": "Land",
       "aiAssistant": "AI-assistent",
       "compareCountries": "Sammenlign land",
-      "taxCalculator": "Skatteberegner",
+      "taxCalculator": "Skattekalkulator",
       "notifications": "Varsler",
       "favourites": "Favoritter",
       "community": "Fellesskap",
       "cta": {
-        "title": "Prøv Pro-planen",
-        "para": "Du er for øyeblikket på en gratis 3-dagers prøveperiode. Oppgrader for å fortsette.",
-        "buttonText": "Les mer"
+        "title": "Prøv Pro",
+        "para": "Du er for øyeblikket på gratisplanen, gyldig i 3 dager. Oppgrader nå for å fortsette å bruke Global Relocate.",
+        "buttonText": "Lær mer"
       }
     },
     "countries": {
       "title": "Land",
       "noDataText": "Ingen data!",
-      "searchText": "Søk etter land"
+      "searchText": "Søk land"
     },
     "country": {
-      "countryIn": "Land:",
-      "addFavorite": "Legg til som favoritt",
+      "countryIn": "Land i",
+      "addFavorite": "Legg til i favoritter",
       "share": "Del",
       "overview": "Oversikt",
       "map": "Kart",
       "keyFacts": "Nøkkelfakta",
-      "visaMigration": "Visum & Innvandring",
+      "visaMigration": "Visum og migrasjon",
       "taxes": "Skatter",
       "flag": "Flagg",
       "capital": "Hovedstad",
       "languages": "Språk",
       "currency": "Valuta",
       "population": "Befolkning",
-      "dialingCode": "Ringekode",
+      "dialingCode": "Retningsnummer",
       "back": "Tilbake",
-      "noOverview": "Ingen oversikt tilgjengelig for dette landet",
-      "noVisaInfo": "Ingen visum- og innvandringsinformasjon tilgjengelig for dette landet"
+      "noOverview": "Ingen oversikt tilgjengelig for dette landet.",
+      "noVisaInfo": "Ingen visum- og migrasjonsinformasjon tilgjengelig."
     },
     "ai": {
       "rename": "Gi nytt navn",
       "deleteConversation": "Slett samtale",
       "share": "Del",
       "hello": "Hei",
-      "newChat": "Ny samtale",
-      "askAI": "Spør AI...",
+      "newChat": "Ny chat",
+      "askAI": "Spør AI hva som helst...",
       "uploadDocument": "Last opp dokument",
-      "uploadDocumentDesc": "Last opp dokument for analyse med AI-assistenten",
+      "uploadDocumentDesc": "Last opp et dokument for å behandle med AI-assistenten",
       "cancel": "Avbryt",
       "upload": "Last opp"
     },
@@ -114,7 +154,7 @@
       "editProfile": "Rediger profil",
       "profile": "Profil",
       "account": "Konto",
-      "preferences": "Innstillinger",
+      "preferences": "Preferanser",
       "avatar": "Avatar",
       "fullName": "Fullt navn",
       "username": "Brukernavn",
@@ -123,30 +163,30 @@
       "emailAddress": "E-postadresse",
       "verified": "Verifisert",
       "subscription": "Abonnement",
-      "subscriptionDesc": "Du er for øyeblikket på en gratis 3-dagers prøveperiode. Oppgrader for å fortsette.",
+      "subscriptionDesc": "Du er for øyeblikket på gratisplanen, gyldig i 3 dager. Oppgrader nå for å fortsette å bruke Global Relocate.",
       "deleteAccount": "Slett konto",
-      "deleteDesc": "Slett konto og data midlertidig",
+      "deleteDesc": "Slett kontoen din og data permanent",
       "language": "Språk",
-      "chooseLanguage": "Velg språk",
+      "chooseLanguage": "Velg et språk",
       "selectLanguage": "Velg språk",
-      "learnMore": "Les mer",
+      "learnMore": "Lær mer",
       "saveChanges": "Lagre endringer",
       "cancel": "Avbryt",
       "saving": "Lagrer...",
-      "unsavedChanges": "Ingen lagrede endringer",
+      "unsavedChanges": "Du har ulagrede endringer",
       "addName": "Legg til navn",
-      "addBio": "Legg til bio",
+      "addBio": "Legg til en biografi for å fortelle historien din.",
       "addUsername": "Legg til brukernavn",
       "addLocation": "Legg til plassering",
-      "confirmAccountDelete": "Bekreft kontosletting",
-      "confirmAccountDeleteDesc": "Bekreft at du vil slette kontoen din:",
+      "confirmAccountDelete": "Bekreft sletting av konto",
+      "confirmAccountDeleteDesc": "Før du sletter kontoen din, vennligst ta deg tid til å forstå hva som vil skje med dataene dine:",
       "confirm": "Bekreft",
-      "neverMind": "Ingen ting",
-      "confirmDeleteWarning": "Advarsel: Kontoen kan ikke gjenopprettes etter sletting",
-      "confirmDeleteList1": "Profilinformasjon, innstillinger og preferanser vil bli slettet",
-      "confirmDeleteList2": "Dataene dine vil bli slettet innen 30 dager",
+      "neverMind": "Aldri tankene",
+      "confirmDeleteWarning": "Vær oppmerksom på at sletting av kontoen din ikke kan angres.",
+      "confirmDeleteList1": "Dine profildetaljer, preferanser og innstillinger vil bli fjernet.",
+      "confirmDeleteList2": "Alle data vil bli permanent slettet 30 dager etter at kontoen er slettet.",
       "deleting": "Sletter...",
-      "youHave": "Du har for øyeblikket rollen:",
+      "youHave": "Du har:",
       "administrator": "Administrator"
     },
     "continents": {
@@ -160,74 +200,106 @@
       "oceania": "Oseania"
     },
     "tax": {
-      "taxCalculator": "Skatteberegner",
-      "taxCacluatorDesc": "Beregn skatter for forskjellige land",
+      "taxCalculator": "Skattekalkulator",
+      "taxCacluatorDesc": "Beregn din estimerte skattebyrde i forskjellige land",
       "country": "Land",
-      "annualIncome": "Årsinntekt",
-      "userAccount": "Kontotype",
+      "annualIncome": "Årlig inntekt",
+      "userAccount": "Brukerkonto",
       "totalDeductions": "Totale fradrag",
-      "selectCountry": "Velg land",
+      "selectCountry": "Velg ditt land",
       "selectAccount": "Velg kontotype",
-      "enterIncome": "Skriv inn årsinntekt",
-      "enterDeductions": "Skriv inn fradrag",
+      "enterIncome": "Skriv inn din årlige inntekt",
+      "enterDeductions": "Skriv inn totale fradrag",
       "calculateTax": "Beregn skatt",
       "individual": "Individuell",
       "corporate": "Bedrift",
       "taxSummary": "Skatteoversikt",
       "taxAmount": "Skattebeløp",
-      "effectiveRate": "Effektiv skattesats",
-      "takeHomeAmount": "Nettoinntekt"
+      "effectiveRate": "Effektiv sats",
+      "takeHomeAmount": "Netto beløp"
     },
     "upgradePage": {
       "back": "Tilbake",
-      "upgradePlan": "Oppgrader plan",
-      "upgradePlanDesc": "Velg innvandringsplanen som passer best for deg for å få tilgang til verktøyene",
-      "currentPlan": "Nåværende plan",
+      "upgradePlan": "Oppgrader planen din",
+      "upgradePlanDesc": "Velg den perfekte planen for å støtte din globale flyttereise. Få tilgang til omfattende verktøy og innsikt for å gjøre flyttingen din sømløs.",
+      "currentPlan": "Din nåværende plan",
       "getStarted": "Kom i gang",
       "free": "Gratis",
       "basic": "Grunnleggende",
       "premium": "Premium",
-      "perMonth": "Per måned",
+      "perMonth": "per måned",
       "forEveryone": "For alle",
       "freePlan": {
-        "item1": "3-dagers gratis prøveperiode",
+        "item1": "3 dagers prøvetilgang",
         "item2": "Grunnleggende landinformasjon",
-        "item3": "Kun lese-tilgang til forum",
-        "item4": "Begrenset skatteberegner",
-        "item5": "Grunnleggende sammenligningsverktøy"
+        "item3": "Fellesskapstilgang (kun lesing)",
+        "item4": "Begrenset skattekalkulator",
+        "item5": "Grunnleggende kostnadssammenligning"
       },
       "basicPlan": {
-        "item1": "Utvidet landinformasjon",
-        "item2": "Lag innlegg og kommenter på forum",
-        "item3": "Full skatteberegner",
+        "item1": "Full landinformasjon",
+        "item2": "Fellesskapsdeltakelse",
+        "item3": "Full skattekalkulator",
         "item4": "Kostnadssammenligningsverktøy",
-        "item5": "Grunnleggende innvandringsstøtte",
+        "item5": "Grunnleggende flytteguider",
         "item6": "E-poststøtte"
       },
       "premiumPlan": {
-        "item1": "Alle funksjonene fra Grunnleggende plan",
-        "item2": "Full tilgang til landinformasjon",
-        "item3": "Full tilgang til fellesskap",
-        "item4": "Utvidede skatteverktøy",
-        "item5": "Smart innvandringsrådgiver",
-        "item6": "Kostnadsinformasjon",
-        "item7": "Visumsøknadsstøtte",
-        "item8": "Forhåndsvarsler",
-        "item9": "Personlige innvandringspakker"
+        "item1": "Alle grunnleggende funksjoner",
+        "item2": "Ubegrenset tilgang til landdata",
+        "item3": "Full fellesskapsdeltakelse",
+        "item4": "Avansert skattekalkulator",
+        "item5": "AI-flytteassistent",
+        "item6": "Innsikt i levekostnader",
+        "item7": "Veiledninger for visumkrav",
+        "item8": "Prioritert støtte",
+        "item9": "Personlig flytteveikart"
       }
     }
   },
   "drawers": {
     "selectLanguages": {
-      "confirm": "Bekreft språkvalg"
+      "confirm": "Bekreft endringer"
     }
   },
   "footer": {
-    "terms": "Vilkår for bruk",
+    "sitemap": "Nettstedskart",
+    "company": "Selskap",
+    "terms": "Vilkår",
     "privacy": "Personvern",
-    "subscribeNewsletter": "Abonner på nyhetsbrev",
-    "subscribeNewsDesc": "Få de nyeste oppdateringene om innvandring",
+    "contact": "Kontakt oss",
+    "subscribeNewsletter": "Abonner på vårt nyhetsbrev",
+    "subscribeNewsDesc": "Hold deg oppdatert med den nyeste innsikten om global flytting",
     "enterEmail": "Skriv inn e-postadressen din",
-    "subscribe": "Abonner"
+    "subscribe": "Abonner",
+    "copyright": "Alt innhold på denne nettsiden er opphavsrettslig beskyttet."
+  },
+  "toast": {
+    "thanksNewsletter": "Takk for at du abonnerte på nyhetsbrevet vårt!",
+    "linkCopied": "Lenke kopiert til utklippstavlen!",
+    "linkCopyFailed": "Kopiering av lenke mislyktes",
+    "newSessionStarted": "Ny økt startet",
+    "newSessionFailed": "Kunne ikke starte ny økt. Vennligst prøv igjen.",
+    "redirectToPayPage": "Omdirigerer til betalingsside...",
+    "activeSessionShare": "Du trenger en aktiv økt for å dele",
+    "sessionDeleteFailed": "Kunne ikke slette økt. Vennligst prøv igjen.",
+    "sessionDeleteSuccess": "Økten er slettet!",
+    "sessionRenameSuccess": "Økten ble omdøpt!",
+    "sessionRenameFailed": "Kunne ikke omdøpe økten. Vennligst prøv igjen.",
+    "enterSessionName": "Skriv inn et nytt navn for denne økten:"
+  },
+  "formErrors": {
+    "invalidEmail": "Ugyldig e-postformat",
+    "emailRequired": "E-post er påkrevd",
+    "fullNameRequired": "Fullt navn er påkrevd",
+    "enterFullName": "Vennligst skriv inn ditt fulle navn",
+    "passwordRequired": "Passord er påkrevd",
+    "minPassword": "Passordet må være minst 8 tegn langt",
+    "passwordsMismatch": "Passordene stemmer ikke overens",
+    "weakPassword": "Passordet er for svakt",
+    "selectCountry": "Vennligst velg et land",
+    "usernameRequired": "Brukernavn er påkrevd",
+    "minUsername": "Brukernavnet må være minst 3 tegn langt",
+    "cpasswordRequired": "Bekreft passord er påkrevd"
   }
 }

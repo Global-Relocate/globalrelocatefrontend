@@ -10,6 +10,7 @@ import SignupForm from "../../components/forms/SignupForm";
 import logo from "../../assets/svg/logo.svg";
 // import microsoftIcon from "../../assets/svg/microsoft.svg";
 import { initiateGoogleAuth, initiateMicrosoftAuth } from "../../services/api";
+import { useTranslation } from "react-i18next";
 
 export default function Signup() {
   const [selectedAccountType, setSelectedAccountType] = useState(null);
@@ -18,6 +19,7 @@ export default function Signup() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -25,7 +27,7 @@ export default function Signup() {
     password: "",
     confirmPassword: "",
     country: null,
-    userType: null
+    userType: null,
   });
 
   const [errors, setErrors] = useState({
@@ -33,35 +35,35 @@ export default function Signup() {
     fullName: "",
     password: "",
     confirmPassword: "",
-    country: ""
+    country: "",
   });
 
   // Validate form data
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.email) {
-      newErrors.email = "Email is required";
+      newErrors.email = t("formErrors.emailRequired");
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
+      newErrors.email = t("formErrors.invalidEmail");
     }
 
     if (!formData.fullName) {
-      newErrors.fullName = "Full Name is required";
+      newErrors.fullName = t("formErrors.fullNameRequired");
     }
 
     if (!formData.password) {
-      newErrors.password = "Password is required";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
+      newErrors.password = t("formErrors.passwordRequired");
+    } else if (formData.password.length < 8) {
+      newErrors.password = t("formErrors.minPassword");
     }
 
     if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match";
+      newErrors.confirmPassword = t("formsErrors.passwordsMismatch");
     }
 
     if (!formData.country) {
-      newErrors.country = "Please select a country";
+      newErrors.country = t("formsErrors.selectCountry");
     }
 
     setErrors(newErrors);
@@ -103,9 +105,9 @@ export default function Signup() {
   // Handle account type selection
   const handleAccountTypeSelect = (type) => {
     setSelectedAccountType(type);
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      userType: type === "personal" ? "INDIVIDUAL" : "CORPORATE"
+      userType: type === "personal" ? "INDIVIDUAL" : "CORPORATE",
     }));
   };
 
@@ -118,7 +120,9 @@ export default function Signup() {
       // No need to handle the response as we're redirecting
     } catch (error) {
       console.error("Google login error:", error);
-      setErrorMessage(error.message || "Failed to initiate Google login. Please try again.");
+      setErrorMessage(
+        error.message || "Failed to initiate Google login. Please try again."
+      );
       setLoading(false);
     }
   };
@@ -132,7 +136,9 @@ export default function Signup() {
       // No need to handle the response as we're redirecting
     } catch (error) {
       console.error("Microsoft login error:", error);
-      setErrorMessage(error.message || "Failed to initiate Microsoft login. Please try again.");
+      setErrorMessage(
+        error.message || "Failed to initiate Microsoft login. Please try again."
+      );
       setLoading(false);
     }
   };
@@ -141,11 +147,11 @@ export default function Signup() {
   const AccountTypeSelection = () => (
     <>
       <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
-        Let's create your account
+        {t("signUpPage.letsCreateAccount")}
       </h1>
 
       <p className="text-base text-gray-700 mb-6 text-left pl-6">
-        Choose an account type
+        {t("signUpPage.chooseAccountType")}
       </p>
 
       <div className="space-y-4 px-6">
@@ -160,14 +166,16 @@ export default function Signup() {
           <div className="flex items-center">
             <GoPersonFill className="h-5 w-5 mr-3 text-gray-700" />
             <span className="text-left text-gray-700 text-sm">
-              I am creating a personal account
+              {t("signUpPage.createPersonalAccount")}
             </span>
           </div>
           <div
             className={`h-3 w-3 flex items-center justify-center rounded-full ${
-              selectedAccountType === "personal" ? "bg-green-600" : "bg-[#E5E5E5]"
+              selectedAccountType === "personal"
+                ? "bg-green-600"
+                : "bg-[#E5E5E5]"
             }`}
-            style={{ minWidth: '1rem', minHeight: '1rem' }}
+            style={{ minWidth: "1rem", minHeight: "1rem" }}
           >
             {selectedAccountType === "personal" && (
               <BsCheck className="h-5 w-5 text-white" />
@@ -186,14 +194,16 @@ export default function Signup() {
           <div className="flex items-center">
             <PiBuildingsFill className="h-5 w-5 mr-3 text-gray-700" />
             <span className="text-left text-gray-700 text-sm">
-              I am creating a corporate account
+              {t("signUpPage.createCorporateAccount")}
             </span>
           </div>
           <div
             className={`h-3 w-3 flex items-center justify-center rounded-full ${
-              selectedAccountType === "corporate" ? "bg-green-600" : "bg-[#E5E5E5]"
+              selectedAccountType === "corporate"
+                ? "bg-green-600"
+                : "bg-[#E5E5E5]"
             }`}
-            style={{ minWidth: '1rem', minHeight: '1rem' }}
+            style={{ minWidth: "1rem", minHeight: "1rem" }}
           >
             {selectedAccountType === "corporate" && (
               <BsCheck className="h-5 w-5 text-white" />
@@ -205,12 +215,14 @@ export default function Signup() {
       <div className="px-6">
         <button
           className={`w-[100%] py-2 mt-8 text-black rounded-lg ${
-            selectedAccountType ? "bg-[#FCA311] hover:bg-[#e5940c]" : "bg-[#FCA31180] cursor-not-allowed"
+            selectedAccountType
+              ? "bg-[#FCA311] hover:bg-[#e5940c]"
+              : "bg-[#FCA31180] cursor-not-allowed"
           }`}
           disabled={!selectedAccountType}
           onClick={handleContinue}
         >
-          Continue
+          {t("signUpPage.continue")}
         </button>
       </div>
     </>
@@ -220,11 +232,11 @@ export default function Signup() {
   const SignupMethods = () => (
     <>
       <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
-        Let's create your account
+        {t("signUpPage.letsCreateAccount")}
       </h1>
 
       <p className="text-base text-gray-700 mb-6 text-left pl-6">
-        Choose method of sign up
+        {t("signUpPage.chooseSignMethod")}
       </p>
 
       <div className="space-y-4 px-6">
@@ -235,13 +247,15 @@ export default function Signup() {
         >
           <div className="flex items-center">
             <FcGoogle className="h-5 w-5 mr-3" />
-            <span className="text-gray-700">Continue with Google</span>
+            <span className="text-gray-700">
+              {t("loginPage.continueWithGoogle")}
+            </span>
           </div>
           <BsArrowLeft className="rotate-180" />
         </button>
 
         {/* Commented out Microsoft login button */}
-            {/* <button
+        {/* <button
               onClick={handleMicrosoftLogin}
               disabled={loading}
               className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -253,14 +267,16 @@ export default function Signup() {
               <BsArrowLeft className="rotate-180" />
             </button> */}
 
-        <button 
+        <button
           onClick={handleEmailSignup}
           disabled={loading}
           className="w-[100%] flex items-center justify-between py-3 px-4 rounded-lg bg-[#F5F5F5] hover:bg-[#e5e5e5] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <div className="flex items-center">
             <HiOutlineMail className="h-5 w-5 mr-3" />
-            <span className="text-gray-700">Continue with Email</span>
+            <span className="text-gray-700">
+              {t("signUpPage.continueWithEmail")}
+            </span>
           </div>
           <BsArrowLeft className="rotate-180" />
         </button>
@@ -277,7 +293,7 @@ export default function Signup() {
         </Link>
         <div className="flex items-center cursor-pointer" onClick={handleClose}>
           <IoCloseCircleOutline className="text-2xl mr-2" />
-          <span className="text-gray-700">Close</span>
+          <span className="text-gray-700">{t("loginPage.close")}</span>
         </div>
       </div>
 
@@ -293,10 +309,10 @@ export default function Signup() {
 
         {/* Account Type Selection Section */}
         {!showSignupMethods && !showEmailForm && <AccountTypeSelection />}
-        
+
         {/* Signup Methods Section */}
         {showSignupMethods && !showEmailForm && <SignupMethods />}
-        
+
         {/* Email Signup Form Section */}
         {showEmailForm && (
           <SignupForm
@@ -321,9 +337,9 @@ export default function Signup() {
         {!showEmailForm && (
           <div className="px-6">
             <p className="mt-4 text-sm text-gray-600 text-left w-[100%]">
-              Already have an account?{" "}
+              {t("signUpPage.alreadyHaveAccount")}{" "}
               <Link to="/login" className="text-blue-600 font-medium">
-                Log In
+                {t("landingPage.navbar.logIn")}
               </Link>
             </p>
           </div>
@@ -331,13 +347,13 @@ export default function Signup() {
 
         {/* Terms and Privacy Policy Section */}
         <p className="text-left mt-8 text-xs text-gray-500 px-6 w-[100%]">
-          By clicking &quot;Continue&quot;, you agree to our{" "}
+          {t("loginPage.tosDesc")}{" "}
           <Link to="/term" className="text-black underline">
-            Terms of Service
+            {t("loginPage.tos")}
           </Link>{" "}
-          and{" "}
+          {t("loginPage.and")}{" "}
           <Link to="/privacy" className="text-black underline">
-            Privacy Policy.
+            {t("loginPage.privacyPolicy")}
           </Link>
         </p>
         <div className="mb-20"></div>

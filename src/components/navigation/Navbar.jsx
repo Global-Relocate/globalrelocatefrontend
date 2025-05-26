@@ -14,6 +14,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { BellIcon } from "lucide-react";
+import { useNotifications } from "@/context/NotificationsContext";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -21,6 +23,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { unreadCount } = useNotifications();
   const { isAuthenticated, logout, user } = useContext(AuthContext);
   const displayName = user?.username || user?.name || "User";
   const drawerRef = useRef(null);
@@ -134,8 +137,7 @@ const Navbar = () => {
             </div>
 
             {/* Desktop Right Section */}
-            <div className="hidden lg:flex items-center space-x-6">
-              <SelectLanguages />
+            <div className="hidden lg:flex items-center gap-4">
               {isAuthenticated ? (
                 <>
                   <DropdownMenu>
@@ -151,42 +153,54 @@ const Navbar = () => {
                         className="cursor-pointer"
                         onClick={() => navigate("/user/profile")}
                       >
-                        View profile
+                        {t("landingPage.navbar.viewProfile")}
                       </DropdownMenuItem>
                       <DropdownMenuItem
                         onClick={() => navigate("/help")}
                         className="cursor-pointer"
                       >
-                        Help Center
+                        {t("landingPage.navbar.helpCenter")}
                       </DropdownMenuItem>
                       <DropdownMenuItem
                         className="cursor-pointer"
                         onClick={() => navigate("/user/feedback")}
                       >
-                        Give us feedback
+                        {t("landingPage.navbar.giveFeedback")}
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
+                  <SelectLanguages />
+                  <button
+                    onClick={() => navigate("/user/notifications")}
+                    className="relative hidden sm:flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200 rounded-full hover:bg-gray-200 p-2"
+                  >
+                    <BellIcon className="h-5 w-5" />
+                    {unreadCount > 0 && (
+                      <span className="absolute w-[8px] h-[8px] bg-destructive rounded-full right-[9px] top-[8px]"></span>
+                    )}
+                  </button>
                   <button
                     onClick={handleLogout}
-                    className="flex items-center justify-center p-2 text-[#404040] hover:text-black transition-colors duration-200"
+                    className="hidden sm:flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200"
                   >
                     <LogOut className="h-5 w-5" />
+                    <span>{t("Logout")}</span>
                   </button>
                 </>
               ) : (
                 <>
+                  <SelectLanguages />
                   <button
                     onClick={handleSignIn}
                     className="text-[#404040] hover:text-black transition-colors duration-200"
                   >
-                    Log In
+                    {t("landingPage.navbar.logIn")}
                   </button>
                   <button
                     onClick={handleSignUp}
                     className="bg-[#FCA311] hover:bg-[#e5940c] text-black px-6 py-3 rounded-xl text-sm transition-colors duration-200"
                   >
-                    Get Started
+                    {t("landingPage.navbar.getStarted")}
                   </button>
                 </>
               )}
@@ -270,7 +284,7 @@ const Navbar = () => {
                   className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl text-gray-700 border border-gray-300 hover:bg-gray-100 transition-colors duration-200"
                 >
                   <LogOut className="h-5 w-5" />
-                  <span>Logout</span>
+                  <span>{t("Logout")}</span>
                 </button>
               ) : (
                 <div className="space-y-4">
@@ -278,13 +292,13 @@ const Navbar = () => {
                     onClick={handleSignIn}
                     className="w-full px-4 py-3 rounded-xl text-gray-700 border border-gray-300 hover:bg-gray-100 transition-colors duration-200"
                   >
-                    Log In
+                    {t("landingPage.navbar.logIn")}
                   </button>
                   <button
                     onClick={handleSignUp}
                     className="w-full px-4 py-3 bg-[#FCA311] hover:bg-[#e5940c] text-black rounded-xl transition-colors duration-200"
                   >
-                    Get Started
+                    {t("landingPage.navbar.getStarted")}
                   </button>
                 </div>
               )}

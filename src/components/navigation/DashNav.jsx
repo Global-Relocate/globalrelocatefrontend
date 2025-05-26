@@ -17,7 +17,7 @@ import { LuUserRound } from "react-icons/lu";
 import AccountSettings from "../../pages/user/account-settings";
 import PropTypes from "prop-types";
 import { getUserProfile } from "@/services/api";
-import { LogOut } from "lucide-react";
+import { BellIcon, LogOut } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -25,12 +25,14 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useTranslation } from "react-i18next";
+import { useNotifications } from "@/context/NotificationsContext";
 
 function DashNav({ navState, setNavState }) {
   const { t } = useTranslation();
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const { unreadCount } = useNotifications();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [profilePic, setProfilePic] = useState(null);
   const displayName = user?.username || user?.name || "User";
@@ -161,6 +163,15 @@ function DashNav({ navState, setNavState }) {
           <SelectLanguages />
 
           {/* Logout Button - Desktop */}
+          <button
+            onClick={() => navigate("/user/notifications")}
+            className="relative hidden sm:flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200 rounded-full hover:bg-gray-200 p-2"
+          >
+            <BellIcon className="h-5 w-5" />
+            {unreadCount > 0 && (
+              <span className="absolute w-[8px] h-[8px] bg-destructive rounded-full right-[9px] top-[8px]"></span>
+            )}
+          </button>
           <button
             onClick={handleLogout}
             className="hidden sm:flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200"

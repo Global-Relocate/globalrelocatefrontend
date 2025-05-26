@@ -2,61 +2,101 @@
   "landingPage": {
     "navbar": {
       "home": "Hjem",
-      "countriesData": "Lande & Data",
+      "countriesData": "Lande og data",
       "community": "Fællesskab",
       "tools": "Værktøjer",
-      "pricing": "Prissætning",
+      "pricing": "Priser",
       "viewProfile": "Se profil",
-      "helpCenter": "Hjælp",
-      "giveFeedback": "Giv feedback",
+      "helpCenter": "Hjælpecenter",
+      "giveFeedback": "Giv os feedback",
       "privacyPolicy": "Privatlivspolitik",
-      "upgradePlan": "Opgrader plan"
+      "upgradePlan": "Opgrader plan",
+      "logIn": "Log ind",
+      "getStarted": "Kom i gang",
+      "logout": "Log ud"
     },
     "showcase": {
-      "title": "Bedre liv gennem smart immigration",
-      "para": "En platform for global immigration, retshjælp og livsstil med AI",
-      "buttonText": "Kom i gang nu"
+      "title": "Flyt smartere, lev bedre.",
+      "para": "Din AI-drevne platform for en problemfri flytning, juridisk vejledning og globalt liv.",
+      "buttonText": "Kom i gang"
     },
     "features": {
       "title": "Funktioner",
       "cards": {
         "card1": {
           "title": "Sammenlign lande",
-          "para": "Sammenlign leveomkostninger, skatter og livskvalitet for bedre beslutninger"
+          "para": "Træf informerede beslutninger ved at sammenligne forskellige lande side om side, analysere nøglefaktorer som leveomkostninger, skattesatser og livskvalitet."
         },
         "card2": {
-          "title": "Intelligent analyse",
-          "para": "Opret forbindelse til digitale partnere til immigration i fora og grupper"
+          "title": "Smarte indsigter med AI",
+          "para": "Deltag i fora og grupper med ligesindede globale nomader."
         },
         "card3": {
-          "title": "Landsdata",
-          "para": "Få opdaterede informationer om lande for bedre planlægning"
+          "title": "Lande og data",
+          "para": "Deltag i fora og grupper med ligesindede globale nomader."
         }
       }
     },
     "countries": {
       "title": "Populære lande",
-      "para": "Lær om de lande, der har flest immigranter, og start din rejse"
+      "para": "Udforsk populære destinationer og begynd at planlægge din flytning"
     },
     "whyChooseUs": {
       "title": "Hvorfor vælge os",
       "card1": {
-        "title": "AI sparer tid",
-        "para": "Altid aktuel og pålidelig data"
+        "title": "Tidsbesparende AI-understøttet data",
+        "para": "Altid opdateret og pålidelig information."
       },
       "card2": {
-        "title": "Pålidelig fællesskab",
-        "para": "En platform bygget på tillid"
+        "title": "Verificerede kontakter og pålidelige kilder:",
+        "para": "En fællesskabsdrevet platform, der garanterer troværdighed."
       },
       "card3": {
-        "title": "Alt-i-en løsning",
-        "para": "Fra visumansøgninger til leveomkostninger – alt på én platform"
+        "title": "Alt-i-én-løsning",
+        "para": "Alt fra visa til leveomkostninger ét sted."
       },
       "card4": {
-        "title": "Personlige notifikationer",
-        "para": "Få opdateringer, der passer til dine interesser"
+        "title": "Personlige advarsler",
+        "para": "Hold dig foran med tilpassede notifikationer og en favoritfunktion."
       }
     }
+  },
+  "loginPage": {
+    "close": "Luk",
+    "createAccount": "Opret konto",
+    "logIntoGR": "Log ind på Global Relocate",
+    "password": "Adgangskode",
+    "enterPassword": "Indtast din adgangskode",
+    "continueWithGoogle": "Fortsæt med Google",
+    "cantLogin": "Kan ikke logge ind?",
+    "tosDesc": "Ved at klikke på 'opret konto' accepterer du vores ",
+    "tos": "Servicevilkår",
+    "privacyPolicy": "Privatlivspolitik",
+    "and": "og",
+    "or": "ELLER",
+    "processing": "Behandler...",
+    "continue": "Fortsæt",
+    "hidePassword": "Skjul adgangskode",
+    "showPassword": "Vis adgangskode"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Lad os oprette din konto",
+    "chooseAccountType": "Vælg en kontotype",
+    "createPersonalAccount": "Jeg opretter en personlig konto",
+    "createCorporateAccount": "Jeg opretter en virksomhedskonto",
+    "continue": "Fortsæt",
+    "chooseSignMethod": "Vælg tilmeldingsmetode",
+    "continueWithEmail": "Fortsæt med e-mail",
+    "alreadyHaveAccount": "Har du allerede en konto?",
+    "fullName": "Fulde navn",
+    "chooseUsername": "Vælg et brugernavn",
+    "enterYourFullName": "Indtast dit fulde navn",
+    "confirmPassword": "Bekræft adgangskode",
+    "country": "Land"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Velkommen ombord",
+    "welcomeText": "Din AI-drevne platform for en problemfri flytning, juridisk vejledning og globalt liv."
   },
   "userDashboard": {
     "sidebar": {
@@ -68,24 +108,24 @@
       "favourites": "Favoritter",
       "community": "Fællesskab",
       "cta": {
-        "title": "Prøv Pro-planen",
-        "para": "Du er nu på en gratis 3-dages prøveperiode. Opgrader for at fortsætte.",
-        "buttonText": "Læs mere"
+        "title": "Prøv Pro",
+        "para": "Du er i øjeblikket på gratisplanen, gyldig i 3 dage. Opgrader nu for at fortsætte med at bruge Global Relocate.",
+        "buttonText": "Lær mere"
       }
     },
     "countries": {
       "title": "Lande",
-      "noDataText": "Ingen data!",
-      "searchText": "Søg land"
+      "noDataText": "Ingen data tilgængelig!",
+      "searchText": "Søg lande"
     },
     "country": {
-      "countryIn": "Land:",
-      "addFavorite": "Tilføj til favorit",
+      "countryIn": "Land i",
+      "addFavorite": "Føj til favoritter",
       "share": "Del",
       "overview": "Oversigt",
       "map": "Kort",
       "keyFacts": "Nøglefakta",
-      "visaMigration": "Visum & Migration",
+      "visaMigration": "Visum og migration",
       "taxes": "Skatter",
       "flag": "Flag",
       "capital": "Hovedstad",
@@ -94,8 +134,8 @@
       "population": "Befolkning",
       "dialingCode": "Opkaldskode",
       "back": "Tilbage",
-      "noOverview": "Ingen oversigt tilgængelig for dette land",
-      "noVisaInfo": "Ingen visum- og migrationsinformation tilgængelig for dette land"
+      "noOverview": "Ingen oversigt tilgængelig for dette land.",
+      "noVisaInfo": "Ingen visum- og migrationsoplysninger tilgængelige."
     },
     "ai": {
       "rename": "Omdøb",
@@ -103,9 +143,9 @@
       "share": "Del",
       "hello": "Hej",
       "newChat": "Ny chat",
-      "askAI": "Spørg AI...",
+      "askAI": "Spørg AI om hvad som helst...",
       "uploadDocument": "Upload dokument",
-      "uploadDocumentDesc": "Upload et dokument til analyse med AI-assistenten",
+      "uploadDocumentDesc": "Upload et dokument til behandling med AI-assistenten",
       "cancel": "Annuller",
       "upload": "Upload"
     },
@@ -114,39 +154,39 @@
       "editProfile": "Rediger profil",
       "profile": "Profil",
       "account": "Konto",
-      "preferences": "Indstillinger",
+      "preferences": "Præferencer",
       "avatar": "Avatar",
-      "fullName": "Fuldt navn",
+      "fullName": "Fulde navn",
       "username": "Brugernavn",
       "bio": "Bio",
       "country": "Land",
-      "emailAddress": "Emailadresse",
+      "emailAddress": "E-mailadresse",
       "verified": "Verificeret",
       "subscription": "Abonnement",
-      "subscriptionDesc": "Du er i øjeblikket på en gratis 3-dages prøveperiode. Opgrader for at fortsætte.",
+      "subscriptionDesc": "Du er i øjeblikket på gratisplanen, gyldig i 3 dage. Opgrader nu for at fortsætte med at bruge Global Relocate.",
       "deleteAccount": "Slet konto",
-      "deleteDesc": "Slet din konto og data midlertidigt",
+      "deleteDesc": "Slet din konto og dine data permanent",
       "language": "Sprog",
-      "chooseLanguage": "Vælg sprog",
+      "chooseLanguage": "Vælg et sprog",
       "selectLanguage": "Vælg sprog",
       "learnMore": "Lær mere",
       "saveChanges": "Gem ændringer",
       "cancel": "Annuller",
       "saving": "Gemmer...",
-      "unsavedChanges": "Der er ikke gemte ændringer",
-      "addName": "Tilføj dit navn",
-      "addBio": "Tilføj din bio",
+      "unsavedChanges": "Du har ikke-gemte ændringer",
+      "addName": "Tilføj navn",
+      "addBio": "Tilføj en biografi for at fortælle din historie.",
       "addUsername": "Tilføj brugernavn",
       "addLocation": "Tilføj placering",
       "confirmAccountDelete": "Bekræft sletning af konto",
-      "confirmAccountDeleteDesc": "Bekræft at du ønsker at slette din konto:",
+      "confirmAccountDeleteDesc": "Inden du sletter din konto, bedes du tage et øjeblik på at forstå, hvad der vil ske med dine data:",
       "confirm": "Bekræft",
-      "neverMind": "Aldrig sindssygt",
-      "confirmDeleteWarning": "Advarsel: Din konto kan ikke gendannes efter sletning",
-      "confirmDeleteList1": "Dine profiloplysninger, indstillinger og præferencer vil blive slettet",
-      "confirmDeleteList2": "Din data vil blive slettet indenfor 30 dage",
+      "neverMind": "Aldrig mindst",
+      "confirmDeleteWarning": "Bemærk venligst, at sletning af din konto ikke kan fortrydes.",
+      "confirmDeleteList1": "Dine profildetaljer, præferencer og indstillinger vil blive fjernet.",
+      "confirmDeleteList2": "Alle data vil blive permanent slettet 30 dage efter sletning af konto.",
       "deleting": "Sletter...",
-      "youHave": "Du har i øjeblikket rollen:",
+      "youHave": "Du har:",
       "administrator": "Administrator"
     },
     "continents": {
@@ -157,77 +197,109 @@
       "south america": "Sydamerika",
       "north america": "Nordamerika",
       "antarctica": "Antarktis",
-      "oceania": "Oceania"
+      "oceania": "Oceanien"
     },
     "tax": {
       "taxCalculator": "Skatteberegner",
-      "taxCacluatorDesc": "Beregn skatter i forskellige lande",
+      "taxCacluatorDesc": "Beregn din estimerede skattebyrde i forskellige lande",
       "country": "Land",
       "annualIncome": "Årlig indkomst",
-      "userAccount": "Kontotype",
-      "totalDeductions": "Totale fradrag",
-      "selectCountry": "Vælg land",
+      "userAccount": "Brugerkonto",
+      "totalDeductions": "Samlede fradrag",
+      "selectCountry": "Vælg dit land",
       "selectAccount": "Vælg kontotype",
-      "enterIncome": "Indtast årlig indkomst",
-      "enterDeductions": "Indtast fradrag",
+      "enterIncome": "Indtast din årlige indkomst",
+      "enterDeductions": "Indtast samlede fradrag",
       "calculateTax": "Beregn skat",
       "individual": "Individuel",
       "corporate": "Virksomhed",
       "taxSummary": "Skatteoversigt",
       "taxAmount": "Skattebeløb",
-      "effectiveRate": "Effektiv skattesats",
-      "takeHomeAmount": "Netto beløb"
+      "effectiveRate": "Effektiv sats",
+      "takeHomeAmount": "Beløb til udbetaling"
     },
     "upgradePage": {
       "back": "Tilbage",
-      "upgradePlan": "Opgrader plan",
-      "upgradePlanDesc": "Vælg den immigrationsplan, der passer dig bedst for at få adgang til værktøjer",
-      "currentPlan": "Aktuel plan",
+      "upgradePlan": "Opgrader din plan",
+      "upgradePlanDesc": "Vælg den perfekte plan for at støtte din globale flytterejse. Få adgang til omfattende værktøjer og indsigter for at gøre din flytning problemfri.",
+      "currentPlan": "Din nuværende plan",
       "getStarted": "Kom i gang",
       "free": "Gratis",
       "basic": "Basis",
       "premium": "Premium",
-      "perMonth": "Per måned",
+      "perMonth": "pr. måned",
       "forEveryone": "For alle",
       "freePlan": {
-        "item1": "3 dages gratis prøveperiode",
-        "item2": "Grundlæggende landinformation",
-        "item3": "Kun læsning i forum",
+        "item1": "3 dages prøveadgang",
+        "item2": "Grundlæggende landeinformation",
+        "item3": "Fællesskabsadgang (kun læsning)",
         "item4": "Begrænset skatteberegner",
-        "item5": "Grundlæggende sammenligningsværktøjer"
+        "item5": "Grundlæggende omkostningssammenligning"
       },
       "basicPlan": {
-        "item1": "Udvidet landinformation",
-        "item2": "Opret indlæg og kommenter på forum",
-        "item3": "Fuldt skatteberegner",
-        "item4": "Kostnadssammenligningsværktøjer",
-        "item5": "Grundlæggende immigrationshjælp",
-        "item6": "E-mail support"
+        "item1": "Fuld landeinformation",
+        "item2": "Fællesskabsdeltagelse",
+        "item3": "Fuld skatteberegner",
+        "item4": "Værktøjer til omkostningssammenligning",
+        "item5": "Grundlæggende flyttevejledninger",
+        "item6": "E-mailsupport"
       },
       "premiumPlan": {
-        "item1": "Alle funktioner fra Basisplan",
-        "item2": "Adgang til ubegrænset landinformation",
-        "item3": "Fuld adgang til fællesskab",
-        "item4": "Udvidede skattemæssige funktioner",
-        "item5": "Intelligent immigrationsassistent",
-        "item6": "Omkostningsinformation",
-        "item7": "Visumansøgningsråd",
+        "item1": "Alle basisfunktioner",
+        "item2": "Ubegrænset adgang til landdata",
+        "item3": "Fuld fællesskabsdeltagelse",
+        "item4": "Avanceret skatteberegner",
+        "item5": "AI-flytteassistent",
+        "item6": "Indsigt i leveomkostninger",
+        "item7": "Visumkravvejledninger",
         "item8": "Prioriteret support",
-        "item9": "Personlige immigrationsplaner"
+        "item9": "Personlig flytteplan"
       }
     }
   },
   "drawers": {
     "selectLanguages": {
-      "confirm": "Bekræft sprogskift"
+      "confirm": "Bekræft ændringer"
     }
   },
   "footer": {
-    "terms": "Brugsbetingelser",
-    "privacy": "Privatlivspolitik",
-    "subscribeNewsletter": "Tilmeld dig nyhedsbrev",
-    "subscribeNewsDesc": "Få de nyeste opdateringer om immigration",
+    "sitemap": "Sitemap",
+    "company": "Virksomhed",
+    "terms": "Vilkår",
+    "privacy": "Privatliv",
+    "contact": "Kontakt os",
+    "subscribeNewsletter": "Abonner på vores nyhedsbrev",
+    "subscribeNewsDesc": "Hold dig opdateret med de seneste indsigter om global flytning",
     "enterEmail": "Indtast din e-mailadresse",
-    "subscribe": "Tilmeld"
+    "subscribe": "Abonner",
+    "copyright": "Alt indhold på denne hjemmeside er beskyttet af ophavsret."
+  },
+  "toast": {
+    "thanksNewsletter": "Tak for din tilmelding til vores nyhedsbrev!",
+    "linkCopied": "Link kopieret til udklipsholder!",
+    "linkCopyFailed": "Kunne ikke kopiere link",
+    "newSessionStarted": "Ny session startet",
+    "newSessionFailed": "Kunne ikke starte ny session. Prøv venligst igen.",
+    "redirectToPayPage": "Omdirigerer til betalingsside...",
+    "activeSessionShare": "Du skal have en aktiv session for at dele",
+    "sessionDeleteFailed": "Kunne ikke slette session. Prøv venligst igen.",
+    "sessionDeleteSuccess": "Session slettet!",
+    "sessionRenameSuccess": "Session omdøbt!",
+    "sessionRenameFailed": "Kunne ikke omdøbe session. Prøv venligst igen.",
+    "enterSessionName": "Indtast et nyt navn til denne session:"
+  },
+  "formErrors": {
+    "invalidEmail": "Ugyldigt e-mailformat",
+    "emailRequired": "E-mail er påkrævet",
+    "fullNameRequired": "Fulde navn er påkrævet",
+    "enterFullName": "Indtast venligst dit fulde navn",
+    "passwordRequired": "Adgangskode er påkrævet",
+    "minPassword": "Adgangskode skal være mindst 8 tegn lang",
+    "passwordsMismatch": "Adgangskoder stemmer ikke overens",
+    "weakPassword": "Adgangskode er for svag",
+    "selectCountry": "Vælg venligst et land",
+    "usernameRequired": "Brugernavn er påkrævet",
+    "minUsername": "Brugernavn skal være mindst 3 tegn lang",
+    "cpasswordRequired": "Bekræftelse af adgangskode er påkrævet"
   }
 }

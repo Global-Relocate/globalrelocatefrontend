@@ -1,7 +1,8 @@
 import { AuthContext } from "@/context/AuthContext";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 export default function ProtectedRoute({ children }) {
 
   const location = useLocation()

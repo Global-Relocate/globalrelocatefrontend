@@ -18,7 +18,7 @@ const CompareCountryCard = ({ onOpen, countryData, idx, onRemove, isAdditionalCa
         <div className="w-full flex-col items-start flex p-4 justify-between">
           <div className="flex w-full items-start justify-between">
             <img 
-              src={countryData[idx]?.flag} 
+              src={countryData[idx]?.name === "Afghanistan" ? "https://flagcdn.com/w320/af.png" : countryData[idx]?.flag} 
               className="bg-gray-200 w-16 h-16 object-cover border rounded-full" 
               alt={countryData[idx]?.name} 
             />

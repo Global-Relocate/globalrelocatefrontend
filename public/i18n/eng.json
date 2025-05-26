@@ -10,7 +10,10 @@
       "helpCenter": "Help Center",
       "giveFeedback": "Give us feedback",
       "privacyPolicy": "Privacy Policy",
-      "upgradePlan": "Upgrade Plan"
+      "upgradePlan": "Upgrade Plan",
+      "logIn": "Log In",
+      "getStarted": "Get started",
+      "logout": "Logout"
     },
     "showcase": {
       "title": "Relocate smarter, live better.",
@@ -57,6 +60,43 @@
         "para": "Stay ahead with tailored notifications and a favorites feature."
       }
     }
+  },
+  "loginPage": {
+    "close": "Close",
+    "createAccount": "Create Account",
+    "logIntoGR": "Log into Global Relocate",
+    "password": "Password",
+    "enterPassword": "Enter your password",
+    "continueWithGoogle": "Continue with Google",
+    "cantLogin": "Can't log in?",
+    "tosDesc": "By clicking creating an account, you agree to our ",
+    "tos": "Terms Of Service",
+    "privacyPolicy": "Privacy Policy",
+    "and": "and",
+    "or": "OR",
+    "processing": "Processing...",
+    "continue": "Continue",
+    "hidePassword": "Hide password",
+    "showPassword": "Show password"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Let's create your account",
+    "chooseAccountType": "Choose an account type",
+    "createPersonalAccount": "I am creating a personal account",
+    "createCorporateAccount": "I am creating a corporate account",
+    "continue": "Continue",
+    "chooseSignMethod": "Choose signup method",
+    "continueWithEmail": "Continue with e-mail",
+    "alreadyHaveAccount": "Already have an account?",
+    "fullName": "Full Name",
+    "chooseUsername": "Choose a username",
+    "enterYourFullName": "Enter your full name",
+    "confirmPassword": "Confirm password",
+    "country": "Country"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Welcome on board",
+    "welcomeText": "Your AI-powered platform for seamless relocation, legal guidance, and global living."
   },
   "userDashboard": {
     "sidebar": {
@@ -223,11 +263,43 @@
     }
   },
   "footer": {
+    "sitemap": "Sitemap",
+    "company": "Company",
     "terms": "Terms",
     "privacy": "Privacy",
+    "contact": "Contact Us",
     "subscribeNewsletter": "Subscribe to our newsletter",
     "subscribeNewsDesc": "Stay updated with the latest insights on global relocation",
     "enterEmail": "Enter your email",
-    "subscribe": "Subscribe"
+    "subscribe": "Subscribe",
+    "copyright": "All content on this website is protected by copyright."
+  },
+  "toast": {
+    "thanksNewsletter": "Thank you for subscribing to our newsletter!",
+    "linkCopied": "Link copied to clipboard!",
+    "linkCopyFailed": "Failed to copy link",
+    "newSessionStarted": "New session started",
+    "newSessionFailed": "Failed to start a new session. Please try again.",
+    "redirectToPayPage": "Redirecting to payment page...",
+    "activeSessionShare": "You need an active session to share",
+    "sessionDeleteFailed": "Failed to delete the session. Please try again.",
+    "sessionDeleteSuccess": "Session deleted successfully!",
+    "sessionRenameSuccess": "Session renamed successfully!",
+    "sessionRenameFailed": "Failed to rename the session. Please try again.",
+    "enterSessionName": "Enter a new name for this session:"
+  },
+  "formErrors": {
+    "invalidEmail": "Invalid email format",
+    "emailRequired": "Email is required",
+    "fullNameRequired": "Full name is required",
+    "enterFullName": "Please enter your full name",
+    "passwordRequired": "Password is required",
+    "minPassword": "Password must be at least 8 characters",
+    "passwordsMismatch": "Passwords do not match",
+    "weakPassword": "Password is too weak",
+    "selectCountry": "Please select a country",
+    "usernameRequired": "Username is required",
+    "minUsername": "Username must be at least 3 characters",
+    "cpasswordRequired": "Confirm password is required"
   }
 }

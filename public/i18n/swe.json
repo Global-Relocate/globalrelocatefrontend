@@ -2,110 +2,150 @@
   "landingPage": {
     "navbar": {
       "home": "Hem",
-      "countriesData": "Länder & Data",
-      "community": "Gemenskap",
+      "countriesData": "Länder och data",
+      "community": "Community",
       "tools": "Verktyg",
-      "pricing": "Prissättning",
+      "pricing": "Priser",
       "viewProfile": "Visa profil",
       "helpCenter": "Hjälpcenter",
-      "giveFeedback": "Ge feedback",
+      "giveFeedback": "Ge oss feedback",
       "privacyPolicy": "Integritetspolicy",
-      "upgradePlan": "Uppgradera plan"
+      "upgradePlan": "Uppgradera plan",
+      "logIn": "Logga in",
+      "getStarted": "Kom igång",
+      "logout": "Logga ut"
     },
     "showcase": {
-      "title": "Bättre liv för smart immigration",
-      "para": "En plattform för global immigration, rättsstöd och livsstil med hjälp av AI",
-      "buttonText": "Kom igång nu"
+      "title": "Flytta smartare, lev bättre.",
+      "para": "Din AI-drivna plattform för en smidig flytt, juridisk vägledning och globalt boende.",
+      "buttonText": "Kom igång"
     },
     "features": {
       "title": "Funktioner",
       "cards": {
         "card1": {
           "title": "Jämför länder",
-          "para": "Jämför levnadskostnader, skatter och livskvalitet för bättre beslut"
+          "para": "Fatta välgrundade beslut genom att jämföra olika länder sida vid sida, analysera nyckelfaktorer som levnadskostnader, skattesatser och livskvalitet."
         },
         "card2": {
-          "title": "Intelligent analys",
-          "para": "Anslut med digitala partners för immigration i forum och grupper"
+          "title": "Smarta insikter med AI",
+          "para": "Gå med i forum och grupper med likasinnade globala nomader."
         },
         "card3": {
-          "title": "Landdata",
-          "para": "Få uppdaterad information om länder för bättre planering"
+          "title": "Länder och data",
+          "para": "Gå med i forum och grupper med likasinnade globala nomader."
         }
       }
     },
     "countries": {
       "title": "Populära länder",
-      "para": "Lär dig om de länder med flest immigranter och starta din resa"
+      "para": "Utforska populära destinationer och börja planera din flytt"
     },
     "whyChooseUs": {
       "title": "Varför välja oss",
       "card1": {
-        "title": "AI sparar tid",
-        "para": "Alltid aktuell och pålitlig data"
+        "title": "Tidsbesparande AI-stödd data",
+        "para": "Alltid uppdaterad och pålitlig information."
       },
       "card2": {
-        "title": "Betrodd gemenskap",
-        "para": "En plattform baserad på förtroende"
+        "title": "Verifierade kontakter och betrodda källor:",
+        "para": "En community-driven plattform som garanterar trovärdighet."
       },
       "card3": {
-        "title": "Allt i ett",
-        "para": "Från visumansökningar till levnadskostnader – allt på en plattform"
+        "title": "Allt-i-ett-lösning",
+        "para": "Allt från visum till levnadskostnader på ett ställe."
       },
       "card4": {
-        "title": "Personliga notiser",
-        "para": "Få uppdateringar som matchar dina intressen"
+        "title": "Personliga varningar",
+        "para": "Ligg steget före med anpassade aviseringar och en favoritfunktion."
       }
     }
+  },
+  "loginPage": {
+    "close": "Stäng",
+    "createAccount": "Skapa konto",
+    "logIntoGR": "Logga in på Global Relocate",
+    "password": "Lösenord",
+    "enterPassword": "Ange ditt lösenord",
+    "continueWithGoogle": "Fortsätt med Google",
+    "cantLogin": "Kan inte logga in?",
+    "tosDesc": "Genom att klicka på skapa konto godkänner du våra ",
+    "tos": "Användarvillkor",
+    "privacyPolicy": "Integritetspolicy",
+    "and": "och",
+    "or": "ELLER",
+    "processing": "Behandlar...",
+    "continue": "Fortsätt",
+    "hidePassword": "Dölj lösenord",
+    "showPassword": "Visa lösenord"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Låt oss skapa ditt konto",
+    "chooseAccountType": "Välj en kontotyp",
+    "createPersonalAccount": "Jag skapar ett personligt konto",
+    "createCorporateAccount": "Jag skapar ett företagskonto",
+    "continue": "Fortsätt",
+    "chooseSignMethod": "Välj registreringsmetod",
+    "continueWithEmail": "Fortsätt med e-post",
+    "alreadyHaveAccount": "Har du redan ett konto?",
+    "fullName": "Fullständigt namn",
+    "chooseUsername": "Välj ett användarnamn",
+    "enterYourFullName": "Ange ditt fullständiga namn",
+    "confirmPassword": "Bekräfta lösenord",
+    "country": "Land"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Välkommen ombord",
+    "welcomeText": "Din AI-drivna plattform för en smidig flytt, juridisk vägledning och globalt boende."
   },
   "userDashboard": {
     "sidebar": {
       "countries": "Länder",
       "aiAssistant": "AI-assistent",
       "compareCountries": "Jämför länder",
-      "taxCalculator": "Skatteberäknare",
-      "notifications": "Notifikationer",
+      "taxCalculator": "Skattkalkylator",
+      "notifications": "Aviseringar",
       "favourites": "Favoriter",
-      "community": "Gemenskap",
+      "community": "Community",
       "cta": {
-        "title": "Prova Pro-planen",
-        "para": "Du är nu på en gratis 3-dagars provperiod. Uppgradera för att fortsätta.",
+        "title": "Prova Pro",
+        "para": "Du är för närvarande på gratisplanen, giltig i 3 dagar. Uppgradera nu för att fortsätta använda Global Relocate.",
         "buttonText": "Läs mer"
       }
     },
     "countries": {
       "title": "Länder",
-      "noDataText": "Inga data!",
-      "searchText": "Sök land"
+      "noDataText": "Ingen data tillgänglig!",
+      "searchText": "Sök länder"
     },
     "country": {
-      "countryIn": "Land:",
-      "addFavorite": "Lägg till favorit",
+      "countryIn": "Land i",
+      "addFavorite": "Lägg till i favoriter",
       "share": "Dela",
       "overview": "Översikt",
       "map": "Karta",
       "keyFacts": "Nyckelfakta",
-      "visaMigration": "Visum & Migration",
+      "visaMigration": "Visum och migration",
       "taxes": "Skatter",
       "flag": "Flagga",
       "capital": "Huvudstad",
       "languages": "Språk",
       "currency": "Valuta",
       "population": "Befolkning",
-      "dialingCode": "Dialkod",
+      "dialingCode": "Landsnummer",
       "back": "Tillbaka",
-      "noOverview": "Ingen översikt tillgänglig för detta land",
-      "noVisaInfo": "Ingen information om visum och migration tillgänglig för detta land"
+      "noOverview": "Ingen översikt tillgänglig för detta land.",
+      "noVisaInfo": "Ingen visum- och migrationsinformation tillgänglig."
     },
     "ai": {
       "rename": "Byt namn",
-      "deleteConversation": "Radera konversation",
+      "deleteConversation": "Ta bort konversation",
       "share": "Dela",
       "hello": "Hej",
       "newChat": "Ny chatt",
-      "askAI": "Fråga AI...",
+      "askAI": "Fråga AI vad som helst...",
       "uploadDocument": "Ladda upp dokument",
-      "uploadDocumentDesc": "Ladda upp ett dokument för att analysera med AI-assistenten",
+      "uploadDocumentDesc": "Ladda upp ett dokument för att bearbeta med AI-assistenten",
       "cancel": "Avbryt",
       "upload": "Ladda upp"
     },
@@ -114,39 +154,39 @@
       "editProfile": "Redigera profil",
       "profile": "Profil",
       "account": "Konto",
-      "preferences": "Inställningar",
+      "preferences": "Preferenser",
       "avatar": "Avatar",
       "fullName": "Fullständigt namn",
       "username": "Användarnamn",
-      "bio": "Biografi",
+      "bio": "Bio",
       "country": "Land",
       "emailAddress": "E-postadress",
       "verified": "Verifierad",
       "subscription": "Prenumeration",
-      "subscriptionDesc": "Du är för närvarande på en gratis 3-dagars provperiod. Uppgradera för att fortsätta.",
-      "deleteAccount": "Radera konto",
-      "deleteDesc": "Tillfälligt radera ditt konto och data",
+      "subscriptionDesc": "Du är för närvarande på gratisplanen, giltig i 3 dagar. Uppgradera nu för att fortsätta använda Global Relocate.",
+      "deleteAccount": "Ta bort konto",
+      "deleteDesc": "Ta bort ditt konto och dina uppgifter permanent",
       "language": "Språk",
-      "chooseLanguage": "Välj språk",
+      "chooseLanguage": "Välj ett språk",
       "selectLanguage": "Välj språk",
       "learnMore": "Läs mer",
       "saveChanges": "Spara ändringar",
       "cancel": "Avbryt",
       "saving": "Sparar...",
-      "unsavedChanges": "Det finns osparade ändringar",
-      "addName": "Lägg till ditt namn",
-      "addBio": "Lägg till din biografi",
+      "unsavedChanges": "Du har osparade ändringar",
+      "addName": "Lägg till namn",
+      "addBio": "Lägg till en bio för att berätta din historia.",
       "addUsername": "Lägg till användarnamn",
       "addLocation": "Lägg till plats",
-      "confirmAccountDelete": "Bekräfta radering av konto",
-      "confirmAccountDeleteDesc": "Bekräfta att du vill radera ditt konto:",
+      "confirmAccountDelete": "Bekräfta borttagning av konto",
+      "confirmAccountDeleteDesc": "Innan du tar bort ditt konto, ta en stund att förstå vad som kommer att hända med dina data:",
       "confirm": "Bekräfta",
-      "neverMind": "Aldrig sin",
-      "confirmDeleteWarning": "Varning: Ditt konto kan inte återställas efter radering",
-      "confirmDeleteList1": "Dina profiluppgifter, inställningar och preferenser kommer att raderas",
-      "confirmDeleteList2": "Din data kommer att raderas inom 30 dagar",
-      "deleting": "Raderar...",
-      "youHave": "Du har för närvarande rollen:",
+      "neverMind": "Strunt samma",
+      "confirmDeleteWarning": "Observera att borttagning av ditt konto inte kan ångras.",
+      "confirmDeleteList1": "Dina profildetaljer, preferenser och inställningar kommer att tas bort.",
+      "confirmDeleteList2": "All data kommer att raderas permanent inom 30 dagar efter att kontot har raderats.",
+      "deleting": "Tar bort...",
+      "youHave": "Du har:",
       "administrator": "Administratör"
     },
     "continents": {
@@ -160,74 +200,106 @@
       "oceania": "Oceanien"
     },
     "tax": {
-      "taxCalculator": "Skatteberäknare",
-      "taxCacluatorDesc": "Beräkna skatter i olika länder",
+      "taxCalculator": "Skattkalkylator",
+      "taxCacluatorDesc": "Beräkna din uppskattade skattebörda i olika länder",
       "country": "Land",
       "annualIncome": "Årlig inkomst",
-      "userAccount": "Kontotyp",
+      "userAccount": "Användarkonto",
       "totalDeductions": "Totala avdrag",
-      "selectCountry": "Välj land",
+      "selectCountry": "Välj ditt land",
       "selectAccount": "Välj kontotyp",
-      "enterIncome": "Ange årlig inkomst",
-      "enterDeductions": "Ange avdrag",
+      "enterIncome": "Ange din årliga inkomst",
+      "enterDeductions": "Ange totala avdrag",
       "calculateTax": "Beräkna skatt",
       "individual": "Individuell",
       "corporate": "Företag",
       "taxSummary": "Skatteöversikt",
       "taxAmount": "Skattebelopp",
-      "effectiveRate": "Effektiv skattesats",
-      "takeHomeAmount": "Netto belopp"
+      "effectiveRate": "Effektiv ränta",
+      "takeHomeAmount": "Nettobelopp"
     },
     "upgradePage": {
       "back": "Tillbaka",
-      "upgradePlan": "Uppgradera plan",
-      "upgradePlanDesc": "Välj den immigrationsplan som passar dig bäst för att få tillgång till verktyg",
-      "currentPlan": "Aktuell plan",
+      "upgradePlan": "Uppgradera din plan",
+      "upgradePlanDesc": "Välj den perfekta planen för att stödja din globala flyttresa. Få tillgång till omfattande verktyg och insikter för att göra din flytt sömlös.",
+      "currentPlan": "Din nuvarande plan",
       "getStarted": "Kom igång",
       "free": "Gratis",
-      "basic": "Bas",
+      "basic": "Grundläggande",
       "premium": "Premium",
-      "perMonth": "Per månad",
+      "perMonth": "per månad",
       "forEveryone": "För alla",
       "freePlan": {
-        "item1": "3 dagars gratis provperiod",
-        "item2": "Grundläggande landinformation",
-        "item3": "Endast läsning på forumet",
-        "item4": "Begränsad skatteberäknare",
-        "item5": "Grundläggande jämförelseverktyg"
+        "item1": "3 dagars provåtkomst",
+        "item2": "Grundläggande landsinformation",
+        "item3": "Community-åtkomst (endast läsning)",
+        "item4": "Begränsad skattkalkylator",
+        "item5": "Grundläggande kostnadsjämförelse"
       },
       "basicPlan": {
-        "item1": "Utökad landinformation",
-        "item2": "Skapa inlägg och kommentera på forum",
-        "item3": "Full skatteberäknare",
+        "item1": "Fullständig landsinformation",
+        "item2": "Community-deltagande",
+        "item3": "Fullständig skattkalkylator",
         "item4": "Kostnadsjämförelseverktyg",
-        "item5": "Grundläggande immigrationshjälp",
+        "item5": "Grundläggande flyttguider",
         "item6": "E-postsupport"
       },
       "premiumPlan": {
-        "item1": "Alla funktioner från Basplan",
-        "item2": "Tillgång till obegränsad landinformation",
-        "item3": "Full tillgång till gemenskap",
-        "item4": "Utökade skattefunktioner",
-        "item5": "Intelligent immigrationsassistent",
-        "item6": "Kostnadsinformation",
-        "item7": "Visumansökningsråd",
+        "item1": "Alla grundläggande funktioner",
+        "item2": "Obegränsad åtkomst till landsdata",
+        "item3": "Fullständigt community-deltagande",
+        "item4": "Avancerad skattkalkylator",
+        "item5": "AI-flyttassistent",
+        "item6": "Insikter om levnadskostnader",
+        "item7": "Guider för visumkrav",
         "item8": "Prioriterad support",
-        "item9": "Personliga immigrationsplaner"
+        "item9": "Anpassad flyttplan"
       }
     }
   },
   "drawers": {
     "selectLanguages": {
-      "confirm": "Bekräfta språkbyte"
+      "confirm": "Bekräfta ändringar"
     }
   },
   "footer": {
-    "terms": "Användarvillkor",
-    "privacy": "Integritetspolicy",
-    "subscribeNewsletter": "Prenumerera på nyhetsbrev",
-    "subscribeNewsDesc": "Få de senaste nyheterna om immigration",
+    "sitemap": "Webbplatskarta",
+    "company": "Företag",
+    "terms": "Villkor",
+    "privacy": "Integritet",
+    "contact": "Kontakta oss",
+    "subscribeNewsletter": "Prenumerera på vårt nyhetsbrev",
+    "subscribeNewsDesc": "Håll dig uppdaterad med de senaste insikterna om global flytt",
     "enterEmail": "Ange din e-postadress",
-    "subscribe": "Prenumerera"
+    "subscribe": "Prenumerera",
+    "copyright": "Allt innehåll på denna webbplats är upphovsrättsskyddat."
+  },
+  "toast": {
+    "thanksNewsletter": "Tack för att du prenumererar på vårt nyhetsbrev!",
+    "linkCopied": "Länk kopierad till urklipp!",
+    "linkCopyFailed": "Misslyckades med att kopiera länk",
+    "newSessionStarted": "Ny session startad",
+    "newSessionFailed": "Kunde inte starta ny session. Försök igen.",
+    "redirectToPayPage": "Omdirigerar till betalsida...",
+    "activeSessionShare": "Du behöver en aktiv session för att dela",
+    "sessionDeleteFailed": "Misslyckades med att ta bort sessionen. Försök igen.",
+    "sessionDeleteSuccess": "Sessionen raderades framgångsrikt!",
+    "sessionRenameSuccess": "Sessionen döptes om framgångsrikt!",
+    "sessionRenameFailed": "Misslyckades med att döpa om sessionen. Försök igen.",
+    "enterSessionName": "Ange ett nytt namn för den här sessionen:"
+  },
+  "formErrors": {
+    "invalidEmail": "Ogiltigt e-postformat",
+    "emailRequired": "E-post krävs",
+    "fullNameRequired": "Fullständigt namn krävs",
+    "enterFullName": "Vänligen ange ditt fullständiga namn",
+    "passwordRequired": "Lösenord krävs",
+    "minPassword": "Lösenordet måste vara minst 8 tecken långt",
+    "passwordsMismatch": "Lösenorden matchar inte",
+    "weakPassword": "Lösenordet är för svagt",
+    "selectCountry": "Välj ett land",
+    "usernameRequired": "Användarnamn krävs",
+    "minUsername": "Användarnamnet måste vara minst 3 tecken långt",
+    "cpasswordRequired": "Lösenordsbekräftelse krävs"
   }
 }

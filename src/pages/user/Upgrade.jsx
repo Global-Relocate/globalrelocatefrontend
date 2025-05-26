@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import MainLayout from "@/components/layouts/MainLayout";
 import Navbar from "@/components/navigation/Navbar";
 import { useTranslation } from "react-i18next";
+import DashNav from "@/components/navigation/DashNav";
 
 // Loading component
 const LoadingScreen = () => (
@@ -51,7 +52,7 @@ const Upgrade = () => {
 
       const response = await createCheckoutSession(planType);
       showToast({
-        message: "Redirecting to payment page...",
+        message: t("toast.redirectToPayPage"),
         type: "success",
       });
 
@@ -193,7 +194,7 @@ const Upgrade = () => {
 
   return (
     <MainLayout>
-      <Navbar />
+      <DashNav />
       <div className="min-h-screen bg-white pt-20">
         <div className="max-w-7xl mx-auto px-4 py-16">
           <button

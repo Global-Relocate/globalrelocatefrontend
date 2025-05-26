@@ -2,89 +2,129 @@
   "landingPage": {
     "navbar": {
       "home": "Home",
-      "countriesData": "Landen en Gegevens",
+      "countriesData": "Landen & Gegevens",
       "community": "Gemeenschap",
-      "tools": "Hulpmiddelen",
+      "tools": "Tools",
       "pricing": "Prijzen",
-      "viewProfile": "Bekijk Profiel",
+      "viewProfile": "Profiel bekijken",
       "helpCenter": "Helpcentrum",
-      "giveFeedback": "Geef Feedback",
+      "giveFeedback": "Geef ons feedback",
       "privacyPolicy": "Privacybeleid",
-      "upgradePlan": "Upgrade Plan"
+      "upgradePlan": "Plan upgraden",
+      "logIn": "Inloggen",
+      "getStarted": "Aan de slag",
+      "logout": "Uitloggen"
     },
     "showcase": {
-      "title": "Beter Leven voor Slimme Immigratie",
-      "para": "Een enkel platform voor wereldwijde immigratie, juridische ondersteuning en levensstijl met kunstmatige intelligentie",
-      "buttonText": "Begin Nu"
+      "title": "Verhuis slimmer, leef beter.",
+      "para": "Uw AI-gestuurde platform voor een naadloze verhuizing, juridisch advies en wereldwijd wonen.",
+      "buttonText": "Aan de slag"
     },
     "features": {
-      "title": "Kenmerken",
+      "title": "Functies",
       "cards": {
         "card1": {
-          "title": "Vergelijk Landen",
-          "para": "Vergelijk de kosten van levensonderhoud, belastingen en levenskwaliteit voor betere beslissingen"
+          "title": "Landen vergelijken",
+          "para": "Neem weloverwogen beslissingen door verschillende landen naast elkaar te vergelijken, waarbij u belangrijke factoren zoals kosten van levensonderhoud, belastingtarieven en levenskwaliteit analyseert."
         },
         "card2": {
-          "title": "Slimme Analyse",
-          "para": "Verbind met digitale immigrantenpartners in forums en groepen"
+          "title": "Slimme inzichten met AI",
+          "para": "Word lid van forums en groepen met gelijkgestemde wereldwijde nomaden."
         },
         "card3": {
-          "title": "Landgegevens",
-          "para": "Verbind met digitale immigrantenpartners in forums en groepen"
+          "title": "Landen & Gegevens",
+          "para": "Word lid van forums en groepen met gelijkgestemde wereldwijde nomaden."
         }
       }
     },
     "countries": {
-      "title": "Populaire Landen",
-      "para": "Verken de landen met de meeste immigranten en begin je reis"
+      "title": "Populaire landen",
+      "para": "Verken populaire bestemmingen en begin met het plannen van uw verhuizing"
     },
     "whyChooseUs": {
-      "title": "Waarom Kiezen Voor Ons",
+      "title": "Waarom voor ons kiezen",
       "card1": {
-        "title": "AI Bespaart Tijd",
-        "para": "Altijd actuele en betrouwbare informatie"
+        "title": "Tijdbesparende AI-ondersteunde gegevens",
+        "para": "Altijd up-to-date en betrouwbare informatie."
       },
       "card2": {
-        "title": "Betrouwbare Gemeenschap",
-        "para": "Een platform dat is opgebouwd uit vertrouwen"
+        "title": "Geverifieerde contacten en betrouwbare bronnen:",
+        "para": "Een community-gestuurd platform dat geloofwaardigheid garandeert."
       },
       "card3": {
-        "title": "Alles-in-één",
-        "para": "Van visumaanvragen tot kosten van levensonderhoud, alles op één platform"
+        "title": "Alles-in-één oplossing",
+        "para": "Alles van visa tot kosten van levensonderhoud op één plek."
       },
       "card4": {
-        "title": "Persoonlijke Meldingen",
-        "para": "Ontvang updates die op jou zijn afgestemd"
+        "title": "Gepersonaliseerde waarschuwingen",
+        "para": "Blijf voorop met gepersonaliseerde meldingen en een favorietenfunctie."
       }
     }
+  },
+  "loginPage": {
+    "close": "Sluiten",
+    "createAccount": "Account aanmaken",
+    "logIntoGR": "Inloggen bij Global Relocate",
+    "password": "Wachtwoord",
+    "enterPassword": "Voer uw wachtwoord in",
+    "continueWithGoogle": "Doorgaan met Google",
+    "cantLogin": "Kunt u niet inloggen?",
+    "tosDesc": "Door op 'account aanmaken' te klikken, gaat u akkoord met onze ",
+    "tos": "Servicevoorwaarden",
+    "privacyPolicy": "Privacybeleid",
+    "and": "en",
+    "or": "OF",
+    "processing": "Verwerken...",
+    "continue": "Doorgaan",
+    "hidePassword": "Wachtwoord verbergen",
+    "showPassword": "Wachtwoord tonen"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Laten we uw account aanmaken",
+    "chooseAccountType": "Kies een accounttype",
+    "createPersonalAccount": "Ik maak een persoonlijk account aan",
+    "createCorporateAccount": "Ik maak een zakelijk account aan",
+    "continue": "Doorgaan",
+    "chooseSignMethod": "Kies aanmeldmethode",
+    "continueWithEmail": "Doorgaan met e-mail",
+    "alreadyHaveAccount": "Heeft u al een account?",
+    "fullName": "Volledige naam",
+    "chooseUsername": "Kies een gebruikersnaam",
+    "enterYourFullName": "Voer uw volledige naam in",
+    "confirmPassword": "Wachtwoord bevestigen",
+    "country": "Land"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Welkom aan boord",
+    "welcomeText": "Uw AI-gestuurde platform voor een naadloze verhuizing, juridisch advies en wereldwijd wonen."
   },
   "userDashboard": {
     "sidebar": {
       "countries": "Landen",
-      "aiAssistant": "AI Assistent",
-      "compareCountries": "Vergelijk Landen",
+      "aiAssistant": "AI-assistent",
+      "compareCountries": "Landen vergelijken",
       "taxCalculator": "Belastingcalculator",
       "notifications": "Meldingen",
       "favourites": "Favorieten",
       "community": "Gemeenschap",
       "cta": {
-        "title": "Pro Plan Proberen",
-        "para": "Je gebruikt momenteel een gratis proefversie van 3 dagen. Upgrade om door te gaan.",
-        "buttonText": "Meer Informatie"
+        "title": "Proberen Pro",
+        "para": "U bevindt zich momenteel op het gratis plan, geldig voor 3 dagen. Upgrade nu om Global Relocate te blijven gebruiken.",
+        "buttonText": "Meer informatie"
       }
     },
     "countries": {
       "title": "Landen",
-      "noDataText": "Geen Gegevens!",
-      "searchText": "Zoek Land"
+      "noDataText": "Geen gegevens beschikbaar!",
+      "searchText": "Landen zoeken"
     },
     "country": {
-      "countryIn": "Land:",
-      "addFavorite": "Toevoegen aan Favorieten",
-      "share": "Deel",
+      "countryIn": "Land in",
+      "addFavorite": "Toevoegen aan favorieten",
+      "share": "Delen",
       "overview": "Overzicht",
       "map": "Kaart",
-      "keyFacts": "Feiten",
+      "keyFacts": "Belangrijkste feiten",
       "visaMigration": "Visum en Migratie",
       "taxes": "Belastingen",
       "flag": "Vlag",
@@ -92,65 +132,65 @@
       "languages": "Talen",
       "currency": "Valuta",
       "population": "Bevolking",
-      "dialingCode": "Telefoonnummer",
+      "dialingCode": "Kiescode",
       "back": "Terug",
-      "noOverview": "Geen overzicht beschikbaar voor dit land",
-      "noVisaInfo": "Geen visum- of migratie-informatie beschikbaar voor dit land"
+      "noOverview": "Geen overzicht beschikbaar voor dit land.",
+      "noVisaInfo": "Geen visum- en immigratie-informatie beschikbaar."
     },
     "ai": {
-      "rename": "Hernoemen",
-      "deleteConversation": "Verwijder Gesprek",
-      "share": "Deel",
+      "rename": "Naam wijzigen",
+      "deleteConversation": "Gesprek verwijderen",
+      "share": "Delen",
       "hello": "Hallo",
-      "newChat": "Nieuw Gesprek",
-      "askAI": "Vraag AI...",
-      "uploadDocument": "Upload Document",
-      "uploadDocumentDesc": "Upload een document voor AI-assistent om te analyseren",
+      "newChat": "Nieuwe chat",
+      "askAI": "Vraag AI alles...",
+      "uploadDocument": "Document uploaden",
+      "uploadDocumentDesc": "Upload een document om te verwerken met de AI-assistent",
       "cancel": "Annuleren",
       "upload": "Uploaden"
     },
     "settings": {
-      "accountSettings": "Account Instellingen",
-      "editProfile": "Bewerk Profiel",
+      "accountSettings": "Accountinstellingen",
+      "editProfile": "Profiel bewerken",
       "profile": "Profiel",
       "account": "Account",
       "preferences": "Voorkeuren",
       "avatar": "Avatar",
-      "fullName": "Volledige Naam",
+      "fullName": "Volledige naam",
       "username": "Gebruikersnaam",
-      "bio": "Biografie",
+      "bio": "Bio",
       "country": "Land",
       "emailAddress": "E-mailadres",
       "verified": "Geverifieerd",
       "subscription": "Abonnement",
-      "subscriptionDesc": "Je gebruikt momenteel een gratis proefversie van 3 dagen. Upgrade om door te gaan.",
-      "deleteAccount": "Verwijder Account",
-      "deleteDesc": "Verwijder je account en gegevens permanent",
+      "subscriptionDesc": "U bevindt zich momenteel op het gratis plan, geldig voor 3 dagen. Upgrade nu om Global Relocate te blijven gebruiken.",
+      "deleteAccount": "Account verwijderen",
+      "deleteDesc": "Verwijder uw account en gegevens permanent",
       "language": "Taal",
-      "chooseLanguage": "Kies Taal",
-      "selectLanguage": "Selecteer Taal",
-      "learnMore": "Leer Meer",
-      "saveChanges": "Wijzigingen Opslaan",
+      "chooseLanguage": "Kies een taal",
+      "selectLanguage": "Selecteer taal",
+      "learnMore": "Meer informatie",
+      "saveChanges": "Wijzigingen opslaan",
       "cancel": "Annuleren",
-      "saving": "Bezig met opslaan...",
-      "unsavedChanges": "Er zijn niet-opgeslagen wijzigingen",
-      "addName": "Voeg je naam toe",
-      "addBio": "Voeg je biografie toe",
-      "addUsername": "Voeg een gebruikersnaam toe",
-      "addLocation": "Voeg locatie toe",
-      "confirmAccountDelete": "Bevestig accountverwijdering",
-      "confirmAccountDeleteDesc": "Bevestig dat je je account wilt verwijderen:",
+      "saving": "Opslaan...",
+      "unsavedChanges": "U heeft niet-opgeslagen wijzigingen",
+      "addName": "Naam toevoegen",
+      "addBio": "Voeg een biografie toe om uw verhaal te vertellen.",
+      "addUsername": "Gebruikersnaam toevoegen",
+      "addLocation": "Locatie toevoegen",
+      "confirmAccountDelete": "Accountverwijdering bevestigen",
+      "confirmAccountDeleteDesc": "Voordat u uw account verwijdert, neemt u even de tijd om te begrijpen wat er met uw gegevens zal gebeuren:",
       "confirm": "Bevestigen",
       "neverMind": "Laat maar",
-      "confirmDeleteWarning": "Waarschuwing: Je account kan niet worden hersteld na verwijdering",
-      "confirmDeleteList1": "Je profiel, instellingen en voorkeuren worden verwijderd",
-      "confirmDeleteList2": "Je gegevens worden permanent verwijderd na 30 dagen",
-      "deleting": "Bezig met verwijderen...",
-      "youHave": "Je hebt momenteel de rol van:",
-      "administrator": "Administrator"
+      "confirmDeleteWarning": "Houd er rekening mee dat het verwijderen van uw account niet ongedaan gemaakt kan worden.",
+      "confirmDeleteList1": "Uw profielgegevens, voorkeuren en instellingen worden verwijderd.",
+      "confirmDeleteList2": "Alle gegevens worden 30 dagen na accountverwijdering permanent verwijderd.",
+      "deleting": "Verwijderen...",
+      "youHave": "U heeft:",
+      "administrator": "Beheerder"
     },
     "continents": {
-      "all": "Alles",
+      "all": "Alle",
       "europe": "Europa",
       "asia": "Azië",
       "africa": "Afrika",
@@ -161,73 +201,105 @@
     },
     "tax": {
       "taxCalculator": "Belastingcalculator",
-      "taxCacluatorDesc": "Bereken belastingen in verschillende landen",
+      "taxCacluatorDesc": "Bereken uw geschatte belastingdruk in verschillende landen",
       "country": "Land",
       "annualIncome": "Jaarinkomen",
-      "userAccount": "Accounttype",
-      "totalDeductions": "Totale aftrekken",
-      "selectCountry": "Selecteer Land",
-      "selectAccount": "Selecteer Accounttype",
-      "enterIncome": "Voer jaarinkomen in",
-      "enterDeductions": "Voer aftrekken in",
-      "calculateTax": "Bereken Belasting",
-      "individual": "Individu",
-      "corporate": "Bedrijf",
+      "userAccount": "Gebruikersaccount",
+      "totalDeductions": "Totale aftrekposten",
+      "selectCountry": "Selecteer uw land",
+      "selectAccount": "Selecteer accounttype",
+      "enterIncome": "Voer uw jaarinkomen in",
+      "enterDeductions": "Voer totale aftrekposten in",
+      "calculateTax": "Belasting berekenen",
+      "individual": "Individueel",
+      "corporate": "Zakelijk",
       "taxSummary": "Belastingoverzicht",
-      "taxAmount": "Belastingsbedrag",
+      "taxAmount": "Belastingbedrag",
       "effectiveRate": "Effectief tarief",
-      "takeHomeAmount": "Nettoloon"
+      "takeHomeAmount": "Netto bedrag"
     },
     "upgradePage": {
       "back": "Terug",
-      "upgradePlan": "Upgrade Plan",
-      "upgradePlanDesc": "Kies het immigratieplan dat het beste bij je past en krijg toegang tot hulpmiddelen",
-      "currentPlan": "Huidig Plan",
-      "getStarted": "Begin",
+      "upgradePlan": "Upgrade uw plan",
+      "upgradePlanDesc": "Kies het perfecte plan om uw wereldwijde verhuisreis te ondersteunen. Krijg toegang tot uitgebreide tools en inzichten om uw verhuizing naadloos te maken.",
+      "currentPlan": "Uw huidige plan",
+      "getStarted": "Aan de slag",
       "free": "Gratis",
       "basic": "Basis",
       "premium": "Premium",
-      "perMonth": "Per Maand",
-      "forEveryone": "Geschikt voor iedereen",
+      "perMonth": "per maand",
+      "forEveryone": "Voor iedereen",
       "freePlan": {
-        "item1": "3 dagen gratis proefperiode",
-        "item2": "Basislandinformatie",
-        "item3": "Alleen lezen in forum",
+        "item1": "3 dagen proef toegang",
+        "item2": "Basis landinformatie",
+        "item3": "Toegang tot community (alleen-lezen)",
         "item4": "Beperkte belastingcalculator",
-        "item5": "Basisvergelijkingstool"
+        "item5": "Basis kostenvergelijking"
       },
       "basicPlan": {
-        "item1": "Uitgebreide landinformatie",
-        "item2": "Plaats berichten en reageer op forums",
+        "item1": "Volledige landinformatie",
+        "item2": "Community deelname",
         "item3": "Volledige belastingcalculator",
-        "item4": "Kostenvergelijkingstool",
-        "item5": "Basisimmigratieadvies",
+        "item4": "Kostenvergelijkingshulpmiddelen",
+        "item5": "Basis verhuisgidsen",
         "item6": "E-mailondersteuning"
       },
       "premiumPlan": {
-        "item1": "Alle functies van het Basisplan",
-        "item2": "Toegang tot onbeperkte landinformatie",
-        "item3": "Toegang tot volledige gemeenschap",
-        "item4": "Geavanceerde belastingfuncties",
-        "item5": "Slimme immigratie-assistent",
-        "item6": "Levensonderhoudkosteninformatie",
-        "item7": "Visumaanvraagadvies",
-        "item8": "Spoedondersteuning",
-        "item9": "Op maat gemaakte immigratieplannen"
+        "item1": "Alle basiskenmerken",
+        "item2": "Onbeperkte toegang tot landgegevens",
+        "item3": "Volledige community deelname",
+        "item4": "Geavanceerde belastingcalculator",
+        "item5": "AI-verhuisassistent",
+        "item6": "Inzichten in kosten van levensonderhoud",
+        "item7": "Gidsen voor visumvereisten",
+        "item8": "Prioritaire ondersteuning",
+        "item9": "Gepersonaliseerd verhuisroutekaart"
       }
     }
   },
   "drawers": {
     "selectLanguages": {
-      "confirm": "Bevestig Taalverandering"
+      "confirm": "Wijzigingen bevestigen"
     }
   },
   "footer": {
-    "terms": "Servicevoorwaarden",
-    "privacy": "Privacybeleid",
-    "subscribeNewsletter": "Schrijf je in voor de nieuwsbrief",
-    "subscribeNewsDesc": "Ontvang het laatste nieuws over immigratie",
-    "enterEmail": "Voer je e-mailadres in",
-    "subscribe": "Inschrijven"
+    "sitemap": "Sitemap",
+    "company": "Bedrijf",
+    "terms": "Voorwaarden",
+    "privacy": "Privacy",
+    "contact": "Contact",
+    "subscribeNewsletter": "Abonneer op onze nieuwsbrief",
+    "subscribeNewsDesc": "Blijf op de hoogte van de laatste inzichten over wereldwijde verhuizing",
+    "enterEmail": "Voer uw e-mailadres in",
+    "subscribe": "Abonneren",
+    "copyright": "Alle inhoud op deze website is auteursrechtelijk beschermd."
+  },
+  "toast": {
+    "thanksNewsletter": "Bedankt voor het abonneren op onze nieuwsbrief!",
+    "linkCopied": "Link gekopieerd naar klembord!",
+    "linkCopyFailed": "Kopiëren van link mislukt",
+    "newSessionStarted": "Nieuwe sessie gestart",
+    "newSessionFailed": "Kan geen nieuwe sessie starten. Probeer het opnieuw.",
+    "redirectToPayPage": "Doorverwijzen naar betaalpagina...",
+    "activeSessionShare": "U heeft een actieve sessie nodig om te delen",
+    "sessionDeleteFailed": "Sessie verwijderen mislukt. Probeer het opnieuw.",
+    "sessionDeleteSuccess": "Sessie succesvol verwijderd!",
+    "sessionRenameSuccess": "Sessie succesvol hernoemd!",
+    "sessionRenameFailed": "Sessie hernoemen mislukt. Probeer het opnieuw.",
+    "enterSessionName": "Voer een nieuwe naam in voor deze sessie:"
+  },
+  "formErrors": {
+    "invalidEmail": "Ongeldig e-mailformaat",
+    "emailRequired": "E-mail is verplicht",
+    "fullNameRequired": "Volledige naam is verplicht",
+    "enterFullName": "Voer uw volledige naam in",
+    "passwordRequired": "Wachtwoord is verplicht",
+    "minPassword": "Wachtwoord moet minimaal 8 tekens lang zijn",
+    "passwordsMismatch": "Wachtwoorden komen niet overeen",
+    "weakPassword": "Wachtwoord is te zwak",
+    "selectCountry": "Selecteer een land",
+    "usernameRequired": "Gebruikersnaam is verplicht",
+    "minUsername": "Gebruikersnaam moet minimaal 3 tekens lang zijn",
+    "cpasswordRequired": "Wachtwoordbevestiging is verplicht"
   }
 }

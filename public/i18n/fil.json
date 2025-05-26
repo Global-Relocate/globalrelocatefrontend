@@ -2,61 +2,101 @@
   "landingPage": {
     "navbar": {
       "home": "Home",
-      "countriesData": "Mga Bansa at Datos",
+      "countriesData": "Data ng Bansa",
       "community": "Komunidad",
-      "tools": "Mga Kasangkapan",
-      "pricing": "Presyo",
+      "tools": "Mga Tool",
+      "pricing": "Pagpepresyo",
       "viewProfile": "Tingnan ang Profile",
       "helpCenter": "Help Center",
       "giveFeedback": "Magbigay ng Feedback",
       "privacyPolicy": "Patakaran sa Privacy",
-      "upgradePlan": "I-upgrade ang Plano"
+      "upgradePlan": "Mag-upgrade ng Plano",
+      "logIn": "Mag-log In",
+      "getStarted": "Magsimula",
+      "logout": "Mag-log Out"
     },
     "showcase": {
-      "title": "Mas Magandang Buhay sa pamamagitan ng Smart Immigration",
-      "para": "AI platform para sa global na imigrasyon, legal na tulong, at pamumuhay",
-      "buttonText": "Simulan Ngayon"
+      "title": "Lumipat nang mas matalino, mamuhay nang mas mahusay.",
+      "para": "Ang iyong AI-powered platform para sa tuluy-tuloy na relokasyon, gabay sa legal, at pandaigdigang pamumuhay.",
+      "buttonText": "Magsimula"
     },
     "features": {
       "title": "Mga Tampok",
       "cards": {
         "card1": {
-          "title": "Paghambing ng Bansa",
-          "para": "Ihambing ang gastos sa pamumuhay, buwis, at kalidad ng buhay para sa tamang desisyon"
+          "title": "Paghambingin ang Mga Bansa",
+          "para": "Gumawa ng matalinong desisyon sa pamamagitan ng paghahambing ng iba't ibang bansa nang magkatabi, pagsusuri ng mga pangunahing salik tulad ng halaga ng pamumuhay, mga rate ng buwis, at kalidad ng buhay."
         },
         "card2": {
-          "title": "Smart na Analisis",
-          "para": "Makipag-ugnayan sa mga digital na kaibigan sa mga forum at grupo ng imigrasyon"
+          "title": "Mga Matalinong Pananaw gamit ang AI",
+          "para": "Sumali sa mga forum at grupo na may mga kaparehong global digital nomad."
         },
         "card3": {
-          "title": "Impormasyon ng Bansa",
-          "para": "Pinakabagong datos para sa mas mahusay na pagpaplano"
+          "title": "Mga Bansa at Data",
+          "para": "Sumali sa mga forum at grupo na may mga kaparehong global digital nomad."
         }
       }
     },
     "countries": {
       "title": "Mga Sikat na Bansa",
-      "para": "Tuklasin ang mga nangungunang destinasyon sa imigrasyon"
+      "para": "Galugarin ang mga sikat na destinasyon at simulan ang pagpaplano ng iyong paglipat"
     },
     "whyChooseUs": {
-      "title": "Bakit Piliin Kami",
+      "title": "Bakit Kami Piliin",
       "card1": {
-        "title": "AI na Nagliligtas ng Oras",
-        "para": "Kumuha ng maaasahan at napapanahong impormasyon"
+        "title": "Data na Sinusuportahan ng AI na Nakakatipid ng Oras",
+        "para": "Laging napapanahon at maaasahang impormasyon."
       },
       "card2": {
-        "title": "Mapagkakatiwalaang Komunidad",
-        "para": "Isang platform na puno ng tiwala"
+        "title": "Mga Naberipikang Contact at Pinagkakatiwalaang Pinagmulan:",
+        "para": "Isang platform na pinapatakbo ng komunidad na ginagarantiyahan ang kredibilidad."
       },
       "card3": {
-        "title": "Lahat sa Isang Solusyon",
-        "para": "Visa hanggang gastos sa pamumuhay – nasa isang lugar"
+        "title": "All-in-One na Solusyon",
+        "para": "Lahat mula sa visa hanggang sa halaga ng pamumuhay sa isang lugar."
       },
       "card4": {
-        "title": "Custom na Mga Alerto",
-        "para": "Tumanggap ng mga notification na nauugnay sa iyo"
+        "title": "Mga Personalized na Alerto",
+        "para": "Manatiling nangunguna sa mga customized na notification at isang paboritong feature."
       }
     }
+  },
+  "loginPage": {
+    "close": "Isara",
+    "createAccount": "Gumawa ng Account",
+    "logIntoGR": "Mag-log In sa Global Relocate",
+    "password": "Password",
+    "enterPassword": "Ilagay ang iyong password",
+    "continueWithGoogle": "Magpatuloy sa Google",
+    "cantLogin": "Hindi makapag-log in?",
+    "tosDesc": "Sa pag-click ng gumawa ng account, sumasang-ayon ka sa aming ",
+    "tos": "Mga Tuntunin ng Serbisyo",
+    "privacyPolicy": "Patakaran sa Privacy",
+    "and": "at",
+    "or": "O",
+    "processing": "Nagpoproseso...",
+    "continue": "Magpatuloy",
+    "hidePassword": "Itago ang password",
+    "showPassword": "Ipakita ang password"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Gawin natin ang iyong account",
+    "chooseAccountType": "Pumili ng uri ng account",
+    "createPersonalAccount": "Gumagawa ako ng personal na account",
+    "createCorporateAccount": "Gumagawa ako ng corporate account",
+    "continue": "Magpatuloy",
+    "chooseSignMethod": "Pumili ng paraan ng pagpaparehistro",
+    "continueWithEmail": "Magpatuloy sa email",
+    "alreadyHaveAccount": "Mayroon ka nang account?",
+    "fullName": "Buong Pangalan",
+    "chooseUsername": "Pumili ng username",
+    "enterYourFullName": "Ilagay ang iyong buong pangalan",
+    "confirmPassword": "Kumpirmahin ang Password",
+    "country": "Bansa"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Maligayang Pagdating",
+    "welcomeText": "Ang iyong AI-powered platform para sa tuluy-tuloy na relokasyon, gabay sa legal, at pandaigdigang pamumuhay."
   },
   "userDashboard": {
     "sidebar": {
@@ -64,50 +104,50 @@
       "aiAssistant": "AI Assistant",
       "compareCountries": "Paghambingin ang Mga Bansa",
       "taxCalculator": "Tax Calculator",
-      "notifications": "Mga Notipikasyon",
+      "notifications": "Mga Notification",
       "favourites": "Mga Paborito",
       "community": "Komunidad",
       "cta": {
-        "title": "Subukan ang Pro Plan",
-        "para": "Ikaw ay kasalukuyang nasa 3-araw na libreng pagsubok. Mag-upgrade sa Pro upang magpatuloy.",
-        "buttonText": "Matuto Pa"
+        "title": "Subukan ang Pro",
+        "para": "Kasalukuyan kang nasa libreng plano, balido sa loob ng 3 araw. Mag-upgrade ngayon upang patuloy na gamitin ang Global Relocate.",
+        "buttonText": "Matuto Nang Higit Pa"
       }
     },
     "countries": {
       "title": "Mga Bansa",
-      "noDataText": "Walang datos!",
-      "searchText": "Maghanap ng bansa"
+      "noDataText": "Walang available na data!",
+      "searchText": "Maghanap ng Bansa"
     },
     "country": {
-      "countryIn": "Bansa:",
-      "addFavorite": "Idagdag sa Mga Paborito",
+      "countryIn": "Bansa sa",
+      "addFavorite": "Idagdag sa Paborito",
       "share": "Ibahagi",
-      "overview": "Pangkalahatang-ideya",
+      "overview": "Pangkalahatang Ideya",
       "map": "Mapa",
       "keyFacts": "Mga Pangunahing Katotohanan",
-      "visaMigration": "Visa at Imigrasyon",
-      "taxes": "Buwis",
+      "visaMigration": "Visa at Migrasyon",
+      "taxes": "Mga Buwis",
       "flag": "Bandila",
       "capital": "Kabisera",
       "languages": "Mga Wika",
       "currency": "Pera",
       "population": "Populasyon",
-      "dialingCode": "Dialing Code",
+      "dialingCode": "Kodigo ng Pagtawag",
       "back": "Bumalik",
-      "noOverview": "Walang pangkalahatang-ideya para sa bansang ito",
-      "noVisaInfo": "Walang visa o impormasyon sa imigrasyon para sa bansang ito"
+      "noOverview": "Walang available na pangkalahatang ideya para sa bansang ito.",
+      "noVisaInfo": "Walang available na impormasyon sa visa at imigrasyon."
     },
     "ai": {
       "rename": "Palitan ang Pangalan",
-      "deleteConversation": "Burahin ang Pag-uusap",
+      "deleteConversation": "Tanggalin ang Usapan",
       "share": "Ibahagi",
       "hello": "Kumusta",
       "newChat": "Bagong Chat",
-      "askAI": "Magtanong sa AI...",
+      "askAI": "Tanungin ang AI ng kahit ano...",
       "uploadDocument": "Mag-upload ng Dokumento",
-      "uploadDocumentDesc": "Mag-upload ng dokumento upang suriin ng AI Assistant",
+      "uploadDocumentDesc": "Mag-upload ng dokumento upang iproseso gamit ang AI assistant",
       "cancel": "Kanselahin",
-      "upload": "I-upload"
+      "upload": "Mag-upload"
     },
     "settings": {
       "accountSettings": "Mga Setting ng Account",
@@ -118,116 +158,148 @@
       "avatar": "Avatar",
       "fullName": "Buong Pangalan",
       "username": "Username",
-      "bio": "Tungkol sa Akin",
+      "bio": "Bio",
       "country": "Bansa",
       "emailAddress": "Email Address",
       "verified": "Na-verify",
       "subscription": "Subscription",
-      "subscriptionDesc": "Ikaw ay kasalukuyang nasa 3-araw na libreng pagsubok. Mag-upgrade sa Pro upang magpatuloy.",
-      "deleteAccount": "Burahin ang Account",
-      "deleteDesc": "Pansamantalang i-deactivate ang iyong account at data",
+      "subscriptionDesc": "Kasalukuyan kang nasa libreng plano, balido sa loob ng 3 araw. Mag-upgrade ngayon upang patuloy na gamitin ang Global Relocate.",
+      "deleteAccount": "Tanggalin ang Account",
+      "deleteDesc": "Tanggalin ang iyong account at data nang permanente",
       "language": "Wika",
-      "chooseLanguage": "Pumili ng Wika",
-      "selectLanguage": "Pumili ng wika",
-      "learnMore": "Matuto Pa",
-      "saveChanges": "I-save ang mga Pagbabago",
+      "chooseLanguage": "Pumili ng wika",
+      "selectLanguage": "Pumili ng Wika",
+      "learnMore": "Matuto Nang Higit Pa",
+      "saveChanges": "I-save ang Mga Pagbabago",
       "cancel": "Kanselahin",
-      "saving": "Nagsa-save...",
-      "unsavedChanges": "Walang mga hindi na-save na pagbabago",
-      "addName": "Magdagdag ng pangalan",
-      "addBio": "Magdagdag ng bio",
-      "addUsername": "Magdagdag ng username",
-      "addLocation": "Magdagdag ng lokasyon",
-      "confirmAccountDelete": "Kumpirmahin ang Pagbura ng Account",
-      "confirmAccountDeleteDesc": "Kumpirmahin na gusto mong burahin ang iyong account:",
+      "saving": "Nagse-save...",
+      "unsavedChanges": "Mayroon kang hindi na-save na mga pagbabago",
+      "addName": "Magdagdag ng Pangalan",
+      "addBio": "Magdagdag ng bio para ikuwento ang iyong kwento.",
+      "addUsername": "Magdagdag ng Username",
+      "addLocation": "Magdagdag ng Lokasyon",
+      "confirmAccountDelete": "Kumpirmahin ang Pagtanggal ng Account",
+      "confirmAccountDeleteDesc": "Bago tanggalin ang iyong account, mangyaring maglaan ng sandali upang maunawaan kung ano ang mangyayari sa iyong data:",
       "confirm": "Kumpirmahin",
-      "neverMind": "Huwag Na Lang",
-      "confirmDeleteWarning": "Babala: Ang pagbura ng account ay permanente",
-      "confirmDeleteList1": "Mabubura ang impormasyon ng profile, setting, at mga kagustuhan",
-      "confirmDeleteList2": "Mabubura ang iyong data sa loob ng 30 araw",
-      "deleting": "Binubura...",
-      "youHave": "Ang iyong kasalukuyang role:",
+      "neverMind": "Hayaan na",
+      "confirmDeleteWarning": "Pakitandaan na ang pagtanggal ng iyong account ay hindi maaaring i-undo.",
+      "confirmDeleteList1": "Ang iyong mga detalye ng profile, kagustuhan, at setting ay tatanggalin.",
+      "confirmDeleteList2": "Lahat ng data ay permanenteng tatanggalin sa loob ng 30 araw pagkatapos ng pagtanggal ng account.",
+      "deleting": "Tinatanggal...",
+      "youHave": "Mayroon kang:",
       "administrator": "Administrator"
     },
     "continents": {
       "all": "Lahat",
       "europe": "Europa",
       "asia": "Asya",
-      "africa": "Aprika",
+      "africa": "Africa",
       "south america": "Timog Amerika",
       "north america": "Hilagang Amerika",
-      "antarctica": "Antartika",
+      "antarctica": "Antarctica",
       "oceania": "Oceania"
     },
     "tax": {
       "taxCalculator": "Tax Calculator",
-      "taxCacluatorDesc": "Kalkulahin ang buwis para sa iba't ibang bansa",
+      "taxCacluatorDesc": "Kalkulahin ang iyong tinatayang pasanin sa buwis sa iba't ibang bansa",
       "country": "Bansa",
       "annualIncome": "Taunang Kita",
-      "userAccount": "Uri ng Account",
-      "totalDeductions": "Kabuuang Pagbawas",
-      "selectCountry": "Pumili ng bansa",
-      "selectAccount": "Pumili ng uri ng account",
-      "enterIncome": "Ilagay ang taunang kita",
-      "enterDeductions": "Ilagay ang mga pagbawas",
+      "userAccount": "Account ng User",
+      "totalDeductions": "Kabuuang Bawas",
+      "selectCountry": "Piliin ang iyong bansa",
+      "selectAccount": "Piliin ang uri ng account",
+      "enterIncome": "Ilagay ang iyong taunang kita",
+      "enterDeductions": "Ilagay ang kabuuang bawas",
       "calculateTax": "Kalkulahin ang Buwis",
       "individual": "Indibidwal",
       "corporate": "Korporasyon",
       "taxSummary": "Buod ng Buwis",
       "taxAmount": "Halaga ng Buwis",
       "effectiveRate": "Epektibong Rate",
-      "takeHomeAmount": "Take Home Pay"
+      "takeHomeAmount": "Halaga ng Iuuwi"
     },
     "upgradePage": {
       "back": "Bumalik",
-      "upgradePlan": "I-upgrade ang Plano",
-      "upgradePlanDesc": "Pumili ng plano sa imigrasyon upang ma-access ang mga kasangkapan",
-      "currentPlan": "Kasalukuyang Plano",
+      "upgradePlan": "I-upgrade ang Iyong Plano",
+      "upgradePlanDesc": "Piliin ang perpektong plano upang suportahan ang iyong pandaigdigang paglalakbay sa relokasyon. Makakuha ng access sa komprehensibong tool at pananaw upang maging maayos ang iyong paglipat.",
+      "currentPlan": "Ang Iyong Kasalukuyang Plano",
       "getStarted": "Magsimula",
       "free": "Libre",
       "basic": "Basic",
       "premium": "Premium",
       "perMonth": "bawat buwan",
-      "forEveryone": "Para sa lahat",
+      "forEveryone": "Para sa Lahat",
       "freePlan": {
-        "item1": "3-araw na libreng pagsubok",
+        "item1": "3 araw na trial access",
         "item2": "Pangunahing impormasyon ng bansa",
-        "item3": "Read-only access sa forum",
+        "item3": "Access sa komunidad (read-only)",
         "item4": "Limitadong tax calculator",
-        "item5": "Pangunahing tool sa paghahambing"
+        "item5": "Pangunahing paghahambing ng gastos"
       },
       "basicPlan": {
-        "item1": "Karagdagang impormasyon ng bansa",
-        "item2": "Comment at post sa forum",
+        "item1": "Kumpletong impormasyon ng bansa",
+        "item2": "Pakikilahok sa komunidad",
         "item3": "Buong tax calculator",
-        "item4": "Tool sa paghahambing ng gastos",
-        "item5": "Basic na tulong sa imigrasyon",
+        "item4": "Mga tool sa paghahambing ng gastos",
+        "item5": "Mga pangunahing gabay sa relokasyon",
         "item6": "Suporta sa email"
       },
       "premiumPlan": {
-        "item1": "Lahat ng tampok ng Basic Plan",
-        "item2": "Buong access sa impormasyon ng bansa",
-        "item3": "Buong access sa komunidad",
-        "item4": "Advanced na mga kasangkapan sa buwis",
-        "item5": "Smart immigration consultant",
-        "item6": "Impormasyon sa gastos ng pamumuhay",
-        "item7": "Visa application support",
-        "item8": "Maagang babala",
-        "item9": "Personalized na plano sa imigrasyon"
+        "item1": "Lahat ng pangunahing tampok",
+        "item2": "Walang limitasyong access sa data ng bansa",
+        "item3": "Buong pakikilahok sa komunidad",
+        "item4": "Advanced na tax calculator",
+        "item5": "AI relocation assistant",
+        "item6": "Mga pananaw sa halaga ng pamumuhay",
+        "item7": "Mga gabay sa kinakailangan sa visa",
+        "item8": "Priority support",
+        "item9": "Personalized relocation roadmap"
       }
     }
   },
   "drawers": {
     "selectLanguages": {
-      "confirm": "Kumpirmahin ang Wika"
+      "confirm": "Kumpirmahin ang Mga Pagbabago"
     }
   },
   "footer": {
-    "terms": "Mga Tuntunin at Kondisyon",
+    "sitemap": "Sitemap",
+    "company": "Kumpanya",
+    "terms": "Mga Tuntunin",
     "privacy": "Privacy",
-    "subscribeNewsletter": "Mag-subscribe sa Newsletter",
-    "subscribeNewsDesc": "Kumuha ng pinakabagong balita sa imigrasyon",
-    "enterEmail": "Ilagay ang email address",
-    "subscribe": "Mag-subscribe"
+    "contact": "Makipag-ugnayan sa Amin",
+    "subscribeNewsletter": "Mag-subscribe sa Aming Newsletter",
+    "subscribeNewsDesc": "Manatiling updated sa mga pinakabagong insight tungkol sa pandaigdigang relokasyon",
+    "enterEmail": "Ilagay ang iyong email",
+    "subscribe": "Mag-subscribe",
+    "copyright": "Lahat ng nilalaman sa website na ito ay protektado ng copyright."
+  },
+  "toast": {
+    "thanksNewsletter": "Salamat sa pag-subscribe sa aming newsletter!",
+    "linkCopied": "Naisalin ang link sa clipboard!",
+    "linkCopyFailed": "Nabigo ang pagkopya ng link",
+    "newSessionStarted": "Nagsimula ang bagong session",
+    "newSessionFailed": "Nabigo ang pagsisimula ng bagong session. Mangyaring subukan muli.",
+    "redirectToPayPage": "Nagre-redirect sa pahina ng pagbabayad...",
+    "activeSessionShare": "Kailangan mo ng aktibong session para makapagbahagi",
+    "sessionDeleteFailed": "Nabigo ang pagtanggal ng session. Mangyaring subukan muli.",
+    "sessionDeleteSuccess": "Matagumpay na natanggal ang session!",
+    "sessionRenameSuccess": "Matagumpay na napalitan ang pangalan ng session!",
+    "sessionRenameFailed": "Nabigo ang pagpapalit ng pangalan ng session. Mangyaring subukan muli.",
+    "enterSessionName": "Maglagay ng bagong pangalan para sa session na ito:"
+  },
+  "formErrors": {
+    "invalidEmail": "Invalid na format ng email",
+    "emailRequired": "Kailangan ang email",
+    "fullNameRequired": "Kailangan ang buong pangalan",
+    "enterFullName": "Mangyaring ilagay ang iyong buong pangalan",
+    "passwordRequired": "Kailangan ang password",
+    "minPassword": "Ang password ay dapat na hindi bababa sa 8 karakter",
+    "passwordsMismatch": "Hindi tugma ang mga password",
+    "weakPassword": "Masyadong mahina ang password",
+    "selectCountry": "Mangyaring pumili ng bansa",
+    "usernameRequired": "Kailangan ang username",
+    "minUsername": "Ang username ay dapat na hindi bababa sa 3 karakter",
+    "cpasswordRequired": "Kailangan ang kumpirmasyon ng password"
   }
 }

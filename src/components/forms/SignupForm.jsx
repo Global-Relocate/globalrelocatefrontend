@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import { registerNewUser } from '../../services/api';
+import { registerNewUser } from "../../services/api";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { CountryDropdown } from "@/components/ui/country-dropdown";
+import { useTranslation } from "react-i18next";
 
 const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,9 +16,10 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
   const [passwordStrength, setPasswordStrength] = useState({
     score: 0,
     message: "",
-    color: "gray"
+    color: "gray",
   });
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const calculatePasswordStrength = (password) => {
     let score = 0;
@@ -50,85 +52,86 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
       2: { message: "Fair", color: "#ffbb33" },
       3: { message: "Good", color: "#00C851" },
       4: { message: "Strong", color: "#007E33" },
-      5: { message: "Very Strong", color: "#007E33" }
+      5: { message: "Very Strong", color: "#007E33" },
     };
 
     return {
       score,
       message: strengthMap[score].message,
       color: strengthMap[score].color,
-      feedback: feedback.join(" • ")
+      feedback: feedback.join(" • "),
     };
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
 
     let error = "";
     if (name === "email") {
       if (!value) {
-        error = "Email is required";
+        error = t("formErrors.emailRequired");
       } else if (!/\S+@\S+\.\S+/.test(value)) {
-        error = "Invalid email format";
+        error = t("formErrors.invalidEmail");
       }
     } else if (name === "fullName") {
       if (!value) {
-        error = "Full name is required";
+        error = t("formErrors.fullNameRequired");
       } else if (value.trim().length < 2) {
-        error = "Please enter your full name";
+        error = t("formErrors.enterFullName");
       }
     } else if (name === "username") {
       if (!value) {
-        error = "Username is required";
+        error = t("formErrors.usernameRequired");
       } else if (value.length < 3) {
-        error = "Username must be at least 3 characters";
+        error = t("formErrors.minUsername");
       }
     } else if (name === "password") {
       if (!value) {
-        error = "Password is required";
+        error = t("formErrors.passwordRequired");
       } else {
         const strength = calculatePasswordStrength(value);
         setPasswordStrength(strength);
         if (value.length < 8) {
-          error = "Password must be at least 8 characters";
+          error = t("formErrors.minPassword");
         } else if (strength.score < 3) {
-          error = "Password is too weak";
+          error = t("formErrors.weakPassword");
         }
       }
     } else if (name === "confirmPassword") {
       if (!value) {
-        error = "Confirm Password is required";
+        error = t("formErrors.cpasswordRequired");
       } else if (value !== formData.password) {
-        error = "Passwords do not match";
+        error = t("formErrors.passwordsMismatch");
       }
     }
 
-    setErrors(prev => ({
+    setErrors((prev) => ({
       ...prev,
-      [name]: error
+      [name]: error,
     }));
   };
 
   const handleCountryChange = (selectedCountry) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       country: selectedCountry.name,
-      countryCode: selectedCountry.alpha2
+      countryCode: selectedCountry.alpha2,
     }));
     if (errors.country) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        country: ""
+        country: "",
       }));
     }
   };
 
   useEffect(() => {
-    const isValid = !Object.values(errors).some(error => error) &&
+    const isValid =
+      !Object.values(errors).some((error) => error) &&
       formData.email &&
       formData.fullName &&
       formData.username &&
@@ -148,13 +151,15 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
         email: formData.email,
         password: formData.password,
         country: formData.country,
-        userType: "INDIVIDUAL"
+        userType: "INDIVIDUAL",
       };
 
       try {
         const response = await registerNewUser(requestBody);
         console.log("Signup successful:", response);
-        navigate("/verifymail", { state: { email: formData.email, username: formData.username } });
+        navigate("/verifymail", {
+          state: { email: formData.email, username: formData.username },
+        });
       } catch (error) {
         console.error("Error during signup:", error);
         setAlertMessage(error.message || "An error occurred during signup");
@@ -169,13 +174,14 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
   return (
     <>
       <h1 className="text-[32px] font-medium mb-10 text-left pl-6 w-[100%]">
-        Let's create your account
+        {t("signUpPage.letsCreateAccount")}
       </h1>
 
       <div className="px-6 space-y-4 w-full">
         <div className="relative">
           <label className="text-sm text-gray-700 mb-1 block">
-            Full Name <span className="text-red-500">*</span>
+            {t("userDashboard.settings.fullName")}{" "}
+            <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -183,9 +189,9 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
             value={formData.fullName}
             onChange={handleInputChange}
             className={`w-full p-3 rounded-lg border ${
-              errors.fullName ? 'border-red-500' : 'border-gray-300'
+              errors.fullName ? "border-red-500" : "border-gray-300"
             } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-            placeholder="Enter your full name"
+            placeholder={t("signUpPage.enterYourFullName")}
           />
           {errors.fullName && (
             <span className="text-red-500 text-xs mt-1">{errors.fullName}</span>
@@ -194,7 +200,8 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
 
         <div className="relative">
           <label className="text-sm text-gray-700 mb-1 block">
-            Username <span className="text-red-500">*</span>
+            {t("userDashboard.settings.username")}{" "}
+            <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -202,9 +209,9 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
             value={formData.username}
             onChange={handleInputChange}
             className={`w-full p-3 rounded-lg border ${
-              errors.username ? 'border-red-500' : 'border-gray-300'
+              errors.username ? "border-red-500" : "border-gray-300"
             } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-            placeholder="Choose a username"
+            placeholder={t("signUpPage.chooseUsername")}
           />
           {errors.username && (
             <span className="text-red-500 text-xs mt-1">{errors.username}</span>
@@ -213,7 +220,8 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
 
         <div className="relative">
           <label className="text-sm text-gray-700 mb-1 block">
-            Email Address <span className="text-red-500">*</span>
+            {t("userDashboard.settings.emailAddress")}{" "}
+            <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -221,7 +229,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
             value={formData.email}
             onChange={handleInputChange}
             className={`w-full p-3 rounded-lg border ${
-              errors.email ? 'border-red-500' : 'border-gray-300'
+              errors.email ? "border-red-500" : "border-gray-300"
             } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
             placeholder="myaccount@gmail.com"
           />
@@ -232,7 +240,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
 
         <div>
           <label className="text-sm text-gray-700 mb-1 block">
-            Password <span className="text-red-500">*</span>
+            {t("loginPage.password")} <span className="text-red-500">*</span>
           </label>
           <div className="relative">
             <input
@@ -241,9 +249,9 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
               value={formData.password}
               onChange={handleInputChange}
               className={`w-full p-3 pr-10 rounded-lg border ${
-                errors.password ? 'border-red-500' : 'border-gray-300'
+                errors.password ? "border-red-500" : "border-gray-300"
               } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-              placeholder="Password"
+              placeholder={t("loginPage.password")}
             />
             <button
               type="button"
@@ -264,12 +272,15 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
                   className="h-full transition-all duration-300"
                   style={{
                     width: `${(passwordStrength.score / 5) * 100}%`,
-                    backgroundColor: passwordStrength.color
+                    backgroundColor: passwordStrength.color,
                   }}
                 />
               </div>
               <div className="flex justify-between items-center mt-1">
-                <span className="text-xs" style={{ color: passwordStrength.color }}>
+                <span
+                  className="text-xs"
+                  style={{ color: passwordStrength.color }}
+                >
                   {passwordStrength.message}
                 </span>
                 <span className="text-xs text-gray-500">
@@ -279,13 +290,16 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
             </div>
           )}
           {errors.password && (
-            <span className="text-red-500 text-xs mt-1 block">{errors.password}</span>
+            <span className="text-red-500 text-xs mt-1 block">
+              {errors.password}
+            </span>
           )}
         </div>
 
         <div>
           <label className="text-sm text-gray-700 mb-1 block">
-            Confirm Password <span className="text-red-500">*</span>
+            {t("signUpPage.confirmPassword")}{" "}
+            <span className="text-red-500">*</span>
           </label>
           <div className="relative">
             <input
@@ -294,9 +308,9 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
               value={formData.confirmPassword}
               onChange={handleInputChange}
               className={`w-full p-3 pr-10 rounded-lg border ${
-                errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
+                errors.confirmPassword ? "border-red-500" : "border-gray-300"
               } focus:outline-none focus:border-[#FCA311] focus:ring-0 hover:border-[#FCA311] transition-colors duration-200`}
-              placeholder="Confirm password"
+              placeholder={t("signUpPage.confirmPassword")}
             />
             <button
               type="button"
@@ -311,18 +325,22 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
             </button>
           </div>
           {errors.confirmPassword && (
-            <span className="text-red-500 text-xs mt-1">{errors.confirmPassword}</span>
+            <span className="text-red-500 text-xs mt-1">
+              {errors.confirmPassword}
+            </span>
           )}
         </div>
 
         <div>
           <label className="text-sm text-gray-700 mb-1 block">
-            Country <span className="text-red-500">*</span>
+            {t("signUpPage.country")} <span className="text-red-500">*</span>
           </label>
           <CountryDropdown
             onChange={handleCountryChange}
             value={formData.countryCode}
-            className={`${errors.country ? 'border-red-500' : 'border-gray-300'} focus:border-[#FCA311] hover:border-[#FCA311]`}
+            className={`${
+              errors.country ? "border-red-500" : "border-gray-300"
+            } focus:border-[#FCA311] hover:border-[#FCA311]`}
           />
           {errors.country && (
             <span className="text-red-500 text-xs mt-1">{errors.country}</span>
@@ -340,7 +358,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
           onClick={handleContinue}
           disabled={!isFormValid || loading}
         >
-          {loading ? "Processing..." : "Continue"}
+          {loading ? t("loginPage.processing") : t("loginPage.continue")}
         </button>
       </div>
 
@@ -348,7 +366,7 @@ const SignupForm = ({ formData, setFormData, errors, setErrors }) => {
         <div className="px-6 mt-4">
           <Alert variant="destructive" className="relative">
             <AlertDescription>{alertMessage}</AlertDescription>
-            <button 
+            <button
               onClick={() => setAlertMessage("")}
               className="absolute right-4 top-4 hover:opacity-70 transition-opacity"
             >

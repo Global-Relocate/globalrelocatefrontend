@@ -54,7 +54,7 @@ const SelectCountryModal = ({ isOpen, onClose, onChange }) => {
         <div className="flex w-full flex-wrap gap-x-4 gap-y-7 justify-between h-[350px] mt-5 overflow-y-auto">
           {displayedCountries.map((country) => (
             <div key={country.id} onClick={() => onChange(country)} className="flex gap-1 cursor-pointer max-h-[50px] items-center justify-start w-[140px]">
-              <img className="w-10 h-10 rounded-full object-cover border" src={country.flag} alt={country.name} />
+              <img className="w-10 h-10 rounded-full object-cover border" src={country.name === "Afghanistan" ? "https://flagcdn.com/w320/af.png" : country.flag} alt={country.name} />
               <span className="text-sm">{country.name}</span>
             </div>
           ))}

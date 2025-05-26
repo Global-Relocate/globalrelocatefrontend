@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
@@ -7,11 +7,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AuthContext } from "../../context/AuthContext";
 import logo from "../../assets/svg/logo.svg";
 // import microsoftIcon from "../../assets/svg/microsoft.svg";
-import { 
-  loginUser, 
-  initiateGoogleAuth, 
-  initiateMicrosoftAuth 
-} from "../../services/api";
+import { loginUser, initiateGoogleAuth } from "../../services/api";
+import { useTranslation } from "react-i18next";
 
 export default function Login() {
   const { login } = useContext(AuthContext);
@@ -25,6 +22,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -73,15 +71,15 @@ export default function Login() {
 
     try {
       const response = await loginUser(formData.email, formData.password);
-      
+
       // Store the exact user data structure from the API response
       login(response.accessToken, response.data.user);
-      
+
       // Navigate to welcome page
-      navigate("/welcome", { 
-        state: { 
-          username: response.data.user.fullName
-        } 
+      navigate("/welcome", {
+        state: {
+          username: response.data.user.fullName,
+        },
       });
     } catch (error) {
       console.error("Login error:", error);
@@ -90,42 +88,47 @@ export default function Login() {
       setLoading(false);
     }
   };
-  
+
   const handleGoogleLogin = async () => {
     try {
       setLoading(true);
       setErrorMessage("");
       const response = await initiateGoogleAuth();
-      
+
       if (response?.token) {
         login(response.token, response.user);
         navigate("/welcome", { state: { username: response.user.name } });
       }
     } catch (error) {
       console.error("Google login error:", error);
-      setErrorMessage(error.message || "Failed to initiate Google login. Please try again.");
-      setLoading(false);
-    }
-  };
-  
-  const handleMicrosoftLogin = async () => {
-    try {
-      setLoading(true);
-      setErrorMessage("");
-      const response = await initiateMicrosoftAuth();
-      
-      if (response?.token) {
-        login(response.token, response.user);
-        navigate("/welcome", { state: { username: response.user.name } });
-      }
-    } catch (error) {
-      console.error("Microsoft login error:", error);
-      setErrorMessage(error.message || "Failed to initiate Microsoft login. Please try again.");
+      setErrorMessage(
+        error.message || "Failed to initiate Google login. Please try again."
+      );
       setLoading(false);
     }
   };
 
-  const isFormValid = formData.email && formData.password && !emailError && !passwordError;
+  // const handleMicrosoftLogin = async () => {
+  //   try {
+  //     setLoading(true);
+  //     setErrorMessage("");
+  //     const response = await initiateMicrosoftAuth();
+
+  //     if (response?.token) {
+  //       login(response.token, response.user);
+  //       navigate("/welcome", { state: { username: response.user.name } });
+  //     }
+  //   } catch (error) {
+  //     console.error("Microsoft login error:", error);
+  //     setErrorMessage(
+  //       error.message || "Failed to initiate Microsoft login. Please try again."
+  //     );
+  //     setLoading(false);
+  //   }
+  // };
+
+  const isFormValid =
+    formData.email && formData.password && !emailError && !passwordError;
 
   return (
     <div className="min-h-screen bg-white">
@@ -134,13 +137,13 @@ export default function Login() {
         <Link to="/">
           <img src={logo} alt="Global Relocate Logo" className="h-10" />
         </Link>
-        <button 
-          onClick={handleClose} 
+        <button
+          onClick={handleClose}
           className="flex items-center"
           aria-label="Close"
         >
           <IoCloseCircleOutline className="text-2xl mr-2" />
-          <span>Close</span>
+          <span>{t("loginPage.close")}</span>
         </button>
       </div>
 
@@ -149,18 +152,15 @@ export default function Login() {
         <Link to="/">
           <img src={logo} alt="Global Relocate Logo" className="h-10" />
         </Link>
-        <Link
-          to="/signup"
-          className="text-sm font-medium hover:text-gray-600"
-        >
-          Create account
+        <Link to="/signup" className="text-sm font-medium hover:text-gray-600">
+          <span>{t("loginPage.close")}</span>
         </Link>
       </div>
 
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-6 pt-8 md:pt-16">
         <h1 className="text-3xl font-medium mb-12 text-center">
-          Log into Global Relocate
+          <span>{t("loginPage.logIntoGR")}</span>
         </h1>
 
         <div className="flex flex-col md:flex-row md:space-x-12 justify-center">
@@ -169,10 +169,13 @@ export default function Login() {
             <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               <div className="relative">
                 <label htmlFor="email" className="block text-sm mb-2">
-                  Email Address
+                  {t("userDashboard.settings.emailAddress")}
                 </label>
                 {emailError && (
-                  <p className="absolute right-0 top-0 text-red-500 text-xs" role="alert">
+                  <p
+                    className="absolute right-0 top-0 text-red-500 text-xs"
+                    role="alert"
+                  >
                     {emailError}
                   </p>
                 )}
@@ -183,7 +186,7 @@ export default function Login() {
                   value={formData.email}
                   onChange={handleInputChange}
                   className={`w-full px-4 py-3 rounded-lg border ${
-                    emailError ? 'border-red-500' : 'border-gray-300'
+                    emailError ? "border-red-500" : "border-gray-300"
                   } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                   placeholder="myaccount@gmail.com"
                   aria-invalid={emailError ? "true" : "false"}
@@ -193,10 +196,13 @@ export default function Login() {
 
               <div className="relative">
                 <label htmlFor="password" className="block text-sm mb-2">
-                  Password
+                  {t("loginPage.password")}
                 </label>
                 {passwordError && (
-                  <p className="absolute right-0 top-0 text-red-500 text-xs" role="alert">
+                  <p
+                    className="absolute right-0 top-0 text-red-500 text-xs"
+                    role="alert"
+                  >
                     {passwordError}
                   </p>
                 )}
@@ -208,17 +214,23 @@ export default function Login() {
                     value={formData.password}
                     onChange={handleInputChange}
                     className={`w-full px-4 py-3 pr-10 rounded-lg border ${
-                      passwordError ? 'border-red-500' : 'border-gray-300'
+                      passwordError ? "border-red-500" : "border-gray-300"
                     } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
-                    placeholder="Enter your password"
+                    placeholder={t("loginPage.enterPassword")}
                     aria-invalid={passwordError ? "true" : "false"}
-                    aria-describedby={passwordError ? "password-error" : undefined}
+                    aria-describedby={
+                      passwordError ? "password-error" : undefined
+                    }
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-3 top-1/2 transform -translate-y-1/2"
-                    aria-label={showPassword ? "Hide password" : "Show password"}
+                    aria-label={
+                      showPassword
+                        ? t("loginPage.hidePassword")
+                        : t("loginPage.showPassword")
+                    }
                   >
                     {showPassword ? (
                       <BsEyeSlash className="h-5 w-5 text-gray-500" />
@@ -233,8 +245,8 @@ export default function Login() {
                 <Alert variant="destructive" className="mt-4">
                   <div className="flex items-start justify-between">
                     <AlertDescription>{errorMessage}</AlertDescription>
-                    <button 
-                      onClick={() => setErrorMessage("")} 
+                    <button
+                      onClick={() => setErrorMessage("")}
                       className="ml-4 text-sm hover:text-gray-900"
                       aria-label="Close error message"
                     >
@@ -253,7 +265,7 @@ export default function Login() {
                 }`}
                 disabled={!isFormValid || loading}
               >
-                {loading ? "Processing..." : "Continue"}
+                {loading ? t("loginPage.processing") : t("loginPage.continue")}
               </button>
             </form>
           </div>
@@ -261,12 +273,12 @@ export default function Login() {
           {/* Divider */}
           <div className="my-8 md:my-0 flex md:flex-col items-center justify-center md:mt-15">
             <div className="flex-1 md:h-full md:w-px border-t md:border-l border-gray-300"></div>
-            <span className="px-4 text-gray-500">OR</span>
+            <span className="px-4 text-gray-500">{t("loginPage.or")}</span>
             <div className="flex-1 md:h-full md:w-px border-t md:border-l border-gray-300"></div>
           </div>
 
           {/* Social Login Section */}
-          <div className="w-full md:w-[320px] space-y-4 md:mt-5">
+          <div className="w-full md:w-[320px] md:mt-5 flex flex-col justify-center flex-grow-1">
             <button
               onClick={handleGoogleLogin}
               disabled={loading}
@@ -274,7 +286,7 @@ export default function Login() {
             >
               <div className="flex items-center">
                 <FcGoogle className="h-5 w-5 mr-3" />
-                <span>Continue with Google</span>
+                <span>{t("loginPage.continueWithGoogle")}</span>
               </div>
               <BsArrowLeft className="rotate-180" />
             </button>
@@ -295,26 +307,29 @@ export default function Login() {
         </div>
 
         <div className="mt-6 text-center">
-          <Link to="/forgotpassword" className="text-sm text-gray-600 hover:text-gray-800">
-            Can&apos;t log in?
+          <Link
+            to="/forgotpassword"
+            className="text-sm text-gray-600 hover:text-gray-800"
+          >
+            {t("loginPage.cantLogin")}
           </Link>
         </div>
 
         {/* Mobile Create Account Button */}
         <div className="md:hidden mt-4 text-center">
           <Link to="/signup" className="text-sm font-medium text-[#0000FF]">
-            Create account
+            {t("loginPage.createAccount")}
           </Link>
         </div>
 
         <p className="mt-8 text-sm text-gray-600 text-center">
-          By clicking creating an account, you agree to our{" "}
+          {t("loginPage.tosDesc")}
           <Link to="/terms" className="underline hover:text-gray-800">
-            Terms of Service
+            {t("loginPage.tos")}
           </Link>{" "}
-          and{" "}
+          {t("loginPage.and")}{" "}
           <Link to="/privacy" className="underline hover:text-gray-800">
-            Privacy Policy.
+            {t("loginPage.privacyPolicy")}
           </Link>
         </p>
         <div className="mb-20"></div>

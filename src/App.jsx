@@ -35,6 +35,7 @@ import { CommentProvider } from "@/context/CommentContext";
 import SinglePost from "@/pages/user/SinglePost";
 import { AiChatProvider } from "@/context/AiChatContext";
 
+// eslint-disable-next-line react/prop-types
 const RouteGuard = ({ children }) => {
   const location = useLocation();
   if (location.pathname.includes("checkout")) {
@@ -80,13 +81,13 @@ const AppContent = () => {
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/oauth/callback" element={<OAuthCallback />} />
           <Route path="/welcome" element={<Welcome />} />
-          <Route path="/upgrade" element={<Upgrade />} />
           <Route path="/trialexpired" element={<TrialExpired />} />
           <Route path="/help" element={<HelpCenter />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/term" element={<TermsAndConditions />} />
 
           {/* User routes */}
+          <Route path="/upgrade" element={<Upgrade />} />
           <Route path="/user/countries" element={<Countries />} />
           <Route path="/user/countries/:id" element={<CountryDetails />} />
           <Route path="/user/ai-assistant" element={<AiAssistant />} />

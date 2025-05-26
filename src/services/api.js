@@ -78,10 +78,10 @@ api.interceptors.response.use(
     if (isPublicRoute()) {
       // Suppress all 401/403 auth errors on public routes
       if (response.status === 401 || response.status === 403) {
-        console.log(
-          `Suppressing ${response.status} error on public route:`,
-          response.config.url
-        );
+        // console.log(
+        //   `Suppressing ${response.status} error on public route:`,
+        //   response.config.url
+        // );
         // Return empty data instead of throwing for endpoints on public routes
         return { success: false, data: null, message: null };
       }
@@ -95,10 +95,10 @@ api.interceptors.response.use(
           errorMsg.toLowerCase().includes("token") ||
           errorMsg.toLowerCase().includes("auth"))
       ) {
-        console.log(
-          `Suppressing auth-related error on public route:`,
-          response.config.url
-        );
+        //  console.log(
+        //   `Suppressing auth-related error on public route:`,
+        //   response.config.url
+        // );
         return { success: false, data: null, message: null };
       }
     }
@@ -113,10 +113,10 @@ api.interceptors.response.use(
 
 export const registerNewUser = async (userData) => {
   const endpoint = "/auth/register";
-  console.log(
-    "Starting registration request to:",
-    `${VITE_API_URL}${endpoint}`
-  );
+  //  console.log(
+  //   "Starting registration request to:",
+  //   `${VITE_API_URL}${endpoint}`
+  // );
 
   try {
     const requiredFields = [
@@ -137,7 +137,7 @@ export const registerNewUser = async (userData) => {
     }
 
     const response = await api.post(endpoint, userData);
-    console.log("Registration successful:", response);
+    // console.log("Registration successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -168,11 +168,11 @@ export const registerNewUser = async (userData) => {
 
 export const loginUser = async (email, password) => {
   const endpoint = "/auth/login";
-  console.log("Starting login request to:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Starting login request to:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.post(endpoint, { email, password });
-    console.log("Login successful:", response);
+    // console.log("Login successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -280,14 +280,14 @@ export const initiateMicrosoftAuth = async () => {
 
 export const verifyEmail = async (email, otp) => {
   const endpoint = "/auth/verify/otp";
-  console.log(
-    "Starting email verification request to:",
-    `${VITE_API_URL}${endpoint}`
-  );
+  //  console.log(
+  //   "Starting email verification request to:",
+  //   `${VITE_API_URL}${endpoint}`
+  // );
 
   try {
     const response = await api.post(endpoint, { email, otp });
-    console.log("Email verification successful:", response);
+    // console.log("Email verification successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -318,14 +318,14 @@ export const verifyEmail = async (email, otp) => {
 
 export const forgotPassword = async (email) => {
   const endpoint = "/auth/forgot-password";
-  console.log(
-    "Starting forgot password request to:",
-    `${VITE_API_URL}${endpoint}`
-  );
+  //  console.log(
+  //   "Starting forgot password request to:",
+  //   `${VITE_API_URL}${endpoint}`
+  // );
 
   try {
     const response = await api.post(endpoint, { email });
-    console.log("Forgot password request successful:", response);
+    // console.log("Forgot password request successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -358,10 +358,10 @@ export const forgotPassword = async (email) => {
 
 export const resetPassword = async (email, password, otp) => {
   const endpoint = "/auth/reset-password";
-  console.log(
-    "Starting reset password request to:",
-    `${VITE_API_URL}${endpoint}`
-  );
+  //  console.log(
+  //   "Starting reset password request to:",
+  //   `${VITE_API_URL}${endpoint}`
+  // );
 
   try {
     const response = await api.post(endpoint, {
@@ -369,7 +369,7 @@ export const resetPassword = async (email, password, otp) => {
       password,
       otp,
     });
-    console.log("Password reset successful:", response);
+    // console.log("Password reset successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -413,11 +413,11 @@ export const setAuthToken = (token) => {
 
 export const resendOTP = async (email) => {
   const endpoint = "/auth/resend-otp";
-  console.log("Starting resend OTP request to:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Starting resend OTP request to:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.post(endpoint, { email });
-    console.log("OTP resend successful:", response);
+    // console.log("OTP resend successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -449,11 +449,11 @@ export const resendOTP = async (email) => {
 // User Profile Endpoints
 export const getUserProfile = async () => {
   const endpoint = "/user/profile";
-  console.log("Fetching user profile from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching user profile from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Profile fetch successful:", response);
+    // console.log("Profile fetch successful:", response);
     return response;
   } catch (error) {
     console.error("Profile fetch error:", error);
@@ -499,7 +499,7 @@ export const getUserProfile = async () => {
 
 export const updateUserProfile = async (profileData) => {
   const endpoint = "/user/profile";
-  console.log("Updating user profile at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Updating user profile at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     // Create FormData instance for multipart/form-data
@@ -524,7 +524,7 @@ export const updateUserProfile = async (profileData) => {
       },
     });
 
-    console.log("Profile update successful:", response);
+    // console.log("Profile update successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -557,11 +557,11 @@ export const updateUserProfile = async (profileData) => {
 
 export const getUserPosts = async () => {
   const endpoint = "/user/profile/posts";
-  console.log("Fetching user posts from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching user posts from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Posts fetch successful:", response);
+    // console.log("Posts fetch successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -594,11 +594,11 @@ export const getUserPosts = async () => {
 
 export const getUserComments = async () => {
   const endpoint = "/user/profile/comments";
-  console.log("Fetching user comments from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching user comments from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Comments fetch successful:", response);
+    // console.log("Comments fetch successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -631,11 +631,11 @@ export const getUserComments = async () => {
 
 export const getUserBookmarks = async () => {
   const endpoint = "/user/profile/bookmarks";
-  console.log("Fetching user bookmarks from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching user bookmarks from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Bookmarks fetch successful:", response);
+    // console.log("Bookmarks fetch successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -669,11 +669,11 @@ export const getUserBookmarks = async () => {
 // User Preferences Endpoints
 export const getUserPreferences = async () => {
   const endpoint = "/user/preferences";
-  console.log("Fetching user preferences from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching user preferences from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Preferences fetch successful:", response);
+    // console.log("Preferences fetch successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -706,11 +706,11 @@ export const getUserPreferences = async () => {
 
 export const updateUserPreferences = async (preferences) => {
   const endpoint = "/user/preferences";
-  console.log("Updating user preferences at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Updating user preferences at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.put(endpoint, preferences);
-    console.log("Preferences update successful:", response);
+    // console.log("Preferences update successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -744,11 +744,11 @@ export const updateUserPreferences = async (preferences) => {
 // Account Management Endpoints
 export const getAccountDetails = async () => {
   const endpoint = "/user/account";
-  console.log("Fetching account details from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching account details from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Account details fetch successful:", response);
+    // console.log("Account details fetch successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -781,11 +781,11 @@ export const getAccountDetails = async () => {
 
 export const deleteAccount = async () => {
   const endpoint = "/user/account";
-  console.log("Deleting account at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Deleting account at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.delete(endpoint);
-    console.log("Account deletion successful:", response);
+    // console.log("Account deletion successful:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -817,7 +817,7 @@ export const deleteAccount = async () => {
 // Subscription Endpoints
 export const createCheckoutSession = async (plan) => {
   const endpoint = "/subscription/create-checkout-session";
-  console.log("Creating checkout session at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Creating checkout session at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     if (!["BASIC", "PREMIUM"].includes(plan)) {
@@ -869,14 +869,14 @@ export const createCheckoutSession = async (plan) => {
 
 export const createBillingPortalSession = async () => {
   const endpoint = "/subscription/create-portal-session";
-  console.log(
-    "Creating billing portal session at:",
-    `${VITE_API_URL}${endpoint}`
-  );
+  //  console.log(
+  //   "Creating billing portal session at:",
+  //   `${VITE_API_URL}${endpoint}`
+  // );
 
   try {
     const response = await api.get(endpoint);
-    console.log("Billing portal session created successfully:", response);
+    // console.log("Billing portal session created successfully:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -915,18 +915,18 @@ export const getSubscriptionDetails = async () => {
     isPublicRoute() &&
     !(localStorage.getItem("token") || sessionStorage.getItem("token"))
   ) {
-    console.log("Skipping subscription check on public route");
+    // console.log("Skipping subscription check on public route");
     return { success: false, data: null };
   }
 
-  console.log(
-    "Fetching subscription details from:",
-    `${VITE_API_URL}${endpoint}`
-  );
+  //  console.log(
+  //   "Fetching subscription details from:",
+  //   `${VITE_API_URL}${endpoint}`
+  // );
 
   try {
     const response = await api.get(endpoint);
-    console.log("Subscription details fetched successfully:", response);
+    // console.log("Subscription details fetched successfully:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -959,11 +959,11 @@ export const getSubscriptionDetails = async () => {
 
 export const cancelSubscription = async () => {
   const endpoint = "/subscription/cancel";
-  console.log("Canceling subscription at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Canceling subscription at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.post(endpoint);
-    console.log("Subscription canceled successfully:", response);
+    // console.log("Subscription canceled successfully:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -996,11 +996,11 @@ export const cancelSubscription = async () => {
 
 export const reactivateSubscription = async () => {
   const endpoint = "/subscription/cancel";
-  console.log("Reactivating subscription at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Reactivating subscription at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Subscription reactivated successfully:", response);
+    // console.log("Subscription reactivated successfully:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -1034,7 +1034,7 @@ export const reactivateSubscription = async () => {
 // Feedback Endpoint
 export const submitFeedback = async (content, type) => {
   const endpoint = "/feedback";
-  console.log("Submitting feedback at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Submitting feedback at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     if (!content || !type) {
@@ -1047,7 +1047,7 @@ export const submitFeedback = async (content, type) => {
       type: type,
     });
 
-    console.log("Feedback submitted successfully:", response);
+    // console.log("Feedback submitted successfully:", response);
     return response;
   } catch (error) {
     if (error instanceof CustomAPIError) {
@@ -1083,11 +1083,11 @@ export const getNotifications = async (page = 1, limit = 10, type = null) => {
   const endpoint = `/notifications?page=${page}&limit=${limit}${
     type ? `&type=${type}` : ""
   }`;
-  console.log("Fetching notifications from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching notifications from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Notifications fetched successfully:", response);
+    // console.log("Notifications fetched successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to fetch notifications");
@@ -1107,11 +1107,11 @@ export const markNotificationsAsRead = async (notificationId) => {
 
 export const removeNotification = async (notificationId) => {
   const endpoint = `/notifications/${notificationId}`;
-  console.log("Deleting notification at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Deleting notification at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.delete(endpoint);
-    console.log("Notification deleted successfully:", response);
+    // console.log("Notification deleted successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to delete notification");
@@ -1121,11 +1121,11 @@ export const removeNotification = async (notificationId) => {
 // Community Posts Endpoints
 export const getPosts = async (page = 1, limit = 20) => {
   const endpoint = `/community/post?limit=${limit}&page=${page}`;
-  console.log("Fetching posts from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching posts from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Posts fetched successfully:", response);
+    // console.log("Posts fetched successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to fetch posts");
@@ -1134,7 +1134,7 @@ export const getPosts = async (page = 1, limit = 20) => {
 
 export const createPost = async (text, media, privacy = "PUBLIC") => {
   const endpoint = "/community/post";
-  console.log("Creating post at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Creating post at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const formData = new FormData();
@@ -1152,7 +1152,7 @@ export const createPost = async (text, media, privacy = "PUBLIC") => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log("Post created successfully:", response);
+    // console.log("Post created successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to create post");
@@ -1161,11 +1161,11 @@ export const createPost = async (text, media, privacy = "PUBLIC") => {
 
 export const getSinglePost = async (postId) => {
   const endpoint = `/community/post/${postId}`;
-  console.log("Fetching single post from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching single post from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Post fetched successfully:", response);
+    // console.log("Post fetched successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to fetch post");
@@ -1174,7 +1174,7 @@ export const getSinglePost = async (postId) => {
 
 export const editPost = async (postId, text, media, privacy = "PUBLIC") => {
   const endpoint = `/community/post/${postId}`;
-  console.log("Editing post at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Editing post at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const formData = new FormData();
@@ -1192,7 +1192,7 @@ export const editPost = async (postId, text, media, privacy = "PUBLIC") => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log("Post edited successfully:", response);
+    // console.log("Post edited successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to edit post");
@@ -1201,11 +1201,11 @@ export const editPost = async (postId, text, media, privacy = "PUBLIC") => {
 
 export const deletePost = async (postId) => {
   const endpoint = `/community/post/${postId}`;
-  console.log("Deleting post at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Deleting post at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.delete(endpoint);
-    console.log("Post deleted successfully:", response);
+    // console.log("Post deleted successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to delete post");
@@ -1215,7 +1215,7 @@ export const deletePost = async (postId) => {
 // Community Comments Endpoints
 export const createComment = async (postId, text, media) => {
   const endpoint = `/community/post/${postId}/comment`;
-  console.log("Creating comment at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Creating comment at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const formData = new FormData();
@@ -1230,7 +1230,7 @@ export const createComment = async (postId, text, media) => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log("Comment created successfully:", response);
+    // console.log("Comment created successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to create comment");
@@ -1239,11 +1239,11 @@ export const createComment = async (postId, text, media) => {
 
 export const getPostComments = async (postId) => {
   const endpoint = `/community/post/${postId}/comment`;
-  console.log("Fetching post comments from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching post comments from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Comments fetched successfully:", response);
+    // console.log("Comments fetched successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to fetch comments");
@@ -1252,7 +1252,7 @@ export const getPostComments = async (postId) => {
 
 export const replyToComment = async (commentId, postId, text, media) => {
   const endpoint = `/community/comment/${commentId}/reply`;
-  console.log("Creating reply at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Creating reply at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const formData = new FormData();
@@ -1268,7 +1268,7 @@ export const replyToComment = async (commentId, postId, text, media) => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log("Reply created successfully:", response);
+    // console.log("Reply created successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to create reply");
@@ -1277,11 +1277,11 @@ export const replyToComment = async (commentId, postId, text, media) => {
 
 export const getCommentReplies = async (postId, commentId) => {
   const endpoint = `/community/post/${postId}/comment/${commentId}/replies`;
-  console.log("Fetching comment replies from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching comment replies from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Replies fetched successfully:", response);
+    // console.log("Replies fetched successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to fetch replies");
@@ -1290,7 +1290,7 @@ export const getCommentReplies = async (postId, commentId) => {
 
 export const editComment = async (commentId, text, media) => {
   const endpoint = `/community/comment/${commentId}`;
-  console.log("Editing comment at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Editing comment at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const formData = new FormData();
@@ -1307,7 +1307,7 @@ export const editComment = async (commentId, text, media) => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log("Comment edited successfully:", response);
+    // console.log("Comment edited successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to edit comment");
@@ -1316,11 +1316,11 @@ export const editComment = async (commentId, text, media) => {
 
 export const deleteComment = async (commentId) => {
   const endpoint = `/community/comment/${commentId}`;
-  console.log("Deleting comment at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Deleting comment at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.delete(endpoint);
-    console.log("Comment deleted successfully:", response);
+    // console.log("Comment deleted successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to delete comment");
@@ -1330,11 +1330,11 @@ export const deleteComment = async (commentId) => {
 // Community Likes Endpoints
 export const likePost = async (postId) => {
   const endpoint = `/community/post/${postId}/like`;
-  console.log("Liking/unliking post at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Liking/unliking post at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.post(endpoint);
-    console.log("Post like/unlike successful:", response);
+    // console.log("Post like/unlike successful:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to like/unlike post");
@@ -1343,11 +1343,11 @@ export const likePost = async (postId) => {
 
 export const getPostLikes = async (postId) => {
   const endpoint = `/community/post/${postId}/like`;
-  console.log("Fetching post likes from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching post likes from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Post likes fetched successfully:", response);
+    // console.log("Post likes fetched successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to fetch post likes");
@@ -1356,11 +1356,11 @@ export const getPostLikes = async (postId) => {
 
 export const likeComment = async (postId, commentId) => {
   const endpoint = `/community/post/${postId}/comment/${commentId}/like`;
-  console.log("Liking/unliking comment at:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Liking/unliking comment at:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.post(endpoint);
-    console.log("Comment like/unlike successful:", response);
+    // console.log("Comment like/unlike successful:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to like/unlike comment");
@@ -1369,11 +1369,11 @@ export const likeComment = async (postId, commentId) => {
 
 export const getCommentLikes = async (postId, commentId) => {
   const endpoint = `/community/post/${postId}/comment/${commentId}/likes`;
-  console.log("Fetching comment likes from:", `${VITE_API_URL}${endpoint}`);
+  // console.log("Fetching comment likes from:", `${VITE_API_URL}${endpoint}`);
 
   try {
     const response = await api.get(endpoint);
-    console.log("Comment likes fetched successfully:", response);
+    // console.log("Comment likes fetched successfully:", response);
     return response;
   } catch (error) {
     handleApiError(error, "Failed to fetch comment likes");

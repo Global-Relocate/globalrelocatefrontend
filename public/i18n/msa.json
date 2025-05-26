@@ -2,90 +2,130 @@
   "landingPage": {
     "navbar": {
       "home": "Laman Utama",
-      "countriesData": "Negara & Data",
+      "countriesData": "Data Negara",
       "community": "Komuniti",
-      "tools": "Alat",
+      "tools": "Alatan",
       "pricing": "Harga",
       "viewProfile": "Lihat Profil",
       "helpCenter": "Pusat Bantuan",
-      "giveFeedback": "Beri Maklum Balas",
+      "giveFeedback": "Berikan Maklum Balas",
       "privacyPolicy": "Dasar Privasi",
-      "upgradePlan": "Naik Taraf Pelan"
+      "upgradePlan": "Naik Taraf Pelan",
+      "logIn": "Log Masuk",
+      "getStarted": "Mula Sekarang",
+      "logout": "Log Keluar"
     },
     "showcase": {
-      "title": "Hidup Lebih Baik dengan Imigresen Bijak",
-      "para": "Platform AI untuk imigresen global, bantuan undang-undang & gaya hidup",
-      "buttonText": "Mulakan Sekarang"
+      "title": "Berpindah dengan lebih bijak, hidup dengan lebih baik.",
+      "para": "Platform berkuasa AI anda untuk penempatan semula yang lancar, panduan undang-undang, dan kehidupan global.",
+      "buttonText": "Mula Sekarang"
     },
     "features": {
       "title": "Ciri-ciri",
       "cards": {
         "card1": {
-          "title": "Banding Negara",
-          "para": "Bandingkan kos sara hidup, cukai & kualiti hidup untuk keputusan terbaik"
+          "title": "Bandingkan Negara",
+          "para": "Buat keputusan termaklum dengan membandingkan pelbagai negara secara berdampingan, menganalisis faktor-faktor utama seperti kos sara hidup, kadar cukai, dan kualiti hidup."
         },
         "card2": {
-          "title": "Analisis Pintar",
-          "para": "Berhubung dengan rakan digital melalui forum & kumpulan imigresen"
+          "title": "Wawasan Pintar dengan AI",
+          "para": "Sertai forum dan kumpulan dengan nomad digital global yang berfikiran sama."
         },
         "card3": {
-          "title": "Maklumat Negara",
-          "para": "Data negara terkini untuk perancangan lebih baik"
+          "title": "Negara dan Data",
+          "para": "Sertai forum dan kumpulan dengan nomad digital global yang berfikiran sama."
         }
       }
     },
     "countries": {
       "title": "Negara Popular",
-      "para": "Terokai destinasi imigresen paling diminati"
+      "para": "Terokai destinasi popular dan mula merancang perpindahan anda"
     },
     "whyChooseUs": {
       "title": "Kenapa Pilih Kami",
       "card1": {
-        "title": "AI Jimat Masa",
-        "para": "Dapatkan maklumat terkini & boleh dipercayai"
+        "title": "Data Berbantukan AI yang Menjimatkan Masa",
+        "para": "Maklumat yang sentiasa terkini dan boleh dipercayai."
       },
       "card2": {
-        "title": "Komuniti Dipercayai",
-        "para": "Platform berasaskan kepercayaan"
+        "title": "Kenalan yang Disahkan dan Sumber yang Dipercayai:",
+        "para": "Platform dipacu komuniti yang menjamin kredibiliti."
       },
       "card3": {
-        "title": "Penyelesaian Lengkap",
-        "para": "Dari visa ke kos hidup – semua di satu tempat"
+        "title": "Penyelesaian Serba Guna",
+        "para": "Segala-galanya daripada visa hingga kos sara hidup di satu tempat."
       },
       "card4": {
-        "title": "Makluman Tersuai",
-        "para": "Terima notifikasi yang berkaitan dengan anda"
+        "title": "Makluman Peribadi",
+        "para": "Kekal di hadapan dengan pemberitahuan tersuai dan ciri kegemaran."
       }
     }
+  },
+  "loginPage": {
+    "close": "Tutup",
+    "createAccount": "Cipta Akaun",
+    "logIntoGR": "Log Masuk ke Global Relocate",
+    "password": "Kata Laluan",
+    "enterPassword": "Masukkan kata laluan anda",
+    "continueWithGoogle": "Teruskan dengan Google",
+    "cantLogin": "Tidak boleh log masuk?",
+    "tosDesc": "Dengan mengklik cipta akaun, anda bersetuju dengan ",
+    "tos": "Syarat Perkhidmatan",
+    "privacyPolicy": "Dasar Privasi",
+    "and": "dan",
+    "or": "ATAU",
+    "processing": "Memproses...",
+    "continue": "Teruskan",
+    "hidePassword": "Sembunyikan kata laluan",
+    "showPassword": "Tunjukkan kata laluan"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Mari cipta akaun anda",
+    "chooseAccountType": "Pilih jenis akaun",
+    "createPersonalAccount": "Saya mencipta akaun peribadi",
+    "createCorporateAccount": "Saya mencipta akaun korporat",
+    "continue": "Teruskan",
+    "chooseSignMethod": "Pilih kaedah pendaftaran",
+    "continueWithEmail": "Teruskan dengan e-mel",
+    "alreadyHaveAccount": "Sudah mempunyai akaun?",
+    "fullName": "Nama Penuh",
+    "chooseUsername": "Pilih nama pengguna",
+    "enterYourFullName": "Masukkan nama penuh anda",
+    "confirmPassword": "Sahkan Kata Laluan",
+    "country": "Negara"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Selamat Datang",
+    "welcomeText": "Platform berkuasa AI anda untuk penempatan semula yang lancar, panduan undang-undang, dan kehidupan global."
   },
   "userDashboard": {
     "sidebar": {
       "countries": "Negara",
       "aiAssistant": "Pembantu AI",
-      "compareCountries": "Banding Negara",
+      "compareCountries": "Bandingkan Negara",
       "taxCalculator": "Kalkulator Cukai",
-      "notifications": "Notifikasi",
+      "notifications": "Pemberitahuan",
       "favourites": "Kegemaran",
       "community": "Komuniti",
       "cta": {
-        "title": "Cuba Pelan Pro",
-        "para": "Anda sedang menggunakan percubaan percuma 3 hari. Naik taraf ke Pro untuk teruskan.",
+        "title": "Cuba Pro",
+        "para": "Anda kini berada dalam pelan percuma, sah selama 3 hari. Naik taraf sekarang untuk terus menggunakan Global Relocate.",
         "buttonText": "Ketahui Lebih Lanjut"
       }
     },
     "countries": {
       "title": "Negara",
-      "noDataText": "Tiada data!",
-      "searchText": "Cari negara"
+      "noDataText": "Tiada data tersedia!",
+      "searchText": "Cari Negara"
     },
     "country": {
-      "countryIn": "Negara:",
+      "countryIn": "Negara dalam",
       "addFavorite": "Tambah ke Kegemaran",
       "share": "Kongsi",
-      "overview": "Gambaran Umum",
+      "overview": "Gambaran Keseluruhan",
       "map": "Peta",
       "keyFacts": "Fakta Utama",
-      "visaMigration": "Visa & Imigresen",
+      "visaMigration": "Visa & Migrasi",
       "taxes": "Cukai",
       "flag": "Bendera",
       "capital": "Ibu Kota",
@@ -94,18 +134,18 @@
       "population": "Populasi",
       "dialingCode": "Kod Panggilan",
       "back": "Kembali",
-      "noOverview": "Tiada gambaran umum untuk negara ini",
-      "noVisaInfo": "Tiada maklumat visa atau imigresen untuk negara ini"
+      "noOverview": "Tiada gambaran keseluruhan tersedia untuk negara ini.",
+      "noVisaInfo": "Tiada maklumat visa dan imigresen tersedia."
     },
     "ai": {
-      "rename": "Tukar Nama",
+      "rename": "Namakan Semula",
       "deleteConversation": "Padam Perbualan",
       "share": "Kongsi",
-      "hello": "Hai",
-      "newChat": "Sembang Baru",
-      "askAI": "Tanya AI...",
+      "hello": "Helo",
+      "newChat": "Sembang Baharu",
+      "askAI": "Tanya apa sahaja kepada AI...",
       "uploadDocument": "Muat Naik Dokumen",
-      "uploadDocumentDesc": "Muat naik dokumen untuk dianalisis oleh pembantu AI",
+      "uploadDocumentDesc": "Muat naik dokumen untuk diproses dengan pembantu AI",
       "cancel": "Batal",
       "upload": "Muat Naik"
     },
@@ -114,39 +154,39 @@
       "editProfile": "Edit Profil",
       "profile": "Profil",
       "account": "Akaun",
-      "preferences": "Pilihan",
-      "avatar": "Gambar Profil",
+      "preferences": "Keutamaan",
+      "avatar": "Avatar",
       "fullName": "Nama Penuh",
       "username": "Nama Pengguna",
-      "bio": "Tentang Saya",
+      "bio": "Bio",
       "country": "Negara",
-      "emailAddress": "Alamat Emel",
+      "emailAddress": "Alamat E-mel",
       "verified": "Disahkan",
       "subscription": "Langganan",
-      "subscriptionDesc": "Anda sedang menggunakan percubaan percuma 3 hari. Naik taraf ke Pro untuk teruskan.",
+      "subscriptionDesc": "Anda kini berada dalam pelan percuma, sah selama 3 hari. Naik taraf sekarang untuk terus menggunakan Global Relocate.",
       "deleteAccount": "Padam Akaun",
-      "deleteDesc": "Nyahaktifkan akaun dan data anda buat sementara waktu",
+      "deleteDesc": "Padam akaun dan data anda secara kekal",
       "language": "Bahasa",
-      "chooseLanguage": "Pilih Bahasa",
-      "selectLanguage": "Pilih bahasa",
+      "chooseLanguage": "Pilih bahasa",
+      "selectLanguage": "Pilih Bahasa",
       "learnMore": "Ketahui Lebih Lanjut",
       "saveChanges": "Simpan Perubahan",
       "cancel": "Batal",
       "saving": "Menyimpan...",
-      "unsavedChanges": "Tiada perubahan belum disimpan",
-      "addName": "Tambah nama",
-      "addBio": "Tambah bio",
-      "addUsername": "Tambah nama pengguna",
-      "addLocation": "Tambah lokasi",
+      "unsavedChanges": "Anda mempunyai perubahan yang belum disimpan",
+      "addName": "Tambah Nama",
+      "addBio": "Tambah bio untuk menceritakan kisah anda.",
+      "addUsername": "Tambah Nama Pengguna",
+      "addLocation": "Tambah Lokasi",
       "confirmAccountDelete": "Sahkan Padam Akaun",
-      "confirmAccountDeleteDesc": "Sahkan bahawa anda mahu padam akaun anda:",
+      "confirmAccountDeleteDesc": "Sebelum memadam akaun anda, sila luangkan sedikit masa untuk memahami apa yang akan berlaku kepada data anda:",
       "confirm": "Sahkan",
-      "neverMind": "Batal",
-      "confirmDeleteWarning": "Amaran: Padam akaun adalah kekal",
-      "confirmDeleteList1": "Maklumat profil, tetapan dan pilihan anda akan dipadam",
-      "confirmDeleteList2": "Data anda akan dipadam dalam 30 hari",
+      "neverMind": "Tidak mengapa",
+      "confirmDeleteWarning": "Sila ambil perhatian bahawa pemadaman akaun anda tidak boleh dibatalkan.",
+      "confirmDeleteList1": "Butiran profil anda, keutamaan dan tetapan akan dialih keluar.",
+      "confirmDeleteList2": "Semua data akan dipadamkan secara kekal dalam tempoh 30 hari selepas pemadaman akaun.",
       "deleting": "Memadam...",
-      "youHave": "Peranan semasa anda:",
+      "youHave": "Anda ada:",
       "administrator": "Pentadbir"
     },
     "continents": {
@@ -161,73 +201,105 @@
     },
     "tax": {
       "taxCalculator": "Kalkulator Cukai",
-      "taxCacluatorDesc": "Kira cukai untuk pelbagai negara",
+      "taxCacluatorDesc": "Kira anggaran beban cukai anda di pelbagai negara",
       "country": "Negara",
       "annualIncome": "Pendapatan Tahunan",
-      "userAccount": "Jenis Akaun",
+      "userAccount": "Akaun Pengguna",
       "totalDeductions": "Jumlah Potongan",
-      "selectCountry": "Pilih negara",
+      "selectCountry": "Pilih negara anda",
       "selectAccount": "Pilih jenis akaun",
-      "enterIncome": "Masukkan pendapatan tahunan",
-      "enterDeductions": "Masukkan potongan",
+      "enterIncome": "Masukkan pendapatan tahunan anda",
+      "enterDeductions": "Masukkan jumlah potongan",
       "calculateTax": "Kira Cukai",
       "individual": "Individu",
       "corporate": "Korporat",
       "taxSummary": "Ringkasan Cukai",
       "taxAmount": "Jumlah Cukai",
-      "effectiveRate": "Kadar Efektif",
-      "takeHomeAmount": "Pendapatan Bersih"
+      "effectiveRate": "Kadar Berkesan",
+      "takeHomeAmount": "Jumlah Bersih"
     },
     "upgradePage": {
       "back": "Kembali",
-      "upgradePlan": "Naik Taraf Pelan",
-      "upgradePlanDesc": "Pilih pelan imigresen yang sesuai untuk akses alat",
-      "currentPlan": "Pelan Semasa",
-      "getStarted": "Mulakan",
+      "upgradePlan": "Naik Taraf Pelan Anda",
+      "upgradePlanDesc": "Pilih pelan yang sempurna untuk menyokong perjalanan penempatan semula global anda. Dapatkan akses kepada alatan dan wawasan yang komprehensif untuk menjadikan perpindahan anda lancar.",
+      "currentPlan": "Pelan Semasa Anda",
+      "getStarted": "Mula Sekarang",
       "free": "Percuma",
       "basic": "Asas",
       "premium": "Premium",
       "perMonth": "sebulan",
-      "forEveryone": "Untuk semua",
+      "forEveryone": "Untuk Semua",
       "freePlan": {
-        "item1": "Percubaan percuma 3 hari",
-        "item2": "Maklumat asas negara",
-        "item3": "Akses baca forum sahaja",
+        "item1": "Akses percubaan 3 hari",
+        "item2": "Maklumat negara asas",
+        "item3": "Akses komuniti (baca sahaja)",
         "item4": "Kalkulator cukai terhad",
-        "item5": "Alat perbandingan asas"
+        "item5": "Perbandingan kos asas"
       },
       "basicPlan": {
-        "item1": "Maklumat negara tambahan",
-        "item2": "Komen & siaran forum",
+        "item1": "Maklumat negara penuh",
+        "item2": "Penyertaan komuniti",
         "item3": "Kalkulator cukai penuh",
-        "item4": "Alat perbandingan kos",
-        "item5": "Bantuan imigresen asas",
-        "item6": "Sokongan emel"
+        "item4": "Alatan perbandingan kos",
+        "item5": "Panduan penempatan semula asas",
+        "item6": "Sokongan e-mel"
       },
       "premiumPlan": {
-        "item1": "Semua ciri pelan asas",
-        "item2": "Akses penuh maklumat negara",
-        "item3": "Akses penuh komuniti",
-        "item4": "Alat cukai lanjutan",
-        "item5": "Perunding imigresen pintar",
-        "item6": "Maklumat kos hidup",
-        "item7": "Sokongan permohonan visa",
-        "item8": "Makluman awal",
-        "item9": "Pelan imigresen diperibadikan"
+        "item1": "Semua ciri asas",
+        "item2": "Akses data negara tanpa had",
+        "item3": "Penyertaan komuniti penuh",
+        "item4": "Kalkulator cukai lanjutan",
+        "item5": "Pembantu penempatan semula AI",
+        "item6": "Wawasan kos sara hidup",
+        "item7": "Panduan keperluan visa",
+        "item8": "Sokongan keutamaan",
+        "item9": "Pelan hala tuju penempatan semula peribadi"
       }
     }
   },
   "drawers": {
     "selectLanguages": {
-      "confirm": "Sahkan Bahasa"
+      "confirm": "Sahkan Perubahan"
     }
   },
   "footer": {
-    "terms": "Terma & Syarat",
+    "sitemap": "Peta Laman",
+    "company": "Syarikat",
+    "terms": "Terma",
     "privacy": "Privasi",
-    "subscribeNewsletter": "Langgan Surat Berita",
-    "subscribeNewsDesc": "Dapatkan berita terkini mengenai imigresen",
-    "enterEmail": "Masukkan alamat emel",
-    "subscribe": "Langgan"
+    "contact": "Hubungi Kami",
+    "subscribeNewsletter": "Langgan Buletin Kami",
+    "subscribeNewsDesc": "Kekal dikemas kini dengan wawasan terkini mengenai penempatan semula global",
+    "enterEmail": "Masukkan e-mel anda",
+    "subscribe": "Langgan",
+    "copyright": "Semua kandungan di laman web ini dilindungi hak cipta."
+  },
+  "toast": {
+    "thanksNewsletter": "Terima kasih kerana melanggan buletin kami!",
+    "linkCopied": "Pautan disalin ke papan keratan!",
+    "linkCopyFailed": "Gagal menyalin pautan",
+    "newSessionStarted": "Sesi baharu dimulakan",
+    "newSessionFailed": "Gagal memulakan sesi baharu. Sila cuba lagi.",
+    "redirectToPayPage": "Mengalih semula ke halaman pembayaran...",
+    "activeSessionShare": "Anda memerlukan sesi aktif untuk berkongsi",
+    "sessionDeleteFailed": "Gagal memadam sesi. Sila cuba lagi.",
+    "sessionDeleteSuccess": "Sesi berjaya dipadam!",
+    "sessionRenameSuccess": "Sesi berjaya dinamakan semula!",
+    "sessionRenameFailed": "Gagal menamakan semula sesi. Sila cuba lagi.",
+    "enterSessionName": "Masukkan nama baharu untuk sesi ini:"
+  },
+  "formErrors": {
+    "invalidEmail": "Format e-mel tidak sah",
+    "emailRequired": "E-mel diperlukan",
+    "fullNameRequired": "Nama penuh diperlukan",
+    "enterFullName": "Sila masukkan nama penuh anda",
+    "passwordRequired": "Kata laluan diperlukan",
+    "minPassword": "Kata laluan mestilah sekurang-kurangnya 8 aksara",
+    "passwordsMismatch": "Kata laluan tidak sepadan",
+    "weakPassword": "Kata laluan terlalu lemah",
+    "selectCountry": "Sila pilih negara",
+    "usernameRequired": "Nama pengguna diperlukan",
+    "minUsername": "Nama pengguna mestilah sekurang-kurangnya 3 aksara",
+    "cpasswordRequired": "Pengesahan kata laluan diperlukan"
   }
 }

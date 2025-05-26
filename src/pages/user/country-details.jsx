@@ -13,6 +13,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useTranslation } from "react-i18next";
@@ -63,7 +65,7 @@ function CountryDetails() {
             <div className="flex items-start gap-2">
               <img
                 src={
-                  singleCountry?.name === "Afghanistan" ? "https://flagcdn.com/w320/af.png" : singleCountry?.keyFacts?.flag 
+                  singleCountry?.name === "Afghanistan" ? "https://flagcdn.com/w320/af.png" : singleCountry?.keyFacts?.flag
                 }
                 className="w-10 h-10 rounded-full object-cover"
                 alt="Country flag"
@@ -106,7 +108,7 @@ function CountryDetails() {
                     delay: 5000,
                   }),
                 ]}
-                className="w-full rounded-2xl"
+                className="w-full rounded-2xl overflow-hidden"
               >
                 <CarouselContent className="rounded-2xl">
                   {singleCountry.images.map((item, i) => {
@@ -121,6 +123,10 @@ function CountryDetails() {
                     );
                   })}
                 </CarouselContent>
+                <div className="absolute top-0 bottom-0 left-0 right-0 overflow-hidden">
+                <CarouselPrevious className="absolute left-0 h-full w-[60px] rounded-none bg-transparent border-0 hover:bg-transparent" />
+                <CarouselNext className="absolute right-0 h-full w-[60px] rounded-none bg-transparent border-0 hover:bg-transparent" />
+                </div>
               </Carousel>
             ) : (
               <>
@@ -181,7 +187,7 @@ function CountryDetails() {
                     <p>
                       <img
                         src={
-                          singleCountry?.keyFacts?.flag ||
+                          singleCountry?.name === "Afghanistan" ? "https://flagcdn.com/w320/af.png" : singleCountry?.keyFacts?.flag ||
                           "https://flagcdn.com/w320/ci.png"
                         }
                         className="w-6 h-6 rounded-full object-cover"

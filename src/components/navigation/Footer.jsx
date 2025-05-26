@@ -13,7 +13,7 @@ export default function Footer() {
     if (email) {
       // Here you would typically make an API call to subscribe the email
       showToast({
-        message: "Thank you for subscribing to our newsletter!",
+        message: t("toast.thanksNewsletter"),
         type: "success",
       });
       setEmail("");
@@ -21,58 +21,92 @@ export default function Footer() {
   };
 
   return (
-    <div className="text-[#7E7E7E] w-full flex items-center justify-center flex-col bg-black min-h-[300px] min-w-[320px] mt-10">
-      <div className="w-[90%] flex-wrap flex items-start justify-start gap-8 md:gap-36 p-4">
+    <div className="text-[#7E7E7E] w-full bg-black">
+      <div className="grid md:grid-cols-3 grid-cols-1 mt-10 py-10 md:mt-8 px-8 md:px-16">
         <div>
-          <img src={logo} alt="logo" className="h-8 cursor-pointer" />
+          <img
+            src={logo}
+            alt="logo"
+            className="h-14 cursor-pointer mx-auto md:mx-0"
+          />
+          <div className="grid grid-cols-4 mt-8 text-center md:text-left">
+            <a href="">
+              <i className="fab fa-telegram text-2xl hover:text-white"></i>
+            </a>
+            <a href="">
+              <i className="fab fa-facebook text-2xl hover:text-white"></i>
+            </a>
+            <a href="">
+              <i className="fab fa-instagram text-2xl hover:text-white"></i>
+            </a>
+            <a href="">
+              <i className="fab fa-whatsapp text-2xl hover:text-white"></i>
+            </a>
+          </div>
+          <div className="mt-12">
+            <a
+              href="mailto:support@globalrelocate.com"
+              className="flex items-center hover:text-white gap-4"
+            >
+              <i className="fas fa-envelope text-2xl"></i>
+              support@globalrelocate.com
+            </a>
+          </div>
         </div>
 
-        <ul className="flex flex-col gap-5">
-          {[
-            { to: "/", label: t("landingPage.navbar.home") },
-            {
-              to: "/user/countries",
-              label: t("landingPage.navbar.countriesData"),
-            },
-            {
-              to: "/user/tax-calculator",
-              label: t("landingPage.navbar.tools"),
-            },
-            { to: "/pricing", label: t("landingPage.navbar.pricing") },
-          ].map((item, index) => (
-            <li key={index}>
-              <div>
-                <Link
-                  to={item.to}
-                  className="block hover:text-white transition-colors"
-                >
-                  {item.label}
-                </Link>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="flex flex-col gap-5 mt-10 md:mt-0">
+          <h4 className="font-semibold text-white">{t("footer.sitemap")}</h4>
+          <ul className="flex flex-col gap-2">
+            {[
+              { to: "/", label: t("landingPage.navbar.home") },
+              {
+                to: "/user/countries",
+                label: t("landingPage.navbar.countriesData"),
+              },
+              {
+                to: "/user/tax-calculator",
+                label: t("landingPage.navbar.tools"),
+              },
+              { to: "/pricing", label: t("landingPage.navbar.pricing") },
+            ].map((item, index) => (
+              <li key={index}>
+                <div>
+                  <Link
+                    to={item.to}
+                    className="block hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <ul className="flex flex-col gap-5">
-          {[
-            { to: "/term", label: t("footer.terms") },
-            { to: "/privacy", label: t("footer.privacy") },
-          ].map((item, index) => (
-            <li key={index}>
-              <div>
-                <Link
-                  to={item.to}
-                  className="block hover:text-white transition-colors"
-                >
-                  {item.label}
-                </Link>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="flex flex-col gap-5 mt-10 md:mt-0">
+          <h4 className="font-semibold text-white">{t("footer.company")}</h4>
+          <ul className="flex flex-col gap-2">
+            {[
+              { to: "/term", label: t("footer.terms") },
+              { to: "/privacy", label: t("footer.privacy") },
+              { to: "/contact-us", label: t("footer.contact") },
+            ].map((item, index) => (
+              <li key={index}>
+                <div>
+                  <Link
+                    to={item.to}
+                    className="block hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        {/* Newsletter Section - Moved to the right */}
-        <div className="ml-auto max-w-[400px]">
+        {/* Newsletter Section */}
+        <div className="mt-10">
           <h3 className="text-white text-lg font-medium mb-4">
             {t("footer.subscribeNewsletter")}
           </h3>
@@ -97,6 +131,10 @@ export default function Footer() {
             </button>
           </form>
         </div>
+      </div>
+
+      <div className="text-center mt-8 pb-4">
+        {t("footer.copyright")} <br /> &copy; 2025 Global Relocate
       </div>
     </div>
   );

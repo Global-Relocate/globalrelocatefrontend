@@ -170,6 +170,7 @@ const LanguageDropdownComponent = forwardRef(
                   placeholder="Search language..."
                   onValueChange={setSearchQuery}
                   value={searchQuery}
+                  autofocus={false}
                   className="h-10 text-base placeholder:text-gray-400 focus:placeholder:text-gray-400"
                 />
               </div>

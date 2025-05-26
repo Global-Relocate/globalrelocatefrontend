@@ -10,7 +10,7 @@ i18n
   .init({
     fallbackLng: "eng", // Default language
     lng: "eng", // Initial language
-    debug: true, // Enable debugging for development
+    debug: false, // Enable debugging for development
     backend: {
       loadPath: "/i18n/{{lng}}.json", // Translation file path
     },
