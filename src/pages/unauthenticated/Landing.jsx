@@ -25,7 +25,7 @@ import people from "../../assets/images/people_image.png";
 import cardimg1 from "../../assets/images/cardimg_1.png";
 import cardimg2 from "../../assets/images/cardimg_2.png";
 import { useTranslation } from "react-i18next";
-// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Landing() {
   const { t } = useTranslation();
@@ -131,16 +131,16 @@ export default function Landing() {
               className=""
             />
           </div> */}
-        <div
-          className="hero-bg min-h-[40vh] md:min-h-[100vh] w-full flex items-center justify-center"
-          style={{
-            backgroundImage: `url(${bgIllustration})`,
-            backgroundSize: "75%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <motion.div
+        <div className="hero-bg min-h-[40vh] md:min-h-[100vh] w-full flex items-center justify-center">
+          <div className="md:w-[100%]">
+            <DotLottieReact
+              src="lottie.json"
+              loop={true}
+              autoplay
+              quality="low"
+            />
+          </div>
+          {/* <motion.div
             initial="hidden"
             animate="visible"
             variants={heroTextVariants}
@@ -169,7 +169,7 @@ export default function Landing() {
             </motion.button>
 
             {/* Floating Country Flags */}
-            <motion.div
+          {/* <motion.div
               variants={floatingCountryVariants}
               initial="initial"
               animate="animate"
@@ -220,8 +220,8 @@ export default function Landing() {
                 alt="Australia flag"
               />
               <span>Australia</span>
-            </motion.div>
-          </motion.div>
+            </motion.div> */}
+          {/* </motion.div> */}
         </div>
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
