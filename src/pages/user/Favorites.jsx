@@ -1,18 +1,20 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { GrFavorite } from "react-icons/gr";
-import { useFavorites } from "@/context/favorites-context";
+// import { useFavorites } from "@/context/favorites-context";
 import CountriesDashCard from "@/components/cards/CountriesDashCard";
 import SearchInput from "@/components/inputs/SearchInput";
 import { useCountryData } from "@/context/CountryDataContext";
 import nigeria from "../../assets/images/nigeria.png";
 import swizerland from "../../assets/images/swizerland.png";
+import { useTranslation } from "react-i18next";
 
 function Favorites() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { favourites, getFavouriteCountries } = useCountryData();
+  const { favourites } = useCountryData();
+  const { t } = useTranslation();
 
   // const { toggleFavorite } = useFavorites(); // uncomment if needed
 
@@ -35,7 +37,9 @@ function Favorites() {
   return (
     <DashboardLayout>
       <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
-        <h2 className="text-3xl font-medium">Favorites</h2>
+        <h2 className="text-3xl font-medium">
+          {t("userDashboard.sidebar.favourites")}
+        </h2>
         {favourites?.length > 0 && (
           <div className="flex w-full sm:w-auto items-center space-x-2">
             <SearchInput
@@ -49,12 +53,15 @@ function Favorites() {
       {!favourites?.length ? (
         <div className="flex flex-col items-center justify-center h-[45vh]">
           <GrFavorite size={36} className="mb-4 text-gray-600" />
-          <p className="text-gray-600">You haven't liked any favorites yet.</p>
+          <p className="text-gray-600">
+            {t("userDashboard.favorites.noFavorites")}
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 py-10">
           {filteredFavorites.map((country) => (
             <CountriesDashCard
+              key={country.countryId}
               id={country.countryId}
               location={country.countryName}
               isLiked={country.isLiked}
@@ -62,7 +69,7 @@ function Favorites() {
               onClick={() =>
                 navigate(`/user/countries/${country.countryId}`, {
                   state: country.countryFlag,
-                })
+                })``
               }
               images={[swizerland, nigeria, swizerland, nigeria]}
               countryFlag={country.countryFlag}

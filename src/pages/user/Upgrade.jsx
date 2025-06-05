@@ -8,7 +8,6 @@ import { showToast } from "@/components/ui/toast";
 import logo from "../../assets/svg/logo.svg";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "@/components/layouts/MainLayout";
-import Navbar from "@/components/navigation/Navbar";
 import { useTranslation } from "react-i18next";
 import DashNav from "@/components/navigation/DashNav";
 

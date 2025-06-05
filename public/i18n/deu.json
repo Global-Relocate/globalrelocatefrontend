@@ -6,7 +6,7 @@
       "community": "Community",
       "tools": "Tools",
       "pricing": "Preise",
-      "viewProfile": "Profil anzeigen",
+      "viewProfile": "Profil ansehen",
       "helpCenter": "Hilfe-Center",
       "giveFeedback": "Geben Sie uns Feedback",
       "privacyPolicy": "Datenschutzrichtlinie",
@@ -17,7 +17,7 @@
     },
     "showcase": {
       "title": "Smarter umziehen, besser leben.",
-      "para": "Ihre KI-gestützte Plattform für nahtlosen Umzug, rechtliche Beratung und globales Leben.",
+      "para": "Ihre KI-gestützte Plattform für nahtloses Umziehen, Rechtsberatung und globales Leben.",
       "buttonText": "Loslegen"
     },
     "features": {
@@ -25,10 +25,10 @@
       "cards": {
         "card1": {
           "title": "Länder vergleichen",
-          "para": "Treffen Sie fundierte Entscheidungen, indem Sie verschiedene Länder nebeneinander vergleichen und Schlüsselfaktoren wie Lebenshaltungskosten, Steuersätze und Lebensqualität analysieren."
+          "para": "Treffen Sie fundierte Entscheidungen, indem Sie verschiedene Länder Seite an Seite vergleichen und Schlüsselfaktoren wie Lebenshaltungskosten, Steuersätze und Lebensqualität analysieren."
         },
         "card2": {
-          "title": "Smarte Infos mit KI",
+          "title": "Smarte Informationen mit KI",
           "para": "Treten Sie Foren und Gruppen mit gleichgesinnten globalen Nomaden bei."
         },
         "card3": {
@@ -39,12 +39,12 @@
     },
     "countries": {
       "title": "Beliebte Länder",
-      "para": "Entdecken Sie beliebte Reiseziele und beginnen Sie mit der Planung Ihres Umzugs"
+      "para": "Erkunden Sie beliebte Reiseziele und beginnen Sie mit der Planung Ihres Umzugs"
     },
     "whyChooseUs": {
-      "title": "Warum Sie uns wählen sollten",
+      "title": "Warum uns wählen",
       "card1": {
-        "title": "Zeitersparende KI-gestützte Daten",
+        "title": "Zeitsparende KI-unterstützte Daten",
         "para": "Immer aktuelle und zuverlässige Informationen."
       },
       "card2": {
@@ -57,7 +57,7 @@
       },
       "card4": {
         "title": "Personalisierte Benachrichtigungen",
-        "para": "Bleiben Sie mit maßgeschneiderten Benachrichtigungen und einer Favoritenfunktion auf dem Laufenden."
+        "para": "Bleiben Sie auf dem Laufenden mit maßgeschneiderten Benachrichtigungen und einer Favoritenfunktion."
       }
     }
   },
@@ -68,26 +68,26 @@
     "password": "Passwort",
     "enterPassword": "Geben Sie Ihr Passwort ein",
     "continueWithGoogle": "Mit Google fortfahren",
-    "cantLogin": "Kann mich nicht anmelden?",
-    "tosDesc": "Durch das Erstellen eines Kontos stimmen Sie unseren ",
+    "cantLogin": "Kann sich nicht anmelden?",
+    "tosDesc": "Durch Klicken auf „Konto erstellen“ stimmen Sie unseren",
     "tos": "Nutzungsbedingungen",
     "privacyPolicy": "Datenschutzrichtlinie",
     "and": "und",
     "or": "ODER",
-    "processing": "Verarbeite...",
+    "processing": "Wird verarbeitet...",
     "continue": "Weiter",
     "hidePassword": "Passwort verbergen",
     "showPassword": "Passwort anzeigen"
   },
   "signUpPage": {
-    "letsCreateAccount": "Lassen Sie uns Ihr Konto erstellen",
+    "letsCreateAccount": "Lass uns dein Konto erstellen",
     "chooseAccountType": "Wählen Sie einen Kontotyp",
     "createPersonalAccount": "Ich erstelle ein persönliches Konto",
-    "createCorporateAccount": "Ich erstelle ein Unternehmenskonto",
+    "createCorporateAccount": "Ich erstelle ein Firmenkonto",
     "continue": "Weiter",
     "chooseSignMethod": "Wählen Sie die Anmeldemethode",
     "continueWithEmail": "Mit E-Mail fortfahren",
-    "alreadyHaveAccount": "Haben Sie bereits ein Konto?",
+    "alreadyHaveAccount": "Sie haben bereits ein Konto?",
     "fullName": "Vollständiger Name",
     "chooseUsername": "Wählen Sie einen Benutzernamen",
     "enterYourFullName": "Geben Sie Ihren vollständigen Namen ein",
@@ -96,7 +96,7 @@
   },
   "welcomePage": {
     "welcomeAboard": "Willkommen an Bord",
-    "welcomeText": "Ihre KI-gestützte Plattform für nahtlosen Umzug, rechtliche Beratung und globales Leben."
+    "welcomeText": "Ihre KI-gestützte Plattform für nahtloses Umziehen, Rechtsberatung und globales Leben."
   },
   "userDashboard": {
     "sidebar": {
@@ -109,23 +109,38 @@
       "community": "Community",
       "cta": {
         "title": "Pro ausprobieren",
-        "para": "Sie befinden sich derzeit im kostenlosen Plan, gültig für 3 Tage. Jetzt upgraden, um Global Relocate weiterhin nutzen zu können.",
+        "para": "Sie befinden sich derzeit im kostenlosen Plan, der 3 Tage gültig ist. Upgraden Sie jetzt, um Global Relocate weiterhin zu nutzen.",
         "buttonText": "Mehr erfahren"
       }
+    },
+    "notifications": {
+      "noNotifications": "Sie haben noch keine Benachrichtigungen.",
+      "markAllAsRead": "Alle als gelesen markieren",
+      "deleteAll": "Alle löschen",
+      "markAsRead": "Als gelesen markieren",
+      "delete": "Benachrichtigung löschen",
+      "showLess": "Weniger davon anzeigen",
+      "showMore": "Mehr Ergebnisse anzeigen"
     },
     "countries": {
       "title": "Länder",
       "noDataText": "Keine Daten verfügbar!",
-      "searchText": "Nach Ländern suchen"
+      "searchText": "Nach Ländern suchen",
+      "clickToSelect": "Zum Auswählen des Landes klicken",
+      "view": "Anzeigen",
+      "searchResults": "Suchergebnisse",
+      "aiSuggestedCountries": "KI-vorgeschlagene Länder",
+      "searchCountries": "Länder suchen"
     },
     "country": {
       "countryIn": "Land in",
       "addFavorite": "Zu Favoriten hinzufügen",
+      "removeFavorite": "Aus Favoriten entfernen",
       "share": "Teilen",
       "overview": "Übersicht",
       "map": "Karte",
       "keyFacts": "Wichtige Fakten",
-      "visaMigration": "Visa & Immigration",
+      "visaMigration": "Visum & Immigration",
       "taxes": "Steuern",
       "flag": "Flagge",
       "capital": "Hauptstadt",
@@ -135,7 +150,7 @@
       "dialingCode": "Vorwahl",
       "back": "Zurück",
       "noOverview": "Keine Übersicht für dieses Land verfügbar.",
-      "noVisaInfo": "Keine Visa- und Immigrationsinformationen verfügbar."
+      "noVisaInfo": "Keine Informationen zu Visa und Einwanderung verfügbar."
     },
     "ai": {
       "rename": "Umbenennen",
@@ -145,7 +160,7 @@
       "newChat": "Neuer Chat",
       "askAI": "Fragen Sie die KI alles...",
       "uploadDocument": "Dokument hochladen",
-      "uploadDocumentDesc": "Laden Sie ein Dokument hoch, um es mit dem KI-Assistenten zu bearbeiten",
+      "uploadDocumentDesc": "Laden Sie ein Dokument zur Verarbeitung mit dem KI-Assistenten hoch",
       "cancel": "Abbrechen",
       "upload": "Hochladen"
     },
@@ -154,7 +169,7 @@
       "editProfile": "Profil bearbeiten",
       "profile": "Profil",
       "account": "Konto",
-      "preferences": "Einstellungen",
+      "preferences": "Präferenzen",
       "avatar": "Avatar",
       "fullName": "Vollständiger Name",
       "username": "Benutzername",
@@ -163,11 +178,11 @@
       "emailAddress": "E-Mail-Adresse",
       "verified": "Verifiziert",
       "subscription": "Abonnement",
-      "subscriptionDesc": "Sie befinden sich derzeit im kostenlosen Plan, gültig für 3 Tage. Jetzt upgraden, um Global Relocate weiterhin nutzen zu können.",
+      "subscriptionDesc": "Sie befinden sich derzeit im kostenlosen Plan, der 3 Tage gültig ist. Upgraden Sie jetzt, um Global Relocate weiterhin zu nutzen.",
       "deleteAccount": "Konto löschen",
       "deleteDesc": "Ihr Konto und Ihre Daten dauerhaft löschen",
       "language": "Sprache",
-      "chooseLanguage": "Sprache auswählen",
+      "chooseLanguage": "Wählen Sie eine Sprache",
       "selectLanguage": "Sprache auswählen",
       "learnMore": "Mehr erfahren",
       "saveChanges": "Änderungen speichern",
@@ -182,7 +197,7 @@
       "confirmAccountDeleteDesc": "Bevor Sie Ihr Konto löschen, nehmen Sie sich bitte einen Moment Zeit, um zu verstehen, was mit Ihren Daten geschieht:",
       "confirm": "Bestätigen",
       "neverMind": "Egal",
-      "confirmDeleteWarning": "Beachten Sie, dass das Löschen Ihres Kontos nicht rückgängig gemacht werden kann.",
+      "confirmDeleteWarning": "Denken Sie daran, dass das Löschen Ihres Kontos nicht rückgängig gemacht werden kann.",
       "confirmDeleteList1": "Ihre Profildetails, Präferenzen und Einstellungen werden entfernt.",
       "confirmDeleteList2": "Alle Daten werden 30 Tage nach der Kontolöschung dauerhaft gelöscht.",
       "deleting": "Wird gelöscht...",
@@ -207,15 +222,15 @@
       "userAccount": "Benutzerkonto",
       "totalDeductions": "Gesamtabzüge",
       "selectCountry": "Wählen Sie Ihr Land",
-      "selectAccount": "Wählen Sie den Kontotyp",
+      "selectAccount": "Kontotyp auswählen",
       "enterIncome": "Geben Sie Ihr Jahreseinkommen ein",
-      "enterDeductions": "Geben Sie die Gesamtabzüge ein",
+      "enterDeductions": "Gesamtabzüge eingeben",
       "calculateTax": "Steuer berechnen",
       "individual": "Einzelperson",
       "corporate": "Unternehmen",
       "taxSummary": "Steuerübersicht",
       "taxAmount": "Steuerbetrag",
-      "effectiveRate": "Effektiver Satz",
+      "effectiveRate": "Effektiver Steuersatz",
       "takeHomeAmount": "Netto-Betrag"
     },
     "upgradePage": {
@@ -232,13 +247,13 @@
       "freePlan": {
         "item1": "3-Tage-Testzugang",
         "item2": "Grundlegende Länderinformationen",
-        "item3": "Community-Zugang (nur Lesezugriff)",
+        "item3": "Community-Zugang (nur lesen)",
         "item4": "Begrenzter Steuerrechner",
         "item5": "Grundlegender Kostenvergleich"
       },
       "basicPlan": {
         "item1": "Vollständige Länderinformationen",
-        "item2": "Community-Teilnahme",
+        "item2": "Community-Beteiligung",
         "item3": "Vollständiger Steuerrechner",
         "item4": "Kostenvergleichs-Tools",
         "item5": "Grundlegende Umzugsleitfäden",
@@ -246,15 +261,20 @@
       },
       "premiumPlan": {
         "item1": "Alle Basic-Funktionen",
-        "item2": "Unbegrenzter Zugriff auf Länderdaten",
-        "item3": "Volle Community-Teilnahme",
+        "item2": "Unbegrenzter Zugang zu Länderdaten",
+        "item3": "Volle Community-Beteiligung",
         "item4": "Erweiterter Steuerrechner",
         "item5": "KI-Umzugsassistent",
         "item6": "Einblicke in die Lebenshaltungskosten",
         "item7": "Leitfäden für Visumanforderungen",
         "item8": "Priorisierter Support",
-        "item9": "Benutzerdefinierte Umzugs-Roadmap"
+        "item9": "Benutzerdefinierter Umzugs-Fahrplan"
       }
+    },
+    "favorites": {
+      "noFavorites": "Sie haben noch keine Favoriten.",
+      "addToFavorites": "Zu Favoriten hinzufügen",
+      "removeFromFavorites": "Aus Favoriten entfernen"
     }
   },
   "drawers": {
@@ -269,23 +289,23 @@
     "privacy": "Datenschutz",
     "contact": "Kontakt",
     "subscribeNewsletter": "Abonnieren Sie unseren Newsletter",
-    "subscribeNewsDesc": "Bleiben Sie auf dem Laufenden mit den neuesten Erkenntnissen zum globalen Umzug",
+    "subscribeNewsDesc": "Bleiben Sie auf dem Laufenden mit den neuesten Einblicken zum globalen Umzug",
     "enterEmail": "Geben Sie Ihre E-Mail-Adresse ein",
     "subscribe": "Abonnieren",
     "copyright": "Alle Inhalte dieser Website sind urheberrechtlich geschützt."
   },
   "toast": {
-    "thanksNewsletter": "Vielen Dank für Ihre Newsletter-Anmeldung!",
+    "thanksNewsletter": "Vielen Dank für Ihre Anmeldung zu unserem Newsletter!",
     "linkCopied": "Link in die Zwischenablage kopiert!",
-    "linkCopyFailed": "Fehler beim Kopieren des Links",
+    "linkCopyFailed": "Link konnte nicht kopiert werden",
     "newSessionStarted": "Neue Sitzung gestartet",
-    "newSessionFailed": "Fehler beim Starten einer neuen Sitzung. Bitte versuchen Sie es erneut.",
+    "newSessionFailed": "Neue Sitzung konnte nicht gestartet werden. Bitte versuchen Sie es erneut.",
     "redirectToPayPage": "Weiterleitung zur Zahlungsseite...",
-    "activeSessionShare": "Sie benötigen eine aktive Sitzung zum Teilen",
-    "sessionDeleteFailed": "Fehler beim Löschen der Sitzung. Bitte versuchen Sie es erneut.",
+    "activeSessionShare": "Sie benötigen eine aktive Sitzung, um zu teilen",
+    "sessionDeleteFailed": "Sitzung konnte nicht gelöscht werden. Bitte versuchen Sie es erneut.",
     "sessionDeleteSuccess": "Sitzung erfolgreich gelöscht!",
     "sessionRenameSuccess": "Sitzung erfolgreich umbenannt!",
-    "sessionRenameFailed": "Fehler beim Umbenennen der Sitzung. Bitte versuchen Sie es erneut.",
+    "sessionRenameFailed": "Sitzung konnte nicht umbenannt werden. Bitte versuchen Sie es erneut.",
     "enterSessionName": "Geben Sie einen neuen Namen für diese Sitzung ein:"
   },
   "formErrors": {
@@ -297,9 +317,9 @@
     "minPassword": "Passwort muss mindestens 8 Zeichen lang sein",
     "passwordsMismatch": "Passwörter stimmen nicht überein",
     "weakPassword": "Passwort ist zu schwach",
-    "selectCountry": "Bitte wählen Sie ein Land aus",
+    "selectCountry": "Bitte wählen Sie ein Land",
     "usernameRequired": "Benutzername ist erforderlich",
     "minUsername": "Benutzername muss mindestens 3 Zeichen lang sein",
-    "cpasswordRequired": "Passwortbestätigung ist erforderlich"
+    "cpasswordRequired": "Passwort bestätigen ist erforderlich"
   }
 }

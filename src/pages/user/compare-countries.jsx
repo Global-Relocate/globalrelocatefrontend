@@ -5,6 +5,7 @@ import SelectCountryModal from "@/components/modals/SelectCountryModal";
 import { Button } from "@/components/ui/button";
 import { useCountryData } from "@/context/CountryDataContext";
 import Spinner from "@/components/loaders/Spinner";
+import { useTranslation } from "react-i18next";
 
 function CompareCountries() {
   const [openCountryModal, setOpenCountryModal] = useState(false);
@@ -14,6 +15,7 @@ function CompareCountries() {
 
   const { compareLoader, compareCountries, compareData } = useCountryData();
   const compareViewRef = useRef();
+  const { t } = useTranslation();
 
   const handleModalClose = () => {
     setOpenCountryModal(false);
@@ -120,6 +122,7 @@ function CompareCountries() {
               <>
                 <div key={`card-${idx}`} className="w-full">
                   <CompareCountryCard
+                    key={index}
                     onOpen={() => handleModalOpen(idx)}
                     onClose={handleModalClose}
                     countryData={countryData}
@@ -148,6 +151,7 @@ function CompareCountries() {
               <>
                 <div key={`card-${idx}`} className="w-full">
                   <CompareCountryCard
+                    key={index}
                     onOpen={() => handleModalOpen(idx)}
                     onClose={handleModalClose}
                     countryData={countryData}
@@ -174,6 +178,7 @@ function CompareCountries() {
           {fifthCard && (
             <div className="w-full">
               <CompareCountryCard
+                key={fifthCard}
                 onOpen={() => handleModalOpen(fifthCard)}
                 onClose={handleModalClose}
                 countryData={countryData}
@@ -384,7 +389,9 @@ function CompareCountries() {
   return (
     <DashboardLayout>
       <div>
-        <h2 className="text-3xl font-medium">Compare Countries</h2>
+        <h2 className="text-3xl font-medium">
+          {t("userDashboard.sidebar.compareCountries")}
+        </h2>
         <div className="mt-7 space-y-6">
           {renderCards()}
 

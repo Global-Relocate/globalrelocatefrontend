@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { showToast } from "@/components/ui/toast";
 import { deleteAccount } from "@/services/api";
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "@/context/AuthContextExport";
 import { useTranslation } from "react-i18next";
 
 const DeleteAccountModal = ({ isOpen, onClose }) => {

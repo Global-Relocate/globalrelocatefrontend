@@ -2,13 +2,13 @@
   "landingPage": {
     "navbar": {
       "home": "Strona główna",
-      "countriesData": "Kraje i dane",
+      "countriesData": "Dane krajów",
       "community": "Społeczność",
       "tools": "Narzędzia",
-      "pricing": "Cennik",
+      "pricing": "Ceny",
       "viewProfile": "Wyświetl profil",
       "helpCenter": "Centrum pomocy",
-      "giveFeedback": "Przekaż nam opinię",
+      "giveFeedback": "Prześlij opinię",
       "privacyPolicy": "Polityka prywatności",
       "upgradePlan": "Uaktualnij plan",
       "logIn": "Zaloguj się",
@@ -17,7 +17,7 @@
     },
     "showcase": {
       "title": "Przeprowadź się mądrzej, żyj lepiej.",
-      "para": "Twoja platforma oparta na sztucznej inteligencji do bezproblemowej relokacji, porad prawnych i życia na całym świecie.",
+      "para": "Twoja platforma oparta na sztucznej inteligencji dla bezproblemowej relokacji, porad prawnych i globalnego życia.",
       "buttonText": "Rozpocznij"
     },
     "features": {
@@ -28,18 +28,18 @@
           "para": "Podejmuj świadome decyzje, porównując różne kraje obok siebie, analizując kluczowe czynniki, takie jak koszty utrzymania, stawki podatkowe i jakość życia."
         },
         "card2": {
-          "title": "Inteligentne spostrzeżenia z AI",
-          "para": "Dołącz do forów i grup z podobnie myślącymi cyfrowymi nomadami z całego świata."
+          "title": "Inteligentne informacje z AI",
+          "para": "Dołącz do forów i grup z podobnie myślącymi globalnymi nomadami."
         },
         "card3": {
-          "title": "Kraje i dane",
-          "para": "Dołącz do forów i grup z podobnie myślącymi cyfrowymi nomadami z całego świata."
+          "title": "Dane krajów",
+          "para": "Dołącz do forów i grup z podobnie myślącymi globalnymi nomadami."
         }
       }
     },
     "countries": {
       "title": "Popularne kraje",
-      "para": "Poznaj popularne miejsca docelowe i zacznij planować swoją przeprowadzkę"
+      "para": "Odkryj popularne miejsca docelowe i zacznij planować swoją przeprowadzkę"
     },
     "whyChooseUs": {
       "title": "Dlaczego nas wybrać",
@@ -49,15 +49,15 @@
       },
       "card2": {
         "title": "Zweryfikowane kontakty i zaufane źródła:",
-        "para": "Platforma oparta na społeczności, gwarantująca wiarygodność."
+        "para": "Platforma społecznościowa zapewniająca wiarygodność."
       },
       "card3": {
-        "title": "Kompleksowe rozwiązanie",
-        "para": "Wszystko od wiz po koszty utrzymania w jednym miejscu."
+        "title": "Rozwiązanie wszystko w jednym",
+        "para": "Wszystko, od wiz po koszty utrzymania, w jednym miejscu."
       },
       "card4": {
         "title": "Spersonalizowane alerty",
-        "para": "Bądź na bieżąco dzięki dostosowanym powiadomieniom i funkcji ulubionych."
+        "para": "Wyprzedź innych dzięki spersonalizowanym powiadomieniom i funkcji ulubionych."
       }
     }
   },
@@ -66,11 +66,11 @@
     "createAccount": "Utwórz konto",
     "logIntoGR": "Zaloguj się do Global Relocate",
     "password": "Hasło",
-    "enterPassword": "Wprowadź swoje hasło",
+    "enterPassword": "Wpisz swoje hasło",
     "continueWithGoogle": "Kontynuuj z Google",
     "cantLogin": "Nie możesz się zalogować?",
-    "tosDesc": "Klikając „Utwórz konto”, zgadzasz się na nasze ",
-    "tos": "Warunki usługi",
+    "tosDesc": "Klikając Utwórz konto, zgadzasz się na nasze",
+    "tos": "Warunki korzystania z usługi",
     "privacyPolicy": "Polityka prywatności",
     "and": "i",
     "or": "LUB",
@@ -86,17 +86,17 @@
     "createCorporateAccount": "Tworzę konto firmowe",
     "continue": "Kontynuuj",
     "chooseSignMethod": "Wybierz metodę rejestracji",
-    "continueWithEmail": "Kontynuuj z e-mailem",
+    "continueWithEmail": "Kontynuuj z adresem e-mail",
     "alreadyHaveAccount": "Masz już konto?",
     "fullName": "Imię i nazwisko",
     "chooseUsername": "Wybierz nazwę użytkownika",
-    "enterYourFullName": "Wprowadź swoje pełne imię i nazwisko",
+    "enterYourFullName": "Wpisz swoje imię i nazwisko",
     "confirmPassword": "Potwierdź hasło",
     "country": "Kraj"
   },
   "welcomePage": {
     "welcomeAboard": "Witaj na pokładzie",
-    "welcomeText": "Twoja platforma oparta na sztucznej inteligencji do bezproblemowej relokacji, porad prawnych i życia na całym świecie."
+    "welcomeText": "Twoja platforma oparta na sztucznej inteligencji dla bezproblemowej relokacji, porad prawnych i globalnego życia."
   },
   "userDashboard": {
     "sidebar": {
@@ -109,33 +109,48 @@
       "community": "Społeczność",
       "cta": {
         "title": "Wypróbuj Pro",
-        "para": "Aktualnie korzystasz z bezpłatnego planu, ważnego przez 3 dni. Uaktualnij teraz, aby kontynuować korzystanie z Global Relocate.",
+        "para": "Obecnie korzystasz z bezpłatnego planu, ważnego przez 3 dni. Uaktualnij teraz, aby kontynuować korzystanie z Global Relocate.",
         "buttonText": "Dowiedz się więcej"
       }
     },
+    "notifications": {
+      "noNotifications": "Nie masz jeszcze żadnych powiadomień.",
+      "markAllAsRead": "Oznacz wszystkie jako przeczytane",
+      "deleteAll": "Usuń wszystkie",
+      "markAsRead": "Oznacz jako przeczytane",
+      "delete": "Usuń powiadomienie",
+      "showLess": "Pokaż mniej tego",
+      "showMore": "Pokaż więcej wyników"
+    },
     "countries": {
       "title": "Kraje",
-      "noDataText": "Brak danych!",
-      "searchText": "Szukaj krajów"
+      "noDataText": "Brak dostępnych danych!",
+      "searchText": "Szukaj krajów",
+      "clickToSelect": "Kliknij, aby wybrać kraj",
+      "view": "Wyświetl",
+      "searchResults": "Wyniki wyszukiwania",
+      "aiSuggestedCountries": "Kraje sugerowane przez AI",
+      "searchCountries": "Szukaj krajów"
     },
     "country": {
       "countryIn": "Kraj w",
       "addFavorite": "Dodaj do ulubionych",
+      "removeFavorite": "Usuń z ulubionych",
       "share": "Udostępnij",
       "overview": "Przegląd",
       "map": "Mapa",
       "keyFacts": "Kluczowe fakty",
-      "visaMigration": "Wiza i migracja",
+      "visaMigration": "Wiza i imigracja",
       "taxes": "Podatki",
       "flag": "Flaga",
       "capital": "Stolica",
       "languages": "Języki",
       "currency": "Waluta",
       "population": "Populacja",
-      "dialingCode": "Kod kierunkowy",
+      "dialingCode": "Kierunkowy",
       "back": "Wróć",
-      "noOverview": "Brak przeglądu dla tego kraju.",
-      "noVisaInfo": "Brak informacji o wizach i migracji."
+      "noOverview": "Brak dostępnych danych ogólnych dla tego kraju.",
+      "noVisaInfo": "Brak dostępnych informacji wizowych i imigracyjnych."
     },
     "ai": {
       "rename": "Zmień nazwę",
@@ -143,9 +158,9 @@
       "share": "Udostępnij",
       "hello": "Witaj",
       "newChat": "Nowy czat",
-      "askAI": "Zapytaj AI o cokolwiek...",
+      "askAI": "Zadaj AI dowolne pytanie...",
       "uploadDocument": "Prześlij dokument",
-      "uploadDocumentDesc": "Prześlij dokument do przetworzenia za pomocą asystenta AI",
+      "uploadDocumentDesc": "Prześlij dokument do przetworzenia przez asystenta AI",
       "cancel": "Anuluj",
       "upload": "Prześlij"
     },
@@ -161,9 +176,9 @@
       "bio": "Bio",
       "country": "Kraj",
       "emailAddress": "Adres e-mail",
-      "verified": "Zweryfikowano",
+      "verified": "Zweryfikowany",
       "subscription": "Subskrypcja",
-      "subscriptionDesc": "Aktualnie korzystasz z bezpłatnego planu, ważnego przez 3 dni. Uaktualnij teraz, aby kontynuować korzystanie z Global Relocate.",
+      "subscriptionDesc": "Obecnie korzystasz z bezpłatnego planu, ważnego przez 3 dni. Uaktualnij teraz, aby kontynuować korzystanie z Global Relocate.",
       "deleteAccount": "Usuń konto",
       "deleteDesc": "Trwale usuń swoje konto i dane",
       "language": "Język",
@@ -175,16 +190,16 @@
       "saving": "Zapisywanie...",
       "unsavedChanges": "Masz niezapisane zmiany",
       "addName": "Dodaj imię",
-      "addBio": "Dodaj biografię, aby opowiedzieć swoją historię.",
+      "addBio": "Dodaj bio, aby opowiedzieć swoją historię.",
       "addUsername": "Dodaj nazwę użytkownika",
       "addLocation": "Dodaj lokalizację",
       "confirmAccountDelete": "Potwierdź usunięcie konta",
-      "confirmAccountDeleteDesc": "Przed usunięciem konta poświęć chwilę na zrozumienie, co stanie się z Twoimi danymi:",
+      "confirmAccountDeleteDesc": "Zanim usuniesz swoje konto, poświęć chwilę na zrozumienie, co stanie się z Twoimi danymi:",
       "confirm": "Potwierdź",
       "neverMind": "Nieważne",
-      "confirmDeleteWarning": "Pamiętaj, że usunięcia konta nie można cofnąć.",
-      "confirmDeleteList1": "Twoje dane profilowe, preferencje i ustawienia zostaną usunięte.",
-      "confirmDeleteList2": "Wszystkie dane zostaną trwale usunięte w ciągu 30 dni od usunięcia konta.",
+      "confirmDeleteWarning": "Pamiętaj, że usunięcie konta jest nieodwracalne.",
+      "confirmDeleteList1": "Twoje dane profilu, preferencje i ustawienia zostaną usunięte.",
+      "confirmDeleteList2": "Wszystkie dane zostaną trwale usunięte 30 dni po usunięciu konta.",
       "deleting": "Usuwanie...",
       "youHave": "Masz:",
       "administrator": "Administrator"
@@ -201,7 +216,7 @@
     },
     "tax": {
       "taxCalculator": "Kalkulator podatkowy",
-      "taxCacluatorDesc": "Oblicz swoje szacunkowe obciążenie podatkowe w różnych krajach",
+      "taxCacluatorDesc": "Oblicz szacowane obciążenie podatkowe w różnych krajach",
       "country": "Kraj",
       "annualIncome": "Roczny dochód",
       "userAccount": "Konto użytkownika",
@@ -212,49 +227,54 @@
       "enterDeductions": "Wprowadź całkowite odliczenia",
       "calculateTax": "Oblicz podatek",
       "individual": "Indywidualny",
-      "corporate": "Korporacyjny",
+      "corporate": "Firmowy",
       "taxSummary": "Podsumowanie podatkowe",
       "taxAmount": "Kwota podatku",
       "effectiveRate": "Efektywna stawka",
-      "takeHomeAmount": "Kwota do wypłaty"
+      "takeHomeAmount": "Kwota netto do wypłaty"
     },
     "upgradePage": {
       "back": "Wróć",
       "upgradePlan": "Uaktualnij swój plan",
-      "upgradePlanDesc": "Wybierz idealny plan, aby wesprzeć swoją globalną podróż relokacyjną. Uzyskaj dostęp do kompleksowych narzędzi i spostrzeżeń, aby Twoja przeprowadzka była bezproblemowa.",
+      "upgradePlanDesc": "Wybierz idealny plan, aby wspierać swoją globalną podróż relokacyjną. Uzyskaj dostęp do kompleksowych narzędzi i informacji, aby Twoja przeprowadzka przebiegła sprawnie.",
       "currentPlan": "Twój obecny plan",
       "getStarted": "Rozpocznij",
-      "free": "Bezpłatny",
+      "free": "Darmowy",
       "basic": "Podstawowy",
       "premium": "Premium",
       "perMonth": "miesięcznie",
       "forEveryone": "Dla każdego",
       "freePlan": {
         "item1": "3-dniowy dostęp próbny",
-        "item2": "Podstawowe informacje o kraju",
+        "item2": "Podstawowe informacje o krajach",
         "item3": "Dostęp do społeczności (tylko do odczytu)",
         "item4": "Ograniczony kalkulator podatkowy",
         "item5": "Podstawowe porównanie kosztów"
       },
       "basicPlan": {
-        "item1": "Pełne informacje o kraju",
+        "item1": "Pełne informacje o krajach",
         "item2": "Udział w społeczności",
         "item3": "Pełny kalkulator podatkowy",
         "item4": "Narzędzia do porównywania kosztów",
-        "item5": "Podstawowe przewodniki po relokacji",
+        "item5": "Podstawowe przewodniki relokacyjne",
         "item6": "Wsparcie e-mailowe"
       },
       "premiumPlan": {
         "item1": "Wszystkie podstawowe funkcje",
-        "item2": "Nieograniczony dostęp do danych kraju",
+        "item2": "Nieograniczony dostęp do danych krajowych",
         "item3": "Pełny udział w społeczności",
         "item4": "Zaawansowany kalkulator podatkowy",
         "item5": "Asystent relokacji AI",
-        "item6": "Wgląd w koszty utrzymania",
+        "item6": "Informacje o kosztach utrzymania",
         "item7": "Przewodniki po wymaganiach wizowych",
         "item8": "Wsparcie priorytetowe",
-        "item9": "Spersonalizowana mapa drogowa relokacji"
+        "item9": "Spersonalizowany plan relokacji"
       }
+    },
+    "favorites": {
+      "noFavorites": "Nie masz jeszcze żadnych ulubionych.",
+      "addToFavorites": "Dodaj do ulubionych",
+      "removeFromFavorites": "Usuń z ulubionych"
     }
   },
   "drawers": {
@@ -269,33 +289,33 @@
     "privacy": "Prywatność",
     "contact": "Skontaktuj się z nami",
     "subscribeNewsletter": "Zapisz się do naszego newslettera",
-    "subscribeNewsDesc": "Bądź na bieżąco z najnowszymi informacjami na temat globalnej relokacji",
+    "subscribeNewsDesc": "Bądź na bieżąco z najnowszymi informacjami na temat globalnych relokacji",
     "enterEmail": "Wprowadź swój adres e-mail",
     "subscribe": "Subskrybuj",
     "copyright": "Cała zawartość tej witryny jest chroniona prawem autorskim."
   },
   "toast": {
     "thanksNewsletter": "Dziękujemy za subskrypcję naszego newslettera!",
-    "linkCopied": "Link skopiowano do schowka!",
+    "linkCopied": "Link skopiowany do schowka!",
     "linkCopyFailed": "Nie udało się skopiować linku",
-    "newSessionStarted": "Nowa sesja rozpoczęta",
+    "newSessionStarted": "Rozpoczęto nową sesję",
     "newSessionFailed": "Nie udało się rozpocząć nowej sesji. Spróbuj ponownie.",
-    "redirectToPayPage": "Przekierowywanie do strony płatności...",
-    "activeSessionShare": "Do udostępniania potrzebna jest aktywna sesja",
+    "redirectToPayPage": "Przekierowanie do strony płatności...",
+    "activeSessionShare": "Aby udostępnić, potrzebujesz aktywnej sesji",
     "sessionDeleteFailed": "Nie udało się usunąć sesji. Spróbuj ponownie.",
-    "sessionDeleteSuccess": "Sesja została pomyślnie usunięta!",
-    "sessionRenameSuccess": "Nazwa sesji została pomyślnie zmieniona!",
+    "sessionDeleteSuccess": "Sesja usunięta pomyślnie!",
+    "sessionRenameSuccess": "Sesja pomyślnie zmieniona nazwa!",
     "sessionRenameFailed": "Nie udało się zmienić nazwy sesji. Spróbuj ponownie.",
     "enterSessionName": "Wprowadź nową nazwę dla tej sesji:"
   },
   "formErrors": {
     "invalidEmail": "Nieprawidłowy format adresu e-mail",
-    "emailRequired": "E-mail jest wymagany",
+    "emailRequired": "Adres e-mail jest wymagany",
     "fullNameRequired": "Imię i nazwisko są wymagane",
-    "enterFullName": "Proszę wprowadzić swoje pełne imię i nazwisko",
+    "enterFullName": "Proszę wpisać swoje imię i nazwisko",
     "passwordRequired": "Hasło jest wymagane",
     "minPassword": "Hasło musi mieć co najmniej 8 znaków",
-    "passwordsMismatch": "Hasła nie pasują do siebie",
+    "passwordsMismatch": "Hasła nie pasują",
     "weakPassword": "Hasło jest za słabe",
     "selectCountry": "Proszę wybrać kraj",
     "usernameRequired": "Nazwa użytkownika jest wymagana",

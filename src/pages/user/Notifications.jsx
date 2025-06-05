@@ -6,10 +6,12 @@ import MentionsTab from "@/components/profile/tabs/MentionsTab";
 import FollowingTab from "@/components/profile/tabs/FollowingTab";
 import { Button } from "@/components/ui/button";
 import { useNotifications } from "@/context/NotificationsContext";
+import { useTranslation } from "react-i18next";
 
 function Notifications() {
   const { markAsRead, deleteNotification } = useNotifications();
   const [activeTab, setActiveTab] = useState("all");
+  const { t } = useTranslation();
 
   return (
     <DashboardLayout>
@@ -37,20 +39,24 @@ function Notifications() {
           </div>
         </div> */}
         <div className="px-4 md:px-8 lg:px-20 pt-2 pb-4">
-          <h1 className="text-3xl font-medium mb-6">Notifications</h1>
+          <h1 className="text-3xl font-medium mb-6">
+            {t("userDashboard.sidebar.notifications")}
+          </h1>
 
           <div className="flex items-center gap-4 my-5">
             <Button
               className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
               onClick={() => markAsRead("all")}
             >
-              <i className="fad fa-check"></i> Mark all as read
+              <i className="fad fa-check"></i>{" "}
+              {t("userDashboard.notifications.markAllAsRead")}
             </Button>
             <Button
               className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
               onClick={() => deleteNotification("all")}
             >
-              <i className="fad fa-trash"></i> Delete all
+              <i className="fad fa-trash"></i>
+              {t("userDashboard.notifications.deleteAll")}
             </Button>
           </div>
 

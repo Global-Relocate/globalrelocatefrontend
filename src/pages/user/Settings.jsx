@@ -7,7 +7,7 @@
 // import { AiOutlineQuestion } from "react-icons/ai";
 // import { MdOutlineSpeakerNotes } from "react-icons/md";
 // import { useContext } from "react";
-// import { AuthContext } from "../../context/AuthContext";
+// import { AuthContext } from "../../context/AuthContextExport";
 // import DeleteAccountModal from '@/components/modals/DeleteAccountModal';
 
 // function Settings() {
@@ -66,7 +66,7 @@
 //                 <div className="flex items-center justify-between">
 //                   <span className="text-sm">Avatar</span>
 //                   <div className="relative">
-//                     <div 
+//                     <div
 //                       className="h-16 w-16 rounded-full bg-[#8F8F8F] flex items-center justify-center hover:bg-[#7F7F7F] transition-colors duration-200"
 //                     >
 //                       <LuUserRound className="h-8 w-8 text-white" />
@@ -96,7 +96,7 @@
 //                             />
 //                           </div>
 //                           <div className="flex justify-end gap-2">
-//                             <button 
+//                             <button
 //                               onClick={handleSaveName}
 //                               className={`px-4 py-1.5 rounded-lg text-sm text-white ${
 //                                 editedName !== user?.name ? 'bg-gray-900 hover:bg-gray-800' : 'bg-gray-400'
@@ -104,7 +104,7 @@
 //                             >
 //                               Save
 //                             </button>
-//                             <button 
+//                             <button
 //                               className="px-4 py-1.5 rounded-lg text-sm border hover:bg-gray-50"
 //                               onClick={() => {
 //                                 setIsEditingName(false);
@@ -118,7 +118,7 @@
 //                       ) : (
 //                         <>
 //                           <span className="text-sm mr-2">{user?.name || "Add name"}</span>
-//                           <button 
+//                           <button
 //                             className="p-2 hover:bg-gray-200 rounded-full"
 //                             onClick={() => setIsEditingName(true)}
 //                           >
@@ -145,7 +145,7 @@
 //                             />
 //                           </div>
 //                           <div className="flex justify-end gap-2">
-//                             <button 
+//                             <button
 //                               onClick={handleSaveUsername}
 //                               className={`px-4 py-1.5 rounded-lg text-sm text-white ${
 //                                 editedUsername !== user?.username ? 'bg-gray-900 hover:bg-gray-800' : 'bg-gray-400'
@@ -153,7 +153,7 @@
 //                             >
 //                               Save
 //                             </button>
-//                             <button 
+//                             <button
 //                               className="px-4 py-1.5 rounded-lg text-sm border hover:bg-gray-50"
 //                               onClick={() => {
 //                                 setIsEditingUsername(false);
@@ -167,7 +167,7 @@
 //                       ) : (
 //                         <>
 //                           <span className="text-sm mr-2">{user?.username || "Add username"}</span>
-//                           <button 
+//                           <button
 //                             className="p-2 hover:bg-gray-200 rounded-full"
 //                             onClick={() => setIsEditingUsername(true)}
 //                           >
@@ -195,7 +195,7 @@
 //                       Permanently delete your account and data
 //                     </p>
 //                   </div>
-//                   <button 
+//                   <button
 //                     onClick={() => setShowDeleteModal(true)}
 //                     className="bg-red-600 hover:bg-red-700 px-4 py-2 text-white rounded-lg text-sm"
 //                   >
@@ -244,9 +244,9 @@
 //         </div>
 //       </div>
 
-//       <DeleteAccountModal 
-//         isOpen={showDeleteModal} 
-//         onClose={() => setShowDeleteModal(false)} 
+//       <DeleteAccountModal
+//         isOpen={showDeleteModal}
+//         onClose={() => setShowDeleteModal(false)}
 //       />
 //     </DashboardLayout>
 //   );

@@ -7,7 +7,7 @@
       "tools": "도구",
       "pricing": "가격",
       "viewProfile": "프로필 보기",
-      "helpCenter": "도움말 센터",
+      "helpCenter": "고객센터",
       "giveFeedback": "피드백 보내기",
       "privacyPolicy": "개인정보처리방침",
       "upgradePlan": "플랜 업그레이드",
@@ -17,7 +17,7 @@
     },
     "showcase": {
       "title": "더 스마트하게 이전하고, 더 나은 삶을 사세요.",
-      "para": "원활한 이전, 법률 자문, 글로벌 생활을 위한 AI 기반 플랫폼입니다.",
+      "para": "원활한 이전, 법률 자문 및 글로벌 생활을 위한 AI 기반 플랫폼입니다.",
       "buttonText": "시작하기"
     },
     "features": {
@@ -25,27 +25,27 @@
       "cards": {
         "card1": {
           "title": "국가 비교",
-          "para": "생활비, 세율, 삶의 질과 같은 주요 요소를 분석하여 여러 국가를 나란히 비교하며 정보에 입각한 결정을 내리세요."
+          "para": "생활비, 세금, 삶의 질과 같은 주요 요소를 분석하여 다양한 국가를 나란히 비교하여 정보에 입각한 결정을 내리세요."
         },
         "card2": {
           "title": "AI를 통한 스마트 정보",
-          "para": "뜻이 맞는 글로벌 유목민들과 포럼 및 그룹에 참여하세요."
+          "para": "같은 생각을 가진 글로벌 유목민들과 포럼 및 그룹에 참여하세요."
         },
         "card3": {
           "title": "국가 및 데이터",
-          "para": "뜻이 맞는 글로벌 유목민들과 포럼 및 그룹에 참여하세요."
+          "para": "같은 생각을 가진 글로벌 유목민들과 포럼 및 그룹에 참여하세요."
         }
       }
     },
     "countries": {
-      "title": "인기 국가",
-      "para": "인기 있는 목적지를 탐색하고 이전을 계획하세요."
+      "title": "인기 있는 국가",
+      "para": "인기 있는 목적지를 탐색하고 이주 계획을 시작하세요."
     },
     "whyChooseUs": {
       "title": "왜 우리를 선택해야 할까요?",
       "card1": {
         "title": "시간 절약형 AI 지원 데이터",
-        "para": "항상 최신이고 신뢰할 수 있는 정보."
+        "para": "항상 최신 정보와 신뢰할 수 있는 정보."
       },
       "card2": {
         "title": "인증된 연락처 및 신뢰할 수 있는 출처:",
@@ -53,11 +53,11 @@
       },
       "card3": {
         "title": "올인원 솔루션",
-        "para": "비자부터 생활비까지 모든 것을 한곳에서."
+        "para": "비자부터 생활비까지 모든 것을 한 곳에서."
       },
       "card4": {
-        "title": "맞춤형 알림",
-        "para": "맞춤 알림 및 즐겨찾기 기능으로 앞서나가세요."
+        "title": "개인 맞춤형 알림",
+        "para": "맞춤형 알림 및 즐겨찾기 기능으로 앞서 나가세요."
       }
     }
   },
@@ -69,7 +69,7 @@
     "enterPassword": "비밀번호를 입력하세요",
     "continueWithGoogle": "Google로 계속하기",
     "cantLogin": "로그인할 수 없나요?",
-    "tosDesc": "계정을 생성함으로써 당사의 ",
+    "tosDesc": "계정 만들기를 클릭하면 다음 약관에 동의하는 것입니다.",
     "tos": "서비스 약관",
     "privacyPolicy": "개인정보처리방침",
     "and": "및",
@@ -83,44 +83,59 @@
     "letsCreateAccount": "계정을 만들어 봅시다",
     "chooseAccountType": "계정 유형 선택",
     "createPersonalAccount": "개인 계정을 만들고 있습니다",
-    "createCorporateAccount": "기업 계정을 만들고 있습니다",
+    "createCorporateAccount": "법인 계정을 만들고 있습니다",
     "continue": "계속",
     "chooseSignMethod": "가입 방법 선택",
     "continueWithEmail": "이메일로 계속하기",
-    "alreadyHaveAccount": "이미 계정이 있나요?",
-    "fullName": "전체 이름",
+    "alreadyHaveAccount": "이미 계정이 있으신가요?",
+    "fullName": "이름",
     "chooseUsername": "사용자 이름 선택",
-    "enterYourFullName": "전체 이름을 입력하세요",
+    "enterYourFullName": "성명을 입력하세요",
     "confirmPassword": "비밀번호 확인",
     "country": "국가"
   },
   "welcomePage": {
     "welcomeAboard": "환영합니다",
-    "welcomeText": "원활한 이전, 법률 자문, 글로벌 생활을 위한 AI 기반 플랫폼입니다."
+    "welcomeText": "원활한 이전, 법률 자문 및 글로벌 생활을 위한 AI 기반 플랫폼입니다."
   },
   "userDashboard": {
     "sidebar": {
       "countries": "국가",
-      "aiAssistant": "AI 비서",
+      "aiAssistant": "AI 어시스턴트",
       "compareCountries": "국가 비교",
       "taxCalculator": "세금 계산기",
       "notifications": "알림",
       "favourites": "즐겨찾기",
       "community": "커뮤니티",
       "cta": {
-        "title": "Pro 시험 사용",
-        "para": "현재 3일 동안 유효한 무료 플랜을 사용 중입니다. Global Relocate를 계속 사용하려면 지금 업그레이드하세요.",
+        "title": "프로 체험하기",
+        "para": "현재 3일간 유효한 무료 플랜을 사용 중입니다. Global Relocate를 계속 사용하려면 지금 업그레이드하세요.",
         "buttonText": "더 알아보기"
       }
     },
+    "notifications": {
+      "noNotifications": "아직 알림이 없습니다.",
+      "markAllAsRead": "모두 읽음으로 표시",
+      "deleteAll": "모두 삭제",
+      "markAsRead": "읽음으로 표시",
+      "delete": "알림 삭제",
+      "showLess": "줄여서 보기",
+      "showMore": "더 많은 결과 보기"
+    },
     "countries": {
       "title": "국가",
-      "noDataText": "데이터 없음!",
-      "searchText": "국가 검색"
+      "noDataText": "사용 가능한 데이터가 없습니다!",
+      "searchText": "국가 검색",
+      "clickToSelect": "국가를 선택하려면 클릭하세요",
+      "view": "보기",
+      "searchResults": "검색 결과",
+      "aiSuggestedCountries": "AI 추천 국가",
+      "searchCountries": "국가 검색"
     },
     "country": {
-      "countryIn": "국가",
+      "countryIn": "국가 정보",
       "addFavorite": "즐겨찾기에 추가",
+      "removeFavorite": "즐겨찾기에서 제거",
       "share": "공유",
       "overview": "개요",
       "map": "지도",
@@ -132,9 +147,9 @@
       "languages": "언어",
       "currency": "통화",
       "population": "인구",
-      "dialingCode": "국제 전화 코드",
+      "dialingCode": "국제전화코드",
       "back": "뒤로",
-      "noOverview": "이 국가에 대한 개요 정보가 없습니다.",
+      "noOverview": "이 국가에 대한 개요가 없습니다.",
       "noVisaInfo": "비자 및 이민 정보가 없습니다."
     },
     "ai": {
@@ -145,7 +160,7 @@
       "newChat": "새 채팅",
       "askAI": "AI에게 무엇이든 물어보세요...",
       "uploadDocument": "문서 업로드",
-      "uploadDocumentDesc": "AI 비서로 처리할 문서를 업로드하세요",
+      "uploadDocumentDesc": "AI 어시스턴트로 처리할 문서를 업로드하세요.",
       "cancel": "취소",
       "upload": "업로드"
     },
@@ -154,16 +169,16 @@
       "editProfile": "프로필 편집",
       "profile": "프로필",
       "account": "계정",
-      "preferences": "환경설정",
+      "preferences": "선호도",
       "avatar": "아바타",
-      "fullName": "전체 이름",
+      "fullName": "이름",
       "username": "사용자 이름",
       "bio": "소개",
       "country": "국가",
       "emailAddress": "이메일 주소",
       "verified": "인증됨",
       "subscription": "구독",
-      "subscriptionDesc": "현재 3일 동안 유효한 무료 플랜을 사용 중입니다. Global Relocate를 계속 사용하려면 지금 업그레이드하세요.",
+      "subscriptionDesc": "현재 3일간 유효한 무료 플랜을 사용 중입니다. Global Relocate를 계속 사용하려면 지금 업그레이드하세요.",
       "deleteAccount": "계정 삭제",
       "deleteDesc": "계정 및 데이터를 영구적으로 삭제",
       "language": "언어",
@@ -173,20 +188,20 @@
       "saveChanges": "변경 사항 저장",
       "cancel": "취소",
       "saving": "저장 중...",
-      "unsavedChanges": "저장되지 않은 변경 사항이 있습니다",
+      "unsavedChanges": "저장되지 않은 변경 사항이 있습니다.",
       "addName": "이름 추가",
-      "addBio": "당신의 이야기를 담은 소개를 추가하세요.",
+      "addBio": "당신의 이야기를 들려줄 소개를 추가하세요.",
       "addUsername": "사용자 이름 추가",
       "addLocation": "위치 추가",
       "confirmAccountDelete": "계정 삭제 확인",
-      "confirmAccountDeleteDesc": "계정을 삭제하기 전에 귀하의 데이터에 어떤 일이 일어날지 잠시 시간을 내어 이해해 주십시오.",
+      "confirmAccountDeleteDesc": "계정을 삭제하기 전에 잠시 시간을 내어 데이터에 어떤 일이 발생하는지 이해해 주십시오.",
       "confirm": "확인",
-      "neverMind": "괜찮아요",
-      "confirmDeleteWarning": "계정 삭제는 되돌릴 수 없다는 점을 명심하십시오.",
-      "confirmDeleteList1": "귀하의 프로필 세부 정보, 환경설정 및 설정이 제거됩니다.",
-      "confirmDeleteList2": "모든 데이터는 계정 삭제 후 30일 이내에 영구적으로 삭제됩니다.",
+      "neverMind": "괜찮습니다",
+      "confirmDeleteWarning": "계정 삭제는 취소할 수 없다는 점을 기억하세요.",
+      "confirmDeleteList1": "프로필 세부 정보, 선호도 및 설정이 제거됩니다.",
+      "confirmDeleteList2": "모든 데이터는 계정 삭제 후 30일 후에 영구적으로 삭제됩니다.",
       "deleting": "삭제 중...",
-      "youHave": "당신은:",
+      "youHave": "다음이 있습니다:",
       "administrator": "관리자"
     },
     "continents": {
@@ -201,18 +216,18 @@
     },
     "tax": {
       "taxCalculator": "세금 계산기",
-      "taxCacluatorDesc": "다양한 국가에서 예상 세금 부담을 계산합니다",
+      "taxCacluatorDesc": "다양한 국가에서 예상 세금 부담을 계산합니다.",
       "country": "국가",
-      "annualIncome": "연간 소득",
+      "annualIncome": "연간 수입",
       "userAccount": "사용자 계정",
       "totalDeductions": "총 공제액",
-      "selectCountry": "국가 선택",
+      "selectCountry": "국가를 선택하세요",
       "selectAccount": "계정 유형 선택",
-      "enterIncome": "연간 소득을 입력하세요",
+      "enterIncome": "연간 수입을 입력하세요",
       "enterDeductions": "총 공제액을 입력하세요",
       "calculateTax": "세금 계산",
       "individual": "개인",
-      "corporate": "법인",
+      "corporate": "기업",
       "taxSummary": "세금 요약",
       "taxAmount": "세금 금액",
       "effectiveRate": "실효 세율",
@@ -221,14 +236,14 @@
     "upgradePage": {
       "back": "뒤로",
       "upgradePlan": "플랜 업그레이드",
-      "upgradePlanDesc": "글로벌 이전 여정을 지원할 완벽한 플랜을 선택하세요. 원활한 이전을 위한 포괄적인 도구와 통찰력을 얻으세요.",
+      "upgradePlanDesc": "글로벌 이전 여정을 지원할 완벽한 플랜을 선택하세요. 원활한 이주를 위한 포괄적인 도구 및 통찰력에 액세스하세요.",
       "currentPlan": "현재 플랜",
       "getStarted": "시작하기",
       "free": "무료",
       "basic": "기본",
       "premium": "프리미엄",
-      "perMonth": "월",
-      "forEveryone": "모두를 위한",
+      "perMonth": "월별",
+      "forEveryone": "모두를 위해",
       "freePlan": {
         "item1": "3일 체험 액세스",
         "item2": "기본 국가 정보",
@@ -251,10 +266,15 @@
         "item4": "고급 세금 계산기",
         "item5": "AI 이전 도우미",
         "item6": "생활비 통찰력",
-        "item7": "비자 요건 가이드",
+        "item7": "비자 요구 사항 가이드",
         "item8": "우선 지원",
         "item9": "맞춤형 이전 로드맵"
       }
+    },
+    "favorites": {
+      "noFavorites": "아직 즐겨찾기가 없습니다.",
+      "addToFavorites": "즐겨찾기에 추가",
+      "removeFromFavorites": "즐겨찾기에서 제거"
     }
   },
   "drawers": {
@@ -269,35 +289,35 @@
     "privacy": "개인정보",
     "contact": "문의하기",
     "subscribeNewsletter": "뉴스레터 구독",
-    "subscribeNewsDesc": "글로벌 이전 관련 최신 정보를 받아보세요",
+    "subscribeNewsDesc": "글로벌 이전에 대한 최신 통찰력으로 업데이트 받기",
     "enterEmail": "이메일 주소 입력",
     "subscribe": "구독",
-    "copyright": "이 웹사이트의 모든 콘텐츠는 저작권의 보호를 받습니다."
+    "copyright": "이 웹사이트의 모든 콘텐츠는 저작권으로 보호됩니다."
   },
   "toast": {
     "thanksNewsletter": "뉴스레터를 구독해 주셔서 감사합니다!",
-    "linkCopied": "링크가 클립보드에 복사되었습니다!",
+    "linkCopied": "클립보드에 링크가 복사되었습니다!",
     "linkCopyFailed": "링크 복사 실패",
-    "newSessionStarted": "새로운 세션이 시작되었습니다",
-    "newSessionFailed": "새로운 세션을 시작하지 못했습니다. 다시 시도해주세요.",
+    "newSessionStarted": "새 세션이 시작되었습니다",
+    "newSessionFailed": "새 세션을 시작하지 못했습니다. 다시 시도하십시오.",
     "redirectToPayPage": "결제 페이지로 리디렉션 중...",
     "activeSessionShare": "공유하려면 활성 세션이 필요합니다",
-    "sessionDeleteFailed": "세션 삭제에 실패했습니다. 다시 시도해주세요.",
+    "sessionDeleteFailed": "세션을 삭제하지 못했습니다. 다시 시도하십시오.",
     "sessionDeleteSuccess": "세션이 성공적으로 삭제되었습니다!",
     "sessionRenameSuccess": "세션 이름이 성공적으로 변경되었습니다!",
-    "sessionRenameFailed": "세션 이름 변경에 실패했습니다. 다시 시도해주세요.",
-    "enterSessionName": "이 세션의 새 이름을 입력하세요:"
+    "sessionRenameFailed": "세션 이름을 변경하지 못했습니다. 다시 시도하십시오.",
+    "enterSessionName": "이 세션에 대한 새 이름을 입력하세요:"
   },
   "formErrors": {
-    "invalidEmail": "잘못된 이메일 형식",
+    "invalidEmail": "유효하지 않은 이메일 형식",
     "emailRequired": "이메일은 필수입니다",
     "fullNameRequired": "전체 이름은 필수입니다",
-    "enterFullName": "전체 이름을 입력해주세요",
+    "enterFullName": "성명을 입력하세요",
     "passwordRequired": "비밀번호는 필수입니다",
     "minPassword": "비밀번호는 8자 이상이어야 합니다",
     "passwordsMismatch": "비밀번호가 일치하지 않습니다",
     "weakPassword": "비밀번호가 너무 약합니다",
-    "selectCountry": "국가를 선택해주세요",
+    "selectCountry": "국가를 선택하세요",
     "usernameRequired": "사용자 이름은 필수입니다",
     "minUsername": "사용자 이름은 3자 이상이어야 합니다",
     "cpasswordRequired": "비밀번호 확인은 필수입니다"

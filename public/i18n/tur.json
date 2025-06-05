@@ -12,22 +12,23 @@
       "privacyPolicy": "Gizlilik Politikası",
       "upgradePlan": "Planı Yükselt",
       "logIn": "Giriş Yap",
-      "getStarted": "Başla"
+      "getStarted": "Başla",
+      "logout": "Çıkış Yap"
     },
     "showcase": {
       "title": "Daha Akıllı Taşın, Daha İyi Yaşa.",
-      "para": "Sorunsuz taşınma, yasal rehberlik ve küresel yaşam için yapay zeka destekli platformunuz.",
+      "para": "Sorunsuz taşınma, hukuki rehberlik ve küresel yaşam için yapay zeka destekli platformunuz.",
       "buttonText": "Başla"
     },
     "features": {
       "title": "Özellikler",
       "cards": {
         "card1": {
-          "title": "Ülkeleri Karşılaştır",
-          "para": "Yaşam maliyeti, vergi oranları ve yaşam kalitesi gibi temel faktörleri analiz ederek farklı ülkeleri yan yana karşılaştırarak bilinçli kararlar alın."
+          "title": "Ülkeleri Karşılaştırın",
+          "para": "Farklı ülkeleri yan yana karşılaştırarak, yaşam maliyeti, vergi oranları ve yaşam kalitesi gibi önemli faktörleri analiz ederek bilinçli kararlar alın."
         },
         "card2": {
-          "title": "Yapay Zeka ile Akıllı Bilgi",
+          "title": "Yapay Zeka ile Akıllı Bilgiler",
           "para": "Benzer düşünen küresel göçebelerle forumlara ve gruplara katılın."
         },
         "card3": {
@@ -38,7 +39,7 @@
     },
     "countries": {
       "title": "Popüler Ülkeler",
-      "para": "Popüler destinasyonları keşfedin ve taşınma planınızı yapmaya başlayın"
+      "para": "Popüler destinasyonları keşfedin ve taşınmanızı planlamaya başlayın"
     },
     "whyChooseUs": {
       "title": "Neden Bizi Seçmelisiniz",
@@ -47,18 +48,55 @@
         "para": "Her zaman güncel ve güvenilir bilgiler."
       },
       "card2": {
-        "title": "Doğrulanmış İletişimler ve Güvenilir Kaynaklar:",
-        "para": "Güvenilirliği garanti eden topluluk tabanlı bir platform."
+        "title": "Doğrulanmış Kişiler ve Güvenilir Kaynaklar:",
+        "para": "Güvenilirliği garanti eden topluluk odaklı bir platform."
       },
       "card3": {
         "title": "Hepsi Bir Arada Çözüm",
-        "para": "Vizeden yaşam maliyetine kadar her şey tek bir yerde."
+        "para": "Vizeden yaşam maliyetlerine kadar her şey tek bir yerde."
       },
       "card4": {
         "title": "Kişiselleştirilmiş Uyarılar",
         "para": "Özelleştirilmiş bildirimler ve favoriler özelliği ile önde olun."
       }
     }
+  },
+  "loginPage": {
+    "close": "Kapat",
+    "createAccount": "Hesap Oluştur",
+    "logIntoGR": "Global Relocate'a Giriş Yap",
+    "password": "Şifre",
+    "enterPassword": "Şifrenizi girin",
+    "continueWithGoogle": "Google ile Devam Et",
+    "cantLogin": "Giriş yapamıyor musunuz?",
+    "tosDesc": "Hesap Oluştur'a tıklayarak şunları kabul etmiş olursunuz:",
+    "tos": "Hizmet Şartlarımız",
+    "privacyPolicy": "Gizlilik Politikası",
+    "and": "ve",
+    "or": "VEYA",
+    "processing": "İşleniyor...",
+    "continue": "Devam Et",
+    "hidePassword": "Şifreyi Gizle",
+    "showPassword": "Şifreyi Göster"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Hesabınızı Oluşturalım",
+    "chooseAccountType": "Hesap Türü Seçin",
+    "createPersonalAccount": "Kişisel hesap oluşturuyorum",
+    "createCorporateAccount": "Kurumsal hesap oluşturuyorum",
+    "continue": "Devam Et",
+    "chooseSignMethod": "Kayıt Yöntemi Seçin",
+    "continueWithEmail": "E-posta ile Devam Et",
+    "alreadyHaveAccount": "Zaten bir hesabınız var mı?",
+    "fullName": "Tam Adı",
+    "chooseUsername": "Kullanıcı Adı Seçin",
+    "enterYourFullName": "Tam adınızı girin",
+    "confirmPassword": "Şifreyi Onayla",
+    "country": "Ülke"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Hoş Geldiniz",
+    "welcomeText": "Sorunsuz taşınma, hukuki rehberlik ve küresel yaşam için yapay zeka destekli platformunuz."
   },
   "userDashboard": {
     "sidebar": {
@@ -70,24 +108,39 @@
       "favourites": "Favoriler",
       "community": "Topluluk",
       "cta": {
-        "title": "Pro'yu Dene",
-        "para": "Şu anda 3 günlük ücretsiz planınız var. Global Relocate'ı kullanmaya devam etmek için şimdi yükseltin.",
+        "title": "Pro'yu Deneyin",
+        "para": "Şu anda 3 gün geçerli olan ücretsiz plandasınız. Global Relocate'ı kullanmaya devam etmek için şimdi yükseltin.",
         "buttonText": "Daha Fazla Bilgi Edinin"
       }
     },
+    "notifications": {
+      "noNotifications": "Henüz bildiriminiz yok.",
+      "markAllAsRead": "Tümünü Okundu Olarak İşaretle",
+      "deleteAll": "Tümünü Sil",
+      "markAsRead": "Okundu Olarak İşaretle",
+      "delete": "Bildirimi Sil",
+      "showLess": "Bunu Daha Az Göster",
+      "showMore": "Daha Fazla Sonuç Göster"
+    },
     "countries": {
       "title": "Ülkeler",
-      "noDataText": "Veri yok!",
-      "searchText": "Ülke ara"
+      "noDataText": "Veri Yok!",
+      "searchText": "Ülke Ara",
+      "clickToSelect": "Ülke Seçmek İçin Tıklayın",
+      "view": "Görüntüle",
+      "searchResults": "Arama Sonuçları",
+      "aiSuggestedCountries": "Yapay Zeka Destekli Ülkeler",
+      "searchCountries": "Ülke Ara"
     },
     "country": {
-      "countryIn": "Ülkede",
+      "countryIn": "Ülke içinde",
       "addFavorite": "Favorilere Ekle",
+      "removeFavorite": "Favorilerden Çıkar",
       "share": "Paylaş",
       "overview": "Genel Bakış",
       "map": "Harita",
       "keyFacts": "Temel Bilgiler",
-      "visaMigration": "Vize ve Göç",
+      "visaMigration": "Vize ve Göçmenlik",
       "taxes": "Vergiler",
       "flag": "Bayrak",
       "capital": "Başkent",
@@ -96,12 +149,12 @@
       "population": "Nüfus",
       "dialingCode": "Alan Kodu",
       "back": "Geri",
-      "noOverview": "Bu ülke için genel bakış mevcut değil.",
-      "noVisaInfo": "Vize ve göç bilgisi mevcut değil."
+      "noOverview": "Bu ülke için genel bakış bilgisi yok.",
+      "noVisaInfo": "Vize ve göçmenlik bilgisi mevcut değil."
     },
     "ai": {
       "rename": "Yeniden Adlandır",
-      "deleteConversation": "Konuşmayı Sil",
+      "deleteConversation": "Sohbeti Sil",
       "share": "Paylaş",
       "hello": "Merhaba",
       "newChat": "Yeni Sohbet",
@@ -125,30 +178,30 @@
       "emailAddress": "E-posta Adresi",
       "verified": "Doğrulandı",
       "subscription": "Abonelik",
-      "subscriptionDesc": "Şu anda 3 günlük ücretsiz planınız var. Global Relocate'ı kullanmaya devam etmek için şimdi yükseltin.",
+      "subscriptionDesc": "Şu anda 3 gün geçerli olan ücretsiz plandasınız. Global Relocate'ı kullanmaya devam etmek için şimdi yükseltin.",
       "deleteAccount": "Hesabı Sil",
       "deleteDesc": "Hesabınızı ve verilerinizi kalıcı olarak silin",
       "language": "Dil",
-      "chooseLanguage": "Bir dil seçin",
-      "selectLanguage": "Dil seç",
-      "learnMore": "Daha fazla bilgi edinin",
+      "chooseLanguage": "Bir Dil Seçin",
+      "selectLanguage": "Dil Seçin",
+      "learnMore": "Daha Fazla Bilgi Edinin",
       "saveChanges": "Değişiklikleri Kaydet",
       "cancel": "İptal",
       "saving": "Kaydediliyor...",
       "unsavedChanges": "Kaydedilmemiş değişiklikleriniz var",
-      "addName": "Ad ekle",
+      "addName": "Ad Ekle",
       "addBio": "Hikayenizi anlatmak için bir biyografi ekleyin.",
-      "addUsername": "Kullanıcı adı ekle",
-      "addLocation": "Konum ekle",
+      "addUsername": "Kullanıcı Adı Ekle",
+      "addLocation": "Konum Ekle",
       "confirmAccountDelete": "Hesap Silme Onayı",
-      "confirmAccountDeleteDesc": "Hesabınızı silmeden önce, verilerinizin ne olacağını anlamak için lütfen bir dakikanızı ayırın:",
+      "confirmAccountDeleteDesc": "Hesabınızı silmeden önce, verilerinize ne olacağını anlamak için lütfen bir dakikanızı ayırın:",
       "confirm": "Onayla",
       "neverMind": "Boş ver",
-      "confirmDeleteWarning": "Hesabınızı silme işleminin geri alınamaz olduğunu unutmayın.",
+      "confirmDeleteWarning": "Unutmayın, hesabınızı silmek geri alınamaz.",
       "confirmDeleteList1": "Profil bilgileriniz, tercihleriniz ve ayarlarınız kaldırılacaktır.",
-      "confirmDeleteList2": "Hesap silindikten 30 gün sonra tüm veriler kalıcı olarak silinecektir.",
+      "confirmDeleteList2": "Tüm veriler, hesap silindikten 30 gün sonra kalıcı olarak silinecektir.",
       "deleting": "Siliniyor...",
-      "youHave": "Senin var:",
+      "youHave": "Sahip olduğunuz:",
       "administrator": "Yönetici"
     },
     "continents": {
@@ -168,33 +221,33 @@
       "annualIncome": "Yıllık Gelir",
       "userAccount": "Kullanıcı Hesabı",
       "totalDeductions": "Toplam Kesintiler",
-      "selectCountry": "Ülkenizi seçin",
-      "selectAccount": "Hesap türünü seçin",
+      "selectCountry": "Ülkenizi Seçin",
+      "selectAccount": "Hesap Türü Seçin",
       "enterIncome": "Yıllık gelirinizi girin",
       "enterDeductions": "Toplam kesintileri girin",
-      "calculateTax": "Vergi Hesapla",
+      "calculateTax": "Vergiyi Hesapla",
       "individual": "Bireysel",
       "corporate": "Kurumsal",
       "taxSummary": "Vergi Özeti",
-      "taxAmount": "Vergi Tutarı",
-      "effectiveRate": "Efektif Oran",
-      "takeHomeAmount": "Net Tutar"
+      "taxAmount": "Vergi Miktarı",
+      "effectiveRate": "Etkin Oran",
+      "takeHomeAmount": "Net Miktar"
     },
     "upgradePage": {
       "back": "Geri",
-      "upgradePlan": "Planınızı yükseltin",
-      "upgradePlanDesc": "Küresel taşınma yolculuğunuzu desteklemek için mükemmel planı seçin. Taşınmanızı sorunsuz hale getirmek için kapsamlı araçlara ve içgörülere erişin.",
-      "currentPlan": "Mevcut planınız",
+      "upgradePlan": "Planınızı Yükseltin",
+      "upgradePlanDesc": "Küresel taşınma yolculuğunuzu desteklemek için mükemmel planı seçin. Taşınmanızı sorunsuz hale getirmek için kapsamlı araçlara ve içgörülere erişim sağlayın.",
+      "currentPlan": "Mevcut Planınız",
       "getStarted": "Başla",
       "free": "Ücretsiz",
       "basic": "Temel",
       "premium": "Premium",
       "perMonth": "aylık",
-      "forEveryone": "Herkes için",
+      "forEveryone": "Herkes İçin",
       "freePlan": {
         "item1": "3 günlük deneme erişimi",
         "item2": "Temel ülke bilgileri",
-        "item3": "Topluluk erişimi (salt okunur)",
+        "item3": "Topluluk erişimi (sadece okuma)",
         "item4": "Sınırlı vergi hesaplayıcı",
         "item5": "Temel maliyet karşılaştırması"
       },
@@ -207,7 +260,7 @@
         "item6": "E-posta desteği"
       },
       "premiumPlan": {
-        "item1": "Tüm Temel Özellikler",
+        "item1": "Tüm temel özellikler",
         "item2": "Ülke verilerine sınırsız erişim",
         "item3": "Tam topluluk katılımı",
         "item4": "Gelişmiş vergi hesaplayıcı",
@@ -215,8 +268,13 @@
         "item6": "Yaşam maliyeti bilgileri",
         "item7": "Vize gereksinimleri rehberleri",
         "item8": "Öncelikli destek",
-        "item9": "Özel taşınma yol haritası"
+        "item9": "Kişiselleştirilmiş taşınma yol haritası"
       }
+    },
+    "favorites": {
+      "noFavorites": "Henüz favoriniz yok.",
+      "addToFavorites": "Favorilere Ekle",
+      "removeFromFavorites": "Favorilerden Çıkar"
     }
   },
   "drawers": {
@@ -225,6 +283,8 @@
     }
   },
   "footer": {
+    "sitemap": "Site Haritası",
+    "company": "Şirket",
     "terms": "Şartlar",
     "privacy": "Gizlilik",
     "contact": "Bize Ulaşın",
@@ -232,11 +292,12 @@
     "subscribeNewsDesc": "Küresel taşınma hakkında en son bilgilerle güncel kalın",
     "enterEmail": "E-postanızı girin",
     "subscribe": "Abone Ol",
-    "copyright": "Bu web sitesindeki tüm içerik telif hakkıyla korunmaktadır."
+    "copyright": "Bu web sitesindeki tüm içerikler telif hakkı ile korunmaktadır."
   },
   "toast": {
+    "thanksNewsletter": "Bültenimize abone olduğunuz için teşekkür ederiz!",
     "linkCopied": "Bağlantı panoya kopyalandı!",
-    "linkCopyFailed": "Bağlantı kopyalama başarısız",
+    "linkCopyFailed": "Bağlantı kopyalanamadı",
     "newSessionStarted": "Yeni oturum başlatıldı",
     "newSessionFailed": "Yeni oturum başlatılamadı. Lütfen tekrar deneyin.",
     "redirectToPayPage": "Ödeme sayfasına yönlendiriliyor...",
@@ -246,5 +307,19 @@
     "sessionRenameSuccess": "Oturum başarıyla yeniden adlandırıldı!",
     "sessionRenameFailed": "Oturum yeniden adlandırılamadı. Lütfen tekrar deneyin.",
     "enterSessionName": "Bu oturum için yeni bir ad girin:"
+  },
+  "formErrors": {
+    "invalidEmail": "Geçersiz e-posta formatı",
+    "emailRequired": "E-posta gerekli",
+    "fullNameRequired": "Tam ad gerekli",
+    "enterFullName": "Lütfen tam adınızı girin",
+    "passwordRequired": "Şifre gerekli",
+    "minPassword": "Şifre en az 8 karakter uzunluğunda olmalıdır",
+    "passwordsMismatch": "Şifreler eşleşmiyor",
+    "weakPassword": "Şifre çok zayıf",
+    "selectCountry": "Lütfen bir ülke seçin",
+    "usernameRequired": "Kullanıcı adı gerekli",
+    "minUsername": "Kullanıcı adı en az 3 karakter uzunluğunda olmalıdır",
+    "cpasswordRequired": "Şifre onayı gerekli"
   }
 }

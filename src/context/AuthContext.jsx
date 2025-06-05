@@ -1,32 +1,46 @@
-import { createContext, useState, useEffect } from "react";
-import PropTypes from 'prop-types';
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { setAuthToken } from "../services/api";
+import { AuthContext } from "./AuthContextExport";
+import DeepVault from "deepvault";
 
-export const AuthContext = createContext();
+export const userData = new DeepVault("userData");
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
-  );
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check for existing auth on mount
-    const userInfo = localStorage.getItem("user");
+    // Initialize authentication state
+    async function initializeAuth() {
+      try {
+        const exists = await userData.getEncryptedData();
+        if (exists) {
+          const userInfo = await userData.getDecryptedData();
 
-    if (userInfo) {
-      const parsedUser = JSON.parse(userInfo);
-      setIsAuthenticated(true);
-      setUser(parsedUser);
+          if (userInfo) {
+            setIsAuthenticated(true);
+            setUser(userInfo);
 
-      // Set the auth token in axios defaults if it exists
-      if (parsedUser.token) {
-        setAuthToken(parsedUser.token);
+            if (userInfo.token) {
+              setAuthToken(userInfo.token);
+            }
+          } else {
+            logout();
+          }
+        } else {
+          logout();
+        }
+      } catch (e) {
+        console.error("Error initializing auth:", e);
+        logout();
       }
     }
+
+    initializeAuth();
   }, []);
 
-  const login = (token, userInfo) => {
+  const login = async (token, userInfo) => {
     if (!token || !userInfo) {
       console.error("Invalid login data:", { token, userInfo });
       return;
@@ -34,7 +48,10 @@ export const AuthProvider = ({ children }) => {
 
     // Store user info with token
     const userWithToken = { ...userInfo, token };
-    localStorage.setItem("user", JSON.stringify(userWithToken));
+
+    // Save user data to vault
+    await userData.encryptAndSaveData(userWithToken);
+    // localStorage.setItem("user", JSON.stringify(userWithToken));
 
     // Set the auth token in axios defaults
     setAuthToken(token);
@@ -44,18 +61,19 @@ export const AuthProvider = ({ children }) => {
     setUser(userWithToken);
   };
 
-  const logout = () => {
-    // Clear auth token from axios defaults
-    setAuthToken(null);
-    localStorage.removeItem("user");
+  //localStorage.removeItem("user");
 
-    // Update state
+  const logout = async () => {
+    setAuthToken(null);
+    await userData.deleteData();
     setIsAuthenticated(false);
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, setUser, login, logout }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, user, setUser, login, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

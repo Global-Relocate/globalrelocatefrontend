@@ -5,10 +5,10 @@
       "countriesData": "Quốc gia & Dữ liệu",
       "community": "Cộng đồng",
       "tools": "Công cụ",
-      "pricing": "Giá",
+      "pricing": "Giá cả",
       "viewProfile": "Xem hồ sơ",
       "helpCenter": "Trung tâm trợ giúp",
-      "giveFeedback": "Gửi phản hồi cho chúng tôi",
+      "giveFeedback": "Gửi phản hồi",
       "privacyPolicy": "Chính sách bảo mật",
       "upgradePlan": "Nâng cấp gói",
       "logIn": "Đăng nhập",
@@ -16,8 +16,8 @@
       "logout": "Đăng xuất"
     },
     "showcase": {
-      "title": "Chuyển đổi thông minh hơn, sống tốt hơn.",
-      "para": "Nền tảng hỗ trợ AI của bạn để di chuyển liền mạch, tư vấn pháp lý và cuộc sống toàn cầu.",
+      "title": "Di chuyển thông minh hơn, sống tốt hơn.",
+      "para": "Nền tảng được hỗ trợ bởi AI của bạn để di chuyển suôn sẻ, hướng dẫn pháp lý và cuộc sống toàn cầu.",
       "buttonText": "Bắt đầu"
     },
     "features": {
@@ -45,31 +45,31 @@
       "title": "Tại sao chọn chúng tôi",
       "card1": {
         "title": "Dữ liệu hỗ trợ AI tiết kiệm thời gian",
-        "para": "Thông tin luôn được cập nhật và đáng tin cậy."
+        "para": "Thông tin luôn cập nhật và đáng tin cậy."
       },
       "card2": {
-        "title": "Liên hệ đã xác minh & nguồn đáng tin cậy:",
-        "para": "Một nền tảng dựa trên cộng đồng đảm bảo uy tín."
+        "title": "Liên hệ đã xác minh và nguồn đáng tin cậy:",
+        "para": "Một nền tảng do cộng đồng điều hành đảm bảo độ tin cậy."
       },
       "card3": {
         "title": "Giải pháp tất cả trong một",
-        "para": "Mọi thứ từ thị thực đến chi phí sinh hoạt ở một nơi."
+        "para": "Mọi thứ, từ visa đến chi phí sinh hoạt, ở một nơi."
       },
       "card4": {
-        "title": "Cảnh báo cá nhân hóa",
-        "para": "Luôn dẫn đầu với các thông báo tùy chỉnh và tính năng yêu thích."
+        "title": "Thông báo được cá nhân hóa",
+        "para": "Luôn dẫn đầu với các thông báo được cá nhân hóa và tính năng yêu thích."
       }
     }
   },
   "loginPage": {
     "close": "Đóng",
     "createAccount": "Tạo tài khoản",
-    "logIntoGR": "Đăng nhập vào Global Relocate",
+    "logIntoGR": "Đăng nhập Global Relocate",
     "password": "Mật khẩu",
     "enterPassword": "Nhập mật khẩu của bạn",
     "continueWithGoogle": "Tiếp tục với Google",
     "cantLogin": "Không thể đăng nhập?",
-    "tosDesc": "Bằng cách nhấp vào tạo tài khoản, bạn đồng ý với ",
+    "tosDesc": "Bằng cách nhấp vào Tạo tài khoản, bạn đồng ý với",
     "tos": "Điều khoản dịch vụ",
     "privacyPolicy": "Chính sách bảo mật",
     "and": "và",
@@ -77,7 +77,7 @@
     "processing": "Đang xử lý...",
     "continue": "Tiếp tục",
     "hidePassword": "Ẩn mật khẩu",
-    "showPassword": "Hiển thị mật khẩu"
+    "showPassword": "Hiện mật khẩu"
   },
   "signUpPage": {
     "letsCreateAccount": "Hãy tạo tài khoản của bạn",
@@ -86,7 +86,7 @@
     "createCorporateAccount": "Tôi đang tạo tài khoản doanh nghiệp",
     "continue": "Tiếp tục",
     "chooseSignMethod": "Chọn phương thức đăng ký",
-    "continueWithEmail": "Tiếp tục bằng email",
+    "continueWithEmail": "Tiếp tục với email",
     "alreadyHaveAccount": "Đã có tài khoản?",
     "fullName": "Họ và tên",
     "chooseUsername": "Chọn tên người dùng",
@@ -95,8 +95,8 @@
     "country": "Quốc gia"
   },
   "welcomePage": {
-    "welcomeAboard": "Chào mừng bạn",
-    "welcomeText": "Nền tảng hỗ trợ AI của bạn để di chuyển liền mạch, tư vấn pháp lý và cuộc sống toàn cầu."
+    "welcomeAboard": "Chào mừng bạn đến với Global Relocate",
+    "welcomeText": "Nền tảng được hỗ trợ bởi AI của bạn để di chuyển suôn sẻ, hướng dẫn pháp lý và cuộc sống toàn cầu."
   },
   "userDashboard": {
     "sidebar": {
@@ -109,44 +109,59 @@
       "community": "Cộng đồng",
       "cta": {
         "title": "Dùng thử Pro",
-        "para": "Bạn hiện đang sử dụng gói miễn phí có giá trị trong 3 ngày. Nâng cấp ngay để tiếp tục sử dụng Global Relocate.",
+        "para": "Bạn hiện đang sử dụng gói miễn phí, có giá trị trong 3 ngày. Nâng cấp ngay để tiếp tục sử dụng Global Relocate.",
         "buttonText": "Tìm hiểu thêm"
       }
+    },
+    "notifications": {
+      "noNotifications": "Bạn chưa có thông báo nào.",
+      "markAllAsRead": "Đánh dấu tất cả là đã đọc",
+      "deleteAll": "Xóa tất cả",
+      "markAsRead": "Đánh dấu là đã đọc",
+      "delete": "Xóa thông báo",
+      "showLess": "Hiển thị ít hơn",
+      "showMore": "Hiển thị thêm kết quả"
     },
     "countries": {
       "title": "Quốc gia",
       "noDataText": "Không có dữ liệu!",
-      "searchText": "Tìm kiếm quốc gia"
+      "searchText": "Tìm kiếm quốc gia",
+      "clickToSelect": "Nhấp để chọn quốc gia",
+      "view": "Xem",
+      "searchResults": "Kết quả tìm kiếm",
+      "aiSuggestedCountries": "Các quốc gia được AI đề xuất",
+      "searchCountries": "Tìm kiếm quốc gia"
     },
     "country": {
       "countryIn": "Quốc gia tại",
       "addFavorite": "Thêm vào mục yêu thích",
+      "removeFavorite": "Xóa khỏi mục yêu thích",
       "share": "Chia sẻ",
       "overview": "Tổng quan",
       "map": "Bản đồ",
       "keyFacts": "Thông tin chính",
-      "visaMigration": "Thị thực & Nhập cư",
+      "visaMigration": "Visa & Di trú",
       "taxes": "Thuế",
-      "flag": "Cờ",
+      "flag": "Quốc kỳ",
       "capital": "Thủ đô",
       "languages": "Ngôn ngữ",
       "currency": "Tiền tệ",
       "population": "Dân số",
       "dialingCode": "Mã quay số",
       "back": "Quay lại",
-      "noOverview": "Không có thông tin tổng quan nào cho quốc gia này.",
-      "noVisaInfo": "Không có thông tin thị thực và nhập cư nào."
+      "noOverview": "Không có tổng quan nào cho quốc gia này.",
+      "noVisaInfo": "Không có thông tin visa và di trú."
     },
     "ai": {
       "rename": "Đổi tên",
-      "deleteConversation": "Xóa cuộc hội thoại",
+      "deleteConversation": "Xóa cuộc trò chuyện",
       "share": "Chia sẻ",
       "hello": "Xin chào",
       "newChat": "Trò chuyện mới",
       "askAI": "Hỏi AI bất cứ điều gì...",
-      "uploadDocument": "Tải tài liệu lên",
-      "uploadDocumentDesc": "Tải tài liệu lên để xử lý với trợ lý AI",
-      "cancel": "Hủy bỏ",
+      "uploadDocument": "Tải lên tài liệu",
+      "uploadDocumentDesc": "Tải lên một tài liệu để xử lý với trợ lý AI",
+      "cancel": "Hủy",
       "upload": "Tải lên"
     },
     "settings": {
@@ -163,7 +178,7 @@
       "emailAddress": "Địa chỉ email",
       "verified": "Đã xác minh",
       "subscription": "Đăng ký",
-      "subscriptionDesc": "Bạn hiện đang sử dụng gói miễn phí có giá trị trong 3 ngày. Nâng cấp ngay để tiếp tục sử dụng Global Relocate.",
+      "subscriptionDesc": "Bạn hiện đang sử dụng gói miễn phí, có giá trị trong 3 ngày. Nâng cấp ngay để tiếp tục sử dụng Global Relocate.",
       "deleteAccount": "Xóa tài khoản",
       "deleteDesc": "Xóa vĩnh viễn tài khoản và dữ liệu của bạn",
       "language": "Ngôn ngữ",
@@ -171,20 +186,20 @@
       "selectLanguage": "Chọn ngôn ngữ",
       "learnMore": "Tìm hiểu thêm",
       "saveChanges": "Lưu thay đổi",
-      "cancel": "Hủy bỏ",
+      "cancel": "Hủy",
       "saving": "Đang lưu...",
-      "unsavedChanges": "Bạn có những thay đổi chưa lưu",
+      "unsavedChanges": "Bạn có thay đổi chưa lưu",
       "addName": "Thêm tên",
-      "addBio": "Thêm tiểu sử để kể câu chuyện của bạn.",
+      "addBio": "Thêm một tiểu sử để kể câu chuyện của bạn.",
       "addUsername": "Thêm tên người dùng",
       "addLocation": "Thêm vị trí",
       "confirmAccountDelete": "Xác nhận xóa tài khoản",
-      "confirmAccountDeleteDesc": "Trước khi xóa tài khoản của bạn, vui lòng dành chút thời gian để hiểu điều gì sẽ xảy ra với dữ liệu của bạn:",
+      "confirmAccountDeleteDesc": "Trước khi xóa tài khoản của bạn, vui lòng dành một chút thời gian để hiểu điều gì sẽ xảy ra với dữ liệu của bạn:",
       "confirm": "Xác nhận",
-      "neverMind": "Không sao cả",
-      "confirmDeleteWarning": "Xin lưu ý rằng việc xóa tài khoản của bạn không thể hoàn tác.",
+      "neverMind": "Không sao đâu",
+      "confirmDeleteWarning": "Hãy nhớ rằng, việc xóa tài khoản của bạn không thể hoàn tác.",
       "confirmDeleteList1": "Thông tin hồ sơ, tùy chọn và cài đặt của bạn sẽ bị xóa.",
-      "confirmDeleteList2": "Tất cả dữ liệu sẽ bị xóa vĩnh viễn sau 30 ngày kể từ khi xóa tài khoản.",
+      "confirmDeleteList2": "Tất cả dữ liệu sẽ bị xóa vĩnh viễn 30 ngày sau khi xóa tài khoản.",
       "deleting": "Đang xóa...",
       "youHave": "Bạn có:",
       "administrator": "Quản trị viên"
@@ -196,20 +211,20 @@
       "africa": "Châu Phi",
       "south america": "Nam Mỹ",
       "north america": "Bắc Mỹ",
-      "antarctica": "Nam Cực",
+      "antarctica": "Châu Nam Cực",
       "oceania": "Châu Đại Dương"
     },
     "tax": {
       "taxCalculator": "Công cụ tính thuế",
-      "taxCacluatorDesc": "Tính toán ước tính nghĩa vụ thuế của bạn ở các quốc gia khác nhau",
+      "taxCacluatorDesc": "Tính toán ước tính thuế của bạn ở các quốc gia khác nhau",
       "country": "Quốc gia",
       "annualIncome": "Thu nhập hàng năm",
       "userAccount": "Tài khoản người dùng",
-      "totalDeductions": "Tổng các khoản khấu trừ",
+      "totalDeductions": "Tổng khấu trừ",
       "selectCountry": "Chọn quốc gia của bạn",
       "selectAccount": "Chọn loại tài khoản",
       "enterIncome": "Nhập thu nhập hàng năm của bạn",
-      "enterDeductions": "Nhập tổng các khoản khấu trừ",
+      "enterDeductions": "Nhập tổng số tiền khấu trừ",
       "calculateTax": "Tính thuế",
       "individual": "Cá nhân",
       "corporate": "Doanh nghiệp",
@@ -221,7 +236,7 @@
     "upgradePage": {
       "back": "Quay lại",
       "upgradePlan": "Nâng cấp gói của bạn",
-      "upgradePlanDesc": "Chọn gói hoàn hảo để hỗ trợ hành trình chuyển đổi toàn cầu của bạn. Truy cập các công cụ và thông tin chi tiết toàn diện để quá trình chuyển đổi của bạn diễn ra liền mạch.",
+      "upgradePlanDesc": "Chọn gói hoàn hảo để hỗ trợ hành trình di chuyển toàn cầu của bạn. Truy cập các công cụ và thông tin chi tiết toàn diện để giúp bạn di chuyển suôn sẻ.",
       "currentPlan": "Gói hiện tại của bạn",
       "getStarted": "Bắt đầu",
       "free": "Miễn phí",
@@ -233,7 +248,7 @@
         "item1": "Truy cập dùng thử 3 ngày",
         "item2": "Thông tin quốc gia cơ bản",
         "item3": "Truy cập cộng đồng (chỉ đọc)",
-        "item4": "Công cụ tính thuế giới hạn",
+        "item4": "Công cụ tính thuế hạn chế",
         "item5": "So sánh chi phí cơ bản"
       },
       "basicPlan": {
@@ -245,16 +260,21 @@
         "item6": "Hỗ trợ qua email"
       },
       "premiumPlan": {
-        "item1": "Tất cả các tính năng Cơ bản",
+        "item1": "Tất cả các tính năng cơ bản",
         "item2": "Truy cập không giới hạn dữ liệu quốc gia",
         "item3": "Tham gia cộng đồng đầy đủ",
         "item4": "Công cụ tính thuế nâng cao",
         "item5": "Trợ lý di chuyển AI",
         "item6": "Thông tin chi phí sinh hoạt",
-        "item7": "Hướng dẫn yêu cầu thị thực",
+        "item7": "Hướng dẫn yêu cầu visa",
         "item8": "Hỗ trợ ưu tiên",
-        "item9": "Lộ trình di chuyển tùy chỉnh"
+        "item9": "Lộ trình di chuyển cá nhân hóa"
       }
+    },
+    "favorites": {
+      "noFavorites": "Bạn chưa có mục yêu thích nào.",
+      "addToFavorites": "Thêm vào mục yêu thích",
+      "removeFromFavorites": "Xóa khỏi mục yêu thích"
     }
   },
   "drawers": {
@@ -269,22 +289,22 @@
     "privacy": "Bảo mật",
     "contact": "Liên hệ với chúng tôi",
     "subscribeNewsletter": "Đăng ký nhận bản tin của chúng tôi",
-    "subscribeNewsDesc": "Luôn cập nhật những thông tin mới nhất về di chuyển toàn cầu",
+    "subscribeNewsDesc": "Luôn cập nhật những thông tin chi tiết mới nhất về di chuyển toàn cầu",
     "enterEmail": "Nhập email của bạn",
     "subscribe": "Đăng ký",
-    "copyright": "Tất cả nội dung trên trang web này đều được bảo vệ bản quyền."
+    "copyright": "Tất cả nội dung trên trang web này đều có bản quyền."
   },
   "toast": {
     "thanksNewsletter": "Cảm ơn bạn đã đăng ký nhận bản tin của chúng tôi!",
     "linkCopied": "Đã sao chép liên kết vào khay nhớ tạm!",
-    "linkCopyFailed": "Sao chép liên kết thất bại",
+    "linkCopyFailed": "Không thể sao chép liên kết",
     "newSessionStarted": "Phiên mới đã bắt đầu",
     "newSessionFailed": "Không thể bắt đầu phiên mới. Vui lòng thử lại.",
     "redirectToPayPage": "Đang chuyển hướng đến trang thanh toán...",
-    "activeSessionShare": "Bạn cần một phiên hoạt động để chia sẻ",
+    "activeSessionShare": "Cần một phiên hoạt động để chia sẻ",
     "sessionDeleteFailed": "Không thể xóa phiên. Vui lòng thử lại.",
-    "sessionDeleteSuccess": "Phiên đã được xóa thành công!",
-    "sessionRenameSuccess": "Phiên đã được đổi tên thành công!",
+    "sessionDeleteSuccess": "Đã xóa phiên thành công!",
+    "sessionRenameSuccess": "Đã đổi tên phiên thành công!",
     "sessionRenameFailed": "Không thể đổi tên phiên. Vui lòng thử lại.",
     "enterSessionName": "Nhập tên mới cho phiên này:"
   },

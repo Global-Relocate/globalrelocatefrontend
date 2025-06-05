@@ -113,14 +113,29 @@
         "buttonText": "Learn More"
       }
     },
+    "notifications": {
+      "noNotifications": "You have no notifications yet.",
+      "markAllAsRead": "Mark all as read",
+      "deleteAll": "Delete all",
+      "markAsRead": "Mark as read",
+      "delete": "Delete notification",
+      "showLess": "Show less of this",
+      "showMore": "Show more results"
+    },
     "countries": {
       "title": "Countries",
       "noDataText": "No data available!",
-      "searchText": "Search for countries"
+      "searchText": "Search for countries",
+      "clickToSelect": "Click to select country",
+      "view": "View",
+      "searchResults": "Search results",
+      "aiSuggestedCountries": "AI Suggested Countries",
+      "searchCountries": "Search countries"
     },
     "country": {
       "countryIn": "Country in",
       "addFavorite": "Add to favorites",
+      "removeFavorite": "Remove from favorites",
       "share": "Share",
       "overview": "Overview",
       "map": "Map",
@@ -255,6 +270,11 @@
         "item8": "Priority support",
         "item9": "Custom relocation roadmap"
       }
+    },
+    "favorites": {
+      "noFavorites": "You have no favorites yet.",
+      "addToFavorites": "Add to favorites",
+      "removeFromFavorites": "Remove from favorites"
     }
   },
   "drawers": {

@@ -7,7 +7,7 @@
       "tools": "Eszközök",
       "pricing": "Árak",
       "viewProfile": "Profil megtekintése",
-      "helpCenter": "Súgóközpont",
+      "helpCenter": "Súgó",
       "giveFeedback": "Visszajelzés küldése",
       "privacyPolicy": "Adatvédelmi irányelvek",
       "upgradePlan": "Csomag frissítése",
@@ -16,8 +16,8 @@
       "logout": "Kijelentkezés"
     },
     "showcase": {
-      "title": "Okosabban költözz, élj jobban.",
-      "para": "AI-alapú platformod a zökkenőmentes áttelepüléshez, jogi útmutatáshoz és globális életvitelhez.",
+      "title": "Okosabban költözz, jobban élj.",
+      "para": "AI-alapú platformod a zökkenőmentes áttelepüléshez, jogi útmutatáshoz és globális élethez.",
       "buttonText": "Kezdés"
     },
     "features": {
@@ -25,51 +25,51 @@
       "cards": {
         "card1": {
           "title": "Országok összehasonlítása",
-          "para": "Hozz megalapozott döntéseket különböző országok összehasonlításával, kulcsfontosságú tényezők, mint az életszínvonal, adókulcsok és életminőség elemzésével."
+          "para": "Tudatos döntéseket hozhatsz különböző országok egymás melletti összehasonlításával, olyan kulcsfontosságú tényezők elemzésével, mint az életköltség, adókulcsok és életminőség."
         },
         "card2": {
-          "title": "Intelligens betekintések AI-val",
-          "para": "Csatlakozz fórumokhoz és csoportokhoz hasonló gondolkodású globális digitális nomádokkal."
+          "title": "Okos infó AI-val",
+          "para": "Csatlakozz fórumokhoz és csoportokhoz hasonlóan gondolkodó globális nomádokkal."
         },
         "card3": {
           "title": "Országok és adatok",
-          "para": "Csatlakozz fórumokhoz és csoportokhoz hasonló gondolkodású globális digitális nomádokkal."
+          "para": "Csatlakozz fórumokhoz és csoportokhoz hasonlóan gondolkodó globális nomádokkal."
         }
       }
     },
     "countries": {
       "title": "Népszerű országok",
-      "para": "Fedezz fel népszerű úticélokat, és kezdd el tervezni a költözésedet"
+      "para": "Fedezze fel a népszerű úti célokat, és kezdje el tervezni költözését"
     },
     "whyChooseUs": {
-      "title": "Miért minket válassz",
+      "title": "Miért minket válasszon",
       "card1": {
-        "title": "Időmegtakarító, AI-támogatott adatok",
+        "title": "Időtakarékos, AI-támogatott adatok",
         "para": "Mindig naprakész és megbízható információk."
       },
       "card2": {
-        "title": "Hitelesített kapcsolatok és megbízható források:",
-        "para": "Közösség-alapú platform, amely garantálja a hitelességet."
+        "title": "Ellenőrzött kapcsolatok és megbízható források:",
+        "para": "Közösségi alapú platform, amely biztosítja a hitelességet."
       },
       "card3": {
         "title": "Minden egyben megoldás",
-        "para": "Mindent a vízumoktól az életszínvonalig egy helyen."
+        "para": "Minden, a vízumoktól az életköltségekig egy helyen."
       },
       "card4": {
         "title": "Személyre szabott értesítések",
-        "para": "Maradj egy lépéssel előrébb a személyre szabott értesítések és a kedvenc funkció segítségével."
+        "para": "Maradjon előrébb a testreszabott értesítésekkel és a kedvenc funkcióval."
       }
     }
   },
   "loginPage": {
     "close": "Bezárás",
     "createAccount": "Fiók létrehozása",
-    "logIntoGR": "Jelentkezz be a Global Relocate-ba",
+    "logIntoGR": "Bejelentkezés a Global Relocate-be",
     "password": "Jelszó",
-    "enterPassword": "Írd be a jelszavad",
+    "enterPassword": "Írja be jelszavát",
     "continueWithGoogle": "Folytatás Google-lal",
-    "cantLogin": "Nem tudsz bejelentkezni?",
-    "tosDesc": "A fiók létrehozásával elfogadod a mi ",
+    "cantLogin": "Nem tud bejelentkezni?",
+    "tosDesc": "A fiók létrehozására kattintva elfogadja a",
     "tos": "szolgáltatási feltételeinket",
     "privacyPolicy": "adatvédelmi irányelveinket",
     "and": "és",
@@ -80,23 +80,23 @@
     "showPassword": "Jelszó megjelenítése"
   },
   "signUpPage": {
-    "letsCreateAccount": "Hozzunk létre fiókot",
+    "letsCreateAccount": "Hozzunk létre egy fiókot",
     "chooseAccountType": "Válasszon fióktípust",
     "createPersonalAccount": "Személyes fiókot hozok létre",
     "createCorporateAccount": "Céges fiókot hozok létre",
     "continue": "Folytatás",
-    "chooseSignMethod": "Válassza ki a regisztrációs módot",
-    "continueWithEmail": "Folytatás e-mail címmel",
-    "alreadyHaveAccount": "Már van fiókod?",
+    "chooseSignMethod": "Válasszon regisztrációs módszert",
+    "continueWithEmail": "Folytatás e-maillel",
+    "alreadyHaveAccount": "Már van fiókja?",
     "fullName": "Teljes név",
     "chooseUsername": "Válasszon felhasználónevet",
-    "enterYourFullName": "Írja be a teljes nevét",
+    "enterYourFullName": "Írja be teljes nevét",
     "confirmPassword": "Jelszó megerősítése",
     "country": "Ország"
   },
   "welcomePage": {
     "welcomeAboard": "Üdv a fedélzeten",
-    "welcomeText": "AI-alapú platformod a zökkenőmentes áttelepüléshez, jogi útmutatáshoz és globális életvitelhez."
+    "welcomeText": "AI-alapú platformod a zökkenőmentes áttelepüléshez, jogi útmutatáshoz és globális élethez."
   },
   "userDashboard": {
     "sidebar": {
@@ -108,19 +108,34 @@
       "favourites": "Kedvencek",
       "community": "Közösség",
       "cta": {
-        "title": "Próbáld ki a Pro-t",
-        "para": "Jelenleg az ingyenes csomagot használod, amely 3 napig érvényes. Frissítsd most, hogy továbbra is használd a Global Relocate-ot.",
-        "buttonText": "Tudj meg többet"
+        "title": "Próbálja ki a Pro-t",
+        "para": "Jelenleg egy 3 napig érvényes ingyenes csomagon vagy. Frissítsen most, hogy továbbra is használhassa a Global Relocate-et.",
+        "buttonText": "Tudjon meg többet"
       }
+    },
+    "notifications": {
+      "noNotifications": "Még nincsenek értesítései.",
+      "markAllAsRead": "Összes megjelölése olvasottként",
+      "deleteAll": "Összes törlése",
+      "markAsRead": "Olvasottként megjelölés",
+      "delete": "Értesítés törlése",
+      "showLess": "Kevesebbet mutat ebből",
+      "showMore": "Több eredmény megjelenítése"
     },
     "countries": {
       "title": "Országok",
-      "noDataText": "Nincs adat!",
-      "searchText": "Országok keresése"
+      "noDataText": "Nincs elérhető adat!",
+      "searchText": "Országok keresése",
+      "clickToSelect": "Kattintson az ország kiválasztásához",
+      "view": "Nézet",
+      "searchResults": "Keresési eredmények",
+      "aiSuggestedCountries": "AI által javasolt országok",
+      "searchCountries": "Országok keresése"
     },
     "country": {
-      "countryIn": "Ország",
+      "countryIn": "Ország itt:",
       "addFavorite": "Hozzáadás a kedvencekhez",
+      "removeFavorite": "Eltávolítás a kedvencekből",
       "share": "Megosztás",
       "overview": "Áttekintés",
       "map": "Térkép",
@@ -135,58 +150,58 @@
       "dialingCode": "Hívószám",
       "back": "Vissza",
       "noOverview": "Ehhez az országhoz nem áll rendelkezésre áttekintés.",
-      "noVisaInfo": "Nincs elérhető vízum- és migrációs információ."
+      "noVisaInfo": "Nincs elérhető vízum- és bevándorlási információ."
     },
     "ai": {
       "rename": "Átnevezés",
       "deleteConversation": "Beszélgetés törlése",
       "share": "Megosztás",
       "hello": "Szia",
-      "newChat": "Új csevegés",
+      "newChat": "Új chat",
       "askAI": "Kérdezz bármit az AI-tól...",
       "uploadDocument": "Dokumentum feltöltése",
-      "uploadDocumentDesc": "Dokumentum feltöltése az AI asszisztenssel való feldolgozáshoz",
+      "uploadDocumentDesc": "Tölts fel egy dokumentumot feldolgozásra az AI asszisztenssel",
       "cancel": "Mégse",
       "upload": "Feltöltés"
     },
     "settings": {
-      "accountSettings": "Fiók beállításai",
+      "accountSettings": "Fiókbeállítások",
       "editProfile": "Profil szerkesztése",
       "profile": "Profil",
       "account": "Fiók",
-      "preferences": "Preferenciák",
-      "avatar": "Avatár",
+      "preferences": "Beállítások",
+      "avatar": "Avatar",
       "fullName": "Teljes név",
       "username": "Felhasználónév",
-      "bio": "Életrajz",
+      "bio": "Bio",
       "country": "Ország",
       "emailAddress": "E-mail cím",
-      "verified": "Hitelesítve",
+      "verified": "Ellenőrzött",
       "subscription": "Előfizetés",
-      "subscriptionDesc": "Jelenleg az ingyenes csomagot használod, amely 3 napig érvényes. Frissítsd most, hogy továbbra is használd a Global Relocate-ot.",
+      "subscriptionDesc": "Jelenleg egy 3 napig érvényes ingyenes csomagon vagy. Frissítsen most, hogy továbbra is használhassa a Global Relocate-et.",
       "deleteAccount": "Fiók törlése",
-      "deleteDesc": "Fiókod és adataid végleges törlése",
+      "deleteDesc": "Véglegesen törli fiókját és adatait",
       "language": "Nyelv",
-      "chooseLanguage": "Válassz nyelvet",
+      "chooseLanguage": "Válasszon nyelvet",
       "selectLanguage": "Válasszon nyelvet",
-      "learnMore": "Tudj meg többet",
+      "learnMore": "Tudjon meg többet",
       "saveChanges": "Változtatások mentése",
       "cancel": "Mégse",
       "saving": "Mentés...",
-      "unsavedChanges": "Nem mentett változásaid vannak",
+      "unsavedChanges": "Nem mentett változtatásai vannak",
       "addName": "Név hozzáadása",
-      "addBio": "Adj hozzá egy életrajzot, hogy elmeséld a történetedet.",
+      "addBio": "Adjon hozzá egy bemutatkozást története elmondásához.",
       "addUsername": "Felhasználónév hozzáadása",
-      "addLocation": "Hely hozzáadása",
+      "addLocation": "Helyszín hozzáadása",
       "confirmAccountDelete": "Fiók törlésének megerősítése",
-      "confirmAccountDeleteDesc": "Mielőtt törölnéd a fiókodat, szánj egy pillanatot annak megértésére, hogy mi fog történni az adataiddal:",
-      "confirm": "Megerősít",
+      "confirmAccountDeleteDesc": "Mielőtt törölné fiókját, kérjük, szánjon egy percet arra, hogy megértse, mi történik adataival:",
+      "confirm": "Megerősítés",
       "neverMind": "Nem baj",
-      "confirmDeleteWarning": "Felhívjuk figyelmét, hogy fiókja törlése nem vonható vissza.",
-      "confirmDeleteList1": "Profiladataid, preferenciáid és beállításaid el lesznek távolítva.",
-      "confirmDeleteList2": "Minden adat véglegesen törlődik 30 napon belül a fiók törlése után.",
+      "confirmDeleteWarning": "Ne feledje, hogy fiókjának törlése nem vonható vissza.",
+      "confirmDeleteList1": "Profiladatai, beállításai és preferenciái törlődnek.",
+      "confirmDeleteList2": "Minden adatot véglegesen törlünk 30 nappal a fiók törlése után.",
       "deleting": "Törlés...",
-      "youHave": "Neked van:",
+      "youHave": "Van:",
       "administrator": "Adminisztrátor"
     },
     "continents": {
@@ -201,28 +216,28 @@
     },
     "tax": {
       "taxCalculator": "Adókalkulátor",
-      "taxCacluatorDesc": "Számítsd ki a becsült adóterhedet különböző országokban",
+      "taxCacluatorDesc": "Számítsa ki becsült adóterhét különböző országokban",
       "country": "Ország",
       "annualIncome": "Éves jövedelem",
       "userAccount": "Felhasználói fiók",
       "totalDeductions": "Összes levonás",
-      "selectCountry": "Válaszd ki az országodat",
-      "selectAccount": "Válaszd ki a fióktípust",
-      "enterIncome": "Írd be az éves jövedelmedet",
-      "enterDeductions": "Írd be az összes levonást",
+      "selectCountry": "Válassza ki országát",
+      "selectAccount": "Válasszon fióktípust",
+      "enterIncome": "Írja be éves jövedelmét",
+      "enterDeductions": "Írja be az összes levonást",
       "calculateTax": "Adó kiszámítása",
       "individual": "Magánszemély",
       "corporate": "Vállalati",
-      "taxSummary": "Adóösszefoglaló",
+      "taxSummary": "Adó összefoglaló",
       "taxAmount": "Adó összege",
       "effectiveRate": "Effektív ráta",
-      "takeHomeAmount": "Nettó összeg"
+      "takeHomeAmount": "Hazavihető összeg"
     },
     "upgradePage": {
       "back": "Vissza",
-      "upgradePlan": "Frissítsd a csomagodat",
-      "upgradePlanDesc": "Válaszd ki a tökéletes csomagot, hogy támogasd globális áttelepülési utadat. Hozzáférj átfogó eszközökhöz és betekintésekhez, hogy a költözésed zökkenőmentes legyen.",
-      "currentPlan": "Jelenlegi csomagod",
+      "upgradePlan": "Frissítse csomagját",
+      "upgradePlanDesc": "Válassza ki a tökéletes csomagot, amely támogatja globális áttelepülési útját. Hozzáférhet átfogó eszközökhöz és betekintésekhez, hogy zökkenőmentes legyen a költözés.",
+      "currentPlan": "Jelenlegi csomagja",
       "getStarted": "Kezdés",
       "free": "Ingyenes",
       "basic": "Alap",
@@ -232,29 +247,34 @@
       "freePlan": {
         "item1": "3 napos próba hozzáférés",
         "item2": "Alapvető országinformációk",
-        "item3": "Közösségi hozzáférés (csak olvasható)",
+        "item3": "Közösségi hozzáférés (csak olvasásra)",
         "item4": "Korlátozott adókalkulátor",
-        "item5": "Alapvető költség-összehasonlítás"
+        "item5": "Alapvető költség összehasonlítás"
       },
       "basicPlan": {
         "item1": "Teljes országinformációk",
         "item2": "Közösségi részvétel",
         "item3": "Teljes adókalkulátor",
-        "item4": "Költség-összehasonlító eszközök",
+        "item4": "Költségösszehasonlító eszközök",
         "item5": "Alapvető áttelepülési útmutatók",
         "item6": "E-mail támogatás"
       },
       "premiumPlan": {
-        "item1": "Minden alapvető funkció",
-        "item2": "Korlátlan hozzáférés az országadatokhoz",
+        "item1": "Minden alapfunkció",
+        "item2": "Korlátlan hozzáférés országinformációkhoz",
         "item3": "Teljes közösségi részvétel",
-        "item4": "Fejlett adókalkulátor",
+        "item4": "Haladó adókalkulátor",
         "item5": "AI áttelepülési asszisztens",
-        "item6": "Életköltség-betekintések",
+        "item6": "Életköltség-áttekintések",
         "item7": "Vízumkövetelmények útmutatói",
         "item8": "Prioritásos támogatás",
-        "item9": "Személyre szabott áttelepülési ütemterv"
+        "item9": "Egyedi áttelepülési útiterv"
       }
+    },
+    "favorites": {
+      "noFavorites": "Még nincsenek kedvencei.",
+      "addToFavorites": "Hozzáadás a kedvencekhez",
+      "removeFromFavorites": "Eltávolítás a kedvencekből"
     }
   },
   "drawers": {
@@ -264,42 +284,42 @@
   },
   "footer": {
     "sitemap": "Oldaltérkép",
-    "company": "Vállalat",
+    "company": "Cég",
     "terms": "Feltételek",
     "privacy": "Adatvédelem",
     "contact": "Kapcsolat",
     "subscribeNewsletter": "Iratkozz fel hírlevelünkre",
-    "subscribeNewsDesc": "Maradj naprakész a globális áttelepüléssel kapcsolatos legújabb információkkal",
-    "enterEmail": "Írd be az e-mail címedet",
+    "subscribeNewsDesc": "Legyen naprakész a globális áttelepüléssel kapcsolatos legújabb információkról",
+    "enterEmail": "Adja meg e-mail címét",
     "subscribe": "Feliratkozás",
-    "copyright": "A weboldal teljes tartalma szerzői jogvédelem alatt áll."
+    "copyright": "A weboldal minden tartalma szerzői jogvédelem alatt áll."
   },
   "toast": {
-    "thanksNewsletter": "Köszönjük, hogy feliratkoztál hírlevelünkre!",
-    "linkCopied": "Link másolva a vágólapra!",
+    "thanksNewsletter": "Köszönjük, hogy feliratkozott hírlevelünkre!",
+    "linkCopied": "Link a vágólapra másolva!",
     "linkCopyFailed": "A link másolása sikertelen",
-    "newSessionStarted": "Új munkamenet elindítva",
-    "newSessionFailed": "Nem sikerült új munkamenetet indítani. Kérjük, próbáld újra.",
+    "newSessionStarted": "Új munkamenet indult",
+    "newSessionFailed": "Új munkamenet indítása sikertelen. Kérjük, próbálja újra.",
     "redirectToPayPage": "Átirányítás a fizetési oldalra...",
-    "activeSessionShare": "Megosztáshoz aktív munkamenet szükséges",
-    "sessionDeleteFailed": "Nem sikerült törölni a munkamenetet. Kérjük, próbáld újra.",
-    "sessionDeleteSuccess": "A munkamenet sikeresen törölve!",
-    "sessionRenameSuccess": "A munkamenet sikeresen átnevezve!",
-    "sessionRenameFailed": "Nem sikerült átnevezni a munkamenetet. Kérjük, próbáld újra.",
-    "enterSessionName": "Adj meg egy új nevet ehhez a munkamenethez:"
+    "activeSessionShare": "Az aktív munkamenet szükséges a megosztáshoz",
+    "sessionDeleteFailed": "A munkamenet törlése sikertelen. Kérjük, próbálja újra.",
+    "sessionDeleteSuccess": "Munkamenet sikeresen törölve!",
+    "sessionRenameSuccess": "Munkamenet sikeresen átnevezve!",
+    "sessionRenameFailed": "A munkamenet átnevezése sikertelen. Kérjük, próbálja újra.",
+    "enterSessionName": "Adjon meg egy új nevet ehhez a munkamenethez:"
   },
   "formErrors": {
     "invalidEmail": "Érvénytelen e-mail formátum",
-    "emailRequired": "E-mail cím kötelező",
-    "fullNameRequired": "Teljes név kötelező",
-    "enterFullName": "Kérjük, írja be a teljes nevét",
-    "passwordRequired": "Jelszó kötelező",
+    "emailRequired": "Az e-mail megadása kötelező",
+    "fullNameRequired": "A teljes név megadása kötelező",
+    "enterFullName": "Kérjük, adja meg teljes nevét",
+    "passwordRequired": "A jelszó megadása kötelező",
     "minPassword": "A jelszónak legalább 8 karakter hosszúnak kell lennie",
     "passwordsMismatch": "A jelszavak nem egyeznek",
     "weakPassword": "A jelszó túl gyenge",
     "selectCountry": "Kérjük, válasszon országot",
-    "usernameRequired": "Felhasználónév kötelező",
+    "usernameRequired": "A felhasználónév megadása kötelező",
     "minUsername": "A felhasználónévnek legalább 3 karakter hosszúnak kell lennie",
-    "cpasswordRequired": "Jelszó megerősítése kötelező"
+    "cpasswordRequired": "A jelszó megerősítése kötelező"
   }
 }

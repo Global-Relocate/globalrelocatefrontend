@@ -16,14 +16,14 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel-edited";
-import { Separator } from "@/components/ui/separator";
 import Autoplay from "embla-carousel-autoplay";
 import { useTranslation } from "react-i18next";
 
 function CountryDetails() {
   const { id } = useParams();
   const { t } = useTranslation();
-  const { singleCountry, loading, getSingleCountry } = useCountryData();
+  const { singleCountry, loading, getSingleCountry, favourites } =
+    useCountryData();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -45,6 +45,16 @@ function CountryDetails() {
       }
     } else {
       console.log("Your browser does not support the Share API");
+    }
+  };
+
+  const checkFavorites = () => {
+    if (favourites || favourites.length > 0) {
+      console.log(
+        favourites.some(
+          (country) => country.countryName === singleCountry?.name
+        )
+      );
     }
   };
 
@@ -99,7 +109,10 @@ function CountryDetails() {
             <div className="flex items-center gap-3">
               <Button variant="outline" className="rounded-3xl border">
                 {" "}
-                <BiHeart /> {t("userDashboard.country.addFavorite")}
+                <BiHeart />{" "}
+                {favourites.length > 0
+                  ? t("userDashboard.country.addFavorite")
+                  : t("userDashboard.country.removeFavorite")}
               </Button>
               <Button
                 variant="outline"
@@ -291,6 +304,20 @@ function CountryDetails() {
 
                   <div className="mt-20 mb-6">
                     <div className="my-5">
+                      <h2 className="text-2xl mt-2 mb-8">Quality Of Life</h2>
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">Summary</h3>
+                        <p>
+                          {singleCountry.additionalComparisons.qualityOfLife ??
+                            "No data available."}
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+
+                  <div className="mt-20 mb-6">
+                    <div className="my-5">
                       <h2 className="text-2xl mt-2 mb-8">Cost Of Living</h2>
                       <div className="mt-4">
                         <h3 className="text-md font-semibold mb-3">
@@ -307,6 +334,34 @@ function CountryDetails() {
                         <p>
                           {singleCountry.costOfLiving.summary ??
                             "No data available."}
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+
+                  <div className="mt-20 mb-6">
+                    <div className="my-5">
+                      <h2 className="text-2xl mt-2 mb-8">
+                        World Happiness Index
+                      </h2>
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">Summary</h3>
+                        <p>
+                          {singleCountry.additionalComparisons
+                            .worldHappinessIndex ?? "No data available."}
+                        </p>
+                      </div>
+
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          WHI Score
+                        </h3>
+                        <p>
+                          {singleCountry.additionalComparisons
+                            .worldHappinessIndexScore
+                            ? `${singleCountry.additionalComparisons.worldHappinessIndexScore}/10`
+                            : "No data available."}
                         </p>
                       </div>
                     </div>

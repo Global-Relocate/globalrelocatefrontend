@@ -4,7 +4,7 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { BsArrowLeft, BsEye, BsEyeSlash } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContextExport";
 import logo from "../../assets/svg/logo.svg";
 // import microsoftIcon from "../../assets/svg/microsoft.svg";
 import { loginUser, initiateGoogleAuth } from "../../services/api";

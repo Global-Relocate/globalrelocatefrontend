@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { useContext, useState, useEffect } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContextExport";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { LuUserRound } from "react-icons/lu";
 import AccountSettings from "../../pages/user/account-settings";

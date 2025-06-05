@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import bellActiveIcon from "../../assets/svg/filledbell.svg";
 import filledfavoriteIcon from "../../assets/svg/filledfavorite.svg";
 import { BsThreeDots } from "react-icons/bs";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { GrDislike } from "react-icons/gr";
-import { useState } from 'react';
+import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,35 +14,37 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { useUndo } from "@/context/UndoContext";
+import { useTranslation } from "react-i18next";
 
-const NotificationCard = ({ 
-  id, 
-  type, 
-  data, 
-  isLast, 
-  isUnread = false, 
+const NotificationCard = ({
+  id,
+  type,
+  data,
+  isLast,
+  isUnread = false,
   isFirst = false,
   onMarkAsRead,
   onDelete,
-  onShowLess
+  onShowLess,
 }) => {
   const [isDeleted, setIsDeleted] = useState(false);
   const { showUndoToast } = useUndo();
+  const { t } = useTranslation();
 
   const handleMarkAsRead = () => {
     onMarkAsRead(id);
   };
 
   const handleDelete = () => {
-    onDelete(id)
+    onDelete(id);
 
     // setIsDeleted(true);
-    // showUndoToast({ 
+    // showUndoToast({
     //   message: 'Notification deleted.',
     //   onUndo: () => setIsDeleted(false),
     //   duration: 5000
     // });
-    
+
     // const timeoutId = setTimeout(() => {
     //   if (isDeleted) {
     //     onDelete(id);
@@ -52,11 +54,11 @@ const NotificationCard = ({
   };
 
   const handleShowLess = () => {
-    showUndoToast({ 
-      type: 'feedback',
+    showUndoToast({
+      type: "feedback",
       onUndo: () => {
         // Handle undo feedback
-      }
+      },
     });
     onShowLess(id);
   };
@@ -77,29 +79,29 @@ const NotificationCard = ({
           <DropdownMenuContent align="end" className="w-[240px] py-2">
             {isUnread && (
               <>
-                <DropdownMenuItem 
+                <DropdownMenuItem
                   onClick={handleMarkAsRead}
                   className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
                 >
                   <IoMdCheckmarkCircleOutline size={18} />
-                  <span>Mark as read</span>
+                  <span>{t("userDashboard.notifications.markAsRead")}</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-[#D4D4D4]" />
               </>
             )}
-            <DropdownMenuItem 
+            <DropdownMenuItem
               onClick={handleDelete}
               className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
             >
               <RiDeleteBinLine size={24} />
-              <span>Delete notification</span>
+              <span>{t("userDashboard.notifications.delete")}</span>
             </DropdownMenuItem>
-            <DropdownMenuItem 
+            <DropdownMenuItem
               onClick={handleShowLess}
               className="gap-2 py-2.5 px-4 cursor-pointer hover:bg-[#F8F7F7] focus:bg-[#F8F7F7]"
             >
               <GrDislike size={16} />
-              <span>Show less like this</span>
+              <span>{t("userDashboard.notifications.showLess")}</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -108,13 +110,13 @@ const NotificationCard = ({
     );
 
     switch (type.toUpperCase()) {
-      case 'COMMENT':
+      case "COMMENT":
         return (
           <div className="flex items-start gap-3">
             <div className="relative">
-              <img 
-                src={data.sender?.profilePic} 
-                alt={data.sender?.username} 
+              <img
+                src={data.sender?.profilePic}
+                alt={data.sender?.username}
                 className="w-10 h-10 rounded-full"
               />
               {isUnread && (
@@ -127,8 +129,10 @@ const NotificationCard = ({
             </div>
             <div className="flex-1">
               <p className="text-gray-800">
-                <span className="font-medium text-[#5762D5]">{data.sender?.username}</span> 
-                {' commented on your post'}
+                <span className="font-medium text-[#5762D5]">
+                  {data.sender?.username}
+                </span>
+                {" commented on your post"}
               </p>
               {data.comment && (
                 <div className="mt-3 p-4 bg-white rounded-xl border border-[#D4D4D4]">
@@ -140,9 +144,9 @@ const NotificationCard = ({
                   <div className="p-4 bg-white rounded-xl border border-[#D4D4D4]">
                     <p className="text-gray-800">{data.post.content?.text}</p>
                     {data.post.content?.media?.length > 0 && (
-                      <img 
-                        src={data.post.content.media[0].url} 
-                        alt="Post media" 
+                      <img
+                        src={data.post.content.media[0].url}
+                        alt="Post media"
                         className="mt-2 rounded-lg max-h-48 object-cover"
                       />
                     )}
@@ -154,15 +158,18 @@ const NotificationCard = ({
           </div>
         );
 
-      case 'LIKE':
+      case "LIKE":
         return (
           <div className="flex items-start gap-3">
             <div className="relative">
-              <img 
+              <img
                 src={filledfavoriteIcon}
                 alt="Like"
                 className="w-6 h-6"
-                style={{ filter: 'invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)' }}
+                style={{
+                  filter:
+                    "invert(23%) sepia(92%) saturate(6022%) hue-rotate(353deg) brightness(95%) contrast(128%)",
+                }}
               />
               {isUnread && (
                 <div className="absolute -top-1 -right-1">
@@ -174,17 +181,19 @@ const NotificationCard = ({
             </div>
             <div className="flex-1">
               <p className="text-gray-800">
-                <span className="font-medium text-[#5762D5]">{data.sender?.username}</span> 
-                {' liked your post'}
+                <span className="font-medium text-[#5762D5]">
+                  {data.sender?.username}
+                </span>
+                {" liked your post"}
               </p>
               {data.post && (
                 <div className="mt-3">
                   <div className="p-4 bg-white rounded-xl border border-[#D4D4D4]">
                     <p className="text-gray-800">{data.post.content?.text}</p>
                     {data.post.content?.media?.length > 0 && (
-                      <img 
-                        src={data.post.content.media[0].url} 
-                        alt="Post media" 
+                      <img
+                        src={data.post.content.media[0].url}
+                        alt="Post media"
                         className="mt-2 rounded-lg max-h-48 object-cover"
                       />
                     )}
@@ -203,7 +212,11 @@ const NotificationCard = ({
           <div className="flex items-center gap-3">
             <div className="relative">
               <div className="w-10 h-10 rounded-full bg-[#2563EB] flex items-center justify-center">
-                <img src={bellActiveIcon} alt="Bell" className="w-5 h-5 invert" />
+                <img
+                  src={bellActiveIcon}
+                  alt="Bell"
+                  className="w-5 h-5 invert"
+                />
               </div>
               {isUnread && (
                 <div className="absolute -top-1 -right-1">
@@ -214,7 +227,9 @@ const NotificationCard = ({
               )}
             </div>
             <div className="flex-1">
-              <p className="text-gray-800">{data.content?.text || 'New notification'}</p>
+              <p className="text-gray-800">
+                {data.content?.text || "New notification"}
+              </p>
             </div>
             {dropdownMenu}
           </div>
@@ -223,19 +238,14 @@ const NotificationCard = ({
   };
 
   return (
-    <div 
+    <div
       className={`w-full transition-colors cursor-pointer
-        ${isUnread 
-          ? 'bg-[#D3E8FB] hover:bg-[#C2DFFA]' 
-          : 'hover:bg-[#E5E5E5]'
-        }
-        ${isFirst ? 'rounded-t-2xl' : ''}
-        ${isLast ? 'rounded-b-2xl' : ''}
+        ${isUnread ? "bg-[#D3E8FB] hover:bg-[#C2DFFA]" : "hover:bg-[#E5E5E5]"}
+        ${isFirst ? "rounded-t-2xl" : ""}
+        ${isLast ? "rounded-b-2xl" : ""}
       `}
     >
-      <div className="px-6 py-4">
-        {renderNotificationContent()}
-      </div>
+      <div className="px-6 py-4">{renderNotificationContent()}</div>
       {!isLast && <div className="w-full h-[1px] bg-[#D4D4D4]" />}
     </div>
   );
@@ -250,7 +260,7 @@ NotificationCard.propTypes = {
   isFirst: PropTypes.bool,
   onMarkAsRead: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
-  onShowLess: PropTypes.func.isRequired
+  onShowLess: PropTypes.func.isRequired,
 };
 
-export default NotificationCard; 
+export default NotificationCard;

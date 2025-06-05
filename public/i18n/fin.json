@@ -8,7 +8,7 @@
       "pricing": "Hinnoittelu",
       "viewProfile": "Näytä profiili",
       "helpCenter": "Ohjekeskus",
-      "giveFeedback": "Anna palautetta",
+      "giveFeedback": "Anna meille palautetta",
       "privacyPolicy": "Tietosuojakäytäntö",
       "upgradePlan": "Päivitä tilaus",
       "logIn": "Kirjaudu sisään",
@@ -17,7 +17,7 @@
     },
     "showcase": {
       "title": "Muuta fiksusti, elä paremmin.",
-      "para": "AI-pohjainen alustasi saumattomaan muuttoon, oikeudelliseen ohjaukseen ja globaaliin elämään.",
+      "para": "Tekoälypohjainen alustasi saumattomaan muuttoon, oikeudelliseen ohjaukseen ja globaaliin elämiseen.",
       "buttonText": "Aloita"
     },
     "features": {
@@ -25,31 +25,31 @@
       "cards": {
         "card1": {
           "title": "Vertaa maita",
-          "para": "Tee tietoon perustuvia päätöksiä vertailemalla eri maita rinnakkain, analysoimalla keskeisiä tekijöitä, kuten elinkustannuksia, veroprosentteja ja elämänlaatua."
+          "para": "Tee tietoon perustuvia päätöksiä vertaamalla eri maita rinnakkain ja analysoimalla keskeisiä tekijöitä, kuten elinkustannuksia, verokantoja ja elämänlaatua."
         },
         "card2": {
-          "title": "Älykkäät oivallukset tekoälyn avulla",
-          "para": "Liity foorumeille ja ryhmiin samanhenkisten globaalien diginomadien kanssa."
+          "title": "Älykästä tietoa tekoälyllä",
+          "para": "Liity foorumeille ja ryhmiin samanhenkisten globaalien nomadien kanssa."
         },
         "card3": {
           "title": "Maat ja tiedot",
-          "para": "Liity foorumeille ja ryhmiin samanhenkisten globaalien diginomadien kanssa."
+          "para": "Liity foorumeille ja ryhmiin samanhenkisten globaalien nomadien kanssa."
         }
       }
     },
     "countries": {
       "title": "Suositut maat",
-      "para": "Tutustu suosittuihin kohteisiin ja aloita muuton suunnittelu"
+      "para": "Tutustu suosittuihin kohteisiin ja aloita muutosuunnitelmasi"
     },
     "whyChooseUs": {
       "title": "Miksi valita meidät",
       "card1": {
-        "title": "Aikaa säästävät tekoälypohjaiset tiedot",
+        "title": "Aikaa säästävä tekoälypohjainen data",
         "para": "Aina ajantasaista ja luotettavaa tietoa."
       },
       "card2": {
         "title": "Vahvistetut yhteystiedot ja luotetut lähteet:",
-        "para": "Yhteisölähtöinen alusta, joka takaa uskottavuuden."
+        "para": "Yhteisöpohjainen alusta, joka varmistaa uskottavuuden."
       },
       "card3": {
         "title": "Kaikki yhdessä -ratkaisu",
@@ -57,19 +57,19 @@
       },
       "card4": {
         "title": "Personoidut hälytykset",
-        "para": "Pysy askeleen edellä mukautettujen ilmoitusten ja suosikkitoiminnon avulla."
+        "para": "Pysy askeleen edellä räätälöityjen ilmoitusten ja suosikkitoiminnon avulla."
       }
     }
   },
   "loginPage": {
     "close": "Sulje",
     "createAccount": "Luo tili",
-    "logIntoGR": "Kirjaudu sisään Global Relocateen",
+    "logIntoGR": "Kirjaudu Global Relocate -palveluun",
     "password": "Salasana",
     "enterPassword": "Syötä salasanasi",
     "continueWithGoogle": "Jatka Googlella",
     "cantLogin": "Etkö voi kirjautua sisään?",
-    "tosDesc": "Klikkaamalla Luo tili -painiketta hyväksyt ",
+    "tosDesc": "Klikkaamalla Luo tili -painiketta hyväksyt",
     "tos": "palveluehtomme",
     "privacyPolicy": "tietosuojakäytäntömme",
     "and": "ja",
@@ -82,26 +82,26 @@
   "signUpPage": {
     "letsCreateAccount": "Luodaan tilisi",
     "chooseAccountType": "Valitse tilityyppi",
-    "createPersonalAccount": "Olen luomassa henkilökohtaista tiliä",
-    "createCorporateAccount": "Olen luomassa yritystiliä",
+    "createPersonalAccount": "Luon henkilökohtaisen tilin",
+    "createCorporateAccount": "Luon yritystilin",
     "continue": "Jatka",
     "chooseSignMethod": "Valitse rekisteröitymistapa",
     "continueWithEmail": "Jatka sähköpostilla",
     "alreadyHaveAccount": "Onko sinulla jo tili?",
     "fullName": "Koko nimi",
-    "chooseUsername": "Valitse käyttäjätunnus",
+    "chooseUsername": "Valitse käyttäjänimi",
     "enterYourFullName": "Syötä koko nimesi",
     "confirmPassword": "Vahvista salasana",
     "country": "Maa"
   },
   "welcomePage": {
-    "welcomeAboard": "Tervetuloa",
-    "welcomeText": "AI-pohjainen alustasi saumattomaan muuttoon, oikeudelliseen ohjaukseen ja globaaliin elämään."
+    "welcomeAboard": "Tervetuloa mukaan",
+    "welcomeText": "Tekoälypohjainen alustasi saumattomaan muuttoon, oikeudelliseen ohjaukseen ja globaaliin elämiseen."
   },
   "userDashboard": {
     "sidebar": {
       "countries": "Maat",
-      "aiAssistant": "AI-avustaja",
+      "aiAssistant": "Tekoälyavustaja",
       "compareCountries": "Vertaa maita",
       "taxCalculator": "Verolaskuri",
       "notifications": "Ilmoitukset",
@@ -109,22 +109,37 @@
       "community": "Yhteisö",
       "cta": {
         "title": "Kokeile Prota",
-        "para": "Käytät tällä hetkellä ilmaista tilausta, joka on voimassa 3 päivää. Päivitä nyt jatkaaksesi Global Relocaten käyttöä.",
+        "para": "Olet tällä hetkellä ilmaisessa, 3 päivää voimassa olevassa tilauksessa. Päivitä nyt jatkaaksesi Global Relocaten käyttöä.",
         "buttonText": "Lue lisää"
       }
     },
+    "notifications": {
+      "noNotifications": "Sinulla ei ole vielä ilmoituksia.",
+      "markAllAsRead": "Merkitse kaikki luetuiksi",
+      "deleteAll": "Poista kaikki",
+      "markAsRead": "Merkitse luetuksi",
+      "delete": "Poista ilmoitus",
+      "showLess": "Näytä vähemmän tästä",
+      "showMore": "Näytä lisää tuloksia"
+    },
     "countries": {
       "title": "Maat",
-      "noDataText": "Tietoja ei saatavilla!",
-      "searchText": "Hae maita"
+      "noDataText": "Ei tietoja saatavilla!",
+      "searchText": "Hae maita",
+      "clickToSelect": "Napsauta valitaksesi maan",
+      "view": "Näytä",
+      "searchResults": "Hakutulokset",
+      "aiSuggestedCountries": "Tekoälyn ehdottamat maat",
+      "searchCountries": "Hae maita"
     },
     "country": {
-      "countryIn": "Maa",
+      "countryIn": "Maa kohteessa",
       "addFavorite": "Lisää suosikkeihin",
+      "removeFavorite": "Poista suosikeista",
       "share": "Jaa",
       "overview": "Yleiskatsaus",
       "map": "Kartta",
-      "keyFacts": "Avainfaktat",
+      "keyFacts": "Avaintiedot",
       "visaMigration": "Viisumi ja maahanmuutto",
       "taxes": "Verot",
       "flag": "Lippu",
@@ -142,28 +157,28 @@
       "deleteConversation": "Poista keskustelu",
       "share": "Jaa",
       "hello": "Hei",
-      "newChat": "Uusi keskustelu",
-      "askAI": "Kysy tekoälyltä mitä tahansa...",
+      "newChat": "Uusi chat",
+      "askAI": "Kysy tekoälyltä mitä vain...",
       "uploadDocument": "Lataa asiakirja",
       "uploadDocumentDesc": "Lataa asiakirja käsiteltäväksi tekoälyavustajan kanssa",
       "cancel": "Peruuta",
       "upload": "Lataa"
     },
     "settings": {
-      "accountSettings": "Tilin asetukset",
+      "accountSettings": "Tiliasetukset",
       "editProfile": "Muokkaa profiilia",
       "profile": "Profiili",
       "account": "Tili",
       "preferences": "Asetukset",
       "avatar": "Avatar",
       "fullName": "Koko nimi",
-      "username": "Käyttäjänimi",
+      "username": "Käyttäjätunnus",
       "bio": "Bio",
       "country": "Maa",
       "emailAddress": "Sähköpostiosoite",
       "verified": "Vahvistettu",
       "subscription": "Tilaus",
-      "subscriptionDesc": "Käytät tällä hetkellä ilmaista tilausta, joka on voimassa 3 päivää. Päivitä nyt jatkaaksesi Global Relocaten käyttöä.",
+      "subscriptionDesc": "Olet tällä hetkellä ilmaisessa, 3 päivää voimassa olevassa tilauksessa. Päivitä nyt jatkaaksesi Global Relocaten käyttöä.",
       "deleteAccount": "Poista tili",
       "deleteDesc": "Poista tilisi ja tietosi pysyvästi",
       "language": "Kieli",
@@ -175,19 +190,19 @@
       "saving": "Tallennetaan...",
       "unsavedChanges": "Sinulla on tallentamattomia muutoksia",
       "addName": "Lisää nimi",
-      "addBio": "Lisää kuvaus kertoaksesi tarinasi.",
+      "addBio": "Lisää esittelyteksti kertoaksesi tarinasi.",
       "addUsername": "Lisää käyttäjätunnus",
       "addLocation": "Lisää sijainti",
       "confirmAccountDelete": "Vahvista tilin poistaminen",
-      "confirmAccountDeleteDesc": "Ennen kuin poistat tilisi, käytä hetki ymmärtääksesi, mitä tiedoillesi tapahtuu:",
+      "confirmAccountDeleteDesc": "Ennen kuin poistat tilisi, ota hetki aikaa ymmärtääksesi, mitä tiedoillesi tapahtuu:",
       "confirm": "Vahvista",
-      "neverMind": "Ei haittaa",
-      "confirmDeleteWarning": "Huomaa, että tilin poistamista ei voi kumota.",
-      "confirmDeleteList1": "Profiilitiedot, asetukset ja asetusvalinnat poistetaan.",
-      "confirmDeleteList2": "Kaikki tiedot poistetaan pysyvästi 30 päivän kuluessa tilin poistamisesta.",
+      "neverMind": "Ei se mitään",
+      "confirmDeleteWarning": "Muista, että tilin poistamista ei voi kumota.",
+      "confirmDeleteList1": "Profiilitietosi, asetuksesi ja asetukset poistetaan.",
+      "confirmDeleteList2": "Kaikki tiedot poistetaan pysyvästi 30 päivän kuluttua tilin poistamisesta.",
       "deleting": "Poistetaan...",
       "youHave": "Sinulla on:",
-      "administrator": "Ylläpitäjä"
+      "administrator": "Järjestelmänvalvoja"
     },
     "continents": {
       "all": "Kaikki",
@@ -201,7 +216,7 @@
     },
     "tax": {
       "taxCalculator": "Verolaskuri",
-      "taxCacluatorDesc": "Laske arvioitu verotaakkasi eri maissa",
+      "taxCacluatorDesc": "Laske arvioitu verorasituksesi eri maissa",
       "country": "Maa",
       "annualIncome": "Vuositulot",
       "userAccount": "Käyttäjätili",
@@ -216,12 +231,12 @@
       "taxSummary": "Veroyhteenveto",
       "taxAmount": "Veron määrä",
       "effectiveRate": "Todellinen veroprosentti",
-      "takeHomeAmount": "Nettosumma"
+      "takeHomeAmount": "Nettomäärä"
     },
     "upgradePage": {
       "back": "Takaisin",
       "upgradePlan": "Päivitä tilauksesi",
-      "upgradePlanDesc": "Valitse täydellinen tilaus tukemaan globaalia muuttomatkaasi. Saat käyttöösi kattavat työkalut ja oivallukset, jotta muuttosi sujuu saumattomasti.",
+      "upgradePlanDesc": "Valitse täydellinen suunnitelma tukemaan globaalia muuttopolkua. Pääset käyttämään kattavia työkaluja ja oivalluksia, jotta muutostasi tulee saumaton.",
       "currentPlan": "Nykyinen tilauksesi",
       "getStarted": "Aloita",
       "free": "Ilmainen",
@@ -231,30 +246,35 @@
       "forEveryone": "Kaikille",
       "freePlan": {
         "item1": "3 päivän kokeilukäyttö",
-        "item2": "Perustiedot maasta",
+        "item2": "Perusmaatietoja",
         "item3": "Yhteisön käyttöoikeus (vain luku)",
         "item4": "Rajoitettu verolaskuri",
         "item5": "Peruskustannusvertailu"
       },
       "basicPlan": {
-        "item1": "Täydelliset tiedot maasta",
+        "item1": "Täydelliset maatietot",
         "item2": "Yhteisön osallistuminen",
-        "item3": "Täysi verolaskuri",
+        "item3": "Täydellinen verolaskuri",
         "item4": "Kustannusvertailutyökalut",
-        "item5": "Perusmuutto-oppaat",
+        "item5": "Perusmuuttooppaat",
         "item6": "Sähköpostituki"
       },
       "premiumPlan": {
-        "item1": "Kaikki perusominaisuudet",
+        "item1": "Kaikki perustoiminnot",
         "item2": "Rajoittamaton pääsy maatietoihin",
         "item3": "Täysi yhteisön osallistuminen",
         "item4": "Edistynyt verolaskuri",
-        "item5": "AI-muuttoavustaja",
-        "item6": "Elinkustannusten oivallukset",
+        "item5": "Tekoälymuuttoavustaja",
+        "item6": "Elinkustannusnäkemykset",
         "item7": "Viisumivaatimusten oppaat",
-        "item8": "Prioriteettituki",
-        "item9": "Henkilökohtainen muuttosuunnitelma"
+        "item8": "Priorisoitu tuki",
+        "item9": "Räätälöity muuttosuunnitelma"
       }
+    },
+    "favorites": {
+      "noFavorites": "Sinulla ei ole vielä suosikkeja.",
+      "addToFavorites": "Lisää suosikkeihin",
+      "removeFromFavorites": "Poista suosikeista"
     }
   },
   "drawers": {
@@ -269,37 +289,37 @@
     "privacy": "Tietosuoja",
     "contact": "Ota yhteyttä",
     "subscribeNewsletter": "Tilaa uutiskirjeemme",
-    "subscribeNewsDesc": "Pysy ajan tasalla viimeisimmistä oivalluksista globaalista muutosta",
+    "subscribeNewsDesc": "Pysy ajan tasalla globaalin muuttoliikkeen uusimmista oivalluksista",
     "enterEmail": "Syötä sähköpostiosoitteesi",
     "subscribe": "Tilaa",
-    "copyright": "Kaikki tämän verkkosivuston sisältö on tekijänoikeudella suojattu."
+    "copyright": "Kaikki tämän verkkosivuston sisältö on suojattu tekijänoikeuksilla."
   },
   "toast": {
     "thanksNewsletter": "Kiitos uutiskirjeemme tilaamisesta!",
     "linkCopied": "Linkki kopioitu leikepöydälle!",
     "linkCopyFailed": "Linkin kopiointi epäonnistui",
     "newSessionStarted": "Uusi istunto aloitettu",
-    "newSessionFailed": "Uuden istunnon käynnistäminen epäonnistui. Yritä uudelleen.",
+    "newSessionFailed": "Uuden istunnon aloittaminen epäonnistui. Yritä uudelleen.",
     "redirectToPayPage": "Ohjataan maksusivulle...",
     "activeSessionShare": "Tarvitset aktiivisen istunnon jakaaksesi",
     "sessionDeleteFailed": "Istunnon poistaminen epäonnistui. Yritä uudelleen.",
     "sessionDeleteSuccess": "Istunto poistettu onnistuneesti!",
-    "sessionRenameSuccess": "Istunnon nimi vaihdettu onnistuneesti!",
-    "sessionRenameFailed": "Istunnon nimen vaihtaminen epäonnistui. Yritä uudelleen.",
+    "sessionRenameSuccess": "Istunto nimetty uudelleen onnistuneesti!",
+    "sessionRenameFailed": "Istunnon nimeäminen uudelleen epäonnistui. Yritä uudelleen.",
     "enterSessionName": "Anna uusi nimi tälle istunnolle:"
   },
   "formErrors": {
     "invalidEmail": "Virheellinen sähköpostimuoto",
     "emailRequired": "Sähköposti vaaditaan",
     "fullNameRequired": "Koko nimi vaaditaan",
-    "enterFullName": "Syötä koko nimesi",
+    "enterFullName": "Anna koko nimesi",
     "passwordRequired": "Salasana vaaditaan",
-    "minPassword": "Salasanan on oltava vähintään 8 merkkiä pitkä",
+    "minPassword": "Salasanan on oltava vähintään 8 merkkiä",
     "passwordsMismatch": "Salasanat eivät täsmää",
     "weakPassword": "Salasana on liian heikko",
     "selectCountry": "Valitse maa",
     "usernameRequired": "Käyttäjätunnus vaaditaan",
-    "minUsername": "Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä",
-    "cpasswordRequired": "Salasanan vahvistus vaaditaan"
+    "minUsername": "Käyttäjätunnuksen on oltava vähintään 3 merkkiä",
+    "cpasswordRequired": "Vahvista salasana vaaditaan"
   }
 }

@@ -147,7 +147,7 @@ function Countries() {
                     isLiked={item.isLiked}
                     // onLikeToggle={() => toggleFavorite(item)}
                     onClick={() =>
-                      navigate(`/user/countries/${item.countryId}`, {
+                      navigate(`/user/countries/${item.countrySlug}`, {
                         state: item.countryFlag,
                       })
                     }

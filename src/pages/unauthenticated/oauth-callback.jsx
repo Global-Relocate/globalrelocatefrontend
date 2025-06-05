@@ -1,8 +1,7 @@
 import { useEffect, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContextExport";
 import { handleOAuthCallback } from "../../services/api";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function OAuthCallback() {
   const { login } = useContext(AuthContext);

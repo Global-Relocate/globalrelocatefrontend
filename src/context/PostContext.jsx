@@ -1,15 +1,16 @@
-import { createContext, useContext, useReducer, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { createContext, useContext, useState } from "react";
+import PropTypes from "prop-types";
 
 const PostContext = createContext();
 
 const postReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_POST':
+    case "ADD_POST": {
       const updatedPosts = [action.payload, ...state];
-      localStorage.setItem('posts', JSON.stringify(updatedPosts));
+      localStorage.setItem("posts", JSON.stringify(updatedPosts));
       return updatedPosts;
-    case 'INITIALIZE':
+    }
+    case "INITIALIZE":
       return action.payload;
     default:
       return state;
@@ -20,11 +21,11 @@ export const PostProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
 
   const addPost = (newPost) => {
-    setPosts(prev => [newPost, ...prev]);
+    setPosts((prev) => [newPost, ...prev]);
   };
 
   const deletePost = (postId) => {
-    setPosts(prev => prev.filter(post => post.id !== postId));
+    setPosts((prev) => prev.filter((post) => post.id !== postId));
   };
 
   return (
@@ -38,4 +39,4 @@ PostProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const usePosts = () => useContext(PostContext); 
+export const usePosts = () => useContext(PostContext);

@@ -135,7 +135,7 @@ export default function Landing() {
           <div className="md:w-[100%]">
             <DotLottieReact
               src="lottie.json"
-              loop={true}
+              loop={false}
               autoplay
               quality="low"
             />

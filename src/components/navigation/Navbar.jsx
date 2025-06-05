@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContextExport";
 import SelectLanguages from "@/components/drawers/SelectLanguages";
 import logo from "../../assets/svg/logo.svg";
 import { X, Menu, LogOut } from "lucide-react";

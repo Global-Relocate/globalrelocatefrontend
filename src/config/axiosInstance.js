@@ -1,4 +1,5 @@
 import axios from "axios";
+import { userData } from "@/context/AuthContext";
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL, // Replace with your actual API base URL
@@ -6,9 +7,9 @@ const axiosInstance = axios.create({
 
 // Add an interceptor to include the token automatically
 axiosInstance.interceptors.request.use(
-  (config) => {
+  async (config) => {
     // const { user } = useContext(AuthContext);
-    const { token } = JSON.parse(localStorage.getItem("user"));
+    const { token } = (await userData.getDecryptedData()) || {};
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

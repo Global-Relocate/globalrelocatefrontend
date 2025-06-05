@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { useAIChat } from "@/context/AiChatContext";
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "@/context/AuthContextExport";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 
@@ -144,7 +144,7 @@ function AiAssistant() {
 
   const handleRenameSession = async () => {
     const userInput = prompt(t("toast.enterSessionName")).trim();
-    const newName = userInput.replace(/[^a-zA-Z0-9\s]/g, '');
+    const newName = userInput.replace(/[^a-zA-Z0-9\s]/g, "");
     if (newName && currentSession) {
       try {
         await renameChatSession(currentSession.id, newName);

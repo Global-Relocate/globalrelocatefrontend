@@ -1,8 +1,8 @@
-import React from "react";
 import { GoHeart } from "react-icons/go";
 import heartIcon from "../../assets/svg/heart.svg";
 import pointerIcon from "../../assets/svg/pointer.svg";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function CountriesCard({
   image,
@@ -11,8 +11,10 @@ export default function CountriesCard({
   sm,
   isLiked,
   onLikeToggle,
-  flagClassName = "w-6 h-6"
+  flagClassName = "w-6 h-6",
 }) {
+  const { t } = useTranslation();
+
   return (
     <div
       className={`flex flex-col items-start space-y-3 relative ${
@@ -27,33 +29,37 @@ export default function CountriesCard({
         }}
       >
         {isLiked ? (
-          <img 
-            src={heartIcon} 
-            alt="Liked" 
-            className="w-4 h-4 sm:w-5 sm:h-5" 
-            style={{ width: '1.1rem', height: '1.1rem' }} 
+          <img
+            src={heartIcon}
+            alt="Liked"
+            className="w-4 h-4 sm:w-5 sm:h-5"
+            style={{ width: "1.1rem", height: "1.1rem" }}
           />
+        ) : sm ? (
+          <GoHeart style={{ width: "1.1rem", height: "1.1rem" }} />
         ) : (
-          sm ? (
-            <GoHeart style={{ width: '1.1rem', height: '1.1rem' }} />
-          ) : (
-            <Link to="/user/countries" className="flex items-center gap-2">
-              <img 
-                src={pointerIcon} 
-                alt="View" 
-                className="w-4 h-4 sm:w-5 sm:h-5" 
-                style={{ width: '1.1rem', height: '1.1rem' }} 
-              /> 
-              <span className="text-xs sm:text-sm">View</span>
-            </Link>
-          )
+          <Link to="/user/countries" className="flex items-center gap-2">
+            <img
+              src={pointerIcon}
+              alt="View"
+              className="w-4 h-4 sm:w-5 sm:h-5"
+              style={{ width: "1.1rem", height: "1.1rem" }}
+            />
+            <span className="text-xs sm:text-sm">
+              {t("userDashboard.countries.view")}
+            </span>
+          </Link>
         )}
       </button>
 
       <Link to="/user/countries" className="w-full">
         <img
           src={image}
-          className={`w-full rounded-2xl object-cover ${sm ? "h-[250px] sm:h-[280px] md:h-[320px]" : "h-[300px] sm:h-[400px] md:h-[500px]"}`}
+          className={`w-full rounded-2xl object-cover ${
+            sm
+              ? "h-[250px] sm:h-[280px] md:h-[320px]"
+              : "h-[300px] sm:h-[400px] md:h-[500px]"
+          }`}
           alt={location}
         />
       </Link>

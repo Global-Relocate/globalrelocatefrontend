@@ -2,38 +2,38 @@
   "landingPage": {
     "navbar": {
       "home": "Laman Utama",
-      "countriesData": "Data Negara",
+      "countriesData": "Negara & Data",
       "community": "Komuniti",
-      "tools": "Alatan",
+      "tools": "Alat",
       "pricing": "Harga",
       "viewProfile": "Lihat Profil",
       "helpCenter": "Pusat Bantuan",
-      "giveFeedback": "Berikan Maklum Balas",
+      "giveFeedback": "Beri Maklum Balas",
       "privacyPolicy": "Dasar Privasi",
       "upgradePlan": "Naik Taraf Pelan",
       "logIn": "Log Masuk",
-      "getStarted": "Mula Sekarang",
+      "getStarted": "Mula",
       "logout": "Log Keluar"
     },
     "showcase": {
-      "title": "Berpindah dengan lebih bijak, hidup dengan lebih baik.",
-      "para": "Platform berkuasa AI anda untuk penempatan semula yang lancar, panduan undang-undang, dan kehidupan global.",
-      "buttonText": "Mula Sekarang"
+      "title": "Berpindah dengan lebih bijak, hidup lebih baik.",
+      "para": "Platform dikuasakan AI anda untuk perpindahan yang lancar, panduan undang-undang dan kehidupan global.",
+      "buttonText": "Mula"
     },
     "features": {
       "title": "Ciri-ciri",
       "cards": {
         "card1": {
-          "title": "Bandingkan Negara",
-          "para": "Buat keputusan termaklum dengan membandingkan pelbagai negara secara berdampingan, menganalisis faktor-faktor utama seperti kos sara hidup, kadar cukai, dan kualiti hidup."
+          "title": "Bandingkan negara",
+          "para": "Buat keputusan termaklum dengan membandingkan negara yang berbeza secara bersebelahan, menganalisis faktor utama seperti kos sara hidup, kadar cukai dan kualiti hidup."
         },
         "card2": {
-          "title": "Wawasan Pintar dengan AI",
-          "para": "Sertai forum dan kumpulan dengan nomad digital global yang berfikiran sama."
+          "title": "Wawasan pintar dengan AI",
+          "para": "Sertai forum dan kumpulan dengan nomad global yang berfikiran sama."
         },
         "card3": {
-          "title": "Negara dan Data",
-          "para": "Sertai forum dan kumpulan dengan nomad digital global yang berfikiran sama."
+          "title": "Negara & Data",
+          "para": "Sertai forum dan kumpulan dengan nomad global yang berfikiran sama."
         }
       }
     },
@@ -42,17 +42,17 @@
       "para": "Terokai destinasi popular dan mula merancang perpindahan anda"
     },
     "whyChooseUs": {
-      "title": "Kenapa Pilih Kami",
+      "title": "Mengapa Pilih Kami",
       "card1": {
-        "title": "Data Berbantukan AI yang Menjimatkan Masa",
-        "para": "Maklumat yang sentiasa terkini dan boleh dipercayai."
+        "title": "Data berkuasa AI yang menjimatkan masa",
+        "para": "Maklumat sentiasa terkini dan boleh dipercayai."
       },
       "card2": {
-        "title": "Kenalan yang Disahkan dan Sumber yang Dipercayai:",
-        "para": "Platform dipacu komuniti yang menjamin kredibiliti."
+        "title": "Kenalan yang disahkan dan sumber yang boleh dipercayai:",
+        "para": "Platform dikuasakan komuniti yang menjamin kredibiliti."
       },
       "card3": {
-        "title": "Penyelesaian Serba Guna",
+        "title": "Penyelesaian All-in-One",
         "para": "Segala-galanya daripada visa hingga kos sara hidup di satu tempat."
       },
       "card4": {
@@ -63,30 +63,30 @@
   },
   "loginPage": {
     "close": "Tutup",
-    "createAccount": "Cipta Akaun",
-    "logIntoGR": "Log Masuk ke Global Relocate",
+    "createAccount": "Buat Akaun",
+    "logIntoGR": "Log Masuk Global Relocate",
     "password": "Kata Laluan",
     "enterPassword": "Masukkan kata laluan anda",
     "continueWithGoogle": "Teruskan dengan Google",
     "cantLogin": "Tidak boleh log masuk?",
-    "tosDesc": "Dengan mengklik cipta akaun, anda bersetuju dengan ",
+    "tosDesc": "Dengan mengklik Buat Akaun, anda bersetuju dengan kami",
     "tos": "Syarat Perkhidmatan",
     "privacyPolicy": "Dasar Privasi",
     "and": "dan",
     "or": "ATAU",
     "processing": "Memproses...",
     "continue": "Teruskan",
-    "hidePassword": "Sembunyikan kata laluan",
-    "showPassword": "Tunjukkan kata laluan"
+    "hidePassword": "Sembunyikan Kata Laluan",
+    "showPassword": "Tunjukkan Kata Laluan"
   },
   "signUpPage": {
-    "letsCreateAccount": "Mari cipta akaun anda",
+    "letsCreateAccount": "Mari buat akaun anda",
     "chooseAccountType": "Pilih jenis akaun",
-    "createPersonalAccount": "Saya mencipta akaun peribadi",
-    "createCorporateAccount": "Saya mencipta akaun korporat",
+    "createPersonalAccount": "Saya membuat akaun peribadi",
+    "createCorporateAccount": "Saya membuat akaun korporat",
     "continue": "Teruskan",
-    "chooseSignMethod": "Pilih kaedah pendaftaran",
-    "continueWithEmail": "Teruskan dengan e-mel",
+    "chooseSignMethod": "Pilih kaedah daftar",
+    "continueWithEmail": "Teruskan dengan E-mel",
     "alreadyHaveAccount": "Sudah mempunyai akaun?",
     "fullName": "Nama Penuh",
     "chooseUsername": "Pilih nama pengguna",
@@ -96,13 +96,13 @@
   },
   "welcomePage": {
     "welcomeAboard": "Selamat Datang",
-    "welcomeText": "Platform berkuasa AI anda untuk penempatan semula yang lancar, panduan undang-undang, dan kehidupan global."
+    "welcomeText": "Platform dikuasakan AI anda untuk perpindahan yang lancar, panduan undang-undang dan kehidupan global."
   },
   "userDashboard": {
     "sidebar": {
       "countries": "Negara",
       "aiAssistant": "Pembantu AI",
-      "compareCountries": "Bandingkan Negara",
+      "compareCountries": "Bandingkan negara",
       "taxCalculator": "Kalkulator Cukai",
       "notifications": "Pemberitahuan",
       "favourites": "Kegemaran",
@@ -113,14 +113,29 @@
         "buttonText": "Ketahui Lebih Lanjut"
       }
     },
+    "notifications": {
+      "noNotifications": "Anda tiada pemberitahuan lagi.",
+      "markAllAsRead": "Tandai semua sebagai dibaca",
+      "deleteAll": "Padam semua",
+      "markAsRead": "Tandai sebagai dibaca",
+      "delete": "Padam pemberitahuan",
+      "showLess": "Tunjukkan Kurang Ini",
+      "showMore": "Tunjukkan Lebih Banyak Hasil"
+    },
     "countries": {
       "title": "Negara",
       "noDataText": "Tiada data tersedia!",
-      "searchText": "Cari Negara"
+      "searchText": "Cari negara",
+      "clickToSelect": "Klik untuk memilih negara",
+      "view": "Lihat",
+      "searchResults": "Hasil Carian",
+      "aiSuggestedCountries": "Negara Cadangan AI",
+      "searchCountries": "Cari negara"
     },
     "country": {
-      "countryIn": "Negara dalam",
-      "addFavorite": "Tambah ke Kegemaran",
+      "countryIn": "Negara di",
+      "addFavorite": "Tambah kegemaran",
+      "removeFavorite": "Buang kegemaran",
       "share": "Kongsi",
       "overview": "Gambaran Keseluruhan",
       "map": "Peta",
@@ -135,16 +150,16 @@
       "dialingCode": "Kod Panggilan",
       "back": "Kembali",
       "noOverview": "Tiada gambaran keseluruhan tersedia untuk negara ini.",
-      "noVisaInfo": "Tiada maklumat visa dan imigresen tersedia."
+      "noVisaInfo": "Tiada maklumat visa & migrasi tersedia."
     },
     "ai": {
       "rename": "Namakan Semula",
-      "deleteConversation": "Padam Perbualan",
+      "deleteConversation": "Padam perbualan",
       "share": "Kongsi",
       "hello": "Helo",
-      "newChat": "Sembang Baharu",
-      "askAI": "Tanya apa sahaja kepada AI...",
-      "uploadDocument": "Muat Naik Dokumen",
+      "newChat": "Sembang baharu",
+      "askAI": "Tanya AI apa sahaja...",
+      "uploadDocument": "Muat naik dokumen",
       "uploadDocumentDesc": "Muat naik dokumen untuk diproses dengan pembantu AI",
       "cancel": "Batal",
       "upload": "Muat Naik"
@@ -160,15 +175,15 @@
       "username": "Nama Pengguna",
       "bio": "Bio",
       "country": "Negara",
-      "emailAddress": "Alamat E-mel",
+      "emailAddress": "Alamat Emel",
       "verified": "Disahkan",
       "subscription": "Langganan",
       "subscriptionDesc": "Anda kini berada dalam pelan percuma, sah selama 3 hari. Naik taraf sekarang untuk terus menggunakan Global Relocate.",
       "deleteAccount": "Padam Akaun",
       "deleteDesc": "Padam akaun dan data anda secara kekal",
       "language": "Bahasa",
-      "chooseLanguage": "Pilih bahasa",
-      "selectLanguage": "Pilih Bahasa",
+      "chooseLanguage": "Pilih Bahasa",
+      "selectLanguage": "Pilih bahasa",
       "learnMore": "Ketahui Lebih Lanjut",
       "saveChanges": "Simpan Perubahan",
       "cancel": "Batal",
@@ -179,12 +194,12 @@
       "addUsername": "Tambah Nama Pengguna",
       "addLocation": "Tambah Lokasi",
       "confirmAccountDelete": "Sahkan Padam Akaun",
-      "confirmAccountDeleteDesc": "Sebelum memadam akaun anda, sila luangkan sedikit masa untuk memahami apa yang akan berlaku kepada data anda:",
+      "confirmAccountDeleteDesc": "Sebelum anda memadam akaun anda, sila luangkan masa untuk memahami apa yang akan berlaku kepada data anda:",
       "confirm": "Sahkan",
       "neverMind": "Tidak mengapa",
-      "confirmDeleteWarning": "Sila ambil perhatian bahawa pemadaman akaun anda tidak boleh dibatalkan.",
-      "confirmDeleteList1": "Butiran profil anda, keutamaan dan tetapan akan dialih keluar.",
-      "confirmDeleteList2": "Semua data akan dipadamkan secara kekal dalam tempoh 30 hari selepas pemadaman akaun.",
+      "confirmDeleteWarning": "Ingat, pemadaman akaun anda tidak boleh dibatalkan.",
+      "confirmDeleteList1": "Butiran profil, pilihan dan tetapan anda akan dialih keluar.",
+      "confirmDeleteList2": "Semua data akan dipadamkan secara kekal 30 hari selepas akaun dipadamkan.",
       "deleting": "Memadam...",
       "youHave": "Anda ada:",
       "administrator": "Pentadbir"
@@ -215,15 +230,15 @@
       "corporate": "Korporat",
       "taxSummary": "Ringkasan Cukai",
       "taxAmount": "Jumlah Cukai",
-      "effectiveRate": "Kadar Berkesan",
+      "effectiveRate": "Kadar Efektif",
       "takeHomeAmount": "Jumlah Bersih"
     },
     "upgradePage": {
       "back": "Kembali",
       "upgradePlan": "Naik Taraf Pelan Anda",
-      "upgradePlanDesc": "Pilih pelan yang sempurna untuk menyokong perjalanan penempatan semula global anda. Dapatkan akses kepada alatan dan wawasan yang komprehensif untuk menjadikan perpindahan anda lancar.",
+      "upgradePlanDesc": "Pilih pelan yang sempurna untuk menyokong perjalanan perpindahan global anda. Dapatkan akses kepada alat dan pandangan yang komprehensif untuk menjadikan perpindahan anda lancar.",
       "currentPlan": "Pelan Semasa Anda",
-      "getStarted": "Mula Sekarang",
+      "getStarted": "Mula",
       "free": "Percuma",
       "basic": "Asas",
       "premium": "Premium",
@@ -240,8 +255,8 @@
         "item1": "Maklumat negara penuh",
         "item2": "Penyertaan komuniti",
         "item3": "Kalkulator cukai penuh",
-        "item4": "Alatan perbandingan kos",
-        "item5": "Panduan penempatan semula asas",
+        "item4": "Alat perbandingan kos",
+        "item5": "Panduan perpindahan asas",
         "item6": "Sokongan e-mel"
       },
       "premiumPlan": {
@@ -249,12 +264,17 @@
         "item2": "Akses data negara tanpa had",
         "item3": "Penyertaan komuniti penuh",
         "item4": "Kalkulator cukai lanjutan",
-        "item5": "Pembantu penempatan semula AI",
+        "item5": "Pembantu perpindahan AI",
         "item6": "Wawasan kos sara hidup",
         "item7": "Panduan keperluan visa",
         "item8": "Sokongan keutamaan",
-        "item9": "Pelan hala tuju penempatan semula peribadi"
+        "item9": "Pelan perpindahan peribadi"
       }
+    },
+    "favorites": {
+      "noFavorites": "Anda belum mempunyai kegemaran lagi.",
+      "addToFavorites": "Tambah kegemaran",
+      "removeFromFavorites": "Buang kegemaran"
     }
   },
   "drawers": {
@@ -268,22 +288,22 @@
     "terms": "Terma",
     "privacy": "Privasi",
     "contact": "Hubungi Kami",
-    "subscribeNewsletter": "Langgan Buletin Kami",
-    "subscribeNewsDesc": "Kekal dikemas kini dengan wawasan terkini mengenai penempatan semula global",
+    "subscribeNewsletter": "Langgan surat berita kami",
+    "subscribeNewsDesc": "Kekal kemas kini dengan wawasan terkini mengenai perpindahan global",
     "enterEmail": "Masukkan e-mel anda",
     "subscribe": "Langgan",
-    "copyright": "Semua kandungan di laman web ini dilindungi hak cipta."
+    "copyright": "Semua kandungan laman web ini adalah hak cipta."
   },
   "toast": {
-    "thanksNewsletter": "Terima kasih kerana melanggan buletin kami!",
+    "thanksNewsletter": "Terima kasih kerana melanggan surat berita kami!",
     "linkCopied": "Pautan disalin ke papan keratan!",
     "linkCopyFailed": "Gagal menyalin pautan",
     "newSessionStarted": "Sesi baharu dimulakan",
     "newSessionFailed": "Gagal memulakan sesi baharu. Sila cuba lagi.",
-    "redirectToPayPage": "Mengalih semula ke halaman pembayaran...",
+    "redirectToPayPage": "Mengarahkan ke halaman pembayaran...",
     "activeSessionShare": "Anda memerlukan sesi aktif untuk berkongsi",
     "sessionDeleteFailed": "Gagal memadam sesi. Sila cuba lagi.",
-    "sessionDeleteSuccess": "Sesi berjaya dipadam!",
+    "sessionDeleteSuccess": "Sesi berjaya dipadamkan!",
     "sessionRenameSuccess": "Sesi berjaya dinamakan semula!",
     "sessionRenameFailed": "Gagal menamakan semula sesi. Sila cuba lagi.",
     "enterSessionName": "Masukkan nama baharu untuk sesi ini:"
@@ -300,6 +320,6 @@
     "selectCountry": "Sila pilih negara",
     "usernameRequired": "Nama pengguna diperlukan",
     "minUsername": "Nama pengguna mestilah sekurang-kurangnya 3 aksara",
-    "cpasswordRequired": "Pengesahan kata laluan diperlukan"
+    "cpasswordRequired": "Sahkan kata laluan diperlukan"
   }
 }

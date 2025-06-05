@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { Button } from "@/components/ui/button";
 import { BiArrowBack } from "react-icons/bi";
 import { MdContentCopy } from "react-icons/md";
 import { toast } from "sonner";
-import axios from "axios";
 
 function SharedChat() {
   const { sessionId } = useParams();
