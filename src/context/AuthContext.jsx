@@ -32,7 +32,6 @@ export const AuthProvider = ({ children }) => {
           logout();
         }
       } catch (e) {
-        console.error("Error initializing auth:", e);
         logout();
       }
     }
@@ -42,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (token, userInfo) => {
     if (!token || !userInfo) {
-      console.error("Invalid login data:", { token, userInfo });
+      // console.error("Invalid login data:", { token, userInfo });
       return;
     }
 

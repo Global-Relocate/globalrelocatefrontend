@@ -86,11 +86,6 @@ export default function Signup() {
     setShowEmailForm(true);
   };
 
-  // Handle close button click
-  const handleClose = () => {
-    navigate(-1);
-  };
-
   // Handle back button click
   const handleBack = () => {
     if (showEmailForm) {
@@ -291,9 +286,12 @@ export default function Signup() {
         <Link to="/">
           <img src={logo} alt="Global Relocate Logo" className="h-10" />
         </Link>
-        <div className="flex items-center cursor-pointer" onClick={handleClose}>
-          <IoCloseCircleOutline className="text-2xl mr-2" />
-          <span className="text-gray-700">{t("loginPage.close")}</span>
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={navigate.bind(null, "/login")}
+        >
+          <i className="far fa-sign-in text-lg mr-2" />
+          <span className="text-gray-700">{t("landingPage.navbar.logIn")}</span>
         </div>
       </div>
 

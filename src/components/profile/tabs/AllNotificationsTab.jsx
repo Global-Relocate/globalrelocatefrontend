@@ -1,5 +1,4 @@
 import NotificationCard from "../NotificationCard";
-import NotificationSkeleton from "../NotificationSkeleton";
 import { useNotifications } from "@/context/NotificationsContext";
 import { useEffect, useState, useRef, useCallback } from "react";
 import bellicon from "../../../assets/svg/bell.svg";
@@ -7,6 +6,7 @@ import { getNotifications } from "@/services/api";
 import { showToast } from "@/components/ui/toast";
 import { formatTimeAgo } from "@/utils/dateUtils";
 import { useTranslation } from "react-i18next";
+import PageLoader from "@/components/loaders/PageLoader";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -67,13 +67,7 @@ const AllNotificationsTab = () => {
   );
 
   if (loading && notifications.length === 0) {
-    return (
-      <div className="w-full bg-[#F8F7F7] rounded-2xl">
-        {[1, 2, 3].map((_, index) => (
-          <NotificationSkeleton key={index} />
-        ))}
-      </div>
-    );
+    return <PageLoader />;
   }
 
   if (!loading && notifications.length === 0) {

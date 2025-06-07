@@ -7,6 +7,7 @@ import FollowingTab from "@/components/profile/tabs/FollowingTab";
 import { Button } from "@/components/ui/button";
 import { useNotifications } from "@/context/NotificationsContext";
 import { useTranslation } from "react-i18next";
+import PageLoader from "@/components/loaders/PageLoader";
 
 function Notifications() {
   const { markAsRead, deleteNotification } = useNotifications();
@@ -15,52 +16,29 @@ function Notifications() {
 
   return (
     <DashboardLayout>
-      <div className="w-full flex flex-col">
-        {/* <div className="px-4 md:px-8 lg:px-20 pt-2 pb-4">
-          <h1 className="text-3xl font-medium mb-6">Travel News</h1>
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              paddingTop: "300px",
-            }}
+      <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
+        <h1 className="text-3xl font-medium mb-6">
+          {t("userDashboard.sidebar.notifications")}
+        </h1>
+
+        <div className="flex items-center gap-4 my-5">
+          <Button
+            className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
+            onClick={() => markAsRead("all")}
           >
-            <iframe
-              src="https://rss.app/embed/v1/list/t8QjCntNXPNS1BD9"
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                border: 0,
-              }}
-            ></iframe>
-          </div>
-        </div> */}
-        <div className="px-4 md:px-8 lg:px-20 pt-2 pb-4">
-          <h1 className="text-3xl font-medium mb-6">
-            {t("userDashboard.sidebar.notifications")}
-          </h1>
+            <i className="fad fa-check"></i>{" "}
+            {t("userDashboard.notifications.markAllAsRead")}
+          </Button>
+          <Button
+            className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
+            onClick={() => deleteNotification("all")}
+          >
+            <i className="fad fa-trash"></i>
+            {t("userDashboard.notifications.deleteAll")}
+          </Button>
+        </div>
 
-          <div className="flex items-center gap-4 my-5">
-            <Button
-              className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
-              onClick={() => markAsRead("all")}
-            >
-              <i className="fad fa-check"></i>{" "}
-              {t("userDashboard.notifications.markAllAsRead")}
-            </Button>
-            <Button
-              className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
-              onClick={() => deleteNotification("all")}
-            >
-              <i className="fad fa-trash"></i>
-              {t("userDashboard.notifications.deleteAll")}
-            </Button>
-          </div>
-
-          {/* Tabs
+        {/* Tabs
           <div className="flex gap-4 mb-6">
             <FilterButton
               title="All"
@@ -79,12 +57,11 @@ function Notifications() {
             />
           </div> */}
 
-          {/* Tab Content */}
-          <div className="w-full">
-            {activeTab === "all" && <AllNotificationsTab />}
-            {activeTab === "mentions" && <MentionsTab />}
-            {activeTab === "following" && <FollowingTab />}
-          </div>
+        {/* Tab Content */}
+        <div className="w-full">
+          {activeTab === "all" && <AllNotificationsTab />}
+          {activeTab === "mentions" && <MentionsTab />}
+          {activeTab === "following" && <FollowingTab />}
         </div>
       </div>
     </DashboardLayout>

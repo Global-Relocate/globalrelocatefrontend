@@ -60,7 +60,10 @@ function DashNav({ navState, setNavState }) {
   const quickLinks = [
     { href: "/", label: t("landingPage.navbar.home") },
     { href: "/user/countries", label: t("landingPage.navbar.countriesData") },
-    { href: "/user/tax-calculator", label: t("landingPage.navbar.tools") },
+    {
+      href: "/user/tax-calculator",
+      label: t("userDashboard.sidebar.taxCalculator"),
+    },
     { href: "/upgrade", label: t("landingPage.navbar.pricing") },
   ];
 

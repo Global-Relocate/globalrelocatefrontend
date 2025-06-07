@@ -4,7 +4,7 @@
       "home": "Home",
       "countriesData": "Countries & Data",
       "community": "Community",
-      "tools": "Tools",
+      "taxCalculator": "Tax Calculator",
       "pricing": "Pricing",
       "viewProfile": "View Profile",
       "helpCenter": "Help Center",
@@ -292,7 +292,18 @@
     "subscribeNewsDesc": "Stay updated with the latest insights on global relocation",
     "enterEmail": "Enter your email",
     "subscribe": "Subscribe",
-    "copyright": "All content on this website is protected by copyright."
+    "copyright": "All content on this website is protected by copyright.",
+    "rankings": "Rankings",
+    "safestCountries": "The Safest Countries",
+    "humanFreedomLevel": "Human Freedom Level",
+    "lifeExpectancy": "Life Expectancy",
+    "happinessIndex": "World Happiness Index",
+    "citizenshipQualityRankings": "Citizenship Quality Ranking",
+    "trends": "Trends",
+    "foreignCitizenship": "Foreign Citizenship",
+    "digitalNomadVisas": "Digital Nomad Visas",
+    "taxesRankings": "Taxes Rankings",
+    "residencyPermit": "Residency Permit"
   },
   "toast": {
     "thanksNewsletter": "Thank you for subscribing to our newsletter!",

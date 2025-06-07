@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import ProfileTab from "../../components/user-tabs/profile-tab";
 import AccountTab from "../../components/user-tabs/account-tab";
-import PreferencesTab from "../../components/user-tabs/preferences-tab";
+// import PreferencesTab from "../../components/user-tabs/preferences-tab";
 import FilterButton from "@/components/user-buttons/FilterButton";
 import { getUserProfile } from "@/services/api";
 import { useTranslation } from "react-i18next";
@@ -38,7 +38,7 @@ const AccountSettings = ({ open, onOpenChange }) => {
     }
   }, [open, activeTab]);
 
-  const tabs = ["profile", "account", "preferences"];
+  const tabs = ["profile", "account"]; // "preferences"];
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -82,7 +82,7 @@ const AccountSettings = ({ open, onOpenChange }) => {
                 setShowDeleteModal={setShowDeleteModal}
               />
             )}
-            {activeTab === "preferences" && <PreferencesTab />}
+            {/*activeTab === "preferences" && <PreferencesTab />*/}
           </div>
         </div>
       </SheetContent>

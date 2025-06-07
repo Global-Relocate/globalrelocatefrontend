@@ -32,7 +32,10 @@ const Navbar = () => {
     { href: "/", label: t("landingPage.navbar.home") },
     { href: "/user/countries", label: t("landingPage.navbar.countriesData") },
     // { href: "/user/community", label: t("landingPage.navbar.community") }, // Comment out community
-    { href: "/user/tax-calculator", label: t("landingPage.navbar.tools") },
+    {
+      href: "/user/tax-calculator",
+      label: t("userDashboard.sidebar.taxCalculator"),
+    },
     { href: "/upgrade", label: t("landingPage.navbar.pricing") },
   ];
 

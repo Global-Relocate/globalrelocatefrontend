@@ -14,6 +14,7 @@ import { CountryDataProvider } from "./context/CountryDataContext";
 import "@/i18n/i18n";
 import { AiChatProvider } from "./context/AiChatContext";
 import { toast } from "sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Override the default toast error method to suppress certain errors
 const originalErrorToast = toast.error;
@@ -64,8 +65,10 @@ createRoot(document.getElementById("root")).render(
               <UndoProvider>
                 <CountryDataProvider>
                   <AiChatProvider>
-                    <Toaster />
-                    <App />
+                    <TooltipProvider>
+                      <Toaster />
+                      <App />
+                    </TooltipProvider>
                   </AiChatProvider>
                 </CountryDataProvider>
               </UndoProvider>

@@ -11,8 +11,8 @@ import AccountSettings from "./account-settings";
 // import BookmarksTab from '@/components/profile/tabs/BookmarksTab';
 import { getUserProfile } from "@/services/api";
 import { showToast } from "@/components/ui/toast";
-import { Skeleton } from "@/components/ui/skeleton";
 import { useTranslation } from "react-i18next";
+import PageLoader from "@/components/loaders/PageLoader";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -64,31 +64,21 @@ const Profile = () => {
   return (
     <DashboardLayout>
       <div className="max-w-4xl mx-auto px-4">
-        {/* Header */}
-        <div className="flex items-center gap-4 py-6">
-          <button onClick={() => navigate(-1)}>
-            <ArrowLeft className="h-6 w-6" />
-          </button>
-          <h1 className="text-2xl font-semibold">
-            {t("userDashboard.settings.profile")}
-          </h1>
-        </div>
-
-        {/* Profile Card */}
-        <div className="bg-[#F8F7F7] rounded-2xl p-6 mb-8 border border-[#D4D4D4]">
-          {isLoading ? (
-            <div className="flex justify-between items-start mb-6">
-              <div className="flex flex-col items-start gap-4">
-                <Skeleton className="h-16 w-16 rounded-full" />
-                <div className="space-y-2">
-                  <Skeleton className="h-6 w-32" />
-                  <Skeleton className="h-4 w-24" />
-                </div>
-              </div>
-              <Skeleton className="h-10 w-24" />
+        {isLoading ? (
+          <PageLoader />
+        ) : (
+          <>
+            <div className="flex items-center gap-4 py-6">
+              <button onClick={() => navigate(-1)}>
+                <ArrowLeft className="h-6 w-6" />
+              </button>
+              <h1 className="text-2xl font-semibold">
+                {t("userDashboard.settings.profile")}
+              </h1>
             </div>
-          ) : (
-            <>
+
+            {/* Profile Card */}
+            <div className="bg-[#F8F7F7] rounded-2xl p-6 mb-8 border border-[#D4D4D4]">
               <div className="flex justify-between items-start mb-6">
                 <div className="flex flex-col items-start gap-4">
                   {/* Avatar Section */}
@@ -140,12 +130,10 @@ const Profile = () => {
                     t("userDashboard.settings.addLocation")}
                 </span>
               </div>
-            </>
-          )}
-        </div>
+            </div>
 
-        {/* Tabs */}
-        {/* <div className="flex gap-4 mb-6">
+            {/* Tabs */}
+            {/* <div className="flex gap-4 mb-6">
           <FilterButton
             title="Posts"
             isActive={activeTab === 'posts'}
@@ -163,16 +151,18 @@ const Profile = () => {
           />
         </div> */}
 
-        {/* Content */}
-        {/* {renderContent()} */}
+            {/* Content */}
+            {/* {renderContent()} */}
 
-        {/* Account Settings Modal */}
-        <AccountSettings
-          open={isSettingsOpen}
-          onOpenChange={setIsSettingsOpen}
-          onProfileUpdate={fetchUserProfile}
-          profileData={profileData}
-        />
+            {/* Account Settings Modal */}
+            <AccountSettings
+              open={isSettingsOpen}
+              onOpenChange={setIsSettingsOpen}
+              onProfileUpdate={fetchUserProfile}
+              profileData={profileData}
+            />
+          </>
+        )}
       </div>
     </DashboardLayout>
   );
