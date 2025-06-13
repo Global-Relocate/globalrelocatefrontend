@@ -7,6 +7,7 @@ import successMark from "../../assets/svg/successmark.svg";
 import { resetPassword } from "../../services/api";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CheckCircle2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function ResetPassword() {
   const [formData, setFormData] = useState({
@@ -30,6 +31,7 @@ export default function ResetPassword() {
   });
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
   const email = location.state?.email || "";
 
   useEffect(() => {
@@ -106,8 +108,7 @@ export default function ResetPassword() {
 
     if (name === "newPassword") {
       if (value && !validatePassword(value)) {
-        error =
-          "Password must be at least 8 characters, include uppercase, lowercase, number, and symbol";
+        error = t("landingPage.resetPassword.passwordStrengthError");
       } else {
         error = "";
       }
@@ -116,7 +117,7 @@ export default function ResetPassword() {
 
     if (name === "confirmPassword") {
       if (value && value !== formData.newPassword) {
-        error = "Passwords do not match";
+        error = t("landingPage.resetPassword.passwordsDoNotMatch");
       } else {
         error = "";
       }
@@ -165,7 +166,7 @@ export default function ResetPassword() {
       {/* Mobile Header */}
       <div className="md:hidden flex items-center justify-between p-4">
         <Link to="/">
-          <img src={logo} alt="Global Relocate Logo" className="h-10" />
+          <img src={logo} alt="Global Relocate Logo" className="h-12" />
         </Link>
         <button onClick={handleClose} className="flex items-center">
           <IoCloseCircleOutline className="text-2xl mr-2" />
@@ -174,9 +175,9 @@ export default function ResetPassword() {
       </div>
 
       {/* Desktop Header */}
-      <div className="hidden md:flex items-center justify-between p-6">
+      <div className="hidden md:flex items-center justify-between px-6 lg:px-10 py-4">
         <Link to="/">
-          <img src={logo} alt="Global Relocate Logo" className="h-10" />
+          <img src={logo} alt="Global Relocate Logo" className="h-12" />
         </Link>
         <Link to="/login" className="text-sm font-medium hover:text-gray-600">
           Log in
@@ -184,15 +185,15 @@ export default function ResetPassword() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 pt-8 md:pt-16">
+      <div className="max-w-6xl mx-auto px-6 pt-8 md:pt-16 mb-8">
         <div className="flex flex-col items-center max-w-md mx-auto w-full">
           {!passwordChanged ? (
             <>
               <h1 className="text-3xl font-medium mb-4">
-                Create a new password
+                {t("landingPage.resetPassword.title")}
               </h1>
               <p className="text-base text-gray-700 mb-12 text-center">
-                Your new password must be unique from those previously used.
+                {t("landingPage.resetPassword.description")}
               </p>
 
               {/* Form Section */}
@@ -230,7 +231,9 @@ export default function ResetPassword() {
 
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div>
-                    <label className="block text-sm mb-2">OTP</label>
+                    <label className="block text-sm mb-2">
+                      {t("landingPage.resetPassword.otpLabel")}
+                    </label>
                     <input
                       type="text"
                       name="otp"
@@ -239,7 +242,7 @@ export default function ResetPassword() {
                       className={`w-full px-4 py-3 rounded-lg border ${
                         otpError ? "border-red-500" : "border-gray-300"
                       } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
-                      placeholder="Enter OTP"
+                      placeholder={t("landingPage.resetPassword.enterOTP")}
                     />
                     {otpError && (
                       <p className="mt-1 text-red-500 text-xs">{otpError}</p>
@@ -247,7 +250,9 @@ export default function ResetPassword() {
                   </div>
 
                   <div>
-                    <label className="block text-sm mb-2">New Password</label>
+                    <label className="block text-sm mb-2">
+                      {t("landingPage.resetPassword.newPasswordLabel")}
+                    </label>
                     <div className="relative">
                       <input
                         type={showNewPassword ? "text" : "password"}
@@ -259,7 +264,9 @@ export default function ResetPassword() {
                             ? "border-red-500"
                             : "border-gray-300"
                         } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
-                        placeholder="Enter new password"
+                        placeholder={t(
+                          "landingPage.resetPassword.enterNewPassword"
+                        )}
                       />
                       <button
                         type="button"
@@ -306,7 +313,7 @@ export default function ResetPassword() {
 
                   <div>
                     <label className="block text-sm mb-2">
-                      Confirm Password
+                      {t("landingPage.resetPassword.confirmPasswordLabel")}
                     </label>
                     <div className="relative">
                       <input
@@ -319,7 +326,9 @@ export default function ResetPassword() {
                             ? "border-red-500"
                             : "border-gray-300"
                         } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
-                        placeholder="Confirm new password"
+                        placeholder={t(
+                          "landingPage.resetPassword.confirmNewPassword"
+                        )}
                       />
                       <button
                         type="button"
@@ -351,16 +360,20 @@ export default function ResetPassword() {
                     }`}
                     disabled={!isFormValid || isLoading}
                   >
-                    {isLoading ? "Processing..." : "Reset Password"}
+                    {isLoading
+                      ? t("landingPage.resetPassword.processing")
+                      : t("landingPage.resetPassword.resetPassword")}
                   </button>
                 </form>
               </div>
             </>
           ) : (
             <div className="text-center">
-              <h1 className="text-3xl font-medium mb-4">Password Changed!</h1>
+              <h1 className="text-3xl font-medium mb-4">
+                {t("landingPage.resetPassword.passwordChanged")}
+              </h1>
               <p className="text-base text-gray-700 mb-8">
-                Your password has been changed successfully.
+                {t("landingPage.resetPassword.passwordChangedSuccess")}
               </p>
               <img
                 src={successMark}
@@ -371,7 +384,7 @@ export default function ResetPassword() {
                 onClick={handleContinue}
                 className="w-full py-3 rounded-lg bg-[#FCA311] hover:bg-[#e5940c] text-black text-center transition-colors"
               >
-                Proceed to sign in
+                {t("landingPage.resetPassword.proceedToSignIn")}
               </button>
             </div>
           )}

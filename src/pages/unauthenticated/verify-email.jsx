@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { CheckCircle2 } from "lucide-react";
@@ -6,6 +6,7 @@ import logo from "../../assets/svg/logo.svg";
 import mail from "../../assets/svg/mail.svg";
 import { verifyEmail, resendOTP } from "../../services/api";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useTranslation } from "react-i18next";
 
 export default function VerifyEmail() {
   const [loginCode, setLoginCode] = useState("");
@@ -16,9 +17,8 @@ export default function VerifyEmail() {
   const location = useLocation();
   const email = location.state?.email || "myaccount@gmail.com";
   const username = location.state?.username || "User";
-  console.log("Email received in VerifyEmail:", email);
-  console.log("Username received in VerifyEmail:", username);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleInputChange = (e) => {
     setLoginCode(e.target.value);
@@ -30,12 +30,14 @@ export default function VerifyEmail() {
       setIsLoading(true);
       setApiError("");
       setSuccessMessage("");
-      
+
       try {
         await verifyEmail(email, loginCode);
         navigate("/welcome", { state: { username } });
       } catch (error) {
-        setApiError(error.message || "Failed to verify email. Please try again.");
+        setApiError(
+          error.message || t("landingPage.verifyEmail.verificationFailed")
+        );
       } finally {
         setIsLoading(false);
       }
@@ -49,9 +51,11 @@ export default function VerifyEmail() {
 
     try {
       await resendOTP(email);
-      setSuccessMessage("OTP has been resent to your email");
+      setSuccessMessage(t("landingPage.verifyEmail.otpResent"));
     } catch (error) {
-      setApiError(error.message || "Failed to resend OTP. Please try again.");
+      setApiError(
+        error.message || t("landingPage.verifyEmail.otpResendFailed")
+      );
     } finally {
       setIsResending(false);
     }
@@ -67,11 +71,13 @@ export default function VerifyEmail() {
     <div className="min-h-screen flex flex-col items-center bg-gray-50 px-6">
       <div className="w-full flex justify-between items-center mt-6">
         <Link to="/">
-          <img src={logo} alt="Global Relocate Logo" className="h-10" />
+          <img src={logo} alt="Global Relocate Logo" className="h-12" />
         </Link>
         <div className="flex items-center cursor-pointer" onClick={handleClose}>
           <IoCloseCircleOutline className="text-2xl mr-2" />
-          <span className="text-gray-700">Close</span>
+          <span className="text-gray-700">
+            {t("landingPage.verifyEmail.close")}
+          </span>
         </div>
       </div>
 
@@ -79,7 +85,7 @@ export default function VerifyEmail() {
       <div className="w-full md:w-1/3 mt-16">
         <div className="flex flex-col items-center">
           <h1 className="text-3xl font-medium mb-6 text-center">
-            An email is on the way
+            {t("landingPage.verifyEmail.para")}
           </h1>
 
           {/* Email Icon */}
@@ -88,8 +94,11 @@ export default function VerifyEmail() {
           </div>
 
           <div className="mb-1 text-base text-gray-700 text-center">
-            <p>We just sent you a temporary login code to <span className="font-bold">{email}</span>.</p>
-            <p>Please check your inbox.</p>
+            <p>
+              {t("landingPage.verifyEmail.tempEmailSent")}
+              <span className="font-bold">{email}</span>.
+            </p>
+            <p>{t("landingPage.verifyEmail.checkInbox")}</p>
           </div>
 
           {/* Form Section */}
@@ -98,7 +107,7 @@ export default function VerifyEmail() {
               <Alert variant="destructive" className="mb-4">
                 <div className="flex justify-between items-start w-full">
                   <AlertDescription>{apiError}</AlertDescription>
-                  <button 
+                  <button
                     onClick={() => setApiError("")}
                     className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
                   >
@@ -128,14 +137,14 @@ export default function VerifyEmail() {
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm mb-2">
-                  Login Code
+                  {t("landingPage.verifyEmail.loginCode")}
                 </label>
                 <input
                   type="text"
                   value={loginCode}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]"
-                  placeholder="Enter login code"
+                  placeholder={t("landingPage.verifyEmail.enterLoginCode")}
                 />
               </div>
 
@@ -148,7 +157,9 @@ export default function VerifyEmail() {
                 }`}
                 disabled={!isFormValid || isLoading}
               >
-                {isLoading ? "Verifying..." : "Continue with login code"}
+                {isLoading
+                  ? t("landingPage.verifyEmail.verifying")
+                  : t("landingPage.verifyEmail.continueWithLoginCode")}
               </button>
             </form>
 
@@ -157,18 +168,21 @@ export default function VerifyEmail() {
               className="w-full py-3 rounded-lg text-blue-600 text-center hover:underline mt-4"
               disabled={isResending}
             >
-              {isResending ? "Sending..." : "Resend OTP"}
+              {isResending
+                ? t("landingPage.verifyEmail.sending")
+                : t("landingPage.verifyEmail.resendOTP")}
             </button>
 
             <div className="mt-4 text-sm text-gray-600 text-center">
-              By clicking creating an account, you agree to our{" "}
+              {t("landingPage.verifyEmail.byContinuing")}
               <Link to="/terms" className="underline">
-                Terms of Service
+                {t("landingPage.verifyEmail.termsOfService")}
               </Link>{" "}
               and{" "}
               <Link to="/privacy" className="underline">
-                Privacy Policy.
+                {t("landingPage.verifyEmail.privacyPolicy")}
               </Link>
+              .
             </div>
             <div className="mb-2"></div>
           </div>
