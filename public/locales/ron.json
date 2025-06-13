@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Acasă",
+      "countriesData": "Date țări",
+      "community": "Comunitate",
+      "taxCalculator": "Calculator taxe",
+      "pricing": "Prețuri",
+      "viewProfile": "Vezi profilul",
+      "helpCenter": "Centru de ajutor",
+      "giveFeedback": "Oferă-ne feedback",
+      "privacyPolicy": "Politică de confidențialitate",
+      "upgradePlan": "Actualizează planul",
+      "logIn": "Conectare",
+      "getStarted": "Începe",
+      "logout": "Deconectare"
+    },
+    "showcase": {
+      "title": "Relochează-te mai inteligent, trăiește mai bine.",
+      "para": "Platforma ta bazată pe AI pentru relocare fără probleme, ghidare juridică și viață globală.",
+      "buttonText": "Începe"
+    },
+    "features": {
+      "title": "Caracteristici",
+      "cards": {
+        "card1": {
+          "title": "Compară țări",
+          "para": "Ia decizii informate comparând diferite țări, analizând factori cheie precum costul vieții, ratele de impozitare și calitatea vieții."
+        },
+        "card2": {
+          "title": "Informații inteligente cu AI",
+          "para": "Alătură-te forumurilor și grupurilor cu nomazi globali cu interese similare."
+        },
+        "card3": {
+          "title": "Date țări",
+          "para": "Alătură-te forumurilor și grupurilor cu nomazi globali cu interese similare."
+        }
+      }
+    },
+    "countries": {
+      "title": "Țări populare",
+      "para": "Explorează destinații populare și începe să-ți planifici relocarea"
+    },
+    "whyChooseUs": {
+      "title": "De ce să ne alegi",
+      "card1": {
+        "title": "Date susținute de AI care economisesc timp",
+        "para": "Informații mereu actualizate și de încredere."
+      },
+      "card2": {
+        "title": "Contacte verificate și surse de încredere:",
+        "para": "O platformă bazată pe comunitate care asigură credibilitatea."
+      },
+      "card3": {
+        "title": "Soluție completă",
+        "para": "Totul, de la vize la costul vieții, într-un singur loc."
+      },
+      "card4": {
+        "title": "Alerte personalizate",
+        "para": "Fii la curent cu notificări personalizate și o funcție de favorite."
+      }
+    },
+    "forgotPassword": {
+      "title": "Ați uitat parola?",
+      "para": "Introduceți e-mailul contului dvs. și vă vom trimite un OTP pentru a vă reseta parola.",
+      "emailLabel": "Adresă de e-mail",
+      "sending": "Se trimite...",
+      "sendOTP": "Trimite OTP",
+      "resendOTP": "Retrimite OTP",
+      "verifyOTP": "Verifică OTP",
+      "otpSent": "Un OTP a fost trimis pe e-mailul dvs.",
+      "continuePrompt": "Faceți clic pe butonul Continuare de mai jos pentru a crea o parolă nouă.",
+      "continue": "Continuă",
+      "rememberPassword": "V-ați amintit parola?",
+      "logIn": "Conectare"
+    },
+    "termsOfService": {
+      "title": "Termeni și Condiții",
+      "paragraph": "Bun venit pe globalrelocate.com! Acești Termeni și Condiții ('Termeni') guvernează utilizarea platformei noastre bazate pe AI pentru relocare fără probleme, ghidare juridică și viață globală, accesată prin URL-ul globalrelocate.com (denumită 'Platforma'). Prin accesarea sau utilizarea Platformei, sunteți de acord să respectați acești Termeni. Vă rugăm să îi citiți cu atenție.",
+      "sections": {
+        "platformUse": "1. Utilizarea Platformei",
+        "platformUse_1": "1.1 Eligibilitate: Trebuie să aveți cel puțin 18 ani sau capacitatea legală de a încheia contracte în jurisdicția dumneavoastră pentru a utiliza Platforma. Prin accesarea sau utilizarea Platformei, declarați și garantați că îndepliniți cerințele de eligibilitate.",
+        "platformUse_2": "1.2 Cont de utilizator: Este posibil să vi se solicite crearea unui cont de utilizator pentru a accesa anumite funcții ale Platformei. Sunteți responsabil pentru menținerea confidențialității informațiilor contului dumneavoastră și sunteți de acord să fiți singurul responsabil pentru toate activitățile desfășurate prin contul dumneavoastră.",
+        "platformUse_3": "1.3 Activități interzise: Sunteți de acord să nu vă angajați în nicio activitate care încalcă acești Termeni sau orice legi sau reglementări aplicabile. Activitățile interzise includ, dar nu se limitează la:",
+        "prohibited_1": "Încălcarea drepturilor de proprietate intelectuală",
+        "prohibited_2": "Încărcarea sau partajarea de conținut ilegal, dăunător sau care încalcă drepturile altora",
+        "prohibited_3": "Interferarea cu funcționarea corectă a Platformei",
+        "prohibited_4": "Impersonarea unei alte persoane sau entități",
+        "intellectualProperty": "2. Proprietate Intelectuală",
+        "intellectualProperty_1": "2.1 Proprietate: Tot conținutul, inclusiv, dar fără a se limita la text, grafică, logo-uri, imagini, clipuri audio, videoclipuri și software, disponibil pe Platformă este deținut de Global Relocate sau de licențiatorii săi și este protejat de legile privind proprietatea intelectuală.",
+        "intellectualProperty_2": "2.2 Utilizarea conținutului: Puteți accesa și utiliza conținutul de pe Platformă numai în scopuri personale, necomerciale. Nu puteți modifica, reproduce, distribui, afișa, executa sau crea lucrări derivate din conținut fără permisiunea scrisă prealabilă de la Global Relocate.",
+        "disclaimer": "3. Exonerare de Garanții",
+        "disclaimer_1": "3.1 Platforma este furnizată 'așa cum este' și 'așa cum este disponibilă', fără garanții de niciun fel. Global Relocate declină toate garanțiile, fie ele explicite sau implicite, inclusiv, dar fără a se limita la vandabilitate, adecvare pentru un anumit scop și neîncălcare.",
+        "disclaimer_2": "3.2 Global Relocate nu garantează acuratețea, completitudinea sau fiabilitatea niciunui conținut sau informație de pe Platformă. Recunoașteți că utilizarea Platformei este pe propriul dumneavoastră risc.",
+        "liability": "4. Limitarea Răspunderii",
+        "liability_1": "4.1 În măsura maximă permisă de lege, Global Relocate și directorii, angajații, afiliații și agenții săi nu vor fi răspunzători pentru nicio daună directă, indirectă, incidentală, specială sau consecutivă care decurge din sau este în vreun fel legată de utilizarea de către dumneavoastră a Platformei sau a conținutului acesteia.",
+        "thirdParty": "5. Link-uri către Terți",
+        "thirdParty_1": "5.1 Platforma poate conține link-uri către site-uri web sau servicii ale terților. Global Relocate nu este responsabil pentru conținutul, acuratețea sau fiabilitatea niciunui site web sau serviciu al terților. Includerea unor astfel de link-uri nu implică aprobarea sau afilierea de către Global Relocate.",
+        "modifications": "6. Modificări și Încetare",
+        "modifications_1": "6.1 Global Relocate își rezervă dreptul de a modifica, suspenda sau întrerupe orice parte sau întreaga Platformă, temporar sau permanent, fără notificare prealabilă. Global Relocate nu va fi răspunzător față de dumneavoastră sau față de nicio terță parte pentru nicio modificare, suspendare sau întrerupere a Platformei.",
+        "governingLaw": "7. Legea Aplicabilă și Jurisdicția",
+        "governingLaw_1": "7.1 Acești Termeni vor fi guvernați și interpretați în conformitate cu legile [Țara Dumneavoastră]. Orice dispută care decurge din sau este legată de acești Termeni sau de utilizarea de către dumneavoastră a Platformei va fi supusă jurisdicției exclusive a instanțelor din [Orașul Dumneavoastră, Țara Dumneavoastră].",
+        "entireAgreement": "8. Acord Integral",
+        "entireAgreement_1": "8.1 Acești Termeni constituie întregul acord între dumneavoastră și Global Relocate privind utilizarea Platformei și înlocuiesc orice acorduri, comunicări sau reprezentări anterioare sau contemporane.",
+        "whyChoose": "9. De ce să alegeți Global Relocate",
+        "whyChoose_1": "La Global Relocate, ne angajăm să vă ajutăm să vă relocați mai inteligent și să trăiți mai bine. Iată de ce ar trebui să ne alegeți:",
+        "whyChoose_bullet1": "Date susținute de AI care economisesc timp: Accesați informații mereu actualizate și de încredere pentru a lua decizii informate.",
+        "whyChoose_bullet2": "Contacte verificate și surse de încredere: Beneficiați de o platformă bazată pe comunitate care asigură credibilitatea și încrederea.",
+        "whyChoose_bullet3": "Soluție completă: Găsiți totul, de la vize la costul vieții, într-un singur loc.",
+        "whyChoose_bullet4": "Alerte personalizate: Fii la curent cu notificări personalizate și o funcție de favorite concepută special pentru tine."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Politică de Confidențialitate și Declinare Legală a Răspunderii",
+      "paragraph": "Această Politică de Confidențialitate descrie modul în care Global Relocate (denumită 'noi', 'nouă' sau 'nostru'), proprietarul și operatorul globalrelocate.com, colectează, utilizează și protejează informațiile dumneavoastră personale atunci când utilizați platforma noastră bazată pe AI pentru relocare fără probleme, ghidare juridică și viață globală, accesată prin URL-ul globalrelocate.com ('Platforma'). Această politică se aplică, de asemenea, oricăror servicii, conținut, funcții sau aplicații furnizate prin intermediul Platformei.",
+      "paragraph2": "Prin accesarea sau utilizarea Platformei, sunteți de acord cu colectarea, utilizarea și divulgarea informațiilor dumneavoastră personale așa cum sunt descrise în această Politică de Confidențialitate. Dacă nu sunteți de acord cu niciun aspect al acestei politici, vă rugăm să nu utilizați Platforma.",
+      "sections": {
+        "informationCollection": "1. Colectarea Informațiilor",
+        "informationCollection_1": "1.1 Informații Personale: Putem colecta diverse tipuri de informații personale de la dumneavoastră atunci când utilizați Platforma. Acestea pot include numele dumneavoastră, adresa de e-mail, informațiile de contact, preferințele de relocare și orice alte informații pe care ni le furnizați în mod voluntar.",
+        "informationCollection_2": "1.2 Date de Utilizare: Colectăm automat anumite informații care nu vă identifică personal despre utilizarea de către dumneavoastră a Platformei. Acestea pot include adresa IP, tipul de browser, sistemul de operare, informațiile despre dispozitiv, paginile vizitate, URL-urile de referință/ieșire și alte date similare.",
+        "useOfInformation": "2. Utilizarea Informațiilor",
+        "personalInformationUse": "2.1 Informații Personale: Putem utiliza informațiile personale pe care ni le furnizați în următoarele scopuri:",
+        "personalInformationUse_bullet1": "Pentru a furniza și îmbunătăți serviciile noastre de relocare bazate pe AI, ghidarea juridică și resursele pentru viața globală.",
+        "personalInformationUse_bullet2": "Pentru a procesa solicitările dumneavoastră, a furniza planuri de relocare personalizate și a livra conținut personalizat.",
+        "personalInformationUse_bullet3": "Pentru a comunica cu dumneavoastră, a răspunde la întrebări și a oferi suport clienți.",
+        "personalInformationUse_bullet4": "Pentru a trimite alerte personalizate, actualizări și notificări despre vize, costul vieții și alte informații legate de relocare.",
+        "personalInformationUse_bullet5": "Pentru a îmbunătăți experiența dumneavoastră pe Platformă, oferind o funcție de favorite și recomandări personalizate.",
+        "personalInformationUse_bullet6": "Pentru a aplica Termenii noștri de Serviciu și alte politici.",
+        "personalInformationUse_bullet7": "Pentru a respecta obligațiile legale.",
+        "usageDataUse": "2.2 Date de Utilizare: Utilizăm datele de utilizare pentru a analiza tendințele, a urmări implicarea utilizatorilor, a monitoriza eficacitatea serviciilor noastre și a îmbunătăți experiența utilizatorului pe Platformă.",
+        "informationSharing": "3. Partajarea Informațiilor",
+        "informationSharing_1": "3.1 Furnizori de Servicii Terți: Putem partaja informațiile dumneavoastră personale cu furnizori de servicii terți de încredere care ne ajută să operăm Platforma, să livrăm servicii, să procesăm plăți, să efectuăm analize sau să îndeplinim alte funcții necesare. Acești furnizori de servicii sunt obligați prin acorduri stricte de confidențialitate și li se interzice utilizarea informațiilor dumneavoastră personale în orice alte scopuri.",
+        "informationSharing_2": "3.2 Conformitate Legală și Protecție: Putem divulga informațiile dumneavoastră personale dacă acest lucru este cerut de lege, reglementări, procese legale sau solicitări guvernamentale. De asemenea, putem divulga informațiile dumneavoastră pentru a ne proteja drepturile, proprietatea sau siguranța, precum și drepturile, proprietatea sau siguranța utilizatorilor noștri sau a altora.",
+        "cookies": "4. Cookie-uri și Tehnologii de Urmărire",
+        "cookies_1": "4.1 Utilizăm cookie-uri și alte tehnologii de urmărire pe Platformă pentru a colecta și stoca anumite informații. Cookie-urile sunt fișiere text mici care sunt plasate pe dispozitivul dumneavoastră pentru a ne ajuta să analizăm utilizarea Platformei, să reținem preferințele utilizatorilor și să îmbunătățim experiența dumneavoastră generală. Aveți opțiunea de a dezactiva cookie-urile prin setările browserului dumneavoastră; totuși, acest lucru poate limita anumite funcționalități ale Platformei.",
+        "dataSecurity": "5. Securitatea Datelor",
+        "dataSecurity_1": "5.1 Implementăm măsuri de securitate rezonabile pentru a proteja informațiile dumneavoastră personale împotriva accesului neautorizat, divulgării, modificării sau distrugerii. Cu toate acestea, vă rugăm să fiți conștienți de faptul că nicio transmisie de date pe internet sau metodă de stocare nu este 100% sigură. Nu putem garanta securitatea absolută a informațiilor dumneavoastră personale.",
+        "thirdPartyLinks": "6. Link-uri către Terți",
+        "thirdPartyLinks_1": "6.1 Platforma poate conține link-uri către site-uri web sau servicii ale terților care nu sunt deținute sau controlate de noi. Nu suntem responsabili pentru practicile de confidențialitate sau conținutul acestor site-uri terțe. Vă încurajăm să revizuiți politicile de confidențialitate ale oricăror site-uri web terțe pe care le vizitați.",
+        "childrenPrivacy": "7. Confidențialitatea Copiilor",
+        "childrenPrivacy_1": "7.1 Platforma nu este destinată persoanelor sub 13 ani. Nu colectăm cu bună știință informații personale de la copii sub 13 ani. Dacă aflăm că am colectat din greșeală informații personale de la un copil sub 13 ani, vom lua măsuri pentru a șterge informațiile prompt.",
+        "changesToPolicy": "8. Modificări ale acestei Politici de Confidențialitate",
+        "changesToPolicy_1": "8.1 Ne rezervăm dreptul de a modifica sau actualiza această Politică de Confidențialitate în orice moment. Orice modificări vor intra în vigoare imediat după postarea politicii revizuite pe Platformă. Vă încurajăm să revizuiți periodic această politică pentru a fi la curent cu orice actualizări.",
+        "whyGlobalRelocate": "9. De ce să alegeți Global Relocate",
+        "whyGlobalRelocate_1": "La Global Relocate, ne angajăm să vă ajutăm să vă relocați mai inteligent și să trăiți mai bine. Iată de ce ar trebui să ne alegeți:",
+        "whyGlobalRelocate_bullet1": "Date susținute de AI care economisesc timp: Accesați informații mereu actualizate și de încredere pentru a lua decizii informate.",
+        "whyGlobalRelocate_bullet2": "Contacte verificate și surse de încredere: Beneficiați de o platformă bazată pe comunitate care asigură credibilitatea și încrederea.",
+        "whyGlobalRelocate_bullet3": "Soluție completă: Găsiți totul, de la vize la costul vieții, într-un singur loc.",
+        "whyGlobalRelocate_bullet4": "Alerte personalizate: Fii la curent cu notificări personalizate și o funcție de favorite concepută special pentru tine.",
+        "contactUs": "10. Contactați-ne",
+        "contactUs_1": "10.1 Dacă aveți întrebări, nelămuriri sau solicitări referitoare la această Politică de Confidențialitate sau la practicile noastre privind datele, vă rugăm să ne contactați la:"
+      }
+    },
+    "helpCenter": {
+      "help": "Suntem aici pentru a ajuta",
+      "howCanWeHelp": "Cum vă putem ajuta?",
+      "checkOut": "Consultați Întrebările Frecvente sau contactați-ne pentru mai mult suport.",
+      "faqs": {
+        "title": "Întrebări Frecvente",
+        "question1": {
+          "question": "Ce este Global Relocate?",
+          "answer": "Global Relocate este o platformă bazată pe AI concepută pentru a ajuta persoanele și familiile să se relocheze în țări noi. Oferă recomandări personalizate, resurse și suport pentru a face procesul de relocare mai lin și mai eficient."
+        },
+        "question2": {
+          "question": "Ce ajută Global Relocate să realizeze?",
+          "answer": "Global Relocate ajută utilizatorii să obțină o experiență de relocare fără probleme, oferind sfaturi personalizate, resurse și suport pentru diverse aspecte ale mutării într-o țară nouă, inclusiv cereri de viză, locuințe, angajare și integrare culturală."
+        },
+        "question3": {
+          "question": "Global Relocate percepe taxe utilizatorilor pentru servicii sau funcții?",
+          "answer": "Da, Global Relocate oferă o gamă de servicii și funcții care pot implica taxe. Cu toate acestea, oferă și resurse gratuite și suport de bază pentru a ajuta utilizatorii să înceapă călătoria lor de relocare."
+        },
+        "question4": {
+          "question": "Ce se întâmplă cu datele mele / Global Relocate stochează informațiile mele personale?",
+          "answer": "Global Relocate ia în serios confidențialitatea utilizatorilor. Nu stocăm informații personale decât dacă sunt furnizate explicit de utilizator pentru servicii specifice. Orice date colectate sunt utilizate exclusiv pentru a îmbunătăți experiența utilizatorului și a oferi recomandări personalizate. Pentru mai multe detalii, vă rugăm să consultați Politica noastră de Confidențialitate."
+        },
+        "question5": {
+          "question": "Cine sunt oamenii din spatele Global Relocate?",
+          "answer": "Global Relocate este dezvoltat de o echipă de profesioniști cu experiență în domeniile AI, servicii de relocare și drept internațional. Echipa noastră este dedicată furnizării celui mai bun suport și resurse posibile pentru persoanele și familiile care doresc să se relocheze."
+        },
+        "question6": {
+          "question": "Global Relocate este disponibil în mai multe limbi?",
+          "answer": "Da, Global Relocate este disponibil în mai multe limbi pentru a satisface o bază diversă de utilizatori. Puteți selecta limba preferată în secțiunea de setări a platformei."
+        },
+        "question7": {
+          "question": "De unde provin informațiile de pe Global Relocate?",
+          "answer": "Informațiile de pe Global Relocate provin dintr-o varietate de surse reputate, inclusiv site-uri web guvernamentale, experți în relocare și conținut generat de utilizatori. Actualizăm continuu baza noastră de date pentru a ne asigura că utilizatorii au acces la cele mai exacte și relevante informații pentru nevoile lor de relocare."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Contactați-ne",
+      "titleDesc": "Ne puteți adresa întrebări",
+      "para": "Contactați-ne pentru toate întrebările și opiniile dumneavoastră sau puteți obține răspunsuri rapid vizitând unul dintre birourile noastre de contact.",
+      "ourOffices": "Birourile Noastre",
+      "ourOfficesDesc": "Avem birouri în diverse locații pentru a vă ajuta cu nevoile dumneavoastră de relocare. Vizitați-ne la unul dintre birourile noastre pentru suport personalizat.",
+      "dropUsAMessage": "Lăsați-ne un mesaj",
+      "dropUsAMessageDesc": "Completați formularul de mai jos pentru a ne trimite un mesaj și vă vom contacta cât mai curând posibil.",
+      "yourName": "Numele dumneavoastră",
+      "yourEmail": "Emailul dumneavoastră",
+      "subject": "Subiect",
+      "yourMessage": "Mesajul dumneavoastră",
+      "sendMessage": "Trimite Mesaj",
+      "sending": "Se trimite...",
+      "messageSent": "Mesaj trimis cu succes!",
+      "messageFailed": "Trimiterea mesajului a eșuat. Vă rugăm să încercați din nou."
+    }
+  },
+  "loginPage": {
+    "close": "Închide",
+    "createAccount": "Creează Cont",
+    "logIntoGR": "Conectează-te la Global Relocate",
+    "password": "Parolă",
+    "enterPassword": "Introdu parola",
+    "continueWithGoogle": "Continuă cu Google",
+    "cantLogin": "Nu te poți conecta?",
+    "tosDesc": "Făcând clic pe crearea unui cont, sunteți de acord cu ",
+    "tos": "Termenii Serviciului",
+    "privacyPolicy": "Politica de Confidențialitate",
+    "and": "și",
+    "or": "SAU",
+    "processing": "Se procesează...",
+    "continue": "Continuă",
+    "hidePassword": "Ascunde parola",
+    "showPassword": "Arată parola"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Să creăm contul tău",
+    "chooseAccountType": "Alege tipul de cont",
+    "createPersonalAccount": "Creez un cont personal",
+    "createCorporateAccount": "Creez un cont corporativ",
+    "continue": "Continuă",
+    "chooseSignMethod": "Alege metoda de înscriere",
+    "continueWithEmail": "Continuă cu e-mail",
+    "alreadyHaveAccount": "Ai deja un cont?",
+    "fullName": "Nume complet",
+    "chooseUsername": "Alege un nume de utilizator",
+    "enterYourFullName": "Introdu numele tău complet",
+    "confirmPassword": "Confirmă parola",
+    "country": "Țară"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Bun venit la bord",
+    "welcomeText": "Platforma ta bazată pe AI pentru relocare fără probleme, ghidare juridică și viață globală."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Țări",
+      "aiAssistant": "Asistent AI",
+      "compareCountries": "Compară Țări",
+      "taxCalculator": "Calculator Taxe",
+      "notifications": "Notificări",
+      "favourites": "Favorite",
+      "community": "Comunitate",
+      "cta": {
+        "title": "Încearcă Pro",
+        "para": "În prezent ești în planul gratuit valabil 3 zile. Actualizează acum pentru a continua să folosești Global Relocate.",
+        "buttonText": "Află Mai Mult"
+      }
+    },
+    "notifications": {
+      "noNotifications": "Nu ai încă notificări.",
+      "markAllAsRead": "Marchează totul ca citit",
+      "deleteAll": "Șterge tot",
+      "markAsRead": "Marchează ca citit",
+      "delete": "Șterge notificarea",
+      "showLess": "Arată mai puțin din asta",
+      "showMore": "Arată mai multe rezultate"
+    },
+    "countries": {
+      "title": "Țări",
+      "noDataText": "Nu sunt date disponibile!",
+      "searchText": "Caută țări",
+      "clickToSelect": "Apasă pentru a selecta țara",
+      "view": "Vezi",
+      "searchResults": "Rezultatele căutării",
+      "aiSuggestedCountries": "Țări Sugerate de AI",
+      "searchCountries": "Caută țări"
+    },
+    "country": {
+      "countryIn": "Țară în",
+      "addFavorite": "Adaugă la favorite",
+      "removeFavorite": "Elimină din favorite",
+      "share": "Partajează",
+      "overview": "Prezentare generală",
+      "map": "Hartă",
+      "keyFacts": "Date cheie",
+      "visaMigration": "Viză și Imigrare",
+      "taxes": "Taxe",
+      "flag": "Steag",
+      "capital": "Capitală",
+      "languages": "Limbi",
+      "currency": "Monedă",
+      "population": "Populație",
+      "dialingCode": "Prefix telefonic",
+      "back": "Înapoi",
+      "noOverview": "Nu există o prezentare generală disponibilă pentru această țară.",
+      "noVisaInfo": "Nu sunt disponibile informații despre viză și imigrare."
+    },
+    "ai": {
+      "rename": "Redenumește",
+      "deleteConversation": "Șterge conversația",
+      "share": "Partajează",
+      "hello": "Salut",
+      "newChat": "Chat Nou",
+      "askAI": "Întreabă AI Orice...",
+      "uploadDocument": "Încarcă Document",
+      "uploadDocumentDesc": "Încarcă un document pentru a-l procesa cu asistentul AI",
+      "cancel": "Anulează",
+      "upload": "Încarcă"
+    },
+    "settings": {
+      "accountSettings": "Setări cont",
+      "editProfile": "Editează profilul",
+      "profile": "Profil",
+      "account": "Cont",
+      "preferences": "Preferințe",
+      "avatar": "Avatar",
+      "fullName": "Nume complet",
+      "username": "Nume de utilizator",
+      "bio": "Biografie",
+      "country": "Țară",
+      "emailAddress": "Adresă de e-mail",
+      "verified": "Verificat",
+      "subscription": "Abonament",
+      "subscriptionDesc": "În prezent ești în planul gratuit valabil 3 zile. Actualizează acum pentru a continua să folosești Global Relocate.",
+      "deleteAccount": "Șterge Contul",
+      "deleteDesc": "Șterge permanent contul și datele tale",
+      "language": "Limbă",
+      "chooseLanguage": "Alege o limbă",
+      "selectLanguage": "Selectează limba",
+      "learnMore": "Află mai mult",
+      "saveChanges": "Salvează Modificările",
+      "cancel": "Anulează",
+      "saving": "Se salvează...",
+      "unsavedChanges": "Ai modificări nesalvate",
+      "addName": "Adaugă nume",
+      "addBio": "Adaugă o biografie pentru a-ți spune povestea.",
+      "addUsername": "Adaugă nume de utilizator",
+      "addLocation": "Adaugă locație",
+      "confirmAccountDelete": "Confirmă Ștergerea Contului",
+      "confirmAccountDeleteDesc": "Înainte de a șterge contul, te rugăm să înțelegi ce se va întâmpla cu datele tale:",
+      "confirm": "Confirmă",
+      "neverMind": "Lasă",
+      "confirmDeleteWarning": "Reține că ștergerea contului nu poate fi anulată.",
+      "confirmDeleteList1": "Detaliile profilului, preferințele și setările tale vor fi eliminate.",
+      "confirmDeleteList2": "Toate datele vor fi șterse permanent la 30 de zile după ștergerea contului.",
+      "deleting": "Se șterge...",
+      "youHave": "Ai:",
+      "administrator": "Administrator"
+    },
+    "continents": {
+      "all": "Toate",
+      "europe": "Europa",
+      "asia": "Asia",
+      "africa": "Africa",
+      "south america": "America de Sud",
+      "north america": "America de Nord",
+      "antarctica": "Antarctica",
+      "oceania": "Oceania"
+    },
+    "tax": {
+      "taxCalculator": "Calculator Taxe",
+      "taxCacluatorDesc": "Calculează-ți sarcina fiscală estimată în diferite țări",
+      "country": "Țară",
+      "annualIncome": "Venit anual",
+      "userAccount": "Cont Utilizator",
+      "totalDeductions": "Deduceri totale",
+      "selectCountry": "Selectează țara",
+      "selectAccount": "Selectează tipul de cont",
+      "enterIncome": "Introdu venitul tău anual",
+      "enterDeductions": "Introdu deducerile totale",
+      "calculateTax": "Calculează Taxa",
+      "individual": "Individual",
+      "corporate": "Corporativ",
+      "taxSummary": "Rezumat Taxe",
+      "taxAmount": "Suma taxei",
+      "effectiveRate": "Rata efectivă",
+      "takeHomeAmount": "Suma netă"
+    },
+    "upgradePage": {
+      "back": "Înapoi",
+      "upgradePlan": "Actualizează-ți planul",
+      "upgradePlanDesc": "Alege planul perfect pentru a-ți sprijini călătoria globală de relocare. Obține acces la instrumente și informații complete pentru a-ți face mutarea fără probleme.",
+      "currentPlan": "Planul tău curent",
+      "getStarted": "Începe",
+      "free": "Gratuit",
+      "basic": "De bază",
+      "premium": "Premium",
+      "perMonth": "pe lună",
+      "forEveryone": "Pentru toată lumea",
+      "freePlan": {
+        "item1": "Acces de probă de 3 zile",
+        "item2": "Informații de bază despre țări",
+        "item3": "Acces la comunitate (doar citire)",
+        "item4": "Calculator de taxe limitat",
+        "item5": "Comparație de costuri de bază"
+      },
+      "basicPlan": {
+        "item1": "Informații complete despre țări",
+        "item2": "Participare la comunitate",
+        "item3": "Calculator de taxe complet",
+        "item4": "Instrumente de comparare a costurilor",
+        "item5": "Ghiduri de relocare de bază",
+        "item6": "Suport prin e-mail"
+      },
+      "premiumPlan": {
+        "item1": "Toate funcțiile de bază",
+        "item2": "Acces nelimitat la date despre țări",
+        "item3": "Participare completă la comunitate",
+        "item4": "Calculator de taxe avansat",
+        "item5": "Asistent de relocare AI",
+        "item6": "Informații despre costul vieții",
+        "item7": "Ghiduri privind cerințele de viză",
+        "item8": "Suport prioritar",
+        "item9": "Foaie de parcurs personalizată pentru relocare"
+      }
+    },
+    "favorites": {
+      "noFavorites": "Nu ai încă favorite.",
+      "addToFavorites": "Adaugă la favorite",
+      "removeFromFavorites": "Elimină din favorite"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Confirmă Modificările"
+    }
+  },
+  "footer": {
+    "topCountries": "Țări de Top",
+    "sitemap": "Hartă site",
+    "company": "Companie",
+    "terms": "Termeni",
+    "privacy": "Confidențialitate",
+    "contact": "Contactează-ne",
+    "subscribeNewsletter": "Abonează-te la newsletter-ul nostru",
+    "subscribeNewsDesc": "Fii la curent cu cele mai recente informații despre relocarea globală",
+    "enterEmail": "Introdu adresa ta de e-mail",
+    "subscribe": "Abonează-te",
+    "copyright": "Tot conținutul acestui site web este protejat de drepturi de autor.",
+    "rankings": "Clasamente",
+    "safestCountries": "Cele Mai Sigure Țări",
+    "humanFreedomLevel": "Nivelul de Libertate Umană",
+    "lifeExpectancy": "Speranța de Viață",
+    "happinessIndex": "Indicele Mondial al Fericirii",
+    "citizenshipQualityRankings": "Clasamentul Calității Cetățeniei",
+    "trends": "Tendințe",
+    "foreignCitizenship": "Cetățenie Străină",
+    "digitalNomadVisas": "Vize pentru Nomazi Digitali",
+    "taxesRankings": "Clasamente Taxe",
+    "residencyPermit": "Permis de Ședere"
+  },
+  "toast": {
+    "thanksNewsletter": "Mulțumim pentru abonarea la newsletter-ul nostru!",
+    "linkCopied": "Link copiat în clipboard!",
+    "linkCopyFailed": "Copierea linkului a eșuat",
+    "newSessionStarted": "Sesiune nouă începută",
+    "newSessionFailed": "Pornirea unei noi sesiuni a eșuat. Vă rugăm să încercați din nou.",
+    "redirectToPayPage": "Se redirecționează către pagina de plată...",
+    "activeSessionShare": "Ai nevoie de o sesiune activă pentru a partaja",
+    "sessionDeleteFailed": "Ștergerea sesiunii a eșuat. Vă rugăm să încercați din nou.",
+    "sessionDeleteSuccess": "Sesiune ștearsă cu succes!",
+    "sessionRenameSuccess": "Sesiune redenumită cu succes!",
+    "sessionRenameFailed": "Redenumirea sesiunii a eșuat. Vă rugăm să încercați din nou.",
+    "enterSessionName": "Introdu un nume nou pentru această sesiune:"
+  },
+  "formErrors": {
+    "invalidEmail": "Format de e-mail invalid",
+    "emailRequired": "E-mailul este obligatoriu",
+    "fullNameRequired": "Numele complet este obligatoriu",
+    "enterFullName": "Te rugăm să introduci numele tău complet",
+    "passwordRequired": "Parola este obligatorie",
+    "minPassword": "Parola trebuie să aibă cel puțin 8 caractere",
+    "passwordsMismatch": "Parolele nu se potrivesc",
+    "weakPassword": "Parola este prea slabă",
+    "selectCountry": "Te rugăm să selectezi o țară",
+    "usernameRequired": "Numele de utilizator este obligatoriu",
+    "minUsername": "Numele de utilizator trebuie să aibă cel puțin 3 caractere",
+    "cpasswordRequired": "Confirmarea parolei este obligatorie"
+  }
+}

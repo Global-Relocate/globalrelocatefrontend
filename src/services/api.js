@@ -1,5 +1,4 @@
 import axios from "axios";
-import { userData } from "@/context/AuthContext";
 
 const VITE_API_URL = import.meta.env.VITE_API_URL;
 
@@ -910,18 +909,13 @@ export const createBillingPortalSession = async () => {
 
 export const getSubscriptionDetails = async () => {
   const endpoint = "/subscription";
-  const userInfo = await userData.getDecryptedData();
+  const userInfo = JSON.parse(localStorage.getItem("user"));
 
   // Check if we're on a public route and if there's no token before making the call
   if (isPublicRoute() && !(userInfo && userInfo.token)) {
     // console.log("Skipping subscription check on public route");
     return { success: false, data: null };
   }
-
-  //  console.log(
-  //   "Fetching subscription details from:",
-  //   `${VITE_API_URL}${endpoint}`
-  // );
 
   try {
     const response = await api.get(endpoint);

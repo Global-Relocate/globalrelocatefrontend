@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import logo from "../../assets/svg/logo.svg";
 import { forgotPassword } from "../../services/api";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CheckCircle2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -14,6 +15,7 @@ export default function ForgotPassword() {
   const [apiError, setApiError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -37,7 +39,7 @@ export default function ForgotPassword() {
       setIsLoading(true);
       setApiError("");
       setSuccessMessage("");
-      
+
       try {
         await forgotPassword(email);
         setEmailSent(true);
@@ -57,7 +59,7 @@ export default function ForgotPassword() {
     setIsLoading(true);
     setApiError("");
     setSuccessMessage("");
-    
+
     try {
       await forgotPassword(email);
       setSuccessMessage("OTP has been resent successfully!");
@@ -88,15 +90,13 @@ export default function ForgotPassword() {
       </div>
 
       {/* Desktop Header */}
-      <div className="hidden md:flex items-center justify-between p-6">
+      <div className="hidden md:flex items-center justify-between px-6 lg:px-10 py-4">
         <Link to="/">
-          <img src={logo} alt="Global Relocate Logo" className="h-10" />
+          <img src={logo} alt="Global Relocate Logo" className="h-12" />
         </Link>
-        <Link
-          to="/login"
-          className="text-sm font-medium hover:text-gray-600"
-        >
-          Log in
+        <Link to="/login" className="text-sm font-medium hover:text-gray-600">
+          <i className="far fa-sign-in text-md mr-1.5"></i>
+          {t("landingPage.navbar.logIn")}
         </Link>
       </div>
 
@@ -106,10 +106,10 @@ export default function ForgotPassword() {
           {!emailSent ? (
             <>
               <h1 className="text-3xl font-medium mb-4">
-                Forgot Password?
+                {t("landingPage.forgotPassword.title")}
               </h1>
               <p className="text-base text-gray-700 mb-12 text-center">
-                Enter your account's email and we'll send you an OTP to reset your password.
+                {t("landingPage.forgotPassword.para")}
               </p>
 
               {/* Form Section */}
@@ -118,7 +118,7 @@ export default function ForgotPassword() {
                   <Alert variant="destructive" className="mb-4">
                     <div className="flex justify-between items-start w-full">
                       <AlertDescription>{apiError}</AlertDescription>
-                      <button 
+                      <button
                         onClick={() => setApiError("")}
                         className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
                       >
@@ -127,11 +127,11 @@ export default function ForgotPassword() {
                     </div>
                   </Alert>
                 )}
-                
+
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div>
                     <label className="block text-sm mb-2">
-                      Email Address
+                      {t("landingPage.forgotPassword.emailLabel")}
                     </label>
                     <input
                       type="email"
@@ -139,14 +139,12 @@ export default function ForgotPassword() {
                       value={email}
                       onChange={handleInputChange}
                       className={`w-full px-4 py-3 rounded-lg border ${
-                        emailError ? 'border-red-500' : 'border-gray-300'
+                        emailError ? "border-red-500" : "border-gray-300"
                       } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                       placeholder="myaccount@gmail.com"
                     />
                     {emailError && (
-                      <p className="mt-1 text-red-500 text-xs">
-                        {emailError}
-                      </p>
+                      <p className="mt-1 text-red-500 text-xs">{emailError}</p>
                     )}
                   </div>
 
@@ -159,7 +157,9 @@ export default function ForgotPassword() {
                     }`}
                     disabled={!isFormValid || isLoading}
                   >
-                    {isLoading ? "Sending..." : "Send OTP"}
+                    {isLoading
+                      ? t("landingPage.forgotPassword.sending")
+                      : t("landingPage.forgotPassword.sendOTP")}
                   </button>
                 </form>
               </div>
@@ -167,14 +167,14 @@ export default function ForgotPassword() {
           ) : (
             <>
               <h1 className="text-3xl font-medium mb-4">
-                Verify OTP
+                {t("landingPage.forgotPassword.verifyOTP")}
               </h1>
               <div className="w-full">
                 {apiError && (
                   <Alert variant="destructive" className="mb-4">
                     <div className="flex justify-between items-start w-full">
                       <AlertDescription>{apiError}</AlertDescription>
-                      <button 
+                      <button
                         onClick={() => setApiError("")}
                         className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
                       >
@@ -191,7 +191,7 @@ export default function ForgotPassword() {
                         <CheckCircle2 className="h-4 w-4" />
                         <AlertDescription>{successMessage}</AlertDescription>
                       </div>
-                      <button 
+                      <button
                         onClick={() => setSuccessMessage("")}
                         className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
                       >
@@ -202,10 +202,11 @@ export default function ForgotPassword() {
                 )}
 
                 <p className="text-base text-gray-700 mb-4 text-center">
-                  An OTP has been sent to <span className="font-bold">{email}</span>
+                  {t("landingPage.forgotPassword.otpSent")}{" "}
+                  <span className="font-bold">{email}</span>
                 </p>
                 <p className="text-base text-gray-700 mb-12 text-center">
-                  Click the Continue button below to create a new password.
+                  {t("landingPage.forgotPassword.continuePrompt")}
                 </p>
 
                 <div className="space-y-4">
@@ -213,14 +214,16 @@ export default function ForgotPassword() {
                     onClick={handleContinue}
                     className="w-full py-3 rounded-lg bg-[#FCA311] hover:bg-[#e5940c] text-black text-center transition-colors"
                   >
-                    Continue
+                    {t("landingPage.forgotPassword.continue")}
                   </button>
                   <button
                     onClick={handleResendEmail}
                     className="w-full py-3 rounded-lg text-blue-600 text-center hover:underline"
                     disabled={isLoading}
                   >
-                    {isLoading ? "Sending..." : "Resend OTP"}
+                    {isLoading
+                      ? t("landingPage.forgotPassword.sending")
+                      : t("landingPage.forgotPassword.resendOTP")}
                   </button>
                 </div>
               </div>
@@ -229,10 +232,16 @@ export default function ForgotPassword() {
 
           <div className="mt-6">
             <span className="text-sm text-gray-600">
-              Remembered your password?{" "}
+              {t("landingPage.forgotPassword.rememberPassword")}
             </span>
-            <Link to="/login" className="text-sm text-blue-600 hover:underline">
-              Log in
+            <span className="px-2">
+              <i className="far fa-arrow-right text-sm"></i>
+            </span>
+            <Link
+              to="/login"
+              className="text-sm underline underline-offset-4 hover:underline"
+            >
+              {t("landingPage.forgotPassword.logIn")}
             </Link>
           </div>
         </div>

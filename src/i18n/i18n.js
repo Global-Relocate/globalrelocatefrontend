@@ -12,7 +12,7 @@ i18n
     lng: "eng", // Initial language
     debug: false, // Enable debugging for development
     backend: {
-      loadPath: "/i18n/{{lng}}.json", // Translation file path
+      loadPath: "/locales/{{lng}}.json", // Translation file path
     },
     interpolation: {
       escapeValue: false, // React already escapes values

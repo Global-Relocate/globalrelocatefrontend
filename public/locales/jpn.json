@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "ホーム",
+      "countriesData": "国とデータ",
+      "community": "コミュニティ",
+      "taxCalculator": "税金計算機",
+      "pricing": "価格設定",
+      "viewProfile": "プロフィールを見る",
+      "helpCenter": "ヘルプセンター",
+      "giveFeedback": "フィードバックをお寄せください",
+      "privacyPolicy": "プライバシーポリシー",
+      "upgradePlan": "プランをアップグレード",
+      "logIn": "ログイン",
+      "getStarted": "始める",
+      "logout": "ログアウト"
+    },
+    "showcase": {
+      "title": "より賢く移住し、より良く暮らす。",
+      "para": "シームレスな移住、法的ガイダンス、グローバルな生活のためのAI搭載プラットフォーム。",
+      "buttonText": "始める"
+    },
+    "features": {
+      "title": "特徴",
+      "cards": {
+        "card1": {
+          "title": "国を比較する",
+          "para": "生活費、税率、生活の質などの主要な要素を分析して、さまざまな国を並べて比較し、情報に基づいた意思決定を行います。"
+        },
+        "card2": {
+          "title": "AIによるスマート情報",
+          "para": "同じ考えを持つグローバルノマドとフォーラムやグループに参加しましょう。"
+        },
+        "card3": {
+          "title": "国とデータ",
+          "para": "同じ考えを持つグローバルノマドとフォーラムやグループに参加しましょう。"
+        }
+      }
+    },
+    "countries": {
+      "title": "人気の国",
+      "para": "人気の目的地を探索し、移住の計画を始めましょう"
+    },
+    "whyChooseUs": {
+      "title": "なぜ私たちを選ぶのか",
+      "card1": {
+        "title": "時間を節約するAIサポートデータ",
+        "para": "常に最新で信頼性の高い情報。"
+      },
+      "card2": {
+        "title": "検証済みの連絡先と信頼できる情報源：",
+        "para": "信頼性を保証するコミュニティベースのプラットフォーム。"
+      },
+      "card3": {
+        "title": "オールインワンソリューション",
+        "para": "ビザから生活費まで、すべてを1か所で。"
+      },
+      "card4": {
+        "title": "パーソナライズされたアラート",
+        "para": "カスタマイズされた通知とお気に入り機能で常に先を行きましょう。"
+      }
+    },
+    "forgotPassword": {
+      "title": "パスワードをお忘れですか？",
+      "para": "アカウントのメールアドレスを入力してください。パスワードをリセットするためのOTPを送信します。",
+      "emailLabel": "メールアドレス",
+      "sending": "送信中...",
+      "sendOTP": "OTPを送信",
+      "resendOTP": "OTPを再送信",
+      "verifyOTP": "OTPを確認",
+      "otpSent": "OTPがメールアドレスに送信されました。",
+      "continuePrompt": "下の「続行」ボタンをクリックして、新しいパスワードを作成してください。",
+      "continue": "続行",
+      "rememberPassword": "パスワードを思い出しましたか？",
+      "logIn": "ログイン"
+    },
+    "termsOfService": {
+      "title": "利用規約",
+      "paragraph": "globalrelocate.comへようこそ！これらの利用規約（「規約」）は、URL globalrelocate.com（「プラットフォーム」と呼びます）を通じてアクセスされる、シームレスな移住、法的ガイダンス、グローバルな生活のためのAI搭載プラットフォームの使用を規定します。プラットフォームにアクセスまたは使用することにより、これらの規約に拘束されることに同意したことになります。注意深くお読みください。",
+      "sections": {
+        "platformUse": "1. プラットフォームの使用",
+        "platformUse_1": "1.1 適格性：プラットフォームを使用するには、18歳以上であるか、管轄区域で契約を締結する法的能力が必要です。プラットフォームにアクセスまたは使用することにより、適格要件を満たしていることを表明および保証したことになります。",
+        "platformUse_2": "1.2 ユーザーアカウント：プラットフォームの特定の機能にアクセスするには、ユーザーアカウントを作成する必要がある場合があります。アカウント情報の機密性を維持する責任があり、アカウントを通じて行われるすべての活動について単独で責任を負うことに同意します。",
+        "platformUse_3": "1.3 禁止行為：これらの規約または適用される法律や規制に違反する行為を行わないことに同意します。禁止行為には、以下が含まれますが、これらに限定されません。",
+        "prohibited_1": "知的財産権の侵害",
+        "prohibited_2": "違法、有害、または他者の権利を侵害するコンテンツのアップロードまたは共有",
+        "prohibited_3": "プラットフォームの適切な機能への干渉",
+        "prohibited_4": "他人または団体になりすますこと",
+        "intellectualProperty": "2. 知的財産",
+        "intellectualProperty_1": "2.1 所有権：プラットフォームで利用可能なテキスト、グラフィック、ロゴ、画像、オーディオクリップ、ビデオ、ソフトウェアを含むがこれらに限定されないすべてのコンテンツは、Global Relocateまたはそのライセンサーが所有し、知的財産法によって保護されています。",
+        "intellectualProperty_2": "2.2 コンテンツの使用：プラットフォーム上のコンテンツには、個人的、非営利目的でのみアクセスして使用できます。Global Relocateからの事前の書面による許可なしに、コンテンツを変更、複製、配布、表示、実行、または派生物を作成することはできません。",
+        "disclaimer": "3. 保証の否認",
+        "disclaimer_1": "3.1 プラットフォームは、「現状有姿」および「利用可能な範囲」で、いかなる種類の保証もなく提供されます。Global Relocateは、商品性、特定目的への適合性、および非侵害を含むがこれらに限定されない、明示または黙示を問わず、すべての保証を否認します。",
+        "disclaimer_2": "3.2 Global Relocateは、プラットフォーム上のコンテンツまたは情報の正確性、完全性、または信頼性を保証しません。プラットフォームの使用は自己責任であることを認めます。",
+        "liability": "4. 責任の制限",
+        "liability_1": "4.1 法律で許可される最大限の範囲で、Global Relocateおよびその取締役、従業員、関連会社、および代理人は、プラットフォームまたはその中のコンテンツの使用に起因または関連する直接的、間接的、偶発的、特別、または結果的な損害について責任を負わないものとします。",
+        "thirdParty": "5. 第三者のリンク",
+        "thirdParty_1": "5.1 プラットフォームには、第三者のウェブサイトまたはサービスへのリンクが含まれる場合があります。Global Relocateは、第三者のウェブサイトまたはサービスのコンテンツ、正確性、または信頼性について責任を負いません。そのようなリンクを含めることは、Global Relocateによる承認または提携を意味するものではありません。",
+        "modifications": "6. 変更および終了",
+        "modifications_1": "6.1 Global Relocateは、事前の通知なしに、プラットフォームの一部または全部を一時的または恒久的に変更、一時停止、または中止する権利を留保します。Global Relocateは、プラットフォームの変更、一時停止、または中止について、お客様またはいかなる第三者に対しても責任を負わないものとします。",
+        "governingLaw": "7. 準拠法および管轄",
+        "governingLaw_1": "7.1 これらの規約は、[あなたの国]の法律に準拠し、解釈されるものとします。これらの規約またはプラットフォームの使用に起因または関連する紛争は、[あなたの都市、国]の裁判所の専属管轄権に従うものとします。",
+        "entireAgreement": "8. 完全合意",
+        "entireAgreement_1": "8.1 これらの規約は、プラットフォームの使用に関するお客様とGlobal Relocateとの間の完全な合意を構成し、以前または同時期の合意、通信、または表明に優先します。",
+        "whyChoose": "9. なぜGlobal Relocateを選ぶのか",
+        "whyChoose_1": "Global Relocateでは、お客様がより賢く移住し、より良く暮らせるよう支援することに尽力しています。私たちを選ぶべき理由は次のとおりです。",
+        "whyChoose_bullet1": "時間を節約するAIサポートデータ：常に最新で信頼性の高い情報にアクセスして、情報に基づいた意思決定を行います。",
+        "whyChoose_bullet2": "検証済みの連絡先と信頼できる情報源：信頼性と信用を保証するコミュニティベースのプラットフォームの恩恵を受けます。",
+        "whyChoose_bullet3": "オールインワンソリューション：ビザから生活費まで、すべてを1か所で検索できます。",
+        "whyChoose_bullet4": "パーソナライズされたアラート：お客様専用に設計されたカスタマイズされた通知とお気に入り機能で常に先を行きましょう。"
+      }
+    },
+    "privacyPolicy": {
+      "title": "プライバシーポリシーと法的免責事項",
+      "paragraph": "このプライバシーポリシーは、globalrelocate.comの所有者および運営者であるGlobal Relocate（「当社」、「私たち」、または「私たちの」と呼びます）が、URL globalrelocate.com（「プラットフォーム」）を通じてアクセスされる、シームレスな移住、法的ガイダンス、グローバルな生活のためのAI搭載プラットフォームを使用する際に、お客様の個人情報を収集、使用、および保護する方法について説明します。このポリシーは、プラットフォームを通じて提供されるサービス、コンテンツ、機能、またはアプリケーションにも適用されます。",
+      "paragraph2": "プラットフォームにアクセスまたは使用することにより、このプライバシーポリシーに記載されているとおり、お客様の個人情報の収集、使用、および開示に同意したことになります。このポリシーのいずれかの側面に同意しない場合は、プラットフォームの使用を控えてください。",
+      "sections": {
+        "informationCollection": "1. 情報収集",
+        "informationCollection_1": "1.1 個人情報：プラットフォームを使用する際に、さまざまな種類の個人情報を収集する場合があります。これには、お客様の名前、メールアドレス、連絡先情報、移住の好み、およびお客様が自発的に提供するその他の情報が含まれる場合があります。",
+        "informationCollection_2": "1.2 使用状況データ：プラットフォームの使用に関する特定の非個人識別情報を自動的に収集します。これには、IPアドレス、ブラウザの種類、オペレーティングシステム、デバイス情報、訪問したページ、参照元/離脱URL、およびその他の同様のデータが含まれる場合があります。",
+        "useOfInformation": "2. 情報の使用",
+        "personalInformationUse": "2.1 個人情報：お客様から提供された個人情報を以下の目的で使用する場合があります。",
+        "personalInformationUse_bullet1": "AI搭載の移住サービス、法的ガイダンス、グローバルな生活リソースを提供および改善するため。",
+        "personalInformationUse_bullet2": "お客様の要求を処理し、パーソナライズされた移住計画を提供し、カスタマイズされたコンテンツを配信するため。",
+        "personalInformationUse_bullet3": "お客様と連絡を取り、問い合わせに対応し、カスタマーサポートを提供するため。",
+        "personalInformationUse_bullet4": "ビザ、生活費、その他の移住関連情報に関するパーソナライズされたアラート、更新、通知を送信するため。",
+        "personalInformationUse_bullet5": "お気に入り機能とカスタマイズされた推奨事項を提供することにより、プラットフォームでのエクスペリエンスを向上させるため。",
+        "personalInformationUse_bullet6": "利用規約およびその他のポリシーを施行するため。",
+        "personalInformationUse_bullet7": "法的義務を遵守するため。",
+        "usageDataUse": "2.2 使用状況データ：使用状況データを使用して、傾向を分析し、ユーザーエンゲージメントを追跡し、サービスの有効性を監視し、プラットフォームでのユーザーエクスペリエンスを向上させます。",
+        "informationSharing": "3. 情報共有",
+        "informationSharing_1": "3.1 第三者サービスプロバイダー：プラットフォームの運営、サービスの提供、支払いの処理、分析の実施、またはその他の必要な機能の実行を支援する信頼できる第三者サービスプロバイダーとお客様の個人情報を共有する場合があります。これらのサービスプロバイダーは、厳格な機密保持契約に拘束され、他の目的でお客様の個人情報を使用することは禁じられています。",
+        "informationSharing_2": "3.2 法的遵守と保護：法律、規制、法的手続き、または政府の要求により必要な場合、お客様の個人情報を開示する場合があります。また、当社、当社のユーザー、または他者の権利、財産、または安全を保護するために、お客様の情報を開示する場合もあります。",
+        "cookies": "4. Cookieと追跡技術",
+        "cookies_1": "4.1 プラットフォームでCookieおよびその他の追跡技術を使用して、特定の情報を収集および保存します。Cookieは、プラットフォームの使用状況の分析、ユーザー設定の記憶、および全体的なエクスペリエンスの向上に役立つ、デバイスに配置される小さなテキストファイルです。ブラウザの設定でCookieを無効にするオプションがありますが、これによりプラットフォームの特定の機能が制限される場合があります。",
+        "dataSecurity": "5. データセキュリティ",
+        "dataSecurity_1": "5.1 お客様の個人情報を不正アクセス、開示、変更、または破壊から保護するために、合理的なセキュリティ対策を実施します。ただし、インターネット経由のデータ送信や保存方法は100％安全ではないことに注意してください。お客様の個人情報の絶対的なセキュリティを保証することはできません。",
+        "thirdPartyLinks": "6. 第三者のリンク",
+        "thirdPartyLinks_1": "6.1 プラットフォームには、当社が所有または管理していない第三者のウェブサイトまたはサービスへのリンクが含まれる場合があります。当社は、これらの第三者のサイトのプライバシー慣行またはコンテンツについて責任を負いません。訪問する第三者のウェブサイトのプライバシーポリシーを確認することをお勧めします。",
+        "childrenPrivacy": "7. 子供のプライバシー",
+        "childrenPrivacy_1": "7.1 プラットフォームは、13歳未満の個人を対象としていません。13歳未満の子供から故意に個人情報を収集することはありません。13歳未満の子供から誤って個人情報を収集したことに気付いた場合は、速やかに情報を削除するための措置を講じます。",
+        "changesToPolicy": "8. このプライバシーポリシーの変更",
+        "changesToPolicy_1": "8.1 当社は、いつでもこのプライバシーポリシーを変更または更新する権利を留保します。変更は、改訂されたポリシーをプラットフォームに掲載するとすぐに有効になります。更新情報を常に把握するために、このポリシーを定期的に確認することをお勧めします。",
+        "whyGlobalRelocate": "9. なぜGlobal Relocateを選ぶのか",
+        "whyGlobalRelocate_1": "Global Relocateでは、お客様がより賢く移住し、より良く暮らせるよう支援することに尽力しています。私たちを選ぶべき理由は次のとおりです。",
+        "whyGlobalRelocate_bullet1": "時間を節約するAIサポートデータ：常に最新で信頼性の高い情報にアクセスして、情報に基づいた意思決定を行います。",
+        "whyGlobalRelocate_bullet2": "検証済みの連絡先と信頼できる情報源：信頼性と信用を保証するコミュニティベースのプラットフォームの恩恵を受けます。",
+        "whyGlobalRelocate_bullet3": "オールインワンソリューション：ビザから生活費まで、すべてを1か所で検索できます。",
+        "whyGlobalRelocate_bullet4": "パーソナライズされたアラート：お客様専用に設計されたカスタマイズされた通知とお気に入り機能で常に先を行きましょう。",
+        "contactUs": "10. お問い合わせ",
+        "contactUs_1": "10.1 このプライバシーポリシーまたは当社のデータ慣行に関するご質問、懸念事項、またはご要望がございましたら、以下までお問い合わせください。"
+      }
+    },
+    "helpCenter": {
+      "help": "お手伝いします",
+      "howCanWeHelp": "どのようにお手伝いできますか？",
+      "checkOut": "よくある質問を確認するか、詳細についてはお問い合わせください。",
+      "faqs": {
+        "title": "よくある質問",
+        "question1": {
+          "question": "Global Relocateとは何ですか？",
+          "answer": "Global Relocateは、個人や家族が新しい国に移住するのを支援するために設計されたAI搭載プラットフォームです。移住プロセスをよりスムーズかつ効率的にするためのパーソナライズされた推奨事項、リソース、サポートを提供します。"
+        },
+        "question2": {
+          "question": "Global Relocateは何を達成するのに役立ちますか？",
+          "answer": "Global Relocateは、ビザ申請、住宅、雇用、文化統合など、新しい国への移住のさまざまな側面に関するカスタマイズされたアドバイス、リソース、サポートを提供することにより、ユーザーがシームレスな移住体験を実現できるよう支援します。"
+        },
+        "question3": {
+          "question": "Global Relocateはサービスや機能に対してユーザーに料金を請求しますか？",
+          "answer": "はい、Global Relocateは料金が発生する可能性のあるさまざまなサービスと機能を提供しています。ただし、ユーザーが移住の旅を始めるのに役立つ無料のリソースと基本的なサポートも提供しています。"
+        },
+        "question4": {
+          "question": "私のデータはどうなりますか？/ Global Relocateは私の個人情報を保存しますか？",
+          "answer": "Global Relocateはユーザーのプライバシーを真剣に受け止めています。特定のサービスのためにユーザーが明示的に提供しない限り、個人情報を保存しません。収集されたデータは、ユーザーエクスペリエンスを向上させ、パーソナライズされた推奨事項を提供するためにのみ使用されます。詳細については、プライバシーポリシーを参照してください。"
+        },
+        "question5": {
+          "question": "Global Relocateの背後にいるのは誰ですか？",
+          "answer": "Global Relocateは、AI、移住サービス、国際法の分野で経験豊富な専門家のチームによって開発されています。私たちのチームは、移住を検討している個人や家族に可能な限り最高のサポートとリソースを提供することに専念しています。"
+        },
+        "question6": {
+          "question": "Global Relocateは複数の言語で利用できますか？",
+          "answer": "はい、Global Relocateは多様なユーザーベースに対応するために複数の言語で利用できます。プラットフォームの設定セクションで希望の言語を選択できます。"
+        },
+        "question7": {
+          "question": "Global Relocateの情報はどこから来ていますか？",
+          "answer": "Global Relocateの情報は、政府のウェブサイト、移住の専門家、ユーザー生成コンテンツなど、さまざまな信頼できる情報源から収集されています。ユーザーが移住のニーズに合わせて最も正確で関連性の高い情報にアクセスできるように、データベースを継続的に更新しています。"
+        }
+      }
+    },
+    "contactUs": {
+      "title": "お問い合わせ",
+      "titleDesc": "ご質問をお寄せいただけます",
+      "para": "ご質問やご意見がございましたら、お問い合わせください。または、当社の連絡事務所のいずれかにアクセスして、迅速に回答を得ることができます。",
+      "ourOffices": "当社のオフィス",
+      "ourOfficesDesc": "移住のニーズに対応するために、さまざまな場所にオフィスを構えています。パーソナライズされたサポートについては、当社のオフィスのいずれかにお越しください。",
+      "dropUsAMessage": "メッセージをお送りください",
+      "dropUsAMessageDesc": "以下のフォームに記入してメッセージを送信してください。できるだけ早く返信いたします。",
+      "yourName": "お名前",
+      "yourEmail": "メールアドレス",
+      "subject": "件名",
+      "yourMessage": "メッセージ",
+      "sendMessage": "メッセージを送信",
+      "sending": "送信中...",
+      "messageSent": "メッセージが正常に送信されました！",
+      "messageFailed": "メッセージの送信に失敗しました。もう一度お試しください。"
+    }
+  },
+  "loginPage": {
+    "close": "閉じる",
+    "createAccount": "アカウントを作成",
+    "logIntoGR": "Global Relocateにログイン",
+    "password": "パスワード",
+    "enterPassword": "パスワードを入力してください",
+    "continueWithGoogle": "Googleで続行",
+    "cantLogin": "ログインできませんか？",
+    "tosDesc": "アカウントを作成することにより、当社の",
+    "tos": "利用規約",
+    "privacyPolicy": "プライバシーポリシー",
+    "and": "および",
+    "or": "または",
+    "processing": "処理中...",
+    "continue": "続行",
+    "hidePassword": "パスワードを非表示",
+    "showPassword": "パスワードを表示"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "アカウントを作成しましょう",
+    "chooseAccountType": "アカウントの種類を選択",
+    "createPersonalAccount": "個人アカウントを作成しています",
+    "createCorporateAccount": "法人アカウントを作成しています",
+    "continue": "続行",
+    "chooseSignMethod": "サインアップ方法を選択",
+    "continueWithEmail": "メールで続行",
+    "alreadyHaveAccount": "すでにアカウントをお持ちですか？",
+    "fullName": "氏名",
+    "chooseUsername": "ユーザー名を選択",
+    "enterYourFullName": "氏名を入力してください",
+    "confirmPassword": "パスワードを確認",
+    "country": "国"
+  },
+  "welcomePage": {
+    "welcomeAboard": "ようこそ",
+    "welcomeText": "シームレスな移住、法的ガイダンス、グローバルな生活のためのAI搭載プラットフォーム。"
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "国",
+      "aiAssistant": "AIアシスタント",
+      "compareCountries": "国を比較",
+      "taxCalculator": "税金計算機",
+      "notifications": "通知",
+      "favourites": "お気に入り",
+      "community": "コミュニティ",
+      "cta": {
+        "title": "Proを試す",
+        "para": "現在、3日間有効な無料プランをご利用中です。Global Relocateを引き続き使用するには、今すぐアップグレードしてください。",
+        "buttonText": "詳細を見る"
+      }
+    },
+    "notifications": {
+      "noNotifications": "まだ通知はありません。",
+      "markAllAsRead": "すべて既読にする",
+      "deleteAll": "すべて削除",
+      "markAsRead": "既読にする",
+      "delete": "通知を削除",
+      "showLess": "これを少なく表示",
+      "showMore": "さらに結果を表示"
+    },
+    "countries": {
+      "title": "国",
+      "noDataText": "利用可能なデータがありません！",
+      "searchText": "国を検索",
+      "clickToSelect": "国を選択するにはクリックしてください",
+      "view": "表示",
+      "searchResults": "検索結果",
+      "aiSuggestedCountries": "AIが提案する国",
+      "searchCountries": "国を検索"
+    },
+    "country": {
+      "countryIn": "国（",
+      "addFavorite": "お気に入りに追加",
+      "removeFavorite": "お気に入りから削除",
+      "share": "共有",
+      "overview": "概要",
+      "map": "地図",
+      "keyFacts": "主な事実",
+      "visaMigration": "ビザと移住",
+      "taxes": "税金",
+      "flag": "国旗",
+      "capital": "首都",
+      "languages": "言語",
+      "currency": "通貨",
+      "population": "人口",
+      "dialingCode": "ダイヤルコード",
+      "back": "戻る",
+      "noOverview": "この国の概要はありません。",
+      "noVisaInfo": "ビザと移住に関する情報はありません。"
+    },
+    "ai": {
+      "rename": "名前を変更",
+      "deleteConversation": "会話を削除",
+      "share": "共有",
+      "hello": "こんにちは",
+      "newChat": "新しいチャット",
+      "askAI": "AIに何でも聞いてください...",
+      "uploadDocument": "ドキュメントをアップロード",
+      "uploadDocumentDesc": "AIアシスタントで処理するドキュメントをアップロードします",
+      "cancel": "キャンセル",
+      "upload": "アップロード"
+    },
+    "settings": {
+      "accountSettings": "アカウント設定",
+      "editProfile": "プロフィールを編集",
+      "profile": "プロフィール",
+      "account": "アカウント",
+      "preferences": "設定",
+      "avatar": "アバター",
+      "fullName": "氏名",
+      "username": "ユーザー名",
+      "bio": "自己紹介",
+      "country": "国",
+      "emailAddress": "メールアドレス",
+      "verified": "検証済み",
+      "subscription": "サブスクリプション",
+      "subscriptionDesc": "現在、3日間有効な無料プランをご利用中です。Global Relocateを引き続き使用するには、今すぐアップグレードしてください。",
+      "deleteAccount": "アカウントを削除",
+      "deleteDesc": "アカウントとデータを完全に削除します",
+      "language": "言語",
+      "chooseLanguage": "言語を選択",
+      "selectLanguage": "言語を選択",
+      "learnMore": "詳細を見る",
+      "saveChanges": "変更を保存",
+      "cancel": "キャンセル",
+      "saving": "保存中...",
+      "unsavedChanges": "未保存の変更があります",
+      "addName": "名前を追加",
+      "addBio": "あなたのストーリーを伝えるために自己紹介を追加してください。",
+      "addUsername": "ユーザー名を追加",
+      "addLocation": "場所を追加",
+      "confirmAccountDelete": "アカウント削除の確認",
+      "confirmAccountDeleteDesc": "アカウントを削除する前に、データに何が起こるかを理解するために少し時間を取ってください。",
+      "confirm": "確認",
+      "neverMind": "気にしないでください",
+      "confirmDeleteWarning": "アカウントを削除すると元に戻せないことに注意してください。",
+      "confirmDeleteList1": "プロフィール詳細、設定、および設定は削除されます。",
+      "confirmDeleteList2": "すべてのデータは、アカウント削除後30日後に完全に削除されます。",
+      "deleting": "削除中...",
+      "youHave": "あなたは持っています：",
+      "administrator": "管理者"
+    },
+    "continents": {
+      "all": "すべて",
+      "europe": "ヨーロッパ",
+      "asia": "アジア",
+      "africa": "アフリカ",
+      "south america": "南アメリカ",
+      "north america": "北アメリカ",
+      "antarctica": "南極大陸",
+      "oceania": "オセアニア"
+    },
+    "tax": {
+      "taxCalculator": "税金計算機",
+      "taxCacluatorDesc": "さまざまな国での推定税負担を計算します",
+      "country": "国",
+      "annualIncome": "年収",
+      "userAccount": "ユーザーアカウント",
+      "totalDeductions": "控除合計",
+      "selectCountry": "国を選択してください",
+      "selectAccount": "アカウントの種類を選択",
+      "enterIncome": "年収を入力してください",
+      "enterDeductions": "控除合計を入力してください",
+      "calculateTax": "税金を計算",
+      "individual": "個人",
+      "corporate": "法人",
+      "taxSummary": "税金の概要",
+      "taxAmount": "税額",
+      "effectiveRate": "実効税率",
+      "takeHomeAmount": "手取り額"
+    },
+    "upgradePage": {
+      "back": "戻る",
+      "upgradePlan": "プランをアップグレード",
+      "upgradePlanDesc": "グローバルな移住の旅をサポートするのに最適なプランを選択してください。包括的なツールと洞察にアクセスして、移住をシームレスにします。",
+      "currentPlan": "現在のプラン",
+      "getStarted": "始める",
+      "free": "無料",
+      "basic": "ベーシック",
+      "premium": "プレミアム",
+      "perMonth": "月額",
+      "forEveryone": "すべての人へ",
+      "freePlan": {
+        "item1": "3日間のトライアルアクセス",
+        "item2": "基本的な国情報",
+        "item3": "コミュニティアクセス（読み取り専用）",
+        "item4": "限定的な税金計算機",
+        "item5": "基本的な費用比較"
+      },
+      "basicPlan": {
+        "item1": "完全な国情報",
+        "item2": "コミュニティ参加",
+        "item3": "完全な税金計算機",
+        "item4": "費用比較ツール",
+        "item5": "基本的な移住ガイド",
+        "item6": "メールサポート"
+      },
+      "premiumPlan": {
+        "item1": "すべてのベーシック機能",
+        "item2": "無制限の国データアクセス",
+        "item3": "完全なコミュニティ参加",
+        "item4": "高度な税金計算機",
+        "item5": "AI移住アシスタント",
+        "item6": "生活費の洞察",
+        "item7": "ビザ要件ガイド",
+        "item8": "優先サポート",
+        "item9": "カスタム移住ロードマップ"
+      }
+    },
+    "favorites": {
+      "noFavorites": "まだお気に入りはありません。",
+      "addToFavorites": "お気に入りに追加",
+      "removeFromFavorites": "お気に入りから削除"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "変更を確認"
+    }
+  },
+  "footer": {
+    "topCountries": "トップの国",
+    "sitemap": "サイトマップ",
+    "company": "会社",
+    "terms": "規約",
+    "privacy": "プライバシー",
+    "contact": "お問い合わせ",
+    "subscribeNewsletter": "ニュースレターを購読する",
+    "subscribeNewsDesc": "グローバルな移住に関する最新の洞察を入手してください",
+    "enterEmail": "メールアドレスを入力してください",
+    "subscribe": "購読する",
+    "copyright": "このウェブサイトのすべてのコンテンツは著作権によって保護されています。",
+    "rankings": "ランキング",
+    "safestCountries": "最も安全な国",
+    "humanFreedomLevel": "人間の自由度",
+    "lifeExpectancy": "平均寿命",
+    "happinessIndex": "世界幸福度指数",
+    "citizenshipQualityRankings": "市民権の質ランキング",
+    "trends": "トレンド",
+    "foreignCitizenship": "外国籍",
+    "digitalNomadVisas": "デジタルノマドビザ",
+    "taxesRankings": "税金ランキング",
+    "residencyPermit": "居住許可"
+  },
+  "toast": {
+    "thanksNewsletter": "ニュースレターにご登録いただきありがとうございます！",
+    "linkCopied": "リンクがクリップボードにコピーされました！",
+    "linkCopyFailed": "リンクのコピーに失敗しました",
+    "newSessionStarted": "新しいセッションが開始されました",
+    "newSessionFailed": "新しいセッションの開始に失敗しました。もう一度お試しください。",
+    "redirectToPayPage": "支払いページにリダイレクトしています...",
+    "activeSessionShare": "共有するにはアクティブなセッションが必要です",
+    "sessionDeleteFailed": "セッションの削除に失敗しました。もう一度お試しください。",
+    "sessionDeleteSuccess": "セッションが正常に削除されました！",
+    "sessionRenameSuccess": "セッション名が正常に変更されました！",
+    "sessionRenameFailed": "セッション名の変更に失敗しました。もう一度お試しください。",
+    "enterSessionName": "このセッションの新しい名前を入力してください："
+  },
+  "formErrors": {
+    "invalidEmail": "無効なメール形式",
+    "emailRequired": "メールアドレスは必須です",
+    "fullNameRequired": "氏名は必須です",
+    "enterFullName": "氏名を入力してください",
+    "passwordRequired": "パスワードは必須です",
+    "minPassword": "パスワードは8文字以上である必要があります",
+    "passwordsMismatch": "パスワードが一致しません",
+    "weakPassword": "パスワードが弱すぎます",
+    "selectCountry": "国を選択してください",
+    "usernameRequired": "ユーザー名は必須です",
+    "minUsername": "ユーザー名は3文字以上である必要があります",
+    "cpasswordRequired": "パスワードの確認は必須です"
+  }
+}

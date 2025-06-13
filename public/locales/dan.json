@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Hjem",
+      "countriesData": "Lande & Data",
+      "community": "Fællesskab",
+      "taxCalculator": "Skatteberegner",
+      "pricing": "Priser",
+      "viewProfile": "Se profil",
+      "helpCenter": "Hjælpecenter",
+      "giveFeedback": "Giv os feedback",
+      "privacyPolicy": "Privatlivspolitik",
+      "upgradePlan": "Opgrader Plan",
+      "logIn": "Log Ind",
+      "getStarted": "Kom i gang",
+      "logout": "Log ud"
+    },
+    "showcase": {
+      "title": "Flyt smartere, lev bedre.",
+      "para": "Din AI-drevne platform for problemfri flytning, juridisk vejledning og globalt liv.",
+      "buttonText": "Kom i gang"
+    },
+    "features": {
+      "title": "Funktioner",
+      "cards": {
+        "card1": {
+          "title": "Sammenlign Lande",
+          "para": "Træf informerede beslutninger ved at sammenligne forskellige lande side om side, og analyser nøglefaktorer som leveomkostninger, skattesatser og livskvalitet."
+        },
+        "card2": {
+          "title": "Smart info med AI",
+          "para": "Deltag i fora og grupper med ligesindede globale nomader."
+        },
+        "card3": {
+          "title": "Lande & Data",
+          "para": "Deltag i fora og grupper med ligesindede globale nomader."
+        }
+      }
+    },
+    "countries": {
+      "title": "Populære Lande",
+      "para": "Udforsk populære destinationer og begynd at planlægge din flytning"
+    },
+    "whyChooseUs": {
+      "title": "Hvorfor Vælge Os",
+      "card1": {
+        "title": "Tidsbesparende AI-understøttet Data",
+        "para": "Altid opdateret og pålidelig information."
+      },
+      "card2": {
+        "title": "Verificerede Kontakter & Pålidelige Kilder:",
+        "para": "En fællesskabsbaseret platform, der sikrer troværdighed."
+      },
+      "card3": {
+        "title": "Alt-i-Én Løsning",
+        "para": "Alt fra visa til leveomkostninger på ét sted."
+      },
+      "card4": {
+        "title": "Personlige Alarmer",
+        "para": "Vær på forkant med skræddersyede notifikationer og en favoritfunktion."
+      }
+    },
+    "forgotPassword": {
+      "title": "Glemt Adgangskode?",
+      "para": "Indtast din kontos e-mail, og vi sender dig en OTP for at nulstille din adgangskode.",
+      "emailLabel": "E-mailadresse",
+      "sending": "Sender...",
+      "sendOTP": "Send OTP",
+      "resendOTP": "Gensend OTP",
+      "verifyOTP": "Bekræft OTP",
+      "otpSent": "En OTP er blevet sendt til din e-mail.",
+      "continuePrompt": "Klik på Fortsæt-knappen nedenfor for at oprette en ny adgangskode.",
+      "continue": "Fortsæt",
+      "rememberPassword": "Huskede du din adgangskode?",
+      "logIn": "Log Ind"
+    },
+    "termsOfService": {
+      "title": "Vilkår og Betingelser",
+      "paragraph": "Velkommen til globalrelocate.com! Disse Vilkår og Betingelser ('Vilkår') regulerer din brug af vores AI-drevne platform for problemfri flytning, juridisk vejledning og globalt liv, tilgængelig via URL'en globalrelocate.com (herefter 'Platformen'). Ved at tilgå eller bruge Platformen accepterer du at være bundet af disse Vilkår. Læs dem venligst omhyggeligt.",
+      "sections": {
+        "platformUse": "1. Brug af Platformen",
+        "platformUse_1": "1.1 Berettigelse: Du skal være mindst 18 år gammel eller have den juridiske kapacitet til at indgå kontrakter i din jurisdiktion for at bruge Platformen. Ved at tilgå eller bruge Platformen erklærer og garanterer du, at du opfylder berettigelseskravene.",
+        "platformUse_2": "1.2 Brugerkonto: Du kan blive bedt om at oprette en brugerkonto for at få adgang til visse funktioner på Platformen. Du er ansvarlig for at opretholde fortroligheden af dine kontooplysninger og accepterer at være eneansvarlig for alle aktiviteter, der udføres via din konto.",
+        "platformUse_3": "1.3 Forbudte Aktiviteter: Du accepterer ikke at deltage i nogen aktiviteter, der overtræder disse Vilkår eller gældende love eller regler. Forbudte aktiviteter inkluderer, men er ikke begrænset til:",
+        "prohibited_1": "Krænkelse af intellektuelle ejendomsrettigheder",
+        "prohibited_2": "Upload eller deling af indhold, der er ulovligt, skadeligt eller krænker andres rettigheder",
+        "prohibited_3": "Forstyrrelse af Platformens korrekte funktion",
+        "prohibited_4": "Efterligning af en anden person eller enhed",
+        "intellectualProperty": "2. Intellektuel Ejendom",
+        "intellectualProperty_1": "2.1 Ejerskab: Alt indhold, herunder men ikke begrænset til tekst, grafik, logoer, billeder, lydklip, videoer og software, der er tilgængeligt på Platformen, ejes af Global Relocate eller dets licensgivere og er beskyttet af love om intellektuel ejendom.",
+        "intellectualProperty_2": "2.2 Brug af Indhold: Du må kun tilgå og bruge indholdet på Platformen til personlige, ikke-kommercielle formål. Du må ikke ændre, reproducere, distribuere, vise, udføre eller skabe afledte værker fra indholdet uden forudgående skriftlig tilladelse fra Global Relocate.",
+        "disclaimer": "3. Ansvarsfraskrivelse",
+        "disclaimer_1": "3.1 Platformen leveres 'som den er' og 'som tilgængelig' uden garantier af nogen art. Global Relocate fraskriver sig alle garantier, hvad enten de er udtrykkelige eller underforståede, herunder men ikke begrænset til salgbarhed, egnethed til et bestemt formål og ikke-krænkelse.",
+        "disclaimer_2": "3.2 Global Relocate garanterer ikke nøjagtigheden, fuldstændigheden eller pålideligheden af noget indhold eller information på Platformen. Du anerkender, at din brug af Platformen sker på egen risiko.",
+        "liability": "4. Ansvarsbegrænsning",
+        "liability_1": "4.1 I det maksimale omfang tilladt ved lov skal Global Relocate og dets direktører, medarbejdere, tilknyttede selskaber og agenter ikke være ansvarlige for nogen direkte, indirekte, tilfældige, specielle eller følgeskader, der opstår som følge af eller på nogen måde er forbundet med din brug af Platformen eller indholdet deri.",
+        "thirdParty": "5. Tredjepartslinks",
+        "thirdParty_1": "5.1 Platformen kan indeholde links til tredjepartswebsteder eller -tjenester. Global Relocate er ikke ansvarlig for indholdet, nøjagtigheden eller pålideligheden af nogen tredjepartswebsteder eller -tjenester. Inkluderingen af sådanne links indebærer ikke godkendelse eller tilknytning fra Global Relocate.",
+        "modifications": "6. Ændringer og Ophør",
+        "modifications_1": "6.1 Global Relocate forbeholder sig retten til at ændre, suspendere eller afbryde enhver del eller hele Platformen, midlertidigt eller permanent, uden forudgående varsel. Global Relocate er ikke ansvarlig over for dig eller nogen tredjepart for nogen ændringer, suspension eller afbrydelse af Platformen.",
+        "governingLaw": "7. Gældende Lov og Jurisdiktion",
+        "governingLaw_1": "7.1 Disse Vilkår skal reguleres af og fortolkes i overensstemmelse med lovgivningen i [Dit Land]. Enhver tvist, der opstår som følge af eller i forbindelse med disse Vilkår eller din brug af Platformen, skal være underlagt den eksklusive jurisdiktion for domstolene i [Din By, Dit Land].",
+        "entireAgreement": "8. Hele Aftalen",
+        "entireAgreement_1": "8.1 Disse Vilkår udgør hele aftalen mellem dig og Global Relocate vedrørende brugen af Platformen og erstatter alle tidligere eller samtidige aftaler, kommunikationer eller repræsentationer.",
+        "whyChoose": "9. Hvorfor Vælge Global Relocate",
+        "whyChoose_1": "Hos Global Relocate er vi forpligtet til at hjælpe dig med at flytte smartere og leve bedre. Her er hvorfor du bør vælge os:",
+        "whyChoose_bullet1": "Tidsbesparende AI-understøttet Data: Få adgang til altid opdateret og pålidelig information for at træffe informerede beslutninger.",
+        "whyChoose_bullet2": "Verificerede Kontakter & Pålidelige Kilder: Drag fordel af en fællesskabsbaseret platform, der sikrer troværdighed og tillid.",
+        "whyChoose_bullet3": "Alt-i-Én Løsning: Find alt fra visa til leveomkostninger på ét sted.",
+        "whyChoose_bullet4": "Personlige Alarmer: Vær på forkant med skræddersyede notifikationer og en favoritfunktion designet specielt til dig."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Privatlivspolitik og Juridisk Ansvarsfraskrivelse",
+      "paragraph": "Denne Privatlivspolitik beskriver, hvordan Global Relocate (herefter 'os', 'vi' eller 'vores'), ejeren og operatøren af globalrelocate.com, indsamler, bruger og beskytter dine personlige oplysninger, når du bruger vores AI-drevne platform for problemfri flytning, juridisk vejledning og globalt liv, tilgængelig via URL'en globalrelocate.com ('Platformen'). Denne politik gælder også for alle tjenester, indhold, funktioner eller applikationer, der leveres via Platformen.",
+      "paragraph2": "Ved at tilgå eller bruge Platformen accepterer du indsamling, brug og videregivelse af dine personlige oplysninger som beskrevet i denne Privatlivspolitik. Hvis du ikke er enig i noget aspekt af denne politik, bedes du afstå fra at bruge Platformen.",
+      "sections": {
+        "informationCollection": "1. Indsamling af Oplysninger",
+        "informationCollection_1": "1.1 Personlige Oplysninger: Vi kan indsamle forskellige typer personlige oplysninger fra dig, når du bruger Platformen. Dette kan omfatte dit navn, e-mailadresse, kontaktoplysninger, flyttepræferencer og enhver anden information, du frivilligt giver os.",
+        "informationCollection_2": "1.2 Brugsdata: Vi indsamler automatisk visse ikke-personligt identificerbare oplysninger om din brug af Platformen. Dette kan omfatte din IP-adresse, browsertype, operativsystem, enhedsoplysninger, besøgte sider, henvisende/exit URL'er og andre lignende data.",
+        "useOfInformation": "2. Brug af Oplysninger",
+        "personalInformationUse": "2.1 Personlige Oplysninger: Vi kan bruge de personlige oplysninger, du giver os, til følgende formål:",
+        "personalInformationUse_bullet1": "At levere og forbedre vores AI-drevne flyttetjenester, juridisk vejledning og ressourcer til globalt liv.",
+        "personalInformationUse_bullet2": "At behandle dine anmodninger, levere personlige flytteplaner og skræddersyet indhold.",
+        "personalInformationUse_bullet3": "At kommunikere med dig, besvare henvendelser og yde kundesupport.",
+        "personalInformationUse_bullet4": "At sende personlige alarmer, opdateringer og notifikationer om visa, leveomkostninger og anden flytterelateret information.",
+        "personalInformationUse_bullet5": "At forbedre din oplevelse på Platformen ved at tilbyde en favoritfunktion og skræddersyede anbefalinger.",
+        "personalInformationUse_bullet6": "At håndhæve vores Servicevilkår og andre politikker.",
+        "personalInformationUse_bullet7": "At overholde juridiske forpligtelser.",
+        "usageDataUse": "2.2 Brugsdata: Vi bruger brugsdata til at analysere tendenser, spore brugerengagement, overvåge effektiviteten af vores tjenester og forbedre brugeroplevelsen på Platformen.",
+        "informationSharing": "3. Deling af Oplysninger",
+        "informationSharing_1": "3.1 Tredjeparts Tjenesteudbydere: Vi kan dele dine personlige oplysninger med betroede tredjeparts tjenesteudbydere, der hjælper os med at drive Platformen, levere tjenester, behandle betalinger, udføre analyser eller udføre andre nødvendige funktioner. Disse tjenesteudbydere er bundet af strenge fortrolighedsaftaler og må ikke bruge dine personlige oplysninger til andre formål.",
+        "informationSharing_2": "3.2 Juridisk Overholdelse og Beskyttelse: Vi kan videregive dine personlige oplysninger, hvis det kræves ved lov, regulering, juridisk proces eller regeringsanmodning. Vi kan også videregive dine oplysninger for at beskytte vores rettigheder, ejendom eller sikkerhed, samt vores brugeres eller andres rettigheder, ejendom eller sikkerhed.",
+        "cookies": "4. Cookies og Sporingsteknologier",
+        "cookies_1": "4.1 Vi bruger cookies og andre sporingsteknologier på Platformen til at indsamle og gemme visse oplysninger. Cookies er små tekstfiler, der placeres på din enhed for at hjælpe os med at analysere brugen af Platformen, huske brugerpræferencer og forbedre din samlede oplevelse. Du har mulighed for at deaktivere cookies via dine browserindstillinger; dette kan dog begrænse visse funktionaliteter på Platformen.",
+        "dataSecurity": "5. Datasikkerhed",
+        "dataSecurity_1": "5.1 Vi implementerer rimelige sikkerhedsforanstaltninger for at beskytte dine personlige oplysninger mod uautoriseret adgang, videregivelse, ændring eller ødelæggelse. Vær dog opmærksom på, at ingen dataoverførsel via internettet eller lagringsmetode er 100 % sikker. Vi kan ikke garantere den absolutte sikkerhed for dine personlige oplysninger.",
+        "thirdPartyLinks": "6. Tredjepartslinks",
+        "thirdPartyLinks_1": "6.1 Platformen kan indeholde links til tredjepartswebsteder eller -tjenester, der ikke ejes eller kontrolleres af os. Vi er ikke ansvarlige for privatlivspraksis eller indhold på disse tredjepartswebsteder. Vi opfordrer dig til at gennemgå privatlivspolitikkerne for eventuelle tredjepartswebsteder, du besøger.",
+        "childrenPrivacy": "7. Børns Privatliv",
+        "childrenPrivacy_1": "7.1 Platformen er ikke beregnet til personer under 13 år. Vi indsamler ikke bevidst personlige oplysninger fra børn under 13 år. Hvis vi bliver opmærksomme på, at vi utilsigtet har indsamlet personlige oplysninger fra et barn under 13 år, vil vi tage skridt til at slette oplysningerne omgående.",
+        "changesToPolicy": "8. Ændringer til denne Privatlivspolitik",
+        "changesToPolicy_1": "8.1 Vi forbeholder os retten til at ændre eller opdatere denne Privatlivspolitik til enhver tid. Eventuelle ændringer træder i kraft straks efter offentliggørelse af den reviderede politik på Platformen. Vi opfordrer dig til at gennemgå denne politik med jævne mellemrum for at holde dig informeret om eventuelle opdateringer.",
+        "whyGlobalRelocate": "9. Hvorfor Vælge Global Relocate",
+        "whyGlobalRelocate_1": "Hos Global Relocate er vi forpligtet til at hjælpe dig med at flytte smartere og leve bedre. Her er hvorfor du bør vælge os:",
+        "whyGlobalRelocate_bullet1": "Tidsbesparende AI-understøttet Data: Få adgang til altid opdateret og pålidelig information for at træffe informerede beslutninger.",
+        "whyGlobalRelocate_bullet2": "Verificerede Kontakter & Pålidelige Kilder: Drag fordel af en fællesskabsbaseret platform, der sikrer troværdighed og tillid.",
+        "whyGlobalRelocate_bullet3": "Alt-i-Én Løsning: Find alt fra visa til leveomkostninger på ét sted.",
+        "whyGlobalRelocate_bullet4": "Personlige Alarmer: Vær på forkant med skræddersyede notifikationer og en favoritfunktion designet specielt til dig.",
+        "contactUs": "10. Kontakt Os",
+        "contactUs_1": "10.1 Hvis du har spørgsmål, bekymringer eller anmodninger vedrørende denne Privatlivspolitik eller vores datapraksis, bedes du kontakte os på:"
+      }
+    },
+    "helpCenter": {
+      "help": "Vi er her for at hjælpe",
+      "howCanWeHelp": "Hvordan kan vi hjælpe dig?",
+      "checkOut": "Tjek vores ofte stillede spørgsmål eller kontakt os for mere support.",
+      "faqs": {
+        "title": "Ofte Stillede Spørgsmål",
+        "question1": {
+          "question": "Hvad er Global Relocate?",
+          "answer": "Global Relocate er en AI-drevet platform designet til at hjælpe enkeltpersoner og familier med at flytte til nye lande. Den giver personlige anbefalinger, ressourcer og support for at gøre flytteprocessen glattere og mere effektiv."
+        },
+        "question2": {
+          "question": "Hvad hjælper Global Relocate med at opnå?",
+          "answer": "Global Relocate hjælper brugere med at opnå en problemfri flytteoplevelse ved at tilbyde skræddersyet rådgivning, ressourcer og support til forskellige aspekter af at flytte til et nyt land, herunder visumansøgninger, bolig, beskæftigelse og kulturel integration."
+        },
+        "question3": {
+          "question": "Opkræver Global Relocate brugere for tjenester eller funktioner?",
+          "answer": "Ja, Global Relocate tilbyder en række tjenester og funktioner, der kan medføre gebyrer. Dog tilbyder den også gratis ressourcer og grundlæggende support for at hjælpe brugere med at komme i gang med deres flytterejse."
+        },
+        "question4": {
+          "question": "Hvad sker der med mine data / Gemmer Global Relocate mine personlige oplysninger?",
+          "answer": "Global Relocate tager brugerens privatliv alvorligt. Vi gemmer ikke personlige oplysninger, medmindre brugeren udtrykkeligt har givet dem til specifikke tjenester. Alle indsamlede data bruges udelukkende til at forbedre brugeroplevelsen og give personlige anbefalinger. For flere detaljer henvises til vores Privatlivspolitik."
+        },
+        "question5": {
+          "question": "Hvem er personerne bag Global Relocate?",
+          "answer": "Global Relocate er udviklet af et team af erfarne fagfolk inden for AI, flyttetjenester og international ret. Vores team er dedikeret til at yde den bedst mulige support og ressourcer til enkeltpersoner og familier, der ønsker at flytte."
+        },
+        "question6": {
+          "question": "Er Global Relocate tilgængelig på flere sprog?",
+          "answer": "Ja, Global Relocate er tilgængelig på flere sprog for at imødekomme en mangfoldig brugerbase. Du kan vælge dit foretrukne sprog i platformens indstillingssektion."
+        },
+        "question7": {
+          "question": "Hvor kommer informationen på Global Relocate fra?",
+          "answer": "Informationen på Global Relocate stammer fra en række velrenommerede kilder, herunder offentlige websteder, flytteeksperter og brugergenereret indhold. Vi opdaterer løbende vores database for at sikre, at brugerne har adgang til den mest nøjagtige og relevante information til deres flyttebehov."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Kontakt Os",
+      "titleDesc": "Du kan stille os spørgsmål",
+      "para": "Kontakt os for alle dine spørgsmål og meninger, eller du kan få svar hurtigt ved at besøge et af vores kontaktkontorer.",
+      "ourOffices": "Vores Kontorer",
+      "ourOfficesDesc": "Vi har kontorer forskellige steder for at hjælpe dig med dine flyttebehov. Besøg os på et af vores kontorer for personlig support.",
+      "dropUsAMessage": "Send os en besked",
+      "dropUsAMessageDesc": "Udfyld formularen nedenfor for at sende os en besked, og vi vender tilbage til dig så hurtigt som muligt.",
+      "yourName": "Dit navn",
+      "yourEmail": "Din e-mail",
+      "subject": "Emne",
+      "yourMessage": "Din besked",
+      "sendMessage": "Send Besked",
+      "sending": "Sender...",
+      "messageSent": "Besked sendt succesfuldt!",
+      "messageFailed": "Kunne ikke sende besked. Prøv venligst igen."
+    }
+  },
+  "loginPage": {
+    "close": "Luk",
+    "createAccount": "Opret Konto",
+    "logIntoGR": "Log ind på Global Relocate",
+    "password": "Adgangskode",
+    "enterPassword": "Indtast din adgangskode",
+    "continueWithGoogle": "Fortsæt med Google",
+    "cantLogin": "Kan ikke logge ind?",
+    "tosDesc": "Ved at klikke på opret konto accepterer du vores ",
+    "tos": "Servicevilkår",
+    "privacyPolicy": "Privatlivspolitik",
+    "and": "og",
+    "or": "ELLER",
+    "processing": "Behandler...",
+    "continue": "Fortsæt",
+    "hidePassword": "Skjul adgangskode",
+    "showPassword": "Vis adgangskode"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Lad os oprette din konto",
+    "chooseAccountType": "Vælg kontotype",
+    "createPersonalAccount": "Jeg opretter en personlig konto",
+    "createCorporateAccount": "Jeg opretter en virksomhedskonto",
+    "continue": "Fortsæt",
+    "chooseSignMethod": "Vælg tilmeldingsmetode",
+    "continueWithEmail": "Fortsæt med e-mail",
+    "alreadyHaveAccount": "Har du allerede en konto?",
+    "fullName": "Fulde Navn",
+    "chooseUsername": "Vælg et brugernavn",
+    "enterYourFullName": "Indtast dit fulde navn",
+    "confirmPassword": "Bekræft adgangskode",
+    "country": "Land"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Velkommen ombord",
+    "welcomeText": "Din AI-drevne platform for problemfri flytning, juridisk vejledning og globalt liv."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Lande",
+      "aiAssistant": "AI Assistent",
+      "compareCountries": "Sammenlign Lande",
+      "taxCalculator": "Skatteberegner",
+      "notifications": "Notifikationer",
+      "favourites": "Favoritter",
+      "community": "Fællesskab",
+      "cta": {
+        "title": "Prøv Pro",
+        "para": "Du er i øjeblikket på en gratis plan, der er gyldig i 3 dage. Opgrader nu for at fortsætte med at bruge Global Relocate.",
+        "buttonText": "Lær Mere"
+      }
+    },
+    "notifications": {
+      "noNotifications": "Du har ingen notifikationer endnu.",
+      "markAllAsRead": "Marker alle som læst",
+      "deleteAll": "Slet alle",
+      "markAsRead": "Marker som læst",
+      "delete": "Slet notifikation",
+      "showLess": "Vis mindre af dette",
+      "showMore": "Vis flere resultater"
+    },
+    "countries": {
+      "title": "Lande",
+      "noDataText": "Ingen data tilgængelig!",
+      "searchText": "Søg efter lande",
+      "clickToSelect": "Klik for at vælge land",
+      "view": "Se",
+      "searchResults": "Søgeresultater",
+      "aiSuggestedCountries": "AI Foreslåede Lande",
+      "searchCountries": "Søg lande"
+    },
+    "country": {
+      "countryIn": "Land i",
+      "addFavorite": "Tilføj til favoritter",
+      "removeFavorite": "Fjern fra favoritter",
+      "share": "Del",
+      "overview": "Oversigt",
+      "map": "Kort",
+      "keyFacts": "Nøglefakta",
+      "visaMigration": "Visa & Immigration",
+      "taxes": "Skatter",
+      "flag": "Flag",
+      "capital": "Hovedstad",
+      "languages": "Sprog",
+      "currency": "Valuta",
+      "population": "Befolkning",
+      "dialingCode": "Landekode",
+      "back": "Tilbage",
+      "noOverview": "Ingen oversigt tilgængelig for dette land.",
+      "noVisaInfo": "Ingen visa- og immigrationsinformation tilgængelig."
+    },
+    "ai": {
+      "rename": "Omdøb",
+      "deleteConversation": "Slet samtale",
+      "share": "Del",
+      "hello": "Hej",
+      "newChat": "Ny Chat",
+      "askAI": "Spørg AI om hvad som helst...",
+      "uploadDocument": "Upload Dokument",
+      "uploadDocumentDesc": "Upload et dokument for at behandle med AI-assistent",
+      "cancel": "Annuller",
+      "upload": "Upload"
+    },
+    "settings": {
+      "accountSettings": "Kontoindstillinger",
+      "editProfile": "Rediger profil",
+      "profile": "Profil",
+      "account": "Konto",
+      "preferences": "Præferencer",
+      "avatar": "Avatar",
+      "fullName": "Fulde Navn",
+      "username": "Brugernavn",
+      "bio": "Bio",
+      "country": "Land",
+      "emailAddress": "E-mailadresse",
+      "verified": "Verificeret",
+      "subscription": "Abonnement",
+      "subscriptionDesc": "Du er i øjeblikket på en gratis plan, der er gyldig i 3 dage. Opgrader nu for at fortsætte med at bruge Global Relocate.",
+      "deleteAccount": "Slet Konto",
+      "deleteDesc": "Slet din konto og data permanent",
+      "language": "Sprog",
+      "chooseLanguage": "Vælg et sprog",
+      "selectLanguage": "Vælg sprog",
+      "learnMore": "Lær mere",
+      "saveChanges": "Gem Ændringer",
+      "cancel": "Annuller",
+      "saving": "Gemmer...",
+      "unsavedChanges": "Du har ugemte ændringer",
+      "addName": "Tilføj navn",
+      "addBio": "Tilføj en bio for at fortælle din historie.",
+      "addUsername": "Tilføj brugernavn",
+      "addLocation": "Tilføj placering",
+      "confirmAccountDelete": "Bekræft Sletning af Konto",
+      "confirmAccountDeleteDesc": "Før du sletter din konto, bedes du tage et øjeblik til at forstå, hvad der vil ske med dine data:",
+      "confirm": "Bekræft",
+      "neverMind": "Lige meget",
+      "confirmDeleteWarning": "Husk, at sletning af din konto ikke kan fortrydes.",
+      "confirmDeleteList1": "Dine profiloplysninger, præferencer og indstillinger vil blive fjernet.",
+      "confirmDeleteList2": "Alle data vil blive slettet permanent 30 dage efter sletning af kontoen.",
+      "deleting": "Sletter...",
+      "youHave": "Du har:",
+      "administrator": "Administrator"
+    },
+    "continents": {
+      "all": "Alle",
+      "europe": "Europa",
+      "asia": "Asien",
+      "africa": "Afrika",
+      "south america": "Sydamerika",
+      "north america": "Nordamerika",
+      "antarctica": "Antarktis",
+      "oceania": "Oceanien"
+    },
+    "tax": {
+      "taxCalculator": "Skatteberegner",
+      "taxCacluatorDesc": "Beregn din anslåede skattebyrde på tværs af forskellige lande",
+      "country": "Land",
+      "annualIncome": "Årlig indkomst",
+      "userAccount": "Brugerkonto",
+      "totalDeductions": "Samlede fradrag",
+      "selectCountry": "Vælg dit land",
+      "selectAccount": "Vælg kontotype",
+      "enterIncome": "Indtast din årlige indkomst",
+      "enterDeductions": "Indtast samlede fradrag",
+      "calculateTax": "Beregn Skat",
+      "individual": "Individuel",
+      "corporate": "Virksomhed",
+      "taxSummary": "Skatteoversigt",
+      "taxAmount": "Skattebeløb",
+      "effectiveRate": "Effektiv sats",
+      "takeHomeAmount": "Beløb til udbetaling"
+    },
+    "upgradePage": {
+      "back": "Tilbage",
+      "upgradePlan": "Opgrader din plan",
+      "upgradePlanDesc": "Vælg den perfekte plan til at understøtte din globale flytterejse. Få adgang til omfattende værktøjer og indsigt for at gøre din flytning problemfri.",
+      "currentPlan": "Din nuværende plan",
+      "getStarted": "Kom i gang",
+      "free": "Gratis",
+      "basic": "Basis",
+      "premium": "Premium",
+      "perMonth": "pr. måned",
+      "forEveryone": "For alle",
+      "freePlan": {
+        "item1": "3-dages prøveadgang",
+        "item2": "Grundlæggende landeinformation",
+        "item3": "Fællesskabsadgang (kun læse)",
+        "item4": "Begrænset skatteberegner",
+        "item5": "Grundlæggende omkostningssammenligning"
+      },
+      "basicPlan": {
+        "item1": "Fuld landeinformation",
+        "item2": "Fællesskabsdeltagelse",
+        "item3": "Komplet skatteberegner",
+        "item4": "Værktøjer til omkostningssammenligning",
+        "item5": "Grundlæggende flyttevejledninger",
+        "item6": "E-mail support"
+      },
+      "premiumPlan": {
+        "item1": "Alle Basisfunktioner",
+        "item2": "Ubegrænset adgang til landedata",
+        "item3": "Fuld fællesskabsdeltagelse",
+        "item4": "Avanceret skatteberegner",
+        "item5": "AI flytteassistent",
+        "item6": "Indsigt i leveomkostninger",
+        "item7": "Vejledninger til visumkrav",
+        "item8": "Prioriteret support",
+        "item9": "Brugerdefineret flyttekøreplan"
+      }
+    },
+    "favorites": {
+      "noFavorites": "Du har ingen favoritter endnu.",
+      "addToFavorites": "Tilføj til favoritter",
+      "removeFromFavorites": "Fjern fra favoritter"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Bekræft Ændringer"
+    }
+  },
+  "footer": {
+    "topCountries": "Toplande",
+    "sitemap": "Sitemap",
+    "company": "Firma",
+    "terms": "Vilkår",
+    "privacy": "Privatliv",
+    "contact": "Kontakt Os",
+    "subscribeNewsletter": "Tilmeld dig vores nyhedsbrev",
+    "subscribeNewsDesc": "Hold dig opdateret med den seneste indsigt i global flytning",
+    "enterEmail": "Indtast din e-mail",
+    "subscribe": "Tilmeld",
+    "copyright": "Alt indhold på denne hjemmeside er beskyttet af ophavsret.",
+    "rankings": "Rangeringer",
+    "safestCountries": "De Sikreste Lande",
+    "humanFreedomLevel": "Menneskelig Frihedsniveau",
+    "lifeExpectancy": "Forventet Levetid",
+    "happinessIndex": "Verdens Lykkeindeks",
+    "citizenshipQualityRankings": "Rangering af Statsborgerskabskvalitet",
+    "trends": "Tendenser",
+    "foreignCitizenship": "Udenlandsk Statsborgerskab",
+    "digitalNomadVisas": "Digitale Nomadevisa",
+    "taxesRankings": "Skatterangeringer",
+    "residencyPermit": "Opholdstilladelse"
+  },
+  "toast": {
+    "thanksNewsletter": "Tak fordi du tilmeldte dig vores nyhedsbrev!",
+    "linkCopied": "Link kopieret til udklipsholder!",
+    "linkCopyFailed": "Kunne ikke kopiere link",
+    "newSessionStarted": "Ny session startet",
+    "newSessionFailed": "Kunne ikke starte en ny session. Prøv venligst igen.",
+    "redirectToPayPage": "Omdirigerer til betalingsside...",
+    "activeSessionShare": "Du skal have en aktiv session for at dele",
+    "sessionDeleteFailed": "Kunne ikke slette sessionen. Prøv venligst igen.",
+    "sessionDeleteSuccess": "Session slettet succesfuldt!",
+    "sessionRenameSuccess": "Session omdøbt succesfuldt!",
+    "sessionRenameFailed": "Kunne ikke omdøbe sessionen. Prøv venligst igen.",
+    "enterSessionName": "Indtast et nyt navn til denne session:"
+  },
+  "formErrors": {
+    "invalidEmail": "Ugyldigt e-mailformat",
+    "emailRequired": "E-mail er påkrævet",
+    "fullNameRequired": "Fulde navn er påkrævet",
+    "enterFullName": "Indtast venligst dit fulde navn",
+    "passwordRequired": "Adgangskode er påkrævet",
+    "minPassword": "Adgangskode skal være mindst 8 tegn",
+    "passwordsMismatch": "Adgangskoder stemmer ikke overens",
+    "weakPassword": "Adgangskoden er for svag",
+    "selectCountry": "Vælg venligst et land",
+    "usernameRequired": "Brugernavn er påkrævet",
+    "minUsername": "Brugernavn skal være mindst 3 tegn",
+    "cpasswordRequired": "Bekræft adgangskode er påkrævet"
+  }
+}

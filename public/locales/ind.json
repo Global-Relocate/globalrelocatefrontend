@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Beranda",
+      "countriesData": "Data Negara",
+      "community": "Komunitas",
+      "taxCalculator": "Kalkulator Pajak",
+      "pricing": "Harga",
+      "viewProfile": "Lihat Profil",
+      "helpCenter": "Pusat Bantuan",
+      "giveFeedback": "Beri kami masukan",
+      "privacyPolicy": "Kebijakan Privasi",
+      "upgradePlan": "Tingkatkan Paket",
+      "logIn": "Masuk",
+      "getStarted": "Mulai",
+      "logout": "Keluar"
+    },
+    "showcase": {
+      "title": "Pindah lebih cerdas, hidup lebih baik.",
+      "para": "Platform bertenaga AI Anda untuk relokasi tanpa hambatan, panduan hukum, dan kehidupan global.",
+      "buttonText": "Mulai"
+    },
+    "features": {
+      "title": "Fitur",
+      "cards": {
+        "card1": {
+          "title": "Bandingkan Negara",
+          "para": "Buat keputusan yang tepat dengan membandingkan berbagai negara secara berdampingan, menganalisis faktor-faktor utama seperti biaya hidup, tarif pajak, dan kualitas hidup."
+        },
+        "card2": {
+          "title": "Info cerdas dengan AI",
+          "para": "Bergabunglah dengan forum dan grup dengan nomaden global yang berpikiran sama."
+        },
+        "card3": {
+          "title": "Data Negara",
+          "para": "Bergabunglah dengan forum dan grup dengan nomaden global yang berpikiran sama."
+        }
+      }
+    },
+    "countries": {
+      "title": "Negara Populer",
+      "para": "Jelajahi tujuan populer dan mulailah merencanakan relokasi Anda"
+    },
+    "whyChooseUs": {
+      "title": "Mengapa Memilih Kami",
+      "card1": {
+        "title": "Data yang Didukung AI Hemat Waktu",
+        "para": "Informasi yang selalu terkini dan dapat diandalkan."
+      },
+      "card2": {
+        "title": "Kontak Terverifikasi & Sumber Tepercaya:",
+        "para": "Platform berbasis komunitas yang menjamin kredibilitas."
+      },
+      "card3": {
+        "title": "Solusi Lengkap",
+        "para": "Semuanya mulai dari visa hingga biaya hidup di satu tempat."
+      },
+      "card4": {
+        "title": "Peringatan yang Dipersonalisasi",
+        "para": "Tetap terdepan dengan notifikasi yang disesuaikan dan fitur favorit."
+      }
+    },
+    "forgotPassword": {
+      "title": "Lupa Kata Sandi?",
+      "para": "Masukkan email akun Anda dan kami akan mengirimkan OTP untuk mengatur ulang kata sandi Anda.",
+      "emailLabel": "Alamat email",
+      "sending": "Mengirim...",
+      "sendOTP": "Kirim OTP",
+      "resendOTP": "Kirim ulang OTP",
+      "verifyOTP": "Verifikasi OTP",
+      "otpSent": "OTP telah dikirim ke email Anda.",
+      "continuePrompt": "Klik tombol Lanjutkan di bawah ini untuk membuat kata sandi baru.",
+      "continue": "Lanjutkan",
+      "rememberPassword": "Ingat kata sandi Anda?",
+      "logIn": "Masuk"
+    },
+    "termsOfService": {
+      "title": "Syarat dan Ketentuan",
+      "paragraph": "Selamat datang di globalrelocate.com! Syarat dan Ketentuan ini ('Syarat') mengatur penggunaan Anda atas platform bertenaga AI kami untuk relokasi tanpa hambatan, panduan hukum, dan kehidupan global, yang diakses melalui URL globalrelocate.com (disebut sebagai 'Platform'). Dengan mengakses atau menggunakan Platform, Anda setuju untuk terikat oleh Syarat ini. Harap baca dengan saksama.",
+      "sections": {
+        "platformUse": "1. Penggunaan Platform",
+        "platformUse_1": "1.1 Kelayakan: Anda harus berusia minimal 18 tahun atau memiliki kapasitas hukum untuk mengadakan kontrak di yurisdiksi Anda untuk menggunakan Platform. Dengan mengakses atau menggunakan Platform, Anda menyatakan dan menjamin bahwa Anda memenuhi persyaratan kelayakan.",
+        "platformUse_2": "1.2 Akun Pengguna: Anda mungkin diminta untuk membuat akun pengguna untuk mengakses fitur tertentu dari Platform. Anda bertanggung jawab untuk menjaga kerahasiaan informasi akun Anda dan setuju untuk bertanggung jawab penuh atas semua aktivitas yang dilakukan melalui akun Anda.",
+        "platformUse_3": "1.3 Aktivitas yang Dilarang: Anda setuju untuk tidak terlibat dalam aktivitas apa pun yang melanggar Syarat ini atau hukum atau peraturan yang berlaku. Aktivitas yang dilarang termasuk, namun tidak terbatas pada:",
+        "prohibited_1": "Melanggar hak kekayaan intelektual",
+        "prohibited_2": "Mengunggah atau membagikan konten yang ilegal, berbahaya, atau melanggar hak orang lain",
+        "prohibited_3": "Mengganggu fungsi Platform yang semestinya",
+        "prohibited_4": "Meniru identitas orang atau entitas lain",
+        "intellectualProperty": "2. Kekayaan Intelektual",
+        "intellectualProperty_1": "2.1 Kepemilikan: Semua konten, termasuk namun tidak terbatas pada teks, grafik, logo, gambar, klip audio, video, dan perangkat lunak, yang tersedia di Platform dimiliki oleh Global Relocate atau pemberi lisensinya dan dilindungi oleh undang-undang kekayaan intelektual.",
+        "intellectualProperty_2": "2.2 Penggunaan Konten: Anda dapat mengakses dan menggunakan konten di Platform hanya untuk tujuan pribadi dan non-komersial. Anda tidak boleh memodifikasi, mereproduksi, mendistribusikan, menampilkan, melakukan, atau membuat karya turunan dari konten tanpa izin tertulis sebelumnya dari Global Relocate.",
+        "disclaimer": "3. Penafian Jaminan",
+        "disclaimer_1": "3.1 Platform disediakan atas dasar 'sebagaimana adanya' dan 'sebagaimana tersedia' tanpa jaminan apa pun. Global Relocate menafikan semua jaminan, baik tersurat maupun tersirat, termasuk namun tidak terbatas pada kelayakan jual, kesesuaian untuk tujuan tertentu, dan non-pelanggaran.",
+        "disclaimer_2": "3.2 Global Relocate tidak menjamin keakuratan, kelengkapan, atau keandalan konten atau informasi apa pun di Platform. Anda mengakui bahwa penggunaan Platform oleh Anda adalah risiko Anda sendiri.",
+        "liability": "4. Batasan Tanggung Jawab",
+        "liability_1": "4.1 Sejauh diizinkan oleh hukum, Global Relocate dan direktur, karyawan, afiliasi, dan agennya tidak akan bertanggung jawab atas kerusakan langsung, tidak langsung, insidental, khusus, atau konsekuensial yang timbul dari atau dengan cara apa pun terkait dengan penggunaan Platform oleh Anda atau konten di dalamnya.",
+        "thirdParty": "5. Tautan Pihak Ketiga",
+        "thirdParty_1": "5.1 Platform mungkin berisi tautan ke situs web atau layanan pihak ketiga. Global Relocate tidak bertanggung jawab atas konten, keakuratan, atau keandalan situs web atau layanan pihak ketiga mana pun. Penyertaan tautan semacam itu tidak menyiratkan dukungan atau afiliasi oleh Global Relocate.",
+        "modifications": "6. Modifikasi dan Pengakhiran",
+        "modifications_1": "6.1 Global Relocate berhak untuk memodifikasi, menangguhkan, atau menghentikan sebagian atau seluruh Platform, sementara atau permanen, tanpa pemberitahuan sebelumnya. Global Relocate tidak akan bertanggung jawab kepada Anda atau pihak ketiga mana pun atas modifikasi, penangguhan, atau penghentian Platform.",
+        "governingLaw": "7. Hukum yang Mengatur dan Yurisdiksi",
+        "governingLaw_1": "7.1 Syarat ini akan diatur oleh dan ditafsirkan sesuai dengan hukum [Negara Anda]. Setiap sengketa yang timbul dari atau terkait dengan Syarat ini atau penggunaan Platform oleh Anda akan tunduk pada yurisdiksi eksklusif pengadilan di [Kota Anda, Negara Anda].",
+        "entireAgreement": "8. Keseluruhan Perjanjian",
+        "entireAgreement_1": "8.1 Syarat ini merupakan keseluruhan perjanjian antara Anda dan Global Relocate mengenai penggunaan Platform dan menggantikan perjanjian, komunikasi, atau representasi sebelumnya atau yang bersamaan.",
+        "whyChoose": "9. Mengapa Memilih Global Relocate",
+        "whyChoose_1": "Di Global Relocate, kami berkomitmen untuk membantu Anda pindah lebih cerdas dan hidup lebih baik. Inilah mengapa Anda harus memilih kami:",
+        "whyChoose_bullet1": "Data yang Didukung AI Hemat Waktu: Akses informasi yang selalu terkini dan dapat diandalkan untuk membuat keputusan yang tepat.",
+        "whyChoose_bullet2": "Kontak Terverifikasi & Sumber Tepercaya: Manfaatkan platform berbasis komunitas yang menjamin kredibilitas dan kepercayaan.",
+        "whyChoose_bullet3": "Solusi Lengkap: Temukan semuanya mulai dari visa hingga biaya hidup di satu tempat.",
+        "whyChoose_bullet4": "Peringatan yang Dipersonalisasi: Tetap terdepan dengan notifikasi yang disesuaikan dan fitur favorit yang dirancang khusus untuk Anda."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Kebijakan Privasi dan Penafian Hukum",
+      "paragraph": "Kebijakan Privasi ini menjelaskan bagaimana Global Relocate (disebut sebagai 'kami,' 'kita,' atau 'milik kami'), pemilik dan operator globalrelocate.com, mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda saat Anda menggunakan platform bertenaga AI kami untuk relokasi tanpa hambatan, panduan hukum, dan kehidupan global, yang diakses melalui URL globalrelocate.com ('Platform'). Kebijakan ini juga berlaku untuk layanan, konten, fitur, atau aplikasi apa pun yang disediakan melalui Platform.",
+      "paragraph2": "Dengan mengakses atau menggunakan Platform, Anda menyetujui pengumpulan, penggunaan, dan pengungkapan informasi pribadi Anda sebagaimana diuraikan dalam Kebijakan Privasi ini. Jika Anda tidak setuju dengan aspek apa pun dari kebijakan ini, harap jangan menggunakan Platform.",
+      "sections": {
+        "informationCollection": "1. Pengumpulan Informasi",
+        "informationCollection_1": "1.1 Informasi Pribadi: Kami dapat mengumpulkan berbagai jenis informasi pribadi dari Anda saat Anda menggunakan Platform. Ini mungkin termasuk nama, alamat email, informasi kontak, preferensi relokasi, dan informasi lain apa pun yang Anda berikan secara sukarela kepada kami.",
+        "informationCollection_2": "1.2 Data Penggunaan: Kami secara otomatis mengumpulkan informasi non-pribadi tertentu tentang penggunaan Platform oleh Anda. Ini mungkin termasuk alamat IP Anda, jenis browser, sistem operasi, informasi perangkat, halaman yang dikunjungi, URL rujukan/keluar, dan data serupa lainnya.",
+        "useOfInformation": "2. Penggunaan Informasi",
+        "personalInformationUse": "2.1 Informasi Pribadi: Kami dapat menggunakan informasi pribadi yang Anda berikan kepada kami untuk tujuan berikut:",
+        "personalInformationUse_bullet1": "Untuk menyediakan dan meningkatkan layanan relokasi bertenaga AI kami, panduan hukum, dan sumber daya kehidupan global.",
+        "personalInformationUse_bullet2": "Untuk memproses permintaan Anda, menyediakan rencana relokasi yang dipersonalisasi, dan mengirimkan konten yang disesuaikan.",
+        "personalInformationUse_bullet3": "Untuk berkomunikasi dengan Anda, menanggapi pertanyaan, dan memberikan dukungan pelanggan.",
+        "personalInformationUse_bullet4": "Untuk mengirim peringatan, pembaruan, dan notifikasi yang dipersonalisasi tentang visa, biaya hidup, dan informasi terkait relokasi lainnya.",
+        "personalInformationUse_bullet5": "Untuk meningkatkan pengalaman Anda di Platform dengan menawarkan fitur favorit dan rekomendasi yang disesuaikan.",
+        "personalInformationUse_bullet6": "Untuk menegakkan Ketentuan Layanan kami dan kebijakan lainnya.",
+        "personalInformationUse_bullet7": "Untuk mematuhi kewajiban hukum.",
+        "usageDataUse": "2.2 Data Penggunaan: Kami menggunakan data penggunaan untuk menganalisis tren, melacak keterlibatan pengguna, memantau efektivitas layanan kami, dan meningkatkan pengalaman pengguna di Platform.",
+        "informationSharing": "3. Pembagian Informasi",
+        "informationSharing_1": "3.1 Penyedia Layanan Pihak Ketiga: Kami dapat membagikan informasi pribadi Anda dengan penyedia layanan pihak ketiga tepercaya yang membantu kami dalam mengoperasikan Platform, memberikan layanan, memproses pembayaran, melakukan analitik, atau melakukan fungsi lain yang diperlukan. Penyedia layanan ini terikat oleh perjanjian kerahasiaan yang ketat dan dilarang menggunakan informasi pribadi Anda untuk tujuan lain apa pun.",
+        "informationSharing_2": "3.2 Kepatuhan dan Perlindungan Hukum: Kami dapat mengungkapkan informasi pribadi Anda jika diwajibkan oleh hukum, peraturan, proses hukum, atau permintaan pemerintah. Kami juga dapat mengungkapkan informasi Anda untuk melindungi hak, properti, atau keselamatan kami, serta hak, properti, atau keselamatan pengguna kami atau orang lain.",
+        "cookies": "4. Cookie dan Teknologi Pelacakan",
+        "cookies_1": "4.1 Kami menggunakan cookie dan teknologi pelacakan lainnya di Platform untuk mengumpulkan dan menyimpan informasi tertentu. Cookie adalah file teks kecil yang ditempatkan di perangkat Anda untuk membantu kami menganalisis penggunaan Platform, mengingat preferensi pengguna, dan meningkatkan pengalaman Anda secara keseluruhan. Anda memiliki opsi untuk menonaktifkan cookie melalui pengaturan browser Anda; namun, ini dapat membatasi fungsionalitas tertentu dari Platform.",
+        "dataSecurity": "5. Keamanan Data",
+        "dataSecurity_1": "5.1 Kami menerapkan langkah-langkah keamanan yang wajar untuk melindungi informasi pribadi Anda dari akses, pengungkapan, perubahan, atau penghancuran yang tidak sah. Namun, perlu diketahui bahwa tidak ada transmisi data melalui internet atau metode penyimpanan yang 100% aman. Kami tidak dapat menjamin keamanan mutlak informasi pribadi Anda.",
+        "thirdPartyLinks": "6. Tautan Pihak Ketiga",
+        "thirdPartyLinks_1": "6.1 Platform mungkin berisi tautan ke situs web atau layanan pihak ketiga yang tidak dimiliki atau dikendalikan oleh kami. Kami tidak bertanggung jawab atas praktik privasi atau konten situs pihak ketiga ini. Kami mendorong Anda untuk meninjau kebijakan privasi situs web pihak ketiga mana pun yang Anda kunjungi.",
+        "childrenPrivacy": "7. Privasi Anak-Anak",
+        "childrenPrivacy_1": "7.1 Platform tidak ditujukan untuk individu di bawah usia 13 tahun. Kami tidak secara sadar mengumpulkan informasi pribadi dari anak-anak di bawah 13 tahun. Jika kami mengetahui bahwa kami secara tidak sengaja telah mengumpulkan informasi pribadi dari seorang anak di bawah 13 tahun, kami akan mengambil langkah-langkah untuk menghapus informasi tersebut segera.",
+        "changesToPolicy": "8. Perubahan pada Kebijakan Privasi Ini",
+        "changesToPolicy_1": "8.1 Kami berhak untuk memodifikasi atau memperbarui Kebijakan Privasi ini kapan saja. Setiap perubahan akan berlaku segera setelah memposting kebijakan yang direvisi di Platform. Kami mendorong Anda untuk meninjau kebijakan ini secara berkala untuk tetap mendapat informasi tentang pembaruan apa pun.",
+        "whyGlobalRelocate": "9. Mengapa Memilih Global Relocate",
+        "whyGlobalRelocate_1": "Di Global Relocate, kami berkomitmen untuk membantu Anda pindah lebih cerdas dan hidup lebih baik. Inilah mengapa Anda harus memilih kami:",
+        "whyGlobalRelocate_bullet1": "Data yang Didukung AI Hemat Waktu: Akses informasi yang selalu terkini dan dapat diandalkan untuk membuat keputusan yang tepat.",
+        "whyGlobalRelocate_bullet2": "Kontak Terverifikasi & Sumber Tepercaya: Manfaatkan platform berbasis komunitas yang menjamin kredibilitas dan kepercayaan.",
+        "whyGlobalRelocate_bullet3": "Solusi Lengkap: Temukan semuanya mulai dari visa hingga biaya hidup di satu tempat.",
+        "whyGlobalRelocate_bullet4": "Peringatan yang Dipersonalisasi: Tetap terdepan dengan notifikasi yang disesuaikan dan fitur favorit yang dirancang khusus untuk Anda.",
+        "contactUs": "10. Hubungi Kami",
+        "contactUs_1": "10.1 Jika Anda memiliki pertanyaan, kekhawatiran, atau permintaan mengenai Kebijakan Privasi ini atau praktik data kami, silakan hubungi kami di:"
+      }
+    },
+    "helpCenter": {
+      "help": "Kami di sini untuk membantu",
+      "howCanWeHelp": "Bagaimana kami dapat membantu Anda?",
+      "checkOut": "Lihat FAQ kami atau hubungi kami untuk dukungan lebih lanjut.",
+      "faqs": {
+        "title": "Pertanyaan yang Sering Diajukan",
+        "question1": {
+          "question": "Apa itu Global Relocate?",
+          "answer": "Global Relocate adalah platform bertenaga AI yang dirancang untuk membantu individu dan keluarga dalam pindah ke negara baru. Ini memberikan rekomendasi, sumber daya, dan dukungan yang dipersonalisasi untuk membuat proses relokasi lebih lancar dan lebih efisien."
+        },
+        "question2": {
+          "question": "Apa yang Global Relocate bantu capai?",
+          "answer": "Global Relocate membantu pengguna mencapai pengalaman relokasi yang mulus dengan menawarkan saran, sumber daya, dan dukungan yang disesuaikan untuk berbagai aspek pindah ke negara baru, termasuk aplikasi visa, perumahan, pekerjaan, dan integrasi budaya."
+        },
+        "question3": {
+          "question": "Apakah Global Relocate membebankan biaya kepada pengguna untuk layanan fitur?",
+          "answer": "Ya, Global Relocate menawarkan berbagai layanan dan fitur yang mungkin melibatkan biaya. Namun, ia juga menyediakan sumber daya gratis dan dukungan dasar untuk membantu pengguna memulai perjalanan relokasi mereka."
+        },
+        "question4": {
+          "question": "Apa yang terjadi pada data saya / Apakah Global Relocate menyimpan informasi pribadi saya?",
+          "answer": "Global Relocate menangani privasi pengguna dengan serius. Kami tidak menyimpan informasi pribadi kecuali secara eksplisit diberikan oleh pengguna untuk layanan tertentu. Setiap data yang dikumpulkan digunakan semata-mata untuk meningkatkan pengalaman pengguna dan memberikan rekomendasi yang dipersonalisasi. Untuk detail lebih lanjut, silakan merujuk ke Kebijakan Privasi kami."
+        },
+        "question5": {
+          "question": "Siapa orang-orang di balik Global Relocate?",
+          "answer": "Global Relocate dikembangkan oleh tim profesional berpengalaman di bidang AI, layanan relokasi, dan hukum internasional. Tim kami berdedikasi untuk memberikan dukungan dan sumber daya terbaik bagi individu dan keluarga yang ingin pindah."
+        },
+        "question6": {
+          "question": "Apakah Global Relocate tersedia dalam berbagai bahasa?",
+          "answer": "Ya, Global Relocate tersedia dalam berbagai bahasa untuk melayani basis pengguna yang beragam. Anda dapat memilih bahasa pilihan Anda di bagian pengaturan platform."
+        },
+        "question7": {
+          "question": "Dari mana informasi di Global Relocate berasal?",
+          "answer": "Informasi di Global Relocate bersumber dari berbagai sumber terkemuka, termasuk situs web pemerintah, pakar relokasi, dan konten buatan pengguna. Kami terus memperbarui basis data kami untuk memastikan bahwa pengguna memiliki akses ke informasi yang paling akurat dan relevan untuk kebutuhan relokasi mereka."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Hubungi Kami",
+      "titleDesc": "Anda dapat mengajukan pertanyaan kepada kami",
+      "para": "Hubungi kami untuk semua pertanyaan dan pendapat Anda, atau Anda bisa mendapatkan jawaban dengan cepat dengan mengunjungi salah satu kantor kontak kami.",
+      "ourOffices": "Kantor Kami",
+      "ourOfficesDesc": "Kami memiliki kantor di berbagai lokasi untuk membantu Anda dengan kebutuhan relokasi Anda. Kunjungi kami di salah satu kantor kami untuk dukungan yang dipersonalisasi.",
+      "dropUsAMessage": "Kirimkan pesan kepada kami",
+      "dropUsAMessageDesc": "Isi formulir di bawah ini untuk mengirimkan pesan kepada kami, dan kami akan menghubungi Anda sesegera mungkin.",
+      "yourName": "Nama Anda",
+      "yourEmail": "Email Anda",
+      "subject": "Subjek",
+      "yourMessage": "Pesan Anda",
+      "sendMessage": "Kirim Pesan",
+      "sending": "Mengirim...",
+      "messageSent": "Pesan berhasil terkirim!",
+      "messageFailed": "Gagal mengirim pesan. Silakan coba lagi."
+    }
+  },
+  "loginPage": {
+    "close": "Tutup",
+    "createAccount": "Buat Akun",
+    "logIntoGR": "Masuk ke Global Relocate",
+    "password": "Kata Sandi",
+    "enterPassword": "Masukkan kata sandi Anda",
+    "continueWithGoogle": "Lanjutkan dengan Google",
+    "cantLogin": "Tidak bisa masuk?",
+    "tosDesc": "Dengan mengklik buat akun, Anda menyetujui ",
+    "tos": "Ketentuan Layanan",
+    "privacyPolicy": "Kebijakan Privasi",
+    "and": "dan",
+    "or": "ATAU",
+    "processing": "Memproses...",
+    "continue": "Lanjutkan",
+    "hidePassword": "Sembunyikan kata sandi",
+    "showPassword": "Tampilkan kata sandi"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Ayo buat akun Anda",
+    "chooseAccountType": "Pilih jenis akun",
+    "createPersonalAccount": "Saya membuat akun pribadi",
+    "createCorporateAccount": "Saya membuat akun perusahaan",
+    "continue": "Lanjutkan",
+    "chooseSignMethod": "Pilih metode pendaftaran",
+    "continueWithEmail": "Lanjutkan dengan email",
+    "alreadyHaveAccount": "Sudah punya akun?",
+    "fullName": "Nama Lengkap",
+    "chooseUsername": "Pilih nama pengguna",
+    "enterYourFullName": "Masukkan nama lengkap Anda",
+    "confirmPassword": "Konfirmasi kata sandi",
+    "country": "Negara"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Selamat bergabung",
+    "welcomeText": "Platform bertenaga AI Anda untuk relokasi tanpa hambatan, panduan hukum, dan kehidupan global."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Negara",
+      "aiAssistant": "Asisten AI",
+      "compareCountries": "Bandingkan Negara",
+      "taxCalculator": "Kalkulator Pajak",
+      "notifications": "Notifikasi",
+      "favourites": "Favorit",
+      "community": "Komunitas",
+      "cta": {
+        "title": "Coba Pro",
+        "para": "Anda saat ini menggunakan paket gratis yang berlaku selama 3 hari. Tingkatkan sekarang untuk tetap menggunakan Global Relocate.",
+        "buttonText": "Pelajari Lebih Lanjut"
+      }
+    },
+    "notifications": {
+      "noNotifications": "Anda belum memiliki notifikasi.",
+      "markAllAsRead": "Tandai semua sebagai telah dibaca",
+      "deleteAll": "Hapus semua",
+      "markAsRead": "Tandai sebagai telah dibaca",
+      "delete": "Hapus notifikasi",
+      "showLess": "Tampilkan lebih sedikit",
+      "showMore": "Tampilkan lebih banyak hasil"
+    },
+    "countries": {
+      "title": "Negara",
+      "noDataText": "Tidak ada data yang tersedia!",
+      "searchText": "Cari negara",
+      "clickToSelect": "Klik untuk memilih negara",
+      "view": "Lihat",
+      "searchResults": "Hasil pencarian",
+      "aiSuggestedCountries": "Negara yang Disarankan AI",
+      "searchCountries": "Cari negara"
+    },
+    "country": {
+      "countryIn": "Negara di",
+      "addFavorite": "Tambahkan ke favorit",
+      "removeFavorite": "Hapus dari favorit",
+      "share": "Bagikan",
+      "overview": "Gambaran Umum",
+      "map": "Peta",
+      "keyFacts": "Fakta Utama",
+      "visaMigration": "Visa & Imigrasi",
+      "taxes": "Pajak",
+      "flag": "Bendera",
+      "capital": "Ibu Kota",
+      "languages": "Bahasa",
+      "currency": "Mata Uang",
+      "population": "Populasi",
+      "dialingCode": "Kode Panggil",
+      "back": "Kembali",
+      "noOverview": "Tidak ada gambaran umum yang tersedia untuk negara ini.",
+      "noVisaInfo": "Tidak ada informasi visa dan imigrasi yang tersedia."
+    },
+    "ai": {
+      "rename": "Ubah Nama",
+      "deleteConversation": "Hapus Percakapan",
+      "share": "Bagikan",
+      "hello": "Halo",
+      "newChat": "Obrolan Baru",
+      "askAI": "Tanya AI Apa Saja...",
+      "uploadDocument": "Unggah Dokumen",
+      "uploadDocumentDesc": "Unggah dokumen untuk diproses dengan asisten AI",
+      "cancel": "Batal",
+      "upload": "Unggah"
+    },
+    "settings": {
+      "accountSettings": "Pengaturan Akun",
+      "editProfile": "Edit Profil",
+      "profile": "Profil",
+      "account": "Akun",
+      "preferences": "Preferensi",
+      "avatar": "Avatar",
+      "fullName": "Nama Lengkap",
+      "username": "Nama Pengguna",
+      "bio": "Bio",
+      "country": "Negara",
+      "emailAddress": "Alamat Email",
+      "verified": "Terverifikasi",
+      "subscription": "Langganan",
+      "subscriptionDesc": "Anda saat ini menggunakan paket gratis yang berlaku selama 3 hari. Tingkatkan sekarang untuk tetap menggunakan Global Relocate.",
+      "deleteAccount": "Hapus Akun",
+      "deleteDesc": "Hapus akun dan data Anda secara permanen",
+      "language": "Bahasa",
+      "chooseLanguage": "Pilih bahasa",
+      "selectLanguage": "Pilih bahasa",
+      "learnMore": "Pelajari lebih lanjut",
+      "saveChanges": "Simpan Perubahan",
+      "cancel": "Batal",
+      "saving": "Menyimpan...",
+      "unsavedChanges": "Anda memiliki perubahan yang belum disimpan",
+      "addName": "Tambahkan nama",
+      "addBio": "Tambahkan bio untuk menceritakan kisah Anda.",
+      "addUsername": "Tambahkan nama pengguna",
+      "addLocation": "Tambahkan lokasi",
+      "confirmAccountDelete": "Konfirmasi Penghapusan Akun",
+      "confirmAccountDeleteDesc": "Sebelum Anda menghapus akun Anda, harap luangkan waktu sejenak untuk memahami apa yang akan terjadi pada data Anda:",
+      "confirm": "Konfirmasi",
+      "neverMind": "Lupakan saja",
+      "confirmDeleteWarning": "Ingatlah bahwa menghapus akun Anda tidak dapat dibatalkan.",
+      "confirmDeleteList1": "Detail profil, preferensi, dan pengaturan Anda akan dihapus.",
+      "confirmDeleteList2": "Semua data akan dihapus secara permanen 30 hari setelah penghapusan akun.",
+      "deleting": "Menghapus...",
+      "youHave": "Anda memiliki:",
+      "administrator": "Administrator"
+    },
+    "continents": {
+      "all": "Semua",
+      "europe": "Eropa",
+      "asia": "Asia",
+      "africa": "Afrika",
+      "south america": "Amerika Selatan",
+      "north america": "Amerika Utara",
+      "antarctica": "Antartika",
+      "oceania": "Oseania"
+    },
+    "tax": {
+      "taxCalculator": "Kalkulator Pajak",
+      "taxCacluatorDesc": "Hitung perkiraan beban pajak Anda di berbagai negara",
+      "country": "Negara",
+      "annualIncome": "Pendapatan tahunan",
+      "userAccount": "Akun Pengguna",
+      "totalDeductions": "Total pengurangan",
+      "selectCountry": "Pilih negara Anda",
+      "selectAccount": "Pilih jenis akun",
+      "enterIncome": "Masukkan pendapatan tahunan Anda",
+      "enterDeductions": "Masukkan total pengurangan",
+      "calculateTax": "Hitung Pajak",
+      "individual": "Individu",
+      "corporate": "Perusahaan",
+      "taxSummary": "Ringkasan Pajak",
+      "taxAmount": "Jumlah pajak",
+      "effectiveRate": "Tarif efektif",
+      "takeHomeAmount": "Jumlah yang dibawa pulang"
+    },
+    "upgradePage": {
+      "back": "Kembali",
+      "upgradePlan": "Tingkatkan paket Anda",
+      "upgradePlanDesc": "Pilih paket yang sempurna untuk mendukung perjalanan relokasi global Anda. Dapatkan akses ke alat dan wawasan komprehensif untuk membuat kepindahan Anda lancar.",
+      "currentPlan": "Paket Anda saat ini",
+      "getStarted": "Mulai",
+      "free": "Gratis",
+      "basic": "Dasar",
+      "premium": "Premium",
+      "perMonth": "per bulan",
+      "forEveryone": "Untuk semua orang",
+      "freePlan": {
+        "item1": "Akses uji coba 3 hari",
+        "item2": "Informasi negara dasar",
+        "item3": "Akses komunitas (hanya baca)",
+        "item4": "Kalkulator pajak terbatas",
+        "item5": "Perbandingan biaya dasar"
+      },
+      "basicPlan": {
+        "item1": "Informasi negara lengkap",
+        "item2": "Partisipasi komunitas",
+        "item3": "Kalkulator pajak lengkap",
+        "item4": "Alat perbandingan biaya",
+        "item5": "Panduan relokasi dasar",
+        "item6": "Dukungan email"
+      },
+      "premiumPlan": {
+        "item1": "Semua fitur Dasar",
+        "item2": "Akses data negara tanpa batas",
+        "item3": "Partisipasi komunitas penuh",
+        "item4": "Kalkulator pajak lanjutan",
+        "item5": "Asisten relokasi AI",
+        "item6": "Wawasan biaya hidup",
+        "item7": "Panduan persyaratan visa",
+        "item8": "Dukungan prioritas",
+        "item9": "Peta jalan relokasi khusus"
+      }
+    },
+    "favorites": {
+      "noFavorites": "Anda belum memiliki favorit.",
+      "addToFavorites": "Tambahkan ke favorit",
+      "removeFromFavorites": "Hapus dari favorit"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Konfirmasi Perubahan"
+    }
+  },
+  "footer": {
+    "topCountries": "Negara Teratas",
+    "sitemap": "Peta Situs",
+    "company": "Perusahaan",
+    "terms": "Ketentuan",
+    "privacy": "Privasi",
+    "contact": "Hubungi Kami",
+    "subscribeNewsletter": "Berlangganan buletin kami",
+    "subscribeNewsDesc": "Tetap terinformasi dengan wawasan terbaru tentang relokasi global",
+    "enterEmail": "Masukkan email Anda",
+    "subscribe": "Berlangganan",
+    "copyright": "Semua konten di situs web ini dilindungi oleh hak cipta.",
+    "rankings": "Peringkat",
+    "safestCountries": "Negara Teraman",
+    "humanFreedomLevel": "Tingkat Kebebasan Manusia",
+    "lifeExpectancy": "Harapan Hidup",
+    "happinessIndex": "Indeks Kebahagiaan Dunia",
+    "citizenshipQualityRankings": "Peringkat Kualitas Kewarganegaraan",
+    "trends": "Tren",
+    "foreignCitizenship": "Kewarganegaraan Asing",
+    "digitalNomadVisas": "Visa Nomaden Digital",
+    "taxesRankings": "Peringkat Pajak",
+    "residencyPermit": "Izin Tinggal"
+  },
+  "toast": {
+    "thanksNewsletter": "Terima kasih telah berlangganan buletin kami!",
+    "linkCopied": "Tautan disalin ke papan klip!",
+    "linkCopyFailed": "Gagal menyalin tautan",
+    "newSessionStarted": "Sesi baru dimulai",
+    "newSessionFailed": "Gagal memulai sesi baru. Silakan coba lagi.",
+    "redirectToPayPage": "Mengarahkan ke halaman pembayaran...",
+    "activeSessionShare": "Anda memerlukan sesi aktif untuk berbagi",
+    "sessionDeleteFailed": "Gagal menghapus sesi. Silakan coba lagi.",
+    "sessionDeleteSuccess": "Sesi berhasil dihapus!",
+    "sessionRenameSuccess": "Sesi berhasil diubah namanya!",
+    "sessionRenameFailed": "Gagal mengubah nama sesi. Silakan coba lagi.",
+    "enterSessionName": "Masukkan nama baru untuk sesi ini:"
+  },
+  "formErrors": {
+    "invalidEmail": "Format email tidak valid",
+    "emailRequired": "Email wajib diisi",
+    "fullNameRequired": "Nama lengkap wajib diisi",
+    "enterFullName": "Silakan masukkan nama lengkap Anda",
+    "passwordRequired": "Kata sandi wajib diisi",
+    "minPassword": "Kata sandi minimal 8 karakter",
+    "passwordsMismatch": "Kata sandi tidak cocok",
+    "weakPassword": "Kata sandi terlalu lemah",
+    "selectCountry": "Silakan pilih negara",
+    "usernameRequired": "Nama pengguna wajib diisi",
+    "minUsername": "Nama pengguna minimal 3 karakter",
+    "cpasswordRequired": "Konfirmasi kata sandi wajib diisi"
+  }
+}

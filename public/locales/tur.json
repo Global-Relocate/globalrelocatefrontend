@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Ana Sayfa",
+      "countriesData": "Ülkeler ve Veriler",
+      "community": "Topluluk",
+      "taxCalculator": "Vergi Hesaplayıcı",
+      "pricing": "Fiyatlandırma",
+      "viewProfile": "Profili Görüntüle",
+      "helpCenter": "Yardım Merkezi",
+      "giveFeedback": "Geri Bildirim Verin",
+      "privacyPolicy": "Gizlilik Politikası",
+      "upgradePlan": "Planı Yükselt",
+      "logIn": "Giriş Yap",
+      "getStarted": "Başlayın",
+      "logout": "Çıkış Yap"
+    },
+    "showcase": {
+      "title": "Daha akıllıca yerleşin, daha iyi yaşayın.",
+      "para": "Sorunsuz yerleşim, yasal rehberlik ve küresel yaşam için yapay zeka destekli platformunuz.",
+      "buttonText": "Başlayın"
+    },
+    "features": {
+      "title": "Özellikler",
+      "cards": {
+        "card1": {
+          "title": "Ülkeleri Karşılaştırın",
+          "para": "Yaşam maliyeti, vergi oranları ve yaşam kalitesi gibi temel faktörleri analiz ederek farklı ülkeleri yan yana karşılaştırarak bilinçli kararlar verin."
+        },
+        "card2": {
+          "title": "Yapay Zeka ile Akıllı Bilgi",
+          "para": "Benzer düşünen küresel göçebelerle forumlara ve gruplara katılın."
+        },
+        "card3": {
+          "title": "Ülkeler ve Veriler",
+          "para": "Benzer düşünen küresel göçebelerle forumlara ve gruplara katılın."
+        }
+      }
+    },
+    "countries": {
+      "title": "Popüler Ülkeler",
+      "para": "Popüler destinasyonları keşfedin ve yerleşiminizi planlamaya başlayın"
+    },
+    "whyChooseUs": {
+      "title": "Neden Bizi Seçmelisiniz",
+      "card1": {
+        "title": "Zaman Kazandıran Yapay Zeka Destekli Veriler",
+        "para": "Her zaman güncel ve güvenilir bilgiler."
+      },
+      "card2": {
+        "title": "Doğrulanmış Kişiler ve Güvenilir Kaynaklar:",
+        "para": "Güvenilirliği sağlayan topluluk tabanlı bir platform."
+      },
+      "card3": {
+        "title": "Hepsi Bir Arada Çözüm",
+        "para": "Vizelerden yaşam maliyetine kadar her şey tek bir yerde."
+      },
+      "card4": {
+        "title": "Kişiselleştirilmiş Uyarılar",
+        "para": "Özelleştirilmiş bildirimler ve favoriler özelliği ile bir adım önde olun."
+      }
+    },
+    "forgotPassword": {
+      "title": "Şifrenizi mi Unuttunuz?",
+      "para": "Hesabınızın e-posta adresini girin, şifrenizi sıfırlamanız için size bir OTP göndereceğiz.",
+      "emailLabel": "E-posta adresi",
+      "sending": "Gönderiliyor...",
+      "sendOTP": "OTP Gönder",
+      "resendOTP": "OTP'yi Tekrar Gönder",
+      "verifyOTP": "OTP'yi Doğrula",
+      "otpSent": "E-postanıza bir OTP gönderildi.",
+      "continuePrompt": "Yeni bir şifre oluşturmak için aşağıdaki Devam Et düğmesine tıklayın.",
+      "continue": "Devam Et",
+      "rememberPassword": "Şifrenizi hatırladınız mı?",
+      "logIn": "Giriş Yap"
+    },
+    "termsOfService": {
+      "title": "Şartlar ve Koşullar",
+      "paragraph": "globalrelocate.com'a hoş geldiniz! Bu Şartlar ve Koşullar ('Şartlar'), globalrelocate.com URL'si üzerinden erişilen (bundan sonra 'Platform' olarak anılacaktır) sorunsuz yerleşim, yasal rehberlik ve küresel yaşam için yapay zeka destekli platformumuzu kullanımınızı yönetir. Platform'a erişerek veya kullanarak, bu Şartlar'a bağlı kalmayı kabul edersiniz. Lütfen dikkatlice okuyun.",
+      "sections": {
+        "platformUse": "1. Platform Kullanımı",
+        "platformUse_1": "1.1 Uygunluk: Platform'u kullanmak için en az 18 yaşında olmanız veya yargı bölgenizde sözleşme yapma ehliyetine sahip olmanız gerekir. Platform'a erişerek veya kullanarak, uygunluk gereksinimlerini karşıladığınızı beyan ve garanti edersiniz.",
+        "platformUse_2": "1.2 Kullanıcı Hesabı: Platform'un belirli özelliklerine erişmek için bir kullanıcı hesabı oluşturmanız gerekebilir. Hesap bilgilerinizin gizliliğini korumaktan siz sorumlusunuz ve hesabınız aracılığıyla gerçekleştirilen tüm faaliyetlerden yalnızca siz sorumlu olmayı kabul edersiniz.",
+        "platformUse_3": "1.3 Yasaklanmış Faaliyetler: Bu Şartlar'ı veya geçerli yasaları ya da düzenlemeleri ihlal eden herhangi bir faaliyette bulunmamayı kabul edersiniz. Yasaklanmış faaliyetler şunları içerir, ancak bunlarla sınırlı değildir:",
+        "prohibited_1": "Fikri mülkiyet haklarını ihlal etmek",
+        "prohibited_2": "Yasadışı, zararlı veya başkalarının haklarını ihlal eden içerik yüklemek veya paylaşmak",
+        "prohibited_3": "Platform'un düzgün çalışmasına müdahale etmek",
+        "prohibited_4": "Başka bir kişi veya kuruluşun kimliğine bürünmek",
+        "intellectualProperty": "2. Fikri Mülkiyet",
+        "intellectualProperty_1": "2.1 Mülkiyet: Platform'da bulunan metin, grafikler, logolar, resimler, ses klipleri, videolar ve yazılımlar dahil ancak bunlarla sınırlı olmamak üzere tüm içerik Global Relocate'e veya lisans verenlerine aittir ve fikri mülkiyet yasalarıyla korunmaktadır.",
+        "intellectualProperty_2": "2.2 İçerik Kullanımı: Platform'daki içeriğe yalnızca kişisel, ticari olmayan amaçlarla erişebilir ve kullanabilirsiniz. Global Relocate'ten önceden yazılı izin almadan içeriği değiştiremez, çoğaltamaz, dağıtamaz, görüntüleyemez, icra edemez veya türev çalışmalar oluşturamazsınız.",
+        "disclaimer": "3. Garantilerin Reddi",
+        "disclaimer_1": "3.1 Platform, 'olduğu gibi' ve 'mevcut olduğu gibi' esasına göre, herhangi bir garanti olmaksızın sağlanır. Global Relocate, satılabilirlik, belirli bir amaca uygunluk ve ihlal etmeme dahil ancak bunlarla sınırlı olmamak üzere açık veya zımni tüm garantileri reddeder.",
+        "disclaimer_2": "3.2 Global Relocate, Platform'daki herhangi bir içerik veya bilginin doğruluğunu, eksiksizliğini veya güvenilirliğini garanti etmez. Platform'u kullanımınızın kendi sorumluluğunuzda olduğunu kabul edersiniz.",
+        "liability": "4. Sorumluluğun Sınırlandırılması",
+        "liability_1": "4.1 Yasaların izin verdiği azami ölçüde, Global Relocate ve yöneticileri, çalışanları, bağlı kuruluşları ve temsilcileri, Platform'u veya içindeki içeriği kullanımınızdan kaynaklanan veya herhangi bir şekilde bununla bağlantılı olan doğrudan, dolaylı, arızi, özel veya sonuç olarak ortaya çıkan zararlardan sorumlu tutulamaz.",
+        "thirdParty": "5. Üçüncü Taraf Bağlantıları",
+        "thirdParty_1": "5.1 Platform, üçüncü taraf web sitelerine veya hizmetlerine bağlantılar içerebilir. Global Relocate, herhangi bir üçüncü taraf web sitesinin veya hizmetinin içeriğinden, doğruluğundan veya güvenilirliğinden sorumlu değildir. Bu tür bağlantıların dahil edilmesi, Global Relocate tarafından onaylandığı veya bağlı olduğu anlamına gelmez.",
+        "modifications": "6. Değişiklikler ve Fesih",
+        "modifications_1": "6.1 Global Relocate, önceden bildirimde bulunmaksızın Platform'un bir kısmını veya tamamını geçici veya kalıcı olarak değiştirme, askıya alma veya durdurma hakkını saklı tutar. Global Relocate, Platform'un herhangi bir şekilde değiştirilmesi, askıya alınması veya durdurulmasından dolayı size veya herhangi bir üçüncü tarafa karşı sorumlu tutulamaz.",
+        "governingLaw": "7. Geçerli Hukuk ve Yargı Yetkisi",
+        "governingLaw_1": "7.1 Bu Şartlar, [Ülkeniz] yasalarına göre yönetilecek ve yorumlanacaktır. Bu Şartlar'dan veya Platform'u kullanımınızdan kaynaklanan veya bunlarla ilgili herhangi bir anlaşmazlık, [Şehriniz, Ülkeniz]'deki mahkemelerin münhasır yargı yetkisine tabi olacaktır.",
+        "entireAgreement": "8. Tüm Anlaşma",
+        "entireAgreement_1": "8.1 Bu Şartlar, Platform'un kullanımıyla ilgili olarak siz ve Global Relocate arasındaki tüm anlaşmayı oluşturur ve önceki veya eş zamanlı anlaşmaların, iletişimlerin veya beyanların yerine geçer.",
+        "whyChoose": "9. Neden Global Relocate'i Seçmelisiniz",
+        "whyChoose_1": "Global Relocate olarak, daha akıllıca yerleşmenize ve daha iyi yaşamanıza yardımcı olmaya kararlıyız. İşte bizi seçmeniz için nedenler:",
+        "whyChoose_bullet1": "Zaman Kazandıran Yapay Zeka Destekli Veriler: Bilinçli kararlar vermek için her zaman güncel ve güvenilir bilgilere erişin.",
+        "whyChoose_bullet2": "Doğrulanmış Kişiler ve Güvenilir Kaynaklar: Güvenilirliği ve güveni sağlayan topluluk tabanlı bir platformdan yararlanın.",
+        "whyChoose_bullet3": "Hepsi Bir Arada Çözüm: Vizelerden yaşam maliyetine kadar her şeyi tek bir yerde bulun.",
+        "whyChoose_bullet4": "Kişiselleştirilmiş Uyarılar: Sadece sizin için tasarlanmış özel bildirimler ve favoriler özelliği ile bir adım önde olun."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Gizlilik Politikası ve Yasal Uyarı",
+      "paragraph": "Bu Gizlilik Politikası, globalrelocate.com'un sahibi ve işletmecisi olan Global Relocate'in (bundan sonra 'biz', 'bize' veya 'bizim' olarak anılacaktır), globalrelocate.com URL'si (bundan sonra 'Platform' olarak anılacaktır) üzerinden erişilen sorunsuz yerleşim, yasal rehberlik ve küresel yaşam için yapay zeka destekli platformumuzu kullandığınızda kişisel bilgilerinizi nasıl topladığını, kullandığını ve koruduğunu açıklar. Bu politika ayrıca Platform aracılığıyla sağlanan herhangi bir hizmet, içerik, özellik veya uygulama için de geçerlidir.",
+      "paragraph2": "Platform'a erişerek veya kullanarak, kişisel bilgilerinizin bu Gizlilik Politikası'nda belirtildiği şekilde toplanmasını, kullanılmasını ve ifşa edilmesini kabul edersiniz. Bu politikanın herhangi bir yönüyle aynı fikirde değilseniz, lütfen Platform'u kullanmaktan kaçının.",
+      "sections": {
+        "informationCollection": "1. Bilgi Toplama",
+        "informationCollection_1": "1.1 Kişisel Bilgiler: Platform'u kullandığınızda sizden çeşitli türlerde kişisel bilgiler toplayabiliriz. Bu, adınızı, e-posta adresinizi, iletişim bilgilerinizi, yerleşim tercihlerinizi ve bize gönüllü olarak sağladığınız diğer bilgileri içerebilir.",
+        "informationCollection_2": "1.2 Kullanım Verileri: Platform'u kullanımınızla ilgili belirli kişisel olmayan bilgileri otomatik olarak toplarız. Bu, IP adresinizi, tarayıcı türünüzü, işletim sisteminizi, cihaz bilgilerinizi, ziyaret edilen sayfaları, yönlendiren/çıkış URL'lerini ve diğer benzer verileri içerebilir.",
+        "useOfInformation": "2. Bilgilerin Kullanımı",
+        "personalInformationUse": "2.1 Kişisel Bilgiler: Bize sağladığınız kişisel bilgileri aşağıdaki amaçlarla kullanabiliriz:",
+        "personalInformationUse_bullet1": "Yapay zeka destekli yerleşim hizmetlerimizi, yasal rehberliğimizi ve küresel yaşam kaynaklarımızı sağlamak ve geliştirmek.",
+        "personalInformationUse_bullet2": "İsteklerinizi işlemek, kişiselleştirilmiş yerleşim planları sağlamak ve özel içerik sunmak.",
+        "personalInformationUse_bullet3": "Sizinle iletişim kurmak, soruları yanıtlamak ve müşteri desteği sağlamak.",
+        "personalInformationUse_bullet4": "Vizeler, yaşam maliyeti ve diğer yerleşimle ilgili bilgiler hakkında kişiselleştirilmiş uyarılar, güncellemeler ve bildirimler göndermek.",
+        "personalInformationUse_bullet5": "Favoriler özelliği ve özel öneriler sunarak Platform'daki deneyiminizi geliştirmek.",
+        "personalInformationUse_bullet6": "Hizmet Şartlarımızı ve diğer politikalarımızı uygulamak.",
+        "personalInformationUse_bullet7": "Yasal yükümlülüklere uymak.",
+        "usageDataUse": "2.2 Kullanım Verileri: Kullanım verilerini eğilimleri analiz etmek, kullanıcı etkileşimini izlemek, hizmetlerimizin etkinliğini izlemek ve Platform'daki kullanıcı deneyimini geliştirmek için kullanırız.",
+        "informationSharing": "3. Bilgi Paylaşımı",
+        "informationSharing_1": "3.1 Üçüncü Taraf Hizmet Sağlayıcıları: Kişisel bilgilerinizi, Platform'u işletmemize, hizmet sunmamıza, ödemeleri işlememize, analiz yapmamıza veya diğer gerekli işlevleri yerine getirmemize yardımcı olan güvenilir üçüncü taraf hizmet sağlayıcılarıyla paylaşabiliriz. Bu hizmet sağlayıcıları katı gizlilik sözleşmelerine tabidir ve kişisel bilgilerinizi başka herhangi bir amaçla kullanmaları yasaktır.",
+        "informationSharing_2": "3.2 Yasal Uyumluluk ve Koruma: Yasa, yönetmelik, yasal süreç veya hükümet talebi gerektiriyorsa kişisel bilgilerinizi ifşa edebiliriz. Ayrıca, haklarımızı, mülkiyetimizi veya güvenliğimizi ve ayrıca kullanıcılarımızın veya başkalarının haklarını, mülkiyetini veya güvenliğini korumak için bilgilerinizi ifşa edebiliriz.",
+        "cookies": "4. Çerezler ve İzleme Teknolojileri",
+        "cookies_1": "4.1 Platform'da belirli bilgileri toplamak ve saklamak için çerezler ve diğer izleme teknolojilerini kullanırız. Çerezler, Platform kullanımını analiz etmemize, kullanıcı tercihlerini hatırlamamıza ve genel deneyiminizi geliştirmemize yardımcı olmak için cihazınıza yerleştirilen küçük metin dosyalarıdır. Tarayıcı ayarlarınız aracılığıyla çerezleri devre dışı bırakma seçeneğiniz vardır; ancak bu, Platform'un belirli işlevlerini sınırlayabilir.",
+        "dataSecurity": "5. Veri Güvenliği",
+        "dataSecurity_1": "5.1 Kişisel bilgilerinizi yetkisiz erişime, ifşaya, değişikliğe veya imhaya karşı korumak için makul güvenlik önlemleri uygularız. Ancak, internet üzerinden hiçbir veri iletiminin veya depolama yönteminin %100 güvenli olmadığını lütfen unutmayın. Kişisel bilgilerinizin mutlak güvenliğini garanti edemeyiz.",
+        "thirdPartyLinks": "6. Üçüncü Taraf Bağlantıları",
+        "thirdPartyLinks_1": "6.1 Platform, bize ait olmayan veya bizim tarafımızdan kontrol edilmeyen üçüncü taraf web sitelerine veya hizmetlerine bağlantılar içerebilir. Bu üçüncü taraf sitelerin gizlilik uygulamalarından veya içeriğinden sorumlu değiliz. Ziyaret ettiğiniz herhangi bir üçüncü taraf web sitesinin gizlilik politikalarını incelemenizi öneririz.",
+        "childrenPrivacy": "7. Çocukların Gizliliği",
+        "childrenPrivacy_1": "7.1 Platform, 13 yaşın altındaki bireyler için tasarlanmamıştır. 13 yaşın altındaki çocuklardan bilerek kişisel bilgi toplamıyoruz. 13 yaşın altındaki bir çocuktan yanlışlıkla kişisel bilgi topladığımızı fark edersek, bilgileri derhal silmek için adımlar atacağız.",
+        "changesToPolicy": "8. Bu Gizlilik Politikasındaki Değişiklikler",
+        "changesToPolicy_1": "8.1 Bu Gizlilik Politikasını herhangi bir zamanda değiştirme veya güncelleme hakkını saklı tutarız. Herhangi bir değişiklik, revize edilmiş politikanın Platform'da yayınlanmasından hemen sonra yürürlüğe girecektir. Herhangi bir güncellemeden haberdar olmak için bu politikayı periyodik olarak incelemenizi öneririz.",
+        "whyGlobalRelocate": "9. Neden Global Relocate'i Seçmelisiniz",
+        "whyGlobalRelocate_1": "Global Relocate olarak, daha akıllıca yerleşmenize ve daha iyi yaşamanıza yardımcı olmaya kararlıyız. İşte bizi seçmeniz için nedenler:",
+        "whyGlobalRelocate_bullet1": "Zaman Kazandıran Yapay Zeka Destekli Veriler: Bilinçli kararlar vermek için her zaman güncel ve güvenilir bilgilere erişin.",
+        "whyGlobalRelocate_bullet2": "Doğrulanmış Kişiler ve Güvenilir Kaynaklar: Güvenilirliği ve güveni sağlayan topluluk tabanlı bir platformdan yararlanın.",
+        "whyGlobalRelocate_bullet3": "Hepsi Bir Arada Çözüm: Vizelerden yaşam maliyetine kadar her şeyi tek bir yerde bulun.",
+        "whyGlobalRelocate_bullet4": "Kişiselleştirilmiş Uyarılar: Sadece sizin için tasarlanmış özel bildirimler ve favoriler özelliği ile bir adım önde olun.",
+        "contactUs": "10. Bize Ulaşın",
+        "contactUs_1": "10.1 Bu Gizlilik Politikası veya veri uygulamalarımızla ilgili herhangi bir sorunuz, endişeniz veya talebiniz varsa, lütfen bize şu adresten ulaşın:"
+      }
+    },
+    "helpCenter": {
+      "help": "Yardım etmek için buradayız",
+      "howCanWeHelp": "Size nasıl yardımcı olabiliriz?",
+      "checkOut": "SSS'lerimize göz atın veya daha fazla destek için bizimle iletişime geçin.",
+      "faqs": {
+        "title": "Sıkça Sorulan Sorular",
+        "question1": {
+          "question": "Global Relocate nedir?",
+          "answer": "Global Relocate, bireylerin ve ailelerin yeni ülkelere yerleşmelerine yardımcı olmak için tasarlanmış yapay zeka destekli bir platformdur. Yerleşim sürecini daha sorunsuz ve verimli hale getirmek için kişiselleştirilmiş öneriler, kaynaklar ve destek sağlar."
+        },
+        "question2": {
+          "question": "Global Relocate neyi başarmaya yardımcı olur?",
+          "answer": "Global Relocate, vize başvuruları, konut, istihdam ve kültürel entegrasyon gibi yeni bir ülkeye taşınmanın çeşitli yönleri için özel tavsiyeler, kaynaklar ve destek sunarak kullanıcıların sorunsuz bir yerleşim deneyimi yaşamasına yardımcı olur."
+        },
+        "question3": {
+          "question": "Global Relocate, hizmetler veya özellikler için kullanıcılardan ücret alıyor mu?",
+          "answer": "Evet, Global Relocate ücret gerektirebilecek bir dizi hizmet ve özellik sunmaktadır. Ancak, kullanıcıların yerleşim yolculuklarına başlamalarına yardımcı olmak için ücretsiz kaynaklar ve temel destek de sağlar."
+        },
+        "question4": {
+          "question": "Verilerime ne olur / Global Relocate kişisel bilgilerimi saklar mı?",
+          "answer": "Global Relocate, kullanıcı gizliliğini ciddiye alır. Kullanıcı tarafından belirli hizmetler için açıkça sağlanmadıkça kişisel bilgileri saklamayız. Toplanan tüm veriler yalnızca kullanıcı deneyimini geliştirmek ve kişiselleştirilmiş öneriler sunmak için kullanılır. Daha fazla ayrıntı için lütfen Gizlilik Politikamıza bakın."
+        },
+        "question5": {
+          "question": "Global Relocate'in arkasındaki kişiler kimlerdir?",
+          "answer": "Global Relocate, yapay zeka, yerleşim hizmetleri ve uluslararası hukuk alanlarında deneyimli profesyonellerden oluşan bir ekip tarafından geliştirilmiştir. Ekibimiz, yerleşmek isteyen bireylere ve ailelere mümkün olan en iyi desteği ve kaynakları sağlamaya kendini adamıştır."
+        },
+        "question6": {
+          "question": "Global Relocate birden fazla dilde mevcut mu?",
+          "answer": "Evet, Global Relocate, çeşitli bir kullanıcı tabanına hitap etmek için birden fazla dilde mevcuttur. Platformun ayarlar bölümünden tercih ettiğiniz dili seçebilirsiniz."
+        },
+        "question7": {
+          "question": "Global Relocate'teki bilgiler nereden geliyor?",
+          "answer": "Global Relocate'teki bilgiler, hükümet web siteleri, yerleşim uzmanları ve kullanıcı tarafından oluşturulan içerik dahil olmak üzere çeşitli saygın kaynaklardan elde edilir. Kullanıcıların yerleşim ihtiyaçları için en doğru ve ilgili bilgilere erişmelerini sağlamak için veritabanımızı sürekli olarak güncelliyoruz."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Bize Ulaşın",
+      "titleDesc": "Bize soru sorabilirsiniz",
+      "para": "Tüm sorularınız ve görüşleriniz için bizimle iletişime geçin veya iletişim ofislerimizden birini ziyaret ederek hızlıca yanıt alabilirsiniz.",
+      "ourOffices": "Ofislerimiz",
+      "ourOfficesDesc": "Yerleşim ihtiyaçlarınızda size yardımcı olmak için çeşitli lokasyonlarda ofislerimiz bulunmaktadır. Kişiselleştirilmiş destek için ofislerimizden birini ziyaret edin.",
+      "dropUsAMessage": "Bize mesaj bırakın",
+      "dropUsAMessageDesc": "Aşağıdaki formu doldurarak bize mesaj gönderin, size en kısa sürede geri döneceğiz.",
+      "yourName": "Adınız",
+      "yourEmail": "E-postanız",
+      "subject": "Konu",
+      "yourMessage": "Mesajınız",
+      "sendMessage": "Mesaj Gönder",
+      "sending": "Gönderiliyor...",
+      "messageSent": "Mesaj başarıyla gönderildi!",
+      "messageFailed": "Mesaj gönderilemedi. Lütfen tekrar deneyin."
+    }
+  },
+  "loginPage": {
+    "close": "Kapat",
+    "createAccount": "Hesap Oluştur",
+    "logIntoGR": "Global Relocate'e Giriş Yapın",
+    "password": "Şifre",
+    "enterPassword": "Şifrenizi girin",
+    "continueWithGoogle": "Google ile Devam Et",
+    "cantLogin": "Giriş yapamıyor musunuz?",
+    "tosDesc": "Bir hesap oluşturarak, ",
+    "tos": "Hizmet Şartlarımızı",
+    "privacyPolicy": "Gizlilik Politikamızı",
+    "and": "ve",
+    "or": "VEYA",
+    "processing": "İşleniyor...",
+    "continue": "Devam Et",
+    "hidePassword": "Şifreyi gizle",
+    "showPassword": "Şifreyi göster"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Hesabınızı oluşturalım",
+    "chooseAccountType": "Bir hesap türü seçin",
+    "createPersonalAccount": "Kişisel bir hesap oluşturuyorum",
+    "createCorporateAccount": "Kurumsal bir hesap oluşturuyorum",
+    "continue": "Devam Et",
+    "chooseSignMethod": "Kayıt yöntemini seçin",
+    "continueWithEmail": "E-posta ile devam et",
+    "alreadyHaveAccount": "Zaten bir hesabınız var mı?",
+    "fullName": "Tam Ad",
+    "chooseUsername": "Bir kullanıcı adı seçin",
+    "enterYourFullName": "Tam adınızı girin",
+    "confirmPassword": "Şifreyi Onayla",
+    "country": "Ülke"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Aramıza hoş geldiniz",
+    "welcomeText": "Sorunsuz yerleşim, yasal rehberlik ve küresel yaşam için yapay zeka destekli platformunuz."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Ülkeler",
+      "aiAssistant": "Yapay Zeka Asistanı",
+      "compareCountries": "Ülkeleri Karşılaştır",
+      "taxCalculator": "Vergi Hesaplayıcı",
+      "notifications": "Bildirimler",
+      "favourites": "Favoriler",
+      "community": "Topluluk",
+      "cta": {
+        "title": "Pro'yu Deneyin",
+        "para": "Şu anda 3 gün geçerli ücretsiz plandasınız. Global Relocate'i kullanmaya devam etmek için şimdi yükseltin.",
+        "buttonText": "Daha Fazla Bilgi Edinin"
+      }
+    },
+    "notifications": {
+      "noNotifications": "Henüz bildiriminiz yok.",
+      "markAllAsRead": "Tümünü okundu olarak işaretle",
+      "deleteAll": "Tümünü sil",
+      "markAsRead": "Okundu olarak işaretle",
+      "delete": "Bildirimi sil",
+      "showLess": "Daha az göster",
+      "showMore": "Daha fazla sonuç göster"
+    },
+    "countries": {
+      "title": "Ülkeler",
+      "noDataText": "Veri yok!",
+      "searchText": "Ülkeleri ara",
+      "clickToSelect": "Ülke seçmek için tıklayın",
+      "view": "Görüntüle",
+      "searchResults": "Arama sonuçları",
+      "aiSuggestedCountries": "Yapay Zeka Tarafından Önerilen Ülkeler",
+      "searchCountries": "Ülkeleri ara"
+    },
+    "country": {
+      "countryIn": "Ülkesi",
+      "addFavorite": "Favorilere ekle",
+      "removeFavorite": "Favorilerden kaldır",
+      "share": "Paylaş",
+      "overview": "Genel Bakış",
+      "map": "Harita",
+      "keyFacts": "Önemli Bilgiler",
+      "visaMigration": "Vize ve Göçmenlik",
+      "taxes": "Vergiler",
+      "flag": "Bayrak",
+      "capital": "Başkent",
+      "languages": "Diller",
+      "currency": "Para Birimi",
+      "population": "Nüfus",
+      "dialingCode": "Telefon Kodu",
+      "back": "Geri",
+      "noOverview": "Bu ülke için genel bakış mevcut değil.",
+      "noVisaInfo": "Vize ve göçmenlik bilgisi mevcut değil."
+    },
+    "ai": {
+      "rename": "Yeniden Adlandır",
+      "deleteConversation": "Sohbeti Sil",
+      "share": "Paylaş",
+      "hello": "Merhaba",
+      "newChat": "Yeni Sohbet",
+      "askAI": "Yapay Zekaya Her Şeyi Sorun...",
+      "uploadDocument": "Belge Yükle",
+      "uploadDocumentDesc": "Yapay zeka asistanıyla işlemek için bir belge yükleyin",
+      "cancel": "İptal",
+      "upload": "Yükle"
+    },
+    "settings": {
+      "accountSettings": "Hesap Ayarları",
+      "editProfile": "Profili Düzenle",
+      "profile": "Profil",
+      "account": "Hesap",
+      "preferences": "Tercihler",
+      "avatar": "Avatar",
+      "fullName": "Tam Ad",
+      "username": "Kullanıcı Adı",
+      "bio": "Biyografi",
+      "country": "Ülke",
+      "emailAddress": "E-posta Adresi",
+      "verified": "Doğrulandı",
+      "subscription": "Abonelik",
+      "subscriptionDesc": "Şu anda 3 gün geçerli ücretsiz plandasınız. Global Relocate'i kullanmaya devam etmek için şimdi yükseltin.",
+      "deleteAccount": "Hesabı Sil",
+      "deleteDesc": "Hesabınızı ve verilerinizi kalıcı olarak silin",
+      "language": "Dil",
+      "chooseLanguage": "Bir dil seçin",
+      "selectLanguage": "Dil seçin",
+      "learnMore": "Daha fazla bilgi edin",
+      "saveChanges": "Değişiklikleri Kaydet",
+      "cancel": "İptal",
+      "saving": "Kaydediliyor...",
+      "unsavedChanges": "Kaydedilmemiş değişiklikleriniz var",
+      "addName": "Ad ekle",
+      "addBio": "Hikayenizi anlatmak için bir biyografi ekleyin.",
+      "addUsername": "Kullanıcı adı ekle",
+      "addLocation": "Konum ekle",
+      "confirmAccountDelete": "Hesap Silme İşlemini Onayla",
+      "confirmAccountDeleteDesc": "Hesabınızı silmeden önce, verilerinize ne olacağını anlamak için lütfen bir dakikanızı ayırın:",
+      "confirm": "Onayla",
+      "neverMind": "Boşver",
+      "confirmDeleteWarning": "Hesabınızı silmenin geri alınamayacağını unutmayın.",
+      "confirmDeleteList1": "Profil bilgileriniz, tercihleriniz ve ayarlarınız kaldırılacaktır.",
+      "confirmDeleteList2": "Tüm veriler, hesap silindikten 30 gün sonra kalıcı olarak silinecektir.",
+      "deleting": "Siliniyor...",
+      "youHave": "Sahipsiniz:",
+      "administrator": "Yönetici"
+    },
+    "continents": {
+      "all": "Tümü",
+      "europe": "Avrupa",
+      "asia": "Asya",
+      "africa": "Afrika",
+      "south america": "Güney Amerika",
+      "north america": "Kuzey Amerika",
+      "antarctica": "Antarktika",
+      "oceania": "Okyanusya"
+    },
+    "tax": {
+      "taxCalculator": "Vergi Hesaplayıcı",
+      "taxCacluatorDesc": "Farklı ülkelerdeki tahmini vergi yükünüzü hesaplayın",
+      "country": "Ülke",
+      "annualIncome": "Yıllık gelir",
+      "userAccount": "Kullanıcı Hesabı",
+      "totalDeductions": "Toplam kesintiler",
+      "selectCountry": "Ülkenizi seçin",
+      "selectAccount": "Hesap türünü seçin",
+      "enterIncome": "Yıllık gelirinizi girin",
+      "enterDeductions": "Toplam kesintileri girin",
+      "calculateTax": "Vergiyi Hesapla",
+      "individual": "Bireysel",
+      "corporate": "Kurumsal",
+      "taxSummary": "Vergi Özeti",
+      "taxAmount": "Vergi tutarı",
+      "effectiveRate": "Etkin oran",
+      "takeHomeAmount": "Eve götürülecek tutar"
+    },
+    "upgradePage": {
+      "back": "Geri",
+      "upgradePlan": "Planınızı yükseltin",
+      "upgradePlanDesc": "Küresel yerleşim yolculuğunuzu desteklemek için mükemmel planı seçin. Taşınmanızı sorunsuz hale getirmek için kapsamlı araçlara ve içgörülere erişin.",
+      "currentPlan": "Mevcut planınız",
+      "getStarted": "Başlayın",
+      "free": "Ücretsiz",
+      "basic": "Temel",
+      "premium": "Premium",
+      "perMonth": "aylık",
+      "forEveryone": "Herkes için",
+      "freePlan": {
+        "item1": "3 günlük deneme erişimi",
+        "item2": "Temel ülke bilgileri",
+        "item3": "Topluluk erişimi (salt okunur)",
+        "item4": "Sınırlı vergi hesaplayıcı",
+        "item5": "Temel maliyet karşılaştırması"
+      },
+      "basicPlan": {
+        "item1": "Tam ülke bilgileri",
+        "item2": "Topluluk katılımı",
+        "item3": "Tam vergi hesaplayıcı",
+        "item4": "Maliyet karşılaştırma araçları",
+        "item5": "Temel yerleşim kılavuzları",
+        "item6": "E-posta desteği"
+      },
+      "premiumPlan": {
+        "item1": "Tüm Temel özellikler",
+        "item2": "Sınırsız ülke verisi erişimi",
+        "item3": "Tam topluluk katılımı",
+        "item4": "Gelişmiş vergi hesaplayıcı",
+        "item5": "Yapay zeka yerleşim asistanı",
+        "item6": "Yaşam maliyeti içgörüleri",
+        "item7": "Vize gereksinimi kılavuzları",
+        "item8": "Öncelikli destek",
+        "item9": "Özel yerleşim yol haritası"
+      }
+    },
+    "favorites": {
+      "noFavorites": "Henüz favoriniz yok.",
+      "addToFavorites": "Favorilere ekle",
+      "removeFromFavorites": "Favorilerden kaldır"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Değişiklikleri Onayla"
+    }
+  },
+  "footer": {
+    "topCountries": "En İyi Ülkeler",
+    "sitemap": "Site Haritası",
+    "company": "Şirket",
+    "terms": "Şartlar",
+    "privacy": "Gizlilik",
+    "contact": "Bize Ulaşın",
+    "subscribeNewsletter": "Bültenimize abone olun",
+    "subscribeNewsDesc": "Küresel yerleşimle ilgili en son bilgilerden haberdar olun",
+    "enterEmail": "E-postanızı girin",
+    "subscribe": "Abone Ol",
+    "copyright": "Bu web sitesindeki tüm içerik telif hakkıyla korunmaktadır.",
+    "rankings": "Sıralamalar",
+    "safestCountries": "En Güvenli Ülkeler",
+    "humanFreedomLevel": "İnsan Özgürlüğü Seviyesi",
+    "lifeExpectancy": "Yaşam Beklentisi",
+    "happinessIndex": "Dünya Mutluluk Endeksi",
+    "citizenshipQualityRankings": "Vatandaşlık Kalitesi Sıralaması",
+    "trends": "Trendler",
+    "foreignCitizenship": "Yabancı Vatandaşlık",
+    "digitalNomadVisas": "Dijital Göçebe Vizeleri",
+    "taxesRankings": "Vergi Sıralamaları",
+    "residencyPermit": "Oturma İzni"
+  },
+  "toast": {
+    "thanksNewsletter": "Bültenimize abone olduğunuz için teşekkür ederiz!",
+    "linkCopied": "Bağlantı panoya kopyalandı!",
+    "linkCopyFailed": "Bağlantı kopyalanamadı",
+    "newSessionStarted": "Yeni oturum başlatıldı",
+    "newSessionFailed": "Yeni oturum başlatılamadı. Lütfen tekrar deneyin.",
+    "redirectToPayPage": "Ödeme sayfasına yönlendiriliyor...",
+    "activeSessionShare": "Paylaşmak için aktif bir oturumunuz olmalı",
+    "sessionDeleteFailed": "Oturum silinemedi. Lütfen tekrar deneyin.",
+    "sessionDeleteSuccess": "Oturum başarıyla silindi!",
+    "sessionRenameSuccess": "Oturum başarıyla yeniden adlandırıldı!",
+    "sessionRenameFailed": "Oturum yeniden adlandırılamadı. Lütfen tekrar deneyin.",
+    "enterSessionName": "Bu oturum için yeni bir ad girin:"
+  },
+  "formErrors": {
+    "invalidEmail": "Geçersiz e-posta formatı",
+    "emailRequired": "E-posta gereklidir",
+    "fullNameRequired": "Tam ad gereklidir",
+    "enterFullName": "Lütfen tam adınızı girin",
+    "passwordRequired": "Şifre gereklidir",
+    "minPassword": "Şifre en az 8 karakter olmalıdır",
+    "passwordsMismatch": "Şifreler eşleşmiyor",
+    "weakPassword": "Şifre çok zayıf",
+    "selectCountry": "Lütfen bir ülke seçin",
+    "usernameRequired": "Kullanıcı adı gereklidir",
+    "minUsername": "Kullanıcı adı en az 3 karakter olmalıdır",
+    "cpasswordRequired": "Şifreyi onayla gereklidir"
+  }
+}

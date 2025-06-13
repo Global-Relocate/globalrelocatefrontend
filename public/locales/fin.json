@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Koti",
+      "countriesData": "Maat & Tiedot",
+      "community": "Yhteisö",
+      "taxCalculator": "Verolaskuri",
+      "pricing": "Hinnoittelu",
+      "viewProfile": "Näytä profiili",
+      "helpCenter": "Ohjekeskus",
+      "giveFeedback": "Anna palautetta",
+      "privacyPolicy": "Tietosuojakäytäntö",
+      "upgradePlan": "Päivitä suunnitelma",
+      "logIn": "Kirjaudu sisään",
+      "getStarted": "Aloita",
+      "logout": "Kirjaudu ulos"
+    },
+    "showcase": {
+      "title": "Muuta fiksummin, elä paremmin.",
+      "para": "Tekoälypohjainen alustasi saumattomaan muuttoon, oikeudelliseen neuvontaan ja maailmanlaajuiseen asumiseen.",
+      "buttonText": "Aloita"
+    },
+    "features": {
+      "title": "Ominaisuudet",
+      "cards": {
+        "card1": {
+          "title": "Vertaa maita",
+          "para": "Tee tietoon perustuvia päätöksiä vertailemalla eri maita rinnakkain, analysoimalla keskeisiä tekijöitä, kuten elinkustannuksia, verokantoja ja elämänlaatua."
+        },
+        "card2": {
+          "title": "Älykästä tietoa tekoälyn avulla",
+          "para": "Liity foorumeihin ja ryhmiin samanhenkisten maailmanmatkaajien kanssa."
+        },
+        "card3": {
+          "title": "Maat & Tiedot",
+          "para": "Liity foorumeihin ja ryhmiin samanhenkisten maailmanmatkaajien kanssa."
+        }
+      }
+    },
+    "countries": {
+      "title": "Suositut maat",
+      "para": "Tutustu suosittuihin kohteisiin ja aloita muuttosi suunnittelu"
+    },
+    "whyChooseUs": {
+      "title": "Miksi valita meidät",
+      "card1": {
+        "title": "Aikaa säästävää tekoälytuettua dataa",
+        "para": "Aina ajantasaista ja luotettavaa tietoa."
+      },
+      "card2": {
+        "title": "Vahvistetut yhteystiedot & luotetut lähteet:",
+        "para": "Yhteisöpohjainen alusta, joka takaa uskottavuuden."
+      },
+      "card3": {
+        "title": "Kaikki yhdessä ratkaisu",
+        "para": "Kaikki viisumeista elinkustannuksiin yhdessä paikassa."
+      },
+      "card4": {
+        "title": "Henkilökohtaiset hälytykset",
+        "para": "Pysy ajan tasalla räätälöityjen ilmoitusten ja suosikkiominaisuuden avulla."
+      }
+    },
+    "forgotPassword": {
+      "title": "Unohditko salasanasi?",
+      "para": "Syötä tilisi sähköpostiosoite, niin lähetämme sinulle kertakäyttösalasanan salasanasi nollaamiseksi.",
+      "emailLabel": "Sähköpostiosoite",
+      "sending": "Lähetetään...",
+      "sendOTP": "Lähetä kertakäyttösalasana",
+      "resendOTP": "Lähetä kertakäyttösalasana uudelleen",
+      "verifyOTP": "Vahvista kertakäyttösalasana",
+      "otpSent": "Kertakäyttösalasana on lähetetty sähköpostiisi.",
+      "continuePrompt": "Napsauta alla olevaa Jatka-painiketta luodaksesi uuden salasanan.",
+      "continue": "Jatka",
+      "rememberPassword": "Muistitko salasanasi?",
+      "logIn": "Kirjaudu sisään"
+    },
+    "termsOfService": {
+      "title": "Käyttöehdot",
+      "paragraph": "Tervetuloa globalrelocate.com-sivustolle! Nämä käyttöehdot ('Ehdot') säätelevät tekoälypohjaisen alustamme käyttöä saumattomaan muuttoon, oikeudelliseen neuvontaan ja maailmanlaajuiseen asumiseen, johon pääsee URL-osoitteen globalrelocate.com kautta (jäljempänä 'Alusta'). Käyttämällä Alustaa sitoudut noudattamaan näitä Ehtoja. Lue ne huolellisesti.",
+      "sections": {
+        "platformUse": "1. Alustan käyttö",
+        "platformUse_1": "1.1 Kelpoisuus: Sinun on oltava vähintään 18-vuotias tai sinulla on oltava laillinen oikeus tehdä sopimuksia lainkäyttöalueellasi käyttääksesi Alustaa. Käyttämällä Alustaa vakuutat täyttäväsi kelpoisuusvaatimukset.",
+        "platformUse_2": "1.2 Käyttäjätili: Sinua saatetaan vaatia luomaan käyttäjätili käyttääksesi tiettyjä Alustan ominaisuuksia. Olet vastuussa tilitietojesi luottamuksellisuuden säilyttämisestä ja sitoudut olemaan yksin vastuussa kaikista tilisi kautta suoritetuista toimista.",
+        "platformUse_3": "1.3 Kielletyt toimet: Sitoudut olemaan osallistumatta mihinkään toimiin, jotka rikkovat näitä Ehtoja tai sovellettavia lakeja tai määräyksiä. Kiellettyjä toimia ovat muun muassa:",
+        "prohibited_1": "Immateriaalioikeuksien loukkaaminen",
+        "prohibited_2": "Laitoman, haitallisen tai muiden oikeuksia loukkaavan sisällön lataaminen tai jakaminen",
+        "prohibited_3": "Alustan asianmukaisen toiminnan häiritseminen",
+        "prohibited_4": "Toisena henkilönä tai yhteisönä esiintyminen",
+        "intellectualProperty": "2. Immateriaalioikeudet",
+        "intellectualProperty_1": "2.1 Omistusoikeus: Kaikki Alustalla saatavilla oleva sisältö, mukaan lukien mutta ei rajoittuen tekstiin, grafiikkaan, logoihin, kuviin, äänileikkeisiin, videoihin ja ohjelmistoihin, on Global Relocaten tai sen lisenssinantajien omaisuutta ja sitä suojaavat immateriaalioikeuslait.",
+        "intellectualProperty_2": "2.2 Sisällön käyttö: Voit käyttää Alustan sisältöä vain henkilökohtaisiin, ei-kaupallisiin tarkoituksiin. Et saa muokata, jäljentää, jakaa, näyttää, esittää tai luoda johdannaisteoksia sisällöstä ilman Global Relocaten etukäteen antamaa kirjallista lupaa.",
+        "disclaimer": "3. Takuuvapauslauseke",
+        "disclaimer_1": "3.1 Alusta tarjotaan 'sellaisenaan' ja 'saatavuuden mukaan' ilman minkäänlaisia takuita. Global Relocate kieltäytyy kaikista takuista, olivatpa ne nimenomaisia tai oletettuja, mukaan lukien mutta ei rajoittuen kaupallisuuteen, sopivuuteen tiettyyn tarkoitukseen ja loukkaamattomuuteen.",
+        "disclaimer_2": "3.2 Global Relocate ei takaa minkään Alustalla olevan sisällön tai tiedon tarkkuutta, täydellisyyttä tai luotettavuutta. Ymmärrät, että käytät Alustaa omalla vastuullasi.",
+        "liability": "4. Vastuunrajoitus",
+        "liability_1": "4.1 Lain sallimassa enimmäismäärässä Global Relocate ja sen johtajat, työntekijät, tytäryhtiöt ja edustajat eivät ole vastuussa mistään suorista, epäsuorista, satunnaisista, erityisistä tai välillisistä vahingoista, jotka johtuvat tai liittyvät millään tavalla Alustan tai sen sisällön käyttöön.",
+        "thirdParty": "5. Kolmannen osapuolen linkit",
+        "thirdParty_1": "5.1 Alusta voi sisältää linkkejä kolmansien osapuolten verkkosivustoille tai palveluihin. Global Relocate ei ole vastuussa minkään kolmannen osapuolen verkkosivuston tai palvelun sisällöstä, tarkkuudesta tai luotettavuudesta. Tällaisten linkkien sisällyttäminen ei tarkoita Global Relocaten hyväksyntää tai sidonnaisuutta.",
+        "modifications": "6. Muutokset ja irtisanominen",
+        "modifications_1": "6.1 Global Relocate pidättää oikeuden muuttaa, keskeyttää tai lopettaa minkä tahansa Alustan osan tai koko Alustan, väliaikaisesti tai pysyvästi, ilman ennakkoilmoitusta. Global Relocate ei ole vastuussa sinulle tai millekään kolmannelle osapuolelle Alustan muutoksista, keskeyttämisestä tai lopettamisesta.",
+        "governingLaw": "7. Sovellettava laki ja oikeuspaikka",
+        "governingLaw_1": "7.1 Näihin Ehtoihin sovelletaan [Maan nimi] lakeja ja niitä tulkitaan niiden mukaisesti. Kaikki näistä Ehdoista tai Alustan käytöstäsi johtuvat tai niihin liittyvät riidat kuuluvat [Kaupunkisi, Maasi] tuomioistuinten yksinomaiseen toimivaltaan.",
+        "entireAgreement": "8. Koko sopimus",
+        "entireAgreement_1": "8.1 Nämä Ehdot muodostavat koko sopimuksen sinun ja Global Relocaten välillä Alustan käytöstä ja korvaavat kaikki aiemmat tai samanaikaiset sopimukset, viestinnät tai esitykset.",
+        "whyChoose": "9. Miksi valita Global Relocate",
+        "whyChoose_1": "Global Relocatella olemme sitoutuneet auttamaan sinua muuttamaan fiksummin ja elämään paremmin. Tässä syitä, miksi sinun kannattaa valita meidät:",
+        "whyChoose_bullet1": "Aikaa säästävää tekoälytuettua dataa: Käytä aina ajantasaista ja luotettavaa tietoa tehdäksesi tietoon perustuvia päätöksiä.",
+        "whyChoose_bullet2": "Vahvistetut yhteystiedot & luotetut lähteet: Hyödy yhteisöpohjaisesta alustasta, joka takaa uskottavuuden ja luottamuksen.",
+        "whyChoose_bullet3": "Kaikki yhdessä ratkaisu: Löydä kaikki viisumeista elinkustannuksiin yhdestä paikasta.",
+        "whyChoose_bullet4": "Henkilökohtaiset hälytykset: Pysy ajan tasalla räätälöityjen ilmoitusten ja juuri sinulle suunnitellun suosikkiominaisuuden avulla."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Tietosuojakäytäntö ja oikeudellinen vastuuvapauslauseke",
+      "paragraph": "Tämä tietosuojakäytäntö kuvaa, kuinka Global Relocate (jäljempänä 'me', 'meidän' tai 'meidän'), globalrelocate.com-sivuston omistaja ja ylläpitäjä, kerää, käyttää ja suojaa henkilötietojasi, kun käytät tekoälypohjaista alustaamme saumattomaan muuttoon, oikeudelliseen neuvontaan ja maailmanlaajuiseen asumiseen, johon pääsee URL-osoitteen globalrelocate.com kautta ('Alusta'). Tämä käytäntö koskee myös kaikkia Alustan kautta tarjottavia palveluita, sisältöä, ominaisuuksia tai sovelluksia.",
+      "paragraph2": "Käyttämällä Alustaa hyväksyt henkilötietojesi keräämisen, käytön ja luovuttamisen tämän tietosuojakäytännön mukaisesti. Jos et hyväksy mitään tämän käytännön osaa, älä käytä Alustaa.",
+      "sections": {
+        "informationCollection": "1. Tietojen kerääminen",
+        "informationCollection_1": "1.1 Henkilötiedot: Voimme kerätä sinulta erilaisia henkilötietoja, kun käytät Alustaa. Näitä voivat olla nimesi, sähköpostiosoitteesi, yhteystietosi, muuttotoiveesi ja muut tiedot, jotka annat meille vapaaehtoisesti.",
+        "informationCollection_2": "1.2 Käyttötiedot: Keräämme automaattisesti tiettyjä ei-henkilökohtaisesti tunnistettavia tietoja Alustan käytöstäsi. Näitä voivat olla IP-osoitteesi, selaintyyppisi, käyttöjärjestelmäsi, laitetietosi, vieraillut sivut, viittaavat/poistumissivut ja muut vastaavat tiedot.",
+        "useOfInformation": "2. Tietojen käyttö",
+        "personalInformationUse": "2.1 Henkilötiedot: Voimme käyttää meille antamiasi henkilötietoja seuraaviin tarkoituksiin:",
+        "personalInformationUse_bullet1": "Tarjotaksemme ja parantaaksemme tekoälypohjaisia muutto-palveluitamme, oikeudellista neuvontaa ja maailmanlaajuisia asumisresurssejamme.",
+        "personalInformationUse_bullet2": "Käsitelläksemme pyyntöjäsi, tarjotaksemme henkilökohtaisia muuttosuunnitelmia ja toimittaaksemme räätälöityä sisältöä.",
+        "personalInformationUse_bullet3": "Kommunikoidaksemme kanssasi, vastataksemme tiedusteluihin ja tarjotaksemme asiakastukea.",
+        "personalInformationUse_bullet4": "Lähettääksemme henkilökohtaisia hälytyksiä, päivityksiä ja ilmoituksia viisumeista, elinkustannuksista ja muista muuttoon liittyvistä tiedoista.",
+        "personalInformationUse_bullet5": "Parantaaksemme kokemustasi Alustalla tarjoamalla suosikkiominaisuuden ja räätälöityjä suosituksia.",
+        "personalInformationUse_bullet6": "Valvoaksemme käyttöehtojamme ja muita käytäntöjämme.",
+        "personalInformationUse_bullet7": "Noudattaaksemme lakisääteisiä velvoitteita.",
+        "usageDataUse": "2.2 Käyttötiedot: Käytämme käyttötietoja analysoidaksemme trendejä, seurataksemme käyttäjien sitoutumista, valvoaksemme palveluidemme tehokkuutta ja parantaaksemme käyttökokemusta Alustalla.",
+        "informationSharing": "3. Tietojen jakaminen",
+        "informationSharing_1": "3.1 Kolmannen osapuolen palveluntarjoajat: Voimme jakaa henkilötietojasi luotettujen kolmannen osapuolen palveluntarjoajien kanssa, jotka auttavat meitä Alustan ylläpidossa, palveluiden toimittamisessa, maksujen käsittelyssä, analytiikan suorittamisessa tai muiden tarvittavien toimintojen suorittamisessa. Nämä palveluntarjoajat ovat sitoutuneet tiukkoihin salassapitosopimuksiin, ja heitä on kielletty käyttämästä henkilötietojasi mihinkään muihin tarkoituksiin.",
+        "informationSharing_2": "3.2 Lakien noudattaminen ja suojaus: Voimme luovuttaa henkilötietojasi, jos laki, määräys, oikeudellinen prosessi tai viranomaispyyntö niin vaatii. Voimme myös luovuttaa tietojasi suojellaksemme oikeuksiamme, omaisuuttamme tai turvallisuuttamme sekä käyttäjiemme tai muiden oikeuksia, omaisuutta tai turvallisuutta.",
+        "cookies": "4. Evästeet ja seurantateknologiat",
+        "cookies_1": "4.1 Käytämme Alustalla evästeitä ja muita seurantateknologioita kerätäksemme ja tallentaaksemme tiettyjä tietoja. Evästeet ovat pieniä tekstitiedostoja, jotka sijoitetaan laitteellesi auttamaan meitä analysoimaan Alustan käyttöä, muistamaan käyttäjän asetukset ja parantamaan yleistä kokemustasi. Sinulla on mahdollisuus poistaa evästeet käytöstä selaimesi asetuksista; tämä voi kuitenkin rajoittaa tiettyjä Alustan toimintoja.",
+        "dataSecurity": "5. Tietoturva",
+        "dataSecurity_1": "5.1 Toteutamme kohtuullisia turvatoimia suojellaksemme henkilötietojasi luvattomalta käytöltä, luovuttamiselta, muuttamiselta tai tuhoamiselta. Huomaa kuitenkin, että mikään tiedonsiirto internetin kautta tai tallennusmenetelmä ei ole 100 % turvallinen. Emme voi taata henkilötietojesi ehdotonta turvallisuutta.",
+        "thirdPartyLinks": "6. Kolmannen osapuolen linkit",
+        "thirdPartyLinks_1": "6.1 Alusta voi sisältää linkkejä kolmansien osapuolten verkkosivustoille tai palveluihin, joita emme omista tai hallinnoi. Emme ole vastuussa näiden kolmansien osapuolten sivustojen tietosuojakäytännöistä tai sisällöstä. Kehotamme sinua tutustumaan vierailemiesi kolmansien osapuolten verkkosivustojen tietosuojakäytäntöihin.",
+        "childrenPrivacy": "7. Lasten tietosuoja",
+        "childrenPrivacy_1": "7.1 Alusta ei ole tarkoitettu alle 13-vuotiaille henkilöille. Emme tietoisesti kerää henkilötietoja alle 13-vuotiailta lapsilta. Jos saamme tietää, että olemme vahingossa keränneet henkilötietoja alle 13-vuotiaalta lapselta, ryhdymme toimiin tietojen poistamiseksi viipymättä.",
+        "changesToPolicy": "8. Muutokset tähän tietosuojakäytäntöön",
+        "changesToPolicy_1": "8.1 Pidätämme oikeuden muuttaa tai päivittää tätä tietosuojakäytäntöä milloin tahansa. Kaikki muutokset tulevat voimaan välittömästi tarkistetun käytännön julkaisemisen jälkeen Alustalla. Kehotamme sinua tarkistamaan tämän käytännön säännöllisesti pysyäksesi ajan tasalla kaikista päivityksistä.",
+        "whyGlobalRelocate": "9. Miksi valita Global Relocate",
+        "whyGlobalRelocate_1": "Global Relocatella olemme sitoutuneet auttamaan sinua muuttamaan fiksummin ja elämään paremmin. Tässä syitä, miksi sinun kannattaa valita meidät:",
+        "whyGlobalRelocate_bullet1": "Aikaa säästävää tekoälytuettua dataa: Käytä aina ajantasaista ja luotettavaa tietoa tehdäksesi tietoon perustuvia päätöksiä.",
+        "whyGlobalRelocate_bullet2": "Vahvistetut yhteystiedot & luotetut lähteet: Hyödy yhteisöpohjaisesta alustasta, joka takaa uskottavuuden ja luottamuksen.",
+        "whyGlobalRelocate_bullet3": "Kaikki yhdessä ratkaisu: Löydä kaikki viisumeista elinkustannuksiin yhdestä paikasta.",
+        "whyGlobalRelocate_bullet4": "Henkilökohtaiset hälytykset: Pysy ajan tasalla räätälöityjen ilmoitusten ja juuri sinulle suunnitellun suosikkiominaisuuden avulla.",
+        "contactUs": "10. Ota yhteyttä",
+        "contactUs_1": "10.1 Jos sinulla on kysyttävää, huolenaiheita tai pyyntöjä koskien tätä tietosuojakäytäntöä tai tietokäytäntöjämme, ota meihin yhteyttä osoitteessa:"
+      }
+    },
+    "helpCenter": {
+      "help": "Olemme täällä auttaaksemme",
+      "howCanWeHelp": "Miten voimme auttaa sinua?",
+      "checkOut": "Tutustu usein kysyttyihin kysymyksiimme tai ota yhteyttä saadaksesi lisätukea.",
+      "faqs": {
+        "title": "Usein kysytyt kysymykset",
+        "question1": {
+          "question": "Mikä on Global Relocate?",
+          "answer": "Global Relocate on tekoälypohjainen alusta, joka on suunniteltu auttamaan yksityishenkilöitä ja perheitä muuttamaan uusiin maihin. Se tarjoaa henkilökohtaisia suosituksia, resursseja ja tukea tehdäkseen muutto-prosessista sujuvamman ja tehokkaamman."
+        },
+        "question2": {
+          "question": "Mitä Global Relocate auttaa saavuttamaan?",
+          "answer": "Global Relocate auttaa käyttäjiä saavuttamaan saumattoman muuttokokemuksen tarjoamalla räätälöityä neuvontaa, resursseja ja tukea uuteen maahan muuttamisen eri osa-alueisiin, mukaan lukien viisumihakemukset, asuminen, työllistyminen ja kulttuurinen integraatio."
+        },
+        "question3": {
+          "question": "Veloittaako Global Relocate käyttäjiä palveluista tai ominaisuuksista?",
+          "answer": "Kyllä, Global Relocate tarjoaa valikoiman palveluita ja ominaisuuksia, joihin voi liittyä maksuja. Se tarjoaa kuitenkin myös ilmaisia resursseja ja perustukea auttaakseen käyttäjiä aloittamaan muuttomatkansa."
+        },
+        "question4": {
+          "question": "Mitä tiedoilleni tapahtuu / Tallentaako Global Relocate henkilötietojani?",
+          "answer": "Global Relocate suhtautuu käyttäjien yksityisyyteen vakavasti. Emme tallenna henkilötietoja, ellei käyttäjä ole niitä nimenomaisesti antanut tiettyjä palveluita varten. Kaikki kerätyt tiedot käytetään ainoastaan käyttökokemuksen parantamiseen ja henkilökohtaisten suositusten tarjoamiseen. Lisätietoja saat tietosuojakäytännöstämme."
+        },
+        "question5": {
+          "question": "Keitä ovat Global Relocaten takana olevat ihmiset?",
+          "answer": "Global Relocaten on kehittänyt kokeneiden ammattilaisten tiimi tekoälyn, muutto-palveluiden ja kansainvälisen oikeuden aloilta. Tiimimme on omistautunut tarjoamaan parasta mahdollista tukea ja resursseja yksityishenkilöille ja perheille, jotka haluavat muuttaa."
+        },
+        "question6": {
+          "question": "Onko Global Relocate saatavilla useilla kielillä?",
+          "answer": "Kyllä, Global Relocate on saatavilla useilla kielillä palvellakseen monipuolista käyttäjäkuntaa. Voit valita haluamasi kielen alustan asetuksista."
+        },
+        "question7": {
+          "question": "Mistä Global Relocaten tiedot tulevat?",
+          "answer": "Global Relocaten tiedot hankitaan useista hyvämaineisista lähteistä, mukaan lukien hallitusten verkkosivustot, muuttoasiantuntijat ja käyttäjien tuottama sisältö. Päivitämme tietokantaamme jatkuvasti varmistaaksemme, että käyttäjillä on pääsy tarkimpaan ja olennaisimpaan tietoon muuttotarpeisiinsa."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Ota yhteyttä",
+      "titleDesc": "Voit esittää meille kysymyksiä",
+      "para": "Ota meihin yhteyttä kaikissa kysymyksissäsi ja mielipiteissäsi, tai voit saada vastauksia nopeasti vierailemalla yhdessä yhteystoimistoistamme.",
+      "ourOffices": "Toimistomme",
+      "ourOfficesDesc": "Meillä on toimistoja useissa paikoissa auttaaksemme sinua muuttotarpeissasi. Vieraile yhdessä toimistoistamme saadaksesi henkilökohtaista tukea.",
+      "dropUsAMessage": "Jätä meille viesti",
+      "dropUsAMessageDesc": "Täytä alla oleva lomake lähettääksesi meille viestin, ja otamme sinuun yhteyttä mahdollisimman pian.",
+      "yourName": "Nimesi",
+      "yourEmail": "Sähköpostisi",
+      "subject": "Aihe",
+      "yourMessage": "Viestisi",
+      "sendMessage": "Lähetä viesti",
+      "sending": "Lähetetään...",
+      "messageSent": "Viesti lähetetty onnistuneesti!",
+      "messageFailed": "Viestin lähettäminen epäonnistui. Yritä uudelleen."
+    }
+  },
+  "loginPage": {
+    "close": "Sulje",
+    "createAccount": "Luo tili",
+    "logIntoGR": "Kirjaudu Global Relocateen",
+    "password": "Salasana",
+    "enterPassword": "Syötä salasanasi",
+    "continueWithGoogle": "Jatka Googlella",
+    "cantLogin": "Etkö voi kirjautua sisään?",
+    "tosDesc": "Luomalla tilin hyväksyt ",
+    "tos": "Käyttöehtomme",
+    "privacyPolicy": "Tietosuojakäytännön",
+    "and": "ja",
+    "or": "TAI",
+    "processing": "Käsitellään...",
+    "continue": "Jatka",
+    "hidePassword": "Piilota salasana",
+    "showPassword": "Näytä salasana"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Luodaan tilisi",
+    "chooseAccountType": "Valitse tilityyppi",
+    "createPersonalAccount": "Luo henkilökohtainen tili",
+    "createCorporateAccount": "Luo yritystili",
+    "continue": "Jatka",
+    "chooseSignMethod": "Valitse rekisteröitymistapa",
+    "continueWithEmail": "Jatka sähköpostilla",
+    "alreadyHaveAccount": "Onko sinulla jo tili?",
+    "fullName": "Koko nimi",
+    "chooseUsername": "Valitse käyttäjätunnus",
+    "enterYourFullName": "Syötä koko nimesi",
+    "confirmPassword": "Vahvista salasana",
+    "country": "Maa"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Tervetuloa mukaan",
+    "welcomeText": "Tekoälypohjainen alustasi saumattomaan muuttoon, oikeudelliseen neuvontaan ja maailmanlaajuiseen asumiseen."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Maat",
+      "aiAssistant": "Tekoälyavustaja",
+      "compareCountries": "Vertaa maita",
+      "taxCalculator": "Verolaskuri",
+      "notifications": "Ilmoitukset",
+      "favourites": "Suosikit",
+      "community": "Yhteisö",
+      "cta": {
+        "title": "Kokeile Prota",
+        "para": "Olet tällä hetkellä ilmaisessa suunnitelmassa, joka on voimassa 3 päivää. Päivitä nyt jatkaaksesi Global Relocaten käyttöä.",
+        "buttonText": "Lue lisää"
+      }
+    },
+    "notifications": {
+      "noNotifications": "Sinulla ei ole vielä ilmoituksia.",
+      "markAllAsRead": "Merkitse kaikki luetuiksi",
+      "deleteAll": "Poista kaikki",
+      "markAsRead": "Merkitse luetuksi",
+      "delete": "Poista ilmoitus",
+      "showLess": "Näytä vähemmän tätä",
+      "showMore": "Näytä lisää tuloksia"
+    },
+    "countries": {
+      "title": "Maat",
+      "noDataText": "Ei tietoja saatavilla!",
+      "searchText": "Etsi maita",
+      "clickToSelect": "Napsauta valitaksesi maan",
+      "view": "Näytä",
+      "searchResults": "Hakutulokset",
+      "aiSuggestedCountries": "Tekoälyn ehdottamat maat",
+      "searchCountries": "Etsi maita"
+    },
+    "country": {
+      "countryIn": "Maa",
+      "addFavorite": "Lisää suosikkeihin",
+      "removeFavorite": "Poista suosikeista",
+      "share": "Jaa",
+      "overview": "Yleiskatsaus",
+      "map": "Kartta",
+      "keyFacts": "Keskeiset tiedot",
+      "visaMigration": "Viisumi & Maahanmuutto",
+      "taxes": "Verot",
+      "flag": "Lippu",
+      "capital": "Pääkaupunki",
+      "languages": "Kielet",
+      "currency": "Valuutta",
+      "population": "Väkiluku",
+      "dialingCode": "Suuntanumero",
+      "back": "Takaisin",
+      "noOverview": "Tästä maasta ei ole yleiskatsausta saatavilla.",
+      "noVisaInfo": "Viisumi- ja maahanmuuttotietoja ei ole saatavilla."
+    },
+    "ai": {
+      "rename": "Nimeä uudelleen",
+      "deleteConversation": "Poista keskustelu",
+      "share": "Jaa",
+      "hello": "Hei",
+      "newChat": "Uusi keskustelu",
+      "askAI": "Kysy tekoälyltä mitä vain...",
+      "uploadDocument": "Lataa asiakirja",
+      "uploadDocumentDesc": "Lataa asiakirja käsiteltäväksi tekoälyavustajalla",
+      "cancel": "Peruuta",
+      "upload": "Lataa"
+    },
+    "settings": {
+      "accountSettings": "Tiliasetukset",
+      "editProfile": "Muokkaa profiilia",
+      "profile": "Profiili",
+      "account": "Tili",
+      "preferences": "Asetukset",
+      "avatar": "Avatar",
+      "fullName": "Koko nimi",
+      "username": "Käyttäjätunnus",
+      "bio": "Bio",
+      "country": "Maa",
+      "emailAddress": "Sähköpostiosoite",
+      "verified": "Vahvistettu",
+      "subscription": "Tilaus",
+      "subscriptionDesc": "Olet tällä hetkellä ilmaisessa suunnitelmassa, joka on voimassa 3 päivää. Päivitä nyt jatkaaksesi Global Relocaten käyttöä.",
+      "deleteAccount": "Poista tili",
+      "deleteDesc": "Poista tilisi ja tietosi pysyvästi",
+      "language": "Kieli",
+      "chooseLanguage": "Valitse kieli",
+      "selectLanguage": "Valitse kieli",
+      "learnMore": "Lue lisää",
+      "saveChanges": "Tallenna muutokset",
+      "cancel": "Peruuta",
+      "saving": "Tallennetaan...",
+      "unsavedChanges": "Sinulla on tallentamattomia muutoksia",
+      "addName": "Lisää nimi",
+      "addBio": "Lisää bio kertoaksesi tarinasi.",
+      "addUsername": "Lisää käyttäjätunnus",
+      "addLocation": "Lisää sijainti",
+      "confirmAccountDelete": "Vahvista tilin poisto",
+      "confirmAccountDeleteDesc": "Ennen kuin poistat tilisi, käytä hetki ymmärtääksesi, mitä tiedoillesi tapahtuu:",
+      "confirm": "Vahvista",
+      "neverMind": "Ei se mitään",
+      "confirmDeleteWarning": "Muista, että tilin poistamista ei voi peruuttaa.",
+      "confirmDeleteList1": "Profiilitietosi, asetuksesi ja määrityksesi poistetaan.",
+      "confirmDeleteList2": "Kaikki tiedot poistetaan pysyvästi 30 päivän kuluttua tilin poistamisesta.",
+      "deleting": "Poistetaan...",
+      "youHave": "Sinulla on:",
+      "administrator": "Järjestelmänvalvoja"
+    },
+    "continents": {
+      "all": "Kaikki",
+      "europe": "Eurooppa",
+      "asia": "Aasia",
+      "africa": "Afrikka",
+      "south america": "Etelä-Amerikka",
+      "north america": "Pohjois-Amerikka",
+      "antarctica": "Antarktis",
+      "oceania": "Oseania"
+    },
+    "tax": {
+      "taxCalculator": "Verolaskuri",
+      "taxCacluatorDesc": "Laske arvioitu verorasituksesi eri maissa",
+      "country": "Maa",
+      "annualIncome": "Vuositulot",
+      "userAccount": "Käyttäjätili",
+      "totalDeductions": "Vähennykset yhteensä",
+      "selectCountry": "Valitse maasi",
+      "selectAccount": "Valitse tilityyppi",
+      "enterIncome": "Syötä vuositulosi",
+      "enterDeductions": "Syötä vähennykset yhteensä",
+      "calculateTax": "Laske vero",
+      "individual": "Yksityishenkilö",
+      "corporate": "Yritys",
+      "taxSummary": "Veroyhteenveto",
+      "taxAmount": "Veron määrä",
+      "effectiveRate": "Todellinen veroaste",
+      "takeHomeAmount": "Käteen jäävä summa"
+    },
+    "upgradePage": {
+      "back": "Takaisin",
+      "upgradePlan": "Päivitä suunnitelmasi",
+      "upgradePlanDesc": "Valitse täydellinen suunnitelma tukemaan maailmanlaajuista muuttomatkaasi. Saat käyttöösi kattavat työkalut ja oivallukset tehdäksesi muutostasi saumattoman.",
+      "currentPlan": "Nykyinen suunnitelmasi",
+      "getStarted": "Aloita",
+      "free": "Ilmainen",
+      "basic": "Perus",
+      "premium": "Premium",
+      "perMonth": "kuukaudessa",
+      "forEveryone": "Kaikille",
+      "freePlan": {
+        "item1": "3 päivän kokeilujakso",
+        "item2": "Perusmaatiedot",
+        "item3": "Yhteisön käyttö (vain luku)",
+        "item4": "Rajoitettu verolaskuri",
+        "item5": "Peruskustannusvertailu"
+      },
+      "basicPlan": {
+        "item1": "Täydelliset maatiedot",
+        "item2": "Yhteisöön osallistuminen",
+        "item3": "Täydellinen verolaskuri",
+        "item4": "Kustannusvertailutyökalut",
+        "item5": "Perusmuutto-oppaat",
+        "item6": "Sähköpostituki"
+      },
+      "premiumPlan": {
+        "item1": "Kaikki Perus-ominaisuudet",
+        "item2": "Rajoittamaton pääsy maatietoihin",
+        "item3": "Täysi yhteisöön osallistuminen",
+        "item4": "Edistynyt verolaskuri",
+        "item5": "Tekoälyavusteinen muuttoavustaja",
+        "item6": "Elinkustannustiedot",
+        "item7": "Viisumivaatimusten oppaat",
+        "item8": "Ensisijainen tuki",
+        "item9": "Räätälöity muuttosuunnitelma"
+      }
+    },
+    "favorites": {
+      "noFavorites": "Sinulla ei ole vielä suosikkeja.",
+      "addToFavorites": "Lisää suosikkeihin",
+      "removeFromFavorites": "Poista suosikeista"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Vahvista muutokset"
+    }
+  },
+  "footer": {
+    "topCountries": "Suosituimmat maat",
+    "sitemap": "Sivukartta",
+    "company": "Yritys",
+    "terms": "Ehdot",
+    "privacy": "Tietosuoja",
+    "contact": "Ota yhteyttä",
+    "subscribeNewsletter": "Tilaa uutiskirjeemme",
+    "subscribeNewsDesc": "Pysy ajan tasalla uusimmista oivalluksista maailmanlaajuisesta muutosta",
+    "enterEmail": "Syötä sähköpostiosoitteesi",
+    "subscribe": "Tilaa",
+    "copyright": "Kaikki tämän verkkosivuston sisältö on suojattu tekijänoikeudella.",
+    "rankings": "Sijoitukset",
+    "safestCountries": "Turvallisimmat maat",
+    "humanFreedomLevel": "Ihmisen vapauden taso",
+    "lifeExpectancy": "Elinajanodote",
+    "happinessIndex": "Maailman onnellisuusindeksi",
+    "citizenshipQualityRankings": "Kansalaisuuden laadun sijoitukset",
+    "trends": "Trendit",
+    "foreignCitizenship": "Ulkomaan kansalaisuus",
+    "digitalNomadVisas": "Digitaaliset nomadi-viisumit",
+    "taxesRankings": "Verosijoitukset",
+    "residencyPermit": "Oleskelulupa"
+  },
+  "toast": {
+    "thanksNewsletter": "Kiitos uutiskirjeemme tilaamisesta!",
+    "linkCopied": "Linkki kopioitu leikepöydälle!",
+    "linkCopyFailed": "Linkin kopiointi epäonnistui",
+    "newSessionStarted": "Uusi istunto aloitettu",
+    "newSessionFailed": "Uuden istunnon aloittaminen epäonnistui. Yritä uudelleen.",
+    "redirectToPayPage": "Ohjataan maksusivulle...",
+    "activeSessionShare": "Tarvitset aktiivisen istunnon jakaaksesi",
+    "sessionDeleteFailed": "Istunnon poistaminen epäonnistui. Yritä uudelleen.",
+    "sessionDeleteSuccess": "Istunto poistettu onnistuneesti!",
+    "sessionRenameSuccess": "Istunto nimetty uudelleen onnistuneesti!",
+    "sessionRenameFailed": "Istunnon uudelleennimeäminen epäonnistui. Yritä uudelleen.",
+    "enterSessionName": "Anna tälle istunnolle uusi nimi:"
+  },
+  "formErrors": {
+    "invalidEmail": "Virheellinen sähköpostimuoto",
+    "emailRequired": "Sähköposti vaaditaan",
+    "fullNameRequired": "Koko nimi vaaditaan",
+    "enterFullName": "Syötä koko nimesi",
+    "passwordRequired": "Salasana vaaditaan",
+    "minPassword": "Salasanan on oltava vähintään 8 merkkiä pitkä",
+    "passwordsMismatch": "Salasanat eivät täsmää",
+    "weakPassword": "Salasana on liian heikko",
+    "selectCountry": "Valitse maa",
+    "usernameRequired": "Käyttäjätunnus vaaditaan",
+    "minUsername": "Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä",
+    "cpasswordRequired": "Vahvista salasana vaaditaan"
+  }
+}

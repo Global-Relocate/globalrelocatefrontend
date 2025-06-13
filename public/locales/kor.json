@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "홈",
+      "countriesData": "국가 및 데이터",
+      "community": "커뮤니티",
+      "taxCalculator": "세금 계산기",
+      "pricing": "가격",
+      "viewProfile": "프로필 보기",
+      "helpCenter": "도움말 센터",
+      "giveFeedback": "피드백 제공",
+      "privacyPolicy": "개인정보 처리방침",
+      "upgradePlan": "플랜 업그레이드",
+      "logIn": "로그인",
+      "getStarted": "시작하기",
+      "logout": "로그아웃"
+    },
+    "showcase": {
+      "title": "더 스마트하게 이전하고, 더 나은 삶을 누리세요.",
+      "para": "원활한 이전, 법률 자문, 글로벌 생활을 위한 AI 기반 플랫폼입니다.",
+      "buttonText": "시작하기"
+    },
+    "features": {
+      "title": "특징",
+      "cards": {
+        "card1": {
+          "title": "국가 비교",
+          "para": "생활비, 세율, 삶의 질과 같은 주요 요소를 분석하여 여러 국가를 나란히 비교하여 정보에 입각한 결정을 내리세요."
+        },
+        "card2": {
+          "title": "AI를 활용한 스마트 정보",
+          "para": "같은 생각을 가진 글로벌 노마드들과 포럼 및 그룹에 참여하세요."
+        },
+        "card3": {
+          "title": "국가 및 데이터",
+          "para": "같은 생각을 가진 글로벌 노마드들과 포럼 및 그룹에 참여하세요."
+        }
+      }
+    },
+    "countries": {
+      "title": "인기 국가",
+      "para": "인기 있는 목적지를 탐색하고 이전 계획을 시작하세요."
+    },
+    "whyChooseUs": {
+      "title": "왜 우리를 선택해야 할까요?",
+      "card1": {
+        "title": "시간 절약형 AI 지원 데이터",
+        "para": "항상 최신의 신뢰할 수 있는 정보."
+      },
+      "card2": {
+        "title": "검증된 연락처 및 신뢰할 수 있는 출처:",
+        "para": "신뢰성을 보장하는 커뮤니티 기반 플랫폼."
+      },
+      "card3": {
+        "title": "올인원 솔루션",
+        "para": "비자부터 생활비까지 모든 것을 한 곳에서."
+      },
+      "card4": {
+        "title": "맞춤형 알림",
+        "para": "맞춤형 알림과 즐겨찾기 기능으로 앞서나가세요."
+      }
+    },
+    "forgotPassword": {
+      "title": "비밀번호를 잊으셨나요?",
+      "para": "계정 이메일을 입력하시면 비밀번호를 재설정할 수 있는 OTP를 보내드립니다.",
+      "emailLabel": "이메일 주소",
+      "sending": "보내는 중...",
+      "sendOTP": "OTP 보내기",
+      "resendOTP": "OTP 재전송",
+      "verifyOTP": "OTP 확인",
+      "otpSent": "OTP가 이메일로 전송되었습니다.",
+      "continuePrompt": "아래 계속 버튼을 클릭하여 새 비밀번호를 만드세요.",
+      "continue": "계속하기",
+      "rememberPassword": "비밀번호가 기억나셨나요?",
+      "logIn": "로그인"
+    },
+    "termsOfService": {
+      "title": "이용 약관",
+      "paragraph": "globalrelocate.com에 오신 것을 환영합니다! 본 이용 약관('약관')은 URL globalrelocate.com(이하 '플랫폼')을 통해 액세스하는 원활한 이전, 법률 자문 및 글로벌 생활을 위한 AI 기반 플랫폼 사용에 적용됩니다. 플랫폼에 액세스하거나 사용함으로써 귀하는 본 약관에 동의하는 것으로 간주됩니다. 주의 깊게 읽어보십시오.",
+      "sections": {
+        "platformUse": "1. 플랫폼 사용",
+        "platformUse_1": "1.1 자격: 플랫폼을 사용하려면 만 18세 이상이거나 해당 관할권에서 계약을 체결할 수 있는 법적 능력이 있어야 합니다. 플랫폼에 액세스하거나 사용함으로써 귀하는 자격 요건을 충족함을 진술하고 보증합니다.",
+        "platformUse_2": "1.2 사용자 계정: 플랫폼의 특정 기능에 액세스하려면 사용자 계정을 만들어야 할 수 있습니다. 귀하는 계정 정보의 기밀을 유지할 책임이 있으며 귀하의 계정을 통해 수행되는 모든 활동에 대해 전적으로 책임을 지는 데 동의합니다.",
+        "platformUse_3": "1.3 금지된 활동: 귀하는 본 약관 또는 해당 법률이나 규정을 위반하는 활동에 참여하지 않는 데 동의합니다. 금지된 활동에는 다음이 포함되지만 이에 국한되지는 않습니다.",
+        "prohibited_1": "지적 재산권 침해",
+        "prohibited_2": "불법적이거나 유해하거나 타인의 권리를 침해하는 콘텐츠 업로드 또는 공유",
+        "prohibited_3": "플랫폼의 정상적인 기능 방해",
+        "prohibited_4": "다른 사람이나 단체 사칭",
+        "intellectualProperty": "2. 지적 재산권",
+        "intellectualProperty_1": "2.1 소유권: 플랫폼에서 사용할 수 있는 텍스트, 그래픽, 로고, 이미지, 오디오 클립, 비디오 및 소프트웨어를 포함하되 이에 국한되지 않는 모든 콘텐츠는 Global Relocate 또는 해당 라이선스 제공자의 소유이며 지적 재산권법에 의해 보호됩니다.",
+        "intellectualProperty_2": "2.2 콘텐츠 사용: 귀하는 개인적, 비상업적 목적으로만 플랫폼의 콘텐츠에 액세스하고 사용할 수 있습니다. Global Relocate의 사전 서면 허가 없이 콘텐츠를 수정, 복제, 배포, 표시, 실행 또는 파생 저작물을 만들 수 없습니다.",
+        "disclaimer": "3. 보증 부인",
+        "disclaimer_1": "3.1 플랫폼은 어떠한 종류의 보증 없이 '있는 그대로' 및 '사용 가능한 대로' 제공됩니다. Global Relocate는 상품성, 특정 목적에의 적합성 및 비침해를 포함하되 이에 국한되지 않는 명시적이든 묵시적이든 모든 보증을 부인합니다.",
+        "disclaimer_2": "3.2 Global Relocate는 플랫폼의 콘텐츠 또는 정보의 정확성, 완전성 또는 신뢰성을 보장하지 않습니다. 귀하는 플랫폼 사용에 따른 위험은 전적으로 귀하의 책임임을 인정합니다.",
+        "liability": "4. 책임 제한",
+        "liability_1": "4.1 법이 허용하는 최대 한도 내에서 Global Relocate 및 그 이사, 직원, 계열사 및 대리인은 귀하의 플랫폼 사용 또는 그 안의 콘텐츠와 관련하여 발생하는 모든 직접적, 간접적, 부수적, 특별 또는 결과적 손해에 대해 책임을 지지 않습니다.",
+        "thirdParty": "5. 제3자 링크",
+        "thirdParty_1": "5.1 플랫폼에는 제3자 웹사이트 또는 서비스에 대한 링크가 포함될 수 있습니다. Global Relocate는 제3자 웹사이트 또는 서비스의 콘텐츠, 정확성 또는 신뢰성에 대해 책임을 지지 않습니다. 그러한 링크를 포함한다고 해서 Global Relocate가 보증하거나 제휴한다는 의미는 아닙니다.",
+        "modifications": "6. 수정 및 종료",
+        "modifications_1": "6.1 Global Relocate는 사전 통지 없이 플랫폼의 일부 또는 전부를 일시적 또는 영구적으로 수정, 중단 또는 중단할 권리를 보유합니다. Global Relocate는 플랫폼의 수정, 중단 또는 중단에 대해 귀하 또는 제3자에게 책임을 지지 않습니다.",
+        "governingLaw": "7. 준거법 및 관할권",
+        "governingLaw_1": "7.1 본 약관은 [귀하의 국가] 법률에 따라 규율되고 해석됩니다. 본 약관 또는 귀하의 플랫폼 사용과 관련하여 발생하는 모든 분쟁은 [귀하의 도시, 국가] 법원의 전속 관할권에 따릅니다.",
+        "entireAgreement": "8. 완전 합의",
+        "entireAgreement_1": "8.1 본 약관은 플랫폼 사용과 관련하여 귀하와 Global Relocate 간의 완전한 합의를 구성하며 이전 또는 현재의 모든 계약, 통신 또는 진술을 대체합니다.",
+        "whyChoose": "9. Global Relocate를 선택해야 하는 이유",
+        "whyChoose_1": "Global Relocate는 귀하가 더 스마트하게 이전하고 더 나은 삶을 살 수 있도록 돕기 위해 최선을 다하고 있습니다. 우리를 선택해야 하는 이유는 다음과 같습니다.",
+        "whyChoose_bullet1": "시간 절약형 AI 지원 데이터: 항상 최신의 신뢰할 수 있는 정보에 액세스하여 정보에 입각한 결정을 내립니다.",
+        "whyChoose_bullet2": "검증된 연락처 및 신뢰할 수 있는 출처: 신뢰성과 신뢰를 보장하는 커뮤니티 기반 플랫폼의 이점을 누리십시오.",
+        "whyChoose_bullet3": "올인원 솔루션: 비자부터 생활비까지 모든 것을 한 곳에서 찾으십시오.",
+        "whyChoose_bullet4": "맞춤형 알림: 귀하를 위해 설계된 맞춤형 알림과 즐겨찾기 기능으로 앞서나가십시오."
+      }
+    },
+    "privacyPolicy": {
+      "title": "개인정보 처리방침 및 법적 고지",
+      "paragraph": "본 개인정보 처리방침은 globalrelocate.com의 소유자이자 운영자인 Global Relocate(이하 '당사', '우리' 또는 '우리의')가 귀하가 URL globalrelocate.com(이하 '플랫폼')을 통해 액세스하는 원활한 이전, 법률 자문 및 글로벌 생활을 위한 AI 기반 플랫폼을 사용할 때 귀하의 개인 정보를 수집, 사용 및 보호하는 방법을 설명합니다. 이 정책은 플랫폼을 통해 제공되는 모든 서비스, 콘텐츠, 기능 또는 애플리케이션에도 적용됩니다.",
+      "paragraph2": "플랫폼에 액세스하거나 사용함으로써 귀하는 본 개인정보 처리방침에 설명된 대로 귀하의 개인 정보 수집, 사용 및 공개에 동의하는 것으로 간주됩니다. 본 정책의 어떤 측면에도 동의하지 않으면 플랫폼 사용을 삼가십시오.",
+      "sections": {
+        "informationCollection": "1. 정보 수집",
+        "informationCollection_1": "1.1 개인 정보: 당사는 귀하가 플랫폼을 사용할 때 다양한 유형의 개인 정보를 수집할 수 있습니다. 여기에는 귀하의 이름, 이메일 주소, 연락처 정보, 이전 기본 설정 및 귀하가 자발적으로 당사에 제공하는 기타 정보가 포함될 수 있습니다.",
+        "informationCollection_2": "1.2 사용 데이터: 당사는 귀하의 플랫폼 사용에 대한 특정 비개인 식별 정보를 자동으로 수집합니다. 여기에는 귀하의 IP 주소, 브라우저 유형, 운영 체제, 장치 정보, 방문한 페이지, 참조/종료 URL 및 기타 유사한 데이터가 포함될 수 있습니다.",
+        "useOfInformation": "2. 정보 사용",
+        "personalInformationUse": "2.1 개인 정보: 당사는 귀하가 당사에 제공한 개인 정보를 다음 목적으로 사용할 수 있습니다.",
+        "personalInformationUse_bullet1": "AI 기반 이전 서비스, 법률 자문 및 글로벌 생활 리소스를 제공하고 개선하기 위해.",
+        "personalInformationUse_bullet2": "귀하의 요청을 처리하고, 맞춤형 이전 계획을 제공하고, 맞춤형 콘텐츠를 제공하기 위해.",
+        "personalInformationUse_bullet3": "귀하와 소통하고, 문의에 응답하고, 고객 지원을 제공하기 위해.",
+        "personalInformationUse_bullet4": "비자, 생활비 및 기타 이전 관련 정보에 대한 맞춤형 알림, 업데이트 및 알림을 보내기 위해.",
+        "personalInformationUse_bullet5": "즐겨찾기 기능과 맞춤형 추천을 제공하여 플랫폼에서 귀하의 경험을 향상시키기 위해.",
+        "personalInformationUse_bullet6": "당사의 서비스 약관 및 기타 정책을 시행하기 위해.",
+        "personalInformationUse_bullet7": "법적 의무를 준수하기 위해.",
+        "usageDataUse": "2.2 사용 데이터: 당사는 추세를 분석하고, 사용자 참여를 추적하고, 서비스의 효과를 모니터링하고, 플랫폼에서 사용자 경험을 향상시키기 위해 사용 데이터를 사용합니다.",
+        "informationSharing": "3. 정보 공유",
+        "informationSharing_1": "3.1 제3자 서비스 제공업체: 당사는 플랫폼 운영, 서비스 제공, 결제 처리, 분석 수행 또는 기타 필요한 기능을 수행하는 데 도움을 주는 신뢰할 수 있는 제3자 서비스 제공업체와 귀하의 개인 정보를 공유할 수 있습니다. 이러한 서비스 제공업체는 엄격한 기밀 유지 계약에 구속되며 다른 목적으로 귀하의 개인 정보를 사용하는 것이 금지됩니다.",
+        "informationSharing_2": "3.2 법률 준수 및 보호: 당사는 법률, 규정, 법적 절차 또는 정부 요청에 따라 귀하의 개인 정보를 공개할 수 있습니다. 또한 당사는 당사의 권리, 재산 또는 안전뿐만 아니라 사용자 또는 타인의 권리, 재산 또는 안전을 보호하기 위해 귀하의 정보를 공개할 수 있습니다.",
+        "cookies": "4. 쿠키 및 추적 기술",
+        "cookies_1": "4.1 당사는 특정 정보를 수집하고 저장하기 위해 플랫폼에서 쿠키 및 기타 추적 기술을 사용합니다. 쿠키는 플랫폼 사용을 분석하고, 사용자 기본 설정을 기억하고, 전반적인 경험을 향상시키는 데 도움이 되도록 장치에 저장되는 작은 텍스트 파일입니다. 브라우저 설정을 통해 쿠키를 비활성화할 수 있지만 이렇게 하면 플랫폼의 특정 기능이 제한될 수 있습니다.",
+        "dataSecurity": "5. 데이터 보안",
+        "dataSecurity_1": "5.1 당사는 귀하의 개인 정보를 무단 액세스, 공개, 변경 또는 파괴로부터 보호하기 위해 합리적인 보안 조치를 시행합니다. 그러나 인터넷을 통한 데이터 전송이나 저장 방법은 100% 안전하지 않다는 점에 유의하십시오. 당사는 귀하의 개인 정보의 절대적인 보안을 보장할 수 없습니다.",
+        "thirdPartyLinks": "6. 제3자 링크",
+        "thirdPartyLinks_1": "6.1 플랫폼에는 당사가 소유하거나 통제하지 않는 제3자 웹사이트 또는 서비스에 대한 링크가 포함될 수 있습니다. 당사는 이러한 제3자 사이트의 개인정보 보호 관행이나 콘텐츠에 대해 책임을 지지 않습니다. 방문하는 모든 제3자 웹사이트의 개인정보 처리방침을 검토하는 것이 좋습니다.",
+        "childrenPrivacy": "7. 아동의 개인정보 보호",
+        "childrenPrivacy_1": "7.1 플랫폼은 13세 미만의 개인을 대상으로 하지 않습니다. 당사는 13세 미만의 아동으로부터 고의로 개인 정보를 수집하지 않습니다. 13세 미만의 아동으로부터 실수로 개인 정보를 수집했다는 사실을 알게 되면 즉시 정보를 삭제하는 조치를 취할 것입니다.",
+        "changesToPolicy": "8. 본 개인정보 처리방침 변경",
+        "changesToPolicy_1": "8.1 당사는 언제든지 본 개인정보 처리방침을 수정하거나 업데이트할 권리를 보유합니다. 모든 변경 사항은 수정된 정책을 플랫폼에 게시하는 즉시 효력이 발생합니다. 업데이트된 내용을 확인하기 위해 이 정책을 주기적으로 검토하는 것이 좋습니다.",
+        "whyGlobalRelocate": "9. Global Relocate를 선택해야 하는 이유",
+        "whyGlobalRelocate_1": "Global Relocate는 귀하가 더 스마트하게 이전하고 더 나은 삶을 살 수 있도록 돕기 위해 최선을 다하고 있습니다. 우리를 선택해야 하는 이유는 다음과 같습니다.",
+        "whyGlobalRelocate_bullet1": "시간 절약형 AI 지원 데이터: 항상 최신의 신뢰할 수 있는 정보에 액세스하여 정보에 입각한 결정을 내립니다.",
+        "whyGlobalRelocate_bullet2": "검증된 연락처 및 신뢰할 수 있는 출처: 신뢰성과 신뢰를 보장하는 커뮤니티 기반 플랫폼의 이점을 누리십시오.",
+        "whyGlobalRelocate_bullet3": "올인원 솔루션: 비자부터 생활비까지 모든 것을 한 곳에서 찾으십시오.",
+        "whyGlobalRelocate_bullet4": "맞춤형 알림: 귀하를 위해 설계된 맞춤형 알림과 즐겨찾기 기능으로 앞서나가십시오.",
+        "contactUs": "10. 문의하기",
+        "contactUs_1": "10.1 본 개인정보 처리방침 또는 당사의 데이터 관행에 대해 질문, 우려 사항 또는 요청이 있는 경우 다음 주소로 문의하십시오."
+      }
+    },
+    "helpCenter": {
+      "help": "도와드리겠습니다",
+      "howCanWeHelp": "어떻게 도와드릴까요?",
+      "checkOut": "FAQ를 확인하거나 추가 지원을 위해 문의하십시오.",
+      "faqs": {
+        "title": "자주 묻는 질문",
+        "question1": {
+          "question": "Global Relocate란 무엇인가요?",
+          "answer": "Global Relocate는 개인과 가족이 새로운 국가로 이전하는 것을 지원하도록 설계된 AI 기반 플랫폼입니다. 이전 과정을 더 원활하고 효율적으로 만들기 위한 맞춤형 추천, 리소스 및 지원을 제공합니다."
+        },
+        "question2": {
+          "question": "Global Relocate는 무엇을 달성하는 데 도움이 되나요?",
+          "answer": "Global Relocate는 비자 신청, 주택, 고용 및 문화 통합을 포함하여 새로운 국가로 이주하는 다양한 측면에 대한 맞춤형 조언, 리소스 및 지원을 제공하여 사용자가 원활한 이전 경험을 달성하도록 돕습니다."
+        },
+        "question3": {
+          "question": "Global Relocate는 서비스 또는 기능에 대해 사용자에게 요금을 부과하나요?",
+          "answer": "예, Global Relocate는 요금이 부과될 수 있는 다양한 서비스와 기능을 제공합니다. 그러나 사용자가 이전 여정을 시작하는 데 도움이 되는 무료 리소스와 기본 지원도 제공합니다."
+        },
+        "question4": {
+          "question": "내 데이터는 어떻게 되나요 / Global Relocate는 내 개인 정보를 저장하나요?",
+          "answer": "Global Relocate는 사용자 개인 정보를 중요하게 생각합니다. 특정 서비스를 위해 사용자가 명시적으로 제공하지 않는 한 개인 정보를 저장하지 않습니다. 수집된 모든 데이터는 사용자 경험을 향상시키고 맞춤형 추천을 제공하는 데만 사용됩니다. 자세한 내용은 개인정보 처리방침을 참조하십시오."
+        },
+        "question5": {
+          "question": "Global Relocate의 배후에는 누가 있나요?",
+          "answer": "Global Relocate는 AI, 이전 서비스 및 국제법 분야의 숙련된 전문가 팀이 개발했습니다. 우리 팀은 이전을 원하는 개인과 가족에게 최상의 지원과 리소스를 제공하기 위해 최선을 다하고 있습니다."
+        },
+        "question6": {
+          "question": "Global Relocate는 여러 언어로 제공되나요?",
+          "answer": "예, Global Relocate는 다양한 사용자 기반을 수용하기 위해 여러 언어로 제공됩니다. 플랫폼의 설정 섹션에서 원하는 언어를 선택할 수 있습니다."
+        },
+        "question7": {
+          "question": "Global Relocate의 정보는 어디에서 나오나요?",
+          "answer": "Global Relocate의 정보는 정부 웹사이트, 이전 전문가 및 사용자 생성 콘텐츠를 포함한 다양한 평판 좋은 출처에서 제공됩니다. 사용자가 이전 요구 사항에 가장 정확하고 관련성 높은 정보에 액세스할 수 있도록 데이터베이스를 지속적으로 업데이트합니다."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "문의하기",
+      "titleDesc": "질문하실 수 있습니다",
+      "para": "모든 질문과 의견에 대해 문의하거나 당사 연락 사무소 중 한 곳을 방문하여 신속하게 답변을 얻을 수 있습니다.",
+      "ourOffices": "우리 사무실",
+      "ourOfficesDesc": "당사는 귀하의 이전 요구 사항을 지원하기 위해 다양한 위치에 사무실을 두고 있습니다. 맞춤형 지원을 받으려면 당사 사무실 중 한 곳을 방문하십시오.",
+      "dropUsAMessage": "메시지를 남겨주세요",
+      "dropUsAMessageDesc": "아래 양식을 작성하여 메시지를 보내주시면 최대한 빨리 답변드리겠습니다.",
+      "yourName": "이름",
+      "yourEmail": "이메일",
+      "subject": "제목",
+      "yourMessage": "메시지",
+      "sendMessage": "메시지 보내기",
+      "sending": "보내는 중...",
+      "messageSent": "메시지가 성공적으로 전송되었습니다!",
+      "messageFailed": "메시지 전송에 실패했습니다. 다시 시도하십시오."
+    }
+  },
+  "loginPage": {
+    "close": "닫기",
+    "createAccount": "계정 만들기",
+    "logIntoGR": "Global Relocate에 로그인",
+    "password": "비밀번호",
+    "enterPassword": "비밀번호를 입력하세요",
+    "continueWithGoogle": "Google로 계속하기",
+    "cantLogin": "로그인할 수 없나요?",
+    "tosDesc": "계정을 만들면 당사의 ",
+    "tos": "서비스 약관",
+    "privacyPolicy": "개인정보 처리방침",
+    "and": " 및 ",
+    "or": "또는",
+    "processing": "처리 중...",
+    "continue": "계속하기",
+    "hidePassword": "비밀번호 숨기기",
+    "showPassword": "비밀번호 보기"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "계정을 만들어 봅시다",
+    "chooseAccountType": "계정 유형 선택",
+    "createPersonalAccount": "개인 계정을 만들고 있습니다",
+    "createCorporateAccount": "법인 계정을 만들고 있습니다",
+    "continue": "계속하기",
+    "chooseSignMethod": "가입 방법 선택",
+    "continueWithEmail": "이메일로 계속하기",
+    "alreadyHaveAccount": "이미 계정이 있으신가요?",
+    "fullName": "이름",
+    "chooseUsername": "사용자 이름 선택",
+    "enterYourFullName": "이름을 입력하세요",
+    "confirmPassword": "비밀번호 확인",
+    "country": "국가"
+  },
+  "welcomePage": {
+    "welcomeAboard": "환영합니다",
+    "welcomeText": "원활한 이전, 법률 자문, 글로벌 생활을 위한 AI 기반 플랫폼입니다."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "국가",
+      "aiAssistant": "AI 어시스턴트",
+      "compareCountries": "국가 비교",
+      "taxCalculator": "세금 계산기",
+      "notifications": "알림",
+      "favourites": "즐겨찾기",
+      "community": "커뮤니티",
+      "cta": {
+        "title": "Pro 사용해보기",
+        "para": "현재 3일 동안 유효한 무료 플랜을 사용하고 있습니다. Global Relocate를 계속 사용하려면 지금 업그레이드하세요.",
+        "buttonText": "자세히 알아보기"
+      }
+    },
+    "notifications": {
+      "noNotifications": "아직 알림이 없습니다.",
+      "markAllAsRead": "모두 읽음으로 표시",
+      "deleteAll": "모두 삭제",
+      "markAsRead": "읽음으로 표시",
+      "delete": "알림 삭제",
+      "showLess": "간략히 보기",
+      "showMore": "더 많은 결과 보기"
+    },
+    "countries": {
+      "title": "국가",
+      "noDataText": "데이터가 없습니다!",
+      "searchText": "국가 검색",
+      "clickToSelect": "국가를 선택하려면 클릭하세요",
+      "view": "보기",
+      "searchResults": "검색 결과",
+      "aiSuggestedCountries": "AI 추천 국가",
+      "searchCountries": "국가 검색"
+    },
+    "country": {
+      "countryIn": "국가: ",
+      "addFavorite": "즐겨찾기에 추가",
+      "removeFavorite": "즐겨찾기에서 제거",
+      "share": "공유",
+      "overview": "개요",
+      "map": "지도",
+      "keyFacts": "주요 정보",
+      "visaMigration": "비자 및 이민",
+      "taxes": "세금",
+      "flag": "국기",
+      "capital": "수도",
+      "languages": "언어",
+      "currency": "통화",
+      "population": "인구",
+      "dialingCode": "국가 번호",
+      "back": "뒤로",
+      "noOverview": "이 국가에 대한 개요가 없습니다.",
+      "noVisaInfo": "비자 및 이민 정보가 없습니다."
+    },
+    "ai": {
+      "rename": "이름 바꾸기",
+      "deleteConversation": "대화 삭제",
+      "share": "공유",
+      "hello": "안녕하세요",
+      "newChat": "새 채팅",
+      "askAI": "AI에게 무엇이든 물어보세요...",
+      "uploadDocument": "문서 업로드",
+      "uploadDocumentDesc": "AI 어시스턴트로 처리할 문서를 업로드하세요",
+      "cancel": "취소",
+      "upload": "업로드"
+    },
+    "settings": {
+      "accountSettings": "계정 설정",
+      "editProfile": "프로필 편집",
+      "profile": "프로필",
+      "account": "계정",
+      "preferences": "환경 설정",
+      "avatar": "아바타",
+      "fullName": "이름",
+      "username": "사용자 이름",
+      "bio": "소개",
+      "country": "국가",
+      "emailAddress": "이메일 주소",
+      "verified": "확인됨",
+      "subscription": "구독",
+      "subscriptionDesc": "현재 3일 동안 유효한 무료 플랜을 사용하고 있습니다. Global Relocate를 계속 사용하려면 지금 업그레이드하세요.",
+      "deleteAccount": "계정 삭제",
+      "deleteDesc": "계정 및 데이터를 영구적으로 삭제합니다",
+      "language": "언어",
+      "chooseLanguage": "언어 선택",
+      "selectLanguage": "언어 선택",
+      "learnMore": "자세히 알아보기",
+      "saveChanges": "변경 사항 저장",
+      "cancel": "취소",
+      "saving": "저장 중...",
+      "unsavedChanges": "저장되지 않은 변경 사항이 있습니다",
+      "addName": "이름 추가",
+      "addBio": "자신의 이야기를 전할 소개를 추가하세요.",
+      "addUsername": "사용자 이름 추가",
+      "addLocation": "위치 추가",
+      "confirmAccountDelete": "계정 삭제 확인",
+      "confirmAccountDeleteDesc": "계정을 삭제하기 전에 데이터에 어떤 일이 발생하는지 잠시 시간을 내어 이해하십시오.",
+      "confirm": "확인",
+      "neverMind": "신경 쓰지 마세요",
+      "confirmDeleteWarning": "계정 삭제는 되돌릴 수 없다는 점에 유의하십시오.",
+      "confirmDeleteList1": "프로필 세부 정보, 기본 설정 및 설정이 제거됩니다.",
+      "confirmDeleteList2": "모든 데이터는 계정 삭제 후 30일 후에 영구적으로 삭제됩니다.",
+      "deleting": "삭제 중...",
+      "youHave": "당신은 가지고 있습니다:",
+      "administrator": "관리자"
+    },
+    "continents": {
+      "all": "모두",
+      "europe": "유럽",
+      "asia": "아시아",
+      "africa": "아프리카",
+      "south america": "남아메리카",
+      "north america": "북아메리카",
+      "antarctica": "남극 대륙",
+      "oceania": "오세아니아"
+    },
+    "tax": {
+      "taxCalculator": "세금 계산기",
+      "taxCacluatorDesc": "여러 국가의 예상 세금 부담을 계산합니다",
+      "country": "국가",
+      "annualIncome": "연간 소득",
+      "userAccount": "사용자 계정",
+      "totalDeductions": "총 공제액",
+      "selectCountry": "국가를 선택하세요",
+      "selectAccount": "계정 유형 선택",
+      "enterIncome": "연간 소득을 입력하세요",
+      "enterDeductions": "총 공제액을 입력하세요",
+      "calculateTax": "세금 계산",
+      "individual": "개인",
+      "corporate": "법인",
+      "taxSummary": "세금 요약",
+      "taxAmount": "세액",
+      "effectiveRate": "실효 세율",
+      "takeHomeAmount": "실수령액"
+    },
+    "upgradePage": {
+      "back": "뒤로",
+      "upgradePlan": "플랜 업그레이드",
+      "upgradePlanDesc": "글로벌 이전 여정을 지원할 완벽한 플랜을 선택하세요. 포괄적인 도구와 통찰력에 액세스하여 원활하게 이전하세요.",
+      "currentPlan": "현재 플랜",
+      "getStarted": "시작하기",
+      "free": "무료",
+      "basic": "기본",
+      "premium": "프리미엄",
+      "perMonth": "월",
+      "forEveryone": "모두를 위해",
+      "freePlan": {
+        "item1": "3일 평가판 액세스",
+        "item2": "기본 국가 정보",
+        "item3": "커뮤니티 액세스 (읽기 전용)",
+        "item4": "제한된 세금 계산기",
+        "item5": "기본 비용 비교"
+      },
+      "basicPlan": {
+        "item1": "전체 국가 정보",
+        "item2": "커뮤니티 참여",
+        "item3": "완전한 세금 계산기",
+        "item4": "비용 비교 도구",
+        "item5": "기본 이전 가이드",
+        "item6": "이메일 지원"
+      },
+      "premiumPlan": {
+        "item1": "모든 기본 기능",
+        "item2": "무제한 국가 데이터 액세스",
+        "item3": "전체 커뮤니티 참여",
+        "item4": "고급 세금 계산기",
+        "item5": "AI 이전 어시스턴트",
+        "item6": "생활비 통찰력",
+        "item7": "비자 요건 가이드",
+        "item8": "우선 지원",
+        "item9": "맞춤형 이전 로드맵"
+      }
+    },
+    "favorites": {
+      "noFavorites": "아직 즐겨찾기가 없습니다.",
+      "addToFavorites": "즐겨찾기에 추가",
+      "removeFromFavorites": "즐겨찾기에서 제거"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "변경 사항 확인"
+    }
+  },
+  "footer": {
+    "topCountries": "인기 국가",
+    "sitemap": "사이트맵",
+    "company": "회사",
+    "terms": "약관",
+    "privacy": "개인정보 보호",
+    "contact": "문의하기",
+    "subscribeNewsletter": "뉴스레터 구독",
+    "subscribeNewsDesc": "글로벌 이전에 대한 최신 통찰력으로 업데이트 상태를 유지하세요",
+    "enterEmail": "이메일 입력",
+    "subscribe": "구독",
+    "copyright": "이 웹사이트의 모든 콘텐츠는 저작권으로 보호됩니다.",
+    "rankings": "순위",
+    "safestCountries": "가장 안전한 국가",
+    "humanFreedomLevel": "인간 자유 수준",
+    "lifeExpectancy": "기대 수명",
+    "happinessIndex": "세계 행복 지수",
+    "citizenshipQualityRankings": "시민권 품질 순위",
+    "trends": "동향",
+    "foreignCitizenship": "외국 시민권",
+    "digitalNomadVisas": "디지털 노마드 비자",
+    "taxesRankings": "세금 순위",
+    "residencyPermit": "거주 허가"
+  },
+  "toast": {
+    "thanksNewsletter": "뉴스레터를 구독해 주셔서 감사합니다!",
+    "linkCopied": "링크가 클립보드에 복사되었습니다!",
+    "linkCopyFailed": "링크 복사에 실패했습니다",
+    "newSessionStarted": "새 세션이 시작되었습니다",
+    "newSessionFailed": "새 세션을 시작하지 못했습니다. 다시 시도하십시오.",
+    "redirectToPayPage": "결제 페이지로 리디렉션 중...",
+    "activeSessionShare": "공유하려면 활성 세션이 필요합니다",
+    "sessionDeleteFailed": "세션 삭제에 실패했습니다. 다시 시도하십시오.",
+    "sessionDeleteSuccess": "세션이 성공적으로 삭제되었습니다!",
+    "sessionRenameSuccess": "세션 이름이 성공적으로 변경되었습니다!",
+    "sessionRenameFailed": "세션 이름 변경에 실패했습니다. 다시 시도하십시오.",
+    "enterSessionName": "이 세션의 새 이름을 입력하십시오:"
+  },
+  "formErrors": {
+    "invalidEmail": "잘못된 이메일 형식",
+    "emailRequired": "이메일은 필수입니다",
+    "fullNameRequired": "이름은 필수입니다",
+    "enterFullName": "이름을 입력하세요",
+    "passwordRequired": "비밀번호는 필수입니다",
+    "minPassword": "비밀번호는 8자 이상이어야 합니다",
+    "passwordsMismatch": "비밀번호가 일치하지 않습니다",
+    "weakPassword": "비밀번호가 너무 약합니다",
+    "selectCountry": "국가를 선택하세요",
+    "usernameRequired": "사용자 이름은 필수입니다",
+    "minUsername": "사용자 이름은 3자 이상이어야 합니다",
+    "cpasswordRequired": "비밀번호 확인은 필수입니다"
+  }
+}

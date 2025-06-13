@@ -123,20 +123,20 @@ export default function Signup() {
   };
 
   // Handle Microsoft login
-  const handleMicrosoftLogin = async () => {
-    try {
-      setLoading(true);
-      setErrorMessage("");
-      await initiateMicrosoftAuth();
-      // No need to handle the response as we're redirecting
-    } catch (error) {
-      console.error("Microsoft login error:", error);
-      setErrorMessage(
-        error.message || "Failed to initiate Microsoft login. Please try again."
-      );
-      setLoading(false);
-    }
-  };
+  // const handleMicrosoftLogin = async () => {
+  //   try {
+  //     setLoading(true);
+  //     setErrorMessage("");
+  //     await initiateMicrosoftAuth();
+  //     // No need to handle the response as we're redirecting
+  //   } catch (error) {
+  //     console.error("Microsoft login error:", error);
+  //     setErrorMessage(
+  //       error.message || "Failed to initiate Microsoft login. Please try again."
+  //     );
+  //     setLoading(false);
+  //   }
+  // };
 
   // Account type selection component
   const AccountTypeSelection = () => (

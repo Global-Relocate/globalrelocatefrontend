@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Laman Utama",
+      "countriesData": "Data Negara",
+      "community": "Komuniti",
+      "taxCalculator": "Kalkulator Cukai",
+      "pricing": "Harga",
+      "viewProfile": "Lihat Profil",
+      "helpCenter": "Pusat Bantuan",
+      "giveFeedback": "Beri maklum balas",
+      "privacyPolicy": "Dasar Privasi",
+      "upgradePlan": "Naik Taraf Pelan",
+      "logIn": "Log Masuk",
+      "getStarted": "Mulakan",
+      "logout": "Log Keluar"
+    },
+    "showcase": {
+      "title": "Pindah dengan lebih bijak, hidup lebih baik.",
+      "para": "Platform dikuasakan AI anda untuk penempatan semula yang lancar, panduan undang-undang, dan kehidupan global.",
+      "buttonText": "Mulakan"
+    },
+    "features": {
+      "title": "Ciri-ciri",
+      "cards": {
+        "card1": {
+          "title": "Bandingkan Negara",
+          "para": "Buat keputusan termaklum dengan membandingkan negara-negara berbeza secara bersebelahan, menganalisis faktor utama seperti kos sara hidup, kadar cukai, dan kualiti hidup."
+        },
+        "card2": {
+          "title": "Maklumat Pintar dengan Ai",
+          "para": "Sertai forum dan kumpulan dengan nomad global yang sealiran."
+        },
+        "card3": {
+          "title": "Data Negara",
+          "para": "Sertai forum dan kumpulan dengan nomad global yang sealiran."
+        }
+      }
+    },
+    "countries": {
+      "title": "Negara Popular",
+      "para": "Terokai destinasi popular dan mulakan perancangan penempatan semula anda"
+    },
+    "whyChooseUs": {
+      "title": "Kenapa Pilih Kami",
+      "card1": {
+        "title": "Data Disokong AI yang Menjimatkan Masa",
+        "para": "Maklumat sentiasa terkini dan boleh dipercayai."
+      },
+      "card2": {
+        "title": "Kenalan Disahkan & Sumber Dipercayai:",
+        "para": "Platform berasaskan komuniti memastikan kredibiliti."
+      },
+      "card3": {
+        "title": "Penyelesaian Serba Lengkap",
+        "para": "Segala-galanya dari visa hingga kos sara hidup di satu tempat."
+      },
+      "card4": {
+        "title": "Makluman Peribadi",
+        "para": "Sentiasa di hadapan dengan pemberitahuan yang disesuaikan dan ciri kegemaran."
+      }
+    },
+    "forgotPassword": {
+      "title": "Lupa Kata Laluan?",
+      "para": "Masukkan e-mel akaun anda dan kami akan menghantar OTP untuk menetapkan semula kata laluan anda.",
+      "emailLabel": "Alamat e-mel",
+      "sending": "Menghantar...",
+      "sendOTP": "Hantar OTP",
+      "resendOTP": "Hantar Semula OTP",
+      "verifyOTP": "Sahkan OTP",
+      "otpSent": "OTP telah dihantar ke e-mel anda.",
+      "continuePrompt": "Klik butang Teruskan di bawah untuk mencipta kata laluan baharu.",
+      "continue": "Teruskan",
+      "rememberPassword": "Ingat kata laluan anda?",
+      "logIn": "Log Masuk"
+    },
+    "termsOfService": {
+      "title": "Terma dan Syarat",
+      "paragraph": "Selamat datang ke globalrelocate.com! Terma dan Syarat ('Terma') ini mengawal penggunaan platform dikuasakan AI kami untuk penempatan semula yang lancar, panduan undang-undang, dan kehidupan global, yang diakses melalui URL globalrelocate.com (dirujuk sebagai 'Platform'). Dengan mengakses atau menggunakan Platform, anda bersetuju untuk terikat dengan Terma ini. Sila baca dengan teliti.",
+      "sections": {
+        "platformUse": "1. Penggunaan Platform",
+        "platformUse_1": "1.1 Kelayakan: Anda mesti berumur sekurang-kurangnya 18 tahun atau mempunyai kapasiti undang-undang untuk memasuki kontrak dalam bidang kuasa anda untuk menggunakan Platform. Dengan mengakses atau menggunakan Platform, anda menyatakan dan menjamin bahawa anda memenuhi syarat kelayakan.",
+        "platformUse_2": "1.2 Akaun Pengguna: Anda mungkin dikehendaki membuat akaun pengguna untuk mengakses ciri-ciri tertentu Platform. Anda bertanggungjawab untuk menjaga kerahsiaan maklumat akaun anda dan bersetuju untuk bertanggungjawab sepenuhnya terhadap semua aktiviti yang dijalankan melalui akaun anda.",
+        "platformUse_3": "1.3 Aktiviti Terlarang: Anda bersetuju untuk tidak terlibat dalam sebarang aktiviti yang melanggar Terma ini atau mana-mana undang-undang atau peraturan yang berkenaan. Aktiviti terlarang termasuk, tetapi tidak terhad kepada:",
+        "prohibited_1": "Melanggar hak harta intelek",
+        "prohibited_2": "Memuat naik atau berkongsi kandungan yang menyalahi undang-undang, berbahaya, atau melanggar hak orang lain",
+        "prohibited_3": "Mengganggu fungsi Platform yang betul",
+        "prohibited_4": "Menyamar sebagai orang atau entiti lain",
+        "intellectualProperty": "2. Harta Intelek",
+        "intellectualProperty_1": "2.1 Pemilikan: Semua kandungan, termasuk tetapi tidak terhad kepada teks, grafik, logo, imej, klip audio, video, dan perisian, yang tersedia di Platform dimiliki oleh Global Relocate atau pemberi lesennya dan dilindungi oleh undang-undang harta intelek.",
+        "intellectualProperty_2": "2.2 Penggunaan Kandungan: Anda boleh mengakses dan menggunakan kandungan di Platform untuk tujuan peribadi, bukan komersial sahaja. Anda tidak boleh mengubah suai, mengeluarkan semula, mengedar, memaparkan, melaksanakan, atau mencipta karya terbitan daripada kandungan tanpa kebenaran bertulis terlebih dahulu daripada Global Relocate.",
+        "disclaimer": "3. Penafian Waranti",
+        "disclaimer_1": "3.1 Platform disediakan atas dasar 'seadanya' dan 'sebagaimana tersedia' tanpa sebarang waranti. Global Relocate menafikan semua waranti, sama ada nyata atau tersirat, termasuk tetapi tidak terhad kepada kebolehdagangan, kesesuaian untuk tujuan tertentu, dan bukan pelanggaran.",
+        "disclaimer_2": "3.2 Global Relocate tidak menjamin ketepatan, kesempurnaan, atau kebolehpercayaan mana-mana kandungan atau maklumat di Platform. Anda mengakui bahawa penggunaan Platform adalah atas risiko anda sendiri.",
+        "liability": "4. Had Liabiliti",
+        "liability_1": "4.1 Sejauh mana yang dibenarkan oleh undang-undang, Global Relocate dan pengarah, pekerja, ahli gabungan, dan ejennya tidak akan bertanggungjawab ke atas sebarang kerosakan langsung, tidak langsung, sampingan, khas, atau berbangkit yang timbul daripada atau dalam apa jua cara yang berkaitan dengan penggunaan Platform atau kandungan di dalamnya.",
+        "thirdParty": "5. Pautan Pihak Ketiga",
+        "thirdParty_1": "5.1 Platform mungkin mengandungi pautan ke laman web atau perkhidmatan pihak ketiga. Global Relocate tidak bertanggungjawab ke atas kandungan, ketepatan, atau kebolehpercayaan mana-mana laman web atau perkhidmatan pihak ketiga. Penyertaan mana-mana pautan sedemikian tidak membayangkan pengesahan atau gabungan oleh Global Relocate.",
+        "modifications": "6. Pengubahsuaian dan Penamatan",
+        "modifications_1": "6.1 Global Relocate berhak untuk mengubah suai, menggantung, atau menghentikan mana-mana bahagian atau keseluruhan Platform, secara sementara atau kekal, tanpa notis terlebih dahulu. Global Relocate tidak akan bertanggungjawab kepada anda atau mana-mana pihak ketiga atas sebarang pengubahsuaian, penggantungan, atau penghentian Platform.",
+        "governingLaw": "7. Undang-undang Tadbir dan Bidang Kuasa",
+        "governingLaw_1": "7.1 Terma ini akan ditadbir oleh dan ditafsirkan mengikut undang-undang [Negara Anda]. Sebarang pertikaian yang timbul daripada atau berkaitan dengan Terma ini atau penggunaan Platform oleh anda akan tertakluk kepada bidang kuasa eksklusif mahkamah di [Bandar Anda, Negara Anda].",
+        "entireAgreement": "8. Keseluruhan Perjanjian",
+        "entireAgreement_1": "8.1 Terma ini membentuk keseluruhan perjanjian antara anda dan Global Relocate mengenai penggunaan Platform dan menggantikan mana-mana perjanjian, komunikasi, atau representasi terdahulu atau semasa.",
+        "whyChoose": "9. Kenapa Pilih Global Relocate",
+        "whyChoose_1": "Di Global Relocate, kami komited untuk membantu anda berpindah dengan lebih bijak dan hidup lebih baik. Inilah sebabnya anda harus memilih kami:",
+        "whyChoose_bullet1": "Data Disokong AI yang Menjimatkan Masa: Akses maklumat yang sentiasa terkini dan boleh dipercayai untuk membuat keputusan termaklum.",
+        "whyChoose_bullet2": "Kenalan Disahkan & Sumber Dipercayai: Manfaat daripada platform berasaskan komuniti yang memastikan kredibiliti dan kepercayaan.",
+        "whyChoose_bullet3": "Penyelesaian Serba Lengkap: Cari segala-galanya dari visa hingga kos sara hidup di satu tempat.",
+        "whyChoose_bullet4": "Makluman Peribadi: Sentiasa di hadapan dengan pemberitahuan yang disesuaikan dan ciri kegemaran yang direka khas untuk anda."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Dasar Privasi dan Penafian Undang-undang",
+      "paragraph": "Dasar Privasi ini menerangkan bagaimana Global Relocate (dirujuk sebagai 'kami,' 'kita,' atau 'milik kami'), pemilik dan pengendali globalrelocate.com, mengumpul, menggunakan, dan melindungi maklumat peribadi anda apabila anda menggunakan platform dikuasakan AI kami untuk penempatan semula yang lancar, panduan undang-undang, dan kehidupan global, yang diakses melalui URL globalrelocate.com ('Platform'). Dasar ini juga terpakai kepada mana-mana perkhidmatan, kandungan, ciri, atau aplikasi yang disediakan melalui Platform.",
+      "paragraph2": "Dengan mengakses atau menggunakan Platform, anda bersetuju dengan pengumpulan, penggunaan, dan pendedahan maklumat peribadi anda seperti yang digariskan dalam Dasar Privasi ini. Jika anda tidak bersetuju dengan mana-mana aspek dasar ini, sila elakkan daripada menggunakan Platform.",
+      "sections": {
+        "informationCollection": "1. Pengumpulan Maklumat",
+        "informationCollection_1": "1.1 Maklumat Peribadi: Kami mungkin mengumpul pelbagai jenis maklumat peribadi daripada anda apabila anda menggunakan Platform. Ini mungkin termasuk nama, alamat e-mel, maklumat hubungan, pilihan penempatan semula, dan sebarang maklumat lain yang anda berikan secara sukarela kepada kami.",
+        "informationCollection_2": "1.2 Data Penggunaan: Kami secara automatik mengumpul maklumat tertentu yang tidak dapat dikenal pasti secara peribadi mengenai penggunaan Platform oleh anda. Ini mungkin termasuk alamat IP anda, jenis penyemak imbas, sistem pengendalian, maklumat peranti, halaman yang dilawati, URL rujukan/keluar, dan data serupa yang lain.",
+        "useOfInformation": "2. Penggunaan Maklumat",
+        "personalInformationUse": "2.1 Maklumat Peribadi: Kami mungkin menggunakan maklumat peribadi yang anda berikan kepada kami untuk tujuan berikut:",
+        "personalInformationUse_bullet1": "Untuk menyediakan dan menambah baik perkhidmatan penempatan semula dikuasakan AI kami, panduan undang-undang, dan sumber kehidupan global.",
+        "personalInformationUse_bullet2": "Untuk memproses permintaan anda, menyediakan rancangan penempatan semula yang diperibadikan, dan menyampaikan kandungan yang disesuaikan.",
+        "personalInformationUse_bullet3": "Untuk berkomunikasi dengan anda, menjawab pertanyaan, dan menyediakan sokongan pelanggan.",
+        "personalInformationUse_bullet4": "Untuk menghantar makluman, kemas kini, dan pemberitahuan yang diperibadikan mengenai visa, kos sara hidup, dan maklumat berkaitan penempatan semula yang lain.",
+        "personalInformationUse_bullet5": "Untuk meningkatkan pengalaman anda di Platform dengan menawarkan ciri kegemaran dan cadangan yang disesuaikan.",
+        "personalInformationUse_bullet6": "Untuk menguatkuasakan Terma Perkhidmatan kami dan dasar-dasar lain.",
+        "personalInformationUse_bullet7": "Untuk mematuhi kewajipan undang-undang.",
+        "usageDataUse": "2.2 Data Penggunaan: Kami menggunakan data penggunaan untuk menganalisis trend, menjejaki penglibatan pengguna, memantau keberkesanan perkhidmatan kami, dan meningkatkan pengalaman pengguna di Platform.",
+        "informationSharing": "3. Perkongsian Maklumat",
+        "informationSharing_1": "3.1 Penyedia Perkhidmatan Pihak Ketiga: Kami mungkin berkongsi maklumat peribadi anda dengan penyedia perkhidmatan pihak ketiga yang dipercayai yang membantu kami dalam mengendalikan Platform, menyampaikan perkhidmatan, memproses pembayaran, menjalankan analisis, atau melaksanakan fungsi lain yang diperlukan. Penyedia perkhidmatan ini terikat dengan perjanjian kerahsiaan yang ketat dan dilarang menggunakan maklumat peribadi anda untuk sebarang tujuan lain.",
+        "informationSharing_2": "3.2 Pematuhan dan Perlindungan Undang-undang: Kami mungkin mendedahkan maklumat peribadi anda jika dikehendaki oleh undang-undang, peraturan, proses undang-undang, atau permintaan kerajaan. Kami juga mungkin mendedahkan maklumat anda untuk melindungi hak, harta, atau keselamatan kami, serta hak, harta, atau keselamatan pengguna kami atau orang lain.",
+        "cookies": "4. Kuki dan Teknologi Penjejakan",
+        "cookies_1": "4.1 Kami menggunakan kuki dan teknologi penjejakan lain di Platform untuk mengumpul dan menyimpan maklumat tertentu. Kuki ialah fail teks kecil yang diletakkan pada peranti anda untuk membantu kami menganalisis penggunaan Platform, mengingati pilihan pengguna, dan meningkatkan pengalaman keseluruhan anda. Anda mempunyai pilihan untuk melumpuhkan kuki melalui tetapan penyemak imbas anda; walau bagaimanapun, ini mungkin mengehadkan fungsi tertentu Platform.",
+        "dataSecurity": "5. Keselamatan Data",
+        "dataSecurity_1": "5.1 Kami melaksanakan langkah keselamatan yang munasabah untuk melindungi maklumat peribadi anda daripada akses, pendedahan, pengubahan, atau pemusnahan yang tidak dibenarkan. Walau bagaimanapun, sila ambil perhatian bahawa tiada penghantaran data melalui internet atau kaedah penyimpanan adalah 100% selamat. Kami tidak dapat menjamin keselamatan mutlak maklumat peribadi anda.",
+        "thirdPartyLinks": "6. Pautan Pihak Ketiga",
+        "thirdPartyLinks_1": "6.1 Platform mungkin mengandungi pautan ke laman web atau perkhidmatan pihak ketiga yang tidak dimiliki atau dikawal oleh kami. Kami tidak bertanggungjawab ke atas amalan privasi atau kandungan laman web pihak ketiga ini. Kami menggalakkan anda untuk menyemak dasar privasi mana-mana laman web pihak ketiga yang anda lawati.",
+        "childrenPrivacy": "7. Privasi Kanak-kanak",
+        "childrenPrivacy_1": "7.1 Platform tidak bertujuan untuk individu di bawah umur 13 tahun. Kami tidak sengaja mengumpul maklumat peribadi daripada kanak-kanak di bawah umur 13 tahun. Jika kami menyedari bahawa kami secara tidak sengaja telah mengumpul maklumat peribadi daripada kanak-kanak di bawah umur 13 tahun, kami akan mengambil langkah untuk memadam maklumat tersebut dengan segera.",
+        "changesToPolicy": "8. Perubahan kepada Dasar Privasi Ini",
+        "changesToPolicy_1": "8.1 Kami berhak untuk mengubah suai atau mengemas kini Dasar Privasi ini pada bila-bila masa. Sebarang perubahan akan berkuat kuasa serta-merta selepas penyiaran dasar yang disemak semula di Platform. Kami menggalakkan anda untuk menyemak dasar ini secara berkala untuk sentiasa dimaklumkan tentang sebarang kemas kini.",
+        "whyGlobalRelocate": "9. Kenapa Pilih Global Relocate",
+        "whyGlobalRelocate_1": "Di Global Relocate, kami komited untuk membantu anda berpindah dengan lebih bijak dan hidup lebih baik. Inilah sebabnya anda harus memilih kami:",
+        "whyGlobalRelocate_bullet1": "Data Disokong AI yang Menjimatkan Masa: Akses maklumat yang sentiasa terkini dan boleh dipercayai untuk membuat keputusan termaklum.",
+        "whyGlobalRelocate_bullet2": "Kenalan Disahkan & Sumber Dipercayai: Manfaat daripada platform berasaskan komuniti yang memastikan kredibiliti dan kepercayaan.",
+        "whyGlobalRelocate_bullet3": "Penyelesaian Serba Lengkap: Cari segala-galanya dari visa hingga kos sara hidup di satu tempat.",
+        "whyGlobalRelocate_bullet4": "Makluman Peribadi: Sentiasa di hadapan dengan pemberitahuan yang disesuaikan dan ciri kegemaran yang direka khas untuk anda.",
+        "contactUs": "10. Hubungi Kami",
+        "contactUs_1": "10.1 Jika anda mempunyai sebarang soalan, kebimbangan, atau permintaan mengenai Dasar Privasi ini atau amalan data kami, sila hubungi kami di:"
+      }
+    },
+    "helpCenter": {
+      "help": "Kami di sini untuk membantu",
+      "howCanWeHelp": "Bagaimana kami boleh membantu anda?",
+      "checkOut": "Semak Soalan Lazim kami atau hubungi kami untuk sokongan lanjut.",
+      "faqs": {
+        "title": "Soalan Lazim",
+        "question1": {
+          "question": "Apakah Global Relocate?",
+          "answer": "Global Relocate ialah platform dikuasakan AI yang direka untuk membantu individu dan keluarga berpindah ke negara baharu. Ia menyediakan cadangan, sumber dan sokongan yang diperibadikan untuk menjadikan proses penempatan semula lebih lancar dan cekap."
+        },
+        "question2": {
+          "question": "Apakah yang Global Relocate bantu capai?",
+          "answer": "Global Relocate membantu pengguna mencapai pengalaman penempatan semula yang lancar dengan menawarkan nasihat, sumber dan sokongan yang disesuaikan untuk pelbagai aspek perpindahan ke negara baharu, termasuk permohonan visa, perumahan, pekerjaan dan integrasi budaya."
+        },
+        "question3": {
+          "question": "Adakah Global Relocate mengenakan bayaran kepada pengguna untuk perkhidmatan atau ciri?",
+          "answer": "Ya, Global Relocate menawarkan pelbagai perkhidmatan dan ciri yang mungkin melibatkan caj. Walau bagaimanapun, ia juga menyediakan sumber percuma dan sokongan asas untuk membantu pengguna memulakan perjalanan penempatan semula mereka."
+        },
+        "question4": {
+          "question": "Apa yang berlaku kepada data saya / Adakah Global Relocate menyimpan maklumat peribadi saya?",
+          "answer": "Global Relocate mengambil serius privasi pengguna. Kami tidak menyimpan maklumat peribadi melainkan diberikan secara jelas oleh pengguna untuk perkhidmatan tertentu. Sebarang data yang dikumpul digunakan semata-mata untuk meningkatkan pengalaman pengguna dan menyediakan cadangan yang diperibadikan. Untuk butiran lanjut, sila rujuk Dasar Privasi kami."
+        },
+        "question5": {
+          "question": "Siapakah orang di sebalik Global Relocate?",
+          "answer": "Global Relocate dibangunkan oleh pasukan profesional berpengalaman dalam bidang AI, perkhidmatan penempatan semula dan undang-undang antarabangsa. Pasukan kami berdedikasi untuk menyediakan sokongan dan sumber terbaik untuk individu dan keluarga yang ingin berpindah."
+        },
+        "question6": {
+          "question": "Adakah Global Relocate tersedia dalam pelbagai bahasa?",
+          "answer": "Ya, Global Relocate tersedia dalam pelbagai bahasa untuk memenuhi keperluan pangkalan pengguna yang pelbagai. Anda boleh memilih bahasa pilihan anda di bahagian tetapan platform."
+        },
+        "question7": {
+          "question": "Dari manakah maklumat di Global Relocate datang?",
+          "answer": "Maklumat di Global Relocate diperoleh daripada pelbagai sumber yang bereputasi, termasuk laman web kerajaan, pakar penempatan semula dan kandungan yang dijana pengguna. Kami sentiasa mengemas kini pangkalan data kami untuk memastikan pengguna mempunyai akses kepada maklumat yang paling tepat dan relevan untuk keperluan penempatan semula mereka."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Hubungi Kami",
+      "titleDesc": "Anda boleh bertanya soalan kepada kami",
+      "para": "Hubungi kami untuk semua soalan dan pendapat anda, atau anda boleh mendapatkan jawapan dengan cepat dengan melawat salah satu pejabat hubungan kami.",
+      "ourOffices": "Pejabat Kami",
+      "ourOfficesDesc": "Kami mempunyai pejabat di pelbagai lokasi untuk membantu anda dengan keperluan penempatan semula anda. Lawati kami di salah satu pejabat kami untuk sokongan peribadi.",
+      "dropUsAMessage": "Hantarkan mesej kepada kami",
+      "dropUsAMessageDesc": "Isi borang di bawah untuk menghantar mesej kepada kami, dan kami akan menghubungi anda secepat mungkin.",
+      "yourName": "Nama anda",
+      "yourEmail": "E-mel anda",
+      "subject": "Subjek",
+      "yourMessage": "Mesej anda",
+      "sendMessage": "Hantar Mesej",
+      "sending": "Menghantar...",
+      "messageSent": "Mesej berjaya dihantar!",
+      "messageFailed": "Gagal menghantar mesej. Sila cuba lagi."
+    }
+  },
+  "loginPage": {
+    "close": "Tutup",
+    "createAccount": "Cipta Akaun",
+    "logIntoGR": "Log masuk ke Global Relocate",
+    "password": "Kata Laluan",
+    "enterPassword": "Masukkan kata laluan anda",
+    "continueWithGoogle": "Teruskan dengan Google",
+    "cantLogin": "Tidak boleh log masuk?",
+    "tosDesc": "Dengan mengklik cipta akaun, anda bersetuju dengan ",
+    "tos": "Syarat Perkhidmatan",
+    "privacyPolicy": "Dasar Privasi",
+    "and": "dan",
+    "or": "ATAU",
+    "processing": "Memproses...",
+    "continue": "Teruskan",
+    "hidePassword": "Sembunyikan kata laluan",
+    "showPassword": "Tunjukkan kata laluan"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Mari cipta akaun anda",
+    "chooseAccountType": "Pilih jenis akaun",
+    "createPersonalAccount": "Saya mencipta akaun peribadi",
+    "createCorporateAccount": "Saya mencipta akaun korporat",
+    "continue": "Teruskan",
+    "chooseSignMethod": "Pilih kaedah pendaftaran",
+    "continueWithEmail": "Teruskan dengan e-mel",
+    "alreadyHaveAccount": "Sudah mempunyai akaun?",
+    "fullName": "Nama Penuh",
+    "chooseUsername": "Pilih nama pengguna",
+    "enterYourFullName": "Masukkan nama penuh anda",
+    "confirmPassword": "Sahkan Kata Laluan",
+    "country": "Negara"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Selamat Datang",
+    "welcomeText": "Platform dikuasakan AI anda untuk penempatan semula yang lancar, panduan undang-undang, dan kehidupan global."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Negara",
+      "aiAssistant": "Pembantu Ai",
+      "compareCountries": "Bandingkan Negara",
+      "taxCalculator": "Kalkulator Cukai",
+      "notifications": "Pemberitahuan",
+      "favourites": "Kegemaran",
+      "community": "Komuniti",
+      "cta": {
+        "title": "Cuba Pro",
+        "para": "Anda kini dalam pelan percuma yang sah selama 3 hari. Naik taraf sekarang untuk terus menggunakan Global Relocate.",
+        "buttonText": "Ketahui Lebih Lanjut"
+      }
+    },
+    "notifications": {
+      "noNotifications": "Anda belum mempunyai sebarang pemberitahuan.",
+      "markAllAsRead": "Tandakan semua sebagai dibaca",
+      "deleteAll": "Padam semua",
+      "markAsRead": "Tandakan sebagai dibaca",
+      "delete": "Padam pemberitahuan",
+      "showLess": "Kurangkan paparan ini",
+      "showMore": "Tunjukkan lebih banyak hasil"
+    },
+    "countries": {
+      "title": "Negara",
+      "noDataText": "Tiada data tersedia!",
+      "searchText": "Cari negara",
+      "clickToSelect": "Klik untuk memilih negara",
+      "view": "Lihat",
+      "searchResults": "Hasil carian",
+      "aiSuggestedCountries": "Negara Dicadangkan AI",
+      "searchCountries": "Cari negara"
+    },
+    "country": {
+      "countryIn": "Negara di",
+      "addFavorite": "Tambah ke kegemaran",
+      "removeFavorite": "Keluarkan daripada kegemaran",
+      "share": "Kongsi",
+      "overview": "Gambaran Keseluruhan",
+      "map": "Peta",
+      "keyFacts": "Fakta Utama",
+      "visaMigration": "Visa & Imigresen",
+      "taxes": "Cukai",
+      "flag": "Bendera",
+      "capital": "Ibu Negara",
+      "languages": "Bahasa",
+      "currency": "Mata Wang",
+      "population": "Populasi",
+      "dialingCode": "Kod Dail",
+      "back": "Kembali",
+      "noOverview": "Tiada gambaran keseluruhan tersedia untuk negara ini.",
+      "noVisaInfo": "Tiada maklumat visa dan imigresen tersedia."
+    },
+    "ai": {
+      "rename": "Namakan Semula",
+      "deleteConversation": "Padam Perbualan",
+      "share": "Kongsi",
+      "hello": "Helo",
+      "newChat": "Sembang Baharu",
+      "askAI": "Tanya AI Apa Sahaja...",
+      "uploadDocument": "Muat Naik Dokumen",
+      "uploadDocumentDesc": "Muat naik dokumen untuk diproses dengan pembantu AI",
+      "cancel": "Batal",
+      "upload": "Muat Naik"
+    },
+    "settings": {
+      "accountSettings": "Tetapan Akaun",
+      "editProfile": "Edit Profil",
+      "profile": "Profil",
+      "account": "Akaun",
+      "preferences": "Keutamaan",
+      "avatar": "Avatar",
+      "fullName": "Nama Penuh",
+      "username": "Nama Pengguna",
+      "bio": "Bio",
+      "country": "Negara",
+      "emailAddress": "Alamat E-mel",
+      "verified": "Disahkan",
+      "subscription": "Langganan",
+      "subscriptionDesc": "Anda kini dalam pelan percuma yang sah selama 3 hari. Naik taraf sekarang untuk terus menggunakan Global Relocate.",
+      "deleteAccount": "Padam Akaun",
+      "deleteDesc": "Padam akaun dan data anda secara kekal",
+      "language": "Bahasa",
+      "chooseLanguage": "Pilih bahasa",
+      "selectLanguage": "Pilih bahasa",
+      "learnMore": "Ketahui Lebih Lanjut",
+      "saveChanges": "Simpan Perubahan",
+      "cancel": "Batal",
+      "saving": "Menyimpan...",
+      "unsavedChanges": "Anda mempunyai perubahan yang belum disimpan",
+      "addName": "Tambah nama",
+      "addBio": "Tambah bio untuk menceritakan kisah anda.",
+      "addUsername": "Tambah nama pengguna",
+      "addLocation": "Tambah lokasi",
+      "confirmAccountDelete": "Sahkan Pemadaman Akaun",
+      "confirmAccountDeleteDesc": "Sebelum anda memadam akaun anda, sila luangkan sedikit masa untuk memahami apa yang akan berlaku kepada data anda:",
+      "confirm": "Sahkan",
+      "neverMind": "Tidak Mengapa",
+      "confirmDeleteWarning": "Ingat bahawa pemadaman akaun anda tidak boleh dibatalkan.",
+      "confirmDeleteList1": "Butiran profil, keutamaan, dan tetapan anda akan dialih keluar.",
+      "confirmDeleteList2": "Semua data akan dipadam secara kekal 30 hari selepas pemadaman akaun.",
+      "deleting": "Memadam...",
+      "youHave": "Anda mempunyai:",
+      "administrator": "Pentadbir"
+    },
+    "continents": {
+      "all": "Semua",
+      "europe": "Eropah",
+      "asia": "Asia",
+      "africa": "Afrika",
+      "south america": "Amerika Selatan",
+      "north america": "Amerika Utara",
+      "antarctica": "Antartika",
+      "oceania": "Oceania"
+    },
+    "tax": {
+      "taxCalculator": "Kalkulator Cukai",
+      "taxCacluatorDesc": "Kira anggaran beban cukai anda di pelbagai negara",
+      "country": "Negara",
+      "annualIncome": "Pendapatan tahunan",
+      "userAccount": "Akaun Pengguna",
+      "totalDeductions": "Jumlah potongan",
+      "selectCountry": "Pilih negara anda",
+      "selectAccount": "Pilih jenis akaun",
+      "enterIncome": "Masukkan pendapatan tahunan anda",
+      "enterDeductions": "Masukkan jumlah potongan",
+      "calculateTax": "Kira Cukai",
+      "individual": "Individu",
+      "corporate": "Korporat",
+      "taxSummary": "Ringkasan Cukai",
+      "taxAmount": "Jumlah cukai",
+      "effectiveRate": "Kadar efektif",
+      "takeHomeAmount": "Jumlah bawa pulang"
+    },
+    "upgradePage": {
+      "back": "Kembali",
+      "upgradePlan": "Naik taraf pelan anda",
+      "upgradePlanDesc": "Pilih pelan yang sempurna untuk menyokong perjalanan penempatan semula global anda. Dapatkan akses kepada alat dan pandangan komprehensif untuk menjadikan perpindahan anda lancar.",
+      "currentPlan": "Pelan semasa anda",
+      "getStarted": "Mulakan",
+      "free": "Percuma",
+      "basic": "Asas",
+      "premium": "Premium",
+      "perMonth": "sebulan",
+      "forEveryone": "Untuk semua orang",
+      "freePlan": {
+        "item1": "Akses percubaan 3 hari",
+        "item2": "Maklumat negara asas",
+        "item3": "Akses komuniti (baca sahaja)",
+        "item4": "Kalkulator cukai terhad",
+        "item5": "Perbandingan kos asas"
+      },
+      "basicPlan": {
+        "item1": "Maklumat negara penuh",
+        "item2": "Penyertaan komuniti",
+        "item3": "Kalkulator cukai lengkap",
+        "item4": "Alat perbandingan kos",
+        "item5": "Panduan penempatan semula asas",
+        "item6": "Sokongan e-mel"
+      },
+      "premiumPlan": {
+        "item1": "Semua ciri Asas",
+        "item2": "Akses data negara tanpa had",
+        "item3": "Penyertaan komuniti penuh",
+        "item4": "Kalkulator cukai lanjutan",
+        "item5": "Pembantu penempatan semula AI",
+        "item6": "Pandangan kos sara hidup",
+        "item7": "Panduan keperluan visa",
+        "item8": "Sokongan keutamaan",
+        "item9": "Pelan hala tuju penempatan semula tersuai"
+      }
+    },
+    "favorites": {
+      "noFavorites": "Anda belum mempunyai kegemaran.",
+      "addToFavorites": "Tambah ke kegemaran",
+      "removeFromFavorites": "Keluarkan daripada kegemaran"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Sahkan Perubahan"
+    }
+  },
+  "footer": {
+    "topCountries": "Negara Teratas",
+    "sitemap": "Peta Laman",
+    "company": "Syarikat",
+    "terms": "Terma",
+    "privacy": "Privasi",
+    "contact": "Hubungi Kami",
+    "subscribeNewsletter": "Langgan surat berita kami",
+    "subscribeNewsDesc": "Kekal dikemas kini dengan pandangan terkini mengenai penempatan semula global",
+    "enterEmail": "Masukkan e-mel anda",
+    "subscribe": "Langgan",
+    "copyright": "Semua kandungan di laman web ini dilindungi oleh hak cipta.",
+    "rankings": "Kedudukan",
+    "safestCountries": "Negara Paling Selamat",
+    "humanFreedomLevel": "Tahap Kebebasan Manusia",
+    "lifeExpectancy": "Jangka Hayat",
+    "happinessIndex": "Indeks Kebahagiaan Dunia",
+    "citizenshipQualityRankings": "Kedudukan Kualiti Kewarganegaraan",
+    "trends": "Trend",
+    "foreignCitizenship": "Kewarganegaraan Asing",
+    "digitalNomadVisas": "Visa Nomad Digital",
+    "taxesRankings": "Kedudukan Cukai",
+    "residencyPermit": "Permit Kediaman"
+  },
+  "toast": {
+    "thanksNewsletter": "Terima kasih kerana melanggan surat berita kami!",
+    "linkCopied": "Pautan disalin ke papan keratan!",
+    "linkCopyFailed": "Gagal menyalin pautan",
+    "newSessionStarted": "Sesi baharu dimulakan",
+    "newSessionFailed": "Gagal memulakan sesi baharu. Sila cuba lagi.",
+    "redirectToPayPage": "Mengarahkan ke halaman pembayaran...",
+    "activeSessionShare": "Anda memerlukan sesi aktif untuk berkongsi",
+    "sessionDeleteFailed": "Gagal memadam sesi. Sila cuba lagi.",
+    "sessionDeleteSuccess": "Sesi berjaya dipadam!",
+    "sessionRenameSuccess": "Sesi berjaya dinamakan semula!",
+    "sessionRenameFailed": "Gagal menamakan semula sesi. Sila cuba lagi.",
+    "enterSessionName": "Masukkan nama baharu untuk sesi ini:"
+  },
+  "formErrors": {
+    "invalidEmail": "Format e-mel tidak sah",
+    "emailRequired": "E-mel diperlukan",
+    "fullNameRequired": "Nama penuh diperlukan",
+    "enterFullName": "Sila masukkan nama penuh anda",
+    "passwordRequired": "Kata laluan diperlukan",
+    "minPassword": "Kata laluan mestilah sekurang-kurangnya 8 aksara",
+    "passwordsMismatch": "Kata laluan tidak sepadan",
+    "weakPassword": "Kata laluan terlalu lemah",
+    "selectCountry": "Sila pilih negara",
+    "usernameRequired": "Nama pengguna diperlukan",
+    "minUsername": "Nama pengguna mestilah sekurang-kurangnya 3 aksara",
+    "cpasswordRequired": "Sahkan kata laluan diperlukan"
+  }
+}

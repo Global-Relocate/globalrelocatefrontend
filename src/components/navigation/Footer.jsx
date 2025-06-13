@@ -27,7 +27,7 @@ export default function Footer() {
 
   return (
     <div className="text-[#7E7E7E] w-full bg-black pt-[64px] pb-[8px] max-900:pt-[48px] max-900:pb-[8px] max-900:px-0 mt-8">
-      <div className="container mx-auto px-[25px]">
+      <div className="max-w-[1440px] mx-auto px-[25px]">
         <div className="flex flex-col">
           <div className="footerMain">
             <div className="footerCol">
@@ -55,6 +55,37 @@ export default function Footer() {
                   support@globalrelocate.com
                 </a>
               </div>
+            </div>
+
+            {/* Links Section */}
+            <div className="footerCol">
+              <h4 className="font-semibold text-white mb-3">
+                {t("footer.topCountries")}
+              </h4>
+              <ul className="flex flex-col gap-2">
+                {[
+                  { to: "", label: "Nigeria" },
+                  {
+                    to: "",
+                    label: "United States",
+                  },
+                  {
+                    to: "",
+                    label: "United Kingdom",
+                  },
+                ].map((item, index) => (
+                  <li key={index}>
+                    <div>
+                      <Link
+                        to={item.to}
+                        className="block hover:text-white transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className="footerCol">
@@ -128,7 +159,7 @@ export default function Footer() {
               </h4>
               <ul className="flex flex-col gap-2">
                 {[
-                  { to: "/term", label: t("loginPage.tos") },
+                  { to: "/terms", label: t("loginPage.tos") },
                   { to: "/privacy", label: t("loginPage.privacyPolicy") },
                   { to: "/contact-us", label: t("footer.contact") },
                 ].map((item, index) => (

@@ -5,22 +5,55 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { faqList } from "@/fake-data-store";
+import { useTranslation } from "react-i18next";
 
 const HelpCenter = () => {
+  const { t } = useTranslation();
+
+  const faqList = [
+    {
+      title: t("landingPage.helpCenter.faqs.question1.question"),
+      content: t("landingPage.helpCenter.faqs.question1.answer"),
+    },
+    {
+      title: t("landingPage.helpCenter.faqs.question2.question"),
+      content: t("landingPage.helpCenter.faqs.question2.answer"),
+    },
+    {
+      title: t("landingPage.helpCenter.faqs.question3.question"),
+      content: t("landingPage.helpCenter.faqs.question3.answer"),
+    },
+    {
+      title: t("landingPage.helpCenter.faqs.question4.question"),
+      content: t("landingPage.helpCenter.faqs.question4.answer"),
+    },
+    {
+      title: t("landingPage.helpCenter.faqs.question5.question"),
+      content: t("landingPage.helpCenter.faqs.question5.answer"),
+    },
+    {
+      title: t("landingPage.helpCenter.faqs.question6.question"),
+      content: t("landingPage.helpCenter.faqs.question6.answer"),
+    },
+    {
+      title: t("landingPage.helpCenter.faqs.question7.question"),
+      content: t("landingPage.helpCenter.faqs.question7.answer"),
+    },
+  ];
+
   return (
     <MainLayout>
       <div className="flex items-center flex-col">
         <div className="w-full h-[250px] md:h-[480px] bg-white flex items-center justify-center">
-          <h1 className="text-4xl md:text-7xl/[80px] mt-10 text-center font-semibold max-w-[80%] md:max-w-[430px]">
-            We are here to help.
+          <h1 className="text-4xl md:text-6xl/[80px] mt-10 text-center font-semibold max-w-[80%] md:max-w-[430px]">
+            {t("landingPage.helpCenter.help")}
           </h1>
         </div>
         <div className="max-w-[90%]  md:max-w-[1000px] w-full flex flex-col  py-10">
-          <h2 className="text-2xl font-medium">How can we help you?</h2>
-          <p className="text-md mt-1">
-            Check out our FAqs or <span>Contact Us</span> for more support.
-          </p>
+          <h2 className="text-2xl font-medium">
+            {t("landingPage.helpCenter.howCanWeHelp")}
+          </h2>
+          <p className="text-md mt-1">{t("landingPage.helpCenter.checkOut")}</p>
 
           <Accordion
             type="single"
@@ -34,14 +67,8 @@ const HelpCenter = () => {
                   className="border rounded-lg px-3"
                   value={`item-${idx + 1}`}
                 >
-                  <AccordionTrigger className="">{item.title}</AccordionTrigger>
-                  <AccordionContent>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsum nisi non totam perferendis accusantium itaque nam
-                    blanditiis expedita minus. Sunt quas, veritatis pariatur
-                    doloremque aperiam voluptates incidunt molestiae?
-                    Aspernatur, incidunt.
-                  </AccordionContent>
+                  <AccordionTrigger>{item.title}</AccordionTrigger>
+                  <AccordionContent>{item.content}</AccordionContent>
                 </AccordionItem>
               );
             })}

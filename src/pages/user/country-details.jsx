@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BiHeart } from "react-icons/bi";
 import { PiShare } from "react-icons/pi";
 import { useCountryData } from "@/context/CountryDataContext";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronLeft } from "lucide-react";
@@ -25,6 +25,9 @@ function CountryDetails() {
   const { singleCountry, loading, getSingleCountry, favourites } =
     useCountryData();
   const navigate = useNavigate();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [api, setApi] = useState();
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (id) {
@@ -48,15 +51,45 @@ function CountryDetails() {
     }
   };
 
-  const checkFavorites = () => {
-    if (favourites || favourites.length > 0) {
-      console.log(
-        favourites.some(
-          (country) => country.countryName === singleCountry?.name
-        )
-      );
-    }
+  // const checkFavorites = () => {
+  //   if (favourites || favourites.length > 0) {
+  //     console.log(
+  //       favourites.some(
+  //         (country) => country.countryName === singleCountry?.name
+  //       )
+  //     );
+  //   }
+  // };
+
+  // Custom CarouselIndicators component
+  const CarouselIndicators = ({ currentIndex, total, onClick }) => {
+    return (
+      <div className="flex absolute bottom-4 left-1/2 transform -translate-x-1/2 justify-center mt-2">
+        {Array.from({ length: total }).map((_, index) => (
+          <button
+            key={index}
+            className={`w-6 h-1 shadow rounded-md mx-1 ${
+              currentIndex === index ? "bg-black" : "bg-gray-300"
+            }`}
+            onClick={() => onClick(index)}
+          />
+        ))}
+      </div>
+    );
   };
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrentIndex(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrentIndex(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   return (
     <DashboardLayout>
@@ -146,6 +179,7 @@ function CountryDetails() {
                   }),
                 ]}
                 className="w-full rounded-2xl overflow-hidden"
+                setApi={setApi}
               >
                 <CarouselContent className="rounded-2xl">
                   {singleCountry.images.map((item, i) => {
@@ -164,6 +198,11 @@ function CountryDetails() {
                   <CarouselPrevious className="absolute left-0 h-full w-[60px] rounded-none bg-transparent border-0 hover:bg-transparent" />
                   <CarouselNext className="absolute right-0 h-full w-[60px] rounded-none bg-transparent border-0 hover:bg-transparent" />
                 </div>
+                <CarouselIndicators
+                  currentIndex={currentIndex}
+                  total={count}
+                  onClick={(index) => api?.scrollTo(index)}
+                />
               </Carousel>
             ) : (
               <>

@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Főoldal",
+      "countriesData": "Országok és adatok",
+      "community": "Közösség",
+      "taxCalculator": "Adókalkulátor",
+      "pricing": "Árképzés",
+      "viewProfile": "Profil megtekintése",
+      "helpCenter": "Súgó",
+      "giveFeedback": "Visszajelzés küldése",
+      "privacyPolicy": "Adatvédelmi irányelvek",
+      "upgradePlan": "Csomag frissítése",
+      "logIn": "Bejelentkezés",
+      "getStarted": "Kezdés",
+      "logout": "Kijelentkezés"
+    },
+    "showcase": {
+      "title": "Költözz okosabban, élj jobban.",
+      "para": "Az Ön MI-alapú platformja a zökkenőmentes költözéshez, jogi útmutatáshoz és globális élethez.",
+      "buttonText": "Kezdés"
+    },
+    "features": {
+      "title": "Funkciók",
+      "cards": {
+        "card1": {
+          "title": "Országok összehasonlítása",
+          "para": "Hozzon megalapozott döntéseket különböző országok egymás melletti összehasonlításával, elemezve olyan kulcsfontosságú tényezőket, mint az életköltség, adókulcsok és életminőség."
+        },
+        "card2": {
+          "title": "Okos információk MI-vel",
+          "para": "Csatlakozzon fórumokhoz és csoportokhoz hasonló gondolkodású globális nomádokkal."
+        },
+        "card3": {
+          "title": "Országok és adatok",
+          "para": "Csatlakozzon fórumokhoz és csoportokhoz hasonló gondolkodású globális nomádokkal."
+        }
+      }
+    },
+    "countries": {
+      "title": "Népszerű országok",
+      "para": "Fedezze fel a népszerű úti célokat és kezdje el tervezni a költözését"
+    },
+    "whyChooseUs": {
+      "title": "Miért válasszon minket",
+      "card1": {
+        "title": "Időtakarékos MI-támogatott adatok",
+        "para": "Mindig naprakész és megbízható információk."
+      },
+      "card2": {
+        "title": "Ellenőrzött kapcsolatok és megbízható források:",
+        "para": "Közösségi alapú platform, amely biztosítja a hitelességet."
+      },
+      "card3": {
+        "title": "Minden egyben megoldás",
+        "para": "Minden a vízumoktól az életköltségig egy helyen."
+      },
+      "card4": {
+        "title": "Személyre szabott értesítések",
+        "para": "Maradjon előrébb testreszabott értesítésekkel és kedvencek funkcióval."
+      }
+    },
+    "forgotPassword": {
+      "title": "Elfelejtette a jelszavát?",
+      "para": "Adja meg fiókja e-mail címét, és küldünk Önnek egy OTP-t a jelszó visszaállításához.",
+      "emailLabel": "E-mail cím",
+      "sending": "Küldés...",
+      "sendOTP": "OTP küldése",
+      "resendOTP": "OTP újraküldése",
+      "verifyOTP": "OTP ellenőrzése",
+      "otpSent": "Egy OTP-t küldtünk az e-mail címére.",
+      "continuePrompt": "Kattintson az alábbi Folytatás gombra egy új jelszó létrehozásához.",
+      "continue": "Folytatás",
+      "rememberPassword": "Emlékszik a jelszavára?",
+      "logIn": "Bejelentkezés"
+    },
+    "termsOfService": {
+      "title": "Általános Szerződési Feltételek",
+      "paragraph": "Üdvözöljük a globalrelocate.com oldalon! Ezek az Általános Szerződési Feltételek ('Feltételek') szabályozzák az Ön MI-alapú platformunk használatát a zökkenőmentes költözéshez, jogi útmutatáshoz és globális élethez, amely a globalrelocate.com URL-címen érhető el (a továbbiakban: 'Platform'). A Platformhoz való hozzáféréssel vagy annak használatával Ön elfogadja ezeket a Feltételeket. Kérjük, figyelmesen olvassa el őket.",
+      "sections": {
+        "platformUse": "1. Platform használata",
+        "platformUse_1": "1.1 Jogosultság: A Platform használatához legalább 18 évesnek kell lennie, vagy rendelkeznie kell a szerződéskötéshez szükséges jogképességgel az Ön joghatóságában. A Platformhoz való hozzáféréssel vagy annak használatával Ön kijelenti és szavatolja, hogy megfelel a jogosultsági követelményeknek.",
+        "platformUse_2": "1.2 Felhasználói fiók: A Platform bizonyos funkcióinak eléréséhez felhasználói fiókot kell létrehoznia. Ön felelős fiókja adatainak bizalmas kezeléséért, és vállalja, hogy kizárólagosan felelős minden, a fiókján keresztül végzett tevékenységért.",
+        "platformUse_3": "1.3 Tiltott tevékenységek: Ön vállalja, hogy nem vesz részt semmilyen olyan tevékenységben, amely sérti ezeket a Feltételeket vagy bármely alkalmazandó törvényt vagy rendeletet. A tiltott tevékenységek közé tartoznak többek között:",
+        "prohibited_1": "Szellemi tulajdonjogok megsértése",
+        "prohibited_2": "Illegális, káros vagy mások jogait sértő tartalom feltöltése vagy megosztása",
+        "prohibited_3": "A Platform megfelelő működésének megzavarása",
+        "prohibited_4": "Más személy vagy entitás megszemélyesítése",
+        "intellectualProperty": "2. Szellemi tulajdon",
+        "intellectualProperty_1": "2.1 Tulajdonjog: A Platformon elérhető minden tartalom, beleértve, de nem kizárólagosan a szöveget, grafikákat, logókat, képeket, hangfelvételeket, videókat és szoftvereket, a Global Relocate vagy licencadói tulajdonát képezi, és szellemi tulajdonjogi törvények védik.",
+        "intellectualProperty_2": "2.2 Tartalom használata: A Platformon található tartalmat kizárólag személyes, nem kereskedelmi célokra érheti el és használhatja. A tartalmat a Global Relocate előzetes írásbeli engedélye nélkül nem módosíthatja, reprodukálhatja, terjesztheti, megjelenítheti, előadhatja vagy abból származékos műveket nem hozhat létre.",
+        "disclaimer": "3. Jótállási nyilatkozat kizárása",
+        "disclaimer_1": "3.1 A Platformot 'ahogy van' és 'ahogy elérhető' alapon biztosítjuk, bármiféle garancia nélkül. A Global Relocate kizár minden kifejezett vagy hallgatólagos garanciát, beleértve, de nem kizárólagosan az eladhatóságot, egy adott célra való alkalmasságot és a jogsértés mentességét.",
+        "disclaimer_2": "3.2 A Global Relocate nem garantálja a Platformon található tartalom vagy információ pontosságát, teljességét vagy megbízhatóságát. Ön tudomásul veszi, hogy a Platform használata saját felelősségére történik.",
+        "liability": "4. Felelősség korlátozása",
+        "liability_1": "4.1 A törvény által megengedett legnagyobb mértékben a Global Relocate és igazgatói, alkalmazottai, leányvállalatai és ügynökei nem felelősek semmilyen közvetlen, közvetett, véletlen, különleges vagy következményes kárért, amely a Platform vagy annak tartalmának használatából ered, vagy azzal bármilyen módon összefügg.",
+        "thirdParty": "5. Harmadik féltől származó linkek",
+        "thirdParty_1": "5.1 A Platform tartalmazhat linkeket harmadik felek webhelyeire vagy szolgáltatásaira. A Global Relocate nem felelős semmilyen harmadik fél webhelyének vagy szolgáltatásának tartalmáért, pontosságáért vagy megbízhatóságáért. Az ilyen linkek feltüntetése nem jelenti a Global Relocate általi jóváhagyást vagy kapcsolatot.",
+        "modifications": "6. Módosítások és megszüntetés",
+        "modifications_1": "6.1 A Global Relocate fenntartja a jogot, hogy a Platform egészét vagy bármely részét ideiglenesen vagy véglegesen, előzetes értesítés nélkül módosítsa, felfüggessze vagy megszüntesse. A Global Relocate nem felelős Önnel vagy bármely harmadik féllel szemben a Platform bármilyen módosításáért, felfüggesztéséért vagy megszüntetéséért.",
+        "governingLaw": "7. Irányadó jog és joghatóság",
+        "governingLaw_1": "7.1 Ezeket a Feltételeket [Az Ön Országa] törvényei szerint kell értelmezni és szabályozni. Bármely, ezekből a Feltételekből vagy a Platform használatából eredő vagy azzal kapcsolatos vita [Az Ön Városa, Országa] bíróságainak kizárólagos joghatósága alá tartozik.",
+        "entireAgreement": "8. Teljes megállapodás",
+        "entireAgreement_1": "8.1 Ezek a Feltételek képezik a teljes megállapodást Ön és a Global Relocate között a Platform használatára vonatkozóan, és felülírnak minden korábbi vagy egyidejű megállapodást, kommunikációt vagy nyilatkozatot.",
+        "whyChoose": "9. Miért válassza a Global Relocate-et",
+        "whyChoose_1": "A Global Relocate-nél elkötelezettek vagyunk abban, hogy segítsünk Önnek okosabban költözni és jobban élni. Íme, miért érdemes minket választania:",
+        "whyChoose_bullet1": "Időtakarékos MI-támogatott adatok: Hozzáférhet mindig naprakész és megbízható információkhoz a megalapozott döntések meghozatalához.",
+        "whyChoose_bullet2": "Ellenőrzött kapcsolatok és megbízható források: Használja ki a közösségi alapú platform előnyeit, amely biztosítja a hitelességet és a bizalmat.",
+        "whyChoose_bullet3": "Minden egyben megoldás: Találjon meg mindent a vízumoktól az életköltségig egy helyen.",
+        "whyChoose_bullet4": "Személyre szabott értesítések: Maradjon előrébb testreszabott értesítésekkel és egy Önnek tervezett kedvencek funkcióval."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Adatvédelmi irányelvek és jogi nyilatkozat",
+      "paragraph": "Ez az Adatvédelmi irányelv leírja, hogyan gyűjti, használja és védi a Global Relocate (a továbbiakban: 'mi', 'minket' vagy 'a miénk'), a globalrelocate.com tulajdonosa és üzemeltetője az Ön személyes adatait, amikor Ön használja az MI-alapú platformunkat a zökkenőmentes költözéshez, jogi útmutatáshoz és globális élethez, amely a globalrelocate.com URL-címen érhető el (a 'Platform'). Ez az irányelv vonatkozik a Platformon keresztül nyújtott bármely szolgáltatásra, tartalomra, funkcióra vagy alkalmazásra is.",
+      "paragraph2": "A Platformhoz való hozzáféréssel vagy annak használatával Ön elfogadja személyes adatainak gyűjtését, felhasználását és közzétételét az ebben az Adatvédelmi irányelvben leírtak szerint. Ha nem ért egyet ennek az irányelvnek bármely aspektusával, kérjük, tartózkodjon a Platform használatától.",
+      "sections": {
+        "informationCollection": "1. Információgyűjtés",
+        "informationCollection_1": "1.1 Személyes adatok: Különböző típusú személyes adatokat gyűjthetünk Öntől, amikor a Platformot használja. Ez magában foglalhatja nevét, e-mail címét, elérhetőségi adatait, költözési preferenciáit és bármely más információt, amelyet önkéntesen megad nekünk.",
+        "informationCollection_2": "1.2 Használati adatok: Automatikusan gyűjtünk bizonyos, személyazonosításra nem alkalmas információkat a Platform használatáról. Ez magában foglalhatja IP-címét, böngésző típusát, operációs rendszerét, eszközinformációit, meglátogatott oldalait, hivatkozó/kilépő URL-jeit és egyéb hasonló adatokat.",
+        "useOfInformation": "2. Információk felhasználása",
+        "personalInformationUse": "2.1 Személyes adatok: Az Ön által megadott személyes adatokat a következő célokra használhatjuk fel:",
+        "personalInformationUse_bullet1": "MI-alapú költöztetési szolgáltatásaink, jogi útmutatásunk és globális életviteli erőforrásaink biztosítása és fejlesztése.",
+        "personalInformationUse_bullet2": "Kéréseinek feldolgozása, személyre szabott költözési tervek készítése és testreszabott tartalom biztosítása.",
+        "personalInformationUse_bullet3": "Kommunikáció Önnel, megkeresések megválaszolása és ügyfélszolgálat biztosítása.",
+        "personalInformationUse_bullet4": "Személyre szabott értesítések, frissítések és értesítések küldése vízumokról, életköltségről és egyéb költözéssel kapcsolatos információkról.",
+        "personalInformationUse_bullet5": "A Platformon szerzett élményének javítása kedvencek funkció és testreszabott ajánlások felajánlásával.",
+        "personalInformationUse_bullet6": "Szolgáltatási feltételeink és egyéb irányelveink érvényesítése.",
+        "personalInformationUse_bullet7": "Jogi kötelezettségeknek való megfelelés.",
+        "usageDataUse": "2.2 Használati adatok: A használati adatokat trendek elemzésére, felhasználói elkötelezettség nyomon követésére, szolgáltatásaink hatékonyságának figyelemmel kísérésére és a Platform felhasználói élményének javítására használjuk.",
+        "informationSharing": "3. Információmegosztás",
+        "informationSharing_1": "3.1 Harmadik fél szolgáltatók: Személyes adatait megoszthatjuk megbízható harmadik fél szolgáltatókkal, akik segítenek nekünk a Platform üzemeltetésében, szolgáltatások nyújtásában, fizetések feldolgozásában, elemzések végzésében vagy egyéb szükséges funkciók ellátásában. Ezeket a szolgáltatókat szigorú titoktartási megállapodások kötik, és tilos személyes adatait bármilyen más célra felhasználniuk.",
+        "informationSharing_2": "3.2 Jogi megfelelés és védelem: Személyes adatait közzétehetjük, ha azt törvény, rendelet, jogi eljárás vagy kormányzati kérés írja elő. Információit közzétehetjük jogaink, tulajdonunk vagy biztonságunk, valamint felhasználóink vagy mások jogainak, tulajdonának vagy biztonságának védelme érdekében is.",
+        "cookies": "4. Sütik és nyomkövető technológiák",
+        "cookies_1": "4.1 Sütiket és egyéb nyomkövető technológiákat használunk a Platformon bizonyos információk gyűjtésére és tárolására. A sütik kis szöveges fájlok, amelyeket az Ön eszközére helyezünk, hogy segítsenek nekünk a Platform használatának elemzésében, a felhasználói preferenciák megjegyzésében és az általános élmény javításában. Lehetősége van letiltani a sütiket a böngésző beállításaiban; ez azonban korlátozhatja a Platform bizonyos funkcióit.",
+        "dataSecurity": "5. Adatbiztonság",
+        "dataSecurity_1": "5.1 Ésszerű biztonsági intézkedéseket alkalmazunk személyes adatainak jogosulatlan hozzáféréstől, nyilvánosságra hozataltól, módosítástól vagy megsemmisítéstől való védelme érdekében. Kérjük azonban, vegye figyelembe, hogy az interneten keresztüli adatátvitel vagy tárolási módszer sem 100%-ban biztonságos. Nem tudjuk garantálni személyes adatainak abszolút biztonságát.",
+        "thirdPartyLinks": "6. Harmadik féltől származó linkek",
+        "thirdPartyLinks_1": "6.1 A Platform tartalmazhat linkeket harmadik felek webhelyeire vagy szolgáltatásaira, amelyek nem a mi tulajdonunkban vagy ellenőrzésünk alatt állnak. Nem vagyunk felelősek ezen harmadik felek webhelyeinek adatvédelmi gyakorlatáért vagy tartalmáért. Javasoljuk, hogy tekintse át minden meglátogatott harmadik fél webhelyének adatvédelmi irányelveit.",
+        "childrenPrivacy": "7. Gyermekek adatvédelme",
+        "childrenPrivacy_1": "7.1 A Platform nem 13 éven aluli személyek számára készült. Tudatosan nem gyűjtünk személyes adatokat 13 éven aluli gyermekektől. Ha tudomásunkra jut, hogy véletlenül 13 éven aluli gyermektől gyűjtöttünk személyes adatokat, lépéseket teszünk az információk haladéktalan törlésére.",
+        "changesToPolicy": "8. Változások ebben az Adatvédelmi irányelvben",
+        "changesToPolicy_1": "8.1 Fenntartjuk a jogot, hogy ezt az Adatvédelmi irányelvet bármikor módosítsuk vagy frissítsük. Bármilyen változás azonnal hatályba lép a felülvizsgált irányelv Platformon történő közzétételét követően. Javasoljuk, hogy rendszeresen tekintse át ezt az irányelvet, hogy tájékozott maradjon a frissítésekről.",
+        "whyGlobalRelocate": "9. Miért válassza a Global Relocate-et",
+        "whyGlobalRelocate_1": "A Global Relocate-nél elkötelezettek vagyunk abban, hogy segítsünk Önnek okosabban költözni és jobban élni. Íme, miért érdemes minket választania:",
+        "whyGlobalRelocate_bullet1": "Időtakarékos MI-támogatott adatok: Hozzáférhet mindig naprakész és megbízható információkhoz a megalapozott döntések meghozatalához.",
+        "whyGlobalRelocate_bullet2": "Ellenőrzött kapcsolatok és megbízható források: Használja ki a közösségi alapú platform előnyeit, amely biztosítja a hitelességet és a bizalmat.",
+        "whyGlobalRelocate_bullet3": "Minden egyben megoldás: Találjon meg mindent a vízumoktól az életköltségig egy helyen.",
+        "whyGlobalRelocate_bullet4": "Személyre szabott értesítések: Maradjon előrébb testreszabott értesítésekkel és egy Önnek tervezett kedvencek funkcióval.",
+        "contactUs": "10. Lépjen kapcsolatba velünk",
+        "contactUs_1": "10.1 Ha bármilyen kérdése, aggálya vagy kérése van ezzel az Adatvédelmi irányelvvel vagy adatkezelési gyakorlatunkkal kapcsolatban, kérjük, lépjen kapcsolatba velünk a következő címen:"
+      }
+    },
+    "helpCenter": {
+      "help": "Azért vagyunk itt, hogy segítsünk",
+      "howCanWeHelp": "Hogyan segíthetünk Önnek?",
+      "checkOut": "Nézze meg GYIK-ünket, vagy lépjen kapcsolatba velünk további támogatásért.",
+      "faqs": {
+        "title": "Gyakran Ismételt Kérdések",
+        "question1": {
+          "question": "Mi az a Global Relocate?",
+          "answer": "A Global Relocate egy MI-alapú platform, amelyet arra terveztek, hogy segítse az egyéneket és családokat új országokba költözni. Személyre szabott ajánlásokat, erőforrásokat és támogatást nyújt a költözési folyamat gördülékenyebbé és hatékonyabbá tételéhez."
+        },
+        "question2": {
+          "question": "Mit segít elérni a Global Relocate?",
+          "answer": "A Global Relocate segít a felhasználóknak zökkenőmentes költözési élményt elérni azáltal, hogy testreszabott tanácsokat, erőforrásokat és támogatást kínál az új országba költözés különböző aspektusaihoz, beleértve a vízumkérelmeket, a lakhatást, a foglalkoztatást és a kulturális integrációt."
+        },
+        "question3": {
+          "question": "A Global Relocate díjat számít fel a felhasználóknak a szolgáltatásokért vagy funkciókért?",
+          "answer": "Igen, a Global Relocate számos olyan szolgáltatást és funkciót kínál, amelyek díjkötelesek lehetnek. Azonban ingyenes erőforrásokat és alapvető támogatást is nyújt, hogy segítse a felhasználókat a költözési útjuk megkezdésében."
+        },
+        "question4": {
+          "question": "Mi történik az adataimmal / A Global Relocate tárolja a személyes adataimat?",
+          "answer": "A Global Relocate komolyan veszi a felhasználói adatvédelmet. Nem tárolunk személyes adatokat, hacsak a felhasználó kifejezetten nem adja meg azokat bizonyos szolgáltatásokhoz. Minden összegyűjtött adatot kizárólag a felhasználói élmény javítására és személyre szabott ajánlások nyújtására használunk. További részletekért kérjük, olvassa el Adatvédelmi irányelveinket."
+        },
+        "question5": {
+          "question": "Kik állnak a Global Relocate mögött?",
+          "answer": "A Global Relocate-et az MI, a költöztetési szolgáltatások és a nemzetközi jog területén tapasztalt szakemberekből álló csapat fejleszti. Csapatunk elkötelezett amellett, hogy a lehető legjobb támogatást és erőforrásokat nyújtsa a költözni vágyó egyéneknek és családoknak."
+        },
+        "question6": {
+          "question": "A Global Relocate több nyelven elérhető?",
+          "answer": "Igen, a Global Relocate több nyelven elérhető, hogy kiszolgálja a sokszínű felhasználói bázist. A platform beállítások részében kiválaszthatja a kívánt nyelvet."
+        },
+        "question7": {
+          "question": "Honnan származnak a Global Relocate-en található információk?",
+          "answer": "A Global Relocate-en található információk különféle jó hírű forrásokból származnak, beleértve a kormányzati webhelyeket, a költöztetési szakértőket és a felhasználók által generált tartalmakat. Folyamatosan frissítjük adatbázisunkat, hogy a felhasználók a legpontosabb és legrelevánsabb információkhoz férhessenek hozzá költözési igényeikhez."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Lépjen kapcsolatba velünk",
+      "titleDesc": "Kérdéseket tehet fel nekünk",
+      "para": "Lépjen kapcsolatba velünk minden kérdésével és véleményével, vagy gyorsan választ kaphat, ha ellátogat valamelyik kapcsolattartó irodánkba.",
+      "ourOffices": "Irodáink",
+      "ourOfficesDesc": "Különböző helyszíneken vannak irodáink, hogy segítsünk Önnek költözési igényeiben. Látogasson el hozzánk valamelyik irodánkba személyre szabott támogatásért.",
+      "dropUsAMessage": "Dobjon nekünk egy üzenetet",
+      "dropUsAMessageDesc": "Töltse ki az alábbi űrlapot, hogy üzenetet küldjön nekünk, és a lehető leghamarabb felvesszük Önnel a kapcsolatot.",
+      "yourName": "Az Ön neve",
+      "yourEmail": "Az Ön e-mail címe",
+      "subject": "Tárgy",
+      "yourMessage": "Az Ön üzenete",
+      "sendMessage": "Üzenet küldése",
+      "sending": "Küldés...",
+      "messageSent": "Üzenet sikeresen elküldve!",
+      "messageFailed": "Nem sikerült elküldeni az üzenetet. Kérjük, próbálja újra."
+    }
+  },
+  "loginPage": {
+    "close": "Bezárás",
+    "createAccount": "Fiók létrehozása",
+    "logIntoGR": "Bejelentkezés a Global Relocate-be",
+    "password": "Jelszó",
+    "enterPassword": "Adja meg jelszavát",
+    "continueWithGoogle": "Folytatás Google-fiókkal",
+    "cantLogin": "Nem tud bejelentkezni?",
+    "tosDesc": "A fiók létrehozásával elfogadja a ",
+    "tos": "Szolgáltatási Feltételeinket",
+    "privacyPolicy": "Adatvédelmi irányelveinket",
+    "and": "és",
+    "or": "VAGY",
+    "processing": "Feldolgozás...",
+    "continue": "Folytatás",
+    "hidePassword": "Jelszó elrejtése",
+    "showPassword": "Jelszó megjelenítése"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Hozzuk létre fiókját",
+    "chooseAccountType": "Válasszon fióktípust",
+    "createPersonalAccount": "Személyes fiókot hozok létre",
+    "createCorporateAccount": "Vállalati fiókot hozok létre",
+    "continue": "Folytatás",
+    "chooseSignMethod": "Válasszon regisztrációs módot",
+    "continueWithEmail": "Folytatás e-maillel",
+    "alreadyHaveAccount": "Már van fiókja?",
+    "fullName": "Teljes név",
+    "chooseUsername": "Válasszon felhasználónevet",
+    "enterYourFullName": "Adja meg teljes nevét",
+    "confirmPassword": "Jelszó megerősítése",
+    "country": "Ország"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Üdv a fedélzeten",
+    "welcomeText": "Az Ön MI-alapú platformja a zökkenőmentes költözéshez, jogi útmutatáshoz és globális élethez."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Országok",
+      "aiAssistant": "MI Asszisztens",
+      "compareCountries": "Országok összehasonlítása",
+      "taxCalculator": "Adókalkulátor",
+      "notifications": "Értesítések",
+      "favourites": "Kedvencek",
+      "community": "Közösség",
+      "cta": {
+        "title": "Próbálja ki a Pro-t",
+        "para": "Jelenleg ingyenes csomagban van, amely 3 napig érvényes. Frissítsen most, hogy továbbra is használhassa a Global Relocate-et.",
+        "buttonText": "Tudjon meg többet"
+      }
+    },
+    "notifications": {
+      "noNotifications": "Még nincsenek értesítései.",
+      "markAllAsRead": "Összes olvasottként jelölése",
+      "deleteAll": "Összes törlése",
+      "markAsRead": "Olvasottként jelölés",
+      "delete": "Értesítés törlése",
+      "showLess": "Kevesebb megjelenítése ebből",
+      "showMore": "Több eredmény megjelenítése"
+    },
+    "countries": {
+      "title": "Országok",
+      "noDataText": "Nincs elérhető adat!",
+      "searchText": "Országok keresése",
+      "clickToSelect": "Kattintson az ország kiválasztásához",
+      "view": "Megtekintés",
+      "searchResults": "Keresési eredmények",
+      "aiSuggestedCountries": "MI által javasolt országok",
+      "searchCountries": "Országok keresése"
+    },
+    "country": {
+      "countryIn": "Ország itt:",
+      "addFavorite": "Hozzáadás a kedvencekhez",
+      "removeFavorite": "Eltávolítás a kedvencekből",
+      "share": "Megosztás",
+      "overview": "Áttekintés",
+      "map": "Térkép",
+      "keyFacts": "Kulcsfontosságú tények",
+      "visaMigration": "Vízum és bevándorlás",
+      "taxes": "Adók",
+      "flag": "Zászló",
+      "capital": "Főváros",
+      "languages": "Nyelvek",
+      "currency": "Pénznem",
+      "population": "Népesség",
+      "dialingCode": "Hívószám",
+      "back": "Vissza",
+      "noOverview": "Nincs áttekintés ehhez az országhoz.",
+      "noVisaInfo": "Nincs elérhető vízum- és bevándorlási információ."
+    },
+    "ai": {
+      "rename": "Átnevezés",
+      "deleteConversation": "Beszélgetés törlése",
+      "share": "Megosztás",
+      "hello": "Helló",
+      "newChat": "Új csevegés",
+      "askAI": "Kérdezzen bármit az MI-től...",
+      "uploadDocument": "Dokumentum feltöltése",
+      "uploadDocumentDesc": "Töltsön fel egy dokumentumot az MI asszisztenssel való feldolgozáshoz",
+      "cancel": "Mégse",
+      "upload": "Feltöltés"
+    },
+    "settings": {
+      "accountSettings": "Fiókbeállítások",
+      "editProfile": "Profil szerkesztése",
+      "profile": "Profil",
+      "account": "Fiók",
+      "preferences": "Beállítások",
+      "avatar": "Avatár",
+      "fullName": "Teljes név",
+      "username": "Felhasználónév",
+      "bio": "Bemutatkozás",
+      "country": "Ország",
+      "emailAddress": "E-mail cím",
+      "verified": "Ellenőrzött",
+      "subscription": "Előfizetés",
+      "subscriptionDesc": "Jelenleg ingyenes csomagban van, amely 3 napig érvényes. Frissítsen most, hogy továbbra is használhassa a Global Relocate-et.",
+      "deleteAccount": "Fiók törlése",
+      "deleteDesc": "Fiókja és adatai végleges törlése",
+      "language": "Nyelv",
+      "chooseLanguage": "Válasszon nyelvet",
+      "selectLanguage": "Nyelv kiválasztása",
+      "learnMore": "Tudjon meg többet",
+      "saveChanges": "Változtatások mentése",
+      "cancel": "Mégse",
+      "saving": "Mentés...",
+      "unsavedChanges": "Mentetlen változtatásai vannak",
+      "addName": "Név hozzáadása",
+      "addBio": "Adjon hozzá bemutatkozást, hogy elmesélje történetét.",
+      "addUsername": "Felhasználónév hozzáadása",
+      "addLocation": "Hely hozzáadása",
+      "confirmAccountDelete": "Fiók törlésének megerősítése",
+      "confirmAccountDeleteDesc": "Mielőtt törölné fiókját, kérjük, szánjon egy percet arra, hogy megértse, mi fog történni adataival:",
+      "confirm": "Megerősítés",
+      "neverMind": "Nem számít",
+      "confirmDeleteWarning": "Ne feledje, hogy a fiók törlése nem vonható vissza.",
+      "confirmDeleteList1": "Profiladatai, beállításai és preferenciái eltávolításra kerülnek.",
+      "confirmDeleteList2": "Minden adat véglegesen törlődik a fiók törlésétől számított 30 napon belül.",
+      "deleting": "Törlés...",
+      "youHave": "Önnek van:",
+      "administrator": "Adminisztrátor"
+    },
+    "continents": {
+      "all": "Összes",
+      "europe": "Európa",
+      "asia": "Ázsia",
+      "africa": "Afrika",
+      "south america": "Dél-Amerika",
+      "north america": "Észak-Amerika",
+      "antarctica": "Antarktisz",
+      "oceania": "Óceánia"
+    },
+    "tax": {
+      "taxCalculator": "Adókalkulátor",
+      "taxCacluatorDesc": "Számítsa ki becsült adóterhét különböző országokban",
+      "country": "Ország",
+      "annualIncome": "Éves jövedelem",
+      "userAccount": "Felhasználói fiók",
+      "totalDeductions": "Összes levonás",
+      "selectCountry": "Válassza ki országát",
+      "selectAccount": "Válasszon fióktípust",
+      "enterIncome": "Adja meg éves jövedelmét",
+      "enterDeductions": "Adja meg az összes levonást",
+      "calculateTax": "Adó kiszámítása",
+      "individual": "Egyéni",
+      "corporate": "Vállalati",
+      "taxSummary": "Adóösszegzés",
+      "taxAmount": "Adó összege",
+      "effectiveRate": "Hatékony adókulcs",
+      "takeHomeAmount": "Hazavihető összeg"
+    },
+    "upgradePage": {
+      "back": "Vissza",
+      "upgradePlan": "Frissítse csomagját",
+      "upgradePlanDesc": "Válassza ki a tökéletes csomagot globális költözési útjának támogatásához. Hozzáférhet átfogó eszközökhöz és betekintésekhez, hogy zökkenőmentessé tegye költözését.",
+      "currentPlan": "Jelenlegi csomagja",
+      "getStarted": "Kezdés",
+      "free": "Ingyenes",
+      "basic": "Alap",
+      "premium": "Prémium",
+      "perMonth": "havonta",
+      "forEveryone": "Mindenkinek",
+      "freePlan": {
+        "item1": "3 napos próba hozzáférés",
+        "item2": "Alapvető országinformációk",
+        "item3": "Közösségi hozzáférés (csak olvasható)",
+        "item4": "Korlátozott adókalkulátor",
+        "item5": "Alapvető költség-összehasonlítás"
+      },
+      "basicPlan": {
+        "item1": "Teljes országinformációk",
+        "item2": "Közösségi részvétel",
+        "item3": "Teljes adókalkulátor",
+        "item4": "Költség-összehasonlító eszközök",
+        "item5": "Alapvető költözési útmutatók",
+        "item6": "E-mail támogatás"
+      },
+      "premiumPlan": {
+        "item1": "Minden Alap funkció",
+        "item2": "Korlátlan országi adathozzáférés",
+        "item3": "Teljes közösségi részvétel",
+        "item4": "Fejlett adókalkulátor",
+        "item5": "MI költözési asszisztens",
+        "item6": "Életköltség-betekintések",
+        "item7": "Vízumkövetelmény-útmutatók",
+        "item8": "Kiemelt támogatás",
+        "item9": "Egyedi költözési ütemterv"
+      }
+    },
+    "favorites": {
+      "noFavorites": "Még nincsenek kedvencei.",
+      "addToFavorites": "Hozzáadás a kedvencekhez",
+      "removeFromFavorites": "Eltávolítás a kedvencekből"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Változtatások megerősítése"
+    }
+  },
+  "footer": {
+    "topCountries": "Legjobb országok",
+    "sitemap": "Oldaltérkép",
+    "company": "Cég",
+    "terms": "Feltételek",
+    "privacy": "Adatvédelem",
+    "contact": "Lépjen kapcsolatba velünk",
+    "subscribeNewsletter": "Iratkozzon fel hírlevelünkre",
+    "subscribeNewsDesc": "Maradjon naprakész a globális költözéssel kapcsolatos legfrissebb betekintésekkel",
+    "enterEmail": "Adja meg e-mail címét",
+    "subscribe": "Feliratkozás",
+    "copyright": "A webhely minden tartalma szerzői jogvédelem alatt áll.",
+    "rankings": "Rangsorok",
+    "safestCountries": "A legbiztonságosabb országok",
+    "humanFreedomLevel": "Emberi szabadság szintje",
+    "lifeExpectancy": "Várható élettartam",
+    "happinessIndex": "Világ boldogságindexe",
+    "citizenshipQualityRankings": "Állampolgársági minőségi rangsorok",
+    "trends": "Trendek",
+    "foreignCitizenship": "Külföldi állampolgárság",
+    "digitalNomadVisas": "Digitális nomád vízumok",
+    "taxesRankings": "Adórangsorok",
+    "residencyPermit": "Tartózkodási engedély"
+  },
+  "toast": {
+    "thanksNewsletter": "Köszönjük, hogy feliratkozott hírlevelünkre!",
+    "linkCopied": "Link a vágólapra másolva!",
+    "linkCopyFailed": "Nem sikerült a link másolása",
+    "newSessionStarted": "Új munkamenet indult",
+    "newSessionFailed": "Nem sikerült új munkamenetet indítani. Kérjük, próbálja újra.",
+    "redirectToPayPage": "Átirányítás a fizetési oldalra...",
+    "activeSessionShare": "A megosztáshoz aktív munkamenetre van szükség",
+    "sessionDeleteFailed": "Nem sikerült törölni a munkamenetet. Kérjük, próbálja újra.",
+    "sessionDeleteSuccess": "Munkamenet sikeresen törölve!",
+    "sessionRenameSuccess": "Munkamenet sikeresen átnevezve!",
+    "sessionRenameFailed": "Nem sikerült átnevezni a munkamenetet. Kérjük, próbálja újra.",
+    "enterSessionName": "Adjon meg új nevet ennek a munkamenetnek:"
+  },
+  "formErrors": {
+    "invalidEmail": "Érvénytelen e-mail formátum",
+    "emailRequired": "E-mail cím megadása kötelező",
+    "fullNameRequired": "Teljes név megadása kötelező",
+    "enterFullName": "Kérjük, adja meg teljes nevét",
+    "passwordRequired": "Jelszó megadása kötelező",
+    "minPassword": "A jelszónak legalább 8 karakter hosszúnak kell lennie",
+    "passwordsMismatch": "A jelszavak nem egyeznek",
+    "weakPassword": "A jelszó túl gyenge",
+    "selectCountry": "Kérjük, válasszon országot",
+    "usernameRequired": "Felhasználónév megadása kötelező",
+    "minUsername": "A felhasználónévnek legalább 3 karakter hosszúnak kell lennie",
+    "cpasswordRequired": "Jelszó megerősítése kötelező"
+  }
+}

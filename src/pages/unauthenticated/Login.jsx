@@ -133,7 +133,7 @@ export default function Login() {
         {/* Mobile Header */}
         <div className="md:hidden flex items-center justify-between p-4">
           <Link to="/">
-            <img src={logo} alt="Global Relocate Logo" className="h-10" />
+            <img src={logo} alt="Global Relocate Logo" className="h-12 ml-5" />
           </Link>
           <button
             onClick={navigate.bind(null, "/signup")}
@@ -146,9 +146,9 @@ export default function Login() {
         </div>
 
         {/* Desktop Header */}
-        <div className="hidden md:flex items-center justify-between p-6">
+        <div className="hidden md:flex items-center justify-between px-6 lg:px-10 py-4">
           <Link to="/">
-            <img src={logo} alt="Global Relocate Logo" className="h-10" />
+            <img src={logo} alt="Global Relocate Logo" className="h-12" />
           </Link>
           <Link
             to="/signup"

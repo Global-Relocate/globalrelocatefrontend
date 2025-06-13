@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Tahanan",
+      "countriesData": "Mga Bansa at Datos",
+      "community": "Komunidad",
+      "taxCalculator": "Kalkulator ng Buwis",
+      "pricing": "Pagpepresyo",
+      "viewProfile": "Tingnan ang Profile",
+      "helpCenter": "Sentro ng Tulong",
+      "giveFeedback": "Bigyan kami ng puna",
+      "privacyPolicy": "Patakaran sa Privacy",
+      "upgradePlan": "Mag-upgrade ng Plano",
+      "logIn": "Mag-log In",
+      "getStarted": "Magsimula",
+      "logout": "Mag-logout"
+    },
+    "showcase": {
+      "title": "Lumipat nang mas matalino, mamuhay nang mas mahusay.",
+      "para": "Ang iyong AI-powered na plataporma para sa walang problemang relokasyon, legal na gabay, at pandaigdigang pamumuhay.",
+      "buttonText": "Magsimula"
+    },
+    "features": {
+      "title": "Mga Tampok",
+      "cards": {
+        "card1": {
+          "title": "Paghambingin ang mga Bansa",
+          "para": "Gumawa ng matalinong mga desisyon sa pamamagitan ng paghahambing ng iba't ibang bansa nang magkatabi, sinusuri ang mga pangunahing salik tulad ng gastos sa pamumuhay, mga rate ng buwis, at kalidad ng buhay."
+        },
+        "card2": {
+          "title": "Matalinong impormasyon gamit ang Ai",
+          "para": "Sumali sa mga forum at grupo kasama ang mga katulad ng pag-iisip na pandaigdigang nomad."
+        },
+        "card3": {
+          "title": "Mga Bansa at Datos",
+          "para": "Sumali sa mga forum at grupo kasama ang mga katulad ng pag-iisip na pandaigdigang nomad."
+        }
+      }
+    },
+    "countries": {
+      "title": "Mga Sikat na Bansa",
+      "para": "Galugarin ang mga sikat na destinasyon at simulan ang pagpaplano ng iyong relokasyon"
+    },
+    "whyChooseUs": {
+      "title": "Bakit Kami ang Piliin",
+      "card1": {
+        "title": "Datos na Suportado ng AI na Nakakatipid ng Oras",
+        "para": "Laging napapanahon at mapagkakatiwalaang impormasyon."
+      },
+      "card2": {
+        "title": "Mga Beripikadong Kontak at Pinagkakatiwalaang Pinagmulan:",
+        "para": "Isang platapormang nakabatay sa komunidad na tinitiyak ang kredibilidad."
+      },
+      "card3": {
+        "title": "Lahat-sa-Isang Solusyon",
+        "para": "Lahat mula sa mga visa hanggang sa gastos sa pamumuhay sa isang lugar."
+      },
+      "card4": {
+        "title": "Mga Personal na Alerto",
+        "para": "Manatiling nangunguna gamit ang mga angkop na abiso at tampok na paborito."
+      }
+    },
+    "forgotPassword": {
+      "title": "Unohditko salasanasi?",
+      "para": "Syötä tilisi sähköpostiosoite, niin lähetämme sinulle kertakäyttösalasanan salasanasi nollaamiseksi.",
+      "emailLabel": "Sähköpostiosoite",
+      "sending": "Lähetetään...",
+      "sendOTP": "Lähetä kertakäyttösalasana",
+      "resendOTP": "Lähetä kertakäyttösalasana uudelleen",
+      "verifyOTP": "Vahvista kertakäyttösalasana",
+      "otpSent": "Kertakäyttösalasana on lähetetty sähköpostiisi.",
+      "continuePrompt": "Napsauta alla olevaa Jatka-painiketta luodaksesi uuden salasanan.",
+      "continue": "Jatka",
+      "rememberPassword": "Muistitko salasanasi?",
+      "logIn": "Kirjaudu sisään"
+    },
+    "termsOfService": {
+      "title": "Mga Tuntunin at Kundisyon",
+      "paragraph": "Maligayang pagdating sa globalrelocate.com! Ang Mga Tuntunin at Kundisyon na ito ('Mga Tuntunin') ang namamahala sa iyong paggamit ng aming AI-powered na plataporma para sa walang problemang relokasyon, legal na gabay, at pandaigdigang pamumuhay, na naa-access sa pamamagitan ng URL na globalrelocate.com (tinutukoy bilang 'ang Plataporma'). Sa pamamagitan ng pag-access o paggamit ng Plataporma, sumasang-ayon kang sumunod sa Mga Tuntuning ito. Mangyaring basahin nang mabuti ang mga ito.",
+      "sections": {
+        "platformUse": "1. Paggamit ng Plataporma",
+        "platformUse_1": "1.1 Pagiging Karapat-dapat: Dapat ikaw ay hindi bababa sa 18 taong gulang o may legal na kapasidad na pumasok sa mga kontrata sa iyong hurisdiksyon upang magamit ang Plataporma. Sa pamamagitan ng pag-access o paggamit ng Plataporma, kinakatawan at ginagarantiyahan mo na natutugunan mo ang mga kinakailangan sa pagiging karapat-dapat.",
+        "platformUse_2": "1.2 User Account: Maaaring kailanganin mong lumikha ng isang user account upang ma-access ang ilang mga tampok ng Plataporma. Responsable ka sa pagpapanatili ng pagiging kompidensyal ng impormasyon ng iyong account at sumasang-ayon na maging tanging responsable para sa lahat ng mga aktibidad na isinasagawa sa pamamagitan ng iyong account.",
+        "platformUse_3": "1.3 Mga Ipinagbabawal na Aktibidad: Sumasang-ayon kang hindi makisali sa anumang mga aktibidad na lumalabag sa Mga Tuntuning ito o anumang naaangkop na mga batas o regulasyon. Kasama sa mga ipinagbabawal na aktibidad, ngunit hindi limitado sa:",
+        "prohibited_1": "Paglabag sa mga karapatan sa intelektwal na ari-arian",
+        "prohibited_2": "Pag-a-upload o pagbabahagi ng nilalaman na ilegal, nakakapinsala, o lumalabag sa mga karapatan ng iba",
+        "prohibited_3": "Panghihimasok sa wastong paggana ng Plataporma",
+        "prohibited_4": "Pagpapanggap bilang ibang tao o entidad",
+        "intellectualProperty": "2. Intelektwal na Ari-arian",
+        "intellectualProperty_1": "2.1 Pagmamay-ari: Lahat ng nilalaman, kabilang ngunit hindi limitado sa teksto, graphics, logo, mga imahe, audio clip, video, at software, na magagamit sa Plataporma ay pag-aari ng Global Relocate o mga tagapaglisensya nito at protektado ng mga batas sa intelektwal na ari-arian.",
+        "intellectualProperty_2": "2.2 Paggamit ng Nilalaman: Maaari mong i-access at gamitin ang nilalaman sa Plataporma para sa personal, hindi pang-komersyal na layunin lamang. Hindi mo maaaring baguhin, kopyahin, ipamahagi, ipakita, isagawa, o lumikha ng mga hinangong gawa mula sa nilalaman nang walang paunang nakasulat na pahintulot mula sa Global Relocate.",
+        "disclaimer": "3. Pagtatatuwa ng mga Garantiya",
+        "disclaimer_1": "3.1 Ang Plataporma ay ibinibigay sa batayang 'as is' at 'as available' nang walang anumang uri ng mga garantiya. Itinatakwil ng Global Relocate ang lahat ng mga garantiya, maging hayag o ipinahiwatig, kabilang ngunit hindi limitado sa pagiging mabibili, kaangkupan para sa isang partikular na layunin, at hindi paglabag.",
+        "disclaimer_2": "3.2 Hindi ginagarantiyahan ng Global Relocate ang katumpakan, pagkakumpleto, o pagiging maaasahan ng anumang nilalaman o impormasyon sa Plataporma. Kinikilala mo na ang iyong paggamit ng Plataporma ay nasa iyong sariling panganib.",
+        "liability": "4. Limitasyon ng Pananagutan",
+        "liability_1": "4.1 Hanggang sa sukdulang pinahihintulutan ng batas, ang Global Relocate at ang mga direktor, empleyado, kaanib, at ahente nito ay hindi mananagot para sa anumang direkta, hindi direkta, insidental, espesyal, o kinahinatnang pinsala na magmumula sa o sa anumang paraang konektado sa iyong paggamit ng Plataporma o ng nilalaman nito.",
+        "thirdParty": "5. Mga Link ng Third-Party",
+        "thirdParty_1": "5.1 Ang Plataporma ay maaaring maglaman ng mga link sa mga website o serbisyo ng third-party. Hindi responsable ang Global Relocate para sa nilalaman, katumpakan, o pagiging maaasahan ng anumang mga website o serbisyo ng third-party. Ang pagsasama ng anumang naturang mga link ay hindi nagpapahiwatig ng pag-endorso o pakikipag-ugnayan ng Global Relocate.",
+        "modifications": "6. Mga Pagbabago at Pagwawakas",
+        "modifications_1": "6.1 Inilalaan ng Global Relocate ang karapatang baguhin, suspindihin, o itigil ang anumang bahagi o lahat ng Plataporma, pansamantala o permanente, nang walang paunang abiso. Ang Global Relocate ay hindi mananagot sa iyo o sa anumang third party para sa anumang mga pagbabago, suspensyon, o pagtigil ng Plataporma.",
+        "governingLaw": "7. Namamahalang Batas at Hurisdiksyon",
+        "governingLaw_1": "7.1 Ang Mga Tuntuning ito ay pamamahalaan at bibigyang-kahulugan alinsunod sa mga batas ng [Your Country]. Anumang hindi pagkakaunawaan na magmumula sa o may kaugnayan sa Mga Tuntuning ito o sa iyong paggamit ng Plataporma ay sasailalim sa eksklusibong hurisdiksyon ng mga korte sa [Your City, Country].",
+        "entireAgreement": "8. Buong Kasunduan",
+        "entireAgreement_1": "8.1 Ang Mga Tuntuning ito ang bumubuo ng buong kasunduan sa pagitan mo at ng Global Relocate tungkol sa paggamit ng Plataporma at pinapalitan ang anumang nauna o kasabay na mga kasunduan, komunikasyon, o representasyon.",
+        "whyChoose": "9. Bakit Piliin ang Global Relocate",
+        "whyChoose_1": "Sa Global Relocate, kami ay nakatuon sa pagtulong sa iyong lumipat nang mas matalino at mamuhay nang mas mahusay. Narito kung bakit dapat mo kaming piliin:",
+        "whyChoose_bullet1": "Datos na Suportado ng AI na Nakakatipid ng Oras: I-access ang laging napapanahon at mapagkakatiwalaang impormasyon upang makagawa ng matalinong mga desisyon.",
+        "whyChoose_bullet2": "Mga Beripikadong Kontak at Pinagkakatiwalaang Pinagmulan: Makinabang mula sa isang platapormang nakabatay sa komunidad na tinitiyak ang kredibilidad at tiwala.",
+        "whyChoose_bullet3": "Lahat-sa-Isang Solusyon: Hanapin ang lahat mula sa mga visa hanggang sa gastos sa pamumuhay sa isang lugar.",
+        "whyChoose_bullet4": "Mga Personal na Alerto: Manatiling nangunguna gamit ang mga angkop na abiso at tampok na paborito na idinisenyo para lamang sa iyo."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Patakaran sa Privacy at Legal na Pagtatatuwa",
+      "paragraph": "Inilalarawan ng Patakaran sa Privacy na ito kung paano kinokolekta, ginagamit, at pinoprotektahan ng Global Relocate (tinutukoy bilang 'kami,' 'tayo,' o 'atin'), ang may-ari at operator ng globalrelocate.com, ang iyong personal na impormasyon kapag ginagamit mo ang aming AI-powered na plataporma para sa walang problemang relokasyon, legal na gabay, at pandaigdigang pamumuhay, na naa-access sa pamamagitan ng URL na globalrelocate.com (ang 'Plataporma'). Nalalapat din ang patakarang ito sa anumang mga serbisyo, nilalaman, tampok, o aplikasyon na ibinibigay sa pamamagitan ng Plataporma.",
+      "paragraph2": "Sa pamamagitan ng pag-access o paggamit ng Plataporma, sumasang-ayon ka sa pagkolekta, paggamit, at pagsisiwalat ng iyong personal na impormasyon tulad ng nakabalangkas sa Patakaran sa Privacy na ito. Kung hindi ka sumasang-ayon sa anumang aspeto ng patakarang ito, mangyaring iwasan ang paggamit ng Plataporma.",
+      "sections": {
+        "informationCollection": "1. Pagkolekta ng Impormasyon",
+        "informationCollection_1": "1.1 Personal na Impormasyon: Maaari kaming mangolekta ng iba't ibang uri ng personal na impormasyon mula sa iyo kapag ginagamit mo ang Plataporma. Maaaring kasama dito ang iyong pangalan, email address, impormasyon sa pakikipag-ugnayan, mga kagustuhan sa relokasyon, at anumang iba pang impormasyon na boluntaryo mong ibinibigay sa amin.",
+        "informationCollection_2": "1.2 Datos sa Paggamit: Awtomatiko kaming nangongolekta ng ilang partikular na impormasyong hindi personal na nakakapagpakilala tungkol sa iyong paggamit ng Plataporma. Maaaring kasama dito ang iyong IP address, uri ng browser, operating system, impormasyon ng device, mga binisita na pahina, mga referring/exit URL, at iba pang katulad na datos.",
+        "useOfInformation": "2. Paggamit ng Impormasyon",
+        "personalInformationUse": "2.1 Personal na Impormasyon: Maaari naming gamitin ang personal na impormasyon na ibinibigay mo sa amin para sa mga sumusunod na layunin:",
+        "personalInformationUse_bullet1": "Upang magbigay at mapabuti ang aming mga serbisyo sa relokasyon na pinapagana ng AI, legal na gabay, at mga mapagkukunan para sa pandaigdigang pamumuhay.",
+        "personalInformationUse_bullet2": "Upang iproseso ang iyong mga kahilingan, magbigay ng mga personal na plano sa relokasyon, at maghatid ng angkop na nilalaman.",
+        "personalInformationUse_bullet3": "Upang makipag-ugnayan sa iyo, tumugon sa mga katanungan, at magbigay ng suporta sa customer.",
+        "personalInformationUse_bullet4": "Upang magpadala ng mga personal na alerto, update, at abiso tungkol sa mga visa, gastos sa pamumuhay, at iba pang impormasyong may kaugnayan sa relokasyon.",
+        "personalInformationUse_bullet5": "Upang mapahusay ang iyong karanasan sa Plataporma sa pamamagitan ng pag-aalok ng tampok na paborito at mga angkop na rekomendasyon.",
+        "personalInformationUse_bullet6": "Upang ipatupad ang aming Mga Tuntunin ng Serbisyo at iba pang mga patakaran.",
+        "personalInformationUse_bullet7": "Upang sumunod sa mga legal na obligasyon.",
+        "usageDataUse": "2.2 Datos sa Paggamit: Ginagamit namin ang datos sa paggamit upang suriin ang mga trend, subaybayan ang pakikipag-ugnayan ng user, subaybayan ang pagiging epektibo ng aming mga serbisyo, at mapahusay ang karanasan ng user sa Plataporma.",
+        "informationSharing": "3. Pagbabahagi ng Impormasyon",
+        "informationSharing_1": "3.1 Mga Tagapagbigay ng Serbisyo ng Third-Party: Maaari naming ibahagi ang iyong personal na impormasyon sa mga pinagkakatiwalaang tagapagbigay ng serbisyo ng third-party na tumutulong sa amin sa pagpapatakbo ng Plataporma, paghahatid ng mga serbisyo, pagproseso ng mga pagbabayad, pagsasagawa ng analytics, o pagsasagawa ng iba pang kinakailangang mga function. Ang mga tagapagbigay ng serbisyong ito ay nakatali sa mahigpit na mga kasunduan sa pagiging kompidensyal at ipinagbabawal na gamitin ang iyong personal na impormasyon para sa anumang iba pang mga layunin.",
+        "informationSharing_2": "3.2 Pagsunod sa Batas at Proteksyon: Maaari naming isiwalat ang iyong personal na impormasyon kung kinakailangan ng batas, regulasyon, legal na proseso, o kahilingan ng gobyerno. Maaari rin naming isiwalat ang iyong impormasyon upang protektahan ang aming mga karapatan, ari-arian, o kaligtasan, pati na rin ang mga karapatan, ari-arian, o kaligtasan ng aming mga user o iba pa.",
+        "cookies": "4. Cookies at Mga Teknolohiya sa Pagsubaybay",
+        "cookies_1": "4.1 Gumagamit kami ng cookies at iba pang mga teknolohiya sa pagsubaybay sa Plataporma upang mangolekta at mag-imbak ng ilang partikular na impormasyon. Ang cookies ay maliliit na text file na inilalagay sa iyong device upang matulungan kaming suriin ang paggamit ng Plataporma, tandaan ang mga kagustuhan ng user, at mapahusay ang iyong pangkalahatang karanasan. May opsyon kang i-disable ang cookies sa pamamagitan ng mga setting ng iyong browser; gayunpaman, maaaring limitahan nito ang ilang partikular na pag-andar ng Plataporma.",
+        "dataSecurity": "5. Seguridad ng Datos",
+        "dataSecurity_1": "5.1 Nagpapatupad kami ng mga makatwirang hakbang sa seguridad upang protektahan ang iyong personal na impormasyon mula sa hindi awtorisadong pag-access, pagsisiwalat, pagbabago, o pagkasira. Gayunpaman, mangyaring magkaroon ng kamalayan na walang paghahatid ng datos sa internet o paraan ng pag-iimbak na 100% ligtas. Hindi namin magagarantiyahan ang ganap na seguridad ng iyong personal na impormasyon.",
+        "thirdPartyLinks": "6. Mga Link ng Third-Party",
+        "thirdPartyLinks_1": "6.1 Ang Plataporma ay maaaring maglaman ng mga link sa mga website o serbisyo ng third-party na hindi namin pag-aari o kontrolado. Hindi kami responsable para sa mga kasanayan sa privacy o nilalaman ng mga site na ito ng third-party. Hinihikayat ka naming suriin ang mga patakaran sa privacy ng anumang mga website ng third-party na iyong binibisita.",
+        "childrenPrivacy": "7. Privacy ng mga Bata",
+        "childrenPrivacy_1": "7.1 Ang Plataporma ay hindi inilaan para sa mga indibidwal na wala pang 13 taong gulang. Hindi kami sadyang nangongolekta ng personal na impormasyon mula sa mga batang wala pang 13 taong gulang. Kung malaman namin na hindi sinasadyang nakakolekta kami ng personal na impormasyon mula sa isang batang wala pang 13 taong gulang, gagawa kami ng mga hakbang upang agad na tanggalin ang impormasyon.",
+        "changesToPolicy": "8. Mga Pagbabago sa Patakaran sa Privacy na Ito",
+        "changesToPolicy_1": "8.1 Inilalaan namin ang karapatang baguhin o i-update ang Patakaran sa Privacy na ito anumang oras. Ang anumang mga pagbabago ay magiging epektibo kaagad sa pag-post ng binagong patakaran sa Plataporma. Hinihikayat ka naming suriin ang patakarang ito nang pana-panahon upang manatiling may kaalaman sa anumang mga update.",
+        "whyGlobalRelocate": "9. Bakit Piliin ang Global Relocate",
+        "whyGlobalRelocate_1": "Sa Global Relocate, kami ay nakatuon sa pagtulong sa iyong lumipat nang mas matalino at mamuhay nang mas mahusay. Narito kung bakit dapat mo kaming piliin:",
+        "whyGlobalRelocate_bullet1": "Datos na Suportado ng AI na Nakakatipid ng Oras: I-access ang laging napapanahon at mapagkakatiwalaang impormasyon upang makagawa ng matalinong mga desisyon.",
+        "whyGlobalRelocate_bullet2": "Mga Beripikadong Kontak at Pinagkakatiwalaang Pinagmulan: Makinabang mula sa isang platapormang nakabatay sa komunidad na tinitiyak ang kredibilidad at tiwala.",
+        "whyGlobalRelocate_bullet3": "Lahat-sa-Isang Solusyon: Hanapin ang lahat mula sa mga visa hanggang sa gastos sa pamumuhay sa isang lugar.",
+        "whyGlobalRelocate_bullet4": "Mga Personal na Alerto: Manatiling nangunguna gamit ang mga angkop na abiso at tampok na paborito na idinisenyo para lamang sa iyo.",
+        "contactUs": "10. Makipag-ugnayan sa Amin",
+        "contactUs_1": "10.1 Kung mayroon kang anumang mga katanungan, alalahanin, o kahilingan tungkol sa Patakaran sa Privacy na ito o sa aming mga kasanayan sa datos, mangyaring makipag-ugnayan sa amin sa:"
+      }
+    },
+    "helpCenter": {
+      "help": "Narito kami para tumulong",
+      "howCanWeHelp": "Paano ka namin matutulungan?",
+      "checkOut": "Tingnan ang aming mga FAQ o makipag-ugnayan sa amin para sa karagdagang suporta.",
+      "faqs": {
+        "title": "Mga Madalas Itanong",
+        "question1": {
+          "question": "Ano ang Global Relocate?",
+          "answer": "Ang Global Relocate ay isang AI-powered na plataporma na idinisenyo upang tulungan ang mga indibidwal at pamilya sa paglipat sa mga bagong bansa. Nagbibigay ito ng mga personal na rekomendasyon, mapagkukunan, at suporta upang gawing mas maayos at mas mahusay ang proseso ng relokasyon."
+        },
+        "question2": {
+          "question": "Ano ang tinutulong ng Global Relocate na makamit?",
+          "answer": "Tinutulungan ng Global Relocate ang mga user na makamit ang isang walang problemang karanasan sa relokasyon sa pamamagitan ng pag-aalok ng angkop na payo, mapagkukunan, at suporta para sa iba't ibang aspeto ng paglipat sa isang bagong bansa, kabilang ang mga aplikasyon sa visa, pabahay, trabaho, at integrasyong kultural."
+        },
+        "question3": {
+          "question": "Naniningil ba ang Global Relocate sa mga user para sa mga serbisyo o tampok?",
+          "answer": "Oo, nag-aalok ang Global Relocate ng iba't ibang serbisyo at tampok na maaaring may kasamang singil. Gayunpaman, nagbibigay din ito ng mga libreng mapagkukunan at pangunahing suporta upang matulungan ang mga user na magsimula sa kanilang paglalakbay sa relokasyon."
+        },
+        "question4": {
+          "question": "Ano ang mangyayari sa aking datos / Nag-iimbak ba ang Global Relocate ng aking personal na impormasyon?",
+          "answer": "Sineseryoso ng Global Relocate ang privacy ng user. Hindi kami nag-iimbak ng personal na impormasyon maliban kung hayagang ibinigay ng user para sa mga partikular na serbisyo. Anumang datos na nakolekta ay ginagamit lamang upang mapahusay ang karanasan ng user at magbigay ng mga personal na rekomendasyon. Para sa karagdagang detalye, mangyaring sumangguni sa aming Patakaran sa Privacy."
+        },
+        "question5": {
+          "question": "Sino ang mga tao sa likod ng Global Relocate?",
+          "answer": "Ang Global Relocate ay binuo ng isang pangkat ng mga bihasang propesyonal sa larangan ng AI, mga serbisyo sa relokasyon, at internasyonal na batas. Ang aming koponan ay nakatuon sa pagbibigay ng pinakamahusay na posibleng suporta at mapagkukunan para sa mga indibidwal at pamilya na naghahanap na lumipat."
+        },
+        "question6": {
+          "question": "Magagamit ba ang Global Relocate sa maraming wika?",
+          "answer": "Oo, magagamit ang Global Relocate sa maraming wika upang matugunan ang iba't ibang user base. Maaari mong piliin ang iyong gustong wika sa seksyon ng mga setting ng plataporma."
+        },
+        "question7": {
+          "question": "Saan nagmumula ang impormasyon sa Global Relocate?",
+          "answer": "Ang impormasyon sa Global Relocate ay nagmumula sa iba't ibang mapagkakatiwalaang mapagkukunan, kabilang ang mga website ng gobyerno, mga eksperto sa relokasyon, at nilalamang binuo ng user. Patuloy naming ina-update ang aming database upang matiyak na ang mga user ay may access sa pinakatumpak at nauugnay na impormasyon para sa kanilang mga pangangailangan sa relokasyon."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Makipag-ugnayan sa Amin",
+      "titleDesc": "Maaari kang magtanong sa amin",
+      "para": "Makipag-ugnayan sa amin para sa lahat ng iyong mga katanungan at opinyon, o maaari kang makakuha ng mga sagot nang mabilis sa pamamagitan ng pagbisita sa isa sa aming mga tanggapan sa pakikipag-ugnayan.",
+      "ourOffices": "Aming mga Opisina",
+      "ourOfficesDesc": "Mayroon kaming mga opisina sa iba't ibang lokasyon upang tulungan ka sa iyong mga pangangailangan sa relokasyon. Bisitahin kami sa isa sa aming mga opisina para sa personal na suporta.",
+      "dropUsAMessage": "Magpadala sa amin ng mensahe",
+      "dropUsAMessageDesc": "Punan ang form sa ibaba upang magpadala sa amin ng mensahe, at babalikan ka namin sa lalong madaling panahon.",
+      "yourName": "Iyong pangalan",
+      "yourEmail": "Iyong email",
+      "subject": "Paksa",
+      "yourMessage": "Iyong mensahe",
+      "sendMessage": "Ipadala ang Mensahe",
+      "sending": "Nagpapadala...",
+      "messageSent": "Matagumpay na naipadala ang mensahe!",
+      "messageFailed": "Nabigong ipadala ang mensahe. Pakisubukang muli."
+    }
+  },
+  "loginPage": {
+    "close": "Isara",
+    "createAccount": "Gumawa ng Account",
+    "logIntoGR": "Mag-log in sa Global Relocate",
+    "password": "Password",
+    "enterPassword": "Ilagay ang iyong password",
+    "continueWithGoogle": "Magpatuloy gamit ang Google",
+    "cantLogin": "Hindi makapag-log in?",
+    "tosDesc": "Sa pag-click sa paggawa ng account, sumasang-ayon ka sa aming ",
+    "tos": "Mga Tuntunin ng Serbisyo",
+    "privacyPolicy": "Patakaran sa Privacy",
+    "and": "at",
+    "or": "O",
+    "processing": "Pinoproseso...",
+    "continue": "Magpatuloy",
+    "hidePassword": "Itago ang password",
+    "showPassword": "Ipakita ang password"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Gawin natin ang iyong account",
+    "chooseAccountType": "Pumili ng uri ng account",
+    "createPersonalAccount": "Gumagawa ako ng personal na account",
+    "createCorporateAccount": "Gumagawa ako ng corporate account",
+    "continue": "Magpatuloy",
+    "chooseSignMethod": "Pumili ng paraan ng pag-signup",
+    "continueWithEmail": "Magpatuloy gamit ang e-mail",
+    "alreadyHaveAccount": "May account ka na?",
+    "fullName": "Buong Pangalan",
+    "chooseUsername": "Pumili ng username",
+    "enterYourFullName": "Ilagay ang iyong buong pangalan",
+    "confirmPassword": "Kumpirmahin ang password",
+    "country": "Bansa"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Maligayang pagdating",
+    "welcomeText": "Ang iyong AI-powered na plataporma para sa walang problemang relokasyon, legal na gabay, at pandaigdigang pamumuhay."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Mga Bansa",
+      "aiAssistant": "Katulong na Ai",
+      "compareCountries": "Paghambingin ang mga Bansa",
+      "taxCalculator": "Kalkulator ng Buwis",
+      "notifications": "Mga Abiso",
+      "favourites": "Mga Paborito",
+      "community": "Komunidad",
+      "cta": {
+        "title": "Subukan ang Pro",
+        "para": "Kasalukuyan kang nasa libreng plano na may bisa sa loob ng 3 araw. Mag-upgrade ngayon upang patuloy na magamit ang Global Relocate.",
+        "buttonText": "Matuto Nang Higit Pa"
+      }
+    },
+    "notifications": {
+      "noNotifications": "Wala ka pang mga abiso.",
+      "markAllAsRead": "Markahan lahat bilang nabasa na",
+      "deleteAll": "Tanggalin lahat",
+      "markAsRead": "Markahan bilang nabasa na",
+      "delete": "Tanggalin ang abiso",
+      "showLess": "Magpakita ng mas kaunti nito",
+      "showMore": "Magpakita ng mas maraming resulta"
+    },
+    "countries": {
+      "title": "Mga Bansa",
+      "noDataText": "Walang magagamit na datos!",
+      "searchText": "Maghanap ng mga bansa",
+      "clickToSelect": "I-click upang piliin ang bansa",
+      "view": "Tingnan",
+      "searchResults": "Mga resulta ng paghahanap",
+      "aiSuggestedCountries": "Mga Bansang Iminungkahi ng AI",
+      "searchCountries": "Maghanap ng mga bansa"
+    },
+    "country": {
+      "countryIn": "Bansa sa",
+      "addFavorite": "Idagdag sa mga paborito",
+      "removeFavorite": "Alisin sa mga paborito",
+      "share": "Ibahagi",
+      "overview": "Pangkalahatang-ideya",
+      "map": "Mapa",
+      "keyFacts": "Mga pangunahing katotohanan",
+      "visaMigration": "Visa at Imigrasyon",
+      "taxes": "Mga Buwis",
+      "flag": "Watawat",
+      "capital": "Kabisera",
+      "languages": "Mga Wika",
+      "currency": "Pera",
+      "population": "Populasyon",
+      "dialingCode": "Dialing Code",
+      "back": "Bumalik",
+      "noOverview": "Walang magagamit na pangkalahatang-ideya para sa bansang ito.",
+      "noVisaInfo": "Walang magagamit na impormasyon sa visa at imigrasyon."
+    },
+    "ai": {
+      "rename": "Palitan ang pangalan",
+      "deleteConversation": "Tanggalin ang pag-uusap",
+      "share": "Ibahagi",
+      "hello": "Kamusta",
+      "newChat": "Bagong Chat",
+      "askAI": "Tanungin ang AI ng Kahit Ano...",
+      "uploadDocument": "Mag-upload ng Dokumento",
+      "uploadDocumentDesc": "Mag-upload ng dokumento upang iproseso gamit ang katulong na AI",
+      "cancel": "Kanselahin",
+      "upload": "Mag-upload"
+    },
+    "settings": {
+      "accountSettings": "Mga setting ng account",
+      "editProfile": "I-edit ang profile",
+      "profile": "Profile",
+      "account": "Account",
+      "preferences": "Mga Kagustuhan",
+      "avatar": "Avatar",
+      "fullName": "Buong Pangalan",
+      "username": "Username",
+      "bio": "Bio",
+      "country": "Bansa",
+      "emailAddress": "Email Address",
+      "verified": "Na-verify",
+      "subscription": "Subskripsyon",
+      "subscriptionDesc": "Kasalukuyan kang nasa libreng plano na may bisa sa loob ng 3 araw. Mag-upgrade ngayon upang patuloy na magamit ang Global Relocate.",
+      "deleteAccount": "Tanggalin ang Account",
+      "deleteDesc": "Permanenteng tanggalin ang iyong account at datos",
+      "language": "Wika",
+      "chooseLanguage": "Pumili ng wika",
+      "selectLanguage": "Pumili ng wika",
+      "learnMore": "Matuto nang higit pa",
+      "saveChanges": "I-save ang mga Pagbabago",
+      "cancel": "Kanselahin",
+      "saving": "Sine-save...",
+      "unsavedChanges": "Mayroon kang mga hindi na-save na pagbabago",
+      "addName": "Magdagdag ng pangalan",
+      "addBio": "Magdagdag ng bio upang ikuwento ang iyong istorya.",
+      "addUsername": "Magdagdag ng username",
+      "addLocation": "Magdagdag ng lokasyon",
+      "confirmAccountDelete": "Kumpirmahin ang Pagtanggal ng Account",
+      "confirmAccountDeleteDesc": "Bago mo tanggalin ang iyong account, mangyaring maglaan ng sandali upang maunawaan kung ano ang mangyayari sa iyong datos:",
+      "confirm": "Kumpirmahin",
+      "neverMind": "Hayaan na lang",
+      "confirmDeleteWarning": "Tandaan na ang pagtanggal ng iyong account ay hindi na mababawi.",
+      "confirmDeleteList1": "Ang iyong mga detalye sa profile, mga kagustuhan, at mga setting ay aalisin.",
+      "confirmDeleteList2": "Lahat ng datos ay permanenteng tatanggalin 30 araw pagkatapos ng pagtanggal ng account.",
+      "deleting": "Tinatanggal...",
+      "youHave": "Mayroon kang:",
+      "administrator": "Tagapangasiwa"
+    },
+    "continents": {
+      "all": "Lahat",
+      "europe": "Europa",
+      "asia": "Asya",
+      "africa": "Aprika",
+      "south america": "Timog Amerika",
+      "north america": "Hilagang Amerika",
+      "antarctica": "Antarktika",
+      "oceania": "Oceania"
+    },
+    "tax": {
+      "taxCalculator": "Kalkulator ng Buwis",
+      "taxCacluatorDesc": "Kalkulahin ang iyong tinatayang pasanin sa buwis sa iba't ibang bansa",
+      "country": "Bansa",
+      "annualIncome": "Taunang kita",
+      "userAccount": "User Account",
+      "totalDeductions": "Kabuuang mga bawas",
+      "selectCountry": "Piliin ang iyong bansa",
+      "selectAccount": "Pumili ng uri ng account",
+      "enterIncome": "Ilagay ang iyong taunang kita",
+      "enterDeductions": "Ilagay ang kabuuang mga bawas",
+      "calculateTax": "Kalkulahin ang Buwis",
+      "individual": "Indibidwal",
+      "corporate": "Korporasyon",
+      "taxSummary": "Buod ng Buwis",
+      "taxAmount": "Halaga ng buwis",
+      "effectiveRate": "Epektibong rate",
+      "takeHomeAmount": "Halagang maiuuwi"
+    },
+    "upgradePage": {
+      "back": "Bumalik",
+      "upgradePlan": "I-upgrade ang iyong plano",
+      "upgradePlanDesc": "Piliin ang perpektong plano upang suportahan ang iyong pandaigdigang paglalakbay sa relokasyon. Magkaroon ng access sa mga komprehensibong tool at insight upang gawing walang problema ang iyong paglipat.",
+      "currentPlan": "Iyong kasalukuyang plano",
+      "getStarted": "Magsimula",
+      "free": "Libre",
+      "basic": "Basic",
+      "premium": "Premium",
+      "perMonth": "bawat buwan",
+      "forEveryone": "Para sa lahat",
+      "freePlan": {
+        "item1": "3-araw na trial access",
+        "item2": "Pangunahing impormasyon ng bansa",
+        "item3": "Access sa komunidad (read-only)",
+        "item4": "Limitadong kalkulator ng buwis",
+        "item5": "Pangunahing paghahambing ng gastos"
+      },
+      "basicPlan": {
+        "item1": "Buong impormasyon ng bansa",
+        "item2": "Pakikilahok sa komunidad",
+        "item3": "Kumpletong kalkulator ng buwis",
+        "item4": "Mga tool sa paghahambing ng gastos",
+        "item5": "Mga pangunahing gabay sa relokasyon",
+        "item6": "Suporta sa email"
+      },
+      "premiumPlan": {
+        "item1": "Lahat ng Basic na tampok",
+        "item2": "Walang limitasyong access sa datos ng bansa",
+        "item3": "Buong pakikilahok sa komunidad",
+        "item4": "Advanced na kalkulator ng buwis",
+        "item5": "Katulong sa relokasyon na AI",
+        "item6": "Mga insight sa gastos sa pamumuhay",
+        "item7": "Mga gabay sa kinakailangan sa visa",
+        "item8": "Prayoridad na suporta",
+        "item9": "Custom na roadmap sa relokasyon"
+      }
+    },
+    "favorites": {
+      "noFavorites": "Wala ka pang mga paborito.",
+      "addToFavorites": "Idagdag sa mga paborito",
+      "removeFromFavorites": "Alisin sa mga paborito"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Kumpirmahin ang mga Pagbabago"
+    }
+  },
+  "footer": {
+    "topCountries": "Mga Nangungunang Bansa",
+    "sitemap": "Sitemap",
+    "company": "Kumpanya",
+    "terms": "Mga Tuntunin",
+    "privacy": "Privacy",
+    "contact": "Makipag-ugnayan sa Amin",
+    "subscribeNewsletter": "Mag-subscribe sa aming newsletter",
+    "subscribeNewsDesc": "Manatiling updated sa mga pinakabagong insight sa pandaigdigang relokasyon",
+    "enterEmail": "Ilagay ang iyong email",
+    "subscribe": "Mag-subscribe",
+    "copyright": "Lahat ng nilalaman sa website na ito ay protektado ng copyright.",
+    "rankings": "Mga Ranggo",
+    "safestCountries": "Ang Pinakaligtas na mga Bansa",
+    "humanFreedomLevel": "Antas ng Kalayaan ng Tao",
+    "lifeExpectancy": "Inaasahang Haba ng Buhay",
+    "happinessIndex": "Pandaigdigang Indeks ng Kaligayahan",
+    "citizenshipQualityRankings": "Ranggo ng Kalidad ng Pagkamamamayan",
+    "trends": "Mga Trend",
+    "foreignCitizenship": "Dayuhang Pagkamamamayan",
+    "digitalNomadVisas": "Mga Visa para sa Digital Nomad",
+    "taxesRankings": "Mga Ranggo sa Buwis",
+    "residencyPermit": "Pahintulot sa Paninirahan"
+  },
+  "toast": {
+    "thanksNewsletter": "Salamat sa pag-subscribe sa aming newsletter!",
+    "linkCopied": "Nakopya ang link sa clipboard!",
+    "linkCopyFailed": "Nabigong kopyahin ang link",
+    "newSessionStarted": "Nagsimula na ang bagong sesyon",
+    "newSessionFailed": "Nabigong simulan ang bagong sesyon. Pakisubukang muli.",
+    "redirectToPayPage": "Nagre-redirect sa pahina ng pagbabayad...",
+    "activeSessionShare": "Kailangan mo ng aktibong sesyon para makapagbahagi",
+    "sessionDeleteFailed": "Nabigong tanggalin ang sesyon. Pakisubukang muli.",
+    "sessionDeleteSuccess": "Matagumpay na natanggal ang sesyon!",
+    "sessionRenameSuccess": "Matagumpay na napalitan ang pangalan ng sesyon!",
+    "sessionRenameFailed": "Nabigong palitan ang pangalan ng sesyon. Pakisubukang muli.",
+    "enterSessionName": "Maglagay ng bagong pangalan para sa sesyon na ito:"
+  },
+  "formErrors": {
+    "invalidEmail": "Hindi wastong format ng email",
+    "emailRequired": "Kinakailangan ang email",
+    "fullNameRequired": "Kinakailangan ang buong pangalan",
+    "enterFullName": "Pakilagay ang iyong buong pangalan",
+    "passwordRequired": "Kinakailangan ang password",
+    "minPassword": "Ang password ay dapat hindi bababa sa 8 karakter",
+    "passwordsMismatch": "Hindi tugma ang mga password",
+    "weakPassword": "Masyadong mahina ang password",
+    "selectCountry": "Pakipili ng bansa",
+    "usernameRequired": "Kinakailangan ang username",
+    "minUsername": "Ang username ay dapat hindi bababa sa 3 karakter",
+    "cpasswordRequired": "Kinakailangan ang kumpirmasyon ng password"
+  }
+}

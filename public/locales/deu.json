@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Startseite",
+      "countriesData": "Länder & Daten",
+      "community": "Gemeinschaft",
+      "taxCalculator": "Steuerrechner",
+      "pricing": "Preise",
+      "viewProfile": "Profil anzeigen",
+      "helpCenter": "Hilfezentrum",
+      "giveFeedback": "Geben Sie uns Feedback",
+      "privacyPolicy": "Datenschutzrichtlinie",
+      "upgradePlan": "Plan aktualisieren",
+      "logIn": "Anmelden",
+      "getStarted": "Loslegen",
+      "logout": "Abmelden"
+    },
+    "showcase": {
+      "title": "Intelligenter umziehen, besser leben.",
+      "para": "Ihre KI-gestützte Plattform für nahtlose Umsiedlung, Rechtsberatung und globales Leben.",
+      "buttonText": "Loslegen"
+    },
+    "features": {
+      "title": "Funktionen",
+      "cards": {
+        "card1": {
+          "title": "Länder vergleichen",
+          "para": "Treffen Sie fundierte Entscheidungen, indem Sie verschiedene Länder nebeneinander vergleichen und Schlüsselfaktoren wie Lebenshaltungskosten, Steuersätze und Lebensqualität analysieren."
+        },
+        "card2": {
+          "title": "Intelligente Infos mit KI",
+          "para": "Treten Sie Foren und Gruppen mit gleichgesinnten globalen Nomaden bei."
+        },
+        "card3": {
+          "title": "Länder & Daten",
+          "para": "Treten Sie Foren und Gruppen mit gleichgesinnten globalen Nomaden bei."
+        }
+      }
+    },
+    "countries": {
+      "title": "Beliebte Länder",
+      "para": "Entdecken Sie beliebte Reiseziele und beginnen Sie mit der Planung Ihres Umzugs"
+    },
+    "whyChooseUs": {
+      "title": "Warum Sie uns wählen sollten",
+      "card1": {
+        "title": "Zeitsparende KI-gestützte Daten",
+        "para": "Immer aktuelle und zuverlässige Informationen."
+      },
+      "card2": {
+        "title": "Verifizierte Kontakte & vertrauenswürdige Quellen:",
+        "para": "Eine gemeinschaftsbasierte Plattform, die Glaubwürdigkeit gewährleistet."
+      },
+      "card3": {
+        "title": "Alles-in-einem-Lösung",
+        "para": "Alles von Visa bis Lebenshaltungskosten an einem Ort."
+      },
+      "card4": {
+        "title": "Personalisierte Benachrichtigungen",
+        "para": "Bleiben Sie mit maßgeschneiderten Benachrichtigungen und einer Favoritenfunktion immer einen Schritt voraus."
+      }
+    },
+    "forgotPassword": {
+      "title": "Passwort vergessen?",
+      "para": "Geben Sie die E-Mail-Adresse Ihres Kontos ein und wir senden Ihnen ein OTP, um Ihr Passwort zurückzusetzen.",
+      "emailLabel": "E-Mail-Adresse",
+      "sending": "Senden...",
+      "sendOTP": "OTP senden",
+      "resendOTP": "OTP erneut senden",
+      "verifyOTP": "OTP überprüfen",
+      "otpSent": "Ein OTP wurde an Ihre E-Mail gesendet.",
+      "continuePrompt": "Klicken Sie auf die Schaltfläche Weiter unten, um ein neues Passwort zu erstellen.",
+      "continue": "Weiter",
+      "rememberPassword": "Haben Sie sich an Ihr Passwort erinnert?",
+      "logIn": "Anmelden"
+    },
+    "termsOfService": {
+      "title": "Allgemeine Geschäftsbedingungen",
+      "paragraph": "Willkommen bei globalrelocate.com! Diese Allgemeinen Geschäftsbedingungen ('Bedingungen') regeln Ihre Nutzung unserer KI-gestützten Plattform für nahtlose Umsiedlung, Rechtsberatung und globales Leben, die über die URL globalrelocate.com (als 'die Plattform' bezeichnet) zugänglich ist. Durch den Zugriff auf oder die Nutzung der Plattform erklären Sie sich mit diesen Bedingungen einverstanden. Bitte lesen Sie sie sorgfältig durch.",
+      "sections": {
+        "platformUse": "1. Plattformnutzung",
+        "platformUse_1": "1.1 Teilnahmeberechtigung: Sie müssen mindestens 18 Jahre alt sein oder die Geschäftsfähigkeit besitzen, um Verträge in Ihrer Gerichtsbarkeit abzuschließen, um die Plattform nutzen zu können. Durch den Zugriff auf oder die Nutzung der Plattform versichern und garantieren Sie, dass Sie die Teilnahmevoraussetzungen erfüllen.",
+        "platformUse_2": "1.2 Benutzerkonto: Möglicherweise müssen Sie ein Benutzerkonto erstellen, um auf bestimmte Funktionen der Plattform zugreifen zu können. Sie sind für die Wahrung der Vertraulichkeit Ihrer Kontoinformationen verantwortlich und erklären sich damit einverstanden, für alle über Ihr Konto durchgeführten Aktivitäten allein verantwortlich zu sein.",
+        "platformUse_3": "1.3 Verbotene Aktivitäten: Sie erklären sich damit einverstanden, keine Aktivitäten durchzuführen, die gegen diese Bedingungen oder geltende Gesetze oder Vorschriften verstoßen. Verbotene Aktivitäten umfassen unter anderem:",
+        "prohibited_1": "Verletzung von Rechten des geistigen Eigentums",
+        "prohibited_2": "Hochladen oder Teilen von Inhalten, die illegal, schädlich sind oder die Rechte anderer verletzen",
+        "prohibited_3": "Störung des ordnungsgemäßen Funktionierens der Plattform",
+        "prohibited_4": "Sich als eine andere Person oder Einrichtung ausgeben",
+        "intellectualProperty": "2. Geistiges Eigentum",
+        "intellectualProperty_1": "2.1 Eigentum: Alle auf der Plattform verfügbaren Inhalte, einschließlich, aber nicht beschränkt auf Texte, Grafiken, Logos, Bilder, Audioclips, Videos und Software, sind Eigentum von Global Relocate oder seinen Lizenzgebern und durch Gesetze zum Schutz des geistigen Eigentums geschützt.",
+        "intellectualProperty_2": "2.2 Nutzung von Inhalten: Sie dürfen auf die Inhalte der Plattform nur für persönliche, nicht kommerzielle Zwecke zugreifen und diese nutzen. Sie dürfen die Inhalte ohne vorherige schriftliche Genehmigung von Global Relocate nicht modifizieren, reproduzieren, verbreiten, anzeigen, aufführen oder davon abgeleitete Werke erstellen.",
+        "disclaimer": "3. Gewährleistungsausschluss",
+        "disclaimer_1": "3.1 Die Plattform wird 'wie besehen' und 'wie verfügbar' ohne jegliche Gewährleistungen bereitgestellt. Global Relocate lehnt alle ausdrücklichen oder stillschweigenden Gewährleistungen ab, einschließlich, aber nicht beschränkt auf Marktgängigkeit, Eignung für einen bestimmten Zweck und Nichtverletzung von Rechten Dritter.",
+        "disclaimer_2": "3.2 Global Relocate garantiert nicht die Genauigkeit, Vollständigkeit oder Zuverlässigkeit von Inhalten oder Informationen auf der Plattform. Sie erkennen an, dass Ihre Nutzung der Plattform auf Ihr eigenes Risiko erfolgt.",
+        "liability": "4. Haftungsbeschränkung",
+        "liability_1": "4.1 Soweit gesetzlich zulässig, haften Global Relocate und seine Direktoren, Mitarbeiter, verbundenen Unternehmen und Vertreter nicht für direkte, indirekte, zufällige, besondere oder Folgeschäden, die sich aus oder in irgendeiner Weise im Zusammenhang mit Ihrer Nutzung der Plattform oder deren Inhalten ergeben.",
+        "thirdParty": "5. Links zu Drittanbietern",
+        "thirdParty_1": "5.1 Die Plattform kann Links zu Websites oder Diensten Dritter enthalten. Global Relocate ist nicht verantwortlich für den Inhalt, die Genauigkeit oder die Zuverlässigkeit von Websites oder Diensten Dritter. Die Aufnahme solcher Links bedeutet keine Billigung oder Zugehörigkeit durch Global Relocate.",
+        "modifications": "6. Änderungen und Kündigung",
+        "modifications_1": "6.1 Global Relocate behält sich das Recht vor, Teile oder die gesamte Plattform vorübergehend oder dauerhaft ohne vorherige Ankündigung zu ändern, auszusetzen oder einzustellen. Global Relocate haftet Ihnen oder Dritten gegenüber nicht für Änderungen, Aussetzungen oder Einstellungen der Plattform.",
+        "governingLaw": "7. Geltendes Recht und Gerichtsstand",
+        "governingLaw_1": "7.1 Diese Bedingungen unterliegen den Gesetzen von [Ihr Land] und werden entsprechend ausgelegt. Alle Streitigkeiten, die sich aus oder im Zusammenhang mit diesen Bedingungen oder Ihrer Nutzung der Plattform ergeben, unterliegen der ausschließlichen Zuständigkeit der Gerichte in [Ihre Stadt, Ihr Land].",
+        "entireAgreement": "8. Gesamte Vereinbarung",
+        "entireAgreement_1": "8.1 Diese Bedingungen stellen die gesamte Vereinbarung zwischen Ihnen und Global Relocate bezüglich der Nutzung der Plattform dar und ersetzen alle vorherigen oder gleichzeitigen Vereinbarungen, Mitteilungen oder Zusicherungen.",
+        "whyChoose": "9. Warum Global Relocate wählen",
+        "whyChoose_1": "Bei Global Relocate setzen wir uns dafür ein, Ihnen zu helfen, intelligenter umzuziehen und besser zu leben. Deshalb sollten Sie uns wählen:",
+        "whyChoose_bullet1": "Zeitsparende KI-gestützte Daten: Greifen Sie auf stets aktuelle und zuverlässige Informationen zu, um fundierte Entscheidungen zu treffen.",
+        "whyChoose_bullet2": "Verifizierte Kontakte & vertrauenswürdige Quellen: Profitieren Sie von einer gemeinschaftsbasierten Plattform, die Glaubwürdigkeit und Vertrauen gewährleistet.",
+        "whyChoose_bullet3": "Alles-in-einem-Lösung: Finden Sie alles von Visa bis Lebenshaltungskosten an einem Ort.",
+        "whyChoose_bullet4": "Personalisierte Benachrichtigungen: Bleiben Sie mit maßgeschneiderten Benachrichtigungen und einer speziell für Sie entwickelten Favoritenfunktion immer einen Schritt voraus."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Datenschutzrichtlinie und rechtlicher Hinweis",
+      "paragraph": "Diese Datenschutzrichtlinie beschreibt, wie Global Relocate (als 'uns', 'wir' oder 'unser' bezeichnet), der Eigentümer und Betreiber von globalrelocate.com, Ihre personenbezogenen Daten sammelt, verwendet und schützt, wenn Sie unsere KI-gestützte Plattform für nahtlose Umsiedlung, Rechtsberatung und globales Leben nutzen, die über die URL globalrelocate.com (die 'Plattform') zugänglich ist. Diese Richtlinie gilt auch für alle über die Plattform bereitgestellten Dienste, Inhalte, Funktionen oder Anwendungen.",
+      "paragraph2": "Durch den Zugriff auf oder die Nutzung der Plattform stimmen Sie der Erhebung, Verwendung und Offenlegung Ihrer personenbezogenen Daten gemäß dieser Datenschutzrichtlinie zu. Wenn Sie mit einem Aspekt dieser Richtlinie nicht einverstanden sind, sehen Sie bitte von der Nutzung der Plattform ab.",
+      "sections": {
+        "informationCollection": "1. Datenerhebung",
+        "informationCollection_1": "1.1 Personenbezogene Daten: Wir können verschiedene Arten von personenbezogenen Daten von Ihnen erheben, wenn Sie die Plattform nutzen. Dazu können Ihr Name, Ihre E-Mail-Adresse, Kontaktinformationen, Umzugspräferenzen und alle anderen Informationen gehören, die Sie uns freiwillig zur Verfügung stellen.",
+        "informationCollection_2": "1.2 Nutzungsdaten: Wir erheben automatisch bestimmte nicht personenbezogene Daten über Ihre Nutzung der Plattform. Dazu können Ihre IP-Adresse, Browsertyp, Betriebssystem, Geräteinformationen, besuchte Seiten, Verweis-/Ausstiegs-URLs und andere ähnliche Daten gehören.",
+        "useOfInformation": "2. Verwendung von Informationen",
+        "personalInformationUse": "2.1 Personenbezogene Daten: Wir können die von Ihnen bereitgestellten personenbezogenen Daten für folgende Zwecke verwenden:",
+        "personalInformationUse_bullet1": "Zur Bereitstellung und Verbesserung unserer KI-gestützten Umzugsdienste, Rechtsberatung und globalen Lebensressourcen.",
+        "personalInformationUse_bullet2": "Zur Bearbeitung Ihrer Anfragen, Bereitstellung personalisierter Umzugspläne und Lieferung maßgeschneiderter Inhalte.",
+        "personalInformationUse_bullet3": "Zur Kommunikation mit Ihnen, Beantwortung von Anfragen und Bereitstellung von Kundensupport.",
+        "personalInformationUse_bullet4": "Zum Senden personalisierter Benachrichtigungen, Updates und Mitteilungen über Visa, Lebenshaltungskosten und andere umzugsbezogene Informationen.",
+        "personalInformationUse_bullet5": "Zur Verbesserung Ihrer Erfahrung auf der Plattform durch das Anbieten einer Favoritenfunktion und maßgeschneiderter Empfehlungen.",
+        "personalInformationUse_bullet6": "Zur Durchsetzung unserer Nutzungsbedingungen und anderer Richtlinien.",
+        "personalInformationUse_bullet7": "Zur Einhaltung gesetzlicher Verpflichtungen.",
+        "usageDataUse": "2.2 Nutzungsdaten: Wir verwenden Nutzungsdaten, um Trends zu analysieren, das Nutzerengagement zu verfolgen, die Wirksamkeit unserer Dienste zu überwachen und die Nutzererfahrung auf der Plattform zu verbessern.",
+        "informationSharing": "3. Informationsweitergabe",
+        "informationSharing_1": "3.1 Drittanbieter: Wir können Ihre personenbezogenen Daten an vertrauenswürdige Drittanbieter weitergeben, die uns beim Betrieb der Plattform, der Erbringung von Dienstleistungen, der Zahlungsabwicklung, der Durchführung von Analysen oder der Ausführung anderer notwendiger Funktionen unterstützen. Diese Dienstleister sind an strenge Vertraulichkeitsvereinbarungen gebunden und dürfen Ihre personenbezogenen Daten nicht für andere Zwecke verwenden.",
+        "informationSharing_2": "3.2 Einhaltung von Gesetzen und Schutz: Wir können Ihre personenbezogenen Daten offenlegen, wenn dies gesetzlich, durch Vorschriften, Gerichtsverfahren oder behördliche Anfragen erforderlich ist. Wir können Ihre Daten auch offenlegen, um unsere Rechte, unser Eigentum oder unsere Sicherheit sowie die Rechte, das Eigentum oder die Sicherheit unserer Nutzer oder anderer zu schützen.",
+        "cookies": "4. Cookies und Tracking-Technologien",
+        "cookies_1": "4.1 Wir verwenden Cookies und andere Tracking-Technologien auf der Plattform, um bestimmte Informationen zu sammeln und zu speichern. Cookies sind kleine Textdateien, die auf Ihrem Gerät platziert werden, um uns bei der Analyse der Plattformnutzung, der Speicherung von Benutzereinstellungen und der Verbesserung Ihrer Gesamterfahrung zu helfen. Sie haben die Möglichkeit, Cookies über Ihre Browsereinstellungen zu deaktivieren; dies kann jedoch bestimmte Funktionen der Plattform einschränken.",
+        "dataSecurity": "5. Datensicherheit",
+        "dataSecurity_1": "5.1 Wir ergreifen angemessene Sicherheitsmaßnahmen, um Ihre personenbezogenen Daten vor unbefugtem Zugriff, Offenlegung, Änderung oder Zerstörung zu schützen. Bitte beachten Sie jedoch, dass keine Datenübertragung über das Internet oder Speichermethode zu 100 % sicher ist. Wir können die absolute Sicherheit Ihrer personenbezogenen Daten nicht garantieren.",
+        "thirdPartyLinks": "6. Links zu Drittanbietern",
+        "thirdPartyLinks_1": "6.1 Die Plattform kann Links zu Websites oder Diensten Dritter enthalten, die nicht unser Eigentum sind oder von uns kontrolliert werden. Wir sind nicht verantwortlich für die Datenschutzpraktiken oder den Inhalt dieser Websites Dritter. Wir empfehlen Ihnen, die Datenschutzrichtlinien aller von Ihnen besuchten Websites Dritter zu lesen.",
+        "childrenPrivacy": "7. Datenschutz von Kindern",
+        "childrenPrivacy_1": "7.1 Die Plattform ist nicht für Personen unter 13 Jahren bestimmt. Wir sammeln nicht wissentlich personenbezogene Daten von Kindern unter 13 Jahren. Wenn wir feststellen, dass wir versehentlich personenbezogene Daten von einem Kind unter 13 Jahren gesammelt haben, werden wir Maßnahmen ergreifen, um die Informationen umgehend zu löschen.",
+        "changesToPolicy": "8. Änderungen dieser Datenschutzrichtlinie",
+        "changesToPolicy_1": "8.1 Wir behalten uns das Recht vor, diese Datenschutzrichtlinie jederzeit zu ändern oder zu aktualisieren. Alle Änderungen werden sofort nach Veröffentlichung der überarbeiteten Richtlinie auf der Plattform wirksam. Wir empfehlen Ihnen, diese Richtlinie regelmäßig zu überprüfen, um über Aktualisierungen informiert zu bleiben.",
+        "whyGlobalRelocate": "9. Warum Global Relocate wählen",
+        "whyGlobalRelocate_1": "Bei Global Relocate setzen wir uns dafür ein, Ihnen zu helfen, intelligenter umzuziehen und besser zu leben. Deshalb sollten Sie uns wählen:",
+        "whyGlobalRelocate_bullet1": "Zeitsparende KI-gestützte Daten: Greifen Sie auf stets aktuelle und zuverlässige Informationen zu, um fundierte Entscheidungen zu treffen.",
+        "whyGlobalRelocate_bullet2": "Verifizierte Kontakte & vertrauenswürdige Quellen: Profitieren Sie von einer gemeinschaftsbasierten Plattform, die Glaubwürdigkeit und Vertrauen gewährleistet.",
+        "whyGlobalRelocate_bullet3": "Alles-in-einem-Lösung: Finden Sie alles von Visa bis Lebenshaltungskosten an einem Ort.",
+        "whyGlobalRelocate_bullet4": "Personalisierte Benachrichtigungen: Bleiben Sie mit maßgeschneiderten Benachrichtigungen und einer speziell für Sie entwickelten Favoritenfunktion immer einen Schritt voraus.",
+        "contactUs": "10. Kontaktieren Sie uns",
+        "contactUs_1": "10.1 Wenn Sie Fragen, Bedenken oder Anfragen zu dieser Datenschutzrichtlinie oder unseren Datenpraktiken haben, kontaktieren Sie uns bitte unter:"
+      }
+    },
+    "helpCenter": {
+      "help": "Wir sind hier, um zu helfen",
+      "howCanWeHelp": "Wie können wir Ihnen helfen?",
+      "checkOut": "Lesen Sie unsere FAQs oder kontaktieren Sie uns für weitere Unterstützung.",
+      "faqs": {
+        "title": "Häufig gestellte Fragen",
+        "question1": {
+          "question": "Was ist Global Relocate?",
+          "answer": "Global Relocate ist eine KI-gestützte Plattform, die Einzelpersonen und Familien beim Umzug in neue Länder unterstützt. Sie bietet personalisierte Empfehlungen, Ressourcen und Unterstützung, um den Umzugsprozess reibungsloser und effizienter zu gestalten."
+        },
+        "question2": {
+          "question": "Was hilft Global Relocate zu erreichen?",
+          "answer": "Global Relocate hilft Nutzern, ein nahtloses Umzugserlebnis zu erzielen, indem es maßgeschneiderte Ratschläge, Ressourcen und Unterstützung für verschiedene Aspekte des Umzugs in ein neues Land bietet, einschließlich Visumanträge, Wohnen, Beschäftigung und kulturelle Integration."
+        },
+        "question3": {
+          "question": "Berechnet Global Relocate Nutzern Gebühren für Dienste oder Funktionen?",
+          "answer": "Ja, Global Relocate bietet eine Reihe von Diensten und Funktionen an, die möglicherweise kostenpflichtig sind. Es bietet jedoch auch kostenlose Ressourcen und grundlegende Unterstützung, um Nutzern den Einstieg in ihre Umzugsreise zu erleichtern."
+        },
+        "question4": {
+          "question": "Was passiert mit meinen Daten / Speichert Global Relocate meine persönlichen Informationen?",
+          "answer": "Global Relocate nimmt den Datenschutz der Nutzer ernst. Wir speichern keine persönlichen Informationen, es sei denn, der Nutzer stellt sie ausdrücklich für bestimmte Dienste zur Verfügung. Alle gesammelten Daten werden ausschließlich zur Verbesserung der Nutzererfahrung und zur Bereitstellung personalisierter Empfehlungen verwendet. Weitere Einzelheiten finden Sie in unserer Datenschutzrichtlinie."
+        },
+        "question5": {
+          "question": "Wer sind die Personen hinter Global Relocate?",
+          "answer": "Global Relocate wird von einem Team erfahrener Fachleute aus den Bereichen KI, Umzugsdienste und internationales Recht entwickelt. Unser Team ist bestrebt, Einzelpersonen und Familien, die umziehen möchten, die bestmögliche Unterstützung und Ressourcen zu bieten."
+        },
+        "question6": {
+          "question": "Ist Global Relocate in mehreren Sprachen verfügbar?",
+          "answer": "Ja, Global Relocate ist in mehreren Sprachen verfügbar, um einer vielfältigen Nutzerbasis gerecht zu werden. Sie können Ihre bevorzugte Sprache im Einstellungsbereich der Plattform auswählen."
+        },
+        "question7": {
+          "question": "Woher stammen die Informationen auf Global Relocate?",
+          "answer": "Die Informationen auf Global Relocate stammen aus einer Vielzahl seriöser Quellen, darunter Regierungswebsites, Umzugsexperten und nutzergenerierte Inhalte. Wir aktualisieren unsere Datenbank kontinuierlich, um sicherzustellen, dass Nutzer Zugang zu den genauesten und relevantesten Informationen für ihre Umzugsbedürfnisse haben."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Kontaktieren Sie uns",
+      "titleDesc": "Sie können uns Fragen stellen",
+      "para": "Kontaktieren Sie uns für all Ihre Fragen und Meinungen, oder erhalten Sie schnelle Antworten, indem Sie eines unserer Kontaktbüros besuchen.",
+      "ourOffices": "Unsere Büros",
+      "ourOfficesDesc": "Wir haben Büros an verschiedenen Standorten, um Sie bei Ihren Umzugsbedürfnissen zu unterstützen. Besuchen Sie uns in einem unserer Büros für persönliche Unterstützung.",
+      "dropUsAMessage": "Schreiben Sie uns eine Nachricht",
+      "dropUsAMessageDesc": "Füllen Sie das untenstehende Formular aus, um uns eine Nachricht zu senden, und wir werden uns so schnell wie möglich bei Ihnen melden.",
+      "yourName": "Ihr Name",
+      "yourEmail": "Ihre E-Mail",
+      "subject": "Betreff",
+      "yourMessage": "Ihre Nachricht",
+      "sendMessage": "Nachricht senden",
+      "sending": "Senden...",
+      "messageSent": "Nachricht erfolgreich gesendet!",
+      "messageFailed": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
+    }
+  },
+  "loginPage": {
+    "close": "Schließen",
+    "createAccount": "Konto erstellen",
+    "logIntoGR": "Bei Global Relocate anmelden",
+    "password": "Passwort",
+    "enterPassword": "Geben Sie Ihr Passwort ein",
+    "continueWithGoogle": "Mit Google fortfahren",
+    "cantLogin": "Können Sie sich nicht anmelden?",
+    "tosDesc": "Durch Klicken auf 'Konto erstellen' stimmen Sie unseren ",
+    "tos": "Nutzungsbedingungen",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "and": "und",
+    "or": "ODER",
+    "processing": "Verarbeiten...",
+    "continue": "Weiter",
+    "hidePassword": "Passwort ausblenden",
+    "showPassword": "Passwort anzeigen"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Lassen Sie uns Ihr Konto erstellen",
+    "chooseAccountType": "Wählen Sie einen Kontotyp",
+    "createPersonalAccount": "Ich erstelle ein persönliches Konto",
+    "createCorporateAccount": "Ich erstelle ein Unternehmenskonto",
+    "continue": "Weiter",
+    "chooseSignMethod": "Wählen Sie die Anmeldemethode",
+    "continueWithEmail": "Mit E-Mail fortfahren",
+    "alreadyHaveAccount": "Haben Sie bereits ein Konto?",
+    "fullName": "Vollständiger Name",
+    "chooseUsername": "Wählen Sie einen Benutzernamen",
+    "enterYourFullName": "Geben Sie Ihren vollständigen Namen ein",
+    "confirmPassword": "Passwort bestätigen",
+    "country": "Land"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Willkommen an Bord",
+    "welcomeText": "Ihre KI-gestützte Plattform für nahtlose Umsiedlung, Rechtsberatung und globales Leben."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Länder",
+      "aiAssistant": "KI-Assistent",
+      "compareCountries": "Länder vergleichen",
+      "taxCalculator": "Steuerrechner",
+      "notifications": "Benachrichtigungen",
+      "favourites": "Favoriten",
+      "community": "Gemeinschaft",
+      "cta": {
+        "title": "Pro ausprobieren",
+        "para": "Sie befinden sich derzeit im kostenlosen Plan, der 3 Tage gültig ist. Aktualisieren Sie jetzt, um Global Relocate weiterhin nutzen zu können.",
+        "buttonText": "Mehr erfahren"
+      }
+    },
+    "notifications": {
+      "noNotifications": "Sie haben noch keine Benachrichtigungen.",
+      "markAllAsRead": "Alle als gelesen markieren",
+      "deleteAll": "Alle löschen",
+      "markAsRead": "Als gelesen markieren",
+      "delete": "Benachrichtigung löschen",
+      "showLess": "Weniger davon anzeigen",
+      "showMore": "Mehr Ergebnisse anzeigen"
+    },
+    "countries": {
+      "title": "Länder",
+      "noDataText": "Keine Daten verfügbar!",
+      "searchText": "Nach Ländern suchen",
+      "clickToSelect": "Klicken, um Land auszuwählen",
+      "view": "Ansehen",
+      "searchResults": "Suchergebnisse",
+      "aiSuggestedCountries": "KI-vorgeschlagene Länder",
+      "searchCountries": "Länder suchen"
+    },
+    "country": {
+      "countryIn": "Land in",
+      "addFavorite": "Zu Favoriten hinzufügen",
+      "removeFavorite": "Aus Favoriten entfernen",
+      "share": "Teilen",
+      "overview": "Übersicht",
+      "map": "Karte",
+      "keyFacts": "Wichtige Fakten",
+      "visaMigration": "Visa & Einwanderung",
+      "taxes": "Steuern",
+      "flag": "Flagge",
+      "capital": "Hauptstadt",
+      "languages": "Sprachen",
+      "currency": "Währung",
+      "population": "Bevölkerung",
+      "dialingCode": "Vorwahl",
+      "back": "Zurück",
+      "noOverview": "Für dieses Land ist keine Übersicht verfügbar.",
+      "noVisaInfo": "Keine Visa- und Einwanderungsinformationen verfügbar."
+    },
+    "ai": {
+      "rename": "Umbenennen",
+      "deleteConversation": "Konversation löschen",
+      "share": "Teilen",
+      "hello": "Hallo",
+      "newChat": "Neuer Chat",
+      "askAI": "KI alles fragen...",
+      "uploadDocument": "Dokument hochladen",
+      "uploadDocumentDesc": "Laden Sie ein Dokument hoch, um es mit dem KI-Assistenten zu verarbeiten",
+      "cancel": "Abbrechen",
+      "upload": "Hochladen"
+    },
+    "settings": {
+      "accountSettings": "Kontoeinstellungen",
+      "editProfile": "Profil bearbeiten",
+      "profile": "Profil",
+      "account": "Konto",
+      "preferences": "Einstellungen",
+      "avatar": "Avatar",
+      "fullName": "Vollständiger Name",
+      "username": "Benutzername",
+      "bio": "Bio",
+      "country": "Land",
+      "emailAddress": "E-Mail-Adresse",
+      "verified": "Verifiziert",
+      "subscription": "Abonnement",
+      "subscriptionDesc": "Sie befinden sich derzeit im kostenlosen Plan, der 3 Tage gültig ist. Aktualisieren Sie jetzt, um Global Relocate weiterhin nutzen zu können.",
+      "deleteAccount": "Konto löschen",
+      "deleteDesc": "Ihr Konto und Ihre Daten dauerhaft löschen",
+      "language": "Sprache",
+      "chooseLanguage": "Wählen Sie eine Sprache",
+      "selectLanguage": "Sprache auswählen",
+      "learnMore": "Mehr erfahren",
+      "saveChanges": "Änderungen speichern",
+      "cancel": "Abbrechen",
+      "saving": "Speichern...",
+      "unsavedChanges": "Sie haben nicht gespeicherte Änderungen",
+      "addName": "Name hinzufügen",
+      "addBio": "Fügen Sie eine Biografie hinzu, um Ihre Geschichte zu erzählen.",
+      "addUsername": "Benutzernamen hinzufügen",
+      "addLocation": "Standort hinzufügen",
+      "confirmAccountDelete": "Kontolöschung bestätigen",
+      "confirmAccountDeleteDesc": "Bevor Sie Ihr Konto löschen, nehmen Sie sich bitte einen Moment Zeit, um zu verstehen, was mit Ihren Daten geschieht:",
+      "confirm": "Bestätigen",
+      "neverMind": "Vergessen Sie es",
+      "confirmDeleteWarning": "Beachten Sie, dass das Löschen Ihres Kontos nicht rückgängig gemacht werden kann.",
+      "confirmDeleteList1": "Ihre Profildetails, Einstellungen und Präferenzen werden entfernt.",
+      "confirmDeleteList2": "Alle Daten werden 30 Tage nach der Kontolöschung dauerhaft gelöscht.",
+      "deleting": "Löschen...",
+      "youHave": "Sie haben:",
+      "administrator": "Administrator"
+    },
+    "continents": {
+      "all": "Alle",
+      "europe": "Europa",
+      "asia": "Asien",
+      "africa": "Afrika",
+      "south america": "Südamerika",
+      "north america": "Nordamerika",
+      "antarctica": "Antarktis",
+      "oceania": "Ozeanien"
+    },
+    "tax": {
+      "taxCalculator": "Steuerrechner",
+      "taxCacluatorDesc": "Berechnen Sie Ihre geschätzte Steuerlast in verschiedenen Ländern",
+      "country": "Land",
+      "annualIncome": "Jahreseinkommen",
+      "userAccount": "Benutzerkonto",
+      "totalDeductions": "Gesamtabzüge",
+      "selectCountry": "Wählen Sie Ihr Land",
+      "selectAccount": "Kontotyp auswählen",
+      "enterIncome": "Geben Sie Ihr Jahreseinkommen ein",
+      "enterDeductions": "Gesamtabzüge eingeben",
+      "calculateTax": "Steuer berechnen",
+      "individual": "Einzelperson",
+      "corporate": "Unternehmen",
+      "taxSummary": "Steuerübersicht",
+      "taxAmount": "Steuerbetrag",
+      "effectiveRate": "Effektiver Satz",
+      "takeHomeAmount": "Nettobetrag"
+    },
+    "upgradePage": {
+      "back": "Zurück",
+      "upgradePlan": "Ihren Plan aktualisieren",
+      "upgradePlanDesc": "Wählen Sie den perfekten Plan, um Ihre globale Umzugsreise zu unterstützen. Erhalten Sie Zugang zu umfassenden Tools und Erkenntnissen, um Ihren Umzug nahtlos zu gestalten.",
+      "currentPlan": "Ihr aktueller Plan",
+      "getStarted": "Loslegen",
+      "free": "Kostenlos",
+      "basic": "Basis",
+      "premium": "Premium",
+      "perMonth": "pro Monat",
+      "forEveryone": "Für jeden",
+      "freePlan": {
+        "item1": "3-tägiger Testzugang",
+        "item2": "Grundlegende Länderinformationen",
+        "item3": "Community-Zugang (nur Lesezugriff)",
+        "item4": "Begrenzter Steuerrechner",
+        "item5": "Grundlegender Kostenvergleich"
+      },
+      "basicPlan": {
+        "item1": "Vollständige Länderinformationen",
+        "item2": "Community-Teilnahme",
+        "item3": "Vollständiger Steuerrechner",
+        "item4": "Kostenvergleichstools",
+        "item5": "Grundlegende Umzugsleitfäden",
+        "item6": "E-Mail-Support"
+      },
+      "premiumPlan": {
+        "item1": "Alle Basisfunktionen",
+        "item2": "Unbegrenzter Zugriff auf Länderdaten",
+        "item3": "Volle Community-Teilnahme",
+        "item4": "Erweiterter Steuerrechner",
+        "item5": "KI-Umzugsassistent",
+        "item6": "Einblicke in die Lebenshaltungskosten",
+        "item7": "Leitfäden zu Visabestimmungen",
+        "item8": "Priorisierter Support",
+        "item9": "Individueller Umzugsplan"
+      }
+    },
+    "favorites": {
+      "noFavorites": "Sie haben noch keine Favoriten.",
+      "addToFavorites": "Zu Favoriten hinzufügen",
+      "removeFromFavorites": "Aus Favoriten entfernen"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Änderungen bestätigen"
+    }
+  },
+  "footer": {
+    "topCountries": "Top-Länder",
+    "sitemap": "Sitemap",
+    "company": "Unternehmen",
+    "terms": "Bedingungen",
+    "privacy": "Datenschutz",
+    "contact": "Kontaktieren Sie uns",
+    "subscribeNewsletter": "Abonnieren Sie unseren Newsletter",
+    "subscribeNewsDesc": "Bleiben Sie mit den neuesten Erkenntnissen zur globalen Umsiedlung auf dem Laufenden",
+    "enterEmail": "Geben Sie Ihre E-Mail-Adresse ein",
+    "subscribe": "Abonnieren",
+    "copyright": "Alle Inhalte auf dieser Website sind urheberrechtlich geschützt.",
+    "rankings": "Ranglisten",
+    "safestCountries": "Die sichersten Länder",
+    "humanFreedomLevel": "Grad der menschlichen Freiheit",
+    "lifeExpectancy": "Lebenserwartung",
+    "happinessIndex": "Weltglücksindex",
+    "citizenshipQualityRankings": "Rangliste der Staatsbürgerschaftsqualität",
+    "trends": "Trends",
+    "foreignCitizenship": "Ausländische Staatsbürgerschaft",
+    "digitalNomadVisas": "Visa für digitale Nomaden",
+    "taxesRankings": "Steuerranglisten",
+    "residencyPermit": "Aufenthaltsgenehmigung"
+  },
+  "toast": {
+    "thanksNewsletter": "Vielen Dank für das Abonnieren unseres Newsletters!",
+    "linkCopied": "Link in die Zwischenablage kopiert!",
+    "linkCopyFailed": "Link konnte nicht kopiert werden",
+    "newSessionStarted": "Neue Sitzung gestartet",
+    "newSessionFailed": "Neue Sitzung konnte nicht gestartet werden. Bitte versuchen Sie es erneut.",
+    "redirectToPayPage": "Weiterleitung zur Zahlungsseite...",
+    "activeSessionShare": "Sie benötigen eine aktive Sitzung zum Teilen",
+    "sessionDeleteFailed": "Sitzung konnte nicht gelöscht werden. Bitte versuchen Sie es erneut.",
+    "sessionDeleteSuccess": "Sitzung erfolgreich gelöscht!",
+    "sessionRenameSuccess": "Sitzung erfolgreich umbenannt!",
+    "sessionRenameFailed": "Sitzung konnte nicht umbenannt werden. Bitte versuchen Sie es erneut.",
+    "enterSessionName": "Geben Sie einen neuen Namen für diese Sitzung ein:"
+  },
+  "formErrors": {
+    "invalidEmail": "Ungültiges E-Mail-Format",
+    "emailRequired": "E-Mail ist erforderlich",
+    "fullNameRequired": "Vollständiger Name ist erforderlich",
+    "enterFullName": "Bitte geben Sie Ihren vollständigen Namen ein",
+    "passwordRequired": "Passwort ist erforderlich",
+    "minPassword": "Das Passwort muss mindestens 8 Zeichen lang sein",
+    "passwordsMismatch": "Passwörter stimmen nicht überein",
+    "weakPassword": "Passwort ist zu schwach",
+    "selectCountry": "Bitte wählen Sie ein Land aus",
+    "usernameRequired": "Benutzername ist erforderlich",
+    "minUsername": "Der Benutzername muss mindestens 3 Zeichen lang sein",
+    "cpasswordRequired": "Passwortbestätigung ist erforderlich"
+  }
+}

@@ -34,6 +34,7 @@ import { PostProvider } from "@/context/PostContext";
 import { CommentProvider } from "@/context/CommentContext";
 import SinglePost from "@/pages/user/SinglePost";
 import { AiChatProvider } from "@/context/AiChatContext";
+import ContactUs from "./pages/unauthenticated/contact-us";
 
 // eslint-disable-next-line react/prop-types
 const RouteGuard = ({ children }) => {
@@ -84,7 +85,8 @@ const AppContent = () => {
           <Route path="/trialexpired" element={<TrialExpired />} />
           <Route path="/help" element={<HelpCenter />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/term" element={<TermsAndConditions />} />
+          <Route path="/terms" element={<TermsAndConditions />} />
+          <Route path="/contact-us" element={<ContactUs />} />
 
           {/* User routes */}
           <Route path="/upgrade" element={<Upgrade />} />

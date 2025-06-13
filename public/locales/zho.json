@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "首页",
+      "countriesData": "国家和数据",
+      "community": "社区",
+      "taxCalculator": "税务计算器",
+      "pricing": "价格",
+      "viewProfile": "查看个人资料",
+      "helpCenter": "帮助中心",
+      "giveFeedback": "给我们反馈",
+      "privacyPolicy": "隐私政策",
+      "upgradePlan": "升级计划",
+      "logIn": "登录",
+      "getStarted": "开始",
+      "logout": "登出"
+    },
+    "showcase": {
+      "title": "更智能地搬迁，更好地生活。",
+      "para": "您的人工智能平台，用于无缝搬迁、法律指导和全球生活。",
+      "buttonText": "开始"
+    },
+    "features": {
+      "title": "功能",
+      "cards": {
+        "card1": {
+          "title": "比较国家",
+          "para": "通过并排比较不同国家，分析生活成本、税率和生活质量等关键因素，做出明智的决定。"
+        },
+        "card2": {
+          "title": "人工智能智能信息",
+          "para": "加入与志同道合的全球游牧者的论坛和团体。"
+        },
+        "card3": {
+          "title": "国家和数据",
+          "para": "加入与志同道合的全球游牧者的论坛和团体。"
+        }
+      }
+    },
+    "countries": {
+      "title": "热门国家",
+      "para": "探索热门目的地并开始规划您的搬迁"
+    },
+    "whyChooseUs": {
+      "title": "为什么选择我们",
+      "card1": {
+        "title": "节省时间的人工智能支持数据",
+        "para": "始终保持最新和可靠的信息。"
+      },
+      "card2": {
+        "title": "经过验证的联系人和可信来源：",
+        "para": "一个基于社区的平台，确保可信度。"
+      },
+      "card3": {
+        "title": "一体化解决方案",
+        "para": "从签证到生活成本，一切尽在一处。"
+      },
+      "card4": {
+        "title": "个性化提醒",
+        "para": "通过量身定制的通知和收藏夹功能保持领先。"
+      }
+    },
+    "forgotPassword": {
+      "title": "忘记密码？",
+      "para": "输入您帐户的电子邮件，我们将向您发送一次性密码以重置您的密码。",
+      "emailLabel": "电子邮件地址",
+      "sending": "发送中...",
+      "sendOTP": "发送一次性密码",
+      "resendOTP": "重新发送一次性密码",
+      "verifyOTP": "验证一次性密码",
+      "otpSent": "一次性密码已发送到您的电子邮件。",
+      "continuePrompt": "点击下面的继续按钮以创建新密码。",
+      "continue": "继续",
+      "rememberPassword": "想起您的密码了？",
+      "logIn": "登录"
+    },
+    "termsOfService": {
+      "title": "条款和条件",
+      "paragraph": "欢迎来到 globalrelocate.com！这些条款和条件（“条款”）约束您使用我们的人工智能平台，该平台用于无缝搬迁、法律指导和全球生活，可通过 URL globalrelocate.com（称为“平台”）访问。通过访问或使用平台，您同意受这些条款的约束。请仔细阅读。",
+      "sections": {
+        "platformUse": "1. 平台使用",
+        "platformUse_1": "1.1 资格：您必须年满 18 岁或在您所在的司法管辖区具有签订合同的法律能力才能使用平台。通过访问或使用平台，您声明并保证您符合资格要求。",
+        "platformUse_2": "1.2 用户帐户：您可能需要创建一个用户帐户才能访问平台的某些功能。您有责任维护您的帐户信息的机密性，并同意对通过您的帐户进行的所有活动负全部责任。",
+        "platformUse_3": "1.3 禁止活动：您同意不从事任何违反这些条款或任何适用法律法规的活动。禁止活动包括但不限于：",
+        "prohibited_1": "侵犯知识产权",
+        "prohibited_2": "上传或分享非法、有害或侵犯他人权利的内容",
+        "prohibited_3": "干扰平台的正常运行",
+        "prohibited_4": "冒充他人或实体",
+        "intellectualProperty": "2. 知识产权",
+        "intellectualProperty_1": "2.1 所有权：平台上提供的所有内容，包括但不限于文本、图形、徽标、图像、音频剪辑、视频和软件，均归 Global Relocate 或其许可方所有，并受知识产权法保护。",
+        "intellectualProperty_2": "2.2 内容使用：您只能出于个人非商业目的访问和使用平台上的内容。未经 Global Relocate 事先书面许可，您不得修改、复制、分发、展示、表演或创作内容的衍生作品。",
+        "disclaimer": "3. 免责声明",
+        "disclaimer_1": "3.1 平台按“原样”和“可用”的基础提供，不提供任何形式的保证。Global Relocate 不作任何明示或暗示的保证，包括但不限于适销性、特定用途的适用性和不侵权。",
+        "disclaimer_2": "3.2 Global Relocate 不保证平台上任何内容或信息的准确性、完整性或可靠性。您承认您使用平台的风险由您自行承担。",
+        "liability": "4. 责任限制",
+        "liability_1": "4.1 在法律允许的最大范围内，Global Relocate 及其董事、员工、关联公司和代理人不对因您使用平台或其中内容而产生的或以任何方式与之相关的任何直接、间接、附带、特殊或后果性损害承担责任。",
+        "thirdParty": "5. 第三方链接",
+        "thirdParty_1": "5.1 平台可能包含指向第三方网站或服务的链接。Global Relocate 不对任何第三方网站或服务的内容、准确性或可靠性负责。包含任何此类链接并不意味着 Global Relocate 的认可或关联。",
+        "modifications": "6. 修改和终止",
+        "modifications_1": "6.1 Global Relocate 保留临时或永久修改、暂停或终止平台任何部分或全部的权利，恕不另行通知。Global Relocate 不对您或任何第三方因平台的任何修改、暂停或终止而承担责任。",
+        "governingLaw": "7. 管辖法律和司法管辖区",
+        "governingLaw_1": "7.1 这些条款应受[您的国家]法律管辖并据其解释。因这些条款或您使用平台而产生的或与之相关的任何争议均应受[您的城市，国家]法院的专属管辖。",
+        "entireAgreement": "8. 完整协议",
+        "entireAgreement_1": "8.1 这些条款构成您与 Global Relocate 之间关于使用平台的完整协议，并取代任何先前或同期的协议、通信或陈述。",
+        "whyChoose": "9. 为什么选择 Global Relocate",
+        "whyChoose_1": "在 Global Relocate，我们致力于帮助您更智能地搬迁并更好地生活。以下是您应该选择我们的原因：",
+        "whyChoose_bullet1": "节省时间的人工智能支持数据：访问始终最新且可靠的信息以做出明智的决定。",
+        "whyChoose_bullet2": "经过验证的联系人和可信来源：受益于基于社区的平台，确保可信度和信任。",
+        "whyChoose_bullet3": "一体化解决方案：从签证到生活成本，一切尽在一处。",
+        "whyChoose_bullet4": "个性化提醒：通过专为您设计的量身定制的通知和收藏夹功能保持领先。"
+      }
+    },
+    "privacyPolicy": {
+      "title": "隐私政策和法律免责声明",
+      "paragraph": "本隐私政策描述了 Global Relocate（称为“我们”、“我们的”或“我们的”），globalrelocate.com 的所有者和运营商，在您使用我们的人工智能平台进行无缝搬迁、法律指导和全球生活时如何收集、使用和保护您的个人信息，该平台可通过 URL globalrelocate.com（“平台”）访问。本政策也适用于通过平台提供的任何服务、内容、功能或应用程序。",
+      "paragraph2": "通过访问或使用平台，您同意按照本隐私政策的规定收集、使用和披露您的个人信息。如果您不同意本政策的任何方面，请不要使用平台。",
+      "sections": {
+        "informationCollection": "1. 信息收集",
+        "informationCollection_1": "1.1 个人信息：当您使用平台时，我们可能会收集您的各种类型的个人信息。这可能包括您的姓名、电子邮件地址、联系信息、搬迁偏好以及您自愿提供给我们的任何其他信息。",
+        "informationCollection_2": "1.2 使用数据：我们会自动收集有关您使用平台的某些非个人身份信息。这可能包括您的 IP 地址、浏览器类型、操作系统、设备信息、访问的页面、引用/退出 URL 以及其他类似数据。",
+        "useOfInformation": "2. 信息使用",
+        "personalInformationUse": "2.1 个人信息：我们可能会将您提供给我们的个人信息用于以下目的：",
+        "personalInformationUse_bullet1": "提供和改进我们的人工智能搬迁服务、法律指导和全球生活资源。",
+        "personalInformationUse_bullet2": "处理您的请求，提供个性化的搬迁计划，并提供量身定制的内容。",
+        "personalInformationUse_bullet3": "与您沟通，回复查询，并提供客户支持。",
+        "personalInformationUse_bullet4": "发送有关签证、生活成本和其他搬迁相关信息的个性化提醒、更新和通知。",
+        "personalInformationUse_bullet5": "通过提供收藏夹功能和量身定制的建议来增强您在平台上的体验。",
+        "personalInformationUse_bullet6": "执行我们的服务条款和其他政策。",
+        "personalInformationUse_bullet7": "遵守法律义务。",
+        "usageDataUse": "2.2 使用数据：我们使用使用数据来分析趋势、跟踪用户参与度、监控我们服务的有效性并增强平台上的用户体验。",
+        "informationSharing": "3. 信息共享",
+        "informationSharing_1": "3.1 第三方服务提供商：我们可能会与协助我们运营平台、提供服务、处理付款、进行分析或执行其他必要功能的受信任的第三方服务提供商共享您的个人信息。这些服务提供商受严格的保密协议约束，并禁止将您的个人信息用于任何其他目的。",
+        "informationSharing_2": "3.2 法律合规和保护：如果法律、法规、法律程序或政府要求，我们可能会披露您的个人信息。我们也可能披露您的信息以保护我们的权利、财产或安全，以及我们的用户或其他人的权利、财产或安全。",
+        "cookies": "4. Cookie 和跟踪技术",
+        "cookies_1": "4.1 我们在平台上使用 Cookie 和其他跟踪技术来收集和存储某些信息。Cookie 是放置在您设备上的小型文本文件，可帮助我们分析平台使用情况、记住用户偏好并增强您的整体体验。您可以通过浏览器设置禁用 Cookie；但是，这可能会限制平台的某些功能。",
+        "dataSecurity": "5. 数据安全",
+        "dataSecurity_1": "5.1 我们采取合理的安全措施来保护您的个人信息免遭未经授权的访问、披露、更改或破坏。但是，请注意，没有任何通过互联网传输数据或存储方法是 100% 安全的。我们不能保证您个人信息的绝对安全。",
+        "thirdPartyLinks": "6. 第三方链接",
+        "thirdPartyLinks_1": "6.1 平台可能包含指向非我们所有或控制的第三方网站或服务的链接。我们不对这些第三方网站的隐私惯例或内容负责。我们鼓励您查看您访问的任何第三方网站的隐私政策。",
+        "childrenPrivacy": "7. 儿童隐私",
+        "childrenPrivacy_1": "7.1 平台不适用于 13 岁以下的个人。我们不会故意收集 13 岁以下儿童的个人信息。如果我们发现我们无意中收集了 13 岁以下儿童的个人信息，我们将采取措施立即删除该信息。",
+        "changesToPolicy": "8. 本隐私政策的变更",
+        "changesToPolicy_1": "8.1 我们保留随时修改或更新本隐私政策的权利。任何更改将在平台上发布修订后的政策后立即生效。我们鼓励您定期查看本政策以了解任何更新。",
+        "whyGlobalRelocate": "9. 为什么选择 Global Relocate",
+        "whyGlobalRelocate_1": "在 Global Relocate，我们致力于帮助您更智能地搬迁并更好地生活。以下是您应该选择我们的原因：",
+        "whyGlobalRelocate_bullet1": "节省时间的人工智能支持数据：访问始终最新且可靠的信息以做出明智的决定。",
+        "whyGlobalRelocate_bullet2": "经过验证的联系人和可信来源：受益于基于社区的平台，确保可信度和信任。",
+        "whyGlobalRelocate_bullet3": "一体化解决方案：从签证到生活成本，一切尽在一处。",
+        "whyGlobalRelocate_bullet4": "个性化提醒：通过专为您设计的量身定制的通知和收藏夹功能保持领先。",
+        "contactUs": "10. 联系我们",
+        "contactUs_1": "10.1 如果您对本隐私政策或我们的数据惯例有任何疑问、疑虑或请求，请通过以下方式联系我们："
+      }
+    },
+    "helpCenter": {
+      "help": "我们随时为您提供帮助",
+      "howCanWeHelp": "我们能为您做些什么？",
+      "checkOut": "查看我们的常见问题解答或联系我们以获得更多支持。",
+      "faqs": {
+        "title": "常见问题",
+        "question1": {
+          "question": "什么是 Global Relocate？",
+          "answer": "Global Relocate 是一个人工智能平台，旨在帮助个人和家庭搬迁到新的国家。它提供个性化的建议、资源和支持，使搬迁过程更顺畅、更高效。"
+        },
+        "question2": {
+          "question": "Global Relocate 有助于实现什么？",
+          "answer": "Global Relocate 通过为搬迁到新国家的各个方面（包括签证申请、住房、就业和文化融合）提供量身定制的建议、资源和支持，帮助用户实现无缝的搬迁体验。"
+        },
+        "question3": {
+          "question": "Global Relocate 是否对用户收取服务或功能费用？",
+          "answer": "是的，Global Relocate 提供一系列可能涉及收费的服务和功能。但是，它也提供免费资源和基本支持，以帮助用户开始他们的搬迁之旅。"
+        },
+        "question4": {
+          "question": "我的数据会怎样处理？/ Global Relocate 是否存储我的个人信息？",
+          "answer": "Global Relocate 非常重视用户隐私。除非用户明确为特定服务提供，否则我们不会存储个人信息。收集的任何数据仅用于增强用户体验和提供个性化建议。有关更多详细信息，请参阅我们的隐私政策。"
+        },
+        "question5": {
+          "question": "Global Relocate 背后的团队是谁？",
+          "answer": "Global Relocate 由人工智能、搬迁服务和国际法领域的经验丰富的专业人士团队开发。我们的团队致力于为希望搬迁的个人和家庭提供最佳的支持和资源。"
+        },
+        "question6": {
+          "question": "Global Relocate 是否提供多种语言版本？",
+          "answer": "是的，Global Relocate 提供多种语言版本，以满足不同用户的需求。您可以在平台的设置部分选择您的首选语言。"
+        },
+        "question7": {
+          "question": "Global Relocate 上的信息来自哪里？",
+          "answer": "Global Relocate 上的信息来自各种信誉良好的来源，包括政府网站、搬迁专家和用户生成的内容。我们会不断更新我们的数据库，以确保用户能够获得最准确和相关的搬迁信息。"
+        }
+      }
+    },
+    "contactUs": {
+      "title": "联系我们",
+      "titleDesc": "您可以向我们提问",
+      "para": "如有任何问题和意见，请联系我们，或者您可以访问我们的联系办事处之一快速获得答案。",
+      "ourOffices": "我们的办事处",
+      "ourOfficesDesc": "我们在不同地点设有办事处，以协助您满足搬迁需求。请访问我们的办事处之一以获得个性化支持。",
+      "dropUsAMessage": "给我们留言",
+      "dropUsAMessageDesc": "填写下面的表格给我们留言，我们会尽快回复您。",
+      "yourName": "您的姓名",
+      "yourEmail": "您的电子邮件",
+      "subject": "主题",
+      "yourMessage": "您的留言",
+      "sendMessage": "发送留言",
+      "sending": "发送中...",
+      "messageSent": "留言发送成功！",
+      "messageFailed": "留言发送失败。请重试。"
+    }
+  },
+  "loginPage": {
+    "close": "关闭",
+    "createAccount": "创建帐户",
+    "logIntoGR": "登录 Global Relocate",
+    "password": "密码",
+    "enterPassword": "输入您的密码",
+    "continueWithGoogle": "使用 Google 继续",
+    "cantLogin": "无法登录？",
+    "tosDesc": "点击创建帐户，即表示您同意我们的 ",
+    "tos": "服务条款",
+    "privacyPolicy": "隐私政策",
+    "and": "和",
+    "or": "或",
+    "processing": "处理中...",
+    "continue": "继续",
+    "hidePassword": "隐藏密码",
+    "showPassword": "显示密码"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "让我们创建您的帐户",
+    "chooseAccountType": "选择帐户类型",
+    "createPersonalAccount": "我正在创建个人帐户",
+    "createCorporateAccount": "我正在创建公司帐户",
+    "continue": "继续",
+    "chooseSignMethod": "选择注册方式",
+    "continueWithEmail": "使用电子邮件继续",
+    "alreadyHaveAccount": "已经有帐户了？",
+    "fullName": "全名",
+    "chooseUsername": "选择用户名",
+    "enterYourFullName": "输入您的全名",
+    "confirmPassword": "确认密码",
+    "country": "国家"
+  },
+  "welcomePage": {
+    "welcomeAboard": "欢迎登船",
+    "welcomeText": "您的人工智能平台，用于无缝搬迁、法律指导和全球生活。"
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "国家",
+      "aiAssistant": "人工智能助手",
+      "compareCountries": "比较国家",
+      "taxCalculator": "税务计算器",
+      "notifications": "通知",
+      "favourites": "收藏夹",
+      "community": "社区",
+      "cta": {
+        "title": "试用专业版",
+        "para": "您目前使用的是有效期为 3 天的免费计划。立即升级以继续使用 Global Relocate。",
+        "buttonText": "了解更多"
+      }
+    },
+    "notifications": {
+      "noNotifications": "您还没有任何通知。",
+      "markAllAsRead": "全部标记为已读",
+      "deleteAll": "全部删除",
+      "markAsRead": "标记为已读",
+      "delete": "删除通知",
+      "showLess": "减少显示此内容",
+      "showMore": "显示更多结果"
+    },
+    "countries": {
+      "title": "国家",
+      "noDataText": "无可用数据！",
+      "searchText": "搜索国家",
+      "clickToSelect": "点击选择国家",
+      "view": "查看",
+      "searchResults": "搜索结果",
+      "aiSuggestedCountries": "人工智能建议的国家",
+      "searchCountries": "搜索国家"
+    },
+    "country": {
+      "countryIn": "国家在",
+      "addFavorite": "添加到收藏夹",
+      "removeFavorite": "从收藏夹中删除",
+      "share": "分享",
+      "overview": "概览",
+      "map": "地图",
+      "keyFacts": "关键事实",
+      "visaMigration": "签证和移民",
+      "taxes": "税务",
+      "flag": "国旗",
+      "capital": "首都",
+      "languages": "语言",
+      "currency": "货币",
+      "population": "人口",
+      "dialingCode": "拨号代码",
+      "back": "返回",
+      "noOverview": "此国家没有可用的概览。",
+      "noVisaInfo": "没有可用的签证和移民信息。"
+    },
+    "ai": {
+      "rename": "重命名",
+      "deleteConversation": "删除对话",
+      "share": "分享",
+      "hello": "你好",
+      "newChat": "新聊天",
+      "askAI": "问人工智能任何问题...",
+      "uploadDocument": "上传文档",
+      "uploadDocumentDesc": "上传文档以供人工智能助手处理",
+      "cancel": "取消",
+      "upload": "上传"
+    },
+    "settings": {
+      "accountSettings": "帐户设置",
+      "editProfile": "编辑个人资料",
+      "profile": "个人资料",
+      "account": "帐户",
+      "preferences": "偏好设置",
+      "avatar": "头像",
+      "fullName": "全名",
+      "username": "用户名",
+      "bio": "简介",
+      "country": "国家",
+      "emailAddress": "电子邮件地址",
+      "verified": "已验证",
+      "subscription": "订阅",
+      "subscriptionDesc": "您目前使用的是有效期为 3 天的免费计划。立即升级以继续使用 Global Relocate。",
+      "deleteAccount": "删除帐户",
+      "deleteDesc": "永久删除您的帐户和数据",
+      "language": "语言",
+      "chooseLanguage": "选择语言",
+      "selectLanguage": "选择语言",
+      "learnMore": "了解更多",
+      "saveChanges": "保存更改",
+      "cancel": "取消",
+      "saving": "保存中...",
+      "unsavedChanges": "您有未保存的更改",
+      "addName": "添加姓名",
+      "addBio": "添加简介以讲述您的故事。",
+      "addUsername": "添加用户名",
+      "addLocation": "添加位置",
+      "confirmAccountDelete": "确认删除帐户",
+      "confirmAccountDeleteDesc": "在删除您的帐户之前，请花点时间了解您的数据会发生什么：",
+      "confirm": "确认",
+      "neverMind": "没关系",
+      "confirmDeleteWarning": "请记住，删除帐户无法撤消。",
+      "confirmDeleteList1": "您的个人资料详细信息、偏好设置和设置将被删除。",
+      "confirmDeleteList2": "所有数据将在帐户删除 30 天后永久删除。",
+      "deleting": "删除中...",
+      "youHave": "您有：",
+      "administrator": "管理员"
+    },
+    "continents": {
+      "all": "全部",
+      "europe": "欧洲",
+      "asia": "亚洲",
+      "africa": "非洲",
+      "south america": "南美洲",
+      "north america": "北美洲",
+      "antarctica": "南极洲",
+      "oceania": "大洋洲"
+    },
+    "tax": {
+      "taxCalculator": "税务计算器",
+      "taxCacluatorDesc": "计算您在不同国家的预估税负",
+      "country": "国家",
+      "annualIncome": "年收入",
+      "userAccount": "用户帐户",
+      "totalDeductions": "总扣除额",
+      "selectCountry": "选择您的国家",
+      "selectAccount": "选择帐户类型",
+      "enterIncome": "输入您的年收入",
+      "enterDeductions": "输入总扣除额",
+      "calculateTax": "计算税款",
+      "individual": "个人",
+      "corporate": "公司",
+      "taxSummary": "税务摘要",
+      "taxAmount": "税额",
+      "effectiveRate": "实际税率",
+      "takeHomeAmount": "实得金额"
+    },
+    "upgradePage": {
+      "back": "返回",
+      "upgradePlan": "升级您的计划",
+      "upgradePlanDesc": "选择完美的计划来支持您的全球搬迁之旅。获取全面的工具和见解，使您的搬迁过程无缝衔接。",
+      "currentPlan": "您当前的计划",
+      "getStarted": "开始",
+      "free": "免费",
+      "basic": "基础版",
+      "premium": "高级版",
+      "perMonth": "每月",
+      "forEveryone": "适用于所有人",
+      "freePlan": {
+        "item1": "3 天试用权限",
+        "item2": "基本国家信息",
+        "item3": "社区访问（只读）",
+        "item4": "有限的税务计算器",
+        "item5": "基本成本比较"
+      },
+      "basicPlan": {
+        "item1": "完整的国家信息",
+        "item2": "社区参与",
+        "item3": "完整的税务计算器",
+        "item4": "成本比较工具",
+        "item5": "基本搬迁指南",
+        "item6": "电子邮件支持"
+      },
+      "premiumPlan": {
+        "item1": "所有基础版功能",
+        "item2": "无限制的国家数据访问",
+        "item3": "完整的社区参与",
+        "item4": "高级税务计算器",
+        "item5": "人工智能搬迁助手",
+        "item6": "生活成本见解",
+        "item7": "签证要求指南",
+        "item8": "优先支持",
+        "item9": "定制搬迁路线图"
+      }
+    },
+    "favorites": {
+      "noFavorites": "您还没有任何收藏。",
+      "addToFavorites": "添加到收藏夹",
+      "removeFromFavorites": "从收藏夹中删除"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "确认更改"
+    }
+  },
+  "footer": {
+    "topCountries": "热门国家",
+    "sitemap": "网站地图",
+    "company": "公司",
+    "terms": "条款",
+    "privacy": "隐私",
+    "contact": "联系我们",
+    "subscribeNewsletter": "订阅我们的时事通讯",
+    "subscribeNewsDesc": "随时了解全球搬迁的最新见解",
+    "enterEmail": "输入您的电子邮件",
+    "subscribe": "订阅",
+    "copyright": "本网站所有内容均受版权保护。",
+    "rankings": "排名",
+    "safestCountries": "最安全的国家",
+    "humanFreedomLevel": "人类自由水平",
+    "lifeExpectancy": "预期寿命",
+    "happinessIndex": "世界幸福指数",
+    "citizenshipQualityRankings": "公民身份质量排名",
+    "trends": "趋势",
+    "foreignCitizenship": "外国公民身份",
+    "digitalNomadVisas": "数字游牧签证",
+    "taxesRankings": "税务排名",
+    "residencyPermit": "居留许可"
+  },
+  "toast": {
+    "thanksNewsletter": "感谢您订阅我们的时事通讯！",
+    "linkCopied": "链接已复制到剪贴板！",
+    "linkCopyFailed": "复制链接失败",
+    "newSessionStarted": "新会话已开始",
+    "newSessionFailed": "无法开始新会话。请重试。",
+    "redirectToPayPage": "正在重定向到付款页面...",
+    "activeSessionShare": "您需要一个活动会话才能共享",
+    "sessionDeleteFailed": "删除会话失败。请重试。",
+    "sessionDeleteSuccess": "会话删除成功！",
+    "sessionRenameSuccess": "会话重命名成功！",
+    "sessionRenameFailed": "重命名会话失败。请重试。",
+    "enterSessionName": "为此会话输入一个新名称："
+  },
+  "formErrors": {
+    "invalidEmail": "电子邮件格式无效",
+    "emailRequired": "需要电子邮件",
+    "fullNameRequired": "需要全名",
+    "enterFullName": "请输入您的全名",
+    "passwordRequired": "需要密码",
+    "minPassword": "密码必须至少为 8 个字符",
+    "passwordsMismatch": "密码不匹配",
+    "weakPassword": "密码太弱",
+    "selectCountry": "请选择一个国家",
+    "usernameRequired": "需要用户名",
+    "minUsername": "用户名必须至少为 3 个字符",
+    "cpasswordRequired": "需要确认密码"
+  }
+}

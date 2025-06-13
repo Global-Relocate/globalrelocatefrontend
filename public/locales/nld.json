@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Thuis",
+      "countriesData": "Landen & Data",
+      "community": "Gemeenschap",
+      "taxCalculator": "Belastingcalculator",
+      "pricing": "Prijzen",
+      "viewProfile": "Profiel bekijken",
+      "helpCenter": "Helpcentrum",
+      "giveFeedback": "Geef ons feedback",
+      "privacyPolicy": "Privacybeleid",
+      "upgradePlan": "Upgrade Plan",
+      "logIn": "Inloggen",
+      "getStarted": "Beginnen",
+      "logout": "Uitloggen"
+    },
+    "showcase": {
+      "title": "Slimmer verhuizen, beter leven.",
+      "para": "Uw AI-aangedreven platform voor naadloze verhuizing, juridische begeleiding en wereldwijd wonen.",
+      "buttonText": "Beginnen"
+    },
+    "features": {
+      "title": "Kenmerken",
+      "cards": {
+        "card1": {
+          "title": "Vergelijk Landen",
+          "para": "Neem weloverwogen beslissingen door verschillende landen naast elkaar te vergelijken en belangrijke factoren zoals kosten van levensonderhoud, belastingtarieven en levenskwaliteit te analyseren."
+        },
+        "card2": {
+          "title": "Slimme info met AI",
+          "para": "Sluit u aan bij forums en groepen met gelijkgestemde wereldnomaden."
+        },
+        "card3": {
+          "title": "Landen & Data",
+          "para": "Sluit u aan bij forums en groepen met gelijkgestemde wereldnomaden."
+        }
+      }
+    },
+    "countries": {
+      "title": "Populaire Landen",
+      "para": "Ontdek populaire bestemmingen en begin met het plannen van uw verhuizing"
+    },
+    "whyChooseUs": {
+      "title": "Waarom Voor Ons Kiezen",
+      "card1": {
+        "title": "Tijdbesparende AI-ondersteunde Data",
+        "para": "Altijd actuele en betrouwbare informatie."
+      },
+      "card2": {
+        "title": "Geverifieerde Contacten & Betrouwbare Bronnen:",
+        "para": "Een community-gebaseerd platform dat geloofwaardigheid garandeert."
+      },
+      "card3": {
+        "title": "Alles-in-één Oplossing",
+        "para": "Alles van visa tot kosten van levensonderhoud op één plek."
+      },
+      "card4": {
+        "title": "Gepersonaliseerde Meldingen",
+        "para": "Blijf voorop met op maat gemaakte meldingen en een favorietenfunctie."
+      }
+    },
+    "forgotPassword": {
+      "title": "Wachtwoord Vergeten?",
+      "para": "Voer het e-mailadres van uw account in en we sturen u een OTP om uw wachtwoord opnieuw in te stellen.",
+      "emailLabel": "E-mailadres",
+      "sending": "Verzenden...",
+      "sendOTP": "OTP Verzenden",
+      "resendOTP": "OTP Opnieuw Verzenden",
+      "verifyOTP": "OTP Verifiëren",
+      "otpSent": "Er is een OTP naar uw e-mailadres verzonden.",
+      "continuePrompt": "Klik op de knop Doorgaan hieronder om een nieuw wachtwoord aan te maken.",
+      "continue": "Doorgaan",
+      "rememberPassword": "Wachtwoord onthouden?",
+      "logIn": "Inloggen"
+    },
+    "termsOfService": {
+      "title": "Algemene Voorwaarden",
+      "paragraph": "Welkom bij globalrelocate.com! Deze Algemene Voorwaarden ('Voorwaarden') regelen uw gebruik van ons AI-aangedreven platform voor naadloze verhuizing, juridische begeleiding en wereldwijd wonen, toegankelijk via de URL globalrelocate.com (hierna 'het Platform' genoemd). Door het Platform te openen of te gebruiken, gaat u akkoord met deze Voorwaarden. Lees ze aandachtig door.",
+      "sections": {
+        "platformUse": "1. Gebruik van het Platform",
+        "platformUse_1": "1.1 Geschiktheid: U moet ten minste 18 jaar oud zijn of de wettelijke bevoegdheid hebben om contracten aan te gaan in uw rechtsgebied om het Platform te gebruiken. Door het Platform te openen of te gebruiken, verklaart en garandeert u dat u aan de geschiktheidsvereisten voldoet.",
+        "platformUse_2": "1.2 Gebruikersaccount: Mogelijk moet u een gebruikersaccount aanmaken om toegang te krijgen tot bepaalde functies van het Platform. U bent verantwoordelijk voor het handhaven van de vertrouwelijkheid van uw accountinformatie en stemt ermee in uitsluitend verantwoordelijk te zijn voor alle activiteiten die via uw account worden uitgevoerd.",
+        "platformUse_3": "1.3 Verboden Activiteiten: U stemt ermee in geen activiteiten te ondernemen die deze Voorwaarden of toepasselijke wet- of regelgeving schenden. Verboden activiteiten omvatten, maar zijn niet beperkt tot:",
+        "prohibited_1": "Schending van intellectuele eigendomsrechten",
+        "prohibited_2": "Uploaden of delen van inhoud die illegaal, schadelijk is of inbreuk maakt op de rechten van anderen",
+        "prohibited_3": "Verstoring van de goede werking van het Platform",
+        "prohibited_4": "Zich voordoen als een andere persoon of entiteit",
+        "intellectualProperty": "2. Intellectueel Eigendom",
+        "intellectualProperty_1": "2.1 Eigendom: Alle inhoud, inclusief maar niet beperkt tot tekst, afbeeldingen, logo's, afbeeldingen, audioclips, video's en software, beschikbaar op het Platform is eigendom van Global Relocate of haar licentiegevers en wordt beschermd door intellectuele eigendomswetten.",
+        "intellectualProperty_2": "2.2 Gebruik van Inhoud: U mag de inhoud op het Platform alleen voor persoonlijke, niet-commerciële doeleinden openen en gebruiken. U mag de inhoud niet wijzigen, reproduceren, distribueren, weergeven, uitvoeren of er afgeleide werken van maken zonder voorafgaande schriftelijke toestemming van Global Relocate.",
+        "disclaimer": "3. Afwijzing van Garanties",
+        "disclaimer_1": "3.1 Het Platform wordt geleverd op een 'as is' en 'as available' basis zonder garanties van welke aard dan ook. Global Relocate wijst alle garanties af, expliciet of impliciet, inclusief maar niet beperkt tot verkoopbaarheid, geschiktheid voor een bepaald doel en niet-inbreuk.",
+        "disclaimer_2": "3.2 Global Relocate garandeert niet de juistheid, volledigheid of betrouwbaarheid van enige inhoud of informatie op het Platform. U erkent dat uw gebruik van het Platform op eigen risico is.",
+        "liability": "4. Beperking van Aansprakelijkheid",
+        "liability_1": "4.1 Voor zover maximaal toegestaan door de wet, zijn Global Relocate en haar directeuren, werknemers, gelieerde ondernemingen en agenten niet aansprakelijk voor enige directe, indirecte, incidentele, speciale of gevolgschade die voortvloeit uit of op enigerlei wijze verband houdt met uw gebruik van het Platform of de inhoud daarin.",
+        "thirdParty": "5. Links naar Derden",
+        "thirdParty_1": "5.1 Het Platform kan links bevatten naar websites of diensten van derden. Global Relocate is niet verantwoordelijk voor de inhoud, juistheid of betrouwbaarheid van websites of diensten van derden. De opname van dergelijke links impliceert geen goedkeuring of affiliatie door Global Relocate.",
+        "modifications": "6. Wijzigingen en Beëindiging",
+        "modifications_1": "6.1 Global Relocate behoudt zich het recht voor om enig deel of het geheel van het Platform, tijdelijk of permanent, te wijzigen, op te schorten of stop te zetten zonder voorafgaande kennisgeving. Global Relocate is niet aansprakelijk jegens u of enige derde partij voor enige wijzigingen, opschorting of stopzetting van het Platform.",
+        "governingLaw": "7. Toepasselijk Recht en Rechtsgebied",
+        "governingLaw_1": "7.1 Deze Voorwaarden worden beheerst door en geïnterpreteerd in overeenstemming met de wetten van [Uw Land]. Elk geschil dat voortvloeit uit of verband houdt met deze Voorwaarden of uw gebruik van het Platform is onderworpen aan de exclusieve jurisdictie van de rechtbanken in [Uw Stad, Land].",
+        "entireAgreement": "8. Volledige Overeenkomst",
+        "entireAgreement_1": "8.1 Deze Voorwaarden vormen de volledige overeenkomst tussen u en Global Relocate met betrekking tot het gebruik van het Platform en vervangen alle voorgaande of gelijktijdige overeenkomsten, communicatie of verklaringen.",
+        "whyChoose": "9. Waarom Kiezen Voor Global Relocate",
+        "whyChoose_1": "Bij Global Relocate zetten we ons in om u te helpen slimmer te verhuizen en beter te leven. Hier is waarom u voor ons zou moeten kiezen:",
+        "whyChoose_bullet1": "Tijdbesparende AI-ondersteunde Data: Krijg toegang tot altijd actuele en betrouwbare informatie om weloverwogen beslissingen te nemen.",
+        "whyChoose_bullet2": "Geverifieerde Contacten & Betrouwbare Bronnen: Profiteer van een community-gebaseerd platform dat geloofwaardigheid en vertrouwen garandeert.",
+        "whyChoose_bullet3": "Alles-in-één Oplossing: Vind alles van visa tot kosten van levensonderhoud op één plek.",
+        "whyChoose_bullet4": "Gepersonaliseerde Meldingen: Blijf voorop met op maat gemaakte meldingen en een favorietenfunctie speciaal voor u."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Privacybeleid en Juridische Disclaimer",
+      "paragraph": "Dit Privacybeleid beschrijft hoe Global Relocate (hierna 'ons', 'wij' of 'onze' genoemd), de eigenaar en exploitant van globalrelocate.com, uw persoonlijke informatie verzamelt, gebruikt en beschermt wanneer u ons AI-aangedreven platform voor naadloze verhuizing, juridische begeleiding en wereldwijd wonen gebruikt, toegankelijk via de URL globalrelocate.com (het 'Platform'). Dit beleid is ook van toepassing op alle diensten, inhoud, functies of applicaties die via het Platform worden aangeboden.",
+      "paragraph2": "Door het Platform te openen of te gebruiken, stemt u in met het verzamelen, gebruiken en openbaar maken van uw persoonlijke informatie zoals beschreven in dit Privacybeleid. Als u het niet eens bent met enig aspect van dit beleid, gebruik het Platform dan niet.",
+      "sections": {
+        "informationCollection": "1. Informatieverzameling",
+        "informationCollection_1": "1.1 Persoonlijke Informatie: We kunnen verschillende soorten persoonlijke informatie van u verzamelen wanneer u het Platform gebruikt. Dit kan uw naam, e-mailadres, contactgegevens, verhuisvoorkeuren en alle andere informatie omvatten die u vrijwillig aan ons verstrekt.",
+        "informationCollection_2": "1.2 Gebruiksgegevens: We verzamelen automatisch bepaalde niet-persoonlijk identificeerbare informatie over uw gebruik van het Platform. Dit kan uw IP-adres, browsertype, besturingssysteem, apparaatinformatie, bezochte pagina's, verwijzende/exit-URL's en andere soortgelijke gegevens omvatten.",
+        "useOfInformation": "2. Gebruik van Informatie",
+        "personalInformationUse": "2.1 Persoonlijke Informatie: We kunnen de persoonlijke informatie die u ons verstrekt voor de volgende doeleinden gebruiken:",
+        "personalInformationUse_bullet1": "Om onze AI-aangedreven verhuisdiensten, juridische begeleiding en wereldwijde woonbronnen te leveren en te verbeteren.",
+        "personalInformationUse_bullet2": "Om uw verzoeken te verwerken, gepersonaliseerde verhuisplannen te bieden en op maat gemaakte inhoud te leveren.",
+        "personalInformationUse_bullet3": "Om met u te communiceren, op vragen te reageren en klantenondersteuning te bieden.",
+        "personalInformationUse_bullet4": "Om gepersonaliseerde meldingen, updates en kennisgevingen te sturen over visa, kosten van levensonderhoud en andere verhuisgerelateerde informatie.",
+        "personalInformationUse_bullet5": "Om uw ervaring op het Platform te verbeteren door een favorietenfunctie en op maat gemaakte aanbevelingen aan te bieden.",
+        "personalInformationUse_bullet6": "Om onze Servicevoorwaarden en ander beleid te handhaven.",
+        "personalInformationUse_bullet7": "Om te voldoen aan wettelijke verplichtingen.",
+        "usageDataUse": "2.2 Gebruiksgegevens: We gebruiken gebruiksgegevens om trends te analyseren, gebruikersbetrokkenheid te volgen, de effectiviteit van onze diensten te monitoren en de gebruikerservaring op het Platform te verbeteren.",
+        "informationSharing": "3. Informatiedeling",
+        "informationSharing_1": "3.1 Externe Dienstverleners: We kunnen uw persoonlijke informatie delen met vertrouwde externe dienstverleners die ons helpen bij het exploiteren van het Platform, het leveren van diensten, het verwerken van betalingen, het uitvoeren van analyses of het uitvoeren van andere noodzakelijke functies. Deze dienstverleners zijn gebonden aan strikte vertrouwelijkheidsovereenkomsten en mogen uw persoonlijke informatie niet voor andere doeleinden gebruiken.",
+        "informationSharing_2": "3.2 Wettelijke Naleving en Bescherming: We kunnen uw persoonlijke informatie openbaar maken indien vereist door wet, regelgeving, juridisch proces of overheidsverzoek. We kunnen uw informatie ook openbaar maken om onze rechten, eigendommen of veiligheid te beschermen, evenals de rechten, eigendommen of veiligheid van onze gebruikers of anderen.",
+        "cookies": "4. Cookies en Trackingtechnologieën",
+        "cookies_1": "4.1 We gebruiken cookies en andere trackingtechnologieën op het Platform om bepaalde informatie te verzamelen en op te slaan. Cookies zijn kleine tekstbestanden die op uw apparaat worden geplaatst om ons te helpen het Platformgebruik te analyseren, gebruikersvoorkeuren te onthouden en uw algehele ervaring te verbeteren. U heeft de mogelijkheid om cookies uit te schakelen via uw browserinstellingen; dit kan echter bepaalde functionaliteiten van het Platform beperken.",
+        "dataSecurity": "5. Gegevensbeveiliging",
+        "dataSecurity_1": "5.1 We implementeren redelijke beveiligingsmaatregelen om uw persoonlijke informatie te beschermen tegen ongeautoriseerde toegang, openbaarmaking, wijziging of vernietiging. Houd er echter rekening mee dat geen enkele gegevensoverdracht via internet of opslagmethode 100% veilig is. We kunnen de absolute veiligheid van uw persoonlijke informatie niet garanderen.",
+        "thirdPartyLinks": "6. Links naar Derden",
+        "thirdPartyLinks_1": "6.1 Het Platform kan links bevatten naar websites of diensten van derden die niet ons eigendom zijn of door ons worden beheerd. Wij zijn niet verantwoordelijk voor de privacypraktijken of inhoud van deze sites van derden. We raden u aan het privacybeleid te lezen van alle websites van derden die u bezoekt.",
+        "childrenPrivacy": "7. Privacy van Kinderen",
+        "childrenPrivacy_1": "7.1 Het Platform is niet bedoeld voor personen jonger dan 13 jaar. We verzamelen niet bewust persoonlijke informatie van kinderen jonger dan 13 jaar. Als we ons ervan bewust worden dat we per ongeluk persoonlijke informatie van een kind jonger dan 13 jaar hebben verzameld, zullen we stappen ondernemen om de informatie onmiddellijk te verwijderen.",
+        "changesToPolicy": "8. Wijzigingen in dit Privacybeleid",
+        "changesToPolicy_1": "8.1 We behouden ons het recht voor om dit Privacybeleid op elk moment te wijzigen of bij te werken. Eventuele wijzigingen worden onmiddellijk van kracht na het plaatsen van het herziene beleid op het Platform. We raden u aan dit beleid periodiek te herzien om op de hoogte te blijven van eventuele updates.",
+        "whyGlobalRelocate": "9. Waarom Kiezen Voor Global Relocate",
+        "whyGlobalRelocate_1": "Bij Global Relocate zetten we ons in om u te helpen slimmer te verhuizen en beter te leven. Hier is waarom u voor ons zou moeten kiezen:",
+        "whyGlobalRelocate_bullet1": "Tijdbesparende AI-ondersteunde Data: Krijg toegang tot altijd actuele en betrouwbare informatie om weloverwogen beslissingen te nemen.",
+        "whyGlobalRelocate_bullet2": "Geverifieerde Contacten & Betrouwbare Bronnen: Profiteer van een community-gebaseerd platform dat geloofwaardigheid en vertrouwen garandeert.",
+        "whyGlobalRelocate_bullet3": "Alles-in-één Oplossing: Vind alles van visa tot kosten van levensonderhoud op één plek.",
+        "whyGlobalRelocate_bullet4": "Gepersonaliseerde Meldingen: Blijf voorop met op maat gemaakte meldingen en een favorietenfunctie speciaal voor u.",
+        "contactUs": "10. Neem Contact Met Ons Op",
+        "contactUs_1": "10.1 Als u vragen, zorgen of verzoeken heeft met betrekking tot dit Privacybeleid of onze gegevenspraktijken, neem dan contact met ons op via:"
+      }
+    },
+    "helpCenter": {
+      "help": "We zijn hier om te helpen",
+      "howCanWeHelp": "Hoe kunnen we u helpen?",
+      "checkOut": "Bekijk onze FAQ's of neem contact met ons op voor meer ondersteuning.",
+      "faqs": {
+        "title": "Veelgestelde Vragen",
+        "question1": {
+          "question": "Wat is Global Relocate?",
+          "answer": "Global Relocate is een AI-aangedreven platform ontworpen om individuen en gezinnen te helpen bij het verhuizen naar nieuwe landen. Het biedt gepersonaliseerde aanbevelingen, middelen en ondersteuning om het verhuisproces soepeler en efficiënter te maken."
+        },
+        "question2": {
+          "question": "Wat helpt Global Relocate te bereiken?",
+          "answer": "Global Relocate helpt gebruikers een naadloze verhuiservaring te bereiken door op maat gemaakt advies, middelen en ondersteuning te bieden voor verschillende aspecten van het verhuizen naar een nieuw land, waaronder visumaanvragen, huisvesting, werkgelegenheid en culturele integratie."
+        },
+        "question3": {
+          "question": "Brengt Global Relocate gebruikers kosten in rekening voor diensten of functies?",
+          "answer": "Ja, Global Relocate biedt een scala aan diensten en functies waarvoor mogelijk kosten in rekening worden gebracht. Het biedt echter ook gratis middelen en basisondersteuning om gebruikers op weg te helpen met hun verhuisreis."
+        },
+        "question4": {
+          "question": "Wat gebeurt er met mijn gegevens / Slaat Global Relocate mijn persoonlijke informatie op?",
+          "answer": "Global Relocate neemt de privacy van gebruikers serieus. We slaan geen persoonlijke informatie op, tenzij expliciet verstrekt door de gebruiker voor specifieke diensten. Alle verzamelde gegevens worden uitsluitend gebruikt om de gebruikerservaring te verbeteren en gepersonaliseerde aanbevelingen te doen. Raadpleeg ons Privacybeleid voor meer details."
+        },
+        "question5": {
+          "question": "Wie zijn de mensen achter Global Relocate?",
+          "answer": "Global Relocate is ontwikkeld door een team van ervaren professionals op het gebied van AI, verhuisdiensten en internationaal recht. Ons team is toegewijd aan het bieden van de best mogelijke ondersteuning en middelen voor individuen en gezinnen die willen verhuizen."
+        },
+        "question6": {
+          "question": "Is Global Relocate beschikbaar in meerdere talen?",
+          "answer": "Ja, Global Relocate is beschikbaar in meerdere talen om een diverse gebruikersgroep te bedienen. U kunt uw voorkeurstaal selecteren in het instellingengedeelte van het platform."
+        },
+        "question7": {
+          "question": "Waar komt de informatie op Global Relocate vandaan?",
+          "answer": "De informatie op Global Relocate is afkomstig van verschillende gerenommeerde bronnen, waaronder overheidswebsites, verhuisexperts en door gebruikers gegenereerde inhoud. We werken onze database voortdurend bij om ervoor te zorgen dat gebruikers toegang hebben tot de meest nauwkeurige en relevante informatie voor hun verhuisbehoeften."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Neem Contact Met Ons Op",
+      "titleDesc": "U kunt ons vragen stellen",
+      "para": "Neem contact met ons op voor al uw vragen en meningen, of u kunt snel antwoorden krijgen door een van onze contactkantoren te bezoeken.",
+      "ourOffices": "Onze Kantoren",
+      "ourOfficesDesc": "We hebben kantoren op verschillende locaties om u te helpen met uw verhuisbehoeften. Bezoek ons op een van onze kantoren voor gepersonaliseerde ondersteuning.",
+      "dropUsAMessage": "Stuur ons een bericht",
+      "dropUsAMessageDesc": "Vul het onderstaande formulier in om ons een bericht te sturen, en we nemen zo snel mogelijk contact met u op.",
+      "yourName": "Uw naam",
+      "yourEmail": "Uw e-mailadres",
+      "subject": "Onderwerp",
+      "yourMessage": "Uw bericht",
+      "sendMessage": "Verstuur Bericht",
+      "sending": "Verzenden...",
+      "messageSent": "Bericht succesvol verzonden!",
+      "messageFailed": "Bericht verzenden mislukt. Probeer het opnieuw."
+    }
+  },
+  "loginPage": {
+    "close": "Sluiten",
+    "createAccount": "Account Aanmaken",
+    "logIntoGR": "Inloggen bij Global Relocate",
+    "password": "Wachtwoord",
+    "enterPassword": "Voer uw wachtwoord in",
+    "continueWithGoogle": "Doorgaan met Google",
+    "cantLogin": "Kunt u niet inloggen?",
+    "tosDesc": "Door op account aanmaken te klikken, gaat u akkoord met onze ",
+    "tos": "Servicevoorwaarden",
+    "privacyPolicy": "Privacybeleid",
+    "and": "en",
+    "or": "OF",
+    "processing": "Verwerken...",
+    "continue": "Doorgaan",
+    "hidePassword": "Wachtwoord verbergen",
+    "showPassword": "Wachtwoord tonen"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Laten we uw account aanmaken",
+    "chooseAccountType": "Kies een accounttype",
+    "createPersonalAccount": "Ik maak een persoonlijk account aan",
+    "createCorporateAccount": "Ik maak een zakelijk account aan",
+    "continue": "Doorgaan",
+    "chooseSignMethod": "Kies aanmeldmethode",
+    "continueWithEmail": "Doorgaan met e-mail",
+    "alreadyHaveAccount": "Heeft u al een account?",
+    "fullName": "Volledige Naam",
+    "chooseUsername": "Kies een gebruikersnaam",
+    "enterYourFullName": "Voer uw volledige naam in",
+    "confirmPassword": "Bevestig wachtwoord",
+    "country": "Land"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Welkom aan boord",
+    "welcomeText": "Uw AI-aangedreven platform voor naadloze verhuizing, juridische begeleiding en wereldwijd wonen."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Landen",
+      "aiAssistant": "AI Assistent",
+      "compareCountries": "Vergelijk Landen",
+      "taxCalculator": "Belastingcalculator",
+      "notifications": "Meldingen",
+      "favourites": "Favorieten",
+      "community": "Gemeenschap",
+      "cta": {
+        "title": "Probeer Pro",
+        "para": "U gebruikt momenteel het gratis plan dat 3 dagen geldig is. Upgrade nu om Global Relocate te blijven gebruiken.",
+        "buttonText": "Meer Informatie"
+      }
+    },
+    "notifications": {
+      "noNotifications": "U heeft nog geen meldingen.",
+      "markAllAsRead": "Alles als gelezen markeren",
+      "deleteAll": "Alles verwijderen",
+      "markAsRead": "Als gelezen markeren",
+      "delete": "Melding verwijderen",
+      "showLess": "Minder hiervan tonen",
+      "showMore": "Meer resultaten tonen"
+    },
+    "countries": {
+      "title": "Landen",
+      "noDataText": "Geen gegevens beschikbaar!",
+      "searchText": "Zoek naar landen",
+      "clickToSelect": "Klik om land te selecteren",
+      "view": "Bekijken",
+      "searchResults": "Zoekresultaten",
+      "aiSuggestedCountries": "AI Voorgestelde Landen",
+      "searchCountries": "Zoek landen"
+    },
+    "country": {
+      "countryIn": "Land in",
+      "addFavorite": "Toevoegen aan favorieten",
+      "removeFavorite": "Verwijderen uit favorieten",
+      "share": "Delen",
+      "overview": "Overzicht",
+      "map": "Kaart",
+      "keyFacts": "Belangrijke feiten",
+      "visaMigration": "Visa & Immigratie",
+      "taxes": "Belastingen",
+      "flag": "Vlag",
+      "capital": "Hoofdstad",
+      "languages": "Talen",
+      "currency": "Valuta",
+      "population": "Bevolking",
+      "dialingCode": "Netnummer",
+      "back": "Terug",
+      "noOverview": "Geen overzicht beschikbaar voor dit land.",
+      "noVisaInfo": "Geen visa- en immigratie-informatie beschikbaar."
+    },
+    "ai": {
+      "rename": "Hernoemen",
+      "deleteConversation": "Gesprek verwijderen",
+      "share": "Delen",
+      "hello": "Hallo",
+      "newChat": "Nieuwe Chat",
+      "askAI": "Vraag AI Alles...",
+      "uploadDocument": "Document Uploaden",
+      "uploadDocumentDesc": "Upload een document om te verwerken met AI-assistent",
+      "cancel": "Annuleren",
+      "upload": "Uploaden"
+    },
+    "settings": {
+      "accountSettings": "Accountinstellingen",
+      "editProfile": "Profiel bewerken",
+      "profile": "Profiel",
+      "account": "Account",
+      "preferences": "Voorkeuren",
+      "avatar": "Avatar",
+      "fullName": "Volledige Naam",
+      "username": "Gebruikersnaam",
+      "bio": "Bio",
+      "country": "Land",
+      "emailAddress": "E-mailadres",
+      "verified": "Geverifieerd",
+      "subscription": "Abonnement",
+      "subscriptionDesc": "U gebruikt momenteel het gratis plan dat 3 dagen geldig is. Upgrade nu om Global Relocate te blijven gebruiken.",
+      "deleteAccount": "Account Verwijderen",
+      "deleteDesc": "Verwijder uw account en gegevens permanent",
+      "language": "Taal",
+      "chooseLanguage": "Kies een taal",
+      "selectLanguage": "Selecteer taal",
+      "learnMore": "Meer informatie",
+      "saveChanges": "Wijzigingen Opslaan",
+      "cancel": "Annuleren",
+      "saving": "Opslaan...",
+      "unsavedChanges": "U heeft niet-opgeslagen wijzigingen",
+      "addName": "Naam toevoegen",
+      "addBio": "Voeg een bio toe om uw verhaal te vertellen.",
+      "addUsername": "Gebruikersnaam toevoegen",
+      "addLocation": "Locatie toevoegen",
+      "confirmAccountDelete": "Bevestig Accountverwijdering",
+      "confirmAccountDeleteDesc": "Voordat u uw account verwijdert, neem even de tijd om te begrijpen wat er met uw gegevens zal gebeuren:",
+      "confirm": "Bevestigen",
+      "neverMind": "Laat maar",
+      "confirmDeleteWarning": "Houd er rekening mee dat het verwijderen van uw account niet ongedaan kan worden gemaakt.",
+      "confirmDeleteList1": "Uw profielgegevens, voorkeuren en instellingen worden verwijderd.",
+      "confirmDeleteList2": "Alle gegevens worden 30 dagen na accountverwijdering permanent verwijderd.",
+      "deleting": "Verwijderen...",
+      "youHave": "U heeft:",
+      "administrator": "Beheerder"
+    },
+    "continents": {
+      "all": "Alle",
+      "europe": "Europa",
+      "asia": "Azië",
+      "africa": "Afrika",
+      "south america": "Zuid-Amerika",
+      "north america": "Noord-Amerika",
+      "antarctica": "Antarctica",
+      "oceania": "Oceanië"
+    },
+    "tax": {
+      "taxCalculator": "Belastingcalculator",
+      "taxCacluatorDesc": "Bereken uw geschatte belastingdruk in verschillende landen",
+      "country": "Land",
+      "annualIncome": "Jaarinkomen",
+      "userAccount": "Gebruikersaccount",
+      "totalDeductions": "Totale aftrekposten",
+      "selectCountry": "Selecteer uw land",
+      "selectAccount": "Selecteer accounttype",
+      "enterIncome": "Voer uw jaarinkomen in",
+      "enterDeductions": "Voer totale aftrekposten in",
+      "calculateTax": "Bereken Belasting",
+      "individual": "Individueel",
+      "corporate": "Zakelijk",
+      "taxSummary": "Belastingoverzicht",
+      "taxAmount": "Belastingbedrag",
+      "effectiveRate": "Effectief tarief",
+      "takeHomeAmount": "Nettobedrag"
+    },
+    "upgradePage": {
+      "back": "Terug",
+      "upgradePlan": "Upgrade uw plan",
+      "upgradePlanDesc": "Kies het perfecte plan om uw wereldwijde verhuisreis te ondersteunen. Krijg toegang tot uitgebreide tools en inzichten om uw verhuizing naadloos te maken.",
+      "currentPlan": "Uw huidige plan",
+      "getStarted": "Beginnen",
+      "free": "Gratis",
+      "basic": "Basis",
+      "premium": "Premium",
+      "perMonth": "per maand",
+      "forEveryone": "Voor iedereen",
+      "freePlan": {
+        "item1": "3 dagen proeftoegang",
+        "item2": "Basisinformatie over landen",
+        "item3": "Communitytoegang (alleen-lezen)",
+        "item4": "Beperkte belastingcalculator",
+        "item5": "Basiskostenvergelijking"
+      },
+      "basicPlan": {
+        "item1": "Volledige landeninformatie",
+        "item2": "Communitydeelname",
+        "item3": "Volledige belastingcalculator",
+        "item4": "Kostenvergelijkingstools",
+        "item5": "Basisverhuisgidsen",
+        "item6": "E-mailondersteuning"
+      },
+      "premiumPlan": {
+        "item1": "Alle Basisfuncties",
+        "item2": "Onbeperkte toegang tot landengegevens",
+        "item3": "Volledige communitydeelname",
+        "item4": "Geavanceerde belastingcalculator",
+        "item5": "AI-verhuisassistent",
+        "item6": "Inzichten in kosten van levensonderhoud",
+        "item7": "Visumvereistengidsen",
+        "item8": "Prioriteitsondersteuning",
+        "item9": "Aangepaste verhuisroutekaart"
+      }
+    },
+    "favorites": {
+      "noFavorites": "U heeft nog geen favorieten.",
+      "addToFavorites": "Toevoegen aan favorieten",
+      "removeFromFavorites": "Verwijderen uit favorieten"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Wijzigingen Bevestigen"
+    }
+  },
+  "footer": {
+    "topCountries": "Toplanden",
+    "sitemap": "Sitemap",
+    "company": "Bedrijf",
+    "terms": "Voorwaarden",
+    "privacy": "Privacy",
+    "contact": "Neem Contact Met Ons Op",
+    "subscribeNewsletter": "Abonneer u op onze nieuwsbrief",
+    "subscribeNewsDesc": "Blijf op de hoogte van de laatste inzichten over wereldwijde verhuizing",
+    "enterEmail": "Voer uw e-mailadres in",
+    "subscribe": "Abonneren",
+    "copyright": "Alle inhoud op deze website is auteursrechtelijk beschermd.",
+    "rankings": "Ranglijsten",
+    "safestCountries": "De Veiligste Landen",
+    "humanFreedomLevel": "Niveau van Menselijke Vrijheid",
+    "lifeExpectancy": "Levensverwachting",
+    "happinessIndex": "Wereld Geluksindex",
+    "citizenshipQualityRankings": "Ranglijst Kwaliteit Burgerschap",
+    "trends": "Trends",
+    "foreignCitizenship": "Buitenlands Burgerschap",
+    "digitalNomadVisas": "Digitale Nomaden Visa",
+    "taxesRankings": "Belastingranglijsten",
+    "residencyPermit": "Verblijfsvergunning"
+  },
+  "toast": {
+    "thanksNewsletter": "Bedankt voor uw aanmelding voor onze nieuwsbrief!",
+    "linkCopied": "Link gekopieerd naar klembord!",
+    "linkCopyFailed": "Link kopiëren mislukt",
+    "newSessionStarted": "Nieuwe sessie gestart",
+    "newSessionFailed": "Nieuwe sessie starten mislukt. Probeer het opnieuw.",
+    "redirectToPayPage": "Doorverwijzen naar betaalpagina...",
+    "activeSessionShare": "U heeft een actieve sessie nodig om te delen",
+    "sessionDeleteFailed": "Sessie verwijderen mislukt. Probeer het opnieuw.",
+    "sessionDeleteSuccess": "Sessie succesvol verwijderd!",
+    "sessionRenameSuccess": "Sessie succesvol hernoemd!",
+    "sessionRenameFailed": "Sessie hernoemen mislukt. Probeer het opnieuw.",
+    "enterSessionName": "Voer een nieuwe naam in voor deze sessie:"
+  },
+  "formErrors": {
+    "invalidEmail": "Ongeldig e-mailformaat",
+    "emailRequired": "E-mailadres is vereist",
+    "fullNameRequired": "Volledige naam is vereist",
+    "enterFullName": "Voer uw volledige naam in",
+    "passwordRequired": "Wachtwoord is vereist",
+    "minPassword": "Wachtwoord moet minimaal 8 tekens lang zijn",
+    "passwordsMismatch": "Wachtwoorden komen niet overeen",
+    "weakPassword": "Wachtwoord is te zwak",
+    "selectCountry": "Selecteer een land",
+    "usernameRequired": "Gebruikersnaam is vereist",
+    "minUsername": "Gebruikersnaam moet minimaal 3 tekens lang zijn",
+    "cpasswordRequired": "Bevestig wachtwoord is vereist"
+  }
+}

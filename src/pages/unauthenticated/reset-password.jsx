@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
@@ -26,7 +26,7 @@ export default function ResetPassword() {
   const [passwordStrength, setPasswordStrength] = useState({
     score: 0,
     message: "",
-    color: "gray"
+    color: "gray",
   });
   const navigate = useNavigate();
   const location = useLocation();
@@ -76,14 +76,14 @@ export default function ResetPassword() {
       2: { message: "Fair", color: "#ffbb33" },
       3: { message: "Good", color: "#00C851" },
       4: { message: "Strong", color: "#007E33" },
-      5: { message: "Very Strong", color: "#007E33" }
+      5: { message: "Very Strong", color: "#007E33" },
     };
 
     return {
       score,
       message: strengthMap[score].message,
       color: strengthMap[score].color,
-      feedback: feedback.join(" • ")
+      feedback: feedback.join(" • "),
     };
   };
 
@@ -106,7 +106,8 @@ export default function ResetPassword() {
 
     if (name === "newPassword") {
       if (value && !validatePassword(value)) {
-        error = "Password must be at least 8 characters, include uppercase, lowercase, number, and symbol";
+        error =
+          "Password must be at least 8 characters, include uppercase, lowercase, number, and symbol";
       } else {
         error = "";
       }
@@ -134,7 +135,9 @@ export default function ResetPassword() {
         await resetPassword(email, formData.newPassword, formData.otp);
         setPasswordChanged(true);
       } catch (error) {
-        setApiError(error.message || "Failed to reset password. Please try again.");
+        setApiError(
+          error.message || "Failed to reset password. Please try again."
+        );
       } finally {
         setIsLoading(false);
       }
@@ -175,10 +178,7 @@ export default function ResetPassword() {
         <Link to="/">
           <img src={logo} alt="Global Relocate Logo" className="h-10" />
         </Link>
-        <Link
-          to="/login"
-          className="text-sm font-medium hover:text-gray-600"
-        >
+        <Link to="/login" className="text-sm font-medium hover:text-gray-600">
           Log in
         </Link>
       </div>
@@ -201,7 +201,7 @@ export default function ResetPassword() {
                   <Alert variant="destructive" className="mb-4">
                     <div className="flex justify-between items-start w-full">
                       <AlertDescription>{apiError}</AlertDescription>
-                      <button 
+                      <button
                         onClick={() => setApiError("")}
                         className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
                       >
@@ -218,7 +218,7 @@ export default function ResetPassword() {
                         <CheckCircle2 className="h-4 w-4" />
                         <AlertDescription>{successMessage}</AlertDescription>
                       </div>
-                      <button 
+                      <button
                         onClick={() => setSuccessMessage("")}
                         className="ml-2 hover:opacity-70 transition-opacity flex-shrink-0"
                       >
@@ -230,30 +230,24 @@ export default function ResetPassword() {
 
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div>
-                    <label className="block text-sm mb-2">
-                      OTP
-                    </label>
+                    <label className="block text-sm mb-2">OTP</label>
                     <input
                       type="text"
                       name="otp"
                       value={formData.otp}
                       onChange={handleInputChange}
                       className={`w-full px-4 py-3 rounded-lg border ${
-                        otpError ? 'border-red-500' : 'border-gray-300'
+                        otpError ? "border-red-500" : "border-gray-300"
                       } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                       placeholder="Enter OTP"
                     />
                     {otpError && (
-                      <p className="mt-1 text-red-500 text-xs">
-                        {otpError}
-                      </p>
+                      <p className="mt-1 text-red-500 text-xs">{otpError}</p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm mb-2">
-                      New Password
-                    </label>
+                    <label className="block text-sm mb-2">New Password</label>
                     <div className="relative">
                       <input
                         type={showNewPassword ? "text" : "password"}
@@ -261,7 +255,9 @@ export default function ResetPassword() {
                         value={formData.newPassword}
                         onChange={handleInputChange}
                         className={`w-full px-4 py-3 pr-10 rounded-lg border ${
-                          newPasswordError ? 'border-red-500' : 'border-gray-300'
+                          newPasswordError
+                            ? "border-red-500"
+                            : "border-gray-300"
                         } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                         placeholder="Enter new password"
                       />
@@ -284,12 +280,15 @@ export default function ResetPassword() {
                             className="h-full transition-all duration-300"
                             style={{
                               width: `${(passwordStrength.score / 5) * 100}%`,
-                              backgroundColor: passwordStrength.color
+                              backgroundColor: passwordStrength.color,
                             }}
                           />
                         </div>
                         <div className="flex justify-between items-center mt-1">
-                          <span className="text-xs" style={{ color: passwordStrength.color }}>
+                          <span
+                            className="text-xs"
+                            style={{ color: passwordStrength.color }}
+                          >
                             {passwordStrength.message}
                           </span>
                           <span className="text-xs text-gray-500">
@@ -316,13 +315,17 @@ export default function ResetPassword() {
                         value={formData.confirmPassword}
                         onChange={handleInputChange}
                         className={`w-full px-4 py-3 pr-10 rounded-lg border ${
-                          confirmPasswordError ? 'border-red-500' : 'border-gray-300'
+                          confirmPasswordError
+                            ? "border-red-500"
+                            : "border-gray-300"
                         } focus:outline-none focus:border-[#FCA311] hover:border-[#FCA311]`}
                         placeholder="Confirm new password"
                       />
                       <button
                         type="button"
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        onClick={() =>
+                          setShowConfirmPassword(!showConfirmPassword)
+                        }
                         className="absolute right-3 top-1/2 transform -translate-y-1/2"
                       >
                         {showConfirmPassword ? (
@@ -355,24 +358,25 @@ export default function ResetPassword() {
             </>
           ) : (
             <div className="text-center">
-              <h1 className="text-3xl font-medium mb-4">
-                Password Changed!
-              </h1>
+              <h1 className="text-3xl font-medium mb-4">Password Changed!</h1>
               <p className="text-base text-gray-700 mb-8">
                 Your password has been changed successfully.
               </p>
-              <img src={successMark} alt="Success" className="h-24 w-24 mx-auto mb-8" />
+              <img
+                src={successMark}
+                alt="Success"
+                className="h-24 w-24 mx-auto mb-8"
+              />
               <button
                 onClick={handleContinue}
                 className="w-full py-3 rounded-lg bg-[#FCA311] hover:bg-[#e5940c] text-black text-center transition-colors"
-                >
-                  Proceed to sign in
-                </button>
-              </div>
-            )}
-          </div>
+              >
+                Proceed to sign in
+              </button>
+            </div>
+          )}
         </div>
       </div>
-    );
-  }
-  
+    </div>
+  );
+}

@@ -1,0 +1,481 @@
+{
+  "landingPage": {
+    "navbar": {
+      "home": "Hem",
+      "countriesData": "Länder & Data",
+      "community": "Gemenskap",
+      "taxCalculator": "Skattekalkylator",
+      "pricing": "Prissättning",
+      "viewProfile": "Visa profil",
+      "helpCenter": "Hjälpcenter",
+      "giveFeedback": "Ge oss feedback",
+      "privacyPolicy": "Integritetspolicy",
+      "upgradePlan": "Uppgradera plan",
+      "logIn": "Logga in",
+      "getStarted": "Kom igång",
+      "logout": "Logga ut"
+    },
+    "showcase": {
+      "title": "Flytta smartare, lev bättre.",
+      "para": "Din AI-drivna plattform för smidig omlokalisering, juridisk vägledning och globalt boende.",
+      "buttonText": "Kom igång"
+    },
+    "features": {
+      "title": "Funktioner",
+      "cards": {
+        "card1": {
+          "title": "Jämför länder",
+          "para": "Fatta välgrundade beslut genom att jämföra olika länder sida vid sida, analysera nyckelfaktorer som levnadskostnader, skattesatser och livskvalitet."
+        },
+        "card2": {
+          "title": "Smart info med AI",
+          "para": "Gå med i forum och grupper med likasinnade globala nomader."
+        },
+        "card3": {
+          "title": "Länder & Data",
+          "para": "Gå med i forum och grupper med likasinnade globala nomader."
+        }
+      }
+    },
+    "countries": {
+      "title": "Populära länder",
+      "para": "Utforska populära destinationer och börja planera din omlokalisering"
+    },
+    "whyChooseUs": {
+      "title": "Varför välja oss",
+      "card1": {
+        "title": "Tidsbesparande AI-stödd data",
+        "para": "Alltid uppdaterad och tillförlitlig information."
+      },
+      "card2": {
+        "title": "Verifierade kontakter & betrodda källor:",
+        "para": "En gemenskapsbaserad plattform som säkerställer trovärdighet."
+      },
+      "card3": {
+        "title": "Allt-i-ett-lösning",
+        "para": "Allt från visum till levnadskostnader på ett ställe."
+      },
+      "card4": {
+        "title": "Personliga varningar",
+        "para": "Ligg steget före med skräddarsydda aviseringar och en favoritfunktion."
+      }
+    },
+    "forgotPassword": {
+      "title": "Glömt lösenord?",
+      "para": "Ange ditt kontos e-postadress så skickar vi dig en OTP för att återställa ditt lösenord.",
+      "emailLabel": "E-postadress",
+      "sending": "Skickar...",
+      "sendOTP": "Skicka OTP",
+      "resendOTP": "Skicka OTP igen",
+      "verifyOTP": "Verifiera OTP",
+      "otpSent": "En OTP har skickats till din e-postadress.",
+      "continuePrompt": "Klicka på Fortsätt-knappen nedan för att skapa ett nytt lösenord.",
+      "continue": "Fortsätt",
+      "rememberPassword": "Kommer du ihåg ditt lösenord?",
+      "logIn": "Logga in"
+    },
+    "termsOfService": {
+      "title": "Villkor och bestämmelser",
+      "paragraph": "Välkommen till globalrelocate.com! Dessa villkor och bestämmelser ('Villkor') reglerar din användning av vår AI-drivna plattform för smidig omlokalisering, juridisk vägledning och globalt boende, tillgänglig via URL:en globalrelocate.com (hädanefter kallad 'Plattformen'). Genom att komma åt eller använda Plattformen godkänner du att vara bunden av dessa Villkor. Läs dem noggrant.",
+      "sections": {
+        "platformUse": "1. Användning av Plattformen",
+        "platformUse_1": "1.1 Behörighet: Du måste vara minst 18 år gammal eller ha laglig kapacitet att ingå avtal i din jurisdiktion för att använda Plattformen. Genom att komma åt eller använda Plattformen intygar och garanterar du att du uppfyller behörighetskraven.",
+        "platformUse_2": "1.2 Användarkonto: Du kan behöva skapa ett användarkonto för att få tillgång till vissa funktioner på Plattformen. Du ansvarar för att upprätthålla sekretessen för din kontoinformation och samtycker till att vara ensam ansvarig för alla aktiviteter som utförs via ditt konto.",
+        "platformUse_3": "1.3 Förbjudna aktiviteter: Du samtycker till att inte delta i några aktiviteter som bryter mot dessa Villkor eller tillämpliga lagar eller förordningar. Förbjudna aktiviteter inkluderar, men är inte begränsade till:",
+        "prohibited_1": "Kränkning av immateriella rättigheter",
+        "prohibited_2": "Uppladdning eller delning av innehåll som är olagligt, skadligt eller kränker andras rättigheter",
+        "prohibited_3": "Störning av Plattformens korrekta funktion",
+        "prohibited_4": "Att utge sig för att vara en annan person eller enhet",
+        "intellectualProperty": "2. Immateriella rättigheter",
+        "intellectualProperty_1": "2.1 Äganderätt: Allt innehåll, inklusive men inte begränsat till text, grafik, logotyper, bilder, ljudklipp, videor och programvara, som är tillgängligt på Plattformen ägs av Global Relocate eller dess licensgivare och skyddas av immaterialrättsliga lagar.",
+        "intellectualProperty_2": "2.2 Användning av innehåll: Du får komma åt och använda innehållet på Plattformen endast för personliga, icke-kommersiella ändamål. Du får inte modifiera, reproducera, distribuera, visa, framföra eller skapa härledda verk från innehållet utan föregående skriftligt tillstånd från Global Relocate.",
+        "disclaimer": "3. Friskrivning från garantier",
+        "disclaimer_1": "3.1 Plattformen tillhandahålls i befintligt skick ('as is') och i mån av tillgång ('as available') utan garantier av något slag. Global Relocate friskriver sig från alla garantier, vare sig uttryckliga eller underförstådda, inklusive men inte begränsat till säljbarhet, lämplighet för ett visst ändamål och icke-intrång.",
+        "disclaimer_2": "3.2 Global Relocate garanterar inte riktigheten, fullständigheten eller tillförlitligheten hos något innehåll eller information på Plattformen. Du bekräftar att din användning av Plattformen sker på egen risk.",
+        "liability": "4. Ansvarsbegränsning",
+        "liability_1": "4.1 I den utsträckning det är tillåtet enligt lag ska Global Relocate och dess direktörer, anställda, dotterbolag och agenter inte hållas ansvariga för några direkta, indirekta, tillfälliga, särskilda eller följdskador som uppstår ur eller på något sätt är kopplade till din användning av Plattformen eller innehållet däri.",
+        "thirdParty": "5. Tredjepartslänkar",
+        "thirdParty_1": "5.1 Plattformen kan innehålla länkar till tredjepartswebbplatser eller -tjänster. Global Relocate ansvarar inte för innehållet, riktigheten eller tillförlitligheten hos några tredjepartswebbplatser eller -tjänster. Inkluderingen av sådana länkar innebär inte godkännande eller anslutning från Global Relocates sida.",
+        "modifications": "6. Ändringar och uppsägning",
+        "modifications_1": "6.1 Global Relocate förbehåller sig rätten att ändra, stänga av eller avbryta hela eller delar av Plattformen, tillfälligt eller permanent, utan föregående meddelande. Global Relocate ska inte hållas ansvarigt gentemot dig eller någon tredje part för några ändringar, avstängningar eller avbrott av Plattformen.",
+        "governingLaw": "7. Tillämplig lag och jurisdiktion",
+        "governingLaw_1": "7.1 Dessa Villkor ska regleras av och tolkas i enlighet med lagarna i [Ditt land]. Varje tvist som uppstår ur eller i samband med dessa Villkor eller din användning av Plattformen ska vara föremål för exklusiv jurisdiktion hos domstolarna i [Din stad, Ditt land].",
+        "entireAgreement": "8. Hela avtalet",
+        "entireAgreement_1": "8.1 Dessa Villkor utgör hela avtalet mellan dig och Global Relocate avseende användningen av Plattformen och ersätter alla tidigare eller samtidiga avtal, kommunikationer eller utfästelser.",
+        "whyChoose": "9. Varför välja Global Relocate",
+        "whyChoose_1": "På Global Relocate är vi engagerade i att hjälpa dig att flytta smartare och leva bättre. Här är varför du bör välja oss:",
+        "whyChoose_bullet1": "Tidsbesparande AI-stödd data: Få tillgång till alltid uppdaterad och tillförlitlig information för att fatta välgrundade beslut.",
+        "whyChoose_bullet2": "Verifierade kontakter & betrodda källor: Dra nytta av en gemenskapsbaserad plattform som säkerställer trovärdighet och förtroende.",
+        "whyChoose_bullet3": "Allt-i-ett-lösning: Hitta allt från visum till levnadskostnader på ett ställe.",
+        "whyChoose_bullet4": "Personliga varningar: Ligg steget före med skräddarsydda aviseringar och en favoritfunktion designad just för dig."
+      }
+    },
+    "privacyPolicy": {
+      "title": "Integritetspolicy och juridisk friskrivning",
+      "paragraph": "Denna integritetspolicy beskriver hur Global Relocate (hädanefter kallat 'oss', 'vi' eller 'vår'), ägaren och operatören av globalrelocate.com, samlar in, använder och skyddar din personliga information när du använder vår AI-drivna plattform för smidig omlokalisering, juridisk vägledning och globalt boende, tillgänglig via URL:en globalrelocate.com ('Plattformen'). Denna policy gäller även för alla tjänster, innehåll, funktioner eller applikationer som tillhandahålls via Plattformen.",
+      "paragraph2": "Genom att komma åt eller använda Plattformen samtycker du till insamling, användning och utlämnande av din personliga information enligt beskrivningen i denna integritetspolicy. Om du inte samtycker till någon aspekt av denna policy, vänligen avstå från att använda Plattformen.",
+      "sections": {
+        "informationCollection": "1. Insamling av information",
+        "informationCollection_1": "1.1 Personlig information: Vi kan samla in olika typer av personlig information från dig när du använder Plattformen. Detta kan inkludera ditt namn, e-postadress, kontaktinformation, omlokaliseringspreferenser och all annan information du frivilligt tillhandahåller oss.",
+        "informationCollection_2": "1.2 Användningsdata: Vi samlar automatiskt in viss icke-personligt identifierbar information om din användning av Plattformen. Detta kan inkludera din IP-adress, webbläsartyp, operativsystem, enhetsinformation, besökta sidor, hänvisnings-/utgångs-URL:er och annan liknande data.",
+        "useOfInformation": "2. Användning av information",
+        "personalInformationUse": "2.1 Personlig information: Vi kan använda den personliga information du tillhandahåller oss för följande ändamål:",
+        "personalInformationUse_bullet1": "För att tillhandahålla och förbättra våra AI-drivna omlokaliseringstjänster, juridisk vägledning och resurser för globalt boende.",
+        "personalInformationUse_bullet2": "För att behandla dina förfrågningar, tillhandahålla personliga omlokaliseringsplaner och leverera skräddarsytt innehåll.",
+        "personalInformationUse_bullet3": "För att kommunicera med dig, svara på förfrågningar och tillhandahålla kundsupport.",
+        "personalInformationUse_bullet4": "För att skicka personliga varningar, uppdateringar och aviseringar om visum, levnadskostnader och annan omlokaliseringsrelaterad information.",
+        "personalInformationUse_bullet5": "För att förbättra din upplevelse på Plattformen genom att erbjuda en favoritfunktion och skräddarsydda rekommendationer.",
+        "personalInformationUse_bullet6": "För att upprätthålla våra användarvillkor och andra policyer.",
+        "personalInformationUse_bullet7": "För att uppfylla lagliga skyldigheter.",
+        "usageDataUse": "2.2 Användningsdata: Vi använder användningsdata för att analysera trender, spåra användarengagemang, övervaka effektiviteten hos våra tjänster och förbättra användarupplevelsen på Plattformen.",
+        "informationSharing": "3. Delning av information",
+        "informationSharing_1": "3.1 Tredjepartstjänsteleverantörer: Vi kan dela din personliga information med betrodda tredjepartstjänsteleverantörer som hjälper oss att driva Plattformen, leverera tjänster, behandla betalningar, utföra analyser eller utföra andra nödvändiga funktioner. Dessa tjänsteleverantörer är bundna av strikta sekretessavtal och är förbjudna att använda din personliga information för några andra ändamål.",
+        "informationSharing_2": "3.2 Laglig efterlevnad och skydd: Vi kan lämna ut din personliga information om det krävs enligt lag, förordning, rättslig process eller myndighetsbegäran. Vi kan också lämna ut din information för att skydda våra rättigheter, egendom eller säkerhet, samt våra användares eller andras rättigheter, egendom eller säkerhet.",
+        "cookies": "4. Cookies och spårningstekniker",
+        "cookies_1": "4.1 Vi använder cookies och andra spårningstekniker på Plattformen för att samla in och lagra viss information. Cookies är små textfiler som placeras på din enhet för att hjälpa oss att analysera användningen av Plattformen, komma ihåg användarpreferenser och förbättra din övergripande upplevelse. Du har möjlighet att inaktivera cookies via dina webbläsarinställningar; detta kan dock begränsa vissa funktioner på Plattformen.",
+        "dataSecurity": "5. Datasäkerhet",
+        "dataSecurity_1": "5.1 Vi implementerar rimliga säkerhetsåtgärder för att skydda din personliga information från obehörig åtkomst, utlämnande, ändring eller förstörelse. Var dock medveten om att ingen dataöverföring över internet eller lagringsmetod är 100 % säker. Vi kan inte garantera den absoluta säkerheten för din personliga information.",
+        "thirdPartyLinks": "6. Tredjepartslänkar",
+        "thirdPartyLinks_1": "6.1 Plattformen kan innehålla länkar till tredjepartswebbplatser eller -tjänster som inte ägs eller kontrolleras av oss. Vi ansvarar inte för integritetspraxis eller innehållet på dessa tredjepartswebbplatser. Vi uppmuntrar dig att granska integritetspolicyerna för alla tredjepartswebbplatser du besöker.",
+        "childrenPrivacy": "7. Barns integritet",
+        "childrenPrivacy_1": "7.1 Plattformen är inte avsedd för personer under 13 år. Vi samlar inte medvetet in personlig information från barn under 13 år. Om vi blir medvetna om att vi oavsiktligt har samlat in personlig information från ett barn under 13 år kommer vi att vidta åtgärder för att radera informationen omedelbart.",
+        "changesToPolicy": "8. Ändringar i denna integritetspolicy",
+        "changesToPolicy_1": "8.1 Vi förbehåller oss rätten att ändra eller uppdatera denna integritetspolicy när som helst. Eventuella ändringar träder i kraft omedelbart efter att den reviderade policyn har publicerats på Plattformen. Vi uppmuntrar dig att granska denna policy regelbundet för att hålla dig informerad om eventuella uppdateringar.",
+        "whyGlobalRelocate": "9. Varför välja Global Relocate",
+        "whyGlobalRelocate_1": "På Global Relocate är vi engagerade i att hjälpa dig att flytta smartare och leva bättre. Här är varför du bör välja oss:",
+        "whyGlobalRelocate_bullet1": "Tidsbesparande AI-stödd data: Få tillgång till alltid uppdaterad och tillförlitlig information för att fatta välgrundade beslut.",
+        "whyGlobalRelocate_bullet2": "Verifierade kontakter & betrodda källor: Dra nytta av en gemenskapsbaserad plattform som säkerställer trovärdighet och förtroende.",
+        "whyGlobalRelocate_bullet3": "Allt-i-ett-lösning: Hitta allt från visum till levnadskostnader på ett ställe.",
+        "whyGlobalRelocate_bullet4": "Personliga varningar: Ligg steget före med skräddarsydda aviseringar och en favoritfunktion designad just för dig.",
+        "contactUs": "10. Kontakta oss",
+        "contactUs_1": "10.1 Om du har några frågor, funderingar eller förfrågningar angående denna integritetspolicy eller vår datapraxis, vänligen kontakta oss på:"
+      }
+    },
+    "helpCenter": {
+      "help": "Vi är här för att hjälpa till",
+      "howCanWeHelp": "Hur kan vi hjälpa dig?",
+      "checkOut": "Kolla in våra vanliga frågor eller kontakta oss för mer support.",
+      "faqs": {
+        "title": "Vanliga frågor",
+        "question1": {
+          "question": "Vad är Global Relocate?",
+          "answer": "Global Relocate är en AI-driven plattform utformad för att hjälpa individer och familjer att flytta till nya länder. Den ger personliga rekommendationer, resurser och support för att göra omlokaliseringsprocessen smidigare och effektivare."
+        },
+        "question2": {
+          "question": "Vad hjälper Global Relocate till att uppnå?",
+          "answer": "Global Relocate hjälper användare att uppnå en smidig omlokaliseringsupplevelse genom att erbjuda skräddarsydda råd, resurser och support för olika aspekter av att flytta till ett nytt land, inklusive visumansökningar, boende, sysselsättning och kulturell integration."
+        },
+        "question3": {
+          "question": "Tar Global Relocate betalt av användare för tjänster eller funktioner?",
+          "answer": "Ja, Global Relocate erbjuder en rad tjänster och funktioner som kan innebära avgifter. Men det tillhandahåller också gratis resurser och grundläggande support för att hjälpa användare att komma igång med sin omlokaliseringsresa."
+        },
+        "question4": {
+          "question": "Vad händer med min data / Lagrar Global Relocate min personliga information?",
+          "answer": "Global Relocate tar användarnas integritet på allvar. Vi lagrar inte personlig information om den inte uttryckligen tillhandahålls av användaren för specifika tjänster. All insamlad data används enbart för att förbättra användarupplevelsen och tillhandahålla personliga rekommendationer. För mer information, se vår integritetspolicy."
+        },
+        "question5": {
+          "question": "Vilka är personerna bakom Global Relocate?",
+          "answer": "Global Relocate utvecklas av ett team av erfarna yrkesverksamma inom områdena AI, omlokaliseringstjänster och internationell rätt. Vårt team är dedikerat till att tillhandahålla bästa möjliga support och resurser för individer och familjer som vill flytta."
+        },
+        "question6": {
+          "question": "Finns Global Relocate på flera språk?",
+          "answer": "Ja, Global Relocate finns på flera språk för att tillgodose en mångsidig användarbas. Du kan välja ditt föredragna språk i inställningssektionen på plattformen."
+        },
+        "question7": {
+          "question": "Varifrån kommer informationen på Global Relocate?",
+          "answer": "Informationen på Global Relocate hämtas från en mängd välrenommerade källor, inklusive statliga webbplatser, omlokaliseringsexperter och användargenererat innehåll. Vi uppdaterar kontinuerligt vår databas för att säkerställa att användare har tillgång till den mest korrekta och relevanta informationen för sina omlokaliseringsbehov."
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Kontakta oss",
+      "titleDesc": "Du kan ställa frågor till oss",
+      "para": "Kontakta oss för alla dina frågor och åsikter, eller så kan du få svar snabbt genom att besöka ett av våra kontaktkontor.",
+      "ourOffices": "Våra kontor",
+      "ourOfficesDesc": "Vi har kontor på olika platser för att hjälpa dig med dina omlokaliseringsbehov. Besök oss på ett av våra kontor för personlig support.",
+      "dropUsAMessage": "Skicka oss ett meddelande",
+      "dropUsAMessageDesc": "Fyll i formuläret nedan för att skicka oss ett meddelande, så återkommer vi till dig så snart som möjligt.",
+      "yourName": "Ditt namn",
+      "yourEmail": "Din e-post",
+      "subject": "Ämne",
+      "yourMessage": "Ditt meddelande",
+      "sendMessage": "Skicka meddelande",
+      "sending": "Skickar...",
+      "messageSent": "Meddelandet skickades!",
+      "messageFailed": "Det gick inte att skicka meddelandet. Försök igen."
+    }
+  },
+  "loginPage": {
+    "close": "Stäng",
+    "createAccount": "Skapa konto",
+    "logIntoGR": "Logga in på Global Relocate",
+    "password": "Lösenord",
+    "enterPassword": "Ange ditt lösenord",
+    "continueWithGoogle": "Fortsätt med Google",
+    "cantLogin": "Kan du inte logga in?",
+    "tosDesc": "Genom att klicka på skapa ett konto godkänner du våra ",
+    "tos": "Användarvillkor",
+    "privacyPolicy": "Integritetspolicy",
+    "and": "och",
+    "or": "ELLER",
+    "processing": "Bearbetar...",
+    "continue": "Fortsätt",
+    "hidePassword": "Dölj lösenord",
+    "showPassword": "Visa lösenord"
+  },
+  "signUpPage": {
+    "letsCreateAccount": "Låt oss skapa ditt konto",
+    "chooseAccountType": "Välj kontotyp",
+    "createPersonalAccount": "Jag skapar ett personligt konto",
+    "createCorporateAccount": "Jag skapar ett företagskonto",
+    "continue": "Fortsätt",
+    "chooseSignMethod": "Välj registreringsmetod",
+    "continueWithEmail": "Fortsätt med e-post",
+    "alreadyHaveAccount": "Har du redan ett konto?",
+    "fullName": "Fullständigt namn",
+    "chooseUsername": "Välj ett användarnamn",
+    "enterYourFullName": "Ange ditt fullständiga namn",
+    "confirmPassword": "Bekräfta lösenord",
+    "country": "Land"
+  },
+  "welcomePage": {
+    "welcomeAboard": "Välkommen ombord",
+    "welcomeText": "Din AI-drivna plattform för smidig omlokalisering, juridisk vägledning och globalt boende."
+  },
+  "userDashboard": {
+    "sidebar": {
+      "countries": "Länder",
+      "aiAssistant": "AI-assistent",
+      "compareCountries": "Jämför länder",
+      "taxCalculator": "Skattekalkylator",
+      "notifications": "Aviseringar",
+      "favourites": "Favoriter",
+      "community": "Gemenskap",
+      "cta": {
+        "title": "Prova Pro",
+        "para": "Du använder för närvarande gratisplanen som är giltig i 3 dagar. Uppgradera nu för att fortsätta använda Global Relocate.",
+        "buttonText": "Läs mer"
+      }
+    },
+    "notifications": {
+      "noNotifications": "Du har inga aviseringar än.",
+      "markAllAsRead": "Markera alla som lästa",
+      "deleteAll": "Ta bort alla",
+      "markAsRead": "Markera som läst",
+      "delete": "Ta bort avisering",
+      "showLess": "Visa mindre av detta",
+      "showMore": "Visa fler resultat"
+    },
+    "countries": {
+      "title": "Länder",
+      "noDataText": "Ingen data tillgänglig!",
+      "searchText": "Sök efter länder",
+      "clickToSelect": "Klicka för att välja land",
+      "view": "Visa",
+      "searchResults": "Sökresultat",
+      "aiSuggestedCountries": "AI-föreslagna länder",
+      "searchCountries": "Sök länder"
+    },
+    "country": {
+      "countryIn": "Land i",
+      "addFavorite": "Lägg till i favoriter",
+      "removeFavorite": "Ta bort från favoriter",
+      "share": "Dela",
+      "overview": "Översikt",
+      "map": "Karta",
+      "keyFacts": "Nyckelfakta",
+      "visaMigration": "Visum & Immigration",
+      "taxes": "Skatter",
+      "flag": "Flagga",
+      "capital": "Huvudstad",
+      "languages": "Språk",
+      "currency": "Valuta",
+      "population": "Befolkning",
+      "dialingCode": "Landskod",
+      "back": "Tillbaka",
+      "noOverview": "Ingen översikt tillgänglig för detta land.",
+      "noVisaInfo": "Ingen information om visum och immigration tillgänglig."
+    },
+    "ai": {
+      "rename": "Byt namn",
+      "deleteConversation": "Ta bort konversation",
+      "share": "Dela",
+      "hello": "Hej",
+      "newChat": "Ny chatt",
+      "askAI": "Fråga AI vad som helst...",
+      "uploadDocument": "Ladda upp dokument",
+      "uploadDocumentDesc": "Ladda upp ett dokument för att bearbeta med AI-assistenten",
+      "cancel": "Avbryt",
+      "upload": "Ladda upp"
+    },
+    "settings": {
+      "accountSettings": "Kontoinställningar",
+      "editProfile": "Redigera profil",
+      "profile": "Profil",
+      "account": "Konto",
+      "preferences": "Preferenser",
+      "avatar": "Avatar",
+      "fullName": "Fullständigt namn",
+      "username": "Användarnamn",
+      "bio": "Biografi",
+      "country": "Land",
+      "emailAddress": "E-postadress",
+      "verified": "Verifierad",
+      "subscription": "Prenumeration",
+      "subscriptionDesc": "Du använder för närvarande gratisplanen som är giltig i 3 dagar. Uppgradera nu för att fortsätta använda Global Relocate.",
+      "deleteAccount": "Ta bort konto",
+      "deleteDesc": "Ta bort ditt konto och dina data permanent",
+      "language": "Språk",
+      "chooseLanguage": "Välj ett språk",
+      "selectLanguage": "Välj språk",
+      "learnMore": "Läs mer",
+      "saveChanges": "Spara ändringar",
+      "cancel": "Avbryt",
+      "saving": "Sparar...",
+      "unsavedChanges": "Du har osparade ändringar",
+      "addName": "Lägg till namn",
+      "addBio": "Lägg till en biografi för att berätta din historia.",
+      "addUsername": "Lägg till användarnamn",
+      "addLocation": "Lägg till plats",
+      "confirmAccountDelete": "Bekräfta borttagning av konto",
+      "confirmAccountDeleteDesc": "Innan du tar bort ditt konto, vänligen ta en stund för att förstå vad som kommer att hända med dina data:",
+      "confirm": "Bekräfta",
+      "neverMind": "Glöm det",
+      "confirmDeleteWarning": "Tänk på att borttagning av ditt konto inte kan ångras.",
+      "confirmDeleteList1": "Dina profiluppgifter, preferenser och inställningar kommer att tas bort.",
+      "confirmDeleteList2": "All data kommer att raderas permanent 30 dagar efter borttagning av kontot.",
+      "deleting": "Tar bort...",
+      "youHave": "Du har:",
+      "administrator": "Administratör"
+    },
+    "continents": {
+      "all": "Alla",
+      "europe": "Europa",
+      "asia": "Asien",
+      "africa": "Afrika",
+      "south america": "Sydamerika",
+      "north america": "Nordamerika",
+      "antarctica": "Antarktis",
+      "oceania": "Oceanien"
+    },
+    "tax": {
+      "taxCalculator": "Skattekalkylator",
+      "taxCacluatorDesc": "Beräkna din uppskattade skattebörda i olika länder",
+      "country": "Land",
+      "annualIncome": "Årsinkomst",
+      "userAccount": "Användarkonto",
+      "totalDeductions": "Totala avdrag",
+      "selectCountry": "Välj ditt land",
+      "selectAccount": "Välj kontotyp",
+      "enterIncome": "Ange din årsinkomst",
+      "enterDeductions": "Ange totala avdrag",
+      "calculateTax": "Beräkna skatt",
+      "individual": "Individuell",
+      "corporate": "Företag",
+      "taxSummary": "Skatteöversikt",
+      "taxAmount": "Skattebelopp",
+      "effectiveRate": "Effektiv skattesats",
+      "takeHomeAmount": "Belopp att ta hem"
+    },
+    "upgradePage": {
+      "back": "Tillbaka",
+      "upgradePlan": "Uppgradera din plan",
+      "upgradePlanDesc": "Välj den perfekta planen för att stödja din globala omlokaliseringsresa. Få tillgång till omfattande verktyg och insikter för att göra din flytt smidig.",
+      "currentPlan": "Din nuvarande plan",
+      "getStarted": "Kom igång",
+      "free": "Gratis",
+      "basic": "Grundläggande",
+      "premium": "Premium",
+      "perMonth": "per månad",
+      "forEveryone": "För alla",
+      "freePlan": {
+        "item1": "3 dagars provperiod",
+        "item2": "Grundläggande landsinformation",
+        "item3": "Gemenskapstillgång (endast läsning)",
+        "item4": "Begränsad skattekalkylator",
+        "item5": "Grundläggande kostnadsjämförelse"
+      },
+      "basicPlan": {
+        "item1": "Fullständig landsinformation",
+        "item2": "Deltagande i gemenskapen",
+        "item3": "Komplett skattekalkylator",
+        "item4": "Verktyg för kostnadsjämförelse",
+        "item5": "Grundläggande omlokaliseringsguider",
+        "item6": "E-postsupport"
+      },
+      "premiumPlan": {
+        "item1": "Alla grundläggande funktioner",
+        "item2": "Obegränsad tillgång till landsdata",
+        "item3": "Fullständigt deltagande i gemenskapen",
+        "item4": "Avancerad skattekalkylator",
+        "item5": "AI-omlokaliseringsassistent",
+        "item6": "Insikter om levnadskostnader",
+        "item7": "Guider för visumkrav",
+        "item8": "Prioriterad support",
+        "item9": "Anpassad omlokaliseringsfärdplan"
+      }
+    },
+    "favorites": {
+      "noFavorites": "Du har inga favoriter än.",
+      "addToFavorites": "Lägg till i favoriter",
+      "removeFromFavorites": "Ta bort från favoriter"
+    }
+  },
+  "drawers": {
+    "selectLanguages": {
+      "confirm": "Bekräfta ändringar"
+    }
+  },
+  "footer": {
+    "topCountries": "Toppländer",
+    "sitemap": "Webbplatskarta",
+    "company": "Företag",
+    "terms": "Villkor",
+    "privacy": "Integritet",
+    "contact": "Kontakta oss",
+    "subscribeNewsletter": "Prenumerera på vårt nyhetsbrev",
+    "subscribeNewsDesc": "Håll dig uppdaterad med de senaste insikterna om global omlokalisering",
+    "enterEmail": "Ange din e-postadress",
+    "subscribe": "Prenumerera",
+    "copyright": "Allt innehåll på denna webbplats är skyddat av upphovsrätt.",
+    "rankings": "Rankningar",
+    "safestCountries": "De säkraste länderna",
+    "humanFreedomLevel": "Nivå av mänsklig frihet",
+    "lifeExpectancy": "Förväntad livslängd",
+    "happinessIndex": "Världslyckoindex",
+    "citizenshipQualityRankings": "Rankning av medborgarskapskvalitet",
+    "trends": "Trender",
+    "foreignCitizenship": "Utländskt medborgarskap",
+    "digitalNomadVisas": "Digitala nomadvisum",
+    "taxesRankings": "Skatterankningar",
+    "residencyPermit": "Uppehållstillstånd"
+  },
+  "toast": {
+    "thanksNewsletter": "Tack för att du prenumererar på vårt nyhetsbrev!",
+    "linkCopied": "Länk kopierad till urklipp!",
+    "linkCopyFailed": "Det gick inte att kopiera länken",
+    "newSessionStarted": "Ny session startad",
+    "newSessionFailed": "Det gick inte att starta en ny session. Försök igen.",
+    "redirectToPayPage": "Omdirigerar till betalningssidan...",
+    "activeSessionShare": "Du behöver en aktiv session för att dela",
+    "sessionDeleteFailed": "Det gick inte att ta bort sessionen. Försök igen.",
+    "sessionDeleteSuccess": "Sessionen har tagits bort!",
+    "sessionRenameSuccess": "Sessionen har bytt namn!",
+    "sessionRenameFailed": "Det gick inte att byta namn på sessionen. Försök igen.",
+    "enterSessionName": "Ange ett nytt namn för den här sessionen:"
+  },
+  "formErrors": {
+    "invalidEmail": "Ogiltigt e-postformat",
+    "emailRequired": "E-postadress krävs",
+    "fullNameRequired": "Fullständigt namn krävs",
+    "enterFullName": "Ange ditt fullständiga namn",
+    "passwordRequired": "Lösenord krävs",
+    "minPassword": "Lösenordet måste vara minst 8 tecken",
+    "passwordsMismatch": "Lösenorden matchar inte",
+    "weakPassword": "Lösenordet är för svagt",
+    "selectCountry": "Välj ett land",
+    "usernameRequired": "Användarnamn krävs",
+    "minUsername": "Användarnamnet måste vara minst 3 tecken",
+    "cpasswordRequired": "Bekräfta lösenord krävs"
+  }
+}
