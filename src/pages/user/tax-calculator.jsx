@@ -143,7 +143,7 @@ function TaxCalculator() {
               <div className="space-y-2">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <PiUsers className="text-lg" />
-                  {t(`userDashboard.tax.userAccount`)}
+                  {t(`userDashboard.tax.taxClass`)}
                 </label>
                 <Select
                   value={formData.familyStatus}

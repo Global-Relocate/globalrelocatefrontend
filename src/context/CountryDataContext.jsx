@@ -66,10 +66,12 @@ export const CountryDataProvider = ({ children }) => {
     }
   };
 
-  const getSingleCountry = async (id) => {
+  const getSingleCountry = async (id, language) => {
     setLoading(true);
     try {
-      const response = await axiosInstance.get(`/countries/${id}`);
+      const response = await axiosInstance.get(`/countries/${id}`, {
+        params: { language },
+      });
       setSingleCountry(response.data.data);
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);

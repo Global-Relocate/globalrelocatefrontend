@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/carousel-edited";
 import Autoplay from "embla-carousel-autoplay";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 function CountryDetails() {
   const { id } = useParams();
@@ -28,10 +29,11 @@ function CountryDetails() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [api, setApi] = useState();
   const [count, setCount] = useState(0);
+  const { selectedLanguage } = useLanguage();
 
   useEffect(() => {
     if (id) {
-      getSingleCountry(id);
+      getSingleCountry(id, selectedLanguage.name);
     }
   }, [id]);
 
@@ -321,6 +323,35 @@ function CountryDetails() {
                       </div>
                     </div>
                     <hr />
+                    <div className="mt-8 mb-6">
+                      <div className="my-5">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.internetSpeed")}
+                        </h3>
+                        <div className="mt-4">
+                          <p>
+                            {singleCountry.additionalInfo.internetSpeed ??
+                              t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            {t(
+                              "userDashboard.country.publicTransportEfficiency"
+                            )}
+                          </h3>
+                          <p>
+                            {singleCountry.additionalInfo
+                              .publicTransportEfficiency
+                              ? singleCountry.additionalInfo
+                                  .publicTransportEfficiency
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+                      </div>
+                      <hr />
+                    </div>
                   </div>
 
                   <div className="mt-20 mb-6">
@@ -343,36 +374,16 @@ function CountryDetails() {
 
                   <div className="mt-20 mb-6">
                     <div className="my-5">
-                      <h2 className="text-2xl mt-2 mb-8">Quality Of Life</h2>
-                      <div className="mt-4">
-                        <h3 className="text-md font-semibold mb-3">Summary</h3>
-                        <p>
-                          {singleCountry.additionalComparisons.qualityOfLife ??
-                            "No data available."}
-                        </p>
-                      </div>
-                    </div>
-                    <hr />
-                  </div>
-
-                  <div className="mt-20 mb-6">
-                    <div className="my-5">
-                      <h2 className="text-2xl mt-2 mb-8">Cost Of Living</h2>
+                      <h2 className="text-2xl mt-2 mb-8">
+                        {t("userDashboard.country.qualityOfLife")}
+                      </h2>
                       <div className="mt-4">
                         <h3 className="text-md font-semibold mb-3">
-                          Average Cost
+                          {t("userDashboard.country.summary")}
                         </h3>
                         <p>
-                          {singleCountry.costOfLiving.avgCosts ??
-                            "No data available."}
-                        </p>
-                      </div>
-
-                      <div className="mt-4">
-                        <h3 className="text-md font-semibold mb-3">Summary</h3>
-                        <p>
-                          {singleCountry.costOfLiving.summary ??
-                            "No data available."}
+                          {singleCountry.additionalInfo.qualityOfLife ??
+                            t("userDashboard.country.noDataAvailable")}
                         </p>
                       </div>
                     </div>
@@ -382,25 +393,72 @@ function CountryDetails() {
                   <div className="mt-20 mb-6">
                     <div className="my-5">
                       <h2 className="text-2xl mt-2 mb-8">
-                        World Happiness Index
+                        {t("userDashboard.country.costOfLiving")}
                       </h2>
                       <div className="mt-4">
-                        <h3 className="text-md font-semibold mb-3">Summary</h3>
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.averageCost")}
+                        </h3>
                         <p>
-                          {singleCountry.additionalComparisons
-                            .worldHappinessIndex ?? "No data available."}
+                          {singleCountry.costOfLiving.avgCosts ??
+                            t("userDashboard.country.noDataAvailable")}
                         </p>
                       </div>
 
                       <div className="mt-4">
                         <h3 className="text-md font-semibold mb-3">
-                          WHI Score
+                          {t("userDashboard.country.summary")}
                         </h3>
                         <p>
-                          {singleCountry.additionalComparisons
-                            .worldHappinessIndexScore
-                            ? `${singleCountry.additionalComparisons.worldHappinessIndexScore}/10`
-                            : "No data available."}
+                          {singleCountry.costOfLiving.summary ??
+                            t("userDashboard.country.noDataAvailable")}
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+
+                  <div className="mt-20 mb-6">
+                    <div className="my-5">
+                      <h2 className="text-2xl mt-2 mb-8">
+                        {t("userDashboard.country.workLifeBalance")}
+                      </h2>
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.summary")}
+                        </h3>
+                        <p>
+                          {singleCountry.additionalInfo.workLifeBalance ??
+                            t("userDashboard.country.noDataAvailable")}
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+
+                  <div className="mt-20 mb-6">
+                    <div className="my-5">
+                      <h2 className="text-2xl mt-2 mb-8">
+                        {t("userDashboard.country.worldHappinessIndex")}
+                      </h2>
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.summary")}
+                        </h3>
+                        <p>
+                          {singleCountry.additionalInfo.worldHappinessIndex ??
+                            t("userDashboard.country.noDataAvailable")}
+                        </p>
+                      </div>
+
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.whiScore")}
+                        </h3>
+                        <p>
+                          {singleCountry.additionalInfo.worldHappinessIndexScore
+                            ? `${singleCountry.additionalInfo.worldHappinessIndexScore}/10`
+                            : t("userDashboard.country.noDataAvailable")}
                         </p>
                       </div>
                     </div>
@@ -410,7 +468,7 @@ function CountryDetails() {
 
                 <TabsContent value="visa">
                   <h2 className="font-medium text-2xl my-7">
-                    Visa & Immigration
+                    {t("userDashboard.country.visaAndImmigration")}
                   </h2>
                   {singleCountry.visaAndImmigration?.summary !==
                     "No data available" && (
@@ -418,8 +476,8 @@ function CountryDetails() {
                       {singleCountry.visaAndImmigration?.passportsAndVisas && (
                         <div>
                           <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
-                            <i className="far fa-passport"></i> Passports &
-                            Visas
+                            <i className="far fa-passport"></i>{" "}
+                            {t("userDashboard.country.passportAndVisas")}
                           </h3>
                           <p>
                             {singleCountry.visaAndImmigration.passportsAndVisas}
@@ -429,8 +487,8 @@ function CountryDetails() {
                       {singleCountry.visaAndImmigration?.shortStays && (
                         <div>
                           <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
-                            <i className="far fa-umbrella-beach"></i> Short
-                            Stays
+                            <i className="far fa-umbrella-beach"></i>{" "}
+                            {t("userDashboard.country.shortStays")}
                           </h3>
                           <p>{singleCountry.visaAndImmigration.shortStays}</p>
                         </div>
@@ -438,7 +496,8 @@ function CountryDetails() {
                       {singleCountry.visaAndImmigration?.longStays && (
                         <div>
                           <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
-                            <i className="far fa-suitcase"></i> Long Stays
+                            <i className="far fa-suitcase"></i>{" "}
+                            {t("userDashboard.country.longStays")}
                           </h3>
                           <p>{singleCountry.visaAndImmigration.longStays}</p>
                         </div>
@@ -453,7 +512,9 @@ function CountryDetails() {
                 </TabsContent>
 
                 <TabsContent value="taxes">
-                  <h2 className="font-medium text-2xl my-7">Taxes & Finance</h2>
+                  <h2 className="font-medium text-2xl my-7">
+                    {t("userDashboard.country.taxesAndFinances")}
+                  </h2>
                   <div className="space-y-4 mb-4">
                     {singleCountry.taxAndFinance?.summary !==
                       "No data available" && (
@@ -470,36 +531,37 @@ function CountryDetails() {
                       <div>
                         <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
                           <i className="fad fa-money-bill-transfer"></i>{" "}
-                          Personal Income Tax
+                          {t("userDashboard.country.personalIncomeTax")}
                         </h3>
                         <p>
                           <span className="underline underline-offset-4 font-semibold">
-                            Federal Rate
+                            {t("userDashboard.country.federalTax")}
                           </span>
                           <p className="mt-3">
                             {singleCountry.taxAndFinance?.personalIncomeTax
                               ?.federalRate ||
-                              "Not applicable to this country."}
+                              t("userDashboard.country.notApplicable")}
                           </p>
                         </p>
                         <p className="mt-3">
                           <span className="underline underline-offset-4 font-semibold">
-                            Communal Rate
+                            {t("userDashboard.country.communalRate")}
                           </span>
                           <p className="mt-3">
                             {singleCountry.taxAndFinance?.personalIncomeTax
                               ?.communalRate ||
-                              "Not applicable to this country."}
+                              t("userDashboard.country.notApplicable")}
                           </p>
                         </p>
                       </div>
                       <div className="md:border-l md:pl-4">
                         <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
-                          <i className="fad fa-money-check"></i> Corporate Tax
+                          <i className="fad fa-money-check"></i>{" "}
+                          {t("userDashboard.country.corporateTax")}
                         </h3>
                         <p>
                           {singleCountry.taxAndFinance?.corporateTax ||
-                            "Not applicable to this country."}
+                            t("userDashboard.country.notApplicable")}
                         </p>
                       </div>
                     </div>

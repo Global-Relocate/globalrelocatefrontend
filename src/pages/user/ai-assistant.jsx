@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import DOMPurify from "dompurify";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import AiChatInput from "@/components/forms/AiChatInput";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
@@ -26,6 +27,7 @@ import { useAIChat } from "@/context/AiChatContext";
 import { AuthContext } from "@/context/AuthContextExport";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 function AiAssistant() {
   const {
@@ -48,6 +50,7 @@ function AiAssistant() {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const { t } = useTranslation();
+  const { selectedLanguage } = useLanguage();
   const displayName = user?.username || user?.name || "User";
 
   useEffect(() => {
@@ -91,6 +94,11 @@ function AiAssistant() {
         ...prevMessages,
         { senderId: "user", message: content },
       ]);
+    } else if (type === "image") {
+      setLocalMessages((prevMessages) => [
+        ...prevMessages,
+        { senderId: "user", message: `🖼️ Image: ${content.name}` },
+      ]);
     } else if (type === "audio") {
       setLocalMessages((prevMessages) => [
         ...prevMessages,
@@ -106,29 +114,16 @@ function AiAssistant() {
     scrollToBottom();
 
     try {
-      // const formData = new FormData();
-      // formData.append("sessionId", sessionId);
-      // formData.append("type", type);
-      // if (type === "text") {
-      //   formData.append("message", content);
-      // } else if (type === "audio") {
-      //   formData.append("audio", content);
-      // } else if (type === "document") {
-      //   formData.append("document", content);
-      // }
-
       if (type === "text") {
-        await askAI(sessionId, content);
+        await askAI(sessionId, content, "text");
       } else {
         const formData = new FormData();
-        formData.append("sessionId", sessionId);
         formData.append("type", type);
+        formData.append("language", selectedLanguage.name);
         if (type === "audio") formData.append("audio", content);
         if (type === "document") formData.append("document", content);
-        await askAI(sessionId, formData);
+        await askAI(sessionId, formData, type);
       }
-
-      // await askAI(sessionId, formData, type);
     } catch (error) {
       toast.error(`Failed to process ${type} input. Please try again.`);
     } finally {
@@ -151,7 +146,7 @@ function AiAssistant() {
 
         setCurrentSession({ ...currentSession, title: newName });
         toast.success(t("toast.sessionRenameSuccess"));
-      } catch (error) {
+      } catch (e) {
         toast.error(t("toast.sessionRenameFailed"));
       }
     }
@@ -293,24 +288,45 @@ function AiAssistant() {
           {currentSession && (
             <div className="w-full max-w-3xl mx-auto px-2 md:px-4">
               {localMessages?.map((msg, index) => (
-                <div
-                  key={index}
-                  className={`flex my-3 ${
-                    msg.senderId === "aichatId"
-                      ? "justify-start"
-                      : "justify-end"
-                  }`}
-                >
+                <div className="w-full" key={index}>
+                  {msg.type === "image" && msg.fileUrl.length > 0 && (
+                    <div className="">
+                      <img
+                        key={index}
+                        src={msg.fileUrl}
+                        alt="User uploaded"
+                        className="max-w-full rounded-lg my-2"
+                      />
+                    </div>
+                  )}
                   <div
-                    className={`py-2 px-3 rounded-2xl max-w-[85%] ${
+                    key={index}
+                    className={`flex my-3 ${
                       msg.senderId === "aichatId"
-                        ? "bg-[#EEEFF8] text-black"
-                        : "bg-blue-500 text-white"
+                        ? "justify-start"
+                        : "justify-end"
                     }`}
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(msg.message),
-                    }}
-                  />
+                  >
+                    <div
+                      className={`py-2 px-3 rounded-2xl max-w-[85%] ${
+                        msg.senderId === "aichatId"
+                          ? "bg-[#EEEFF8] text-black"
+                          : "bg-blue-500 text-white"
+                      }`}
+                    >
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {msg.type === "text"
+                          ? msg.message
+                          : msg.type === "audio"
+                          ? "🎤 Voice message"
+                          : msg.type === "document"
+                          ? `📄 Document: ${msg.message}`
+                          : msg.type === "image"
+                          ? "🖼️ Image"
+                          : msg.message}
+                      </ReactMarkdown>
+                    </div>
+                  </div>
                 </div>
               ))}
 

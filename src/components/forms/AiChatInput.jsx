@@ -1,5 +1,5 @@
 import { ArrowUp } from "lucide-react";
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { BiMicrophone, BiMicrophoneOff } from "react-icons/bi";
 import { MdAdd } from "react-icons/md";
 import { IoStop } from "react-icons/io5";
@@ -21,6 +21,7 @@ export default function AiChatInput({ onSendMessage }) {
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [filePreview, setFilePreview] = useState(null);
 
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
@@ -60,16 +61,19 @@ export default function AiChatInput({ onSendMessage }) {
     return null;
   };
 
+  const location = useLocation();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const modifiedPrompt = prompt.trim();
     if (!modifiedPrompt) return;
 
-    console.log(modifiedPrompt);
     await onSendMessage(modifiedPrompt);
     setPrompt("");
 
-    navigate("/user/ai-assistant", { state: { modifiedPrompt } });
+    if (location.pathname !== "/user/ai-assistant") {
+      navigate("/user/ai-assistant", { state: { modifiedPrompt } });
+    }
   };
 
   const startSpeechToText = async () => {
@@ -104,6 +108,9 @@ export default function AiChatInput({ onSendMessage }) {
     if (file) {
       setSelectedFile(file);
     }
+
+    const url = URL.createObjectURL(file);
+    setFilePreview(url);
   };
 
   const handleFileUpload = async () => {
@@ -119,10 +126,18 @@ export default function AiChatInput({ onSendMessage }) {
       setUploadDialogOpen(false);
       setSelectedFile(null);
       setUploadProgress(0);
+      URL.revokeObjectURL(filePreview);
+      setFilePreview(null);
     } catch (error) {
       toast.error("Failed to upload document.");
       console.error("Error uploading document:", error);
     }
+  };
+
+  const handleCancelFile = () => {
+    setSelectedFile(null);
+    setFilePreview(null);
+    setUploadDialogOpen(false);
   };
 
   // Toggle speech recognition
@@ -160,7 +175,7 @@ export default function AiChatInput({ onSendMessage }) {
             </button>
 
             {/* Microphone button - black color */}
-            <button
+            {/* <button
               type="button"
               onClick={toggleSpeechRecognition}
               className={`p-1 transition-colors ${
@@ -172,7 +187,7 @@ export default function AiChatInput({ onSendMessage }) {
               ) : (
                 <BiMicrophone size={20} />
               )}
-            </button>
+            </button> */}
           </div>
 
           {/* Send/Stop button with conditional background color and icon */}
@@ -184,7 +199,7 @@ export default function AiChatInput({ onSendMessage }) {
                 ? "bg-black text-white"
                 : "bg-gray-300 text-white cursor-not-allowed"
             }`}
-            disabled={!isRecording && !prompt.trim()}
+            disabled={!isRecording && !prompt.trim() && !selectedFile}
           >
             {isRecording ? <IoStop size={20} /> : <ArrowUp size={20} />}
           </button>
@@ -201,10 +216,30 @@ export default function AiChatInput({ onSendMessage }) {
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col gap-4">
+            {selectedFile && (
+              <div className="flex items-start gap-4">
+                {selectedFile.type.startsWith("image/") && (
+                  <img
+                    src={filePreview}
+                    alt="preview"
+                    className="w-32 h-auto rounded-md"
+                  />
+                )}
+                {selectedFile.type === "application/pdf" && (
+                  <embed
+                    src={filePreview}
+                    type="application/pdf"
+                    className="w-64 h-40 rounded-md border"
+                  />
+                )}
+              </div>
+            )}
+
             <input
               type="file"
               onChange={handleFileChange}
               className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              accept=".pdf,.doc,.docx,image/*"
             />
             {selectedFile && (
               <div className="text-sm text-gray-500">
@@ -220,11 +255,9 @@ export default function AiChatInput({ onSendMessage }) {
                 ></div>
               </div>
             )}
+
             <div className="flex justify-end gap-2">
-              <Button
-                variant="outline"
-                onClick={() => setUploadDialogOpen(false)}
-              >
+              <Button variant="outline" onClick={() => handleCancelFile()}>
                 {t("userDashboard.ai.cancel")}
               </Button>
               <Button onClick={handleFileUpload} disabled={!selectedFile}>

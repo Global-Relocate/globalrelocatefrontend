@@ -44,15 +44,18 @@ export const AiChatProvider = ({ children }) => {
     }
   };
 
-  // Send a message to the AI
-  const askAI = async (sessionId, content) => {
+  const askAI = async (sessionId, content, type = "text") => {
     setLoading(true);
     try {
-      await axiosInstance.post(`/ai/${sessionId}`, {
-        message: content,
-        language: selectedLanguage.name,
-      });
-      // Fetch the updated session to get the latest messages
+      if (content && type === "text") {
+        await axiosInstance.post(`/ai/${sessionId}`, {
+          message: content,
+          language: selectedLanguage.name,
+        });
+      } else if ((type === "audio" || type === "document") && content) {
+        await axiosInstance.post(`/ai/${sessionId}`, content);
+      }
+
       await fetchSingleSession(sessionId);
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
