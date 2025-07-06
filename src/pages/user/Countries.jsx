@@ -11,10 +11,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 import nigeria from "../../assets/images/nigeria.png";
 import swizerland from "../../assets/images/swizerland.png";
 import { useTranslation } from "react-i18next";
+import { getCountryName } from "@/data/country-translations";
+import { useLanguage } from "@/context/LanguageContext";
 
 function Countries() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { selectedLanguage } = useLanguage();
   // const { toggleFavorite } = useFavorites();
   const {
     countries,
@@ -136,6 +139,10 @@ function Countries() {
             )}
             {filteredCountries.map((item, i) => {
               const isLastElement = i === filteredCountries.length - 1;
+              const translatedName = getCountryName(
+                item.countrySlug,
+                selectedLanguage.code
+              );
               return (
                 <div
                   key={item.countryId || i}
@@ -143,6 +150,7 @@ function Countries() {
                 >
                   <CountriesDashCard
                     id={item.countryId}
+                    countryName={translatedName}
                     location={item.countryName}
                     isLiked={item.isLiked}
                     // onLikeToggle={() => toggleFavorite(item)}

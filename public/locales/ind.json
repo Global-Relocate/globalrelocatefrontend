@@ -439,7 +439,14 @@
       "taxSummary": "Ringkasan Pajak",
       "taxAmount": "Jumlah pajak",
       "effectiveRate": "Tarif efektif",
-      "takeHomeAmount": "Jumlah yang dibawa pulang"
+      "takeHomeAmount": "Jumlah yang dibawa pulang",
+      "disclaimer": "Informasi yang disediakan oleh kalkulator pajak ini hanya untuk tujuan informasi umum dan tidak boleh digunakan untuk tujuan pajak, hukum, atau akuntansi. Kalkulator ini juga tidak memperhitungkan keadaan spesifik Anda (tunjangan pribadi, pengurangan, dan sebagainya), yang dapat memengaruhi jumlah pendapatan bersih.",
+      "noTaxClasses": "Tidak ada kelas pajak yang tersedia",
+      "usageGuide": "Panduan Penggunaan",
+      "usageGuide1": "Masukkan gaji atau pendapatan tahunan bruto Anda.",
+      "usageGuide2": "Pilih negara Anda. Secara default, mata uang keluaran diatur ke mata uang resmi negara tersebut.",
+      "usageGuide3": "Jika diminta, pilih kelas pajak Anda dari daftar tarik-turun.",
+      "usageGuide4": "Kemudian klik tombol Hitung Pajak untuk mendapatkan perkiraan pajak sesuai dengan tarif resmi negara tersebut."
     },
     "upgradePage": {
       "back": "Kembali",

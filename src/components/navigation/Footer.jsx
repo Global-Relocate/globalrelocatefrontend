@@ -179,7 +179,22 @@ export default function Footer() {
           </div>
 
           {/* Newsletter Section */}
-          <div className="mt-8 w-full flex justify-between flex-col md:flex-row">
+          <div className="mt-8 w-full flex items-end justify-between flex-col md:flex-row">
+            {/* Payment Methods Section */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="mt-8 w-full flex justify-evenly space-x-4 md:mt-0 md:w-fit md:justify-between md:items-center cursor-pointer">
+                  <i className="fab fa-cc-visa text-2xl"></i>
+                  <i className="fab fa-cc-discover text-2xl"></i>
+                  <i className="fab fa-cc-mastercard text-2xl"></i>
+                  <i className="fab fa-cc-amex text-2xl"></i>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>We only support payment by credit card for now.</p>
+              </TooltipContent>
+            </Tooltip>
+
             <div className="w-fit">
               <h3 className="text-white text-lg font-medium mb-3">
                 {t("footer.subscribeNewsletter")}
@@ -205,21 +220,6 @@ export default function Footer() {
                 </button>
               </form>
             </div>
-
-            {/* Payment Methods Section */}
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="mt-8 w-full flex justify-evenly space-x-4 md:mt-0 md:w-fit md:justify-between md:items-center cursor-pointer">
-                  <i className="fab fa-cc-visa text-2xl"></i>
-                  <i className="fab fa-cc-discover text-2xl"></i>
-                  <i className="fab fa-cc-mastercard text-2xl"></i>
-                  <i className="fab fa-cc-amex text-2xl"></i>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>We only support payment by credit card for now.</p>
-              </TooltipContent>
-            </Tooltip>
           </div>
 
           <div className="text-left md:text-center mt-8 pb-4 text-[0.875rem]">

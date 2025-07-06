@@ -439,7 +439,14 @@
       "taxSummary": "税务摘要",
       "taxAmount": "税额",
       "effectiveRate": "实际税率",
-      "takeHomeAmount": "实得金额"
+      "takeHomeAmount": "实得金额",
+      "disclaimer": "此税务计算器提供的信息仅供一般参考，不应用于税务、法律或会计目的。该计算器也没有考虑您的具体情况（个人免税额、扣除额等），这可能会影响净收入金额。",
+      "noTaxClasses": "没有可用的税务类别",
+      "usageGuide": "使用指南",
+      "usageGuide1": "输入您的年度总工资或收入。",
+      "usageGuide2": "选择您的国家。默认情况下，输出货币设置为该国的官方货币。",
+      "usageGuide3": "如果出现提示，请从下拉列表中选择您的税务类别。",
+      "usageGuide4": "然后单击“计算税款”按钮以获取根据该国官方税率估算的税款。"
     },
     "upgradePage": {
       "back": "返回",

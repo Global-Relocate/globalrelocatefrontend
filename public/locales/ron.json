@@ -439,7 +439,14 @@
       "taxSummary": "Rezumat Taxe",
       "taxAmount": "Suma taxei",
       "effectiveRate": "Rata efectivă",
-      "takeHomeAmount": "Suma netă"
+      "takeHomeAmount": "Suma netă",
+      "disclaimer": "Informațiile furnizate de acest calculator de taxe au doar scop informativ general și nu ar trebui utilizate în scopuri fiscale, juridice sau contabile. Calculatorul nu ia în considerare circumstanțele tale specifice (deduceri personale etc.), care pot afecta suma venitului net.",
+      "noTaxClasses": "Nu există clase de impozitare disponibile",
+      "usageGuide": "Ghid de Utilizare",
+      "usageGuide1": "Introdu salariul sau venitul anual brut.",
+      "usageGuide2": "Selectează țara ta. Implicit, moneda de ieșire este setată la moneda oficială a țării.",
+      "usageGuide3": "Dacă ți se solicită, selectează clasa ta de impozitare din meniul derulant.",
+      "usageGuide4": "Apoi, dă clic pe butonul Calculează Taxa pentru a obține taxa estimată conform ratei oficiale a țării."
     },
     "upgradePage": {
       "back": "Înapoi",

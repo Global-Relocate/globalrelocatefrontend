@@ -31,6 +31,7 @@ const CarouselIndicators = ({ currentIndex, total, onClick }) => {
 
 export default function CountriesDashCard({
   id,
+  countryName,
   onClick,
   images,
   location,
@@ -179,13 +180,7 @@ export default function CountriesDashCard({
           className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover"
           alt="Country Flag"
         />
-        <span className="text-sm sm:text-base">
-          {selectedLanguage.name === "English" ||
-          t(`userDashboard.continents.countries.${location}`) ===
-            `userDashboard.continents.countries.${location}`
-            ? location
-            : t(`userDashboard.continents.countries.${location}`)}
-        </span>
+        <span className="text-sm sm:text-base">{countryName}</span>
       </div>
     </div>
   );

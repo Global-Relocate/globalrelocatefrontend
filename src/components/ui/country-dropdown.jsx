@@ -1,4 +1,4 @@
-import React, { useCallback, useState, forwardRef, useEffect } from "react";
+import { useCallback, useState, forwardRef, useEffect } from "react";
 
 // shadcn
 import {
@@ -133,7 +133,9 @@ const CountryDropdownComponent = (
                   />
                 </div>
                 {slim === false && !inline && (
-                  <span className={`overflow-hidden text-ellipsis whitespace-nowrap text-black text-${textSize}`}>
+                  <span
+                    className={`overflow-hidden text-ellipsis whitespace-nowrap text-black text-${textSize}`}
+                  >
                     {selectedCountries[0].name}
                   </span>
                 )}
@@ -141,7 +143,9 @@ const CountryDropdownComponent = (
             )}
           </div>
         ) : (
-          <span className={`flex items-center gap-2 text-gray-400 text-${textSize}`}>
+          <span
+            className={`flex items-center gap-2 text-gray-400 text-${textSize}`}
+          >
             {inline || slim ? <Globe size={16} /> : placeholder}
           </span>
         )}
@@ -160,8 +164,8 @@ const CountryDropdownComponent = (
         <Command className="w-full max-h-[200px] sm:max-h-[270px]">
           <CommandList>
             <div className="sticky top-0 z-10 bg-popover">
-              <CommandInput 
-                placeholder="Search country..." 
+              <CommandInput
+                placeholder="Search country..."
                 className={`h-12 text-${textSize} placeholder:text-gray-400 focus:placeholder:text-gray-400`}
               />
             </div>

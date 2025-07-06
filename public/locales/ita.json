@@ -439,7 +439,14 @@
       "taxSummary": "Riepilogo Fiscale",
       "taxAmount": "Importo Tasse",
       "effectiveRate": "Aliquota Effettiva",
-      "takeHomeAmount": "Importo Netto"
+      "takeHomeAmount": "Importo Netto",
+      "disclaimer": "Le informazioni fornite da questo calcolatore fiscale sono solo a scopo informativo generale e non devono essere utilizzate per scopi fiscali, legali o contabili. Il calcolatore inoltre non tiene conto delle tue circostanze specifiche (detrazioni personali, deduzioni, ecc.), che possono influire sull'importo del reddito netto.",
+      "noTaxClasses": "Nessuna classe fiscale disponibile",
+      "usageGuide": "Guida all'utilizzo",
+      "usageGuide1": "Inserisci il tuo stipendio o reddito annuo lordo.",
+      "usageGuide2": "Seleziona il tuo paese. Per impostazione predefinita, la valuta di output è impostata sulla valuta ufficiale del paese.",
+      "usageGuide3": "Se richiesto, seleziona la tua classe fiscale dal menu a tendina.",
+      "usageGuide4": "Quindi fai clic sul pulsante Calcola Tasse per ottenere la tassa stimata in base all'aliquota ufficiale del paese."
     },
     "upgradePage": {
       "back": "Indietro",

@@ -2,7 +2,6 @@ import DashboardLayout from "@/components/layouts/DashboardLayout";
 import swizerland from "../../assets/images/swizerland.png";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { BiHeart } from "react-icons/bi";
 import { PiShare } from "react-icons/pi";
 import { useCountryData } from "@/context/CountryDataContext";
 import { useState, useEffect } from "react";
@@ -19,25 +18,33 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/context/LanguageContext";
+import { getCountryName } from "@/data/country-translations";
+import { toast } from "sonner";
 
 function CountryDetails() {
   const { id } = useParams();
   const { t } = useTranslation();
-  const { singleCountry, loading, getSingleCountry, favourites } =
-    useCountryData();
+  const {
+    singleCountry,
+    loading,
+    getSingleCountry,
+    favourites,
+    addCountryToFavourite,
+    removeCountryFromFavourite,
+  } = useCountryData();
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [api, setApi] = useState();
   const [count, setCount] = useState(0);
   const { selectedLanguage } = useLanguage();
-
   const [countryData, setCountryData] = useState(null);
+  const [favoriteLoading, setFavoriteLoading] = useState(false);
 
   useEffect(() => {
     if (id) {
       getSingleCountry(id, selectedLanguage.name);
     }
-  }, [id]);
+  }, [selectedLanguage.name, id]);
 
   useEffect(() => {
     if (singleCountry) {
@@ -57,19 +64,35 @@ function CountryDetails() {
         console.error("Sharing failed:", error);
       }
     } else {
-      console.log("Your browser does not support the Share API");
+      navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => {
+          toast(t("toast.linkCopied"));
+        })
+        .catch((error) => {
+          console.error("Failed to copy link:", error);
+        });
     }
   };
 
-  // const checkFavorites = () => {
-  //   if (favourites || favourites.length > 0) {
-  //     console.log(
-  //       favourites.some(
-  //         (country) => country.countryName === singleCountry?.name
-  //       )
-  //     );
-  //   }
-  // };
+  const checkFavorites = (id) => {
+    if (favourites && favourites.length > 0) {
+      return favourites.some((country) => country.countryId === id);
+    } else {
+      return false;
+    }
+  };
+
+  const toggleFavorite = async (id) => {
+    setFavoriteLoading(true);
+    if (checkFavorites(id)) {
+      await removeCountryFromFavourite(id);
+      setFavoriteLoading(false);
+    } else {
+      await addCountryToFavourite(id);
+      setFavoriteLoading(false);
+    }
+  };
 
   // Custom CarouselIndicators component
   const CarouselIndicators = ({ currentIndex, total, onClick }) => {
@@ -141,7 +164,9 @@ function CountryDetails() {
                 alt="Country flag"
               />
               <div className="flex flex-col items-start">
-                <h2 className="text-3xl font-medium">{countryData?.name}</h2>
+                <h2 className="text-3xl font-medium">
+                  {getCountryName(countryData?.slug, selectedLanguage.code)}
+                </h2>
                 <span>
                   {t("userDashboard.country.countryIn")}{" "}
                   {countryData?.continent}
@@ -150,12 +175,23 @@ function CountryDetails() {
             </div>
 
             <div className="flex items-center gap-3">
-              <Button variant="outline" className="rounded-3xl border">
-                {" "}
-                <BiHeart />{" "}
-                {favourites.length > 0
-                  ? t("userDashboard.country.addFavorite")
-                  : t("userDashboard.country.removeFavorite")}
+              <Button
+                variant="outline"
+                className="rounded-3xl border"
+                onClick={() => toggleFavorite(countryData?.id)}
+                disabled={favoriteLoading}
+              >
+                {checkFavorites(countryData?.id) ? (
+                  <>
+                    <i className="fas fa-heart text-destructive mr-2" />
+                    {t("userDashboard.country.removeFavorite")}
+                  </>
+                ) : (
+                  <>
+                    <i className="far fa-heart mr-2" />
+                    {t("userDashboard.country.addFavorite")}
+                  </>
+                )}
               </Button>
               <Button
                 variant="outline"
@@ -249,7 +285,8 @@ function CountryDetails() {
 
                 <TabsContent value="overview">
                   <h2 className="font-medium text-2xl my-7">
-                    <i className="far fa-note mr-2" /> {countryData.name}{" "}
+                    <i className="far fa-note mr-2" />{" "}
+                    {getCountryName(countryData?.slug, selectedLanguage.code)}{" "}
                     {t("userDashboard.country.overview")}
                   </h2>
                   <p className="text-[#222222]">

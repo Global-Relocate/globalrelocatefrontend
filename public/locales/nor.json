@@ -439,7 +439,14 @@
       "taxSummary": "Skatteoppsummering",
       "taxAmount": "Skattebeløp",
       "effectiveRate": "Effektiv sats",
-      "takeHomeAmount": "Beløp etter skatt"
+      "takeHomeAmount": "Beløp etter skatt",
+      "disclaimer": "Informasjonen som gis av denne skattekalkulatoren er kun for generell informasjonsformål og bør ikke brukes til skatte-, juridiske eller regnskapsmessige formål. Kalkulatoren tar heller ikke hensyn til dine spesifikke forhold (personlige fradrag og så videre), som kan påvirke nettoinntektsbeløpet.",
+      "noTaxClasses": "Ingen tilgjengelige skatteklasser",
+      "usageGuide": "Bruksveiledning",
+      "usageGuide1": "Skriv inn din brutto årslønn eller inntekt.",
+      "usageGuide2": "Velg ditt land. Standardvalutaen er satt til landets offisielle valuta.",
+      "usageGuide3": "Hvis du blir bedt om det, velg din skatteklasse fra nedtrekksmenyen.",
+      "usageGuide4": "Klikk deretter på Beregn skatt-knappen for å få den estimerte skatten i henhold til landets offisielle sats."
     },
     "upgradePage": {
       "back": "Tilbake",

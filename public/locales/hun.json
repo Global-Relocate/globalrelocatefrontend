@@ -438,7 +438,14 @@
       "taxSummary": "Adóösszegzés",
       "taxAmount": "Adó összege",
       "effectiveRate": "Hatékony adókulcs",
-      "takeHomeAmount": "Hazavihető összeg"
+      "takeHomeAmount": "Hazavihető összeg",
+      "disclaimer": "A jelen adókalkulátor által szolgáltatott információk kizárólag általános tájékoztatási célokat szolgálnak, és nem használhatók adózási, jogi vagy számviteli célokra. A kalkulátor nem veszi figyelembe az Ön egyedi körülményeit (személyi kedvezmények, levonások stb.), amelyek befolyásolhatják a nettó jövedelem összegét.",
+      "noTaxClasses": "Nincsenek elérhető adóosztályok",
+      "usageGuide": "Használati útmutató",
+      "usageGuide1": "Adja meg bruttó éves fizetését vagy jövedelmét.",
+      "usageGuide2": "Válassza ki az országot. Alapértelmezés szerint a kimeneti pénznem az ország hivatalos pénznemére van állítva.",
+      "usageGuide3": "Ha a rendszer kéri, válassza ki az adóosztályát a legördülő menüből.",
+      "usageGuide4": "Ezután kattintson az Adó kiszámítása gombra, hogy megkapja a becsült adót az ország hivatalos adókulcsa szerint."
     },
     "upgradePage": {
       "back": "Vissza",

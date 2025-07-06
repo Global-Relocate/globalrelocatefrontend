@@ -439,7 +439,14 @@
       "taxSummary": "Vergi Özeti",
       "taxAmount": "Vergi tutarı",
       "effectiveRate": "Etkin oran",
-      "takeHomeAmount": "Eve götürülecek tutar"
+      "takeHomeAmount": "Eve götürülecek tutar",
+      "disclaimer": "Bu vergi hesaplayıcısı tarafından sağlanan bilgiler yalnızca genel bilgilendirme amaçlıdır ve vergi, yasal veya muhasebe amaçları için kullanılmamalıdır. Hesaplayıcı ayrıca net gelir miktarını etkileyebilecek özel durumlarınızı (kişisel ödenekler, kesintiler vb.) dikkate almaz.",
+      "noTaxClasses": "Vergi sınıfı mevcut değil",
+      "usageGuide": "Kullanım Kılavuzu",
+      "usageGuide1": "Brüt yıllık maaşınızı veya gelirinizi girin.",
+      "usageGuide2": "Ülkenizi seçin. Varsayılan olarak, çıktı para birimi ülkenin resmi para birimine ayarlanmıştır.",
+      "usageGuide3": "İstenirse, açılır menüden vergi sınıfınızı seçin.",
+      "usageGuide4": "Ardından, ülkenin resmi oranına göre tahmini vergiyi almak için Vergi Hesapla düğmesine tıklayın."
     },
     "upgradePage": {
       "back": "Geri",

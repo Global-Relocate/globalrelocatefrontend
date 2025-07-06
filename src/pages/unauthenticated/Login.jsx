@@ -73,11 +73,7 @@ export default function Login() {
       login(response.accessToken, response.data.user);
 
       // Navigate to welcome page
-      navigate("/welcome", {
-        state: {
-          username: response.data.user.fullName,
-        },
-      });
+      navigate("/user/countries");
     } catch (error) {
       console.error("Login error:", error);
       setErrorMessage(error.message || "Failed to log in. Please try again.");

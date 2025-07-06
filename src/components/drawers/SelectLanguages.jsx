@@ -48,11 +48,15 @@ const SelectLanguages = () => {
       <SheetContent>
         <div className="pt-2">
           <SheetHeader className=" pb-4">
-            <SheetTitle className="text-left">Select language</SheetTitle>
+            <SheetTitle className="text-left">
+              {t("userDashboard.settings.selectLanguage")}
+            </SheetTitle>
           </SheetHeader>
         </div>
         <div className="mt-10">
-          <p className="text-sm text-gray-700 mb-2">Select your language</p>
+          <p className="text-sm text-gray-700 mb-2">
+            {t("userDashboard.settings.chooseLanguage")}
+          </p>
           <LanguageDropdown
             value={selectedLanguage?.code}
             onChange={handleLanguageChange}

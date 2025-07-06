@@ -10,8 +10,11 @@ axiosInstance.interceptors.request.use(
     const userInfo = JSON.parse(localStorage.getItem("user")) || {};
     if (userInfo && userInfo.token) {
       config.headers.Authorization = `Bearer ${userInfo.token}`;
+      return config;
+    } else {
+      // If no token is found, reject the request
+      return Promise.reject(new Error("No token found"));
     }
-    return config;
   },
   (error) => Promise.reject(error)
 );

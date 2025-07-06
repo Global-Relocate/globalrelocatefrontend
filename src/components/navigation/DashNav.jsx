@@ -99,7 +99,7 @@ function DashNav({ navState, setNavState }) {
             <Link
               key={link.href}
               to={link.href}
-              className={`text-sm transition-colors duration-200 px-4 ${
+              className={`transition-colors duration-200 px-4 ${
                 location.pathname === link.href
                   ? "text-black"
                   : "text-[#404040] hover:text-black"
@@ -114,7 +114,7 @@ function DashNav({ navState, setNavState }) {
         <div className="flex items-center gap-4">
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center justify-start space-x-1 p-2 rounded-3xl cursor-pointer hover:bg-gray-100 outline-none">
-              <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-[#8F8F8F] overflow-hidden">
+              <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-[#8F8F8F] overflow-hidden mr-1">
                 {profilePic ? (
                   <img
                     src={profilePic}
@@ -180,7 +180,7 @@ function DashNav({ navState, setNavState }) {
             className="hidden sm:flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200"
           >
             <LogOut className="h-5 w-5" />
-            <span>{t("Logout")}</span>
+            <span>{t("landingPage.navbar.logout")}</span>
           </button>
 
           {/* Logout Button - Mobile */}
@@ -195,7 +195,7 @@ function DashNav({ navState, setNavState }) {
                 </button>
               </TooltipTrigger>
               <TooltipContent>
-                <span>{t("Logout")}</span>
+                <span>{t("landingPage.navbar.logout")}</span>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

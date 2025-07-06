@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import MainLayout from "../../components/layouts/MainLayout";
 import FeaturesCard from "../../components/cards/FeaturesCard";
@@ -12,13 +11,8 @@ import london from "../../assets/images/london.png";
 import italy from "../../assets/images/italy.png";
 import china from "../../assets/images/china.png";
 import uae from "../../assets/images/uae.png";
-import canada from "../../assets/images/canada.png";
-import australia from "../../assets/images/australia.png";
 import chinaFlag from "../../assets/images/china-flag.png";
 import nigeriaFlag from "../../assets/images/nigeria-flag.png";
-
-// Import the background image directly
-import bgIllustration from "../../assets/images/bg_illustration.png";
 
 // features
 import people from "../../assets/images/people_image.png";
@@ -29,34 +23,6 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Landing() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
-
-  const handleStartNow = () => {
-    navigate("/login");
-  };
-
-  // Animation variants
-  const heroTextVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const heroChildVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
 
   const cardVariants = {
     offscreen: {
@@ -70,19 +36,6 @@ export default function Landing() {
         type: "spring",
         bounce: 0.4,
         duration: 0.8,
-      },
-    },
-  };
-
-  const floatingCountryVariants = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 125,
-        delay: 0.5,
       },
     },
   };
@@ -113,24 +66,6 @@ export default function Landing() {
   return (
     <MainLayout>
       <div className="flex flex-col items-center justify-center bg-[#F5F5F7] min-w-[320px]">
-        {/* Apply inline background style as a fallback along with the class */}
-        {/*<div
-          className="hero-bg min-h-[70vh] w-full flex items-center justify-center"
-          style={{
-            backgroundImage: `url(${bgIllustration})`,
-            backgroundSize: "75%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >*/}
-        {/* <div className="md:w-[70%] md:mt-10">
-            <DotLottieReact
-              src="lottie.json"
-              loop={false}
-              autoplay
-              className=""
-            />
-          </div> */}
         <div className="hero-bg min-h-[40vh] md:min-h-[100vh] w-full flex items-center justify-center">
           <div className="md:w-[100%]">
             <DotLottieReact
@@ -140,88 +75,6 @@ export default function Landing() {
               quality="low"
             />
           </div>
-          {/* <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={heroTextVariants}
-            className="flex flex-col items-center justify-center max-w-[95%] sm:max-w-[600px] md:min-w-[900px] text-black relative px-4 sm:px-0"
-          >
-            <motion.h1
-              variants={heroChildVariants}
-              className="text-3xl sm:text-4xl text-center md:text-5xl max-w-[95%] sm:max-w-[90%] md:max-w-[600px] lg:text-7xl font-semibold"
-            >
-              {t("landingPage.showcase.title")}
-            </motion.h1>
-            <motion.p
-              variants={heroChildVariants}
-              className="text-center my-6 sm:my-8 text-sm sm:text-md max-w-full sm:max-w-[600px] px-3 sm:px-10 line-clamp-2"
-            >
-              {t("landingPage.showcase.para")}
-            </motion.p>
-            <motion.button
-              variants={heroChildVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#fca311] text-black py-2 px-6 sm:px-8 rounded-xl text-base sm:text-lg font-medium"
-              onClick={handleStartNow}
-            >
-              {t("landingPage.showcase.buttonText")}
-            </motion.button>
-
-            {/* Floating Country Flags */}
-          {/* <motion.div
-              variants={floatingCountryVariants}
-              initial="initial"
-              animate="animate"
-              className="absolute bg-white rounded-3xl hidden md:flex items-center justify-start p-2 pr-3 shadow-md space-x-2 top-10 left-0"
-            >
-              <img
-                src={canada}
-                className="w-7 h-7 rounded-full object-cover"
-                alt="Canada flag"
-              />
-              <span>Canada</span>
-            </motion.div>
-            <motion.div
-              variants={floatingCountryVariants}
-              initial="initial"
-              animate="animate"
-              className="absolute bg-white rounded-3xl hidden md:flex items-center justify-start p-2 pr-3 shadow-md  space-x-2 top-[-15px] right-0"
-            >
-              <img
-                src="https://cdn.britannica.com/97/897-050-0BFECDA5/Flag-Germany.jpg"
-                className="w-7 h-7 rounded-full"
-                alt="logo"
-              />
-              <span>Germany</span>
-            </motion.div>
-            <motion.div
-              variants={floatingCountryVariants}
-              initial="initial"
-              animate="animate"
-              className="absolute bg-white rounded-3xl hidden md:flex items-center justify-start p-2 pr-3 shadow-md  space-x-2 bottom-0 left-14"
-            >
-              <img
-                src="https://cdn.britannica.com/82/682-004-F0B47FCB/Flag-France.jpg"
-                className="w-7 h-7 rounded-full"
-                alt="logo"
-              />
-              <span>France</span>
-            </motion.div>
-            <motion.div
-              variants={floatingCountryVariants}
-              initial="initial"
-              animate="animate"
-              className="absolute bg-white rounded-3xl hidden md:flex items-center justify-start p-2 pr-3 shadow-md space-x-2 bottom-0 right-14"
-            >
-              <img
-                src={australia}
-                className="w-8 h-8 rounded-full object-cover"
-                alt="Australia flag"
-              />
-              <span>Australia</span>
-            </motion.div> */}
-          {/* </motion.div> */}
         </div>
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
@@ -286,6 +139,7 @@ export default function Landing() {
             ? shuffledCountries.map((country, index) => (
                 <motion.div key={index} variants={cardVariants} custom={index}>
                   <CountriesCard
+                    slug={country.countrySlug}
                     image={
                       country.countryImages[0] ??
                       "/images/images/swizerland.png"
@@ -332,6 +186,7 @@ export default function Landing() {
                 <motion.div key={index} variants={cardVariants} custom={index}>
                   <CountriesCard
                     image={country.image}
+                    slug={country.countrySlug}
                     location={country.location}
                     countryFlag={country.flag}
                   />

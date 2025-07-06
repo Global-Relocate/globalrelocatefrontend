@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoArrowBack } from "react-icons/io5";
@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import MainLayout from "@/components/layouts/MainLayout";
 import { useTranslation } from "react-i18next";
 import DashNav from "@/components/navigation/DashNav";
+import { AuthContext } from "@/context/AuthContextExport";
 
 // Loading component
 const LoadingScreen = () => (
@@ -25,6 +26,15 @@ const Upgrade = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const { user } = useContext(AuthContext);
+
+  // Redirect to login if user is not authenticated
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
 
   const handleBack = () => {
     navigate(-1);

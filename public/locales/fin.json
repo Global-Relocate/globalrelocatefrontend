@@ -439,7 +439,14 @@
       "taxSummary": "Veroyhteenveto",
       "taxAmount": "Veron määrä",
       "effectiveRate": "Todellinen veroaste",
-      "takeHomeAmount": "Käteen jäävä summa"
+      "takeHomeAmount": "Käteen jäävä summa",
+      "disclaimer": "Tämän verolaskurin antamat tiedot on tarkoitettu vain yleisiin tiedotustarkoituksiin, eikä niitä tule käyttää vero-, oikeudellisiin tai kirjanpitotarkoituksiin. Laskuri ei myöskään ota huomioon erityisiä olosuhteitasi (henkilökohtaiset vähennykset jne.), jotka voivat vaikuttaa nettotulon määrään.",
+      "noTaxClasses": "Veroluokkia ei ole saatavilla",
+      "usageGuide": "Käyttöopas",
+      "usageGuide1": "Syötä bruttovuositulosi tai -palkkasi.",
+      "usageGuide2": "Valitse maasi. Oletusarvoisesti tulosvaluutta on asetettu maan viralliseen valuuttaan.",
+      "usageGuide3": "Jos sinua pyydetään, valitse veroluokkasi pudotusvalikosta.",
+      "usageGuide4": "Napsauta sitten Laske vero -painiketta saadaksesi arvioidun veron maan virallisen verokannan mukaan."
     },
     "upgradePage": {
       "back": "Takaisin",

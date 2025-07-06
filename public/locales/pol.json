@@ -439,7 +439,14 @@
       "taxSummary": "Podsumowanie podatkowe",
       "taxAmount": "Kwota podatku",
       "effectiveRate": "Efektywna stawka",
-      "takeHomeAmount": "Kwota do wypłaty"
+      "takeHomeAmount": "Kwota do wypłaty",
+      "disclaimer": "Informacje podane przez ten kalkulator podatkowy służą wyłącznie celom informacyjnym i nie powinny być wykorzystywane do celów podatkowych, prawnych ani księgowych. Kalkulator nie uwzględnia również Twojej konkretnej sytuacji (ulgi osobiste, odliczenia itp.), które mogą wpływać na kwotę dochodu netto.",
+      "noTaxClasses": "Brak dostępnych klas podatkowych",
+      "usageGuide": "Przewodnik użytkowania",
+      "usageGuide1": "Wprowadź swoje roczne wynagrodzenie brutto lub dochód.",
+      "usageGuide2": "Wybierz swój kraj. Domyślnie waluta wyjściowa jest ustawiona na oficjalną walutę kraju.",
+      "usageGuide3": "Jeśli zostaniesz o to poproszony, wybierz swoją klasę podatkową z rozwijanej listy.",
+      "usageGuide4": "Następnie kliknij przycisk Oblicz podatek, aby uzyskać szacunkowy podatek zgodnie z oficjalną stawką kraju."
     },
     "upgradePage": {
       "back": "Wstecz",

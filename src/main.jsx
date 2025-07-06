@@ -48,7 +48,6 @@ toast.error = (message, options) => {
       message.includes("Unauthorized") ||
       message.includes("token"))
   ) {
-    console.log("Suppressing error toast on public route:", message);
     return null;
   }
 

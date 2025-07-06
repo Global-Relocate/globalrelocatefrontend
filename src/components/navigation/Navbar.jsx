@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { BellIcon } from "lucide-react";
 import { useNotifications } from "@/context/NotificationsContext";
+import { getUserProfile } from "@/services/api";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -25,6 +26,7 @@ const Navbar = () => {
   const location = useLocation();
   const { unreadCount } = useNotifications();
   const { isAuthenticated, logout, user } = useContext(AuthContext);
+  const [profilePic, setProfilePic] = useState(null);
   const displayName = user?.username || user?.name || "User";
   const drawerRef = useRef(null);
 
@@ -116,6 +118,21 @@ const Navbar = () => {
     </ul>
   );
 
+  useEffect(() => {
+    const fetchProfilePic = async () => {
+      try {
+        const response = await getUserProfile();
+        if (response.success && response.data?.profilePic) {
+          setProfilePic(response.data.profilePic);
+        }
+      } catch (error) {
+        console.error("Error fetching profile picture:", error);
+      }
+    };
+
+    fetchProfilePic();
+  }, []);
+
   NavLinks.propTypes = {
     mobile: PropTypes.bool,
     onClick: PropTypes.func,
@@ -136,7 +153,19 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center flex-1 justify-center">
-              <NavLinks />
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={`transition-colors duration-200 px-4 ${
+                    location.pathname === link.href
+                      ? "text-black"
+                      : "text-[#404040] hover:text-black"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
 
             {/* Desktop Right Section */}
@@ -145,8 +174,16 @@ const Navbar = () => {
                 <>
                   <DropdownMenu>
                     <DropdownMenuTrigger className="flex items-center justify-start space-x-1 p-2 rounded-3xl cursor-pointer hover:bg-gray-100 outline-none">
-                      <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-[#8F8F8F]">
-                        <LuUserRound className="h-4 w-4" />
+                      <div className="flex text-white items-center justify-center h-7 w-7 rounded-full bg-[#8F8F8F] mr-1">
+                        {profilePic ? (
+                          <img
+                            src={profilePic}
+                            alt="Profile"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <LuUserRound className="h-4 w-4" />
+                        )}
                       </div>
                       <span className="text-xs">{displayName}</span>
                       <IoChevronDownOutline className="text-gray-400" />
@@ -187,7 +224,7 @@ const Navbar = () => {
                     className="hidden sm:flex items-center space-x-2 text-[#404040] hover:text-black transition-colors duration-200"
                   >
                     <LogOut className="h-5 w-5" />
-                    <span>{t("Logout")}</span>
+                    <span>{t("landingPage.navbar.logout")}</span>
                   </button>
                 </>
               ) : (
@@ -287,7 +324,7 @@ const Navbar = () => {
                   className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl text-gray-700 border border-gray-300 hover:bg-gray-100 transition-colors duration-200"
                 >
                   <LogOut className="h-5 w-5" />
-                  <span>{t("Logout")}</span>
+                  <span>{t("landingPage.navbar.logout")}</span>
                 </button>
               ) : (
                 <div className="space-y-4">

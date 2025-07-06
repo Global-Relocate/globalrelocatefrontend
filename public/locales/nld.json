@@ -439,7 +439,14 @@
       "taxSummary": "Belastingoverzicht",
       "taxAmount": "Belastingbedrag",
       "effectiveRate": "Effectief tarief",
-      "takeHomeAmount": "Nettobedrag"
+      "takeHomeAmount": "Nettobedrag",
+      "disclaimer": "De informatie die door deze belastingcalculator wordt verstrekt, is uitsluitend bedoeld voor algemene informatieve doeleinden en mag niet worden gebruikt voor belasting-, juridische of boekhoudkundige doeleinden. De calculator houdt ook geen rekening met uw specifieke omstandigheden (persoonlijke toeslagen, aftrekposten, enz.), die van invloed kunnen zijn op het nettobedrag.",
+      "noTaxClasses": "Geen belastingklassen beschikbaar",
+      "usageGuide": "Gebruikershandleiding",
+      "usageGuide1": "Voer uw bruto jaarsalaris of -inkomen in.",
+      "usageGuide2": "Selecteer uw land. Standaard is de uitvoervaluta ingesteld op de officiële valuta van het land.",
+      "usageGuide3": "Selecteer, indien gevraagd, uw belastingklasse in de vervolgkeuzelijst.",
+      "usageGuide4": "Klik vervolgens op de knop Belasting berekenen om de geschatte belasting te krijgen volgens het officiële tarief van het land."
     },
     "upgradePage": {
       "back": "Terug",

@@ -439,7 +439,14 @@
       "taxSummary": "Resumen de Impuestos",
       "taxAmount": "Monto del impuesto",
       "effectiveRate": "Tasa efectiva",
-      "takeHomeAmount": "Monto neto"
+      "takeHomeAmount": "Monto neto",
+      "disclaimer": "La información proporcionada por esta calculadora de impuestos es solo para fines informativos generales y no debe utilizarse para fines fiscales, legales o contables. La calculadora tampoco tiene en cuenta tus circunstancias específicas (asignaciones personales, deducciones, etc.), lo que puede afectar el monto del ingreso neto.",
+      "noTaxClasses": "No hay clases de impuestos disponibles",
+      "usageGuide": "Guía de Uso",
+      "usageGuide1": "Ingresa tu salario o ingreso anual bruto.",
+      "usageGuide2": "Selecciona tu país. Por defecto, la moneda de salida está configurada a la moneda oficial del país.",
+      "usageGuide3": "Si se te solicita, selecciona tu clase de impuestos del menú desplegable.",
+      "usageGuide4": "Luego haz clic en el botón Calcular Impuesto para obtener el impuesto estimado de acuerdo con la tasa oficial del país."
     },
     "upgradePage": {
       "back": "Atrás",

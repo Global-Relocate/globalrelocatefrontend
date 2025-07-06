@@ -1,7 +1,7 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import { CountryDropdown } from "@/components/ui/country-dropdown";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Select,
   SelectContent,
@@ -16,20 +16,20 @@ import axios from "axios";
 // Icons
 import { PiGlobeHemisphereWestLight } from "react-icons/pi";
 import { PiMoneyLight } from "react-icons/pi";
-import { FiMinusCircle } from "react-icons/fi";
 import { PiUsers } from "react-icons/pi";
-import { countryCurrencyCodes, countryTaxRates } from "@/seed/currency";
+import { countryCurrencyCodes } from "@/seed/currency";
+import { taxData } from "@/data/tax-data";
 import { useTranslation } from "react-i18next";
 
 function TaxCalculator() {
   const [formData, setFormData] = useState({
     country: "",
     annualIncome: "",
-    familyStatus: "",
-    totalDeductions: "",
+    taxClass: "",
   });
 
   const [taxSummary, setTaxSummary] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
 
   const handleInputChange = (field, value) => {
@@ -42,56 +42,86 @@ function TaxCalculator() {
   };
 
   const isFormValid = () => {
-    return (
-      formData.country &&
-      formData.annualIncome &&
-      formData.familyStatus &&
-      formData.totalDeductions
-    );
+    return formData.country && formData.annualIncome && formData.taxClass;
   };
 
+  const currentCountryData = taxData.find(
+    (data) => data.country === formData.country
+  );
+  const availableTaxClasses = currentCountryData
+    ? currentCountryData.taxClasses
+    : [];
+
+  useEffect(() => {
+    // Set default tax class when country changes
+    if (availableTaxClasses.length > 0) {
+      setFormData((prev) => ({
+        ...prev,
+        taxClass: availableTaxClasses[0].name,
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        taxClass: "",
+      }));
+    }
+    setTaxSummary(null); // Reset calculation on country change
+  }, [formData.country, availableTaxClasses.length]);
+
   const calculateTax = async () => {
+    setLoading(true);
+
     const country = formData.country;
     const currency = countryCurrencyCodes[country];
+    const accountType = formData.taxClass;
+    const taxClass = availableTaxClasses.find((tc) => tc.name === accountType);
     const income = parseFloat(formData.annualIncome);
-    const deductions = parseFloat(formData.totalDeductions);
-    const taxableIncome = income - deductions;
-    const accountType = formData.familyStatus;
-    const vat = countryTaxRates[formData.country].vat;
-    const corporate = countryTaxRates[country].corporate;
 
-    const taxAmount =
-      accountType === "individual"
-        ? (taxableIncome * vat) / 100
-        : (taxableIncome * corporate) / 100;
-    const effectiveRate =
-      accountType === "individual"
-        ? `${countryTaxRates[country].vat}`
-        : `${countryTaxRates[country].corporate}`;
+    let taxableIncome = income;
+    if (taxClass.deductions) {
+      taxableIncome = Math.max(0, income - taxClass.deductions);
+    }
 
-    const takeHomeAmount = income - taxAmount;
+    let totalTax = 0;
+    let effectiveRate = 0;
+    for (const bracket of taxClass.brackets) {
+      if (taxableIncome > bracket.min) {
+        const applicableAmountInBracket =
+          bracket.max === null || taxableIncome < bracket.max
+            ? taxableIncome - bracket.min
+            : bracket.max - bracket.min;
+        totalTax += applicableAmountInBracket * bracket.rate;
+        effectiveRate += bracket.rate;
+      } else {
+        // If income is below the current bracket's min, no more tax applies from higher brackets
+        break;
+      }
+    }
+
+    const takeHomeAmount = income - totalTax;
     const lowerCurrency = currency.toLowerCase();
 
     const response = await axios.get(
-      `https://latest.currency-api.pages.dev/v1/currencies/${lowerCurrency}.json`
+      `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${lowerCurrency}.json`
     );
 
     const exchangeRate = parseFloat(`${response.data[lowerCurrency].usd}`);
 
     setTaxSummary({
-      country,
       currency,
-      taxAmount,
-      effectiveRate,
+      taxAmount: totalTax,
+      effectiveRate: effectiveRate.toFixed(2),
       exchangeRate,
       takeHomeAmount,
     });
+
+    setLoading(false);
   };
 
   return (
     <DashboardLayout>
-      <div className="p-6">
-        <div className="overflow-hidden rounded-2xl mb-16">
+      <div className="flex flex-col lg:flex-row gap-y-6 gap-x-8 px-4">
+        <div className="overflow-hidden rounded-2xl mb-16 w-full">
           {/* Header Section - Purple background */}
           <div className="bg-[#5762D5] text-white px-6 py-8">
             <h2 className="text-3xl font-medium">
@@ -129,6 +159,7 @@ function TaxCalculator() {
                 </label>
                 <Input
                   type="number"
+                  min="15000"
                   placeholder={t(`userDashboard.tax.enterIncome`)}
                   value={formData.annualIncome}
                   onChange={(e) =>
@@ -140,15 +171,15 @@ function TaxCalculator() {
               </div>
 
               {/* Account Type */}
-              <div className="space-y-2">
+              <div className="space-y-2 col-span-full">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <PiUsers className="text-lg" />
                   {t(`userDashboard.tax.taxClass`)}
                 </label>
                 <Select
-                  value={formData.familyStatus}
+                  value={formData.taxClass}
                   onValueChange={(value) =>
-                    handleInputChange("familyStatus", value)
+                    handleInputChange("taxClass", value)
                   }
                 >
                   <SelectTrigger className="h-12 bg-white text-sm border-gray-300 focus:ring-gray-300">
@@ -156,45 +187,36 @@ function TaxCalculator() {
                       placeholder={t(`userDashboard.tax.selectAccount`)}
                     />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="individual" className="text-sm">
-                      {t(`userDashboard.tax.individual`)}
-                    </SelectItem>
-                    <SelectItem value="corporate" className="text-sm">
-                      {t(`userDashboard.tax.corporate`)}
-                    </SelectItem>
+                  <SelectContent onValueChange={calculateTax}>
+                    {availableTaxClasses.length > 0 ? (
+                      availableTaxClasses.map((tc) => (
+                        <SelectItem key={tc.name} value={tc.name}>
+                          {tc.name}
+                        </SelectItem>
+                      ))
+                    ) : (
+                      <SelectItem value="null">
+                        {t("userDashboard.tax.noTaxClasses")}
+                      </SelectItem>
+                    )}
                   </SelectContent>
                 </Select>
-              </div>
-
-              {/* Total Deductions */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium flex items-center gap-2">
-                  <FiMinusCircle className="text-lg" />
-                  {t(`userDashboard.tax.totalDeductions`)}
-                </label>
-                <Input
-                  type="number"
-                  placeholder={t(`userDashboard.tax.enterDeductions`)}
-                  value={formData.totalDeductions}
-                  onChange={(e) =>
-                    handleInputChange("totalDeductions", e.target.value)
-                  }
-                  className="h-12 bg-white text-sm placeholder:text-gray-400"
-                  borderColor="gray-300"
-                />
               </div>
             </div>
 
             {/* Calculate Button */}
-            <div className="flex justify-end">
+            <div className="flex w-full">
               <Button
                 disabled={!isFormValid()}
                 onClick={calculateTax}
-                className="w-full sm:w-auto px-8 bg-black hover:bg-black/90 text-white rounded-lg"
+                className="w-full flex-1 sm:w-auto px-8 bg-black hover:bg-black/90 text-white rounded-lg"
                 size="lg"
               >
-                {t(`userDashboard.tax.calculateTax`)}
+                {loading ? (
+                  <i className="fas fa-spinner-third fa-spin text-lg" />
+                ) : (
+                  t(`userDashboard.tax.calculateTax`)
+                )}
               </Button>
             </div>
 
@@ -204,6 +226,21 @@ function TaxCalculator() {
                 <TaxSummary {...taxSummary} />
               </div>
             )}
+          </div>
+        </div>
+
+        <div className="w-full order-first lg:w-5/12 lg:order-last">
+          <h3 className="text-xl">
+            <i className="far fa-info-circle mr-1" />{" "}
+            {t(`userDashboard.tax.usageGuide`)}
+          </h3>
+          <div className="text-sm text-gray-600 mt-4">
+            <ul className="list-disc [&>li]:mt-2">
+              <li>{t("userDashboard.tax.usageGuide1")}</li>
+              <li>{t("userDashboard.tax.usageGuide2")}</li>
+              <li>{t("userDashboard.tax.usageGuide3")}</li>
+              <li>{t("userDashboard.tax.usageGuide4")}</li>
+            </ul>
           </div>
         </div>
       </div>

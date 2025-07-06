@@ -439,7 +439,14 @@
       "taxSummary": "Ringkasan Cukai",
       "taxAmount": "Jumlah cukai",
       "effectiveRate": "Kadar efektif",
-      "takeHomeAmount": "Jumlah bawa pulang"
+      "takeHomeAmount": "Jumlah bawa pulang",
+      "disclaimer": "Maklumat yang disediakan oleh kalkulator cukai ini adalah untuk tujuan maklumat am sahaja dan tidak boleh digunakan untuk tujuan cukai, undang-undang atau perakaunan. Kalkulator ini juga tidak mengambil kira keadaan khusus anda (elaun peribadi, potongan, dan sebagainya), yang boleh mempengaruhi jumlah pendapatan bersih.",
+      "noTaxClasses": "Tiada kelas cukai tersedia",
+      "usageGuide": "Panduan Penggunaan",
+      "usageGuide1": "Masukkan gaji atau pendapatan tahunan kasar anda.",
+      "usageGuide2": "Pilih negara anda. Secara lalai, mata wang output ditetapkan kepada mata wang rasmi negara tersebut.",
+      "usageGuide3": "Jika digesa, pilih kelas cukai anda daripada menu lungsur turun.",
+      "usageGuide4": "Kemudian klik pada butang Kira Cukai untuk mendapatkan anggaran cukai mengikut kadar rasmi negara tersebut."
     },
     "upgradePage": {
       "back": "Kembali",

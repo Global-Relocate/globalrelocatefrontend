@@ -423,7 +423,7 @@
     },
     "tax": {
       "taxCalculator": "Daňová kalkulačka",
-      "taxCacluatorDesc": "Vypočítejte svou odhadovanou daňovou zátěž napříč různými zeměmi",
+      "taxCacluatorDesc": "Vypočítejte svou odhadovanou daňovou zátěž v různých zemích",
       "country": "Země",
       "annualIncome": "Roční příjem",
       "userAccount": "Uživatelský účet",
@@ -439,7 +439,14 @@
       "taxSummary": "Daňový přehled",
       "taxAmount": "Částka daně",
       "effectiveRate": "Efektivní sazba",
-      "takeHomeAmount": "Částka k dispozici"
+      "takeHomeAmount": "Částka k dispozici",
+      "disclaimer": "Informace poskytované touto daňovou kalkulačkou jsou pouze pro obecné informační účely a neměly by být používány pro daňové, právní nebo účetní účely. Kalkulačka také nebere v úvahu vaše specifické okolnosti (osobní slevy, odpočty atd.), které mohou ovlivnit výši čistého příjmu.",
+      "noTaxClasses": "Nejsou k dispozici žádné daňové třídy",
+      "usageGuide": "Návod k použití",
+      "usageGuide1": "Zadejte svůj hrubý roční plat nebo příjem.",
+      "usageGuide2": "Vyberte svou zemi. Výchozí měna výstupu je nastavena na oficiální měnu země.",
+      "usageGuide3": "Pokud budete vyzváni, vyberte svou daňovou třídu z rozbalovací nabídky.",
+      "usageGuide4": "Poté klikněte na tlačítko Vypočítat daň pro získání odhadované daně podle oficiální sazby země."
     },
     "upgradePage": {
       "back": "Zpět",

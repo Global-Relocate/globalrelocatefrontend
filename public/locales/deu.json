@@ -439,7 +439,14 @@
       "taxSummary": "Steuerübersicht",
       "taxAmount": "Steuerbetrag",
       "effectiveRate": "Effektiver Satz",
-      "takeHomeAmount": "Nettobetrag"
+      "takeHomeAmount": "Nettobetrag",
+      "disclaimer": "Die von diesem Steuerrechner bereitgestellten Informationen dienen nur allgemeinen Informationszwecken und sollten nicht für Steuer-, Rechts- oder Buchhaltungszwecke verwendet werden. Der Rechner berücksichtigt auch nicht Ihre spezifischen Umstände (persönliche Freibeträge, Abzüge usw.), die sich auf den Nettobetrag auswirken können.",
+      "noTaxClasses": "Keine Steuerklassen verfügbar",
+      "usageGuide": "Benutzerhandbuch",
+      "usageGuide1": "Geben Sie Ihr Bruttojahresgehalt oder -einkommen ein.",
+      "usageGuide2": "Wählen Sie Ihr Land aus. Standardmäßig ist die Ausgabewährung auf die offizielle Währung des Landes eingestellt.",
+      "usageGuide3": "Wählen Sie gegebenenfalls Ihre Steuerklasse aus dem Dropdown-Menü aus.",
+      "usageGuide4": "Klicken Sie dann auf die Schaltfläche 'Steuer berechnen', um die geschätzte Steuer gemäß dem offiziellen Satz des Landes zu erhalten."
     },
     "upgradePage": {
       "back": "Zurück",

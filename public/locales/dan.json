@@ -439,7 +439,14 @@
       "taxSummary": "Skatteoversigt",
       "taxAmount": "Skattebeløb",
       "effectiveRate": "Effektiv sats",
-      "takeHomeAmount": "Beløb til udbetaling"
+      "takeHomeAmount": "Beløb til udbetaling",
+      "disclaimer": "Oplysningerne fra denne skatteberegner er kun til generelle informationsformål og bør ikke bruges til skattemæssige, juridiske eller regnskabsmæssige formål. Beregneren tager heller ikke højde for dine specifikke forhold (personlige tillæg, fradrag osv.), som kan påvirke nettoindkomstbeløbet.",
+      "noTaxClasses": "Ingen tilgængelige skatteklasser",
+      "usageGuide": "Brugervejledning",
+      "usageGuide1": "Indtast din årlige bruttoløn eller indkomst.",
+      "usageGuide2": "Vælg dit land. Standardvalutaen er landets officielle valuta.",
+      "usageGuide3": "Hvis du bliver bedt om det, skal du vælge din skatteklasse fra rullemenuen.",
+      "usageGuide4": "Klik derefter på knappen Beregn skat for at få den anslåede skat i henhold til landets officielle sats."
     },
     "upgradePage": {
       "back": "Tilbage",

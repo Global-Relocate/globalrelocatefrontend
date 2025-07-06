@@ -439,7 +439,14 @@
       "taxSummary": "Buod ng Buwis",
       "taxAmount": "Halaga ng buwis",
       "effectiveRate": "Epektibong rate",
-      "takeHomeAmount": "Halagang maiuuwi"
+      "takeHomeAmount": "Halagang maiuuwi",
+      "disclaimer": "Ang impormasyong ibinibigay ng calculator ng buwis na ito ay para sa pangkalahatang layunin ng impormasyon lamang at hindi dapat gamitin para sa mga layunin ng buwis, legal, o accounting. Hindi rin isinasaalang-alang ng calculator ang iyong mga partikular na kalagayan (mga personal na allowance, mga bawas, at iba pa), na maaaring makaapekto sa halaga ng netong kita.",
+      "noTaxClasses": "Walang available na mga klase ng buwis",
+      "usageGuide": "Gabay sa Paggamit",
+      "usageGuide1": "Ilagay ang iyong kabuuang taunang suweldo o kita.",
+      "usageGuide2": "Piliin ang iyong bansa. Bilang default, ang output na pera ay nakatakda sa opisyal na pera ng bansa.",
+      "usageGuide3": "Kung hihilingin, piliin ang iyong klase ng buwis mula sa drop-down.",
+      "usageGuide4": "Pagkatapos ay i-click ang pindutan ng Kalkulahin ang Buwis upang makuha ang tinantyang buwis ayon sa opisyal na rate ng bansa."
     },
     "upgradePage": {
       "back": "Bumalik",

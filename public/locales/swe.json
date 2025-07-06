@@ -439,7 +439,14 @@
       "taxSummary": "Skatteöversikt",
       "taxAmount": "Skattebelopp",
       "effectiveRate": "Effektiv skattesats",
-      "takeHomeAmount": "Belopp att ta hem"
+      "takeHomeAmount": "Belopp att ta hem",
+      "disclaimer": "Informationen som tillhandahålls av denna skattekalkylator är endast avsedd för allmänna informationsändamål och bör inte användas för skatte-, juridiska eller redovisningsändamål. Kalkylatorn tar inte heller hänsyn till dina specifika omständigheter (personliga avdrag och så vidare), vilket kan påverka nettoinkomstbeloppet.",
+      "noTaxClasses": "Inga skatteklasser tillgängliga",
+      "usageGuide": "Användarhandbok",
+      "usageGuide1": "Ange din årliga bruttolön eller inkomst.",
+      "usageGuide2": "Välj ditt land. Som standard är utgångsvalutan inställd på landets officiella valuta.",
+      "usageGuide3": "Om du uppmanas, välj din skatteklass från rullgardinsmenyn.",
+      "usageGuide4": "Klicka sedan på knappen Beräkna skatt för att få den uppskattade skatten enligt landets officiella skattesats."
     },
     "upgradePage": {
       "back": "Tillbaka",

@@ -439,7 +439,14 @@
       "taxSummary": "Resumo do Imposto",
       "taxAmount": "Valor do imposto",
       "effectiveRate": "Taxa efetiva",
-      "takeHomeAmount": "Valor líquido"
+      "takeHomeAmount": "Valor líquido",
+      "disclaimer": "As informações fornecidas por esta calculadora de impostos são apenas para fins informativos gerais e não devem ser usadas para fins fiscais, legais ou contabilísticos. A calculadora também não leva em consideração as suas circunstâncias específicas (subsídios pessoais, deduções, etc.), o que pode afetar o valor do rendimento líquido.",
+      "noTaxClasses": "Nenhuma classe de imposto disponível",
+      "usageGuide": "Guia de Utilização",
+      "usageGuide1": "Introduza o seu salário ou rendimento anual bruto.",
+      "usageGuide2": "Selecione o seu país. Por defeito, a moeda de saída é definida para a moeda oficial do país.",
+      "usageGuide3": "Se solicitado, selecione a sua classe de imposto no menu suspenso.",
+      "usageGuide4": "Em seguida, clique no botão Calcular Imposto para obter o imposto estimado de acordo com a taxa oficial do país."
     },
     "upgradePage": {
       "back": "Voltar",

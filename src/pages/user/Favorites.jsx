@@ -1,13 +1,13 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import { useEffect, useState } from "react";
 import { GrFavorite } from "react-icons/gr";
-// import { useFavorites } from "@/context/favorites-context";
 import CountriesDashCard from "@/components/cards/CountriesDashCard";
 import SearchInput from "@/components/inputs/SearchInput";
 import { useCountryData } from "@/context/CountryDataContext";
 import nigeria from "../../assets/images/nigeria.png";
 import swizerland from "../../assets/images/swizerland.png";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 function Favorites() {
   const [error, setError] = useState(null);
@@ -15,8 +15,7 @@ function Favorites() {
 
   const { favourites } = useCountryData();
   const { t } = useTranslation();
-
-  // const { toggleFavorite } = useFavorites(); // uncomment if needed
+  const navigate = useNavigate();
 
   const filteredFavorites =
     favourites?.filter((country) =>
@@ -65,13 +64,16 @@ function Favorites() {
               id={country.countryId}
               location={country.countryName}
               isLiked={country.isLiked}
-              // onLikeToggle={() => toggleFavorite(item)}
               onClick={() =>
-                navigate(`/user/countries/${country.countryId}`, {
+                navigate(`/user/countries/${country.countrySlug}`, {
                   state: country.countryFlag,
-                })``
+                })
               }
-              images={[swizerland, nigeria, swizerland, nigeria]}
+              images={
+                country.countryImages && country.countryImages.length > 0
+                  ? country.countryImages
+                  : [swizerland, nigeria, swizerland, nigeria]
+              }
               countryFlag={country.countryFlag}
             />
           ))}

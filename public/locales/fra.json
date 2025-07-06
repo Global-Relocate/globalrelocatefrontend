@@ -439,7 +439,14 @@
       "taxSummary": "Résumé fiscal",
       "taxAmount": "Montant de l'impôt",
       "effectiveRate": "Taux effectif",
-      "takeHomeAmount": "Montant net"
+      "takeHomeAmount": "Montant net",
+      "disclaimer": "Les informations fournies par ce calculateur d'impôts sont uniquement à des fins d'information générale et ne doivent pas être utilisées à des fins fiscales, juridiques ou comptables. Le calculateur ne prend pas non plus en compte votre situation spécifique (abattements personnels, déductions, etc.), ce qui peut affecter le montant du revenu net.",
+      "noTaxClasses": "Aucune classe d'imposition disponible",
+      "usageGuide": "Guide d'utilisation",
+      "usageGuide1": "Entrez votre salaire ou revenu annuel brut.",
+      "usageGuide2": "Sélectionnez votre pays. Par défaut, la devise de sortie est définie sur la devise officielle du pays.",
+      "usageGuide3": "Si vous y êtes invité, sélectionnez votre classe d'imposition dans le menu déroulant.",
+      "usageGuide4": "Cliquez ensuite sur le bouton Calculer l'impôt pour obtenir l'impôt estimé selon le taux officiel du pays."
     },
     "upgradePage": {
       "back": "Retour",

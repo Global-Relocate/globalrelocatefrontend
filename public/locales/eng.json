@@ -439,7 +439,14 @@
       "taxSummary": "Tax Summary",
       "taxAmount": "Tax amount",
       "effectiveRate": "Effective rate",
-      "takeHomeAmount": "Take home amount"
+      "takeHomeAmount": "Take home amount",
+      "disclaimer": "The information provided by this tax calculator is for general informational purposes only and should not be used for tax, legal, or accounting purposes. The calculator also does not take into account your specific circumstances (personal allowances, deductions, and so on), which may affect the net income amount.",
+      "noTaxClasses": "No tax classes available",
+      "usageGuide": "Usage Guide",
+      "usageGuide1": "Enter your gross annual salary or income.",
+      "usageGuide2": "Select your country. By default, the output currency is set to the country's official currency.",
+      "usageGuide3": "If prompted, select your tax class from the drop-down.",
+      "usageGuide4": "Then click on Calculate Tax button to get the estimated tax according to the country's official rate."
     },
     "upgradePage": {
       "back": "Back",

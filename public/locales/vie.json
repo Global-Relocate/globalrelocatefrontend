@@ -439,7 +439,14 @@
       "taxSummary": "Tóm tắt thuế",
       "taxAmount": "Số tiền thuế",
       "effectiveRate": "Tỷ lệ hiệu quả",
-      "takeHomeAmount": "Số tiền mang về"
+      "takeHomeAmount": "Số tiền mang về",
+      "disclaimer": "Thông tin được cung cấp bởi công cụ tính thuế này chỉ dành cho mục đích thông tin chung và không nên được sử dụng cho mục đích thuế, pháp lý hoặc kế toán. Công cụ này cũng không tính đến các trường hợp cụ thể của bạn (các khoản trợ cấp cá nhân, khấu trừ, v.v.), điều này có thể ảnh hưởng đến số tiền thu nhập ròng.",
+      "noTaxClasses": "Không có lớp thuế nào",
+      "usageGuide": "Hướng dẫn sử dụng",
+      "usageGuide1": "Nhập tổng thu nhập hoặc lương hàng năm của bạn.",
+      "usageGuide2": "Chọn quốc gia của bạn. Theo mặc định, đơn vị tiền tệ đầu ra được đặt thành đơn vị tiền tệ chính thức của quốc gia đó.",
+      "usageGuide3": "Nếu được nhắc, hãy chọn lớp thuế của bạn từ danh sách thả xuống.",
+      "usageGuide4": "Sau đó, nhấp vào nút Tính thuế để nhận được số thuế ước tính theo tỷ lệ chính thức của quốc gia."
     },
     "upgradePage": {
       "back": "Quay lại",
