@@ -62,6 +62,7 @@ function Favorites() {
             <CountriesDashCard
               key={country.countryId}
               id={country.countryId}
+              slug={country.countrySlug}
               location={country.countryName}
               isLiked={country.isLiked}
               onClick={() =>

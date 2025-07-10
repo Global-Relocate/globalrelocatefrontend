@@ -458,10 +458,93 @@ function CountryDetails() {
 
                       <div className="mt-4">
                         <h3 className="text-md font-semibold mb-3">
-                          {t("userDashboard.country.summary")}
+                          {t("userDashboard.country.mostExpensiveCity")}
                         </h3>
                         <p>
-                          {countryData.costOfLiving.summary ??
+                          {countryData.costOfLiving.mostExpensiveCity ??
+                            t("userDashboard.country.noDataAvailable")}
+                        </p>
+                      </div>
+
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.cheapestCity")}
+                        </h3>
+                        <p>
+                          {countryData.costOfLiving.cheapestCity ??
+                            t("userDashboard.country.noDataAvailable")}
+                        </p>
+                      </div>
+
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.mostExpensiveStates")}
+                        </h3>
+                        <p>
+                          {countryData.costOfLiving.mostExpensiveStates
+                            ? countryData.costOfLiving.mostExpensiveStates.map(
+                                (state, index) => (
+                                  <div key={state} className="my-2">
+                                    <h3 className="font-semibold">
+                                      {index + 1}.{" "}
+                                      <span className="ml-1">{state.name}</span>
+                                    </h3>
+                                    <p className="ml-[22px]">
+                                      - {state.details}
+                                    </p>
+                                  </div>
+                                )
+                              )
+                            : t("userDashboard.country.noDataAvailable")}
+                        </p>
+                      </div>
+
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.rentPerMonth")}
+                        </h3>
+                        <p>
+                          {countryData.costOfLiving.rentPerMonth ??
+                            t("userDashboard.country.noDataAvailable")}
+                        </p>
+                      </div>
+
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.howToFindApartment")}
+                        </h3>
+                        <p>
+                          {countryData.costOfLiving.howToFindApartment ??
+                            t("userDashboard.country.noDataAvailable")}
+                        </p>
+                      </div>
+
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.food")}
+                        </h3>
+                        <p>
+                          {countryData.costOfLiving.food ??
+                            t("userDashboard.country.noDataAvailable")}
+                        </p>
+                      </div>
+
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.mobilePhonePlan")}
+                        </h3>
+                        <p>
+                          {countryData.costOfLiving.mobilePhonePlan ??
+                            t("userDashboard.country.noDataAvailable")}
+                        </p>
+                      </div>
+
+                      <div className="mt-4">
+                        <h3 className="text-md font-semibold mb-3">
+                          {t("userDashboard.country.childCare")}
+                        </h3>
+                        <p>
+                          {countryData.costOfLiving.childCare ??
                             t("userDashboard.country.noDataAvailable")}
                         </p>
                       </div>
@@ -537,6 +620,100 @@ function CountryDetails() {
                           </p>
                         </div>
                       )}
+
+                      {countryData.visaAndImmigration?.visaTypes && (
+                        <div>
+                          <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
+                            <i className="far fa-passport"></i>{" "}
+                            {t("userDashboard.country.visaTypes")}
+                          </h3>
+                          <p>
+                            {countryData.visaAndImmigration.visaTypes.map(
+                              (visa, index) => (
+                                <div
+                                  key={index}
+                                  className="my-2 rounded-md border border-black p-3"
+                                >
+                                  <h3 className="font-semibold">
+                                    {index + 1}.{" "}
+                                    <span className="ml-1">{visa.name}</span>
+                                  </h3>
+                                  <p>{visa.description}</p>
+
+                                  <div className="flex flex-wrap items-center gap-x-5 mt-2">
+                                    <span>
+                                      <i className="far fa-calendar mr-1"></i>{" "}
+                                      {visa.duration}
+                                    </span>
+                                    <span>
+                                      <i className="far fa-money-bill-wave mr-2"></i>
+                                      {visa.priceRange}
+                                    </span>
+                                  </div>
+                                </div>
+                              )
+                            )}
+                          </p>
+                        </div>
+                      )}
+
+                      {countryData.visaAndImmigration?.visaRequirements && (
+                        <div>
+                          <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
+                            <i className="far fa-passport"></i>{" "}
+                            {t("userDashboard.country.visaRequirements")}
+                          </h3>
+
+                          <p>
+                            {countryData.visaAndImmigration.visaRequirements
+                              ? countryData.visaAndImmigration.visaRequirements.map(
+                                  (item, index) => (
+                                    <div key={item} className="my-2">
+                                      <h3 className="font-semibold">
+                                        {index + 1}.{" "}
+                                        <span className="ml-1">
+                                          {item.title}
+                                        </span>
+                                      </h3>
+                                      <p className="ml-[22px]">
+                                        {item.description}
+                                      </p>
+                                    </div>
+                                  )
+                                )
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+                      )}
+
+                      {countryData.visaAndImmigration?.applicationProcess && (
+                        <div>
+                          <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
+                            <i className="far fa-passport"></i>{" "}
+                            {t("userDashboard.country.visaApplication")}
+                          </h3>
+                          <p>
+                            {countryData.visaAndImmigration.applicationProcess
+                              ? countryData.visaAndImmigration.applicationProcess.map(
+                                  (item, index) => (
+                                    <div key={item} className="my-2">
+                                      <h3 className="font-semibold">
+                                        {index + 1}.{" "}
+                                        <span className="ml-1">
+                                          {item.title}
+                                        </span>
+                                      </h3>
+                                      <p className="ml-[22px]">
+                                        {item.description}
+                                      </p>
+                                    </div>
+                                  )
+                                )
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+                      )}
+
                       {countryData.visaAndImmigration?.shortStays && (
                         <div>
                           <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
@@ -553,6 +730,33 @@ function CountryDetails() {
                             {t("userDashboard.country.longStays")}
                           </h3>
                           <p>{countryData.visaAndImmigration.longStays}</p>
+                        </div>
+                      )}
+                      {countryData.visaAndImmigration?.obtainCitizenship && (
+                        <div>
+                          <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
+                            <i className="far fa-passport"></i>{" "}
+                            {t("userDashboard.country.obtainCitizenship")}
+                          </h3>
+                          <p>
+                            {countryData.visaAndImmigration.obtainCitizenship
+                              ? countryData.visaAndImmigration.obtainCitizenship.map(
+                                  (item, index) => (
+                                    <div key={item} className="my-2">
+                                      <h3 className="font-semibold">
+                                        {index + 1}.{" "}
+                                        <span className="ml-1">
+                                          {item.title}
+                                        </span>
+                                      </h3>
+                                      <p className="ml-[22px]">
+                                        {item.description}
+                                      </p>
+                                    </div>
+                                  )
+                                )
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
                         </div>
                       )}
                       {countryData.visaAndImmigration?.embassies && (

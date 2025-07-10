@@ -155,6 +155,12 @@
   }
 }
 
+@media (min-width: 640px) {
+  .footerCol:first-child {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 600px) {
   .footerCol:not(:first-child) {
     flex: 100%;

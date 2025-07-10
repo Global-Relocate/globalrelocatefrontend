@@ -32,7 +32,7 @@ export default function Footer() {
           <div className="footerMain">
             <div className="footerCol">
               <img src={logo} alt="logo" width={185} className="h-14" />
-              <div className="mt-auto flex flex-col space-y-3">
+              <div className="mt-6 flex flex-col space-y-3">
                 <div className="flex justify-between">
                   <a href="">
                     <i className="fab fa-telegram text-2xl hover:text-white"></i>
@@ -179,11 +179,11 @@ export default function Footer() {
           </div>
 
           {/* Newsletter Section */}
-          <div className="mt-8 w-full flex items-end justify-between flex-col md:flex-row">
+          <div className="mt-8 w-full flex items-center justify-between flex-col md:flex-row">
             {/* Payment Methods Section */}
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="mt-8 w-full flex justify-evenly space-x-4 md:mt-0 md:w-fit md:justify-between md:items-center cursor-pointer">
+                <div className="mt-8 w-full flex justify-evenly space-x-4 mb-8 md:mb-0 md:mt-0 md:w-fit md:justify-between md:items-center cursor-pointer">
                   <i className="fab fa-cc-visa text-2xl"></i>
                   <i className="fab fa-cc-discover text-2xl"></i>
                   <i className="fab fa-cc-mastercard text-2xl"></i>
