@@ -29,7 +29,7 @@ export default function Footer() {
     <div className="text-[#7E7E7E] w-full bg-black pt-[64px] pb-[8px] max-900:pt-[48px] max-900:pb-[8px] max-900:px-0 mt-8">
       <div className="max-w-[1440px] mx-auto px-[25px]">
         <div className="flex flex-col">
-          <div className="footerMain flex-wrap max-w-4xl">
+          <div className="footerMain flex-wrap">
             <div className="footerCol">
               <img src={logo} alt="logo" width={185} className="h-14" />
               <div className="mt-6 flex flex-col space-y-3">
