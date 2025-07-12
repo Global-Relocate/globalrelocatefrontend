@@ -68,7 +68,7 @@ function DashNav({ navState, setNavState }) {
   ];
 
   return (
-    <div className="flex justify-between items-center h-20 px-5 bg-white text-black w-full fixed z-50 top-0">
+    <div className="flex justify-between items-center h-20 pl-[34px] pr-5 bg-white text-black w-full fixed z-50 top-0">
       <div className="flex items-center justify-center gap-8 w-full">
         <div className="flex items-center">
           <div className="mr-2 block sm:hidden">
@@ -88,7 +88,7 @@ function DashNav({ navState, setNavState }) {
             <img
               src={logo}
               alt="Global relocate logo"
-              className="h-12 hidden sm:block ml-5"
+              className="h-12 hidden sm:block"
             />
           </Link>
         </div>

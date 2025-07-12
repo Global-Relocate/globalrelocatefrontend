@@ -29,7 +29,7 @@ export default function Footer() {
     <div className="text-[#7E7E7E] w-full bg-black pt-[64px] pb-[8px] max-900:pt-[48px] max-900:pb-[8px] max-900:px-0 mt-8">
       <div className="max-w-[1440px] mx-auto px-[25px]">
         <div className="flex flex-col">
-          <div className="footerMain">
+          <div className="footerMain flex-wrap max-w-4xl">
             <div className="footerCol">
               <img src={logo} alt="logo" width={185} className="h-14" />
               <div className="mt-6 flex flex-col space-y-3">
@@ -179,7 +179,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter Section */}
-          <div className="mt-8 w-full flex items-center justify-between flex-col md:flex-row">
+          <div className="mt-8 w-full flex items-center justify-between flex-col gap-y-6 lg:flex-row lg:gap-y-0">
             {/* Payment Methods Section */}
             <Tooltip>
               <TooltipTrigger asChild>

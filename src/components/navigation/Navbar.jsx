@@ -145,7 +145,7 @@ const Navbar = () => {
           isScrolled ? "bg-white/80 backdrop-blur-md" : "bg-transparent"
         }`}
       >
-        <nav className="px-6 lg:px-10 py-4">
+        <nav className="pl-[34px] pr-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center focus:outline-none">
               <img src={logo} alt="Global Relocate Logo" className="h-12" />

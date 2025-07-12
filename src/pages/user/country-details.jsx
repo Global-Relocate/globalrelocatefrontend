@@ -489,9 +489,11 @@ function CountryDetails() {
                                       {index + 1}.{" "}
                                       <span className="ml-1">{state.name}</span>
                                     </h3>
-                                    <p className="ml-[22px]">
-                                      - {state.details}
-                                    </p>
+                                    {state.details && (
+                                      <p className="ml-[22px]">
+                                        - {state.details}
+                                      </p>
+                                    )}
                                   </div>
                                 )
                               )
@@ -627,7 +629,7 @@ function CountryDetails() {
                             <i className="far fa-passport"></i>{" "}
                             {t("userDashboard.country.visaTypes")}
                           </h3>
-                          <p>
+                          <div className="grid grid-cols-2 gap-x-4">
                             {countryData.visaAndImmigration.visaTypes.map(
                               (visa, index) => (
                                 <div
@@ -653,7 +655,7 @@ function CountryDetails() {
                                 </div>
                               )
                             )}
-                          </p>
+                          </div>
                         </div>
                       )}
 

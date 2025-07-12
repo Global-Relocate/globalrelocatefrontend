@@ -150,6 +150,7 @@ function Countries() {
                 >
                   <CountriesDashCard
                     id={item.countryId}
+                    slug={item.countrySlug}
                     countryName={translatedName}
                     location={item.countryName}
                     isLiked={item.isLiked}
