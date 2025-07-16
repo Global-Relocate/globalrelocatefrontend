@@ -631,33 +631,39 @@ function CountryDetails() {
                             <i className="far fa-passport"></i>{" "}
                             {t("userDashboard.country.visaTypes")}
                           </h3>
-                          <div className="grid grid-cols-2 gap-x-4">
-                            {countryData.visaAndImmigration.visaTypes.map(
-                              (visa, index) => (
-                                <div
-                                  key={index}
-                                  className="my-2 rounded-md border border-black p-3"
-                                >
-                                  <h3 className="font-semibold">
-                                    {index + 1}.{" "}
-                                    <span className="ml-1">{visa.name}</span>
-                                  </h3>
-                                  <p>{visa.description}</p>
 
-                                  <div className="flex flex-wrap items-center gap-x-5 mt-2">
-                                    <span>
-                                      <i className="far fa-calendar mr-1"></i>{" "}
-                                      {visa.duration}
-                                    </span>
-                                    <span>
-                                      <i className="far fa-money-bill-wave mr-2"></i>
-                                      {visa.priceRange}
-                                    </span>
+                          {countryData.visaAndImmigration.visaTypes.length ===
+                          0 ? (
+                            <p>{t("userDashboard.country.noDataAvailable")}</p>
+                          ) : (
+                            <div className="grid grid-cols-2 gap-x-4">
+                              {countryData.visaAndImmigration.visaTypes.map(
+                                (visa, index) => (
+                                  <div
+                                    key={index}
+                                    className="my-2 rounded-md border border-black p-3"
+                                  >
+                                    <h3 className="font-semibold">
+                                      {index + 1}.{" "}
+                                      <span className="ml-1">{visa.name}</span>
+                                    </h3>
+                                    <p>{visa.description}</p>
+
+                                    <div className="flex flex-wrap items-center gap-x-5 mt-2">
+                                      <span>
+                                        <i className="far fa-calendar mr-1"></i>{" "}
+                                        {visa.duration}
+                                      </span>
+                                      <span>
+                                        <i className="far fa-money-bill-wave mr-2"></i>
+                                        {visa.priceRange}
+                                      </span>
+                                    </div>
                                   </div>
-                                </div>
-                              )
-                            )}
-                          </div>
+                                )
+                              )}
+                            </div>
+                          )}
                         </div>
                       )}
 
@@ -670,6 +676,7 @@ function CountryDetails() {
 
                           <p>
                             {countryData.visaAndImmigration.visaRequirements
+                              .length > 0
                               ? countryData.visaAndImmigration.visaRequirements.map(
                                   (item, index) => (
                                     <div key={item} className="my-2">
@@ -696,8 +703,10 @@ function CountryDetails() {
                             <i className="far fa-passport"></i>{" "}
                             {t("userDashboard.country.visaApplication")}
                           </h3>
+
                           <p>
                             {countryData.visaAndImmigration.applicationProcess
+                              .length > 0
                               ? countryData.visaAndImmigration.applicationProcess.map(
                                   (item, index) => (
                                     <div key={item} className="my-2">
@@ -727,6 +736,7 @@ function CountryDetails() {
                           <p>{countryData.visaAndImmigration.shortStays}</p>
                         </div>
                       )}
+
                       {countryData.visaAndImmigration?.longStays && (
                         <div>
                           <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
@@ -736,6 +746,7 @@ function CountryDetails() {
                           <p>{countryData.visaAndImmigration.longStays}</p>
                         </div>
                       )}
+
                       {countryData.visaAndImmigration?.obtainCitizenship && (
                         <div>
                           <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
@@ -744,6 +755,7 @@ function CountryDetails() {
                           </h3>
                           <p>
                             {countryData.visaAndImmigration.obtainCitizenship
+                              .length > 0
                               ? countryData.visaAndImmigration.obtainCitizenship.map(
                                   (item, index) => (
                                     <div key={item} className="my-2">
@@ -769,28 +781,35 @@ function CountryDetails() {
                             <i className="far fa-plane-departure"></i>{" "}
                             {t("userDashboard.country.embassies")}
                           </h3>
-                          <ul className="list-disc [&>li]:mt-2 pl-5">
-                            {countryData.visaAndImmigration.embassies.map(
-                              (embassy, index) => (
-                                <li key={index}>
-                                  <span>{embassy.description}</span>
-                                  <div>
-                                    <span className="font-semibold">
-                                      {t("userDashboard.country.link")}:
-                                    </span>{" "}
-                                    <a
-                                      href={embassy.link}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="underline underline-offset-4"
-                                    >
-                                      {embassy.link}
-                                    </a>
-                                  </div>
-                                </li>
-                              )
-                            )}
-                          </ul>
+                          {countryData.visaAndImmigration.embassies.length ===
+                          0 ? (
+                            <p>{t("userDashboard.country.noDataAvailable")}</p>
+                          ) : (
+                            <>
+                              <ul className="list-disc [&>li]:mt-2 pl-5">
+                                {countryData.visaAndImmigration.embassies.map(
+                                  (embassy, index) => (
+                                    <li key={index}>
+                                      <span>{embassy.description}</span>
+                                      <div>
+                                        <span className="font-semibold">
+                                          {t("userDashboard.country.link")}:
+                                        </span>{" "}
+                                        <a
+                                          href={embassy.link}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="underline underline-offset-4"
+                                        >
+                                          {embassy.link}
+                                        </a>
+                                      </div>
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                            </>
+                          )}
                         </div>
                       )}
                       {!countryData.visaAndImmigration?.passportsAndVisas &&
