@@ -377,7 +377,7 @@ function CountryDetails() {
                         </h3>
                         <div className="mt-4">
                           <p>
-                            {countryData.additionalInfo.internetSpeed ??
+                            {countryData.CountryAdditionalInfo.internetSpeed ??
                               t("userDashboard.country.noDataAvailable")}
                           </p>
                         </div>
@@ -390,9 +390,9 @@ function CountryDetails() {
                             )}
                           </h3>
                           <p>
-                            {countryData.additionalInfo
+                            {countryData.CountryAdditionalInfo
                               .publicTransportEfficiency
-                              ? countryData.additionalInfo
+                              ? countryData.CountryAdditionalInfo
                                   .publicTransportEfficiency
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -432,7 +432,7 @@ function CountryDetails() {
                           {t("userDashboard.country.summary")}
                         </h3>
                         <p>
-                          {countryData.additionalInfo.qualityOfLife ??
+                          {countryData.CountryAdditionalInfo.qualityOfLife ??
                             t("userDashboard.country.noDataAvailable")}
                         </p>
                       </div>
@@ -481,8 +481,8 @@ function CountryDetails() {
                           {t("userDashboard.country.mostExpensiveStates")}
                         </h3>
                         <p>
-                          {countryData.costOfLiving.mostExpensiveStates
-                            ? countryData.costOfLiving.mostExpensiveStates.map(
+                          {countryData.mostExpensiveStates
+                            ? countryData.mostExpensiveStates.map(
                                 (state, index) => (
                                   <div key={state} className="my-2">
                                     <h3 className="font-semibold">
@@ -565,7 +565,7 @@ function CountryDetails() {
                           {t("userDashboard.country.summary")}
                         </h3>
                         <p>
-                          {countryData.additionalInfo.workLifeBalance ??
+                          {countryData.CountryAdditionalInfo.workLifeBalance ??
                             t("userDashboard.country.noDataAvailable")}
                         </p>
                       </div>
@@ -584,7 +584,8 @@ function CountryDetails() {
                           {t("userDashboard.country.summary")}
                         </h3>
                         <p>
-                          {countryData.additionalInfo.worldHappinessIndex ??
+                          {countryData.CountryAdditionalInfo
+                            .worldHappinessIndex ??
                             t("userDashboard.country.noDataAvailable")}
                         </p>
                       </div>
@@ -594,8 +595,9 @@ function CountryDetails() {
                           {t("userDashboard.country.whiScore")}
                         </h3>
                         <p>
-                          {countryData.additionalInfo.worldHappinessIndexScore
-                            ? `${countryData.additionalInfo.worldHappinessIndexScore}/10`
+                          {countryData.CountryAdditionalInfo
+                            .worldHappinessIndexScore
+                            ? `${countryData.CountryAdditionalInfo.worldHappinessIndexScore}/10`
                             : t("userDashboard.country.noDataAvailable")}
                         </p>
                       </div>
@@ -827,8 +829,7 @@ function CountryDetails() {
                             {t("userDashboard.country.federalTax")}
                           </span>
                           <p className="mt-3">
-                            {countryData.taxAndFinance?.personalIncomeTax
-                              ?.federalRate ||
+                            {countryData.taxAndFinance?.federalRate ||
                               t("userDashboard.country.notApplicable")}
                           </p>
                         </p>
@@ -837,8 +838,7 @@ function CountryDetails() {
                             {t("userDashboard.country.communalRate")}
                           </span>
                           <p className="mt-3">
-                            {countryData.taxAndFinance?.personalIncomeTax
-                              ?.communalRate ||
+                            {countryData.taxAndFinance?.communalRate ||
                               t("userDashboard.country.notApplicable")}
                           </p>
                         </p>

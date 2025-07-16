@@ -13,7 +13,7 @@ axiosInstance.interceptors.request.use(
       return config;
     } else {
       // If no token is found, reject the request
-      return Promise.reject(new Error("No token found"));
+      return Promise.reject(new Error("token"));
     }
   },
   (error) => Promise.reject(error)
