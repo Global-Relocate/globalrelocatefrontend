@@ -1,6 +1,4 @@
 import { useCallback, useState, forwardRef, useEffect } from "react";
-
-// shadcn
 import {
   Command,
   CommandEmpty,
@@ -15,17 +13,12 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-// utils
 import { cn } from "@/lib/utils";
-
-// assets
 import { ChevronDown, ChevronsUpDown, CheckIcon, Globe } from "lucide-react";
-
-// CircleFlag
 import { CircleFlag } from "react-circle-flags";
 
 const languageMap = {
-  // eng: { name: "English", country: "US" },
+  eng: { name: "English", country: "US" },
   // fra: { name: "French", country: "FR" },
   // spa: { name: "Spanish", country: "ES" },
   deu: { name: "German", country: "DE" },

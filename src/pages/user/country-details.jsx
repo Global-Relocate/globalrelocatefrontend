@@ -165,7 +165,10 @@ function CountryDetails() {
               />
               <div className="flex flex-col items-start">
                 <h2 className="text-3xl font-medium">
-                  {getCountryName(countryData?.slug, selectedLanguage.code)}
+                  {getCountryName(
+                    countryData?.slug,
+                    selectedLanguage?.code || "deu"
+                  )}
                 </h2>
                 <span>
                   {t("userDashboard.country.countryIn")}{" "}

@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useCheckoutRedirect } from '@/hooks/useCheckoutRedirect';
+import { useNavigate, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useCheckoutRedirect } from "@/hooks/useCheckoutRedirect";
 
 const NotFound = () => {
   const navigate = useNavigate();
   const location = useLocation();
   useCheckoutRedirect();
 
-  if (location.pathname.includes('checkout')) {
+  if (location.pathname.includes("checkout")) {
     return null;
   }
 
@@ -18,7 +17,7 @@ const NotFound = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}

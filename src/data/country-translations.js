@@ -1822,7 +1822,7 @@ export const countries = [
   {
     code: "CZ",
     name: "Czech Republic",
-    slug: "czech-republic",
+    slug: "czechia",
     translations: {
       ara: "جمهورية التشيك",
       ben: "চেক প্রজাতন্ত্র",

@@ -142,7 +142,7 @@ export default function Login() {
         </div>
 
         {/* Desktop Header */}
-        <div className="hidden md:flex items-center justify-between px-6 lg:px-10 py-4">
+        <div className="hidden md:flex items-center justify-between pl-[34px] pr-4 py-4">
           <Link to="/">
             <img src={logo} alt="Global Relocate Logo" className="h-12" />
           </Link>

@@ -71,51 +71,99 @@ function TaxCalculator() {
   const calculateTax = async () => {
     setLoading(true);
 
-    const country = formData.country;
-    const currency = countryCurrencyCodes[country];
-    const accountType = formData.taxClass;
-    const taxClass = availableTaxClasses.find((tc) => tc.name === accountType);
-    const income = parseFloat(formData.annualIncome);
+    const apiKey = import.meta.env.VITE_TAX_API_KEY;
 
-    let taxableIncome = income;
-    if (taxClass.deductions) {
-      taxableIncome = Math.max(0, income - taxClass.deductions);
+    if (!apiKey) {
+      return;
     }
 
-    let totalTax = 0;
-    let effectiveRate = 0;
-    for (const bracket of taxClass.brackets) {
-      if (taxableIncome > bracket.min) {
-        const applicableAmountInBracket =
-          bracket.max === null || taxableIncome < bracket.max
-            ? taxableIncome - bracket.min
-            : bracket.max - bracket.min;
-        totalTax += applicableAmountInBracket * bracket.rate;
-        effectiveRate += bracket.rate;
+    // Fetch VAT rate from the API
+    try {
+      const response = await axios.get(
+        `https://api.apilayer.com/tax_data/price?amount=${formData.annualIncome}&country=${formData.country}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            apikey: apiKey,
+          },
+        }
+      );
+
+      const vatRate = response.data.vat_rate;
+
+      const country = formData.country;
+      const currency = countryCurrencyCodes[country];
+      const income = parseFloat(formData.annualIncome);
+
+      const totalTax = income * vatRate;
+      const effectiveRate = vatRate;
+
+      const takeHomeAmount = income - totalTax;
+      const lowerCurrency = currency.toLowerCase();
+
+      const exchangeResponse = await axios.get(
+        `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${lowerCurrency}.json`
+      );
+
+      const exchangeRate = parseFloat(
+        `${exchangeResponse.data[lowerCurrency].usd}`
+      );
+
+      if (!exchangeRate && vatRate > 0) {
+        console.error("Exchange rate not found for currency:", lowerCurrency);
+        setLoading(false);
+        return;
       } else {
-        // If income is below the current bracket's min, no more tax applies from higher brackets
-        break;
+        // Set the tax summary state with the calculated values
+        setTaxSummary({
+          currency,
+          taxAmount: totalTax,
+          effectiveRate,
+          exchangeRate,
+          takeHomeAmount,
+        });
       }
+
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching tax data:", error);
     }
 
-    const takeHomeAmount = income - totalTax;
-    const lowerCurrency = currency.toLowerCase();
+    // const country = formData.country;
+    // const currency = countryCurrencyCodes[country];
+    // const accountType = formData.taxClass;
+    // const taxClass = availableTaxClasses.find((tc) => tc.name === accountType);
+    // const income = parseFloat(formData.annualIncome);
 
-    const response = await axios.get(
-      `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${lowerCurrency}.json`
-    );
+    // let taxableIncome = income;
+    // if (taxClass.deductions) {
+    //   taxableIncome = Math.max(0, income - taxClass.deductions);
+    // }
 
-    const exchangeRate = parseFloat(`${response.data[lowerCurrency].usd}`);
+    // let totalTax = 0;
+    // let effectiveRate = 0;
+    // for (const bracket of taxClass.brackets) {
+    //   if (taxableIncome > bracket.min) {
+    //     const applicableAmountInBracket =
+    //       bracket.max === null || taxableIncome < bracket.max
+    //         ? taxableIncome - bracket.min
+    //         : bracket.max - bracket.min;
+    //     totalTax += applicableAmountInBracket * bracket.rate;
+    //     effectiveRate += bracket.rate;
+    //   } else {
+    //     // If income is below the current bracket's min, no more tax applies from higher brackets
+    //     break;
+    //   }
+    // }
 
-    setTaxSummary({
-      currency,
-      taxAmount: totalTax,
-      effectiveRate: effectiveRate.toFixed(2),
-      exchangeRate,
-      takeHomeAmount,
-    });
+    // const takeHomeAmount = income - totalTax;
+    // const lowerCurrency = currency.toLowerCase();
 
-    setLoading(false);
+    // const response = await axios.get(
+    //   `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${lowerCurrency}.json`
+    // );
+
+    // const exchangeRate = parseFloat(`${response.data[lowerCurrency].usd}`);
   };
 
   return (
@@ -177,7 +225,7 @@ function TaxCalculator() {
                   {t(`userDashboard.tax.taxClass`)}
                 </label>
                 <Select
-                  value={formData.taxClass}
+                  defaultValue="federal"
                   onValueChange={(value) =>
                     handleInputChange("taxClass", value)
                   }
@@ -188,7 +236,7 @@ function TaxCalculator() {
                     />
                   </SelectTrigger>
                   <SelectContent onValueChange={calculateTax}>
-                    {availableTaxClasses.length > 0 ? (
+                    {/*availableTaxClasses.length > 0 ? (
                       availableTaxClasses.map((tc) => (
                         <SelectItem key={tc.name} value={tc.name}>
                           {tc.name}
@@ -198,7 +246,8 @@ function TaxCalculator() {
                       <SelectItem value="null">
                         {t("userDashboard.tax.noTaxClasses")}
                       </SelectItem>
-                    )}
+                    )*/}
+                    <SelectItem value="federal">Federal Tax</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

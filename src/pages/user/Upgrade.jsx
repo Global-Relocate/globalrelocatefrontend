@@ -106,7 +106,7 @@ const Upgrade = () => {
     },
     {
       title: "Premium",
-      price: "100",
+      price: "20",
       features: [
         t("userDashboard.upgradePage.premiumPlan.item1"),
         t("userDashboard.upgradePage.premiumPlan.item2"),
@@ -151,10 +151,10 @@ const Upgrade = () => {
           <h3 className="text-2xl font-semibold mb-2">
             {t(`userDashboard.upgradePage.${title.toLowerCase()}`)}
           </h3>
-          <div className="flex items-end gap-1">
-            <span className="text-2xl font-semibold">${price}</span>
+          <div className="flex items-center gap-1">
+            <span className="text-2xl font-semibold">€{price}</span>
             <span className="text-gray-600">
-              /{t("userDashboard.upgradePage.perMonth")}
+              / {t("userDashboard.upgradePage.perMonth")}
             </span>
           </div>
         </div>

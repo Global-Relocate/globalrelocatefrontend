@@ -68,7 +68,7 @@ export default function VerifyEmail() {
   const isFormValid = loginCode.length > 0;
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-50 px-6">
+    <div className="min-h-screen flex flex-col items-center bg-gray-50 pl-[34px] pr-4 py-4">
       <div className="w-full flex justify-between items-center mt-6">
         <Link to="/">
           <img src={logo} alt="Global Relocate Logo" className="h-12" />

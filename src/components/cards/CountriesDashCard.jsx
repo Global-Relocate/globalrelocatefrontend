@@ -183,7 +183,7 @@ export default function CountriesDashCard({
           alt="Country Flag"
         />
         <span className="text-sm sm:text-base">
-          {getCountryName(slug, selectedLanguage.code)}
+          {getCountryName(slug, selectedLanguage?.code || "deu")}
         </span>
       </div>
     </div>
