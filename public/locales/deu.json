@@ -307,6 +307,11 @@
       "showLess": "Weniger davon anzeigen",
       "showMore": "Mehr Ergebnisse anzeigen"
     },
+    "news": {
+      "noNews": "Es sind derzeit keine Nachrichten verfügbar.",
+      "title": "Nachrichten",
+      "failed": "Beim Abrufen der Nachrichten ist ein Fehler aufgetreten."
+    },
     "countries": {
       "title": "Länder",
       "noDataText": "Keine Daten verfügbar!",

@@ -1,18 +1,19 @@
 import { useState } from "react";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-// import FilterButton from "@/components/user-buttons/FilterButton";
 import AllNotificationsTab from "@/components/profile/tabs/AllNotificationsTab";
-import MentionsTab from "@/components/profile/tabs/MentionsTab";
-import FollowingTab from "@/components/profile/tabs/FollowingTab";
 import { Button } from "@/components/ui/button";
 import { useNotifications } from "@/context/NotificationsContext";
 import { useTranslation } from "react-i18next";
-import PageLoader from "@/components/loaders/PageLoader";
+import NewsTab from "@/components/profile/tabs/NewsTab";
 
 function Notifications() {
   const { markAsRead, deleteNotification } = useNotifications();
   const [activeTab, setActiveTab] = useState("all");
   const { t } = useTranslation();
+
+  const toggleNews = () => {
+    setActiveTab((prev) => (prev === "news" ? "all" : "news"));
+  };
 
   return (
     <DashboardLayout>
@@ -22,6 +23,14 @@ function Notifications() {
         </h1>
 
         <div className="flex items-center gap-4 my-5">
+          <Button
+            className={`bg-white text-black ${
+              activeTab === "news" ? "bg-[#C2DFFA]" : "hover:bg-[#C2DFFA]"
+            } rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200`}
+            onClick={() => toggleNews()}
+          >
+            <i className="fad fa-newspaper"></i> {t("userDashboard.news.title")}
+          </Button>
           <Button
             className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
             onClick={() => markAsRead("all")}
@@ -38,14 +47,13 @@ function Notifications() {
           </Button>
         </div>
 
-        {/* Tabs
-          <div className="flex gap-4 mb-6">
-            <FilterButton
-              title="All"
-              isActive={activeTab === 'all'}
-              onClick={() => setActiveTab('all')}
-            />
-            <FilterButton
+        {/* <div className="flex gap-4 mb-6">
+          <FilterButton
+            title="News"
+            isActive={activeTab === "news"}
+            onClick={() => setActiveTab("news")}
+          />
+          <FilterButton
               title="Mentions"
               isActive={activeTab === 'mentions'}
               onClick={() => setActiveTab('mentions')}
@@ -55,13 +63,12 @@ function Notifications() {
               isActive={activeTab === 'following'}
               onClick={() => setActiveTab('following')}
             />
-          </div> */}
+        </div> */}
 
         {/* Tab Content */}
         <div className="w-full">
           {activeTab === "all" && <AllNotificationsTab />}
-          {activeTab === "mentions" && <MentionsTab />}
-          {activeTab === "following" && <FollowingTab />}
+          {activeTab === "news" && <NewsTab />}
         </div>
       </div>
     </DashboardLayout>

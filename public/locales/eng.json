@@ -307,6 +307,11 @@
       "showLess": "Show less of this",
       "showMore": "Show more results"
     },
+    "news": {
+      "noNews": "There are no news items available at the moment.",
+      "title": "News",
+      "failed": "An error occurred while fetching news."
+    },
     "countries": {
       "title": "Countries",
       "noDataText": "No data available!",
