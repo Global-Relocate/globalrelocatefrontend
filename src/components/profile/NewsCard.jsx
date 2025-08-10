@@ -53,7 +53,7 @@ const NewsCard = ({ id, data, isFirst, isLast }) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="px-6 py-4">{renderNotificationContent()}</div>
+      <div className="p-4">{renderNotificationContent()}</div>
       {!isLast && <div className="w-full h-[1px] bg-[#D4D4D4]" />}
     </Link>
   );

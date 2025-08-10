@@ -8,7 +8,32 @@ import NewsCard from "../NewsCard";
 import { useLanguage } from "@/context/LanguageContext";
 
 const ITEMS_PER_PAGE = 10;
-const CATEGORIES = ["tourism", "lifestyle", "food", "business", "environment"];
+const CATEGORIES = [
+  {
+    slug: "tourism",
+    title: "Tourism",
+  },
+  {
+    slug: "lifestyle",
+    title: "Lifestyle",
+  },
+  {
+    slug: "food",
+    title: "Food",
+  },
+  {
+    slug: "business",
+    title: "Business",
+  },
+  {
+    slug: "environment",
+    title: "Environment",
+  },
+  {
+    slug: "visa-immigration",
+    title: "Visa & Immigration",
+  },
+];
 
 const NewsTab = () => {
   const [selectedCategory, setSelectedCategory] = useState("tourism");
@@ -21,13 +46,21 @@ const NewsTab = () => {
 
   const fetchNews = async (selectedCategory) => {
     try {
-      setLoading(true);
-      const response = await axios.get(
-        `https://newsdata.io/api/1/latest?apikey=pub_84796f743a995aebf6c5d1005d17bcd56aadb&country=de&category=${selectedCategory}&language=${selectedLanguage.code.slice(
+      let url;
+
+      if (selectedCategory === "visa-immigration") {
+        url = `https://newsdata.io/api/1/latest?apikey=pub_84796f743a995aebf6c5d1005d17bcd56aadb&country=de&q=visa%20and%20immigration&language=${selectedLanguage.code.slice(
           0,
           2
-        )}&size=${ITEMS_PER_PAGE}`
-      );
+        )}&size=${ITEMS_PER_PAGE}`;
+      } else {
+        url = `https://newsdata.io/api/1/news?apikey=pub_84796f743a995aebf6c5d1005d17bcd56aadb&country=de&category=${selectedCategory}&language=${selectedLanguage.code.slice(
+          0,
+          2
+        )}&size=${ITEMS_PER_PAGE}`;
+      }
+      setLoading(true);
+      const response = await axios.get(url);
 
       if (response.data.status === "success") {
         setNews(response.data.results);
@@ -41,7 +74,9 @@ const NewsTab = () => {
         type: "error",
       });
     } finally {
+      setSelectedCategory(selectedCategory);
       setLoading(false);
+      // setHasMore(response.data.totalResults > ITEMS_PER_PAGE);
     }
   };
 
@@ -66,14 +101,18 @@ const NewsTab = () => {
   //     [loading, hasMore]
   //   );
 
-  if (loading && news.length === 0) {
+  if (loading) {
     return <PageLoader />;
   }
 
   const newsHeader = (
     <div className="flex flex-wrap gap-4 items-center justify-between mb-4">
       <h2 className="text-lg font-medium capitalize">
-        {selectedCategory} {t("userDashboard.news.title")} in Germany
+        {
+          CATEGORIES.find((category) => category.slug === selectedCategory)
+            ?.title
+        }{" "}
+        {t("userDashboard.news.title")} in Germany
       </h2>
 
       <div className="flex flex-wrap gap-2">
@@ -81,13 +120,13 @@ const NewsTab = () => {
           <button
             key={index}
             className={`px-4 py-2 rounded-3xl capitalize text-sm ${
-              selectedCategory === category
+              selectedCategory === category.slug
                 ? "bg-[#C2DFFA]"
                 : "bg-gray-200 text-gray-800"
             }`}
-            onClick={async () => await fetchNews(category)}
+            onClick={async () => await fetchNews(category.slug)}
           >
-            {category}
+            {category.title}
           </button>
         ))}
       </div>
@@ -133,12 +172,6 @@ const NewsTab = () => {
             />
           </div>
         ))}
-
-        {/* {loading && (
-        <div className="flex justify-center items-center py-4">
-          <div className="w-6 h-6 border-2 border-[#5762D5] border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )} */}
 
         {/* {!loading && hasMore && (
         <button

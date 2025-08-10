@@ -17,34 +17,43 @@ function Notifications() {
 
   return (
     <DashboardLayout>
-      <div className="w-full flex-wrap gap-y-5 items-center justify-between flex">
-        <h1 className="text-3xl font-medium mb-6">
-          {t("userDashboard.sidebar.notifications")}
-        </h1>
+      <div className="w-full flex flex-wrap gap-y-5 items-center justify-between">
+        <div className="flex items-center justify-between gap-x-4 w-full">
+          <h1 className="text-3xl font-medium">
+            {activeTab === "all"
+              ? t("userDashboard.sidebar.notifications")
+              : t("userDashboard.news.title")}
+          </h1>
 
-        <div className="flex items-center gap-4 my-5">
-          <Button
-            className={`bg-white text-black ${
-              activeTab === "news" ? "bg-[#C2DFFA]" : "hover:bg-[#C2DFFA]"
-            } rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200`}
-            onClick={() => toggleNews()}
-          >
-            <i className="fad fa-newspaper"></i> {t("userDashboard.news.title")}
-          </Button>
-          <Button
-            className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
-            onClick={() => markAsRead("all")}
-          >
-            <i className="fad fa-check"></i>{" "}
-            {t("userDashboard.notifications.markAllAsRead")}
-          </Button>
-          <Button
-            className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
-            onClick={() => deleteNotification("all")}
-          >
-            <i className="fad fa-trash"></i>
-            {t("userDashboard.notifications.deleteAll")}
-          </Button>
+          <div className="flex items-center gap-x-4">
+            <Button
+              className={`bg-white text-black ${
+                activeTab === "news" ? "bg-[#C2DFFA]" : "hover:bg-[#C2DFFA]"
+              } rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200`}
+              onClick={() => toggleNews()}
+            >
+              <i className="fad fa-newspaper"></i>{" "}
+              {t("userDashboard.news.title")}
+            </Button>
+            {activeTab === "all" && (
+              <>
+                <Button
+                  className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
+                  onClick={() => markAsRead("all")}
+                >
+                  <i className="fad fa-check"></i>{" "}
+                  {t("userDashboard.notifications.markAllAsRead")}
+                </Button>
+                <Button
+                  className="bg-white text-black hover:bg-[#C2DFFA] rounded-3xl shadow-none border border-[#EDEBE8] transition-colors duration-200"
+                  onClick={() => deleteNotification("all")}
+                >
+                  <i className="fad fa-trash"></i>
+                  {t("userDashboard.notifications.deleteAll")}
+                </Button>
+              </>
+            )}
+          </div>
         </div>
 
         {/* <div className="flex gap-4 mb-6">
