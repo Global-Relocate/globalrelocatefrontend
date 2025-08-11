@@ -29,7 +29,10 @@ const CountryDropdownComponent = (
   {
     options = countries.all.filter(
       (country) =>
-        country.emoji && country.status !== "deleted" && country.ioc !== "PRK"
+        country.emoji &&
+        country.status !== "deleted" &&
+        country.ioc !== "PRK" &&
+        country.name === "Germany"
     ),
     onChange,
     value,
