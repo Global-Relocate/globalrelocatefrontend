@@ -282,7 +282,7 @@ function TaxCalculator() {
               <div className="space-y-2 col-span-full">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <PiUsers className="text-lg" />
-                  {t(`userDashboard.tax.taxClass`)}
+                  {t(`userDashboard.tax.taxPeriod`)}
                 </label>
                 <Select
                   defaultValue="year"
@@ -296,8 +296,12 @@ function TaxCalculator() {
                     />
                   </SelectTrigger>
                   <SelectContent onValueChange={calculateTax}>
-                    <SelectItem value="year">Year</SelectItem>
-                    <SelectItem value="month">Month</SelectItem>
+                    <SelectItem value="year">
+                      {t(`userDashboard.tax.year`)}
+                    </SelectItem>
+                    <SelectItem value="month">
+                      {t(`userDashboard.tax.month`)}
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -341,7 +345,7 @@ function TaxCalculator() {
       {taxSummary && (
         <div ref={taxSummaryRef}>
           <h3 className="text-xl font-semibold mb-8 text-center">
-            Tax Summary
+            {t(`userDashboard.tax.taxSummary`)}
           </h3>
           <div className="border border-[#5762D5] rounded-lg">
             <TaxSummary {...taxSummary} />
@@ -349,184 +353,90 @@ function TaxCalculator() {
 
           <div className="mb-4">
             <h3 className="text-xl font-semibold mt-8 mb-4 text-center">
-              Income Tax in {countryName}: General Information & Tips
+              {t(`userDashboard.tax.taxIncomeInCountry`, { countryName })}
             </h3>
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-md font-semibold">
-                  German Tax Brackets and Classes
+                  {t(`userDashboard.tax.taxClassAndBrackets`)}
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
-                  <p>
-                    The German income tax system employs progressive tax rates,
-                    meaning the rate increases as income rises. Starting at 14%
-                    for the lower taxable income levels and reaching up to 45%
-                    for the highest earners, this system aims to ensure fairness
-                    in taxation.
-                  </p>
+                  <p>{t(`userDashboard.tax.taxClassBracketsDesc`)}</p>
                   <div>
                     <ul className="list-disc pl-6">
-                      <li>
-                        <strong>0% Tax Rate:</strong> Income up to €11,604
-                      </li>
-                      <li>
-                        <strong>14% to 42% Tax Rate:</strong> Income above
-                        €11,604 and up to €66,760
-                      </li>
-                      <li>
-                        <strong>42% Tax Rate:</strong> Income from €66,761 and
-                        up to €277,825
-                      </li>
-                      <li>
-                        <strong>45% Tax Rate:</strong> Income exceeding €277,826
-                      </li>
+                      <li>{t(`userDashboard.tax.taxClassBrackets1`)}</li>
+                      <li>{t(`userDashboard.tax.taxClassBrackets2`)}</li>
+                      <li>{t(`userDashboard.tax.taxClassBrackets3`)}</li>
+                      <li>{t(`userDashboard.tax.taxClassBrackets4`)}</li>
                     </ul>
                     <p className="mt-2">
-                      Please consult a financial advisor for the most up to date
-                      information.
+                      {t(`userDashboard.tax.taxClassBrackets5`)}
                     </p>
                     <p className="mt-2">
-                      Tax classes in Germany significantly affect how much tax
-                      you pay. There are six classes, each designed to reflect
-                      different family and employment situations. For instance,
-                      tax class I is for single individuals, while tax class III
-                      offers benefits for married couples. Choosing the correct
-                      tax class can lead to substantial tax savings, especially
-                      for families and married couples.
+                      {t(`userDashboard.tax.taxClassBrackets6`)}
                     </p>
                     <ul className="list-disc pl-6 mt-2">
-                      <li>
-                        <strong>Class I:</strong> Single or separated
-                        individuals without children.
-                      </li>
-                      <li>
-                        <strong>Class II:</strong> Single parents living alone
-                        with their child or children, eligible for single-parent
-                        benefits.
-                      </li>
-                      <li>
-                        <strong>Class III:</strong> Married employees whose
-                        spouse is not working or is in Class V; generally offers
-                        the lowest tax rates.
-                      </li>
-                      <li>
-                        <strong>Class IV:</strong> Married employees where both
-                        partners earn an income; similar to single individuals
-                        in Class I but with considerations for joint assessment.
-                      </li>
-                      <li>
-                        <strong>Class V:</strong> One partner in a marriage opts
-                        for Class III, and the other automatically falls into
-                        Class V; typically results in higher tax withholding.
-                      </li>
-                      <li>
-                        <strong>Class VI:</strong> For individuals with multiple
-                        jobs, this class applies to the second and any
-                        additional jobs, featuring the highest tax rate.
-                      </li>
+                      <li>{t(`userDashboard.tax.taxClassBrackets7`)}</li>
+                      <li>{t(`userDashboard.tax.taxClassBrackets8`)}</li>
+                      <li>{t(`userDashboard.tax.taxClassBrackets9`)}</li>
+                      <li>{t(`userDashboard.tax.taxClassBrackets10`)}</li>
+                      <li>{t(`userDashboard.tax.taxClassBrackets11`)}</li>
+                      <li>{t(`userDashboard.tax.taxClassBrackets12`)}</li>
                     </ul>
                     <p className="mt-2">
-                      Note: the calculator on this page is based on Class I.
+                      {t(`userDashboard.tax.taxClassBrackets13`)}
                     </p>
                   </div>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
                 <AccordionTrigger className="text-md font-semibold">
-                  Calculating Your Income Tax
+                  {t(`userDashboard.tax.calculatingIncomeTax`)}
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
-                  <p>
-                    Calculating your net income in Germany involves
-                    understanding not only the tax brackets and classes but also
-                    accounting for social contributions and other deductions.
-                    Here’s a simplified process to help you estimate your
-                    take-home pay:
-                  </p>
+                  <p>{t(`userDashboard.tax.calculatingIncomeTaxDesc`)}</p>
                   <div>
                     <ul className="list-decimal pl-6">
                       <li>
-                        <strong>Determine Your Gross Salary:</strong> Start with
-                        your annual gross salary.
+                        {t(`userDashboard.tax.calculatingIncomeTaxSteps1`)}
                       </li>
                       <li>
-                        <strong>Identify Your Tax Class:</strong> Your tax class
-                        affects your tax rate. Use this to estimate your income
-                        tax.
+                        {t(`userDashboard.tax.calculatingIncomeTaxSteps2`)}
                       </li>
                       <li>
-                        <strong>Calculate Social Contributions:</strong> Deduct
-                        social security contributions, which typically include
-                        health insurance, pension insurance, unemployment
-                        insurance, and long-term care insurance.
+                        {t(`userDashboard.tax.calculatingIncomeTaxSteps3`)}
                       </li>
                       <li>
-                        <strong>Factor in Allowances and Deductions:</strong>{" "}
-                        Include any applicable deductions such as childcare
-                        allowances or education-related expenses.
+                        {t(`userDashboard.tax.calculatingIncomeTaxSteps4`)}
                       </li>
                       <li>
-                        <strong>Compute Net Salary:</strong> Subtract these
-                        taxes and contributions from your gross salary to get
-                        your net income.
+                        {t(`userDashboard.tax.calculatingIncomeTaxSteps5`)}
                       </li>
                     </ul>
                   </div>
 
                   <p className="mt-2">
-                    This method offers a framework for understanding how much of
-                    your gross income will be available after taxes and social
-                    contributions.
+                    {t(`userDashboard.tax.calculatingIncomeTaxFinalNote`)}
                   </p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
                 <AccordionTrigger className="text-md font-semibold">
-                  Tips for Expats and New Employees in Germany
+                  {t("userDashboard.tax.tipsForExpats")}
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
-                  <p>
-                    Expatriates and new employees in Germany face unique
-                    challenges when navigating the tax system. Here are
-                    practical tips to ensure a smooth transition and optimize
-                    your tax situation:
-                  </p>
+                  <p>{t("userDashboard.tax.tipsForExpatsDesc")}</p>
                   <div>
                     <ul className="list-decimal pl-6">
-                      <li>
-                        <strong>Choose the Right Tax Class:</strong> Review and
-                        select the most beneficial tax class for your situation.
-                        Changes are possible under certain conditions, such as
-                        marriage or the birth of a child.
-                      </li>
-                      <li>
-                        <strong>Understand the Tax-Free Allowance:</strong>{" "}
-                        Germany offers a tax-free allowance, ensuring that
-                        income up to a certain threshold is not taxed.
-                        Familiarize yourself with this to better plan your
-                        finances.
-                      </li>
-                      <li>
-                        <strong>Utilize Tax Deductions:</strong> Keep records of
-                        potentially deductible expenses, including work-related
-                        expenses, educational costs, and healthcare expenses.
-                      </li>
-                      <li>
-                        <strong>Seek Professional Advice:</strong> Given the
-                        complexity of the tax system, consulting with a tax
-                        professional can provide personalized advice and ensure
-                        compliance.
-                      </li>
-                      <li>
-                        <strong>Stay Informed on Tax Filing Deadlines:</strong>{" "}
-                        Be aware of the tax year and filing deadlines to avoid
-                        penalties.
-                      </li>
+                      <li>{t("userDashboard.tax.tipsForExpats1")}</li>
+                      <li>{t("userDashboard.tax.tipsForExpats2")}</li>
+                      <li>{t("userDashboard.tax.tipsForExpats3")}</li>
+                      <li>{t("userDashboard.tax.tipsForExpats4")}</li>
+                      <li>{t("userDashboard.tax.tipsForExpats5")}</li>
                     </ul>
                   </div>
                   <p className="mt-2">
-                    These strategies can help manage your tax obligations
-                    effectively and maximize your income in Germany.
+                    {t("userDashboard.tax.tipsForExpatsFinalNote")}
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -535,60 +445,39 @@ function TaxCalculator() {
 
           <div className="mb-4">
             <h3 className="text-xl font-semibold mt-8 mb-4 text-center">
-              Frequently Asked Questions
+              {t(`userDashboard.tax.faqs`)}
             </h3>
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-md font-semibold">
-                  What are the current income tax brackets in Germany?
+                  {t(`userDashboard.tax.faqTitle1`)}
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
-                  <p>
-                    As of the latest update, tax brackets are: 0% for income up
-                    to €11,604; 14%-42% for income between €11,604 and €66,760;
-                    42% for income between €66,761 and €277,825; and 45% for
-                    income above €277,826.
-                  </p>
+                  <p>{t(`userDashboard.tax.faqAnswer1`)}</p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
                 <AccordionTrigger className="text-md font-semibold">
-                  How do I know which tax class I belong to in Germany?
+                  {t(`userDashboard.tax.faqTitle2`)}
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
-                  <p>
-                    Your tax class depends on your marital status, employment
-                    situation, and family conditions. Single individuals are
-                    usually in class I, while married couples can benefit from
-                    class III. Review your status and consult a tax advisor for
-                    optimal classification.
-                  </p>
+                  <p>{t(`userDashboard.tax.faqAnswer2`)}</p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
                 <AccordionTrigger className="text-md font-semibold">
-                  What special considerations should I be aware of when
-                  calculating net salary in Germany?
+                  {t(`userDashboard.tax.faqTitle3`)}
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
-                  <p>
-                    Remember to account for childcare allowances, potential
-                    church tax, and the solidarity surcharge, as these can
-                    impact your final net income.
-                  </p>
+                  <p>{t(`userDashboard.tax.faqAnswer3`)}</p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-4">
                 <AccordionTrigger className="text-md font-semibold">
-                  How can new employees optimize their tax situation in Germany?
+                  {t(`userDashboard.tax.faqTitle4`)}
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
-                  <p>
-                    Choosing the correct tax class, understanding the tax-free
-                    allowance, utilizing applicable deductions, seeking
-                    professional advice, and keeping informed about tax filing
-                    deadlines are key steps to optimizing your tax situation.
-                  </p>
+                  <p>{t(`userDashboard.tax.faqAnswer4`)}</p>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -596,29 +485,16 @@ function TaxCalculator() {
 
           <div className="mb-4">
             <h3 className="text-xl font-semibold mt-8 mb-4 text-center">
-              Further Resources
+              {t(`userDashboard.tax.useFulLinks`)}
             </h3>
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-md font-semibold">
-                  Useful Links and other resources
+                  {t(`userDashboard.tax.useFulLinksDesc`)}
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
-                  <p>
-                    The German income tax system can be challenging. However, by
-                    understanding the basics of tax brackets, classes, and
-                    special considerations, and by applying practical tips, you
-                    can make informed decisions that optimize your tax
-                    situation. Whether you're calculating net income, choosing a
-                    tax class, or exploring allowances and deductions, knowledge
-                    is your most valuable tool.
-                  </p>
-
-                  <p>
-                    For more detailed information, consider visiting the
-                    following resources:
-                  </p>
-
+                  <p>{t(`userDashboard.tax.useFulLinksIntro`)}</p>
+                  <p>{t(`userDashboard.tax.useFulLinksIntro2`)}</p>
                   <ul className="list-disc pl-6">
                     <li>
                       <a
@@ -627,7 +503,7 @@ function TaxCalculator() {
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
                       >
-                        Press and Information Office of the Federal Government
+                        {t(`userDashboard.tax.useFulLinks1`)}
                       </a>
                     </li>
                     <li>
@@ -637,14 +513,13 @@ function TaxCalculator() {
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
                       >
-                        Expat Info: German Tax System
+                        {t(`userDashboard.tax.useFulLinks2`)}
                       </a>
                     </li>
                   </ul>
 
                   <p className="mt-2">
-                    Staying proactive and informed will empower you to navigate
-                    the tax landscape in Germany with confidence.
+                    {t(`userDashboard.tax.useFulLinksFinalNote`)}
                   </p>
                 </AccordionContent>
               </AccordionItem>

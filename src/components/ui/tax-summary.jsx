@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { calculateGermanyTax } from "@/data/calculators/germany"; // import the function from earlier
 import { Separator } from "./separator";
+import { useTranslation } from "react-i18next";
 
 export default function TaxSummary({
   countryName,
@@ -11,6 +12,7 @@ export default function TaxSummary({
 }) {
   const [gross, setGross] = useState(income);
   const [viewMode, setViewMode] = useState(timePeriod);
+  const { t } = useTranslation();
 
   const taxData = calculateGermanyTax(gross);
 
@@ -63,7 +65,7 @@ export default function TaxSummary({
               }`}
               onClick={() => setViewMode("year")}
             >
-              Year
+              {t(`userDashboard.tax.year`)}
             </button>
             <button
               className={`px-4 py-1 ${
@@ -73,14 +75,14 @@ export default function TaxSummary({
               }`}
               onClick={() => setViewMode("month")}
             >
-              Month
+              {t(`userDashboard.tax.month`)}
             </button>
           </div>
         </div>
 
         {/* Gross income */}
         <div className="text-sm font-medium mb-6">
-          Gross income:{" "}
+          {t(`userDashboard.tax.grossIncome`)}:{" "}
           <p className="text-lg text-[#5762D5] mt-2">
             <span className="font-bold">
               {currency}{" "}
@@ -96,7 +98,7 @@ export default function TaxSummary({
           {/* Tax breakdown */}
           <ul className="space-y-2 text-sm">
             <li className="flex justify-between">
-              <span>Pension</span>{" "}
+              <span>{t(`userDashboard.tax.pension`)}</span>{" "}
               <span className="font-semibold">
                 - {currency}{" "}
                 {pension.toLocaleString(undefined, {
@@ -105,21 +107,21 @@ export default function TaxSummary({
               </span>
             </li>
             <li className="flex justify-between">
-              <span>Health Insurance</span>{" "}
+              <span>{t(`userDashboard.tax.healthInsurance`)}</span>{" "}
               <span className="font-semibold">
                 - {currency}{" "}
                 {health.toLocaleString(undefined, { maximumFractionDigits: 2 })}
               </span>
             </li>
             <li className="flex justify-between">
-              <span>Nursing Care Insurance</span>{" "}
+              <span>{t(`userDashboard.tax.care`)}</span>{" "}
               <span className="font-semibold">
                 - {currency}{" "}
                 {care.toLocaleString(undefined, { maximumFractionDigits: 2 })}
               </span>
             </li>
             <li className="flex justify-between">
-              <span>Unemployment Insurance</span>{" "}
+              <span>{t(`userDashboard.tax.unemploymentInsurance`)}</span>{" "}
               <span className="font-semibold">
                 - {currency}{" "}
                 {unemployment.toLocaleString(undefined, {
@@ -128,7 +130,7 @@ export default function TaxSummary({
               </span>
             </li>
             <li className="flex justify-between">
-              <span>Income tax</span>{" "}
+              <span>{t(`userDashboard.tax.incomeTax`)}</span>{" "}
               <span className="font-semibold">
                 - {currency}{" "}
                 {incomeTax.toLocaleString(undefined, {
@@ -141,7 +143,7 @@ export default function TaxSummary({
 
         {/* Total tax */}
         <div className="flex justify-between text-sm mb-4">
-          <span>Total tax</span>
+          <span>{t(`userDashboard.tax.totalTax`)}</span>
           <span className="text-[#5762D5] font-semibold">
             {currency}{" "}
             {totalTax.toLocaleString(undefined, { maximumFractionDigits: 2 })} /{" "}
@@ -152,7 +154,9 @@ export default function TaxSummary({
         {/* Net income */}
         <div className="border rounded-lg p-4 bg-gray-50 flex justify-between items-center">
           <div className="">
-            <div className="font-bold text-sm text-[#5762D5]">Net income</div>
+            <div className="font-bold text-sm text-[#5762D5]">
+              {t(`userDashboard.tax.netIncome`)}
+            </div>
             <div className="text-lg font-bold text-[#5762D5]">
               {currency}{" "}
               {netIncome.toLocaleString(undefined, {
@@ -177,34 +181,40 @@ export default function TaxSummary({
       <div>
         {/* Summary text */}
         <p className="mb-6 text-[15px]">
-          If you make{" "}
+          {t("userDashboard.tax.summaryText1")}{" "}
           <strong>
             {currency} {grossValue.toLocaleString()}
           </strong>{" "}
-          a {viewMode === "year" ? "year" : "month"} living in {countryName} you
-          will be taxed{" "}
+          {t("userDashboard.tax.summaryText2")}{" "}
+          {viewMode === "year"
+            ? t("userDashboard.tax.year")
+            : t("userDashboard.tax.month")}{" "}
+          {t("userDashboard.tax.summaryText3")} {countryName}{" "}
+          {t("userDashboard.tax.summaryText4")}{" "}
           <strong>
             {currency} {totalTax.toLocaleString()}
           </strong>
-          . That means that your net pay will be{" "}
+          . {t("userDashboard.tax.summaryText5")}{" "}
           <strong>
             {currency} {netIncomeYear.toLocaleString()}
           </strong>{" "}
-          per year or{" "}
+          {t("userDashboard.tax.summaryText6")}{" "}
           <strong>
             {currency}{" "}
             {netIncomeMonth.toLocaleString(undefined, {
               maximumFractionDigits: 2,
             })}
           </strong>{" "}
-          per month. Your average tax rate is{" "}
+          {t("userDashboard.tax.summaryText7")}{" "}
           <strong>{taxData.averageTaxRatePct}%</strong>.
         </p>
 
         {/* Percentage cards */}
         <div className="grid grid-cols-2 gap-4">
           <div className="border rounded-lg p-4 text-center">
-            <div className="text-sm font-semibold">Net income</div>
+            <div className="text-sm font-semibold">
+              {t("userDashboard.tax.netIncome")}
+            </div>
             <div className="text-2xl font-bold text-[#5762D5]">
               {(100 - taxData.averageTaxRatePct).toFixed(1)}%
             </div>
@@ -226,7 +236,9 @@ export default function TaxSummary({
           </div>
 
           <div className="border rounded-lg p-4 text-center">
-            <div className="text-sm font-semibold">Total tax</div>
+            <div className="text-sm font-semibold">
+              {t(`userDashboard.tax.totalTax`)}
+            </div>
             <div className="text-2xl font-bold text-red-600">
               {taxData.averageTaxRatePct.toFixed(1)}%
             </div>
@@ -249,14 +261,7 @@ export default function TaxSummary({
 
         {/* Disclaimer */}
         <p className="text-xs text-gray-500 mt-6">
-          NOTE: Withholding tax is calculated based on the tax tables applicable
-          in Germany. For simplification purposes, some variables (such as tax
-          class, tax allowances, solidarity surcharge, church tax, and others)
-          have been assumed or may not be fully accounted for. This calculation
-          does not represent legal authority and shall be used for approximation
-          purposes only. For accurate income tax calculations, especially for
-          individuals with complex financial situations, it is recommended to
-          consult with a tax advisor.
+          {t(`userDashboard.tax.disclaimer`)}
         </p>
       </div>
     </div>
