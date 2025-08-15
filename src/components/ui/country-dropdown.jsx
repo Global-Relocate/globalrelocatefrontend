@@ -24,6 +24,7 @@ import { CircleFlag } from "react-circle-flags";
 
 // data
 import { countries } from "country-data-list";
+import data from "@/data/calculators/data.json";
 
 const CountryDropdownComponent = (
   {
@@ -32,7 +33,7 @@ const CountryDropdownComponent = (
         country.emoji &&
         country.status !== "deleted" &&
         country.ioc !== "PRK" &&
-        country.name === "Germany"
+        country.name === data[country.alpha2]?.country
     ),
     onChange,
     value,

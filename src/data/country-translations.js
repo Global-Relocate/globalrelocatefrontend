@@ -8753,7 +8753,9 @@ export const countries = [
 
 // Function to get country name in a specific language
 export function getCountryName(countrySlug, langCode) {
-  const country = countries.find((country) => country.slug === countrySlug);
+  const country =
+    countries.find((country) => country.slug === countrySlug) ||
+    countries.find((country) => country.code === countrySlug.toUpperCase());
   if (!country) {
     return null;
   }
