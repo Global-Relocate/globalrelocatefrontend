@@ -296,7 +296,8 @@
         "title": "Try Pro",
         "para": "You are currently in free plan valid for 3 days. Upgrade now to keep using Global Relocate.",
         "buttonText": "Learn More"
-      }
+      },
+      "visaIndex": "Visa Index"
     },
     "notifications": {
       "noNotifications": "You have no notifications yet.",

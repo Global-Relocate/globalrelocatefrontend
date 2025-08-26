@@ -35,6 +35,8 @@ import { CommentProvider } from "@/context/CommentContext";
 import SinglePost from "@/pages/user/SinglePost";
 import { AiChatProvider } from "@/context/AiChatContext";
 import ContactUs from "./pages/unauthenticated/contact-us";
+import VisaIndex from "./pages/user/visa-index";
+import VisaRequirements from "./pages/user/visa-requirements";
 
 // eslint-disable-next-line react/prop-types
 const RouteGuard = ({ children }) => {
@@ -108,6 +110,11 @@ const AppContent = () => {
                 <Community />
               </PostProvider>
             }
+          />
+          <Route path="/visa-index" element={<VisaIndex />} />
+          <Route
+            path="/visa-requirements/:slug"
+            element={<VisaRequirements />}
           />
           <Route path="/user/feedback" element={<Feedback />} />
           <Route path="/user/profile" element={<Profile />} />

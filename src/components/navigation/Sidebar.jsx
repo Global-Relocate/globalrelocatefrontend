@@ -5,8 +5,8 @@ import CounterBadge from "../common/CounterBadge";
 // import { useFavorites } from "@/context/favorites-context";
 import CountdownTimer from "../common/CountdownTimer";
 import { useTranslation } from "react-i18next";
-import { useNotifications } from '@/context/NotificationsContext';
-import { getSubscriptionDetails } from '@/services/api';
+import { useNotifications } from "@/context/NotificationsContext";
+import { getSubscriptionDetails } from "@/services/api";
 
 import countriesIcon from "../../assets/svg/countries.svg";
 import aiAssistantIcon from "../../assets/svg/ai.svg";
@@ -18,6 +18,7 @@ import bellIcon from "../../assets/svg/bell.svg";
 import bellActiveIcon from "../../assets/svg/filledbell.svg";
 import favoriteIcon from "../../assets/svg/favorite.svg";
 import filledfavoriteIcon from "../../assets/svg/filledfavorite.svg";
+import { EarthIcon } from "lucide-react";
 // import communityIcon from "../../assets/svg/community.svg";
 // import communityActiveIcon from "../../assets/svg/communities.svg";
 
@@ -28,51 +29,60 @@ function Sidebar({ navState }) {
   // const { favorites } = useFavorites();
   const { unreadCount } = useNotifications();
   const [showTrialSection, setShowTrialSection] = useState(false);
-  
+
   useEffect(() => {
     const checkSubscriptionStatus = async () => {
       try {
         const response = await getSubscriptionDetails();
-        
+
         if (response && response.success) {
           const { subscription, overallStatus, trial } = response.data || {};
-          
+
           // Hide "Try Pro" section if:
           // 1. User is an ADMIN (subscription.plan === "ADMIN")
           // 2. User has an active subscription (overallStatus === "active")
           // 3. User has INFINITE trial (trial.remainingDays === "INFINITE")
-          
+
           const isAdmin = subscription?.plan === "ADMIN";
           const hasActiveSubscription = overallStatus === "active";
-          const hasInfiniteTrial = 
-            trial?.remainingDays === "INFINITE" || 
-            trial?.end === "INFINITE";
-          
+          const hasInfiniteTrial =
+            trial?.remainingDays === "INFINITE" || trial?.end === "INFINITE";
+
           // Check if trial is active
           let isTrialActive = trial?.active;
-          
+
           // Check if trial has valid end date that's in the future
           let trialHasValidPeriod = false;
-          
-          if (trial?.end && trial.end !== "INFINITE" && typeof trial.end === 'string') {
+
+          if (
+            trial?.end &&
+            trial.end !== "INFINITE" &&
+            typeof trial.end === "string"
+          ) {
             // Try parsing the ISO date string
             const endDate = new Date(trial.end);
             const now = new Date();
-            
+
             // Trial is only valid if end date is in the future
             if (!isNaN(endDate.getTime()) && endDate > now) {
               trialHasValidPeriod = true;
             }
-          } else if (typeof trial?.remainingDays === 'number' && trial.remainingDays > 0) {
+          } else if (
+            typeof trial?.remainingDays === "number" &&
+            trial.remainingDays > 0
+          ) {
             trialHasValidPeriod = true;
-          } else if (trial?.remainingDays && trial.remainingDays !== "INFINITE") {
+          } else if (
+            trial?.remainingDays &&
+            trial.remainingDays !== "INFINITE"
+          ) {
             // Try to parse remainingDays as a number
             const days = parseInt(trial.remainingDays, 10);
             if (!isNaN(days) && days > 0) {
               trialHasValidPeriod = true;
             }
           }
-          
+
           // Only show trial section if:
           // - User is not admin
           // - User doesn't have active subscription
@@ -80,22 +90,22 @@ function Sidebar({ navState }) {
           // - Trial is active
           // - Trial has a valid period
           setShowTrialSection(
-            !isAdmin && 
-            !hasActiveSubscription && 
-            !hasInfiniteTrial && 
-            isTrialActive && 
-            trialHasValidPeriod
+            !isAdmin &&
+              !hasActiveSubscription &&
+              !hasInfiniteTrial &&
+              isTrialActive &&
+              trialHasValidPeriod
           );
         } else {
           // If response failed, don't show trial section
           setShowTrialSection(false);
         }
       } catch (error) {
-        console.error('Error fetching subscription details:', error);
+        console.error("Error fetching subscription details:", error);
         setShowTrialSection(false);
       }
     };
-    
+
     checkSubscriptionStatus();
   }, []);
 
@@ -132,7 +142,7 @@ function Sidebar({ navState }) {
       path: "/user/notifications",
       icon: bellIcon,
       activeIcon: bellActiveIcon,
-      count: unreadCount
+      count: unreadCount,
     },
     {
       title: t("userDashboard.sidebar.favourites"),
@@ -140,6 +150,13 @@ function Sidebar({ navState }) {
       path: "/user/favorites",
       icon: favoriteIcon,
       activeIcon: filledfavoriteIcon,
+    },
+    {
+      title: t("userDashboard.sidebar.visaIndex"),
+      activeKey: "/visa-index",
+      path: "/visa-index",
+      icon: EarthIcon,
+      activeIcon: EarthIcon,
     },
     // {
     //   title: t("userDashboard.sidebar.community"),
@@ -171,14 +188,25 @@ function Sidebar({ navState }) {
                 }`}
               >
                 <div className="flex items-center space-x-2">
-                  <img
-                    src={
-                      typeof IconComponent === "string" ? IconComponent : null
-                    }
-                    className="w-5 h-5"
-                    alt=""
-                  />
-                  <span className="text-sm">{item.title}</span>
+                  {item.icon === EarthIcon ? (
+                    <>
+                      <EarthIcon className="w-5 h-5" />
+                      <span className="text-sm">{item.title}</span>
+                    </>
+                  ) : (
+                    <>
+                      <img
+                        src={
+                          typeof IconComponent === "string"
+                            ? IconComponent
+                            : null
+                        }
+                        className="w-5 h-5"
+                        alt=""
+                      />
+                      <span className="text-sm">{item.title}</span>
+                    </>
+                  )}
                 </div>
                 {item.count > 0 && <CounterBadge count={item.count} />}
               </Link>

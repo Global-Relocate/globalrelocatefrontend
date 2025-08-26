@@ -296,7 +296,8 @@
         "title": "Pro ausprobieren",
         "para": "Sie befinden sich derzeit im kostenlosen Plan, der 3 Tage gültig ist. Aktualisieren Sie jetzt, um Global Relocate weiterhin nutzen zu können.",
         "buttonText": "Mehr erfahren"
-      }
+      },
+      "visaIndex": "Visa-Index"
     },
     "notifications": {
       "noNotifications": "Sie haben noch keine Benachrichtigungen.",
