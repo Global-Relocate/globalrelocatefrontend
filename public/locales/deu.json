@@ -584,6 +584,92 @@
       "noFavorites": "Sie haben noch keine Favoriten.",
       "addToFavorites": "Zu Favoriten hinzufügen",
       "removeFromFavorites": "Aus Favoriten entfernen"
+    },
+    "visaIndex": {
+      "title": "Passindex und Visainformationen",
+      "description": "Hier ist ein genaues und aktuelles Tool zur Passbewertung, das die Pässe der Welt nach der Anzahl der visumfreien Reiseziele einordnet.",
+      "backToVisaIndex": "Zurück zum Visa-Index",
+      "searchPlaceholder": "Suche nach einem Land...",
+      "noResults": "Keine Ergebnisse gefunden",
+      "countries": {
+        "usa": "Vereinigte Staaten",
+        "canada": "Kanada",
+        "uk": "Vereinigtes Königreich",
+        "australia": "Australien",
+        "germany": "Deutschland"
+      },
+      "checkIfYouNeedVisa": "Überprüfen Sie, ob Sie ein Visum benötigen",
+      "passportRankings": "Pass-Ranglisten",
+      "rank": "Rang",
+      "visaFreeDestinations": "Visumfreie Reiseziele",
+      "explorePassportRanking": "Pass-Rangliste erkunden",
+      "explorePassportRankingDesc": "Entdecken Sie die Stärke Ihres Passes, welche Länder Sie ohne Visum besuchen können und welche die stärksten Pässe der Welt sind.",
+      "mostPowerfulPassports": "Die mächtigsten Pässe",
+      "doINeedAVisa": "Benötige ich ein Visum?",
+      "doINeedAVisaDesc": "Finden Sie heraus, ob Sie ein Visum benötigen, um zu Ihrem gewünschten Ziel zu reisen",
+      "iHaveAVisaFrom": "Ich habe ein Visum von",
+      "iWantToTravelTo": "Ich möchte reisen nach",
+      "viewVisaFreeCountries": "Visumfreie Länder anzeigen",
+      "checking": "Prüfen...",
+      "visaIsRequired": "Visum ist erforderlich",
+      "visaFree": "Visumfrei",
+      "eVisaIsRequired": "e-Visum ist erforderlich",
+      "visaOnArrivalIsRequired": "Visum bei Ankunft ist erforderlich",
+      "noAdmission": "Keine Zulassung",
+      "visaNotRequired": "Visum nicht erforderlich",
+      "forCitizensOf": "für Bürger von",
+      "toTravelTo": "um zu reisen nach",
+      "faqs": {
+        "title": "FAQs",
+        "desc": "Hier finden Sie Antworten auf einige der am häufigsten gestellten Fragen zur Passbewertung und zu Visa.",
+        "question1": "Was sind visumfreie Länder?",
+        "answer1": "Visumfreie Länder sind Reiseziele, die Passinhaber ohne vorherige Visumbeantragung betreten können. Alle Reisenden in visumfreie Länder müssen jedoch einen gültigen Reisepass oder Personalausweis mit sich führen, um ihre Nationalität und Identität während ihrer gesamten Reise nachzuweisen.",
+        "question2": "Was bedeutet Pass-Rangliste?",
+        "answer2": "Der Rang eines Passes (Pass-Rangliste) bezieht sich auf die Position, die der Pass im Gesamtindex der Pass-Rangliste einnimmt. Verglichen mit den Pässen anderer Länder auf der ganzen Welt hängt die Stärke eines Passes von der Gesamtpunktzahl für die Mobilität ab, die der Pass seinen Inhabern bietet. Diese wird gemessen an der Gesamtzahl der Länder, in die sein Passinhaber entweder ohne Visum (visumfreier Zugang), mit einem Visum bei Ankunft oder mit einer elektronischen Reisegenehmigung reisen kann. Je größer die Anzahl dieser Reiseziele, desto höher die Gesamtpunktzahl für die Freizügigkeit und desto stärker der Pass.",
+        "question3": "Welche verschiedenen Arten von Pässen gibt es?",
+        "answer3": "Es gibt viele Arten von Pässen, darunter gewöhnliche Pässe, offizielle Pässe, Diplomatenpässe, Dienstpässe und Notfallpässe.",
+        "question4": "Benötige ich einen Reisepass?",
+        "answer4": "Ja, Sie benötigen einen Reisepass, wenn Sie in ein anderes Land reisen möchten. Es gibt jedoch seltene Fälle, in denen einige Länder Bürgern anderer spezifischer Länder gestatten, ihr Hoheitsgebiet nur mit einem nationalen Personalausweis (ID) anstelle eines Reisepasses zu betreten.",
+        "question5": "Benötige ich ein Visum?",
+        "answer5": "Ein Visum ist erforderlich, wenn das Land, das Sie besuchen möchten, verlangt, dass Sie vor der Einreise ein Visum beantragen.",
+        "question6": "Was ist ein biometrischer Reisepass?",
+        "answer6": "Ein biometrischer Reisepass oder elektronischer Reisepass ähnelt einem gewöhnlichen Reisepass. Der Unterschied besteht darin, dass er einen Smartchip in seinem Umschlag oder auf einer seiner Seiten enthält, der die Daten des Passinhabers enthält. Biometrische Pässe wurden als Reaktion auf die wachsende Bedrohung durch Identitätsdiebstahl und Bedrohungen der nationalen Sicherheit geschaffen."
+      }
+    },
+
+    "visaRequirements": {
+      "title": "Visabestimmungen",
+      "desc": "Informieren Sie sich über die Visabestimmungen für Ihr Zielland.",
+      "visaFree": {
+        "title": "Pass-Visumfreie Länder",
+        "desc1": "Passinhaber können in verschiedene Länder auf der ganzen Welt reisen, jedes mit unterschiedlichen Visabestimmungen. Dieser umfassende Leitfaden bietet detaillierte Informationen zu den Reisezielen, die Bürger dieses Landes ohne vorheriges Visum besuchen können, einschließlich Listen visumfreier Länder, Länder mit Visum bei Ankunft und Länder mit elektronischer Reisegenehmigung (eTA). Darüber hinaus enthält dieser Leitfaden Details zu Reisezielen, die für Passinhaber dieses Landes ein vorheriges Visum erfordern, einschließlich elektronischer Visa (eVisas) und regulärer Visa.",
+        "desc2": "Was sind die visumfreien Länder für",
+        "desc3": "Passinhaber?",
+        "desc4": "Passinhaber können ohne Visum in die folgenden",
+        "desc5": "Länder reisen:",
+        "desc6": "Die obige Liste zeigt alle von der Visumpflicht befreiten Länder für {{ country }}-Bürger. Es ist jedoch wichtig zu erkennen, dass die Aufenthaltsdauer und die zulässigen Reisezwecke für {{ country }}-Bürger in jedem Land den jeweiligen Visabestimmungen des Landes unterliegen. Es ist wichtig, dass {{ country }}-Passinhaber überprüfen, ob ein Visum für längere Aufenthalte als die zulässige Aufenthaltsdauer oder für Zwecke erforderlich ist, die nicht unter die Visumbefreiungsrichtlinie des Ziellandes fallen."
+      },
+      "visaOnArrival": {
+        "title": "Welche Länder bieten ein Visum bei Ankunft für {{ country }}-Passinhaber an?",
+        "desc1": "{{ country }}-Staatsangehörige haben Anspruch auf ein Visum bei Ankunft in den folgenden {{ count }} Ländern. In den meisten Fällen kann ein Visum bei der Ankunft am Flughafen oder Grenzübergang ausgestellt werden. Gebühren, Gültigkeit und zulässige Aufenthaltsdauer können variieren.",
+        "desc2": "Bei der Ankunft am Einwanderungskontrollpunkt im Zielland müssen Reisende möglicherweise die erforderlichen Papiere ausfüllen, alle erforderlichen Dokumente vorlegen und die entsprechende Visumgebühr entrichten. Der Einwanderungsbeamte stellt anschließend das Visum aus, das dem Besucher die Genehmigung erteilt, für die angegebene Dauer und den angegebenen Zweck in das Land einzureisen und sich dort aufzuhalten."
+      },
+      "eTA": {
+        "title": "Länder mit elektronischer Reisegenehmigung (eTA) für {{ country }}-Bürger",
+        "desc1": "{{ country }}-Passinhaber können vor dem Besuch der folgenden {{ count }} Länder eine elektronische Reisegenehmigung (eTA) erhalten. Eine eTA ist ein digitales Reisedokument, das für berechtigte Reisende erforderlich ist, die für ein bestimmtes Land von der Visumpflicht befreit sind, und kann vor der Reise online beantragt werden.",
+        "desc2": "Viele Länder mit eTA-Systemen haben ein optimiertes und effizientes Antragsverfahren, wobei die Genehmigung oft innerhalb von Stunden oder wenigen Tagen erteilt wird. Es ist wichtig zu beachten, dass die Berechtigung für eine eTA je nach Staatsangehörigkeit des Reisenden und Zielland variiert. Reisenden wird empfohlen, vor der Planung ihrer Reise immer die spezifischen Einreisebestimmungen des Ziellandes zu überprüfen."
+      },
+      "eVisa": {
+        "title": "In welchen Ländern müssen {{ country }}-Bürger ein E-Visum beantragen?",
+        "desc1": "Die folgenden {{ count }} Länder verlangen von {{ country }}-Staatsangehörigen, dass sie vor der Reise ein elektronisches Visum (eVisa) beantragen. Ein eVisa ist ein digitales Visum, das online beantragt und in den meisten Fällen an die E-Mail-Adresse des Antragstellers gesendet werden kann. Bearbeitungszeiten, Gebühren und Gültigkeit können von Land zu Land unterschiedlich sein.",
+        "desc2": "Der Erhalt eines eVisa umfasst in der Regel das Ausfüllen eines Online-Formulars, die Angabe von persönlichen Daten und Passinformationen, das Hochladen der erforderlichen Dokumente (z. B. ein Passfoto) und die Zahlung der Visumgebühr. Sobald der Antrag geprüft und genehmigt wurde, wird das E-Visum dem Antragsteller in der Regel per E-Mail in einem PDF- oder einem anderen elektronischen Format zugesandt. Der Reisende muss möglicherweise eine Kopie ausdrucken und auf Reisen mitnehmen. Die Anforderungen für E-Visa können je nach Staatsangehörigkeit des Reisenden und Zielland variieren. Es ist wichtig, die spezifischen Visabestimmungen für Ihr Zielland zu überprüfen, bevor Sie Ihre Reise planen."
+      },
+      "visaRequired": {
+        "title": "Liste der Länder, die für {{ country }}-Bürger ein Visum benötigen",
+        "desc1": "{{ country }}-Passinhaber müssen vor der Reise in die folgenden {{ count }} Länder ein reguläres Visum beantragen:",
+        "desc2": "Die Bearbeitungszeiten, Gebühren und erforderlichen Dokumente für Visa variieren je nach Staatsangehörigkeit des Reisenden und Zielland. Um ein Visum zu erhalten, müssen Reisende in der Regel bei der Botschaft oder dem Konsulat des Ziellandes in ihrem Herkunfts- oder Wohnsitzland einen Antrag stellen und die erforderlichen Dokumente wie Reisepass, Fotos, Reiseplan, Nachweis über finanzielle Mittel und andere relevante Informationen vorlegen. Es ist wichtig, die spezifischen Visabestimmungen für Ihr Zielland zu überprüfen, bevor Sie Ihre Reise planen, um sicherzustellen, dass Sie über die entsprechenden Dokumente und Genehmigungen für Ihren Besuch verfügen.",
+        "desc3": "Die obigen Listen der visumfreien Reiseziele für Passinhaber dieses Landes können sich von Zeit zu Zeit aufgrund von Visabkommen zwischen Ländern, vorübergehenden Reisebeschränkungen und von Ländern auferlegten Einreisebestimmungen ändern. Es wird empfohlen, vor der Reise nach zusätzlichen Anforderungen oder vorübergehenden Beschränkungen zu suchen, die von Ihrem Zielland auferlegt werden können."
+      }
     }
   },
   "drawers": {

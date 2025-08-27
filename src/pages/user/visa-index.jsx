@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import { Button } from "@/components/ui/button";
@@ -17,13 +17,23 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
 import { toast } from "sonner";
+import PageLoader from "@/components/loaders/PageLoader";
+import { getCountryName } from "@/data/country-translations";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function VisaIndex() {
   const { t } = useTranslation();
+  const { selectedLanguage } = useLanguage();
+  const checkVisa = useRef(null);
 
+  const [query, setQuery] = useState("");
+  const [passportQuery, setPassportQuery] = useState("");
   const [loading, setLoading] = useState(false);
+  const [checkLoading, setCheckLoading] = useState(false);
   const [visaInfo, setVisaInfo] = useState(null);
+  const [passportRanking, setPassportRanking] = useState({});
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedCountryCode, setSelectedCountryCode] = useState(null);
   const [selectedDestination, setSelectedDestination] = useState(null);
@@ -41,7 +51,7 @@ export default function VisaIndex() {
   };
 
   const checkVisaRequirements = async () => {
-    setLoading(true);
+    setCheckLoading(true);
 
     try {
       const response = await axios.get(
@@ -52,7 +62,75 @@ export default function VisaIndex() {
       setVisaInfo(null);
       toast.error(err.response.data.message);
     } finally {
+      setCheckLoading(false);
+    }
+  };
+
+  const fetchPassportRanking = async () => {
+    setLoading(true);
+
+    try {
+      const response = await axios.get(
+        `https://api.henleypassportindex.com/api/v2/hpp`
+      );
+
+      setPassportRanking(
+        response.data
+          .filter((rank) => rank?.hpp_rank)
+          .sort((a, b) => a.hpp_rank - b.hpp_rank)
+          .reduce((acc, country) => {
+            const rank = country.hpp_rank;
+            if (!acc[rank]) acc[rank] = [];
+            acc[rank].push(country);
+            return acc;
+          }, {})
+      );
+    } catch (error) {
+      console.error("Error fetching passport ranking:", error);
+    } finally {
       setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchPassportRanking();
+  }, []);
+
+  if (loading) {
+    return <PageLoader />;
+  }
+
+  // Filter based on query
+  const filteredGrouped = Object.entries(passportRanking).reduce(
+    (acc, [rank, countries]) => {
+      const matched = countries.filter(
+        (country) =>
+          country.name.toLowerCase().includes(query.toLowerCase()) ||
+          country.code.toLowerCase().includes(query.toLowerCase())
+      );
+      if (matched.length > 0) acc[rank] = matched;
+      return acc;
+    },
+    {}
+  );
+
+  // Filter passport based on query
+  const filteredPassportGrouped = Object.entries(passportRanking).reduce(
+    (acc, [rank, countries]) => {
+      const matched = countries.filter(
+        (country) =>
+          country.name.toLowerCase().includes(passportQuery.toLowerCase()) ||
+          country.code.toLowerCase().includes(passportQuery.toLowerCase())
+      );
+      if (matched.length > 0) acc[rank] = matched;
+      return acc;
+    },
+    {}
+  );
+
+  const scrollToCheckVisa = () => {
+    if (checkVisa.current) {
+      checkVisa.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -62,55 +140,73 @@ export default function VisaIndex() {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div className="flex flex-col gap-4">
             <h1 className="font-semibold text-[2.5rem] leading-[1.2]">
-              Passport index and visa information
+              {t("userDashboard.visaIndex.title")}
             </h1>
             <p className="font-medium">
-              Here is an accurate and up-to-date passport ranking tool, which
-              ranks the world&apos;s passports based on the number of visa-free
-              travel destinations.
+              {t("userDashboard.visaIndex.description")}
             </p>
             <Button
               variant="primary"
-              onClick={() => {}}
-              className="bg-[#c6952c] text-white h-[58px] max-w-[280px] text-md font-semibold cursor-pointer"
+              onClick={() => scrollToCheckVisa()}
+              className="bg-[#c6952c] text-white h-[58px] max-w-[280px] text-md font-semibold cursor-pointer text-wrap"
             >
-              Check if you need a visa
+              {t("userDashboard.visaIndex.checkIfYouNeedVisa")}
             </Button>
           </div>
 
           <div className="flex flex-col gap-4">
             <div>
               <Input
-                placeholder="Search"
+                placeholder={t("userDashboard.visaIndex.searchPlaceholder")}
                 className="h-12 hover:border-primary hover:border-2 rounded-[10px]"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
               />
             </div>
             <ScrollArea className="h-[300px] md:h-[460px] w-full rounded-md border bg-white p-4">
-              <div className="font-semibold mb-4">Passport Rankings - 2025</div>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15].map((rank) => (
-                <div key={rank} className="mt-2">
-                  <div className="flex justify-between items-center bg-secondary rounded-md border-2 border-[#c6952c] py-[0.5rem] pl-[1rem] pr-[10px]">
-                    <div className="font-semibold text-[#c6952c] text-[14px]">
-                      Rank: {rank}
+              <div className="font-semibold mb-4">
+                {t("userDashboard.visaIndex.passportRankings")} - 2025
+              </div>
+              {filteredGrouped && Object.keys(filteredGrouped).length > 0 ? (
+                Object.entries(filteredGrouped).map(([rank, countries]) => (
+                  <div key={rank} className="mt-4">
+                    {/* Rank Header */}
+                    <div className="flex justify-between items-center bg-secondary rounded-md border-2 border-[#c6952c] py-[0.5rem] pl-[1rem] pr-[10px]">
+                      <div className="font-semibold text-[#c6952c] text-[14px]">
+                        {t("userDashboard.visaIndex.rank")}: {rank}
+                      </div>
+                      <div className="font-semibold text-[#c6952c] text-[14px]">
+                        {t("userDashboard.visaIndex.visaFreeDestinations")}:{" "}
+                        <span className="font-semibold">
+                          {countries[0]?.visa_free_list?.length}
+                        </span>
+                      </div>
                     </div>
-                    <div className="font-semibold text-[#c6952c] text-[14px]">
-                      Visa-free destinations:{" "}
-                      <span className="font-semibold">192</span>
-                    </div>
+
+                    {/* Countries under this rank */}
+                    {countries.map((country) => (
+                      <Link
+                        key={country?.code}
+                        to="/visa-details"
+                        className="text-primary flex items-center gap-x-4 h-[57px]"
+                      >
+                        <CircleFlag
+                          countryCode={country?.code?.toLowerCase()}
+                          height={20}
+                          width={30}
+                        />
+                        {getCountryName(country.code, selectedLanguage?.code)}
+                      </Link>
+                    ))}
                   </div>
-                  <Link
-                    to="/visa-details"
-                    className="text-primary flex items-center gap-x-4 h-[57px]"
-                  >
-                    <CircleFlag
-                      countryCode={selectedCountryCode?.toLowerCase() || "ng"}
-                      height={20}
-                      width={30}
-                    />{" "}
-                    Nigeria
-                  </Link>
+                ))
+              ) : (
+                <div className="flex items-center justify-center h-full mt-6">
+                  <p className="text-center">
+                    {t("userDashboard.visaIndex.noResults")}
+                  </p>
                 </div>
-              ))}
+              )}
             </ScrollArea>
           </div>
         </section>
@@ -118,20 +214,20 @@ export default function VisaIndex() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
           <div className="">
             <h2 className="font-semibold text-[2rem] leading-[1.2]">
-              Explore passport ranking
+              {t("userDashboard.visaIndex.explorePassportRanking")}
             </h2>
             <p className="mt-2">
-              Discover the strength of your passport, which countries you can
-              visit without the need for a visa, and the strongest passports in
-              the world.
+              {t("userDashboard.visaIndex.explorePassportRankingDesc")}
             </p>
           </div>
 
           <div className="flex flex-col">
             <div>
               <Input
-                placeholder="Search"
+                placeholder={t("userDashboard.visaIndex.searchPlaceholder")}
                 className="h-12 hover:border-primary hover:border-2 rounded-[10px]"
+                value={passportQuery}
+                onChange={(e) => setPassportQuery(e.target.value)}
               />
             </div>
           </div>
@@ -139,42 +235,59 @@ export default function VisaIndex() {
 
         <section className="mt-4">
           <h3 className="font-semibold text-2xl mb-6">
-            Most powerful passports
+            {t("userDashboard.visaIndex.mostPowerfulPassports")}
           </h3>
 
           <div className="mt-2">
             <ScrollArea className="whitespace-nowrap overflow-x-auto overflow-y-hidden">
               <div className="flex w-96 space-x-4 mb-4">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
-                  (rank) => (
-                    <div
-                      key={rank}
-                      className="border-2 border-black rounded-md py-[8px] px-[10px] shrink-0"
-                    >
-                      <div className="rounded-lg h-[341px] w-[230px]">
-                        <img
-                          src={`${baseURL}/image/fetch/${
-                            selectedCountryCode?.toLowerCase() || "ng"
-                          }`}
-                          alt="passport"
-                          className="w-full h-full"
-                        />
+                {filteredPassportGrouped &&
+                Object.keys(filteredPassportGrouped).length > 0 ? (
+                  Object.entries(filteredPassportGrouped).map(
+                    ([rank, countries]) => (
+                      <div key={rank} className="flex flex-col items-start">
+                        {/* Countries in this rank */}
+                        <div className="flex space-x-4">
+                          {countries.map((country) => (
+                            <div
+                              key={country.code}
+                              className="border-2 border-black rounded-md py-[8px] px-[10px] shrink-0"
+                            >
+                              <div className="rounded-lg h-[341px] w-[230px]">
+                                <img
+                                  src={`${baseURL}/image/fetch/${country.code.toLowerCase()}`}
+                                  alt={country.name}
+                                  className="w-full h-full"
+                                />
+                              </div>
+                              <div className="flex items-center gap-x-4 h-[57px] mt-2">
+                                <CircleFlag
+                                  countryCode={country.code.toLowerCase()}
+                                  height={20}
+                                  width={30}
+                                />
+                                <div className="text-primary flex flex-col text-wrap whitespace-break-spaces">
+                                  {getCountryName(
+                                    country.code,
+                                    selectedLanguage?.code
+                                  )}
+                                  <h3 className="font-semibold">
+                                    {t("userDashboard.visaIndex.rank")}: {rank}
+                                  </h3>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <Link
-                        to="/visa-details"
-                        className="text-primary flex items-center gap-x-4 h-[57px]"
-                      >
-                        <CircleFlag
-                          countryCode={
-                            selectedCountryCode?.toLowerCase() || "ng"
-                          }
-                          height={20}
-                          width={30}
-                        />{" "}
-                        Nigeria
-                      </Link>
-                    </div>
+                    )
                   )
+                ) : (
+                  <div className="flex items-center justify-center h-full">
+                    <p className="text-center">
+                      {t("userDashboard.visaIndex.noResults")}
+                    </p>
+                  </div>
                 )}
               </div>
               <ScrollBar orientation="horizontal" />
@@ -182,14 +295,13 @@ export default function VisaIndex() {
           </div>
         </section>
 
-        <section className="mt-10">
+        <section className="mt-10" id="checkVisa" ref={checkVisa}>
           <div className="flex flex-col">
             <h2 className="font-semibold text-[2rem] leading-[1.2]">
-              Do i need a visa?
+              {t("userDashboard.visaIndex.doINeedAVisa")}
             </h2>
             <p className="mt-2">
-              Here you can check if you need a visa to travel to your desired
-              destination.
+              {t("userDashboard.visaIndex.doINeedAVisaDesc")}
             </p>
           </div>
 
@@ -197,7 +309,7 @@ export default function VisaIndex() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
               <div>
                 <label className="block mb-2 font-semibold uppercase text-sm">
-                  I have a visa from
+                  {t("userDashboard.visaIndex.iHaveAVisaFrom")}
                 </label>
                 <CountryDropdown
                   value={selectedCountry}
@@ -215,13 +327,13 @@ export default function VisaIndex() {
                     to={`/visa-requirements/${selectedCountryCode.toLowerCase()}`}
                     className="text-sm underline"
                   >
-                    View visa free countries
+                    {t("userDashboard.visaIndex.viewVisaFreeCountries")}
                   </Link>
                 )}
               </div>
               <div>
                 <label className="block mb-2 font-semibold uppercase text-sm">
-                  I want to travel to
+                  {t("userDashboard.visaIndex.iWantToTravelTo")}
                 </label>
                 <CountryDropdown
                   value={selectedDestination}
@@ -238,18 +350,22 @@ export default function VisaIndex() {
                     to={`/visa-requirements/${selectedDestinationCode.toLowerCase()}`}
                     className="text-sm underline"
                   >
-                    View visa free countries
+                    {t("userDashboard.visaIndex.viewVisaFreeCountries")}
                   </Link>
                 )}
               </div>
               <div className="flex items-center">
                 <Button
-                  disabled={loading || !selectedCountry || !selectedDestination}
+                  disabled={
+                    checkLoading || !selectedCountry || !selectedDestination
+                  }
                   variant="primary"
-                  onClick={checkVisaRequirements}
-                  className="bg-[#c6952c] text-white h-[58px] w-full text-md font-semibold cursor-pointer"
+                  onClick={() => checkVisaRequirements()}
+                  className="bg-[#c6952c] text-white h-[58px] w-full text-md font-semibold cursor-pointer text-wrap"
                 >
-                  {loading ? "Checking..." : "Check if you need a visa"}
+                  {checkLoading
+                    ? t("userDashboard.visaIndex.checking")
+                    : t("userDashboard.visaIndex.checkIfYouNeedVisa")}
                 </Button>
               </div>
             </div>
@@ -293,13 +409,16 @@ export default function VisaIndex() {
                 <div className="w-full flex justify-between flex-col gap-[15px] lg:flex-row lg:gap-0">
                   {/* First section */}
                   <div className="flex flex-col gap-y-[5px] pt-0 w-full order-1 lg:gap-y-[15px] lg:pt-[20px] justify-center lg:w-[23%] lg:order-none">
-                    <div className="bg-white rounded-md p-[10px] lg:py-[10px] lg:px-[15px] flex lg:flex-col items-center gap-[10px] w-full font-semibold">
+                    <div className="bg-white rounded-md p-[10px] lg:py-[10px] lg:px-[15px] flex lg:flex-col items-center gap-[10px] w-full font-semibold text-center">
                       <CircleFlag
                         countryCode={selectedCountryCode.toLowerCase()}
                         height={20}
                         width={screenMaxWidth <= 768 ? 25 : 40}
                       />
-                      {visaInfo.passport.name}
+                      {getCountryName(
+                        visaInfo.passport.code,
+                        selectedLanguage?.code
+                      )}
                     </div>
                   </div>
 
@@ -369,20 +488,28 @@ export default function VisaIndex() {
                     <div className="lg:w-[90%]">
                       <h1 className="font-extrabold uppercase text-start text-[20px] lg:text-center text-primary lg:text-[25px]">
                         {visaInfo.category.code === "VR"
-                          ? "Visa is required"
+                          ? t("userDashboard.visaIndex.visaIsRequired")
                           : visaInfo.category.code === "EV"
-                          ? "e-Visa is required"
+                          ? t("userDashboard.visaIndex.eVisaIsRequired")
                           : visaInfo.category.code === "VOA"
-                          ? "Visa on Arrival is required"
+                          ? t("userDashboard.visaIndex.visaOnArrivalIsRequired")
                           : visaInfo.category.code === "VF"
-                          ? "Visa Free"
+                          ? t("userDashboard.visaIndex.visaFree")
                           : visaInfo.category.code === "NA"
-                          ? "No Admission"
-                          : "Visa not required"}
+                          ? t("userDashboard.visaIndex.noAdmission")
+                          : t("userDashboard.visaIndex.visaNotRequired")}
                       </h1>{" "}
                       <p className="font-bold text-start m-0 text-[16px] lg:text-center text-primary">
-                        for citizens of {visaInfo.passport.name} to travel to{" "}
-                        {visaInfo.destination.name}
+                        {t("userDashboard.visaIndex.forCitizensOf")}{" "}
+                        {getCountryName(
+                          visaInfo.passport.code,
+                          selectedLanguage.code
+                        )}{" "}
+                        {t("userDashboard.visaIndex.toTravelTo")}{" "}
+                        {getCountryName(
+                          visaInfo.destination.code,
+                          selectedLanguage.code
+                        )}
                       </p>{" "}
                     </div>
                   </div>
@@ -441,13 +568,16 @@ export default function VisaIndex() {
 
                   {/* Last section */}
                   <div className="flex flex-col pt-[20px] gap-y-[5px] order-3 items-start font-semibold w-full  lg:items-end justify-center lg:w-[23%] lg:gap-y-[15px] lg:-order-none">
-                    <div className="bg-white rounded-md p-[10px] lg:py-[10px] lg:px-[15px] flex lg:flex-col items-center gap-[10px] w-full">
+                    <div className="bg-white rounded-md p-[10px] lg:py-[10px] lg:px-[15px] flex lg:flex-col items-center gap-[10px] w-full text-center">
                       <CircleFlag
                         countryCode={selectedDestinationCode.toLowerCase()}
                         height={20}
                         width={screenMaxWidth >= 768 ? 40 : 25}
                       />
-                      {visaInfo.destination.name}
+                      {getCountryName(
+                        visaInfo.destination.code,
+                        selectedLanguage?.code
+                      )}
                     </div>
                   </div>
                 </div>
@@ -486,88 +616,66 @@ export default function VisaIndex() {
         {/* FAQs Section */}
         <section className="mt-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-4">
           <div className="flex flex-col">
-            <h2 className="font-semibold text-[2rem] leading-[1.2]">FAQs</h2>
-            <p className="mt-2">
-              Here, you will find answers to some of the most frequently asked
-              questions about passport ranking and visas.
-            </p>
+            <h2 className="font-semibold text-[2rem] leading-[1.2]">
+              {t("userDashboard.visaIndex.faqs.title")}
+            </h2>
+            <p className="mt-2">{t("userDashboard.visaIndex.faqs.desc")}</p>
           </div>
 
           <div className="w-full">
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger>
-                  What are visa-free countries?
+                  {" "}
+                  {t("userDashboard.visaIndex.faqs.question1")}
                 </AccordionTrigger>
                 <AccordionContent>
-                  Visa-free countries are destinations that passport holders can
-                  enter without obtaining a visa beforehand. However, all
-                  travelers to visa-free countries must carry a valid passport
-                  or identity card to prove their nationality and identity
-                  throughout their journey.
+                  {t("userDashboard.visaIndex.faqs.answer1")}
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2">
                 <AccordionTrigger>
-                  What does passport ranking mean?
+                  {t("userDashboard.visaIndex.faqs.question2")}
                 </AccordionTrigger>
                 <AccordionContent>
-                  The rank of a passport (passport ranking) refers to the
-                  position that the passport occupies in the overall passport
-                  ranking index. Compared to the passports of other countries
-                  around the world, the strength of a passport depends on the
-                  total mobility score that the passport provides to its
-                  holders. This is measured by the total number of countries to
-                  which its passport holder can travel to, either without a visa
-                  (visa-free access), with a visa on arrival, or with an
-                  electronic travel authorization. The greater the number of
-                  these destinations, the higher the total points for freedom of
-                  movement, and therefore the stronger the passport.
+                  {t("userDashboard.visaIndex.faqs.answer2")}
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-3">
                 <AccordionTrigger>
-                  What are the different types of passports?
+                  {t("userDashboard.visaIndex.faqs.question3")}
                 </AccordionTrigger>
                 <AccordionContent>
-                  There are many types of passports, including ordinary
-                  passports, official passports, diplomatic passports, service
-                  passports, and emergency passports.
+                  {t("userDashboard.visaIndex.faqs.answer3")}
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-4">
-                <AccordionTrigger>Do I need a passport?</AccordionTrigger>
+                <AccordionTrigger>
+                  {t("userDashboard.visaIndex.faqs.question4")}
+                </AccordionTrigger>
                 <AccordionContent>
-                  You need a passport if you want to travel to another country.
-                  However, there are rare cases in which some countries allow
-                  citizens of other specific countries to enter their territory
-                  using only a national identification card (ID) instead of a
-                  passport.
+                  {t("userDashboard.visaIndex.faqs.answer4")}
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-5">
-                <AccordionTrigger>Do I need a visa?</AccordionTrigger>
+                <AccordionTrigger>
+                  {t("userDashboard.visaIndex.faqs.question5")}
+                </AccordionTrigger>
                 <AccordionContent>
-                  A visa is required if the country you are planning to visit
-                  demands that you obtain one prior to entry.
+                  {t("userDashboard.visaIndex.faqs.answer5")}
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-6">
                 <AccordionTrigger>
-                  What is a biometric passport?
+                  {t("userDashboard.visaIndex.faqs.question6")}
                 </AccordionTrigger>
                 <AccordionContent>
-                  A biometric passport or electronic passport is similar to an
-                  ordinary passport. The difference is that it contains a smart
-                  chip in its cover or on one of its pages, which includes the
-                  passport holder’s data. Biometric passports were created as a
-                  way to respond to the growing threat of identity theft and
-                  threats to national security.
+                  {t("userDashboard.visaIndex.faqs.answer6")}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

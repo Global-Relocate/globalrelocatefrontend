@@ -584,6 +584,91 @@
       "noFavorites": "You have no favorites yet.",
       "addToFavorites": "Add to favorites",
       "removeFromFavorites": "Remove from favorites"
+    },
+    "visaIndex": {
+      "title": "Passport index and visa information",
+      "description": "Here is an accurate and up-to-date passport ranking tool, which ranks the world's passports based on the number of visa-free travel destinations.",
+      "backToVisaIndex": "Back to Visa Index",
+      "searchPlaceholder": "Search for a country...",
+      "noResults": "No results found",
+      "countries": {
+        "usa": "United States",
+        "canada": "Canada",
+        "uk": "United Kingdom",
+        "australia": "Australia",
+        "germany": "Germany"
+      },
+      "checkIfYouNeedVisa": "Check if you need a visa",
+      "passportRankings": "Passport Rankings",
+      "rank": "Rank",
+      "visaFreeDestinations": "Visa-free destinations",
+      "explorePassportRanking": "Explore passport ranking",
+      "explorePassportRankingDesc": "Discover the strength of your passport, which countries you can visit without the need for a visa, and the strongest passports in the world.",
+      "mostPowerfulPassports": "Most powerful passports",
+      "doINeedAVisa": "Do i need a visa?",
+      "doINeedAVisaDesc": "Find out if you need a visa to travel to your desired destination",
+      "iHaveAVisaFrom": "I have a visa from",
+      "iWantToTravelTo": "I want to travel to",
+      "viewVisaFreeCountries": "View visa-free countries",
+      "checking": "Checking...",
+      "visaIsRequired": "Visa is required",
+      "visaFree": "Visa Free",
+      "eVisaIsRequired": "e-Visa is required",
+      "visaOnArrivalIsRequired": "Visa on arrival is required",
+      "noAdmission": "No Admission",
+      "visaNotRequired": "Visa not required",
+      "forCitizensOf": "for citizens of",
+      "toTravelTo": "to travel to",
+      "faqs": {
+        "title": "FAQs",
+        "desc": "Here, you will find answers to some of the most frequently asked questions about passport ranking and visas.",
+        "question1": "What are visa-free countries?",
+        "answer1": "Visa-free countries are destinations that passport holders can enter without obtaining a visa beforehand. However, all travelers to visa-free countries must carry a valid passport or identity card to prove their nationality and identity throughout their journey.",
+        "question2": "What does passport ranking mean?",
+        "answer2": "The rank of a passport (passport ranking) refers to the position that the passport occupies in the overall passport ranking index. Compared to the passports of other countries around the world, the strength of a passport depends on the total mobility score that the passport provides to its holders. This is measured by the total number of countries to which its passport holder can travel to, either without a visa (visa-free access), with a visa on arrival, or with an electronic travel authorization. The greater the number of these destinations, the higher the total points for freedom of movement, and therefore the stronger the passport.",
+        "question3": "What are the different types of passports?",
+        "answer3": "There are many types of passports, including ordinary passports, official passports, diplomatic passports, service passports, and emergency passports.",
+        "question4": "Do I need a passport?",
+        "answer4": "Yes, you need a passport if you want to travel to another country. However, there are rare cases in which some countries allow citizens of other specific countries to enter their territory using only a national identification card (ID) instead of a passport.",
+        "question5": "Do I need a visa?",
+        "answer5": "A visa is required if the country you are planning to visit demands that you obtain one prior to entry.",
+        "question6": "What is a biometric passport?",
+        "answer6": "A biometric passport or electronic passport is similar to an ordinary passport. The difference is that it contains a smart chip in its cover or on one of its pages, which includes the passport holder’s data. Biometric passports were created as a way to respond to the growing threat of identity theft and threats to national security."
+      }
+    },
+    "visaRequirements": {
+      "title": "Visa Requirements",
+      "desc": "Find out the visa requirements for your destination country.",
+      "visaFree": {
+        "title": "Passport Visa Free Countries",
+        "desc1": "passport holders can travel to various countries around the world, each with distinct visa requirements. This comprehensive guide offers detailed information on the destinations that citizens of this country can visit without a prior visa, including lists of visa-free countries, visa-on-arrival countries, and Electronic Travel Authorization (eTA) countries. Additionally, this guide provides details on travel destinations that require a prior visa for this country&apos;s passport holders, including both electronic visas (eVisas) and regular visas.",
+        "desc2": "What are the visa-free countries for",
+        "desc3": "passport holders?",
+        "desc4": "Passport holders can travel without a visa to the following",
+        "desc5": "countries:",
+        "desc6": "  The above list shows all the visa-exempt countries for {{ country }} citizens. However, it is important to recognize that the duration of stay and permissible purposes for travel for {{ country }} citizens in each country are subject to the respective nation's visa regulations. It is essential for {{ country }} passport holders to verify if a visa is required for extended stays beyond the allowed duration of stay or for purposes not encompassed within the Visa Waiver Policy of the destination country."
+      },
+      "visaOnArrival": {
+        "title": "What countries provide visa on arrival for {{ country }} passport holders?",
+        "desc1": "{{ country }} nationals are eligible for a visa on arrival in the following {{ count }} countries. In most cases, a visa can be obtained at the airport or border crossing point upon arrival. Fees, validity, and allowed duration of stay may vary.",
+        "desc2": "Upon arrival at the immigration checkpoint in the destination country, travelers may need to complete the requisite paperwork, provide any necessary documentation, and pay the relevant visa fee. The immigration officer will subsequently issue the visa, granting the visitor authorization to enter and remain in the country for the specified duration and purpose."
+      },
+      "eTA": {
+        "title": "Electronic Travel Authorization (eTA) Countries for {{ country }} Citizens",
+        "desc1": "{{ country }} passport holders are eligible to obtain an Electronic Travel Authorization (eTA) prior to visiting the following {{ count }} countries. An eTA is a digital travel document required for eligible travelers who are visa-exempt for a specific country, and it can be obtained online prior to travel.",
+        "desc2": "Many countries with eTA systems have a streamlined and efficient application process, with approval often granted within hours or a few days. It is important to note that eligibility for an eTA varies depending on the traveler&apos;s nationality and the destination country. Travelers are advised to always check the specific entry requirements of the destination country before planning their trip."
+      },
+      "eVisa": {
+        "title": "Which countries do {{ country }} citizens need to apply for an e-visa?",
+        "desc1": "The following {{ count }} countries require {{ country }} nationals to apply for an electronic visa (eVisa) before traveling. An eVisa is a digital visa that can be applied for online and, in most cases, sent to the applicant&apos;s email. Processing times, fees, and validity may vary among different countries.",
+        "desc2": "The process of getting an eVisa typically involves filling out an online form, providing personal and passport information, uploading necessary documents (such as a passport-sized photo), and paying the visa fee. Once the application has been reviewed and approved, the e-Visa is sent to the applicant, usually via email, in a PDF or other electronic format. The traveler may need to print a copy to take with them when traveling. Requirements for e-Visas may vary depending on the traveler's nationality and the destination country. It is important to check the specific visa requirements for your destination country before planning your trip."
+      },
+      "visaRequired": {
+        "title": "List of Countries Requiring Visas for {{ country }} Citizens",
+        "desc1": "{{ country }} passport holders need to apply for a regular visa before traveling to the following {{ count }} countries:",
+        "desc2": "Visa processing times, fees, and required documents vary by the traveler's nationality and the destination country. To obtain a visa, travelers generally need to apply at the destination country's embassy or consulate in their country of origin or country of residence, providing required documents such as a passport, photographs, itinerary, proof of financial means, and other relevant information. It is important to check the specific visa requirements for your destination country before planning your trip to ensure that you have the appropriate documents and permissions for your visit.",
+        "desc3": "The above lists of visa-free destinations for this country passport holders are subject to change from time to time based on visa agreements between countries, temporary travel restrictions, and entry requirements imposed by countries. It is advised to check before traveling for any additional requirements or temporary restrictions that may be imposed by your travel destination country."
+      }
     }
   },
   "drawers": {

@@ -24,12 +24,17 @@ import { CircleFlag } from "react-circle-flags";
 
 // data
 import { countries } from "country-data-list";
+// Supported countries
+import supportedCountries from "../../data/visa/countries.json";
 
 const CountryDropdownComponent = (
   {
     options = countries.all.filter(
       (country) =>
-        country.emoji && country.status !== "deleted" && country.ioc !== "PRK"
+        country.emoji &&
+        country.status !== "deleted" &&
+        country.ioc !== "PRK" &&
+        supportedCountries.some((c) => c.code === country.alpha2)
     ),
     onChange,
     value,
