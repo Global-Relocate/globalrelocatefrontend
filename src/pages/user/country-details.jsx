@@ -1,3 +1,4 @@
+import axios from "axios";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import swizerland from "../../assets/images/swizerland.png";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -18,8 +19,10 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/context/LanguageContext";
-import { getCountryName } from "@/data/country-translations";
+import { getCountryName, getCountryCode } from "@/data/country-translations";
 import { toast } from "sonner";
+
+const baseURL = import.meta.env.VITE_API_URL;
 
 function CountryDetails() {
   const { id } = useParams();
@@ -38,7 +41,15 @@ function CountryDetails() {
   const [count, setCount] = useState(0);
   const { selectedLanguage } = useLanguage();
   const [countryData, setCountryData] = useState(null);
+  const [countryCode, setCountryCode] = useState(null);
   const [favoriteLoading, setFavoriteLoading] = useState(false);
+  const [passportRanking, setPassportRanking] = useState();
+
+  function getOrdinalSuffix(n) {
+    const s = ["th", "st", "nd", "rd"];
+    const v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+  }
 
   useEffect(() => {
     if (id) {
@@ -49,8 +60,44 @@ function CountryDetails() {
   useEffect(() => {
     if (singleCountry) {
       setCountryData(singleCountry);
+      setCountryCode(getCountryCode(singleCountry?.slug));
     }
   }, [singleCountry]);
+
+  const fetchPassportRanking = async () => {
+    try {
+      const [response, visaFreeAccess] = await Promise.all([
+        axios.get(`https://api.henleypassportindex.com/api/v2/hpp`),
+        axios.get(
+          `https://api.henleypassportindex.com/api/v3/visa-single/${countryCode.toLowerCase()}`
+        ),
+      ]);
+
+      // Find the specific country in the response
+      const country = response.data.find((item) => item.code === countryCode);
+
+      if (country && visaFreeAccess) {
+        setPassportRanking({
+          rank: country.hpp_rank,
+          visaFreeCount: visaFreeAccess.data.visa_free_access?.length || 0,
+          visaOnArrivalCount: visaFreeAccess.data.visa_on_arrival?.length || 0,
+          etaCount:
+            visaFreeAccess.data.electronic_travel_authorisation?.length || 0,
+          visaRequiredCount: visaFreeAccess.data.visa_required?.length || 0,
+          visaOnlineCount: visaFreeAccess.data.visa_online?.length || 0,
+        });
+      } else {
+        console.warn(`Country with code ${countryCode} not found`);
+        setPassportRanking(null);
+      }
+    } catch (error) {
+      console.error("Error fetching passport ranking:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPassportRanking();
+  }, []);
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -625,6 +672,76 @@ function CountryDetails() {
                           <p>
                             {countryData.visaAndImmigration.passportsAndVisas}
                           </p>
+
+                          <div className="mt-4">
+                            <h3 className="font-semibold text-lg">
+                              {t("userDashboard.visaIndex.passportRanking")}
+                            </h3>
+                            <div className="flex items-center justify-start gap-x-6 flex-wrap gap-y-2">
+                              <div className="rounded-lg h-[250px] w-[180px] my-5">
+                                <img
+                                  src={`${baseURL}/image/fetch/${countryCode.toLowerCase()}`}
+                                  alt={countryData?.slug}
+                                  className="w-full h-full"
+                                />
+                              </div>
+
+                              <div className="">
+                                <h3 className="font-medium text-lg">
+                                  {t("userDashboard.visaIndex.rank")} -{" "}
+                                  {getOrdinalSuffix(passportRanking?.rank)}
+                                </h3>
+                                <p>
+                                  {t(
+                                    "userDashboard.visaIndex.visaFreeDestinations"
+                                  )}{" "}
+                                  -{" "}
+                                  <span className="font-semibold">
+                                    {passportRanking?.visaFreeCount}{" "}
+                                    {t("userDashboard.countries.title")}
+                                  </span>
+                                </p>
+                                <p>
+                                  {t(
+                                    "userDashboard.visaIndex.visaRequiredDestinations"
+                                  )}{" "}
+                                  -{" "}
+                                  <span className="font-semibold">
+                                    {passportRanking?.visaRequiredCount}{" "}
+                                    {t("userDashboard.countries.title")}
+                                  </span>
+                                </p>
+                                <p>
+                                  {t(
+                                    "userDashboard.visaIndex.visaOnArrivalDestinations"
+                                  )}{" "}
+                                  -{" "}
+                                  <span className="font-semibold">
+                                    {passportRanking?.visaOnArrivalCount}{" "}
+                                    {t("userDashboard.countries.title")}
+                                  </span>
+                                </p>
+                                <p>
+                                  {t("userDashboard.visaIndex.etaDestinations")}{" "}
+                                  -{" "}
+                                  <span className="font-semibold">
+                                    {passportRanking?.etaCount}{" "}
+                                    {t("userDashboard.countries.title")}
+                                  </span>
+                                </p>
+                                <p>
+                                  {t(
+                                    "userDashboard.visaIndex.visaOnlineDestinations"
+                                  )}{" "}
+                                  -{" "}
+                                  <span className="font-semibold">
+                                    {passportRanking?.visaOnlineCount}{" "}
+                                    {t("userDashboard.countries.title")}
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       )}
 

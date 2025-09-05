@@ -56,9 +56,17 @@ function Countries() {
   };
 
   // Filter countries locally by search term (countryName)
-  const filteredCountries = countries.filter((country) =>
-    country.countryName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredCountries = countries.filter((country) => {
+    const countryName = country.countryName?.toLowerCase() ?? "";
+    const translatedName =
+      getCountryName(
+        country.countrySlug,
+        selectedLanguage.code
+      )?.toLowerCase() ?? "";
+    const search = searchTerm.toLowerCase();
+
+    return countryName.includes(search) || translatedName.includes(search);
+  });
 
   // Infinite scroll logic
   const lastElementRef = useCallback(

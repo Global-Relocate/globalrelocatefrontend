@@ -1,6 +1,7 @@
 import axiosInstance from "@/config/axiosInstance";
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 const CountryDataContext = createContext();
 
@@ -16,6 +17,8 @@ export const CountryDataProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [continent, setContinent] = useState("");
   const [favourites, setFavourites] = useState([]);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetchCountries(true);
@@ -49,7 +52,7 @@ export const CountryDataProvider = ({ children }) => {
       await axiosInstance.post(`/countries/favourite/add/${id}`);
       fetchCountries(true, true);
       getFavouriteCountries();
-      toast.success("Added to favourite!");
+      toast.success(t("toast.addedCountryToFavorites"));
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     }
@@ -60,7 +63,7 @@ export const CountryDataProvider = ({ children }) => {
       await axiosInstance.post(`/countries/favourite/remove/${id}`);
       fetchCountries(true, true);
       getFavouriteCountries();
-      toast.success("Remove from favourite!");
+      toast.success(t("toast.removedCountryFromFavorites"));
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     }

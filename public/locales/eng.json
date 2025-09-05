@@ -244,6 +244,19 @@
       "sending": "Sending...",
       "messageSent": "Message sent successfully!",
       "messageFailed": "Failed to send message. Please try again."
+    },
+    "feedback": {
+      "back": "Back",
+      "title1": "Hey {{ username }}, what has worked well?",
+      "desc1": "Tell us what you like about Global Relocate and what we can improve.",
+      "typeAnswer": "Type your answer here...",
+      "continue": "Continue",
+      "title2": "Hey {{ username }}, what didn't work well?",
+      "desc2": "Tell us what didn't work or what's missing in your experience using the app.",
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "feedbackSubmitted": "Thank you for your feedback!",
+      "feedbackFailed": "Failed to submit feedback. Please try again."
     }
   },
   "loginPage": {
@@ -321,7 +334,10 @@
       "view": "View",
       "searchResults": "Search results",
       "aiSuggestedCountries": "AI Suggested Countries",
-      "searchCountries": "Search countries"
+      "searchCountries": "Search countries",
+      "searchCountry": "Search country...",
+      "noCountryFound": "No country found.",
+      "selectCountry": "Select country"
     },
     "country": {
       "countryIn": "Country in",
@@ -399,6 +415,7 @@
       "fullName": "Full Name",
       "username": "Username",
       "bio": "Bio",
+      "writeBio": "Write something about yourself...",
       "country": "Country",
       "emailAddress": "Email Address",
       "verified": "Verified",
@@ -443,7 +460,7 @@
       "taxCalculator": "Tax Calculator",
       "taxCacluatorDesc": "Calculate your estimated tax burden across different countries",
       "country": "Country",
-      "annualIncome": "Annual income",
+      "annualIncome": "Income",
       "userAccount": "User Account",
       "taxClass": "Tax Class",
       "taxPeriod": "Tax Period",
@@ -600,8 +617,13 @@
       },
       "checkIfYouNeedVisa": "Check if you need a visa",
       "passportRankings": "Passport Rankings",
+      "passportRanking": "Passport Ranking",
       "rank": "Rank",
       "visaFreeDestinations": "Visa-free destinations",
+      "visaRequiredDestinations": "Visa-required destinations",
+      "visaOnArrivalDestinations": "Visa-on-arrival destinations",
+      "etaDestinations": "Electronic travel authorization (eTA) destinations",
+      "visaOnlineDestinations": "E-visa destinations",
       "explorePassportRanking": "Explore passport ranking",
       "explorePassportRankingDesc": "Discover the strength of your passport, which countries you can visit without the need for a visa, and the strongest passports in the world.",
       "mostPowerfulPassports": "Most powerful passports",
@@ -615,8 +637,10 @@
       "visaFree": "Visa Free",
       "eVisaIsRequired": "e-Visa is required",
       "visaOnArrivalIsRequired": "Visa on arrival is required",
+      "etaRequired": "eTA required",
       "noAdmission": "No Admission",
       "visaNotRequired": "Visa not required",
+      "noDataAvailable": "No data available",
       "forCitizensOf": "for citizens of",
       "toTravelTo": "to travel to",
       "faqs": {
@@ -712,7 +736,15 @@
     "sessionDeleteSuccess": "Session deleted successfully!",
     "sessionRenameSuccess": "Session renamed successfully!",
     "sessionRenameFailed": "Failed to rename the session. Please try again.",
-    "enterSessionName": "Enter a new name for this session:"
+    "enterSessionName": "Enter a new name for this session:",
+    "addedCountryToFavorites": "Country added to favorites",
+    "removedCountryFromFavorites": "Country removed from favorites",
+    "profileUpdated": "Profile updated successfully!",
+    "profileUpdateFailed": "Failed to update profile. Please try again.",
+    "imageSizeShouldBeLess": "Image size should be less than {{ size }}",
+    "pleaseSelectImage": "Please select an image",
+    "fullNameRequired": "Full name is required",
+    "usernameRequired": "Username is required"
   },
   "formErrors": {
     "invalidEmail": "Invalid email format",

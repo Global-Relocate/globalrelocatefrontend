@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { submitFeedback } from "@/services/api";
 import { showToast } from "@/components/ui/toast";
-import logo from "../../assets/svg/logo.svg";
 import MainLayout from "@/components/layouts/MainLayout";
 import Navbar from "@/components/navigation/Navbar";
+import { useTranslation } from "react-i18next";
 
 const Feedback = () => {
   const { user } = useContext(AuthContext);
@@ -15,6 +15,7 @@ const Feedback = () => {
   const [feedback2, setFeedback2] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleContinue = () => {
     if (feedback1.trim()) {
@@ -42,7 +43,7 @@ const Feedback = () => {
       }
 
       showToast({
-        message: "Feedback submitted successfully!",
+        message: t("landingPage.feedback.feedbackSubmitted"),
         type: "success",
       });
 
@@ -53,8 +54,7 @@ const Feedback = () => {
     } catch (error) {
       console.error("Error submitting feedback:", error);
       showToast({
-        message:
-          error.message || "Failed to submit feedback. Please try again.",
+        message: error.message || t("landingPage.feedback.feedbackFailed"),
         type: "error",
       });
     } finally {
@@ -70,13 +70,8 @@ const Feedback = () => {
     <MainLayout>
       <Navbar />
       <div className="min-h-screen bg-white pt-20">
-        <div className="w-full px-12 pt-12">
-          {/* Logo */}
-          <img src={logo} alt="Global Relocate" className="h-8" />
-        </div>
-
         {/* Content */}
-        <div className="max-w-[800px] mx-auto px-4 mt-16">
+        <div className="max-w-[800px] mx-auto px-4 mt-20">
           <div className="relative">
             {/* Back Button - Added here */}
             <button
@@ -84,7 +79,7 @@ const Feedback = () => {
               className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6"
             >
               <ChevronLeft size={20} />
-              <span>Back</span>
+              <span>{t("landingPage.feedback.back")}</span>
             </button>
 
             {/* Navigation Buttons */}
@@ -116,10 +111,12 @@ const Feedback = () => {
             {step === 1 ? (
               <>
                 <h1 className="text-2xl font-medium text-black mb-2">
-                  Hey, {user?.name || "there"}. What has worked well?
+                  {t("landingPage.feedback.title1", {
+                    username: user?.name || "there",
+                  })}
                 </h1>
                 <p className="text-gray-600 mb-8">
-                  Tell us what you like about Global Relocate
+                  {t("landingPage.feedback.desc1")}
                 </p>
 
                 <form
@@ -132,7 +129,7 @@ const Feedback = () => {
                   <textarea
                     value={feedback1}
                     onChange={(e) => setFeedback1(e.target.value)}
-                    placeholder="Type your answer here"
+                    placeholder={t("landingPage.feedback.typeAnswer")}
                     className="w-full min-h-[200px] p-4 bg-white text-black placeholder-gray-400 text-lg focus:outline-none resize-none border border-[#D4D4D4] rounded-2xl"
                     autoFocus
                   />
@@ -155,19 +152,19 @@ const Feedback = () => {
             ) : (
               <>
                 <h1 className="text-2xl font-medium text-black mb-2">
-                  Hey, {user?.name || "there"}. what didn&apos;t work well for
-                  you?
+                  {t("landingPage.feedback.title1", {
+                    username: user?.name || "there",
+                  })}
                 </h1>
                 <p className="text-gray-600 mb-8">
-                  Tell us what didn&apos;t work or what&apos;s missing in your
-                  experience using the app.
+                  {t("landingPage.feedback.desc2")}
                 </p>
 
                 <form onSubmit={handleSubmit} className="relative">
                   <textarea
                     value={feedback2}
                     onChange={(e) => setFeedback2(e.target.value)}
-                    placeholder="Type your answer here"
+                    placeholder={t("landingPage.feedback.typeAnswer")}
                     className="w-full min-h-[200px] p-4 bg-white text-black placeholder-gray-400 text-lg focus:outline-none resize-none border border-[#D4D4D4] rounded-2xl"
                     autoFocus
                   />
@@ -182,7 +179,9 @@ const Feedback = () => {
                           : "bg-[#D4D4D4] text-white"
                       }`}
                     >
-                      {submitting ? "Submitting..." : "Submit"}
+                      {submitting
+                        ? "Submitting..."
+                        : t("landingPage.feedback.submit")}
                     </button>
                   </div>
                 </form>

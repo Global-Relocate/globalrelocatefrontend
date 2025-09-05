@@ -26,6 +26,7 @@ import { CircleFlag } from "react-circle-flags";
 import { countries } from "country-data-list";
 // Supported countries
 import supportedCountries from "../../data/visa/countries.json";
+import { useTranslation } from "react-i18next";
 
 const CountryDropdownComponent = (
   {
@@ -51,6 +52,7 @@ const CountryDropdownComponent = (
 ) => {
   const [open, setOpen] = useState(false);
   const [selectedCountries, setSelectedCountries] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Skip if no value
@@ -151,7 +153,11 @@ const CountryDropdownComponent = (
           <span
             className={`flex items-center gap-2 text-gray-400 text-${textSize}`}
           >
-            {inline || slim ? <Globe size={16} /> : placeholder}
+            {inline || slim ? (
+              <Globe size={16} />
+            ) : (
+              t("userDashboard.countries.selectCountry")
+            )}
           </span>
         )}
 
@@ -170,11 +176,13 @@ const CountryDropdownComponent = (
           <CommandList>
             <div className="sticky top-0 z-10 bg-popover">
               <CommandInput
-                placeholder="Search country..."
+                placeholder={t("userDashboard.countries.searchCountry")}
                 className={`h-12 text-${textSize} placeholder:text-gray-400 focus:placeholder:text-gray-400`}
               />
             </div>
-            <CommandEmpty>No country found.</CommandEmpty>
+            <CommandEmpty>
+              {t("userDashboard.countries.noCountryFound")}
+            </CommandEmpty>
             <CommandGroup>
               {options
                 .filter((x) => x.name)

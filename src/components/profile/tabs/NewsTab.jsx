@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import PageLoader from "@/components/loaders/PageLoader";
 import NewsCard from "../NewsCard";
 import { useLanguage } from "@/context/LanguageContext";
+import { getCountryCodeByName } from "@/data/country-translations";
 
 const ITEMS_PER_PAGE = 10;
 const CATEGORIES = [
@@ -35,6 +36,8 @@ const CATEGORIES = [
   },
 ];
 
+const user = JSON.parse(localStorage.getItem("user") || null);
+
 const NewsTab = () => {
   const [selectedCategory, setSelectedCategory] = useState("tourism");
   const [news, setNews] = useState([]);
@@ -43,18 +46,19 @@ const NewsTab = () => {
   //   const observer = useRef();
   const { t } = useTranslation();
   const { selectedLanguage } = useLanguage();
+  const userCountryCode = getCountryCodeByName(user?.country, "lowercase");
 
   const fetchNews = async (selectedCategory) => {
     try {
       let url;
 
       if (selectedCategory === "visa-immigration") {
-        url = `https://newsdata.io/api/1/latest?apikey=pub_84796f743a995aebf6c5d1005d17bcd56aadb&country=de&q=visa%20and%20immigration&language=${selectedLanguage.code.slice(
+        url = `https://newsdata.io/api/1/latest?apikey=pub_84796f743a995aebf6c5d1005d17bcd56aadb&country=${userCountryCode}&q=visa%20and%20immigration&language=${selectedLanguage.code.slice(
           0,
           2
         )}&size=${ITEMS_PER_PAGE}`;
       } else {
-        url = `https://newsdata.io/api/1/news?apikey=pub_84796f743a995aebf6c5d1005d17bcd56aadb&country=de&category=${selectedCategory}&language=${selectedLanguage.code.slice(
+        url = `https://newsdata.io/api/1/news?apikey=pub_84796f743a995aebf6c5d1005d17bcd56aadb&country=${userCountryCode}&category=${selectedCategory}&language=${selectedLanguage.code.slice(
           0,
           2
         )}&size=${ITEMS_PER_PAGE}`;

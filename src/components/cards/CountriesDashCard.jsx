@@ -33,10 +33,8 @@ const CarouselIndicators = ({ currentIndex, total, onClick }) => {
 export default function CountriesDashCard({
   id,
   slug,
-  countryName,
   onClick,
   images,
-  location,
   countryFlag,
   sm = true,
   isLiked,

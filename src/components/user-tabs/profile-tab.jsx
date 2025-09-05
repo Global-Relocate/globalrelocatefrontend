@@ -6,7 +6,7 @@ import { LuUserRound } from "react-icons/lu";
 import { BiEdit } from "react-icons/bi";
 import { showToast } from "@/components/ui/toast";
 import { updateUserProfile } from "@/services/api";
-import { CountryDropdown } from "@/components/ui/country-dropdown";
+import { CountryDropdown } from "../ui/all-country-dropdown";
 import { countries } from "country-data-list";
 import { useTranslation } from "react-i18next";
 
@@ -87,7 +87,7 @@ const ProfileTab = ({
       if (file.size > 5 * 1024 * 1024) {
         // 5MB limit
         showToast({
-          message: "Image size should be less than 5MB",
+          message: t("toast.imageSizeShouldBeLess", { size: "5MB" }),
           type: "error",
         });
         return;
@@ -95,7 +95,7 @@ const ProfileTab = ({
 
       if (!file.type.startsWith("image/")) {
         showToast({
-          message: "Please select an image file",
+          message: t("toast.pleaseSelectImage"),
           type: "error",
         });
         return;
@@ -125,7 +125,7 @@ const ProfileTab = ({
   const handleSave = async () => {
     if (!formData.fullName.trim()) {
       showToast({
-        message: "Full name is required",
+        message: t("toast.fullNameRequired"),
         type: "error",
       });
       return;
@@ -133,7 +133,7 @@ const ProfileTab = ({
 
     if (!formData.username.trim()) {
       showToast({
-        message: "Username is required",
+        message: t("toast.usernameRequired"),
         type: "error",
       });
       return;
@@ -161,13 +161,13 @@ const ProfileTab = ({
         onOpenChange(false);
 
         showToast({
-          message: "Your profile has been updated successfully",
+          message: t("toast.profileUpdated"),
           type: "success",
         });
       }
     } catch (error) {
       showToast({
-        message: error.message || "Failed to update profile",
+        message: error.message || t("toast.profileUpdateFailed"),
         type: "error",
       });
     } finally {
@@ -266,7 +266,7 @@ const ProfileTab = ({
             value={formData.bio}
             onChange={(e) => handleChange("bio", e.target.value)}
             className="w-full p-2 border-2 rounded-lg min-h-24 text-sm resize-none focus:border-black focus:outline-none placeholder-gray-500"
-            placeholder="Write something about yourself..."
+            placeholder={t("userDashboard.settings.writeBio")}
           />
         </div>
 

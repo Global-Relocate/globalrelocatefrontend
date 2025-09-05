@@ -244,6 +244,19 @@
       "sending": "Senden...",
       "messageSent": "Nachricht erfolgreich gesendet!",
       "messageFailed": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
+    },
+    "feedback": {
+      "back": "Zurück",
+      "title1": "Hallo {{ username }}, was hat gut funktioniert?",
+      "desc1": "Sagen Sie uns, was Ihnen an Global Relocate gefällt und was wir verbessern können.",
+      "typeAnswer": "Geben Sie hier Ihre Antwort ein...",
+      "continue": "Weiter",
+      "title2": "Hallo {{ username }}, was hat nicht gut funktioniert?",
+      "desc2": "Sagen Sie uns, was nicht funktioniert hat oder was in Ihrer Erfahrung mit der App fehlt.",
+      "submit": "Absenden",
+      "submitting": "Absenden...",
+      "feedbackSubmitted": "Vielen Dank für Ihr Feedback!",
+      "feedbackFailed": "Fehler beim Absenden des Feedbacks. Bitte versuchen Sie es erneut."
     }
   },
   "loginPage": {
@@ -321,7 +334,10 @@
       "view": "Ansehen",
       "searchResults": "Suchergebnisse",
       "aiSuggestedCountries": "KI-vorgeschlagene Länder",
-      "searchCountries": "Länder suchen"
+      "searchCountries": "Länder suchen",
+      "searchCountry": "Land suchen...",
+      "noCountryFound": "Kein Land gefunden.",
+      "selectCountry": "Land auswählen"
     },
     "country": {
       "countryIn": "Land in",
@@ -399,6 +415,7 @@
       "fullName": "Vollständiger Name",
       "username": "Benutzername",
       "bio": "Bio",
+      "writeBio": "Schreiben Sie etwas über sich...",
       "country": "Land",
       "emailAddress": "E-Mail-Adresse",
       "verified": "Verifiziert",
@@ -443,7 +460,7 @@
       "taxCalculator": "Steuerrechner",
       "taxCacluatorDesc": "Berechnen Sie Ihre geschätzte Steuerlast in verschiedenen Ländern",
       "country": "Land",
-      "annualIncome": "Jahreseinkommen",
+      "annualIncome": "Einkommen",
       "userAccount": "Benutzerkonto",
       "taxClass": "Steuerklasse",
       "taxPeriod": "Steuerzeitraum",
@@ -600,8 +617,13 @@
       },
       "checkIfYouNeedVisa": "Überprüfen Sie, ob Sie ein Visum benötigen",
       "passportRankings": "Pass-Ranglisten",
+      "passportRanking": "Pass-Rangliste",
       "rank": "Rang",
       "visaFreeDestinations": "Visumfreie Reiseziele",
+      "visaRequiredDestinations": "Visumpflichtige Reiseziele",
+      "visaOnArrivalDestinations": "Reiseziele mit Visum bei Ankunft",
+      "etaDestinations": "Reiseziele mit elektronischer Reisegenehmigung (eTA)",
+      "visaOnlineDestinations": "E-Visa Reiseziele",
       "explorePassportRanking": "Pass-Rangliste erkunden",
       "explorePassportRankingDesc": "Entdecken Sie die Stärke Ihres Passes, welche Länder Sie ohne Visum besuchen können und welche die stärksten Pässe der Welt sind.",
       "mostPowerfulPassports": "Die mächtigsten Pässe",
@@ -615,8 +637,10 @@
       "visaFree": "Visumfrei",
       "eVisaIsRequired": "e-Visum ist erforderlich",
       "visaOnArrivalIsRequired": "Visum bei Ankunft ist erforderlich",
+      "etaRequired": "eTA erforderlich",
       "noAdmission": "Keine Zulassung",
       "visaNotRequired": "Visum nicht erforderlich",
+      "noDataAvailable": "Keine Daten verfügbar",
       "forCitizensOf": "für Bürger von",
       "toTravelTo": "um zu reisen nach",
       "faqs": {
@@ -702,7 +726,7 @@
     "residencyPermit": "Aufenthaltsgenehmigung"
   },
   "toast": {
-    "thanksNewsletter": "Vielen Dank für das Abonnieren unseres Newsletters!",
+    "thanksNewsletter": "Vielen Dank für Ihre Anmeldung zu unserem Newsletter!",
     "linkCopied": "Link in die Zwischenablage kopiert!",
     "linkCopyFailed": "Link konnte nicht kopiert werden",
     "newSessionStarted": "Neue Sitzung gestartet",
@@ -713,7 +737,15 @@
     "sessionDeleteSuccess": "Sitzung erfolgreich gelöscht!",
     "sessionRenameSuccess": "Sitzung erfolgreich umbenannt!",
     "sessionRenameFailed": "Sitzung konnte nicht umbenannt werden. Bitte versuchen Sie es erneut.",
-    "enterSessionName": "Geben Sie einen neuen Namen für diese Sitzung ein:"
+    "enterSessionName": "Geben Sie einen neuen Namen für diese Sitzung ein:",
+    "addedCountryToFavorites": "Land zu Favoriten hinzugefügt",
+    "removedCountryFromFavorites": "Land aus Favoriten entfernt",
+    "profileUpdated": "Profil erfolgreich aktualisiert!",
+    "profileUpdateFailed": "Profil konnte nicht aktualisiert werden. Bitte versuchen Sie es erneut.",
+    "imageSizeShouldBeLess": "Die Bildgröße sollte weniger als {{ size }} betragen",
+    "pleaseSelectImage": "Bitte wählen Sie ein Bild aus",
+    "fullNameRequired": "Der vollständige Name ist erforderlich",
+    "usernameRequired": "Der Benutzername ist erforderlich"
   },
   "formErrors": {
     "invalidEmail": "Ungültiges E-Mail-Format",

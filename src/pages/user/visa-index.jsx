@@ -55,7 +55,7 @@ export default function VisaIndex() {
 
     try {
       const response = await axios.get(
-        `https://rough-sun-2523.fly.dev/visa/${selectedCountryCode}/${selectedDestinationCode}`
+        `https://api.henleypassportindex.com/api/v3/visa-single/${selectedCountryCode.toUpperCase()}`
       );
       setVisaInfo(response.data);
     } catch (err) {
@@ -187,7 +187,7 @@ export default function VisaIndex() {
                     {countries.map((country) => (
                       <Link
                         key={country?.code}
-                        to="/visa-details"
+                        to={`/visa-requirements/${country.code.toLowerCase()}`}
                         className="text-primary flex items-center gap-x-4 h-[57px]"
                       >
                         <CircleFlag
@@ -239,58 +239,53 @@ export default function VisaIndex() {
           </h3>
 
           <div className="mt-2">
-            <ScrollArea className="whitespace-nowrap overflow-x-auto overflow-y-hidden">
-              <div className="flex w-96 space-x-4 mb-4">
+            <ScrollArea className="h-[600px] overflow-y-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
                 {filteredPassportGrouped &&
                 Object.keys(filteredPassportGrouped).length > 0 ? (
                   Object.entries(filteredPassportGrouped).map(
-                    ([rank, countries]) => (
-                      <div key={rank} className="flex flex-col items-start">
-                        {/* Countries in this rank */}
-                        <div className="flex space-x-4">
-                          {countries.map((country) => (
-                            <div
-                              key={country.code}
-                              className="border-2 border-black rounded-md py-[8px] px-[10px] shrink-0"
-                            >
-                              <div className="rounded-lg h-[341px] w-[230px]">
-                                <img
-                                  src={`${baseURL}/image/fetch/${country.code.toLowerCase()}`}
-                                  alt={country.name}
-                                  className="w-full h-full"
-                                />
-                              </div>
-                              <div className="flex items-center gap-x-4 h-[57px] mt-2">
-                                <CircleFlag
-                                  countryCode={country.code.toLowerCase()}
-                                  height={20}
-                                  width={30}
-                                />
-                                <div className="text-primary flex flex-col text-wrap whitespace-break-spaces">
-                                  {getCountryName(
-                                    country.code,
-                                    selectedLanguage?.code
-                                  )}
-                                  <h3 className="font-semibold">
-                                    {t("userDashboard.visaIndex.rank")}: {rank}
-                                  </h3>
-                                </div>
-                              </div>
+                    ([rank, countries]) =>
+                      countries.map((country) => (
+                        <Link
+                          to={`/visa-requirements/${country.code.toLowerCase()}`}
+                          key={country.code}
+                          className="border-2 border-black rounded-md py-[8px] px-[10px]"
+                        >
+                          <div className="rounded-lg h-[341px] w-[230px] mx-auto">
+                            <img
+                              src={`${baseURL}/image/fetch/${country.code.toLowerCase()}`}
+                              alt={country.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="flex items-center gap-x-4 h-[57px] mt-2">
+                            <CircleFlag
+                              countryCode={country.code.toLowerCase()}
+                              height={20}
+                              width={30}
+                            />
+                            <div className="text-primary flex flex-col">
+                              {getCountryName(
+                                country.code,
+                                selectedLanguage?.code
+                              )}
+                              <h3 className="font-semibold">
+                                {t("userDashboard.visaIndex.rank")}: {rank}
+                              </h3>
                             </div>
-                          ))}
-                        </div>
-                      </div>
-                    )
+                          </div>
+                        </Link>
+                      ))
                   )
                 ) : (
-                  <div className="flex items-center justify-center h-full">
+                  <div className="flex items-center justify-center h-full col-span-full">
                     <p className="text-center">
                       {t("userDashboard.visaIndex.noResults")}
                     </p>
                   </div>
                 )}
               </div>
-              <ScrollBar orientation="horizontal" />
+              <ScrollBar orientation="vertical" />
             </ScrollArea>
           </div>
         </section>
@@ -415,10 +410,7 @@ export default function VisaIndex() {
                         height={20}
                         width={screenMaxWidth <= 768 ? 25 : 40}
                       />
-                      {getCountryName(
-                        visaInfo.passport.code,
-                        selectedLanguage?.code
-                      )}
+                      {getCountryName(visaInfo.code, selectedLanguage?.code)}
                     </div>
                   </div>
 
@@ -487,27 +479,38 @@ export default function VisaIndex() {
                     </div>
                     <div className="lg:w-[90%]">
                       <h1 className="font-extrabold uppercase text-start text-[20px] lg:text-center text-primary lg:text-[25px]">
-                        {visaInfo.category.code === "VR"
+                        {visaInfo.visa_required.some(
+                          (c) => c.code === selectedDestinationCode
+                        )
                           ? t("userDashboard.visaIndex.visaIsRequired")
-                          : visaInfo.category.code === "EV"
+                          : visaInfo.visa_online.some(
+                              (c) => c.code === selectedDestinationCode
+                            )
                           ? t("userDashboard.visaIndex.eVisaIsRequired")
-                          : visaInfo.category.code === "VOA"
+                          : visaInfo.visa_on_arrival.some(
+                              (c) => c.code === selectedDestinationCode
+                            )
                           ? t("userDashboard.visaIndex.visaOnArrivalIsRequired")
-                          : visaInfo.category.code === "VF"
+                          : visaInfo.visa_free_access.some(
+                              (c) => c.code === selectedDestinationCode
+                            )
                           ? t("userDashboard.visaIndex.visaFree")
-                          : visaInfo.category.code === "NA"
+                          : visaInfo.electronic_travel_authorisation.some(
+                              (c) => c.code === selectedDestinationCode
+                            )
+                          ? t("userDashboard.visaIndex.etaRequired")
+                          : visaInfo.no_admission.some(
+                              (c) => c.code === selectedDestinationCode
+                            )
                           ? t("userDashboard.visaIndex.noAdmission")
-                          : t("userDashboard.visaIndex.visaNotRequired")}
+                          : t("userDashboard.visaIndex.noDataAvailable")}
                       </h1>{" "}
                       <p className="font-bold text-start m-0 text-[16px] lg:text-center text-primary">
                         {t("userDashboard.visaIndex.forCitizensOf")}{" "}
-                        {getCountryName(
-                          visaInfo.passport.code,
-                          selectedLanguage.code
-                        )}{" "}
+                        {getCountryName(visaInfo.code, selectedLanguage.code)}{" "}
                         {t("userDashboard.visaIndex.toTravelTo")}{" "}
                         {getCountryName(
-                          visaInfo.destination.code,
+                          selectedCountryCode,
                           selectedLanguage.code
                         )}
                       </p>{" "}
@@ -575,7 +578,7 @@ export default function VisaIndex() {
                         width={screenMaxWidth >= 768 ? 40 : 25}
                       />
                       {getCountryName(
-                        visaInfo.destination.code,
+                        selectedDestinationCode,
                         selectedLanguage?.code
                       )}
                     </div>

@@ -27,9 +27,6 @@ export default function VisaRequirements() {
       const response = await axios.get(
         `https://api.henleypassportindex.com/api/v3/visa-single/${slug.toUpperCase()}`
       );
-      //   await axios.get(
-      // `https://rough-sun-2523.fly.dev/country/${slug.toUpperCase()}`
-      //   );
       setVisaRequirements(response.data);
     } catch (err) {
       setVisaRequirements(null);

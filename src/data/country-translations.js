@@ -8801,3 +8801,37 @@ export function getCountryName(countrySlug, langCode) {
   // Fallback to the default English name if translation is not found
   return country.name;
 }
+
+export function getCountryCode(countrySlug, type = "uppercase") {
+  const country =
+    countries.find((country) => country.slug === countrySlug) ||
+    countries.find((country) => country.code === countrySlug?.toUpperCase());
+
+  if (!country) {
+    return null;
+  }
+
+  // Fallback to the default English name if translation is not found
+  if (type === "uppercase") {
+    return country.code.toUpperCase();
+  } else if (type === "lowercase") {
+    return country.code.toLowerCase();
+  }
+  return null;
+}
+
+export function getCountryCodeByName(countryName, type = "uppercase") {
+  const country = countries.find((country) => country.name === countryName);
+
+  if (!country) {
+    return null;
+  }
+
+  // Fallback to the default English name if translation is not found
+  if (type === "uppercase") {
+    return country.code.toUpperCase();
+  } else if (type === "lowercase") {
+    return country.code.toLowerCase();
+  }
+  return null;
+}
