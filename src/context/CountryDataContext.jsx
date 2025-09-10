@@ -94,11 +94,12 @@ export const CountryDataProvider = ({ children }) => {
     }
   };
 
-  const compareCountries = async (...countryIds) => {
+  const compareCountries = async ([...countryIds], language) => {
     setCompareLoader(true);
     try {
       const response = await axiosInstance.post(`/countries/compare`, {
         countries: countryIds,
+        language,
       });
       setCompareData(response.data.data);
     } catch (error) {

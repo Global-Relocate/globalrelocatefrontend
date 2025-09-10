@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useCountryData } from "@/context/CountryDataContext";
 import Spinner from "@/components/loaders/Spinner";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 function CompareCountries() {
   const [openCountryModal, setOpenCountryModal] = useState(false);
@@ -17,6 +18,7 @@ function CompareCountries() {
     useCountryData();
   const compareViewRef = useRef();
   const { t } = useTranslation();
+  const { selectedLanguage } = useLanguage();
 
   const handleModalClose = () => {
     setOpenCountryModal(false);
@@ -59,7 +61,7 @@ function CompareCountries() {
       .filter(Boolean);
 
     if (countryIds.length >= 2) {
-      await compareCountries(...countryIds);
+      await compareCountries(countryIds, selectedLanguage?.name || "English");
     }
   };
 
@@ -199,39 +201,53 @@ function CompareCountries() {
   };
 
   const renderResult = () => {
-    const overview = compareData.overview ?? "No data available.";
+    const overview =
+      compareData.overview ?? t("userDashboard.country.noDataAvailable");
     const internetSpeed =
-      compareData.additionalComparisons.internetSpeed ?? "No data available.";
+      compareData.additionalComparisons.internetSpeed ??
+      t("userDashboard.country.noDataAvailable");
     const publicTransportEfficiency =
       compareData.additionalComparisons.publicTransportEfficiency ??
-      "No data available.";
+      t("userDashboard.country.noDataAvailable");
     const workLifeBalance =
-      compareData.additionalComparisons.workLifeBalance ?? "No data available.";
+      compareData.additionalComparisons.workLifeBalance ??
+      t("userDashboard.country.noDataAvailable");
     const population =
-      compareData.additionalComparisons.population ?? "No data available.";
+      compareData.additionalComparisons.population ??
+      t("userDashboard.country.noDataAvailable");
     const dialingCodes =
-      compareData.additionalComparisons.dialingCodes ?? "No data available.";
+      compareData.additionalComparisons.dialingCodes ??
+      t("userDashboard.country.noDataAvailable");
     const languages =
-      compareData.additionalComparisons.languages ?? "No data available.";
-    const avgCosts = compareData.costOfLiving.avgCosts ?? "No data available.";
+      compareData.additionalComparisons.languages ??
+      t("userDashboard.country.noDataAvailable");
+    const avgCosts =
+      compareData.costOfLiving.avgCosts ??
+      t("userDashboard.country.noDataAvailable");
     const costSummary =
-      compareData.costOfLiving.summary ?? "No data available.";
+      compareData.costOfLiving.summary ??
+      t("userDashboard.country.noDataAvailable");
     const corporateTax =
-      compareData.taxAndFinance.corporateTax ?? "No data available.";
+      compareData.taxAndFinance.corporateTax ??
+      t("userDashboard.country.noDataAvailable");
     const federalRate =
       compareData.taxAndFinance.personalIncomeTax.federalRate ??
-      "No data available.";
+      t("userDashboard.country.noDataAvailable");
     const communalRate =
       compareData.taxAndFinance.personalIncomeTax.communalRate ??
-      "No data available.";
+      t("userDashboard.country.noDataAvailable");
     const longStays =
-      compareData.visaAndImmigration.longStays ?? "No data available.";
+      compareData.visaAndImmigration.longStays ??
+      t("userDashboard.country.noDataAvailable");
     const shortStays =
-      compareData.visaAndImmigration.shortStays ?? "No data available.";
+      compareData.visaAndImmigration.shortStays ??
+      t("userDashboard.country.noDataAvailable");
     const visaSummary =
-      compareData.visaAndImmigration.summary ?? "No data available.";
+      compareData.visaAndImmigration.summary ??
+      t("userDashboard.country.noDataAvailable");
     const passportsAndVisas =
-      compareData.visaAndImmigration.passportsAndVisas ?? "No data available.";
+      compareData.visaAndImmigration.passportsAndVisas ??
+      t("userDashboard.country.noDataAvailable");
 
     return (
       <section id="comparison-view" ref={compareViewRef}>

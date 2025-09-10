@@ -44,6 +44,12 @@ const SelectCountryModal = ({ isOpen, onClose, onChange }) => {
     }
   }, [searchQuery, countryList]);
 
+  useEffect(() => {
+    if (!isOpen) {
+      setSearchQuery(""); // reset input when modal closes
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
