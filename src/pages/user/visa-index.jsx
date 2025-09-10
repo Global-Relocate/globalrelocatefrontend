@@ -53,6 +53,12 @@ export default function VisaIndex() {
   const checkVisaRequirements = async () => {
     setCheckLoading(true);
 
+    if (selectedCountryCode === selectedDestinationCode) {
+      toast.error(t("userDashboard.visaIndex.sameCountryError"));
+      setCheckLoading(false);
+      return;
+    }
+
     try {
       const response = await axios.get(
         `https://api.henleypassportindex.com/api/v3/visa-single/${selectedCountryCode.toUpperCase()}`

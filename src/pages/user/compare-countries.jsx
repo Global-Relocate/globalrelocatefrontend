@@ -13,7 +13,8 @@ function CompareCountries() {
   const [countryIdx, setCountryIdx] = useState(1);
   const [selectedCountries, setSelectedCountries] = useState([1, 2]);
 
-  const { compareLoader, compareCountries, compareData } = useCountryData();
+  const { compareLoader, compareCountries, compareData, resetCompareData } =
+    useCountryData();
   const compareViewRef = useRef();
   const { t } = useTranslation();
 
@@ -58,7 +59,6 @@ function CompareCountries() {
       .filter(Boolean);
 
     if (countryIds.length >= 2) {
-      console.log(countryIds);
       await compareCountries(...countryIds);
     }
   };
@@ -70,6 +70,11 @@ function CompareCountries() {
       compareViewRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [compareData]);
+
+  // Reset compareData when leaving/unmounting this page
+  useEffect(() => {
+    return () => resetCompareData();
+  }, []);
 
   const renderCards = () => {
     const count = selectedCountries.length;
@@ -236,10 +241,12 @@ function CompareCountries() {
 
         <div className="w-full mt-12 mb-6">
           <h2 className="text-3xl font-medium my-4 text-center underline underline-offset-4">
-            Comparison
+            {t("userDashboard.compareCountries.comparison")}
           </h2>
           {/* Overview */}
-          <h2 className="text-2xl font-medium mb-2">Overview</h2>
+          <h2 className="text-2xl font-medium mb-2">
+            {t("userDashboard.compareCountries.overview")}
+          </h2>
           <p>{overview}</p>
           <br />
 
@@ -249,7 +256,8 @@ function CompareCountries() {
               <div className="grid">
                 <div className="border border-gray-300 p-4 rounded-xl">
                   <h3 className="text-lg font-semibold mb-2">
-                    <i className="fad fa-globe mr-2"></i> Internet Speed
+                    <i className="fad fa-globe mr-2"></i>{" "}
+                    {t("userDashboard.compareCountries.internetSpeed")}
                   </h3>
                   {internetSpeed}
                 </div>
@@ -258,8 +266,10 @@ function CompareCountries() {
               <div className="grid">
                 <div className="border border-gray-300 p-4 rounded-xl">
                   <h3 className="text-lg font-semibold mb-2">
-                    <i className="fad fa-bus mr-2"></i> Public Transit
-                    Efficiency
+                    <i className="fad fa-bus mr-2"></i>{" "}
+                    {t(
+                      "userDashboard.compareCountries.publicTransportEfficiency"
+                    )}
                   </h3>
                   {publicTransportEfficiency}
                 </div>
@@ -268,7 +278,8 @@ function CompareCountries() {
               <div className="grid">
                 <div className="border border-gray-300 p-4 rounded-xl">
                   <h3 className="text-lg font-semibold mb-2">
-                    <i className="fad fa-suitcase mr-2"></i> Work & Life Balance
+                    <i className="fad fa-suitcase mr-2"></i>{" "}
+                    {t("userDashboard.compareCountries.workAndLifeBalance")}
                   </h3>
                   {workLifeBalance}
                 </div>
@@ -278,19 +289,22 @@ function CompareCountries() {
             <div className="grid gap-4 md:grid-cols-3">
               <div className="border border-gray-300 p-4 rounded-xl">
                 <h3 className="text-md lg:text-lg font-semibold mb-2">
-                  <i className="fad fa-users mr-2"></i> Population
+                  <i className="fad fa-users mr-2"></i>{" "}
+                  {t("userDashboard.compareCountries.population")}
                 </h3>
                 {population}
               </div>
               <div className="border border-gray-300 p-4 rounded-xl">
                 <h3 className="text-md lg:text-lg font-semibold mb-2">
-                  <i className="fad fa-phone mr-2"></i> Dialing Codes
+                  <i className="fad fa-phone mr-2"></i>{" "}
+                  {t("userDashboard.compareCountries.dialingCodes")}
                 </h3>
                 {dialingCodes}
               </div>
               <div className="border border-gray-300 p-4 rounded-xl">
                 <h3 className="text-md lg:text-lg font-semibold mb-2">
-                  <i className="fad fa-language mr-2"></i> Languages
+                  <i className="fad fa-language mr-2"></i>
+                  {t("userDashboard.compareCountries.languages")}
                 </h3>
                 {languages}
               </div>
@@ -299,7 +313,8 @@ function CompareCountries() {
             {/* Cost of Living */}
             <div className="border border-gray-300 rounded-xl p-6">
               <h2 className="text-lg font-semibold mb-6">
-                <i className="fad fa-house mr-2"></i> Cost of Living
+                <i className="fad fa-house mr-2"></i>{" "}
+                {t("userDashboard.compareCountries.costOfLiving")}
               </h2>
               <p className="my-2">{avgCosts}</p>
               <p className="my-2">{costSummary}</p>
@@ -308,36 +323,47 @@ function CompareCountries() {
             {/* Tax Comparison */}
             <div className="border border-gray-300 rounded-xl p-6">
               <h2 className="text-lg font-semibold mb-6">
-                <i className="fad fa-dollar-sign mr-2"></i> Taxes & Finance
+                <i className="fad fa-dollar-sign mr-2"></i>{" "}
+                {t("userDashboard.compareCountries.taxesAndFinances")}
               </h2>
               <table className="w-full text-left border border-gray-200">
                 <thead className="bg-gray-100">
                   <tr>
-                    <th className="p-2 border">Tax Type</th>
+                    <th className="p-2 border">
+                      {t("userDashboard.compareCountries.taxType")}
+                    </th>
                     <th className="p-2 border" colSpan={2}>
-                      Comparison
+                      {t("userDashboard.compareCountries.comparison")}
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="p-2 align-top">Corporate Tax</td>
+                    <td className="p-2 align-top">
+                      {t("userDashboard.compareCountries.corporateTax")}
+                    </td>
                     <td className="p-2 break-words" colSpan={2}>
                       {corporateTax}
                     </td>
                   </tr>
                   <tr>
-                    <td className="p-2 align-top">Income Tax</td>
+                    <td className="p-2 align-top">
+                      {t("userDashboard.compareCountries.incomeTax")}
+                    </td>
                     <td className="p-2">
                       <p className="break-words">
-                        <span className="font-semibold">Federal Rate:</span>{" "}
+                        <span className="font-semibold">
+                          {t("userDashboard.compareCountries.federalRate")}:
+                        </span>{" "}
                         {federalRate}
                       </p>{" "}
                       <br />
                       {compareData.taxAndFinance.personalIncomeTax
                         .communalRate && (
                         <p className="break-words">
-                          <span className="font-semibold">Communal Rate:</span>{" "}
+                          <span className="font-semibold">
+                            {t("userDashboard.compareCountries.communalRate")}:
+                          </span>{" "}
                           {communalRate}
                         </p>
                       )}
@@ -351,26 +377,30 @@ function CompareCountries() {
             {/* Visa & Immigration */}
             <div className="border border-gray-300 rounded-xl p-6">
               <h2 className="text-lg font-semibold mb-6">
-                <i className="fad fa-plane mr-2"></i> Visa & Immigration
+                <i className="fad fa-plane mr-2"></i>{" "}
+                {t("userDashboard.compareCountries.visaAndImmigration")}
               </h2>
               <div className="grid lg:grid-cols-3 gap-4">
                 <div className="border border-gray-300 p-4 rounded-xl">
                   <h4 className="font-semibold mb-2">
-                    <i className="fad fa-building mr-2"></i> Long Stays
+                    <i className="fad fa-building mr-2"></i>{" "}
+                    {t("userDashboard.compareCountries.longStays")}
                   </h4>
                   <p>{longStays}</p>
                 </div>
 
                 <div className="border border-gray-300 p-4 rounded-xl">
                   <h4 className="font-semibold mb-2">
-                    <i className="fad fa-hotel mr-2"></i> Short Stays
+                    <i className="fad fa-hotel mr-2"></i>{" "}
+                    {t("userDashboard.compareCountries.shortStays")}
                   </h4>
                   <p>{shortStays}</p>
                 </div>
 
                 <div className="border border-gray-300 p-4 rounded-xl">
                   <h4 className="font-semibold mb-2">
-                    <i className="fa fa-passport mr-2"></i> Passport and Visas
+                    <i className="fa fa-passport mr-2"></i>{" "}
+                    {t("userDashboard.compareCountries.passportAndVisas")}
                   </h4>
                   <p>{passportsAndVisas}</p>
                 </div>

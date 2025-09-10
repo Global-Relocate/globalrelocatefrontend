@@ -121,6 +121,8 @@ export const CountryDataProvider = ({ children }) => {
     }
   };
 
+  const resetCompareData = () => setCompareData(null);
+
   return (
     <CountryDataContext.Provider
       value={{
@@ -141,6 +143,7 @@ export const CountryDataProvider = ({ children }) => {
         countryList,
         compareCountries,
         compareData,
+        resetCompareData,
         compareLoader,
         favourites,
         getFavouriteCountries,

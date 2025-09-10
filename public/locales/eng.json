@@ -324,7 +324,17 @@
     "news": {
       "noNews": "There are no news items available at the moment.",
       "title": "News",
+      "inCountry": "in {{ country }}",
       "failed": "An error occurred while fetching news."
+    },
+    "continents": {
+      "europe": "Europe",
+      "asia": "Asia",
+      "africa": "Africa",
+      "south america": "South America",
+      "north america": "North America",
+      "antarctica": "Antarctica",
+      "oceania": "Oceania"
     },
     "countries": {
       "title": "Countries",
@@ -445,16 +455,6 @@
       "deleting": "Deleting...",
       "youHave": "You have:",
       "administrator": "Administrator"
-    },
-    "continents": {
-      "all": "All",
-      "europe": "Europe",
-      "asia": "Asia",
-      "africa": "Africa",
-      "south america": "South America",
-      "north america": "North America",
-      "antarctica": "Antarctica",
-      "oceania": "Oceania"
     },
     "tax": {
       "taxCalculator": "Tax Calculator",
@@ -608,6 +608,7 @@
       "backToVisaIndex": "Back to Visa Index",
       "searchPlaceholder": "Search for a country...",
       "noResults": "No results found",
+      "sameCountryError": "Please select different countries.",
       "countries": {
         "usa": "United States",
         "canada": "Canada",
@@ -693,6 +694,28 @@
         "desc2": "Visa processing times, fees, and required documents vary by the traveler's nationality and the destination country. To obtain a visa, travelers generally need to apply at the destination country's embassy or consulate in their country of origin or country of residence, providing required documents such as a passport, photographs, itinerary, proof of financial means, and other relevant information. It is important to check the specific visa requirements for your destination country before planning your trip to ensure that you have the appropriate documents and permissions for your visit.",
         "desc3": "The above lists of visa-free destinations for this country passport holders are subject to change from time to time based on visa agreements between countries, temporary travel restrictions, and entry requirements imposed by countries. It is advised to check before traveling for any additional requirements or temporary restrictions that may be imposed by your travel destination country."
       }
+    },
+    "compareCountries": {
+      "comparison": "Comparison",
+      "overview": "Overview",
+      "internetSpeed": "Internet Speed",
+      "publicTransportEfficiency": "Public Transport Efficiency",
+      "workAndLifeBalance": "Work & Life Balance",
+      "population": "Population",
+      "dialingCodes": "Dialing Codes",
+      "languages": "Languages",
+      "costOfLiving": "Cost of Living",
+      "taxesAndFinances": "Taxes & Finances",
+      "taxType": "Tax Type",
+      "corporateTax": "Corporate Tax",
+      "federalTax": "Federal Tax",
+      "incomeTax": "Income Tax",
+      "federalRate": "Federal Rate",
+      "communalRate": "Communal Rate",
+      "visaAndImmigration": "Visa & Immigration",
+      "longStays": "Long Stays",
+      "shortStays": "Short Stays",
+      "passportAndVisas": "Passport & Visas"
     }
   },
   "drawers": {

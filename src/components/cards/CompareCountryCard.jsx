@@ -2,6 +2,11 @@ import { MdAdd, MdClose } from "react-icons/md";
 import { ChevronDown } from "lucide-react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
+import {
+  getCountryName,
+  getCountryCodeByName,
+} from "@/data/country-translations";
 
 const CompareCountryCard = ({
   onOpen,
@@ -11,6 +16,7 @@ const CompareCountryCard = ({
   isAdditionalCard,
 }) => {
   const { t } = useTranslation();
+  const { selectedLanguage } = useLanguage();
 
   return (
     <div className="flex item-center justify-center border border-dashed border-gray-300 rounded-lg w-full h-[208px] relative">
@@ -45,10 +51,17 @@ const CompareCountryCard = ({
 
           <div className="flex flex-col items-start">
             <span className="text-lg font-medium text-black">
-              {countryData[idx]?.name}
+              {getCountryName(
+                getCountryCodeByName(countryData[idx]?.name),
+                selectedLanguage?.code
+              )}
             </span>
             <span className="text-sm text-gray-500">
-              {countryData[idx]?.continent}
+              {t(
+                `userDashboard.continents.${countryData[
+                  idx
+                ]?.continent.toLowerCase()}`
+              ) || countryData[idx]?.continent}
             </span>
           </div>
         </div>

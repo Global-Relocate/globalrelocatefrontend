@@ -324,6 +324,7 @@
     "news": {
       "noNews": "Es sind derzeit keine Nachrichten verfügbar.",
       "title": "Nachrichten",
+      "inCountry": "in {{ country }}",
       "failed": "Beim Abrufen der Nachrichten ist ein Fehler aufgetreten."
     },
     "countries": {
@@ -608,6 +609,7 @@
       "backToVisaIndex": "Zurück zum Visa-Index",
       "searchPlaceholder": "Suche nach einem Land...",
       "noResults": "Keine Ergebnisse gefunden",
+      "sameCountryError": "Bitte wählen Sie unterschiedliche Länder.",
       "countries": {
         "usa": "Vereinigte Staaten",
         "canada": "Kanada",
@@ -694,6 +696,28 @@
         "desc2": "Die Bearbeitungszeiten, Gebühren und erforderlichen Dokumente für Visa variieren je nach Staatsangehörigkeit des Reisenden und Zielland. Um ein Visum zu erhalten, müssen Reisende in der Regel bei der Botschaft oder dem Konsulat des Ziellandes in ihrem Herkunfts- oder Wohnsitzland einen Antrag stellen und die erforderlichen Dokumente wie Reisepass, Fotos, Reiseplan, Nachweis über finanzielle Mittel und andere relevante Informationen vorlegen. Es ist wichtig, die spezifischen Visabestimmungen für Ihr Zielland zu überprüfen, bevor Sie Ihre Reise planen, um sicherzustellen, dass Sie über die entsprechenden Dokumente und Genehmigungen für Ihren Besuch verfügen.",
         "desc3": "Die obigen Listen der visumfreien Reiseziele für Passinhaber dieses Landes können sich von Zeit zu Zeit aufgrund von Visabkommen zwischen Ländern, vorübergehenden Reisebeschränkungen und von Ländern auferlegten Einreisebestimmungen ändern. Es wird empfohlen, vor der Reise nach zusätzlichen Anforderungen oder vorübergehenden Beschränkungen zu suchen, die von Ihrem Zielland auferlegt werden können."
       }
+    },
+    "compareCountries": {
+      "comparison": "Vergleich",
+      "overview": "Überblick",
+      "internetSpeed": "Internetgeschwindigkeit",
+      "publicTransportEfficiency": "Effizienz des öffentlichen Nahverkehrs",
+      "workAndLifeBalance": "Work-Life-Balance",
+      "population": "Bevölkerung",
+      "dialingCodes": "Vorwahl",
+      "languages": "Sprachen",
+      "costOfLiving": "Lebenshaltungskosten",
+      "taxesAndFinances": "Steuern & Finanzen",
+      "taxType": "Steuerart",
+      "corporateTax": "Körperschaftssteuer",
+      "federalTax": "Bundessteuer",
+      "incomeTax": "Einkommensteuer",
+      "federalRate": "Bundessatz",
+      "communalRate": "Gemeindesatz",
+      "visaAndImmigration": "Visa & Einwanderung",
+      "longStays": "Langzeitaufenthalte",
+      "shortStays": "Kurzaufenthalte",
+      "passportAndVisas": "Reisepass & Visa"
     }
   },
   "drawers": {

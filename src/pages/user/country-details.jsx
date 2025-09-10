@@ -171,6 +171,18 @@ function CountryDetails() {
     });
   }, [api]);
 
+  console.log("Country Data:", countryData?.continent);
+
+  const continents = {
+    Africa: t("userDashboard.continents.africa"),
+    Antarctica: t("userDashboard.continents.antarctica"),
+    Asia: t("userDashboard.continents.asia"),
+    Europe: t("userDashboard.continents.europe"),
+    "North America": t("userDashboard.continents.northAmerica"),
+    Oceania: t("userDashboard.continents.oceania"),
+    "South America": t("userDashboard.continents.southAmerica"),
+  };
+
   return (
     <DashboardLayout>
       <button
@@ -219,7 +231,7 @@ function CountryDetails() {
                 </h2>
                 <span>
                   {t("userDashboard.country.countryIn")}{" "}
-                  {countryData?.continent}
+                  {continents[countryData?.continent] || countryData?.continent}
                 </span>
               </div>
             </div>

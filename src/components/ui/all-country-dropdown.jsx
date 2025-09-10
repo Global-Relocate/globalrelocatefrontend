@@ -27,6 +27,8 @@ import { countries } from "country-data-list";
 // Supported countries
 import supportedCountries from "../../data/visa/countries.json";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
+import { getCountryName } from "@/data/country-translations";
 
 const CountryDropdownComponent = (
   {
@@ -53,7 +55,7 @@ const CountryDropdownComponent = (
   const [open, setOpen] = useState(false);
   const [selectedCountries, setSelectedCountries] = useState([]);
   const { t } = useTranslation();
-
+  const { selectedLanguage } = useLanguage();
   useEffect(() => {
     // Skip if no value
     if (!value) {
@@ -77,6 +79,7 @@ const CountryDropdownComponent = (
         setSelectedCountries(initialCountries);
       }
     }
+
     // For single selection
     else if (!multiple && typeof value === "string") {
       const currentValue = selectedCountries[0]?.alpha2;
@@ -200,7 +203,7 @@ const CountryDropdownComponent = (
                         />
                       </div>
                       <span className="overflow-hidden text-ellipsis whitespace-nowrap">
-                        {option.name}
+                        {getCountryName(option.alpha2, selectedLanguage?.code)}
                       </span>
                     </div>
                     <CheckIcon

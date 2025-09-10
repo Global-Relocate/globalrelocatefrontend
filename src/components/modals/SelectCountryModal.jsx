@@ -3,12 +3,18 @@ import { MdClose } from "react-icons/md";
 import { useCountryData } from "@/context/CountryDataContext";
 import SearchInput from "../inputs/SearchInput";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
+import {
+  getCountryName,
+  getCountryCodeByName,
+} from "@/data/country-translations";
 
 const SelectCountryModal = ({ isOpen, onClose, onChange }) => {
   const { countryList, getCountryList } = useCountryData();
   const [displayedCountries, setDisplayedCountries] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const { t } = useTranslation();
+  const { selectedLanguage } = useLanguage();
 
   useEffect(() => {
     async function fetchCountryList() {
@@ -20,9 +26,16 @@ const SelectCountryModal = ({ isOpen, onClose, onChange }) => {
   useEffect(() => {
     if (searchQuery) {
       // Filter countries based on search input
-      const filtered = countryList.filter((country) =>
-        country.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+      const filtered = countryList.filter((country) => {
+        const countryCode = getCountryCodeByName(country.name);
+        return (
+          country.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          (countryCode &&
+            getCountryName(countryCode, selectedLanguage?.code)
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase()))
+        );
+      });
       setDisplayedCountries(filtered);
     } else {
       // Show 20 random countries when no search query
@@ -66,7 +79,7 @@ const SelectCountryModal = ({ isOpen, onClose, onChange }) => {
               className="flex gap-1 cursor-pointer max-h-[50px] items-center justify-start w-[140px]"
             >
               <img
-                className="w-10 h-10 rounded-full object-cover border"
+                className="w-10 h-10 rounded-full object-cover border mr-3"
                 src={
                   country.name === "Afghanistan"
                     ? "https://flagcdn.com/w320/af.png"
@@ -74,7 +87,12 @@ const SelectCountryModal = ({ isOpen, onClose, onChange }) => {
                 }
                 alt={country.name}
               />
-              <span className="text-sm">{country.name}</span>
+              <span className="text-sm">
+                {getCountryName(
+                  getCountryCodeByName(country.name),
+                  selectedLanguage?.code
+                )}
+              </span>
             </div>
           ))}
         </div>

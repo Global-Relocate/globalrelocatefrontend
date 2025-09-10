@@ -6,33 +6,42 @@ import { useTranslation } from "react-i18next";
 import PageLoader from "@/components/loaders/PageLoader";
 import NewsCard from "../NewsCard";
 import { useLanguage } from "@/context/LanguageContext";
-import { getCountryCodeByName } from "@/data/country-translations";
+import {
+  getCountryCodeByName,
+  getCountryName,
+} from "@/data/country-translations";
 
 const ITEMS_PER_PAGE = 10;
 const CATEGORIES = [
   {
     slug: "tourism",
-    title: "Tourism",
+    eng: "Tourism",
+    deu: "Tourismus",
   },
   {
     slug: "lifestyle",
-    title: "Lifestyle",
+    eng: "Lifestyle",
+    deu: "Lebensstil",
   },
   {
     slug: "food",
-    title: "Food",
+    eng: "Food",
+    deu: "Essen",
   },
   {
     slug: "business",
-    title: "Business",
+    eng: "Business",
+    deu: "Geschäft",
   },
   {
     slug: "environment",
-    title: "Environment",
+    eng: "Environment",
+    deu: "Umwelt",
   },
   {
     slug: "visa-immigration",
-    title: "Visa & Immigration",
+    eng: "Visa & Immigration",
+    deu: "Visa & Einwanderung",
   },
 ];
 
@@ -116,7 +125,10 @@ const NewsTab = () => {
           CATEGORIES.find((category) => category.slug === selectedCategory)
             ?.title
         }{" "}
-        {t("userDashboard.news.title")} in Germany
+        {t("userDashboard.news.title")}{" "}
+        {t("userDashboard.news.inCountry", {
+          country: getCountryName(userCountryCode, selectedLanguage?.code),
+        })}
       </h2>
 
       <div className="flex flex-wrap gap-2">
@@ -130,7 +142,7 @@ const NewsTab = () => {
             }`}
             onClick={async () => await fetchNews(category.slug)}
           >
-            {category.title}
+            {selectedLanguage.code === "deu" ? category.deu : category.eng}
           </button>
         ))}
       </div>
@@ -167,9 +179,18 @@ const NewsTab = () => {
                 link: newsItem.link,
                 image: newsItem.image_url,
                 source: newsItem.source_name,
-                category: newsItem.category[0],
-                language: newsItem.language,
-                country: newsItem.country[0],
+                category:
+                  selectedLanguage?.code === "deu"
+                    ? CATEGORIES.filter(
+                        (cat) => cat.slug === newsItem.category[0].toLowerCase()
+                      )[0]?.deu
+                    : newsItem.category[0],
+                language:
+                  selectedLanguage?.code === "deu" ? "Deutsch" : "English",
+                country: getCountryName(
+                  userCountryCode,
+                  selectedLanguage?.code
+                ),
               }}
               isLast={index === news.length - 1}
               isFirst={index === 0}
