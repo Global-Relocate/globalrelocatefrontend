@@ -455,6 +455,8 @@
       "africa": "Afrika",
       "south america": "Südamerika",
       "north america": "Nordamerika",
+      "northAmerica": "Nordamerika",
+      "southAmerica": "Südamerika",
       "antarctica": "Antarktis",
       "oceania": "Ozeanien"
     },

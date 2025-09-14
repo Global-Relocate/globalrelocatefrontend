@@ -334,6 +334,8 @@
       "europe, asia": "Europe & Asia",
       "south america": "South America",
       "north america": "North America",
+      "northAmerica": "North America",
+      "southAmerica": "South America",
       "antarctica": "Antarctica",
       "oceania": "Oceania"
     },
