@@ -11,13 +11,13 @@ export default function OAuthCallback() {
   useEffect(() => {
     const handleAuth = async () => {
       const searchParams = new URLSearchParams(location.search);
-      const code = searchParams.get("code");
+      const code = searchParams.get("token");
       const type = searchParams.get("type");
 
       if (!code || !type) {
-        console.error("Missing authorization parameters");
+        console.error("Missing auth parameters");
         navigate("/login", {
-          state: { error: "Invalid authentication response" },
+          state: { error: "Invalid auth response" },
         });
         return;
       }
@@ -29,8 +29,8 @@ export default function OAuthCallback() {
           // Login the user
           login(response.token, response.user);
 
-          // Navigate to welcome page
-          navigate("/welcome", {
+          // Navigate to user countries page
+          navigate("/user/countries", {
             state: {
               username:
                 response.user.name || response.user.fullName || "Friend",
@@ -40,7 +40,7 @@ export default function OAuthCallback() {
           throw new Error("Invalid authentication response");
         }
       } catch (error) {
-        console.error("OAuth callback error:", error);
+        console.error("Auth error:", error);
         navigate("/login", {
           state: {
             error: error.message || "Authentication failed. Please try again.",

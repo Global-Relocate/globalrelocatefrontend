@@ -2468,6 +2468,11 @@ country-data-list@^1.4.0:
   resolved "https://registry.yarnpkg.com/country-data-list/-/country-data-list-1.4.0.tgz#ece0d5418490e39a167bbbfe0e192c38114e9fa3"
   integrity sha512-3i1Q1onE9MaqYPdtTUzZRZJY7lBXWpud3eWXrw3ckJyvOzXcsFALiy0Z4Giksy5ECpq9ajYijMPxfRZvVP65UA==
 
+country-to-currency@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/country-to-currency/-/country-to-currency-2.0.2.tgz#3a46efc6dccb5904341821b4e727db0926bd4339"
+  integrity sha512-vM4pJUmhw1EEvfqx12ZpbXqCAHMPp/P6dxtz+V0mT5NKiJaC73cbKk7OPxpGZhno+CthOkIyl+a4VAlToFvX7Q==
+
 cross-fetch@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-4.0.0.tgz#f037aef1580bb3a1a35164ea2a848ba81b445983"

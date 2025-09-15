@@ -11,6 +11,9 @@ import MainLayout from "@/components/layouts/MainLayout";
 import { useTranslation } from "react-i18next";
 import DashNav from "@/components/navigation/DashNav";
 import { AuthContext } from "@/context/AuthContextExport";
+import axios from "axios";
+import countryList from "react-select-country-list";
+import countryToCurrency from "country-to-currency";
 
 // Loading component
 const LoadingScreen = () => (
@@ -24,10 +27,15 @@ const Upgrade = () => {
   const [currentPlan, setCurrentPlan] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   const navigate = useNavigate();
   const { t } = useTranslation();
-
   const { user } = useContext(AuthContext);
+  const [exchangeRate, setExchangeRate] = useState(null);
+
+  const userCountry = user?.country || "DE";
+  const country = countryList().getValue(userCountry);
+  const userCountryCurrency = countryToCurrency[country] || "EUR";
 
   // Redirect to login if user is not authenticated
   useEffect(() => {
@@ -39,6 +47,29 @@ const Upgrade = () => {
   const handleBack = () => {
     navigate(-1);
   };
+
+  // Fetch exchange rate based on user's country currency
+  useEffect(() => {
+    const fetchExchangeRate = async () => {
+      try {
+        if (userCountryCurrency === "EUR") {
+          setExchangeRate(1);
+          return;
+        }
+
+        const response = await axios.get(
+          "https://latest.currency-api.pages.dev/v1/currencies/eur.json"
+        );
+        setExchangeRate(
+          response.data.eur[userCountryCurrency.toLowerCase()] || 1
+        );
+      } catch (err) {
+        console.error("Error fetching exchange rate:", err);
+        setExchangeRate(1); // Fallback to 1 if error occurs
+      }
+    };
+    fetchExchangeRate();
+  }, [userCountryCurrency]);
 
   useEffect(() => {
     const fetchSubscriptionDetails = async () => {
@@ -95,6 +126,7 @@ const Upgrade = () => {
     {
       title: "Basic",
       price: "5",
+      rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.basicPlan.item1"),
         t("userDashboard.upgradePage.basicPlan.item2"),
@@ -107,6 +139,7 @@ const Upgrade = () => {
     {
       title: "Premium",
       price: "20",
+      rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.premiumPlan.item1"),
         t("userDashboard.upgradePage.premiumPlan.item2"),
@@ -136,6 +169,7 @@ const Upgrade = () => {
   const PricingCard = ({
     title,
     price,
+    rate,
     isCurrentPlan,
     features,
     buttonText,
@@ -156,6 +190,17 @@ const Upgrade = () => {
             <span className="text-gray-600">
               / {t("userDashboard.upgradePage.perMonth")}
             </span>
+          </div>
+          <div className="text-sm text-gray-500">
+            {rate && userCountryCurrency !== "EUR" && (
+              <em>
+                {t("userDashboard.upgradePage.approx")}:{" "}
+                <span className="font-semibold">
+                  {userCountryCurrency}{" "}
+                  {(parseFloat(price) * rate).toLocaleString()}
+                </span>
+              </em>
+            )}
           </div>
         </div>
 
@@ -195,6 +240,7 @@ const Upgrade = () => {
   PricingCard.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
+    rate: PropTypes.string.isRequired,
     isCurrentPlan: PropTypes.bool.isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     buttonText: PropTypes.string.isRequired,

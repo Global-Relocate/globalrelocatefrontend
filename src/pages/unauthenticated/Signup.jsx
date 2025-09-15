@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { IoCloseCircleOutline } from "react-icons/io5";
+import { useState } from "react";
 import { GoPersonFill } from "react-icons/go";
 import { PiBuildingsFill } from "react-icons/pi";
 import { BsCheck, BsArrowLeft } from "react-icons/bs";
@@ -9,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SignupForm from "../../components/forms/SignupForm";
 import logo from "../../assets/svg/logo.svg";
 // import microsoftIcon from "../../assets/svg/microsoft.svg";
-import { initiateGoogleAuth, initiateMicrosoftAuth } from "../../services/api";
+import { initiateGoogleAuth } from "../../services/api";
 import { useTranslation } from "react-i18next";
 
 export default function Signup() {
@@ -111,7 +110,7 @@ export default function Signup() {
     try {
       setLoading(true);
       setErrorMessage("");
-      await initiateGoogleAuth();
+      await initiateGoogleAuth(formData.userType);
       // No need to handle the response as we're redirecting
     } catch (error) {
       console.error("Google login error:", error);

@@ -29,6 +29,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "country-data-list": "^1.4.0",
+    "country-to-currency": "^2.0.2",
     "deepvault": "^1.0.1",
     "dompurify": "^3.2.5",
     "embla-carousel-autoplay": "^8.6.0",
