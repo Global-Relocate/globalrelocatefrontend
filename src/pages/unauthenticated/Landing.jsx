@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
 import MainLayout from "../../components/layouts/MainLayout";
 import FeaturesCard from "../../components/cards/FeaturesCard";
 import CountriesCard from "../../components/cards/LandingCountriesCard";
-import { useCountryData } from "@/context/CountryDataContext";
 
 // countries imports
 import nigeria from "../../assets/images/nigeria.png";
@@ -21,8 +22,11 @@ import cardimg2 from "../../assets/images/cardimg_2.png";
 import { useTranslation } from "react-i18next";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
+const api = import.meta.env.VITE_API_URL;
+
 export default function Landing() {
   const { t } = useTranslation();
+  const [randomCountries, setRandomCountries] = useState([]);
 
   const cardVariants = {
     offscreen: {
@@ -40,28 +44,21 @@ export default function Landing() {
     },
   };
 
-  const { countries } = useCountryData();
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get(`${api}/countries/list`);
+        const countries = response.data.data || [];
+        // Sort the countries randomly
+        countries.sort(() => Math.random() - 0.5);
+        setRandomCountries(countries.slice(0, 6));
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
 
-  const shuffleArray = (array, numItems) => {
-    const shuffledArray = [...array]; // Using spread syntax for a shallow copy
-
-    let currentIndex = shuffledArray.length;
-    let randomIndex;
-
-    while (currentIndex !== 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      [shuffledArray[currentIndex], shuffledArray[randomIndex]] = [
-        shuffledArray[randomIndex],
-        shuffledArray[currentIndex],
-      ];
-    }
-
-    return shuffledArray.slice(0, Math.min(numItems, array.length));
-  };
-
-  const shuffledCountries = shuffleArray(countries, 6);
+    fetchCountries();
+  }, []);
 
   return (
     <MainLayout>
@@ -135,17 +132,14 @@ export default function Landing() {
           viewport={{ once: true, amount: 0.1 }}
           className="flex items-center justify-evenly flex-wrap gap-y-8 sm:gap-y-10 py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
         >
-          {shuffledCountries && shuffledCountries.length > 0
-            ? shuffledCountries.map((country, index) => (
+          {randomCountries && randomCountries.length > 0
+            ? randomCountries.map((country, index) => (
                 <motion.div key={index} variants={cardVariants} custom={index}>
                   <CountriesCard
-                    slug={country.countrySlug}
-                    image={
-                      country.countryImages[0] ??
-                      "/images/images/swizerland.png"
-                    }
-                    location={country.countryName}
-                    countryFlag={country.countryFlag}
+                    slug={country.slug}
+                    image={country.images[0] ?? "/images/images/swizerland.png"}
+                    location={country.name}
+                    countryFlag={country.flag}
                   />
                 </motion.div>
               ))

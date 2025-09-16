@@ -8,21 +8,30 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useCountryData } from "@/context/CountryDataContext";
+import axios from "axios";
+
+const api = import.meta.env.VITE_API_URL;
 
 export default function Footer() {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
-  const { countries, loading } = useCountryData();
   const [randomCountries, setRandomCountries] = useState([]);
 
   useEffect(() => {
-    if (!loading && countries?.length) {
-      // shuffle and take 3 random countries
-      const shuffled = [...countries].sort(() => 0.5 - Math.random());
-      setRandomCountries(shuffled.slice(0, 5));
-    }
-  }, [countries, loading]);
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get(`${api}/countries/list`);
+        const countries = response.data.data || [];
+        // Sort the countries randomly
+        countries.sort(() => Math.random() - 0.5);
+        setRandomCountries(countries.slice(0, 5));
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+
+    fetchCountries();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,10 +86,10 @@ export default function Footer() {
                 {randomCountries.map((country, index) => (
                   <li key={index}>
                     <Link
-                      to={`/user/countries/${country.countrySlug}`}
+                      to={`/user/countries/${country.slug}`}
                       className="block hover:text-white transition-colors"
                     >
-                      {country.countryName}
+                      {country.name}
                     </Link>
                   </li>
                 ))}
