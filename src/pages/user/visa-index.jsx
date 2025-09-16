@@ -341,6 +341,7 @@ export default function VisaIndex() {
                   onChange={(country) => {
                     handleInputChange("destination", country.alpha2);
                     setSelectedDestinationCode(country.alpha2);
+                    setSelectedDestination(country);
                   }}
                   placeholder={t(`userDashboard.tax.selectCountry`)}
                   textSize="sm"
@@ -516,7 +517,7 @@ export default function VisaIndex() {
                         {getCountryName(visaInfo.code, selectedLanguage.code)}{" "}
                         {t("userDashboard.visaIndex.toTravelTo")}{" "}
                         {getCountryName(
-                          selectedCountryCode,
+                          selectedDestinationCode,
                           selectedLanguage.code
                         )}
                       </p>{" "}

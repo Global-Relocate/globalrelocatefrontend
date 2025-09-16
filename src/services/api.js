@@ -245,15 +245,13 @@ export const handleOAuthCallback = async (code, type) => {
 
 // Update the OAuth initialization functions
 export const initiateGoogleAuth = async (accountType) => {
-  try {
-    const redirectUri = `${window.location.origin}/oauth/callback`;
-    sessionStorage.setItem("oauth_redirect_uri", redirectUri);
-    sessionStorage.setItem("oauth_provider", "google");
+  const param = accountType || "INDIVIDUAL";
 
+  try {
     // Redirect to the Google auth endpoint
-    window.location.href = `${VITE_API_URL}/auth/google?redirect_uri=${encodeURIComponent(
-      redirectUri
-    )}&state=${encodeURIComponent(accountType)}`;
+    window.location.href = `${VITE_API_URL}/auth/google?&state=${encodeURIComponent(
+      param
+    )}`;
     return true;
   } catch (error) {
     console.error("Google auth error:", error);

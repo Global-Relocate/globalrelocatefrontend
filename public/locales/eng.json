@@ -328,6 +328,7 @@
       "failed": "An error occurred while fetching news."
     },
     "continents": {
+      "all": "All",
       "europe": "Europe",
       "asia": "Asia",
       "africa": "Africa",

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../assets/images/footer_logo.png";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -8,10 +8,21 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useCountryData } from "@/context/CountryDataContext";
 
 export default function Footer() {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
+  const { countries, loading } = useCountryData();
+  const [randomCountries, setRandomCountries] = useState([]);
+
+  useEffect(() => {
+    if (!loading && countries?.length) {
+      // shuffle and take 3 random countries
+      const shuffled = [...countries].sort(() => 0.5 - Math.random());
+      setRandomCountries(shuffled.slice(0, 5));
+    }
+  }, [countries, loading]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,26 +74,14 @@ export default function Footer() {
                 {t("footer.topCountries")}
               </h4>
               <ul className="flex flex-col gap-2">
-                {[
-                  { to: "", label: "Nigeria" },
-                  {
-                    to: "",
-                    label: "United States",
-                  },
-                  {
-                    to: "",
-                    label: "United Kingdom",
-                  },
-                ].map((item, index) => (
+                {randomCountries.map((country, index) => (
                   <li key={index}>
-                    <div>
-                      <Link
-                        to={item.to}
-                        className="block hover:text-white transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                    </div>
+                    <Link
+                      to={`/user/countries/${country.countrySlug}`}
+                      className="block hover:text-white transition-colors"
+                    >
+                      {country.countryName}
+                    </Link>
                   </li>
                 ))}
               </ul>
