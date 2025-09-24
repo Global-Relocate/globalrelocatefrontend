@@ -720,7 +720,16 @@
       "visaAndImmigration": "Visa & Immigration",
       "longStays": "Long Stays",
       "shortStays": "Short Stays",
-      "passportAndVisas": "Passport & Visas"
+      "passportAndVisas": "Passport & Visas",
+      "summary": "Summary",
+      "recommendations": "Recommendations",
+      "attribute": "Attribute",
+      "passportVisaInfo": "Passsport & Visas",
+      "internetSpeedDownload": "Internet Speed (Download)",
+      "internetSpeedUpload": "Internet Speed (Upload)",
+      "internetSpeedRanking": "Internet Speed Ranking",
+      "workLifeBalance": "Work-Life Balance",
+      "dialingCode": "Dialing Code"
     }
   },
   "drawers": {

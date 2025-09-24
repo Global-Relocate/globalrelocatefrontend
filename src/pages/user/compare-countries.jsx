@@ -7,6 +7,9 @@ import { useCountryData } from "@/context/CountryDataContext";
 import Spinner from "@/components/loaders/Spinner";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/context/LanguageContext";
+import ComparisonTable from "@/components/common/comparison-table";
+// import ReactMarkdown from "react-markdown";
+// import remarkGfm from "remark-gfm";
 
 function CompareCountries() {
   const [openCountryModal, setOpenCountryModal] = useState(false);
@@ -14,8 +17,12 @@ function CompareCountries() {
   const [countryIdx, setCountryIdx] = useState(1);
   const [selectedCountries, setSelectedCountries] = useState([1, 2]);
 
-  const { compareLoader, compareCountries, compareData, resetCompareData } =
-    useCountryData();
+  const {
+    compareLoader,
+    compareCountries,
+    compareData,
+    resetCompareData,
+  } = useCountryData();
   const compareViewRef = useRef();
   const { t } = useTranslation();
   const { selectedLanguage } = useLanguage();
@@ -201,54 +208,6 @@ function CompareCountries() {
   };
 
   const renderResult = () => {
-    const overview =
-      compareData.overview ?? t("userDashboard.country.noDataAvailable");
-    const internetSpeed =
-      compareData.additionalComparisons.internetSpeed ??
-      t("userDashboard.country.noDataAvailable");
-    const publicTransportEfficiency =
-      compareData.additionalComparisons.publicTransportEfficiency ??
-      t("userDashboard.country.noDataAvailable");
-    const workLifeBalance =
-      compareData.additionalComparisons.workLifeBalance ??
-      t("userDashboard.country.noDataAvailable");
-    const population =
-      compareData.additionalComparisons.population ??
-      t("userDashboard.country.noDataAvailable");
-    const dialingCodes =
-      compareData.additionalComparisons.dialingCodes ??
-      t("userDashboard.country.noDataAvailable");
-    const languages =
-      compareData.additionalComparisons.languages ??
-      t("userDashboard.country.noDataAvailable");
-    const avgCosts =
-      compareData.costOfLiving.avgCosts ??
-      t("userDashboard.country.noDataAvailable");
-    const costSummary =
-      compareData.costOfLiving.summary ??
-      t("userDashboard.country.noDataAvailable");
-    const corporateTax =
-      compareData.taxAndFinance.corporateTax ??
-      t("userDashboard.country.noDataAvailable");
-    const federalRate =
-      compareData.taxAndFinance.personalIncomeTax.federalRate ??
-      t("userDashboard.country.noDataAvailable");
-    const communalRate =
-      compareData.taxAndFinance.personalIncomeTax.communalRate ??
-      t("userDashboard.country.noDataAvailable");
-    const longStays =
-      compareData.visaAndImmigration.longStays ??
-      t("userDashboard.country.noDataAvailable");
-    const shortStays =
-      compareData.visaAndImmigration.shortStays ??
-      t("userDashboard.country.noDataAvailable");
-    const visaSummary =
-      compareData.visaAndImmigration.summary ??
-      t("userDashboard.country.noDataAvailable");
-    const passportsAndVisas =
-      compareData.visaAndImmigration.passportsAndVisas ??
-      t("userDashboard.country.noDataAvailable");
-
     return (
       <section id="comparison-view" ref={compareViewRef}>
         <div className="text-center my-14">
@@ -256,177 +215,10 @@ function CompareCountries() {
         </div>
 
         <div className="w-full mt-12 mb-6">
-          <h2 className="text-3xl font-medium my-4 text-center underline underline-offset-4">
+          <h2 className="text-3xl font-medium mb-12 text-center underline underline-offset-4">
             {t("userDashboard.compareCountries.comparison")}
           </h2>
-          {/* Overview */}
-          <h2 className="text-2xl font-medium mb-2">
-            {t("userDashboard.compareCountries.overview")}
-          </h2>
-          <p>{overview}</p>
-          <br />
-
-          <div className="space-y-8 max-w-5xl">
-            <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-3">
-              {/* Internet Speed */}
-              <div className="grid">
-                <div className="border border-gray-300 p-4 rounded-xl">
-                  <h3 className="text-lg font-semibold mb-2">
-                    <i className="fad fa-globe mr-2"></i>{" "}
-                    {t("userDashboard.compareCountries.internetSpeed")}
-                  </h3>
-                  {internetSpeed}
-                </div>
-              </div>
-
-              <div className="grid">
-                <div className="border border-gray-300 p-4 rounded-xl">
-                  <h3 className="text-lg font-semibold mb-2">
-                    <i className="fad fa-bus mr-2"></i>{" "}
-                    {t(
-                      "userDashboard.compareCountries.publicTransportEfficiency"
-                    )}
-                  </h3>
-                  {publicTransportEfficiency}
-                </div>
-              </div>
-
-              <div className="grid">
-                <div className="border border-gray-300 p-4 rounded-xl">
-                  <h3 className="text-lg font-semibold mb-2">
-                    <i className="fad fa-suitcase mr-2"></i>{" "}
-                    {t("userDashboard.compareCountries.workAndLifeBalance")}
-                  </h3>
-                  {workLifeBalance}
-                </div>
-              </div>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-3">
-              <div className="border border-gray-300 p-4 rounded-xl">
-                <h3 className="text-md lg:text-lg font-semibold mb-2">
-                  <i className="fad fa-users mr-2"></i>{" "}
-                  {t("userDashboard.compareCountries.population")}
-                </h3>
-                {population}
-              </div>
-              <div className="border border-gray-300 p-4 rounded-xl">
-                <h3 className="text-md lg:text-lg font-semibold mb-2">
-                  <i className="fad fa-phone mr-2"></i>{" "}
-                  {t("userDashboard.compareCountries.dialingCodes")}
-                </h3>
-                {dialingCodes}
-              </div>
-              <div className="border border-gray-300 p-4 rounded-xl">
-                <h3 className="text-md lg:text-lg font-semibold mb-2">
-                  <i className="fad fa-language mr-2"></i>
-                  {t("userDashboard.compareCountries.languages")}
-                </h3>
-                {languages}
-              </div>
-            </div>
-
-            {/* Cost of Living */}
-            <div className="border border-gray-300 rounded-xl p-6">
-              <h2 className="text-lg font-semibold mb-6">
-                <i className="fad fa-house mr-2"></i>{" "}
-                {t("userDashboard.compareCountries.costOfLiving")}
-              </h2>
-              <p className="my-2">{avgCosts}</p>
-              <p className="my-2">{costSummary}</p>
-            </div>
-
-            {/* Tax Comparison */}
-            <div className="border border-gray-300 rounded-xl p-6">
-              <h2 className="text-lg font-semibold mb-6">
-                <i className="fad fa-dollar-sign mr-2"></i>{" "}
-                {t("userDashboard.compareCountries.taxesAndFinances")}
-              </h2>
-              <table className="w-full text-left border border-gray-200">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th className="p-2 border">
-                      {t("userDashboard.compareCountries.taxType")}
-                    </th>
-                    <th className="p-2 border" colSpan={2}>
-                      {t("userDashboard.compareCountries.comparison")}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="p-2 align-top">
-                      {t("userDashboard.compareCountries.corporateTax")}
-                    </td>
-                    <td className="p-2 break-words" colSpan={2}>
-                      {corporateTax}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 align-top">
-                      {t("userDashboard.compareCountries.incomeTax")}
-                    </td>
-                    <td className="p-2">
-                      <p className="break-words">
-                        <span className="font-semibold">
-                          {t("userDashboard.compareCountries.federalRate")}:
-                        </span>{" "}
-                        {federalRate}
-                      </p>{" "}
-                      <br />
-                      {compareData.taxAndFinance.personalIncomeTax
-                        .communalRate && (
-                        <p className="break-words">
-                          <span className="font-semibold">
-                            {t("userDashboard.compareCountries.communalRate")}:
-                          </span>{" "}
-                          {communalRate}
-                        </p>
-                      )}
-                    </td>
-                    <td className="p-2"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* Visa & Immigration */}
-            <div className="border border-gray-300 rounded-xl p-6">
-              <h2 className="text-lg font-semibold mb-6">
-                <i className="fad fa-plane mr-2"></i>{" "}
-                {t("userDashboard.compareCountries.visaAndImmigration")}
-              </h2>
-              <div className="grid lg:grid-cols-3 gap-4">
-                <div className="border border-gray-300 p-4 rounded-xl">
-                  <h4 className="font-semibold mb-2">
-                    <i className="fad fa-building mr-2"></i>{" "}
-                    {t("userDashboard.compareCountries.longStays")}
-                  </h4>
-                  <p>{longStays}</p>
-                </div>
-
-                <div className="border border-gray-300 p-4 rounded-xl">
-                  <h4 className="font-semibold mb-2">
-                    <i className="fad fa-hotel mr-2"></i>{" "}
-                    {t("userDashboard.compareCountries.shortStays")}
-                  </h4>
-                  <p>{shortStays}</p>
-                </div>
-
-                <div className="border border-gray-300 p-4 rounded-xl">
-                  <h4 className="font-semibold mb-2">
-                    <i className="fa fa-passport mr-2"></i>{" "}
-                    {t("userDashboard.compareCountries.passportAndVisas")}
-                  </h4>
-                  <p>{passportsAndVisas}</p>
-                </div>
-              </div>
-              <div className="flex gap-2 mt-6">
-                <i className="fal fa-info-circle mr-2 mt-1"></i>{" "}
-                <span>{visaSummary}</span>
-              </div>
-            </div>
-          </div>
+          <ComparisonTable data={compareData} />
         </div>
       </section>
     );

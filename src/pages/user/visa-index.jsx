@@ -255,9 +255,9 @@ export default function VisaIndex() {
                         <Link
                           to={`/visa-requirements/${country.code.toLowerCase()}`}
                           key={country.code}
-                          className="border-2 border-black rounded-md py-[8px] px-[10px]"
+                          className="border-2 border-black rounded-md py-[8px] px-[10px] overflow-hidden"
                         >
-                          <div className="rounded-lg h-[341px] w-[230px] mx-auto">
+                          <div className="rounded-lg h-[341px] w-full mx-auto">
                             <img
                               src={`${baseURL}/image/fetch/${country.code.toLowerCase()}`}
                               alt={country.name}

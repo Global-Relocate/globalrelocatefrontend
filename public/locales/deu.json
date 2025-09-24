@@ -721,7 +721,16 @@
       "visaAndImmigration": "Visa & Einwanderung",
       "longStays": "Langzeitaufenthalte",
       "shortStays": "Kurzaufenthalte",
-      "passportAndVisas": "Reisepass & Visa"
+      "passportAndVisas": "Reisepass & Visa",
+      "summary": "Zusammenfassung",
+      "recommendations": "Empfehlungen",
+      "attribute": "Attribut",
+      "passportVisaInfo": "Reisepass & Visa",
+      "internetSpeedDownload": "Internetgeschwindigkeit (Download)",
+      "internetSpeedUpload": "Internetgeschwindigkeit (Upload)",
+      "internetSpeedRanking": "Internetgeschwindigkeits-Ranking",
+      "workLifeBalance": "Work-Life-Balance",
+      "dialingCode": "Telefonvorwahl"
     }
   },
   "drawers": {
@@ -730,7 +739,7 @@
     }
   },
   "footer": {
-    "topCountries": "Top-Länder",
+    "topCountries": "Top Länder",
     "sitemap": "Sitemap",
     "company": "Unternehmen",
     "terms": "Bedingungen",

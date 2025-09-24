@@ -104,7 +104,8 @@ function CountryDetails() {
       try {
         await navigator.share({
           title: "Check out this country!",
-          text: "Get detailed information about relocating to this country on GlobalRelocate.",
+          text:
+            "Get detailed information about relocating to this country on GlobalRelocate.",
           url: window.location.href,
         });
       } catch (error) {
@@ -472,7 +473,7 @@ function CountryDetails() {
                       </h2>
                       <div className="rounded-2xl w-full">
                         <iframe
-                          src={`https://maps.google.com/maps?q=${countryData.name}&hl=en&z=6&maptype=satellite&output=embed`}
+                          src={`https://maps.google.com/maps?q=${countryData.name}&hl=en&z=5&maptype=satellite&output=embed`}
                           className="w-full h-[450px] rounded-3xl outline-none"
                           loading="lazy"
                           referrerPolicy="no-referrer-when-downgrade"
