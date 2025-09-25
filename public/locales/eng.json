@@ -534,6 +534,8 @@
       "socialDebt": "Social Debt",
       "incomeTax": "Income Tax",
       "unemploymentInsurance": "Unemployment Insurance",
+      "solidaritySurcharge": "Solidarity Surcharge",
+      "accidentInsurance": "Accident Insurance",
       "totalTax": "Total Tax",
       "taxDisclaimer": "NOTE: Withholding tax is calculated based on the tax tables applicable in Germany. For simplification purposes, some variables (such as tax class, tax allowances, solidarity surcharge, church tax, and others) have been assumed or may not be fully accounted for. This calculation does not represent legal authority and shall be used for approximation purposes only. For accurate income tax calculations, especially for individuals with complex financial situations, it is recommended to consult with a tax advisor.",
       "summaryText1": "If you make",

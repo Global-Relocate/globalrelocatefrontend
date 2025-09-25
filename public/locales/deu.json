@@ -534,6 +534,8 @@
       "socialDebt": "Sozialschulden",
       "incomeTax": "Einkommensteuer",
       "unemploymentInsurance": "Arbeitslosenversicherung",
+      "solidaritySurcharge": "Solidaritätszuschlag",
+      "accidentInsurance": "Unfallversicherung",
       "totalTax": "Gesamtsteuer",
       "taxDisclaimer": "HINWEIS: Die Lohnsteuer wird auf der Grundlage der in Deutschland geltenden Steuertabellen berechnet. Aus Vereinfachungsgründen wurden einige Variablen (wie Steuerklasse, Steuerfreibeträge, Solidaritätszuschlag, Kirchensteuer und andere) angenommen oder sind möglicherweise nicht vollständig berücksichtigt. Diese Berechnung stellt keine Rechtsauskunft dar und dient nur zu Näherungszwecken. Für genaue Einkommensteuerberechnungen, insbesondere für Personen mit komplexen finanziellen Verhältnissen, wird empfohlen, einen Steuerberater zu konsultieren.",
       "summaryText1": "Wenn Sie",

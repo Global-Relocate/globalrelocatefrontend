@@ -68,13 +68,19 @@ export default function TaxSummary({
   // const incomeTax = isYear ? incomeTaxYear : incomeTaxMonth;
   const totalTax = isYear ? totalTaxYear : totalTaxMonth;
   const netIncome = isYear ? netIncomeYear : netIncomeMonth;
-
   const averageTaxRatePct =
-    typeof taxData.averageTaxRatePct === "number"
-      ? taxData.averageTaxRatePct
+    typeof taxData.averageTaxRate === "number"
+      ? taxData.averageTaxRate
       : grossYear > 0
       ? (totalTaxYear / grossYear) * 100
       : 0;
+
+  const solidaritySurcharge =
+    (taxData.solidaritySurchargePct / 100) *
+    (isYear
+      ? yearlyBreakdown.find((t) => t.incomeTax)?.incomeTax.value
+      : monthlyBreakdown.find((t) => t.incomeTax)?.incomeTax.value);
+  const totalTaxWithSurcharge = totalTax + solidaritySurcharge;
 
   // Helper for safe currency formatting
   const fmt = (n) =>
@@ -85,7 +91,7 @@ export default function TaxSummary({
     {};
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-10">
       <h3 className="text-xl font-semibold mb-8 text-center">
         {t(`userDashboard.tax.taxSummary`)}
       </h3>
@@ -144,14 +150,74 @@ export default function TaxSummary({
 
                     // Accept either .rate or .value as the amount to show (in currency)
                     const amount = Number((node && (node.value ?? 0)) || 0);
+                    const maxAmount = Number((node && (node.max ?? 0)) || 0);
+
+                    // If there's a max and we've exceeded it, show the max instead
+                    let finalAmount =
+                      maxAmount > 0 ? Math.min(amount, maxAmount) : amount;
+
+                    const taxBrackets = node?.brackets;
+                    // If brackets are defined, calculate the tax based on brackets
+                    if (taxBrackets) {
+                      let incomeLeft = isYear ? grossYear : grossMonth;
+                      let calculatedTax = 0;
+                      const sortedLimits = Object.keys(taxBrackets)
+                        .map((k) => Number(k))
+                        .sort((a, b) => a - b);
+
+                      for (let i = 0; i < sortedLimits.length; i++) {
+                        const limit = sortedLimits[i];
+                        const rate = taxBrackets[limit];
+                        const nextLimit =
+                          i + 1 < sortedLimits.length
+                            ? sortedLimits[i + 1]
+                            : Infinity;
+                        if (incomeLeft > limit) {
+                          const taxableIncome =
+                            Math.min(incomeLeft, nextLimit) - limit;
+                          calculatedTax += taxableIncome * rate;
+                        } else {
+                          break;
+                        }
+                      }
+                      // Override finalAmount with calculated tax from brackets
+                      finalAmount = calculatedTax;
+                    }
 
                     return (
-                      <li key={taxName} className="flex justify-between">
-                        <span>{t(`userDashboard.tax.${taxName}`)}</span>
-                        <span className="font-semibold">
-                          {currency} {fmt(amount)} / {viewMode}
-                        </span>
-                      </li>
+                      <>
+                        {taxName === "incomeTax" ? (
+                          <>
+                            <li key={taxName} className="flex justify-between">
+                              <span>{t(`userDashboard.tax.${taxName}`)}</span>
+                              <span className="font-semibold">
+                                {currency} {fmt(finalAmount)} / {viewMode}
+                              </span>
+                            </li>
+                            {taxData.solidaritySurchargePct > 0 && (
+                              <li
+                                key="solidaritySurcharge"
+                                className="flex justify-between"
+                              >
+                                <span className="ml-1">
+                                  + {t(`userDashboard.tax.solidaritySurcharge`)}
+                                </span>
+                                <span className="font-semibold">
+                                  {currency} {fmt(solidaritySurcharge)} /{" "}
+                                  {viewMode}
+                                </span>
+                              </li>
+                            )}
+                          </>
+                        ) : (
+                          <li key={taxName} className="flex justify-between">
+                            <span>{t(`userDashboard.tax.${taxName}`)}</span>
+                            <span className="font-semibold">
+                              {currency} {fmt(finalAmount)} / {viewMode}
+                            </span>
+                          </li>
+                        )}
+                      </>
                     );
                   }
                 )}
@@ -162,7 +228,7 @@ export default function TaxSummary({
             <div className="flex justify-between text-sm mb-4">
               <span>{t(`userDashboard.tax.totalTax`)}</span>
               <span className="text-[#5762D5] font-semibold">
-                {currency} {fmt(totalTax)} / {viewMode}
+                {currency} {fmt(totalTaxWithSurcharge)} / {viewMode}
               </span>
             </div>
 

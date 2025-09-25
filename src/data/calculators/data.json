@@ -13,13 +13,23 @@
     "country": "Germany",
     "currency": "EUR",
     "taxes": [
-      { "name": "pension", "rate": 18.6 },
-      { "name": "healthInsurance", "rate": 14.6 },
-      { "name": "nursingCareInsurance", "rate": 3.4 },
-      { "name": "unemploymentInsurance", "rate": 2.4 },
-      { "name": "incomeTax", "rate": 14 }
+      { "name": "pension", "rate": 9.3, "max": 7124.7 },
+      { "name": "healthInsurance", "rate": 9.0 },
+      { "name": "nursingCareInsurance", "rate": 1.175, "max": 796.05 },
+      { "name": "unemploymentInsurance", "rate": 1.3, "max": 1113.0 },
+      {
+        "name": "incomeTax",
+        "brackets": {
+          "0": 0,
+          "10347": 0.14,
+          "14926": 0.2397,
+          "58596": 0.42,
+          "277825": 0.45
+        }
+      }
     ],
-    "totalRate": 53
+    "solidaritySurcharge": 5.5,
+    "totalRate": 42.545
   },
   "CH": {
     "country": "Switzerland",
