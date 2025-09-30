@@ -1,4 +1,6 @@
 import { useCallback, useState, forwardRef, useEffect } from "react";
+
+// shadcn
 import {
   Command,
   CommandEmpty,
@@ -12,10 +14,18 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+
+// utils
 import { cn } from "@/lib/utils";
+
+// assets
 import { ChevronDown, ChevronsUpDown, CheckIcon, Globe } from "lucide-react";
 import { CircleFlag } from "react-circle-flags";
+
+// data
 import { countries } from "country-data-list";
+// Supported countries
+import supportedCountries from "../../data/visa/countries.json";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/context/LanguageContext";
 import { getCountryName } from "@/data/country-translations";
@@ -24,7 +34,10 @@ const CountryDropdownComponent = (
   {
     options = countries.all.filter(
       (country) =>
-        country.emoji && country.status !== "deleted" && country.ioc !== "PRK"
+        country.emoji &&
+        country.status !== "deleted" &&
+        country.ioc !== "PRK" &&
+        supportedCountries.some((c) => c.code === country.alpha2)
     ),
     onChange,
     value,

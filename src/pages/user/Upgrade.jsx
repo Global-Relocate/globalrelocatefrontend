@@ -120,12 +120,11 @@ const Upgrade = () => {
         t("userDashboard.upgradePage.freePlan.item2"),
         t("userDashboard.upgradePage.freePlan.item3"),
         t("userDashboard.upgradePage.freePlan.item4"),
-        t("userDashboard.upgradePage.freePlan.item5"),
       ],
     },
     {
       title: "Basic",
-      price: "5",
+      price: "49.90",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.basicPlan.item1"),
@@ -133,12 +132,11 @@ const Upgrade = () => {
         t("userDashboard.upgradePage.basicPlan.item3"),
         t("userDashboard.upgradePage.basicPlan.item4"),
         t("userDashboard.upgradePage.basicPlan.item5"),
-        t("userDashboard.upgradePage.basicPlan.item6"),
       ],
     },
     {
       title: "Premium",
-      price: "20",
+      price: "69.90",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.premiumPlan.item1"),
@@ -149,7 +147,6 @@ const Upgrade = () => {
         t("userDashboard.upgradePage.premiumPlan.item6"),
         t("userDashboard.upgradePage.premiumPlan.item7"),
         t("userDashboard.upgradePage.premiumPlan.item8"),
-        t("userDashboard.upgradePage.premiumPlan.item9"),
       ],
     },
   ];

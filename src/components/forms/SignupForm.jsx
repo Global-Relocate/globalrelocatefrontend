@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { registerNewUser } from "../../services/api";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import { CountryDropdown } from "@/components/ui/country-dropdown";
+import { CountryDropdown } from "@/components/ui/all-country-dropdown";
 import { useTranslation } from "react-i18next";
 
 const SignupForm = ({ formData, setFormData, errors, setErrors }) => {

@@ -7,7 +7,6 @@ import { HiOutlineMail } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import SignupForm from "../../components/forms/SignupForm";
 import logo from "../../assets/svg/logo.svg";
-// import microsoftIcon from "../../assets/svg/microsoft.svg";
 import { initiateGoogleAuth } from "../../services/api";
 import { useTranslation } from "react-i18next";
 

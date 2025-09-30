@@ -87,7 +87,6 @@ function CountryDetails() {
           visaOnlineCount: visaFreeAccess.data.visa_online?.length || 0,
         });
       } else {
-        console.warn(`Country with code ${countryCode} not found`);
         setPassportRanking(null);
       }
     } catch (error) {
@@ -96,8 +95,10 @@ function CountryDetails() {
   };
 
   useEffect(() => {
-    fetchPassportRanking();
-  }, []);
+    if (countryCode) {
+      fetchPassportRanking();
+    }
+  }, [countryCode]);
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -171,8 +172,6 @@ function CountryDetails() {
       setCurrentIndex(api.selectedScrollSnap());
     });
   }, [api]);
-
-  console.log("Country Data:", countryData?.continent);
 
   const continents = {
     Africa: t("userDashboard.continents.africa"),
@@ -343,6 +342,12 @@ function CountryDetails() {
                     className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none flex-shrink-0"
                   >
                     {t("userDashboard.country.taxes")}
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="ai"
+                    className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none flex-shrink-0"
+                  >
+                    {t("userDashboard.ai.title")}
                   </TabsTrigger>
                 </TabsList>
 
@@ -547,7 +552,7 @@ function CountryDetails() {
                           {countryData.mostExpensiveStates
                             ? countryData.mostExpensiveStates.map(
                                 (state, index) => (
-                                  <div key={state} className="my-2">
+                                  <div key={index} className="my-2">
                                     <h3 className="font-semibold">
                                       {index + 1}.{" "}
                                       <span className="ml-1">{state.name}</span>
@@ -812,7 +817,7 @@ function CountryDetails() {
                               .length > 0
                               ? countryData.visaAndImmigration.visaRequirements.map(
                                   (item, index) => (
-                                    <div key={item} className="my-2">
+                                    <div key={index} className="my-2">
                                       <h3 className="font-semibold">
                                         {index + 1}.{" "}
                                         <span className="ml-1">
@@ -842,7 +847,7 @@ function CountryDetails() {
                               .length > 0
                               ? countryData.visaAndImmigration.applicationProcess.map(
                                   (item, index) => (
-                                    <div key={item} className="my-2">
+                                    <div key={index} className="my-2">
                                       <h3 className="font-semibold">
                                         {index + 1}.{" "}
                                         <span className="ml-1">
@@ -891,7 +896,7 @@ function CountryDetails() {
                               .length > 0
                               ? countryData.visaAndImmigration.obtainCitizenship.map(
                                   (item, index) => (
-                                    <div key={item} className="my-2">
+                                    <div key={index} className="my-2">
                                       <h3 className="font-semibold">
                                         {index + 1}.{" "}
                                         <span className="ml-1">
@@ -1007,6 +1012,13 @@ function CountryDetails() {
                       </div>
                     </div>
                   </div>
+                </TabsContent>
+
+                <TabsContent value="ai">
+                  <h2 className="font-medium text-2xl my-7">
+                    {t("userDashboard.ai.title")}
+                  </h2>
+                  <div className="space-y-4 mb-4">Work in progress...</div>
                 </TabsContent>
               </Tabs>
             )}

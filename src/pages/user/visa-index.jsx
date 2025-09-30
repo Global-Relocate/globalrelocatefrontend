@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ScrollBar } from "@/components/ui/scroll-area";
 import { Link } from "react-router-dom";
-import { CountryDropdown } from "@/components/ui/all-country-dropdown";
+import { CountryDropdown } from "@/components/ui/visa-country-dropdown";
 import { useTranslation } from "react-i18next";
 import { CircleFlag } from "react-circle-flags";
 

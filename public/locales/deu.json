@@ -60,6 +60,56 @@
         "para": "Bleiben Sie mit maßgeschneiderten Benachrichtigungen und einer Favoritenfunktion immer einen Schritt voraus."
       }
     },
+    "pricing": {
+      "plan": "Plan",
+      "title": "Preispläne",
+      "para": "Wählen Sie einen Plan, der Ihren Bedürfnissen entspricht, und beginnen Sie noch heute mit Ihrer Umsiedlung.",
+      "monthly": "Monatlich",
+      "yearly": "Jährlich",
+      "billedYearly": "Jährlich abgerechnet",
+      "getStarted": "Loslegen",
+      "freePlan": {
+        "title": "Kostenloser Plan",
+        "para": "Perfekt für Einzelpersonen, die mit grundlegenden Funktionen Umzugsoptionen erkunden.",
+        "price": "$0",
+        "perMonth": "/Monat",
+        "features": {
+          "feature1": "3-tägiger Testzugang",
+          "feature2": "Grundlegende Länderinformationen",
+          "feature3": "Begrenzter Steuerrechner",
+          "feature4": "Grundlegender Kostenvergleich"
+        },
+        "buttonText": "Loslegen"
+      },
+      "basicPlan": {
+        "title": "Basis Plan",
+        "price": "$49.90",
+        "perMonth": "/Monat",
+        "features": {
+          "feature1": "Vollständige Länderinformationen",
+          "feature2": "Vollständiger Steuerrechner",
+          "feature3": "Kostenvergleichstools",
+          "feature4": "Grundlegende Umzugsleitfäden",
+          "feature5": "E-Mail-Support"
+        },
+        "buttonText": "Jetzt upgraden"
+      },
+      "premiumPlan": {
+        "title": "Premium Plan",
+        "price": "$69.90",
+        "perMonth": "/Monat",
+        "features": {
+          "feature1": "Alle Basisfunktionen",
+          "feature2": "Unbegrenzter Zugriff auf Länderdaten",
+          "feature3": "KI-Umzugs-Assistent",
+          "feature4": "Einblicke in die Lebenshaltungskosten",
+          "feature5": "Leitfäden zu Visabestimmungen",
+          "feature6": "Vorrangiger E-Mail-Support",
+          "feature7": "Benutzerdefinierte Umzugs-Roadmap"
+        },
+        "buttonText": "Jetzt upgraden"
+      }
+    },
     "forgotPassword": {
       "title": "Passwort vergessen?",
       "para": "Geben Sie die E-Mail-Adresse Ihres Kontos ein und wir senden Ihnen ein OTP, um Ihr Passwort zurückzusetzen.",
@@ -395,6 +445,7 @@
       "noVisaInfo": "Keine Visa- und Einwanderungsinformationen verfügbar."
     },
     "ai": {
+      "title": "KI-Assistent",
       "rename": "Umbenennen",
       "deleteConversation": "Konversation löschen",
       "share": "Teilen",
@@ -580,28 +631,25 @@
       "freePlan": {
         "item1": "3-tägiger Testzugang",
         "item2": "Grundlegende Länderinformationen",
-        "item3": "Community-Zugang (nur Lesezugriff)",
-        "item4": "Begrenzter Steuerrechner",
-        "item5": "Grundlegender Kostenvergleich"
+        "item3": "Begrenzter Steuerrechner",
+        "item4": "Grundlegender Kostenvergleich"
       },
       "basicPlan": {
         "item1": "Vollständige Länderinformationen",
-        "item2": "Community-Teilnahme",
-        "item3": "Vollständiger Steuerrechner",
-        "item4": "Kostenvergleichstools",
-        "item5": "Grundlegende Umzugsleitfäden",
-        "item6": "E-Mail-Support"
+        "item2": "Vollständiger Steuerrechner",
+        "item3": "Kostenvergleichstools",
+        "item4": "Grundlegende Umzugsleitfäden",
+        "item5": "E-Mail-Support"
       },
       "premiumPlan": {
         "item1": "Alle Basisfunktionen",
         "item2": "Unbegrenzter Zugriff auf Länderdaten",
-        "item3": "Volle Community-Teilnahme",
-        "item4": "Erweiterter Steuerrechner",
-        "item5": "KI-Umzugsassistent",
-        "item6": "Einblicke in die Lebenshaltungskosten",
-        "item7": "Leitfäden zu Visabestimmungen",
-        "item8": "Priorisierter Support",
-        "item9": "Individueller Umzugsplan"
+        "item3": "Erweiterter Steuerrechner",
+        "item4": "KI-Umzugsassistent",
+        "item5": "Einblicke in die Lebenshaltungskosten",
+        "item6": "Leitfäden zu Visabestimmungen",
+        "item7": "Priorisierter Support",
+        "item8": "Individueller Umzugsplan"
       }
     },
     "favorites": {
@@ -763,6 +811,17 @@
     "digitalNomadVisas": "Visa für digitale Nomaden",
     "taxesRankings": "Steuerranglisten",
     "residencyPermit": "Aufenthaltsgenehmigung"
+  },
+  "cookieConsentModal": {
+    "title": "Diese Website verwendet Cookies",
+    "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Durch die weitere Nutzung dieser Website stimmen Sie unserer Verwendung von Cookies zu. Wir teilen auch Informationen über Ihre Nutzung unserer Website mit unseren Social-Media-, Werbe- und Analysepartnern.",
+    "accept": "Ich akzeptiere",
+    "decline": "Ablehnen",
+    "manageTitle": "Cookies verwalten",
+    "manageMessage": "Sie können Ihre Cookie-Einstellungen hier verwalten. Bitte beachten Sie, dass das Blockieren bestimmter Arten von Cookies Ihre Erfahrung auf unserer Website beeinträchtigen kann.",
+    "managePreferences": "Einstellungen verwalten",
+    "analytics": "Analytik",
+    "advertisment": "Werbung"
   },
   "toast": {
     "thanksNewsletter": "Vielen Dank für Ihre Anmeldung zu unserem Newsletter!",

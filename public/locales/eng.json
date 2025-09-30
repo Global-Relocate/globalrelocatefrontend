@@ -60,6 +60,58 @@
         "para": "Stay ahead with tailored notifications and a favorites feature."
       }
     },
+    "pricing": {
+      "plan": "Plan",
+      "title": "Pricing Plans",
+      "para": "Choose a plan that fits your needs and start your relocation journey today.",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "billedYearly": "Billed yearly",
+      "getStarted": "Get Started",
+      "freePlan": {
+        "title": "Free Plan",
+        "para": "Perfect for individuals exploring relocation options with basic features.",
+        "price": "$0",
+        "perMonth": "/month",
+        "features": {
+          "feature1": "3-day trial access",
+          "feature2": "Basic country information",
+          "feature3": "Limited tax calculator",
+          "feature4": "Basic cost comparison"
+        },
+        "buttonText": "Get Started"
+      },
+      "basicPlan": {
+        "title": "Basic Plan",
+        "para": "Ideal for individuals seeking comprehensive relocation tools and resources.",
+        "price": "$49.90",
+        "perMonth": "/month",
+        "features": {
+          "feature1": "Full country information",
+          "feature2": "Complete tax calculator",
+          "feature3": "Cost comparison tools",
+          "feature4": "Basic relocation guides",
+          "feature5": "Email support"
+        },
+        "buttonText": "Upgrade Now"
+      },
+      "premiumPlan": {
+        "title": "Premium Plan",
+        "para": "Best for frequent relocators and those needing advanced features and personalized support.",
+        "price": "$69.90",
+        "perMonth": "/month",
+        "features": {
+          "feature1": "All Basic features",
+          "feature2": "Unlimited country data access",
+          "feature3": "AI relocation assistant",
+          "feature4": "Cost of living insights",
+          "feature5": "Visa requirement guides",
+          "feature6": "Priority email support",
+          "feature7": "Custom relocation roadmap"
+        },
+        "buttonText": "Upgrade Now"
+      }
+    },
     "forgotPassword": {
       "title": "Forgot Password?",
       "para": "Enter your account's email and we'll send you an OTP to reset your password.",
@@ -408,6 +460,7 @@
       "noVisaInfo": "No visa and immigration information available."
     },
     "ai": {
+      "title": "AI Assistant",
       "rename": "Rename",
       "deleteConversation": "Delete conversation",
       "share": "Share",
@@ -580,28 +633,25 @@
       "freePlan": {
         "item1": "3-day trial access",
         "item2": "Basic country information",
-        "item3": "Community access (read-only)",
-        "item4": "Limited tax calculator",
-        "item5": "Basic cost comparison"
+        "item3": "Limited tax calculator",
+        "item4": "Basic cost comparison"
       },
       "basicPlan": {
         "item1": "Full country information",
-        "item2": "Community participation",
-        "item3": "Complete tax calculator",
-        "item4": "Cost comparison tools",
-        "item5": "Basic relocation guides",
-        "item6": "Email support"
+        "item2": "Complete tax calculator",
+        "item3": "Cost comparison tools",
+        "item4": "Basic relocation guides",
+        "item5": "Email support"
       },
       "premiumPlan": {
         "item1": "All Basic features",
         "item2": "Unlimited country data access",
-        "item3": "Full community participation",
-        "item4": "Advanced tax calculator",
-        "item5": "AI relocation assistant",
-        "item6": "Cost of living insights",
-        "item7": "Visa requirement guides",
-        "item8": "Priority support",
-        "item9": "Custom relocation roadmap"
+        "item3": "Advanced tax calculator",
+        "item4": "AI relocation assistant",
+        "item5": "Cost of living insights",
+        "item6": "Visa requirement guides",
+        "item7": "Priority support",
+        "item8": "Custom relocation roadmap"
       }
     },
     "favorites": {
@@ -762,6 +812,17 @@
     "digitalNomadVisas": "Digital Nomad Visas",
     "taxesRankings": "Taxes Rankings",
     "residencyPermit": "Residency Permit"
+  },
+  "cookieConsentModal": {
+    "title": "This site uses cookies",
+    "description": "We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. We also share information about your use of our site with our social media, advertising and analytics partners.",
+    "accept": "I accept",
+    "decline": "Decline",
+    "manageTitle": "Manage Cookies",
+    "manageMessage": "You can manage your cookie preferences here. Please note that blocking some types of cookies may impact your experience on our website.",
+    "managePreferences": "Manage Preferences",
+    "analytics": "Analytics",
+    "advertisment": "Advertisement"
   },
   "toast": {
     "thanksNewsletter": "Thank you for subscribing to our newsletter!",

@@ -55,75 +55,8 @@ export default function ContactUs() {
 
         <Separator className="!mt-20 mb-3 bg-[#E5E7EB]" />
 
-        <div className="grid gap-y-6 md:grid-cols-2 md:gap-x-4 px-8 pt-4 md:px-0">
-          <div className="flex flex-col gap-y-6">
-            <div>
-              <h1 className="text-black font-semibold text-lg">
-                {t("landingPage.contactUs.ourOffices")}
-              </h1>
-              <p className="text-[#4B5563] text-sm mt-2">
-                {t("landingPage.contactUs.ourOfficesDesc")}
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row justify-between">
-              <div className="flex gap-x-3 mt-6 items-start">
-                <i className="fal fa-map-marker-alt text-xl" />
-                <div className="flex flex-col">
-                  <span className="text-[#4B5563] text-[12px]">
-                    United States
-                  </span>
-                  <span className="text-[#030712] font-semibold text-[18px]">
-                    United States Office
-                  </span>
-                  <span className="text-[#4B5563] text-[13px]">
-                    205 Middle Road, 2nd Floor, New York
-                  </span>
-
-                  <div className="flex flex-col mt-3">
-                    <a href="tel:+1234567890" className="text-md font-semibold">
-                      +1 234 567 890
-                    </a>
-
-                    <a
-                      href="mailto:support@globalrelocate.com"
-                      className="text-sm"
-                    >
-                      support@globalrelocate.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex gap-x-3 mt-6 items-start">
-                <i className="fal fa-map-marker-alt text-xl" />
-                <div className="flex flex-col">
-                  <span className="text-[#4B5563] text-[12px]">Germany</span>
-                  <span className="text-[#030712] font-semibold text-[18px]">
-                    Germany Office
-                  </span>
-                  <span className="text-[#4B5563] text-[13px]">
-                    205 Middle Road, 2nd Floor, Dublin
-                  </span>
-                  <div className="flex flex-col mt-3">
-                    <a href="tel:+1234567890" className="text-md font-semibold">
-                      +1 234 567 890
-                    </a>
-
-                    <a
-                      href="mailto:support@globalrelocate.com"
-                      className="text-sm"
-                    >
-                      support@globalrelocate.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <Separator className="!mt-6 mb-3 md:hidden bg-[#E5E7EB]" />
-          </div>
-
-          <div className="flex flex-col">
+        <div className="px-8 pt-4 md:px-0">
+          <div className="flex flex-col flex-1">
             <div>
               <h1 className="text-black font-semibold text-lg">
                 {t("landingPage.contactUs.dropUsAMessage")}

@@ -24,6 +24,7 @@
     "@radix-ui/react-slot": "^1.1.1",
     "@radix-ui/react-tabs": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.2.7",
+    "@schlomoh/react-cookieconsent": "^1.6.1",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -55,6 +56,7 @@
     "react-select-country-list": "^2.2.3",
     "remark-gfm": "^4.0.1",
     "sonner": "^1.7.2",
+    "styled-components": "^6.1.19",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.1"
