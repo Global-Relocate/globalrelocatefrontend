@@ -21,6 +21,7 @@ import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/context/LanguageContext";
 import { getCountryName, getCountryCode } from "@/data/country-translations";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -79,6 +80,7 @@ function CountryDetails() {
       if (country && visaFreeAccess) {
         setPassportRanking({
           rank: country.hpp_rank,
+          code: country.code,
           visaFreeCount: visaFreeAccess.data.visa_free_access?.length || 0,
           visaOnArrivalCount: visaFreeAccess.data.visa_on_arrival?.length || 0,
           etaCount:
@@ -478,7 +480,11 @@ function CountryDetails() {
                       </h2>
                       <div className="rounded-2xl w-full">
                         <iframe
-                          src={`https://maps.google.com/maps?q=${countryData.name}&hl=en&z=5&maptype=satellite&output=embed`}
+                          src={`https://maps.google.com/maps?q=${
+                            countryData.name
+                          }&hl=en&z=${
+                            countryData.slug === "canada" ? 3 : 5
+                          }&maptype=satellite&output=embed`}
                           className="w-full h-[450px] rounded-3xl outline-none"
                           loading="lazy"
                           referrerPolicy="no-referrer-when-downgrade"
@@ -691,7 +697,7 @@ function CountryDetails() {
                             {countryData.visaAndImmigration.passportsAndVisas}
                           </p>
 
-                          <div className="mt-4">
+                          <div className="mt-10">
                             <h3 className="font-semibold text-lg">
                               {t("userDashboard.visaIndex.passportRanking")}
                             </h3>
@@ -704,7 +710,7 @@ function CountryDetails() {
                                 />
                               </div>
 
-                              <div className="">
+                              <div>
                                 <h3 className="font-medium text-lg">
                                   {t("userDashboard.visaIndex.rank")} -{" "}
                                   {getOrdinalSuffix(passportRanking?.rank)}
@@ -717,7 +723,15 @@ function CountryDetails() {
                                   <span className="font-semibold">
                                     {passportRanking?.visaFreeCount}{" "}
                                     {t("userDashboard.countries.title")}
-                                  </span>
+                                  </span>{" "}
+                                  (
+                                  <Link
+                                    to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                    className="hover:underline hover:underline-offset-4"
+                                  >
+                                    {t("userDashboard.countries.view")}
+                                  </Link>
+                                  )
                                 </p>
                                 <p>
                                   {t(
@@ -727,7 +741,15 @@ function CountryDetails() {
                                   <span className="font-semibold">
                                     {passportRanking?.visaRequiredCount}{" "}
                                     {t("userDashboard.countries.title")}
-                                  </span>
+                                  </span>{" "}
+                                  (
+                                  <Link
+                                    to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                    className="hover:underline hover:underline-offset-4"
+                                  >
+                                    {t("userDashboard.countries.view")}
+                                  </Link>
+                                  )
                                 </p>
                                 <p>
                                   {t(
@@ -737,7 +759,15 @@ function CountryDetails() {
                                   <span className="font-semibold">
                                     {passportRanking?.visaOnArrivalCount}{" "}
                                     {t("userDashboard.countries.title")}
-                                  </span>
+                                  </span>{" "}
+                                  (
+                                  <Link
+                                    to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                    className="hover:underline hover:underline-offset-4"
+                                  >
+                                    {t("userDashboard.countries.view")}
+                                  </Link>
+                                  )
                                 </p>
                                 <p>
                                   {t("userDashboard.visaIndex.etaDestinations")}{" "}
@@ -745,7 +775,15 @@ function CountryDetails() {
                                   <span className="font-semibold">
                                     {passportRanking?.etaCount}{" "}
                                     {t("userDashboard.countries.title")}
-                                  </span>
+                                  </span>{" "}
+                                  (
+                                  <Link
+                                    to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                    className="hover:underline hover:underline-offset-4"
+                                  >
+                                    {t("userDashboard.countries.view")}
+                                  </Link>
+                                  )
                                 </p>
                                 <p>
                                   {t(
@@ -755,7 +793,15 @@ function CountryDetails() {
                                   <span className="font-semibold">
                                     {passportRanking?.visaOnlineCount}{" "}
                                     {t("userDashboard.countries.title")}
-                                  </span>
+                                  </span>{" "}
+                                  (
+                                  <Link
+                                    to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                    className="hover:underline hover:underline-offset-4"
+                                  >
+                                    {t("userDashboard.countries.view")}
+                                  </Link>
+                                  )
                                 </p>
                               </div>
                             </div>
@@ -764,7 +810,7 @@ function CountryDetails() {
                       )}
 
                       {countryData.visaAndImmigration?.visaTypes && (
-                        <div>
+                        <div className="mt-12">
                           <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
                             <i className="far fa-passport"></i>{" "}
                             {t("userDashboard.country.visaTypes")}
@@ -774,7 +820,7 @@ function CountryDetails() {
                           0 ? (
                             <p>{t("userDashboard.country.noDataAvailable")}</p>
                           ) : (
-                            <div className="grid grid-cols-2 gap-x-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
                               {countryData.visaAndImmigration.visaTypes.map(
                                 (visa, index) => (
                                   <div
@@ -917,7 +963,7 @@ function CountryDetails() {
                         <div>
                           <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
                             <i className="far fa-plane-departure"></i>{" "}
-                            {t("userDashboard.country.embassies")}
+                            {t("userDashboard.country.top10embassies")}
                           </h3>
                           {countryData.visaAndImmigration.embassies.length ===
                           0 ? (

@@ -35,6 +35,43 @@
           "title": "Länder & Daten",
           "para": "Treten Sie Foren und Gruppen mit gleichgesinnten globalen Nomaden bei."
         }
+      },
+      "compareCountries": {
+        "title": "Länder & Daten",
+        "item1": {
+          "title": "Länder vergleichen",
+          "para": "Vergleichen Sie schnell Schlüsselfaktoren zwischen zwei Ländern, um fundierte Entscheidungen über die Umsiedlung zu treffen."
+        },
+        "item2": {
+          "title": "Vergleichen Sie bis zu 5 Länder",
+          "para": "Vergleichen Sie einfach bis zu 5 Länder nebeneinander, um verschiedene Aspekte wie Lebenshaltungskosten, Gesundheitswesen und Bildung zu bewerten."
+        },
+        "item3": {
+          "title": "Erhalten Sie einen genauen Vergleich zwischen Ländern",
+          "para": "Greifen Sie auf zuverlässige Daten und Erkenntnisse zu, um fundierte Entscheidungen über Ihr nächstes Ziel zu treffen."
+        }
+      },
+      "aiAssistant": {
+        "title": "KI-Assistent",
+        "item1": {
+          "title": "Chatten Sie mit einem KI-Reiseassistenten",
+          "para": "Erhalten Sie sofortige Antworten auf Ihre Fragen zur Umsiedlung und personalisierte Empfehlungen von unserem KI-gestützten Assistenten."
+        },
+        "item2": {
+          "title": "Erhalten Sie präzise Antworten",
+          "para": "Bleiben Sie mit den neuesten Daten und Erkenntnissen zu Ihren gewünschten Umsiedlungszielen auf dem Laufenden."
+        }
+      },
+      "visaIndex": {
+        "title": "Visa-Index & Passranking",
+        "item1": {
+          "title": "Erforschen Sie das Passranking",
+          "para": "Entdecken Sie die Stärke Ihres Reisepasses, welche Länder Sie ohne Visum besuchen können und die stärksten Pässe der Welt."
+        },
+        "item2": {
+          "title": "Überprüfen Sie, ob Sie ein Visum benötigen",
+          "para": "Sie können überprüfen, ob Sie ein Visum benötigen, um zu Ihrem gewünschten Ziel zu reisen."
+        }
       }
     },
     "countries": {
@@ -419,6 +456,8 @@
       "shortStays": "Kurzaufenthalte",
       "longStays": "Langzeitaufenthalte",
       "embassies": "Botschaften",
+      "top10embassies": "Top 10 Botschaften",
+      "view": "Ansehen",
       "link": "Link",
       "taxesAndFinances": "Steuern & Finanzen",
       "personalIncomeTax": "Einkommensteuer",

@@ -53,7 +53,7 @@ export default function Footer() {
             <div className="footerCol">
               <img src={logo} alt="logo" width={185} className="h-14" />
               <div className="mt-6 flex flex-col space-y-3">
-                <div className="flex justify-between">
+                {/* <div className="flex justify-between">
                   <a href="">
                     <i className="fab fa-telegram text-2xl hover:text-white"></i>
                   </a>
@@ -66,7 +66,7 @@ export default function Footer() {
                   <a href="">
                     <i className="fab fa-whatsapp text-2xl hover:text-white"></i>
                   </a>
-                </div>
+                </div> */}
                 <a
                   href="mailto:support@globalrelocate.com"
                   className="flex items-center hover:text-white gap-4"
@@ -96,7 +96,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="footerCol">
+            {/* <div className="footerCol">
               <h4 className="font-semibold text-white mb-3">
                 {t("footer.trends")}
               </h4>
@@ -125,10 +125,10 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
 
             {/* Rankings Section */}
-            <div className="footerCol">
+            {/* <div className="footerCol">
               <h4 className="font-semibold text-white mb-3">
                 {t("footer.rankings")}
               </h4>
@@ -158,7 +158,7 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
 
             {/* Company Section */}
             <div className="footerCol">

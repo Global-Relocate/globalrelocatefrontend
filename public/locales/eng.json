@@ -35,6 +35,43 @@
           "title": "Countries & Data",
           "para": "Join forums and groups with like-minded global nomads."
         }
+      },
+      "compareCountries": {
+        "title": "Countries & Data",
+        "item1": {
+          "title": "Compare Countries",
+          "para": "uickly compare key factors between two countries to make informed decisions about relocation."
+        },
+        "item2": {
+          "title": "Compare up to 5 Countries",
+          "para": "Easily compare up to 5 countries side by side to evaluate various aspects such as cost of living, healthcare, and education."
+        },
+        "item3": {
+          "title": "Get accurate comparison between countries",
+          "para": "Access reliable data and insights to make well-informed decisions about your next destination."
+        }
+      },
+      "aiAssistant": {
+        "title": "AI Assistant",
+        "item1": {
+          "title": "Chat with a AI travel assistant",
+          "para": "Get instant answers to your relocation questions and personalized recommendations from our AI-powered assistant."
+        },
+        "item2": {
+          "title": "Get precise answers",
+          "para": "Stay informed with the latest data and insights on your desired relocation destinations."
+        }
+      },
+      "visaIndex": {
+        "title": "Visa Index & Passport Ranking",
+        "item1": {
+          "title": "Explore passport ranking",
+          "para": "Discover the strength of your passport, which countries you can visit without the need for a visa, and the strongest passports in the world."
+        },
+        "item2": {
+          "title": "Check if you need a visa",
+          "para": "You can check if you need a visa to travel to your desired destination."
+        }
       }
     },
     "countries": {
@@ -434,6 +471,8 @@
       "shortStays": "Short Stays",
       "longStays": "Long Stays",
       "embassies": "Embassies",
+      "top10embassies": "Top 10 Embassies",
+      "view": "View",
       "link": "Link",
       "taxesAndFinances": "Taxes & Finances",
       "personalIncomeTax": "Personal Income Tax",

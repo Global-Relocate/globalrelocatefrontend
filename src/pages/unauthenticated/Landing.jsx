@@ -2,8 +2,10 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import MainLayout from "../../components/layouts/MainLayout";
-import FeaturesCard from "../../components/cards/FeaturesCard";
-import CountriesCard from "../../components/cards/LandingCountriesCard";
+import AIAssistantCard from "@/components/cards/features/ai-assistant";
+import VisaIndexCard from "@/components/cards/features/visa-index";
+import CompareCountriesCard from "@/components/cards/features/compare-countries";
+import CountriesCard from "@/components/cards/LandingCountriesCard";
 import { Button } from "@/components/ui/button";
 
 // countries imports
@@ -16,13 +18,10 @@ import uae from "../../assets/images/uae.png";
 import chinaFlag from "../../assets/images/china-flag.png";
 import nigeriaFlag from "../../assets/images/nigeria-flag.png";
 
-// features
-import people from "../../assets/images/people_image.png";
-import cardimg1 from "../../assets/images/cardimg_1.png";
-import cardimg2 from "../../assets/images/cardimg_2.png";
 import { useTranslation } from "react-i18next";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { FaCheckCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const api = import.meta.env.VITE_API_URL;
 
@@ -31,6 +30,7 @@ export default function Landing() {
   const [randomCountries, setRandomCountries] = useState([]);
   const [selectedPlan, setSelectedPlan] = useState("basicPlan");
   const planOverview = useRef(null);
+  const navigate = useNavigate();
 
   const cardVariants = {
     offscreen: {
@@ -133,31 +133,11 @@ export default function Landing() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex items-center gap-6 sm:gap-10 md:gap-14 justify-evenly flex-wrap py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
         >
-          {[
-            {
-              title: t("landingPage.features.cards.card1.title"),
-              para: t("landingPage.features.cards.card1.para"),
-              image: people,
-            },
-            {
-              title: t("landingPage.features.cards.card2.title"),
-              para: t("landingPage.features.cards.card2.para"),
-              image: cardimg1,
-            },
-            {
-              title: t("landingPage.features.cards.card3.title"),
-              para: t("landingPage.features.cards.card3.para"),
-              image: cardimg2,
-            },
-          ].map((card, index) => (
-            <motion.div key={index} variants={cardVariants} custom={index}>
-              <FeaturesCard
-                title={card.title}
-                para={card.para}
-                image={card.image}
-              />
-            </motion.div>
-          ))}
+          <motion.div variants={cardVariants}>
+            <CompareCountriesCard />
+            <AIAssistantCard />
+            <VisaIndexCard />
+          </motion.div>
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
@@ -369,17 +349,17 @@ export default function Landing() {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}
-          className="py-10 sm:py-20 w-[75%] px-2 sm:px-0 border-2 border-black rounded-md mb-10"
+          className="py-10 sm:py-20 mx-10 md:w-[85%] px-2 sm:px-0 border-2 border-black rounded-md mb-10"
           ref={planOverview}
         >
-          <div className="flex items-center justify-between mb-5 px-10">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-5 gap-8 px-10">
             <div className="flex flex-col gap-2">
               <div className="font-medium">{t("landingPage.pricing.plan")}</div>
               <div className="text-2xl font-semibold">
                 {t(`landingPage.pricing.${selectedPlan}.title`)}
               </div>
 
-              <div className="grid grid-cols-2 gap-2 mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                 {plans
                   .find((plan) => plan.slug === selectedPlan)
                   ?.features.map((feature, index) => (
@@ -390,7 +370,10 @@ export default function Landing() {
                   ))}
               </div>
 
-              <Button className="bg-black text-white px-5 py-2 rounded-md w-full h-12 mt-8">
+              <Button
+                className="bg-black text-white px-5 py-2 rounded-md w-full h-12 mt-8"
+                onClick={() => navigate("/signup")}
+              >
                 Get Started
               </Button>
             </div>
