@@ -108,7 +108,7 @@
       "freePlan": {
         "title": "Free Plan",
         "para": "Perfect for individuals exploring relocation options with basic features.",
-        "price": "$0",
+        "price": "0",
         "perMonth": "/month",
         "features": {
           "feature1": "3-day trial access",
@@ -121,7 +121,7 @@
       "basicPlan": {
         "title": "Basic Plan",
         "para": "Ideal for individuals seeking comprehensive relocation tools and resources.",
-        "price": "$49.90",
+        "price": "15.90",
         "perMonth": "/month",
         "features": {
           "feature1": "Full country information",
@@ -133,9 +133,9 @@
         "buttonText": "Upgrade Now"
       },
       "premiumPlan": {
-        "title": "Premium Plan",
+        "title": "Pro Plan",
         "para": "Best for frequent relocators and those needing advanced features and personalized support.",
-        "price": "$69.90",
+        "price": "24.90",
         "perMonth": "/month",
         "features": {
           "feature1": "All Basic features",
@@ -386,6 +386,17 @@
     "welcomeText": "Your AI-powered platform for seamless relocation, legal guidance, and global living."
   },
   "userDashboard": {
+    "trial": {
+      "trialEnded": "Your 1 day free trial has ended",
+      "upgradeNow": "Upgrade now to keep using Global Relocate.",
+      "seePlanOptions": "See plan options",
+      "trialEndsIn": "Your free trial ends in {{ days }} days. Upgrade now to keep using Global Relocate.",
+      "days": "days",
+      "hours": "hours",
+      "minutes": "min",
+      "seconds": "sec",
+      "loading": "Loading..."
+    },
     "sidebar": {
       "countries": "Countries",
       "aiAssistant": "Ai Assistant",
@@ -396,7 +407,7 @@
       "community": "Community",
       "cta": {
         "title": "Try Pro",
-        "para": "You are currently in free plan valid for 3 days. Upgrade now to keep using Global Relocate.",
+        "para": "You are currently in free plan valid for 1 day. Upgrade now to keep using Global Relocate.",
         "buttonText": "Learn More"
       },
       "visaIndex": "Visa Index"
@@ -666,11 +677,11 @@
       "approx": "Approx.",
       "free": "Free",
       "basic": "Basic",
-      "premium": "Premium",
+      "pro": "Pro",
       "perMonth": "per month",
       "forEveryone": "For everyone",
       "freePlan": {
-        "item1": "3-day trial access",
+        "item1": "24 hours trial access",
         "item2": "Basic country information",
         "item3": "Limited tax calculator",
         "item4": "Basic cost comparison"
@@ -883,7 +894,9 @@
     "imageSizeShouldBeLess": "Image size should be less than {{ size }}",
     "pleaseSelectImage": "Please select an image",
     "fullNameRequired": "Full name is required",
-    "usernameRequired": "Username is required"
+    "usernameRequired": "Username is required",
+    "failedToCreateCheckout": "Failed to create checkout session. Please try again.",
+    "redirectingToCheckout": "Redirecting to checkout..."
   },
   "formErrors": {
     "invalidEmail": "Invalid email format",

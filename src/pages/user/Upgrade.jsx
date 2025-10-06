@@ -104,8 +104,7 @@ const Upgrade = () => {
     } catch (err) {
       console.error("Error creating checkout session:", err);
       showToast({
-        message:
-          err.message || "Failed to create checkout session. Please try again.",
+        message: err.message || t("toast.failedToCreateCheckout"),
         type: "error",
       });
     }
@@ -124,7 +123,7 @@ const Upgrade = () => {
     },
     {
       title: "Basic",
-      price: "49.90",
+      price: "15.90",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.basicPlan.item1"),
@@ -135,8 +134,38 @@ const Upgrade = () => {
       ],
     },
     {
-      title: "Premium",
-      price: "69.90",
+      title: "Pro",
+      price: "24.90",
+      rate: exchangeRate,
+      features: [
+        t("userDashboard.upgradePage.premiumPlan.item1"),
+        t("userDashboard.upgradePage.premiumPlan.item2"),
+        t("userDashboard.upgradePage.premiumPlan.item3"),
+        t("userDashboard.upgradePage.premiumPlan.item4"),
+        t("userDashboard.upgradePage.premiumPlan.item5"),
+        t("userDashboard.upgradePage.premiumPlan.item6"),
+        t("userDashboard.upgradePage.premiumPlan.item7"),
+        t("userDashboard.upgradePage.premiumPlan.item8"),
+      ],
+    },
+  ];
+
+  const businessPlans = [
+    {
+      title: "Basic",
+      price: "79.90",
+      rate: exchangeRate,
+      features: [
+        t("userDashboard.upgradePage.basicPlan.item1"),
+        t("userDashboard.upgradePage.basicPlan.item2"),
+        t("userDashboard.upgradePage.basicPlan.item3"),
+        t("userDashboard.upgradePage.basicPlan.item4"),
+        t("userDashboard.upgradePage.basicPlan.item5"),
+      ],
+    },
+    {
+      title: "Pro",
+      price: "99.90",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.premiumPlan.item1"),
@@ -277,7 +306,13 @@ const Upgrade = () => {
                     ? t("userDashboard.upgradePage.currentPlan")
                     : t("userDashboard.upgradePage.getStarted")
                 }
-                onUpgrade={() => handleUpgrade(plan.title.toUpperCase())}
+                onUpgrade={() =>
+                  handleUpgrade(
+                    plan.title.toLowerCase() === "pro"
+                      ? "PREMIUM"
+                      : plan.title.toUpperCase()
+                  )
+                }
               />
             ))}
           </div>

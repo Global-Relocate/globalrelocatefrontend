@@ -79,7 +79,7 @@ export default function Landing() {
     {
       slug: "basicPlan",
       title: "Basic",
-      price: "49.90",
+      price: "15.90",
       features: [
         t("userDashboard.upgradePage.basicPlan.item1"),
         t("userDashboard.upgradePage.basicPlan.item2"),
@@ -90,8 +90,8 @@ export default function Landing() {
     },
     {
       slug: "premiumPlan",
-      title: "Premium",
-      price: "69.90",
+      title: "Pro",
+      price: "24.90",
       features: [
         t("userDashboard.upgradePage.premiumPlan.item1"),
         t("userDashboard.upgradePage.premiumPlan.item2"),
@@ -155,7 +155,7 @@ export default function Landing() {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex items-center justify-evenly flex-wrap gap-y-8 sm:gap-y-10 py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
         >
           {randomCountries && randomCountries.length > 0
             ? randomCountries.map((country, index) => (
@@ -374,7 +374,7 @@ export default function Landing() {
                 className="bg-black text-white px-5 py-2 rounded-md w-full h-12 mt-8"
                 onClick={() => navigate("/signup")}
               >
-                Get Started
+                {t("landingPage.pricing.getStarted")}
               </Button>
             </div>
             <div className="flex flex-col items-center justify-center">

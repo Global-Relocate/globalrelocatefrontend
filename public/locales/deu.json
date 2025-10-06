@@ -108,7 +108,7 @@
       "freePlan": {
         "title": "Kostenloser Plan",
         "para": "Perfekt für Einzelpersonen, die mit grundlegenden Funktionen Umzugsoptionen erkunden.",
-        "price": "$0",
+        "price": "0",
         "perMonth": "/Monat",
         "features": {
           "feature1": "3-tägiger Testzugang",
@@ -120,7 +120,7 @@
       },
       "basicPlan": {
         "title": "Basis Plan",
-        "price": "$49.90",
+        "price": "15.90",
         "perMonth": "/Monat",
         "features": {
           "feature1": "Vollständige Länderinformationen",
@@ -132,8 +132,8 @@
         "buttonText": "Jetzt upgraden"
       },
       "premiumPlan": {
-        "title": "Premium Plan",
-        "price": "$69.90",
+        "title": "Pro Plan",
+        "price": "24.90",
         "perMonth": "/Monat",
         "features": {
           "feature1": "Alle Basisfunktionen",
@@ -384,6 +384,17 @@
     "welcomeText": "Ihre KI-gestützte Plattform für nahtlose Umsiedlung, Rechtsberatung und globales Leben."
   },
   "userDashboard": {
+    "trial": {
+      "trialEnded": "Ihre kostenlose 1-Tages-Testversion ist abgelaufen",
+      "upgradeNow": "Führen Sie jetzt ein Upgrade durch, um Global Relocate weiterhin nutzen zu können.",
+      "seePlanOptions": "Planoptionen anzeigen",
+      "trialEndsIn": "Ihre kostenlose Testversion endet in {{ days }} Tagen. Führen Sie jetzt ein Upgrade durch, um Global Relocate weiterhin nutzen zu können.",
+      "days": "tage",
+      "hours": "stunden",
+      "minutes": "minuten",
+      "seconds": "sekunden",
+      "loading": "Wird geladen..."
+    },
     "sidebar": {
       "countries": "Länder",
       "aiAssistant": "KI-Assistent",
@@ -394,7 +405,7 @@
       "community": "Gemeinschaft",
       "cta": {
         "title": "Pro ausprobieren",
-        "para": "Sie befinden sich derzeit im kostenlosen Plan, der 3 Tage gültig ist. Aktualisieren Sie jetzt, um Global Relocate weiterhin nutzen zu können.",
+        "para": "Sie befinden sich derzeit im kostenlosen Plan, der 1 Tag gültig ist. Aktualisieren Sie jetzt, um Global Relocate weiterhin nutzen zu können.",
         "buttonText": "Mehr erfahren"
       },
       "visaIndex": "Visa-Index"
@@ -664,11 +675,11 @@
       "approx": "ca.",
       "free": "Kostenlos",
       "basic": "Basis",
-      "premium": "Premium",
+      "pro": "Pro",
       "perMonth": "pro Monat",
       "forEveryone": "Für jeden",
       "freePlan": {
-        "item1": "3-tägiger Testzugang",
+        "item1": "24 Stunden Testzugang",
         "item2": "Grundlegende Länderinformationen",
         "item3": "Begrenzter Steuerrechner",
         "item4": "Grundlegender Kostenvergleich"
@@ -882,7 +893,9 @@
     "imageSizeShouldBeLess": "Die Bildgröße sollte weniger als {{ size }} betragen",
     "pleaseSelectImage": "Bitte wählen Sie ein Bild aus",
     "fullNameRequired": "Der vollständige Name ist erforderlich",
-    "usernameRequired": "Der Benutzername ist erforderlich"
+    "usernameRequired": "Der Benutzername ist erforderlich",
+    "failedToCreateCheckout": "Fehler beim Erstellen der Checkout-Sitzung. Bitte versuchen Sie es erneut.",
+    "redirectingToCheckout": "Weiterleitung zur Checkout-Seite..."
   },
   "formErrors": {
     "invalidEmail": "Ungültiges E-Mail-Format",
