@@ -2,6 +2,7 @@ import { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContextExport";
 import SelectLanguages from "@/components/drawers/SelectLanguages";
+import SelectLanguageModal from "../modals/select-language-modal";
 import logo from "../../assets/svg/logo.svg";
 import { X, Menu, LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -230,6 +231,7 @@ const Navbar = () => {
               ) : (
                 <>
                   <SelectLanguages />
+
                   <button
                     onClick={handleSignIn}
                     className="text-[#404040] hover:text-black transition-colors duration-200"
@@ -247,12 +249,17 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-              className="lg:hidden text-gray-700 focus:outline-none"
-            >
-              <Menu className="h-6 w-6" />
-            </button>
+            <div className="flex lg:hidden items-center gap-x-6">
+              <div className="flex items-center space-x-2">
+                <SelectLanguageModal />
+              </div>
+              <button
+                onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+                className="text-gray-700 focus:outline-none"
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+            </div>
           </div>
         </nav>
       </header>
@@ -308,11 +315,6 @@ const Navbar = () => {
                       {label}
                     </Link>
                   ))}
-                  <div className="pt-2">
-                    <div className="flex items-center space-x-2">
-                      <SelectLanguages />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

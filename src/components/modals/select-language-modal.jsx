@@ -1,26 +1,26 @@
-import { LanguageDropdown } from "@/components/ui/language-dropdown";
+import { useState, useEffect } from "react";
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { CircleFlag } from "react-circle-flags";
-import { useLanguage } from "@/context/LanguageContext";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { CircleFlag } from "react-circle-flags";
+import { LanguageDropdown } from "../ui/language-dropdown";
 
-const SelectLanguages = () => {
+const SelectLanguageModal = () => {
   const { t, i18n } = useTranslation();
   const { selectedLanguage, updateLanguage } = useLanguage();
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleLanguageChange = (language) => {
     updateLanguage(language);
     i18n.changeLanguage(language.code);
-    setIsSheetOpen(false);
+    setIsOpen(false);
   };
 
   useEffect(() => {
@@ -30,11 +30,8 @@ const SelectLanguages = () => {
   }, []);
 
   return (
-    <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-      <SheetTrigger
-        onClick={() => setIsSheetOpen(true)}
-        onTouchStart={() => setIsSheetOpen(true)}
-      >
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger asChild>
         <div className="flex items-center space-x-2 cursor-pointer">
           <div className="w-5 h-5 rounded-full overflow-hidden">
             <CircleFlag
@@ -46,15 +43,14 @@ const SelectLanguages = () => {
             {selectedLanguage?.code?.toUpperCase() || "DEU"}
           </span>
         </div>
-      </SheetTrigger>
-      <SheetContent>
-        <div className="pt-2">
-          <SheetHeader className=" pb-4">
-            <SheetTitle className="text-left">
-              {t("userDashboard.settings.selectLanguage")}
-            </SheetTitle>
-          </SheetHeader>
-        </div>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>
+            {t("userDashboard.settings.selectLanguage")}
+          </DialogTitle>
+        </DialogHeader>
+
         <div className="mt-10">
           <p className="text-sm text-gray-700 mb-2">
             {t("userDashboard.settings.chooseLanguage")}
@@ -68,15 +64,15 @@ const SelectLanguages = () => {
         </div>
         <div className="mt-6">
           <Button
-            onClick={() => setIsSheetOpen(false)}
+            onClick={() => setIsOpen(false)}
             className="w-full h-[40px] bg-[#FCA311] text-black hover:text-white"
           >
             {t("drawers.selectLanguages.confirm")}
           </Button>
         </div>
-      </SheetContent>
-    </Sheet>
+      </DialogContent>
+    </Dialog>
   );
 };
 
-export default SelectLanguages;
+export default SelectLanguageModal;

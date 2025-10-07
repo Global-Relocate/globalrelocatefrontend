@@ -133,7 +133,13 @@ export default function Landing() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex items-center gap-6 sm:gap-10 md:gap-14 justify-evenly flex-wrap py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
         >
-          <motion.div variants={cardVariants}>
+          <motion.div
+            variants={cardVariants}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <CompareCountriesCard />
             <AIAssistantCard />
             <VisaIndexCard />
@@ -155,11 +161,16 @@ export default function Landing() {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-6 py-10 sm:py-20 w-full px-8 md:px-0"
         >
           {randomCountries && randomCountries.length > 0
             ? randomCountries.map((country, index) => (
-                <motion.div key={index} variants={cardVariants} custom={index}>
+                <motion.div
+                  className="w-full flex justify-center"
+                  key={index}
+                  variants={cardVariants}
+                  custom={index}
+                >
                   <CountriesCard
                     slug={country.slug}
                     image={country.images[0] ?? "/images/images/swizerland.png"}
@@ -225,6 +236,7 @@ export default function Landing() {
         >
           {t("landingPage.whyChooseUs.title")}
         </motion.h2>
+
         <motion.div
           initial="offscreen"
           whileInView="onscreen"
