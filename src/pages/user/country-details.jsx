@@ -56,7 +56,7 @@ function CountryDetails() {
     if (id) {
       getSingleCountry(id, selectedLanguage.name);
     }
-  }, [selectedLanguage.name, id]);
+  }, []);
 
   useEffect(() => {
     if (singleCountry) {
@@ -464,6 +464,182 @@ function CountryDetails() {
                               .publicTransportEfficiency
                               ? countryData.CountryAdditionalInfo
                                   .publicTransportEfficiency
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-school mr-2" />{" "}
+                            {t("userDashboard.country.compulsorySchooling")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo
+                              .compulsorySchooling &&
+                            countryData.CountryAdditionalInfo
+                              .compulsorySchooling !== "Unknown"
+                              ? countryData.CountryAdditionalInfo
+                                  .compulsorySchooling
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-school mr-2" />{" "}
+                            {t("userDashboard.country.homeSchooling")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo.homeschooling &&
+                            countryData.CountryAdditionalInfo.homeSchooling !==
+                              "Unknown"
+                              ? countryData.CountryAdditionalInfo.homeschooling
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-cat mr-2" />{" "}
+                            {t("userDashboard.country.animalTransport")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo
+                              .animalTransport &&
+                            countryData.CountryAdditionalInfo
+                              .animalTransport !== "Unknown"
+                              ? countryData.CountryAdditionalInfo
+                                  .animalTransport
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-star-of-life mr-2" />{" "}
+                            {t("userDashboard.country.quarantine")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo.quarantine &&
+                            countryData.CountryAdditionalInfo.quarantine !==
+                              "Unknown"
+                              ? countryData.CountryAdditionalInfo.quarantine
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-syringe mr-2" />{" "}
+                            {t("userDashboard.country.vaccinationRequirements")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo
+                              .vaccinationRequirements &&
+                            countryData.CountryAdditionalInfo
+                              .vaccinationRequirements !== "Unknown"
+                              ? countryData.CountryAdditionalInfo
+                                  .vaccinationRequirements
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-files mr-2" />{" "}
+                            {t("userDashboard.country.necessaryDocuments")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo
+                              .necessaryDocuments &&
+                            countryData.CountryAdditionalInfo
+                              .necessaryDocuments !== "Unknown"
+                              ? countryData.CountryAdditionalInfo
+                                  .necessaryDocuments
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-train mr-2" />{" "}
+                            {t("userDashboard.country.transportCosts")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo.transportCosts &&
+                            countryData.CountryAdditionalInfo.transportCosts !==
+                              "Unknown"
+                              ? countryData.CountryAdditionalInfo.transportCosts
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-graduation-cap mr-2" />{" "}
+                            {t("userDashboard.country.education")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo.education &&
+                            countryData.CountryAdditionalInfo.education !==
+                              "Unknown"
+                              ? countryData.CountryAdditionalInfo.education
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-soccer-ball mr-2" />{" "}
+                            {t("userDashboard.country.sport")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo.sport &&
+                            countryData.CountryAdditionalInfo.sport !==
+                              "Unknown"
+                              ? countryData.CountryAdditionalInfo.sport
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-music mr-2" />{" "}
+                            {t("userDashboard.country.music")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo.music &&
+                            countryData.CountryAdditionalInfo.music !==
+                              "Unknown"
+                              ? countryData.CountryAdditionalInfo.music
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-spa mr-2" />{" "}
+                            {t("userDashboard.country.adaptation")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo.adaptation &&
+                            countryData.CountryAdditionalInfo.adaptation !==
+                              "Unknown"
+                              ? countryData.CountryAdditionalInfo.adaptation
+                              : t("userDashboard.country.noDataAvailable")}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <h3 className="text-md font-semibold mb-3">
+                            <i className="far fa-user mr-2" />{" "}
+                            {t("userDashboard.country.racism")}
+                          </h3>
+                          <p>
+                            {countryData.CountryAdditionalInfo.racism &&
+                            countryData.CountryAdditionalInfo.racism !==
+                              "Unknown"
+                              ? countryData.CountryAdditionalInfo.racism
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
                         </div>
@@ -881,7 +1057,7 @@ function CountryDetails() {
                         </div>
                       )}
 
-                      {countryData.visaAndImmigration?.applicationProcess && (
+                      {countryData.visaAndImmigration?.applicationProcesses && (
                         <div>
                           <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
                             <i className="far fa-passport"></i>{" "}
@@ -889,9 +1065,9 @@ function CountryDetails() {
                           </h3>
 
                           <p>
-                            {countryData.visaAndImmigration.applicationProcess
+                            {countryData.visaAndImmigration.applicationProcesses
                               .length > 0
-                              ? countryData.visaAndImmigration.applicationProcess.map(
+                              ? countryData.visaAndImmigration.applicationProcesses.map(
                                   (item, index) => (
                                     <div key={index} className="my-2">
                                       <h3 className="font-semibold">
