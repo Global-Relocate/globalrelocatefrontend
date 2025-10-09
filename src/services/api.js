@@ -1371,6 +1371,45 @@ export const getCommentLikes = async (postId, commentId) => {
   }
 };
 
+export const calculateTaxAPI = async (data) => {
+  const endpoint = "/tax/calculate-german";
+  // console.log("Calculating tax at:", `${VITE_API_URL}${endpoint}`);
+
+  try {
+    if (!data) {
+      throw new CustomAPIError("Amount and country are required", 400);
+    }
+
+    const response = await api.post(endpoint, data);
+    // console.log("Tax calculation successful:", response);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          "Network error. Please check your connection.",
+          0
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message =
+        error.response?.data?.message ||
+        getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError("Failed to calculate tax. Please try again.", 0, {
+      originalError: error.message,
+    });
+  }
+};
+
 // Helper function for error handling
 const handleApiError = (error, defaultMessage) => {
   if (error instanceof CustomAPIError) {
