@@ -573,7 +573,10 @@
       "confirmDeleteList2": "All data will be permanently deleted 30 days after account deletion.",
       "deleting": "Deleting...",
       "youHave": "You have:",
-      "administrator": "Administrator"
+      "administrator": "Administrator",
+      "resetPassword": "Reset Password",
+      "resetPasswordDesc": "You can reset your password here",
+      "otpSent": "An OTP has been sent to your email."
     },
     "tax": {
       "taxCalculator": "Tax Calculator",

@@ -558,7 +558,10 @@
       "confirmDeleteList2": "Alle Daten werden 30 Tage nach der Kontolöschung dauerhaft gelöscht.",
       "deleting": "Löschen...",
       "youHave": "Sie haben:",
-      "administrator": "Administrator"
+      "administrator": "Administrator",
+      "resetPassword": "Passwort zurücksetzen",
+      "resetPasswordDesc": "Sie können Ihr Passwort hier zurücksetzen",
+      "otpSent": "Ein OTP wurde an Ihre E-Mail gesendet."
     },
     "continents": {
       "all": "Alle",

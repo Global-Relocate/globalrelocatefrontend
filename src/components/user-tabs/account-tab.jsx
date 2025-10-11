@@ -5,9 +5,13 @@ import DeleteAccountModal from "@/components/modals/DeleteAccountModal";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import CountdownTimer from "../common/CountdownTimer";
+import ResetPasswordTab from "./reset-password-tab";
+import Spinner from "../loaders/Spinner";
 
 const AccountTab = ({ user }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isResetTabOpen, setIsResetTabOpen] = useState(false);
+  const [resetLoading, setResetLoading] = useState(false);
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -39,7 +43,7 @@ const AccountTab = ({ user }) => {
           </h3>
           <div className="flex justify-between items-start">
             {user?.isAdmin ? (
-              <p className="text-sm text-gray-600 max-w-md p-2">
+              <p className="text-sm text-gray-600 max-w-md">
                 {t("userDashboard.settings.administrator")}{" "}
                 <i className="fas fa-badge-check text-blue-800 ml-2" />
               </p>
@@ -66,10 +70,45 @@ const AccountTab = ({ user }) => {
 
         <div className="flex justify-between items-center">
           <div className="space-y-1">
+            <h3 className="text-sm">
+              {t("userDashboard.settings.resetPassword")}
+            </h3>
+            <p className="text-sm text-gray-600">
+              {t("userDashboard.settings.resetPasswordDesc")}
+            </p>
+          </div>
+          <Button
+            variant="default"
+            onClick={() => {
+              resetLoading
+                ? setIsResetTabOpen(false)
+                : setIsResetTabOpen(!isResetTabOpen);
+            }}
+            disabled={resetLoading && isResetTabOpen}
+          >
+            {resetLoading ? (
+              <Spinner size="24px" color="#fff" />
+            ) : (
+              t("userDashboard.settings.resetPassword")
+            )}
+          </Button>
+        </div>
+
+        {isResetTabOpen && (
+          <ResetPasswordTab
+            email={user?.email}
+            onStartLoading={() => setResetLoading(true)}
+            onFinishLoading={() => setResetLoading(false)}
+            onClose={() => setIsResetTabOpen(false)}
+          />
+        )}
+
+        <div className="flex justify-between items-center">
+          <div className="space-y-1">
             <h3 className="text-sm text-red-600">
               {t("userDashboard.settings.deleteAccount")}
             </h3>
-            <p className="text-sm text-gray-600 p-2">
+            <p className="text-sm text-gray-600">
               {t("userDashboard.settings.deleteDesc")}
             </p>
           </div>

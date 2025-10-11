@@ -34,6 +34,7 @@ const Upgrade = () => {
   const [exchangeRate, setExchangeRate] = useState(null);
 
   const userCountry = user?.country || "DE";
+  const userType = user?.userType;
   const country = countryList().getValue(userCountry);
   const userCountryCurrency = countryToCurrency[country] || "EUR";
 
@@ -150,7 +151,7 @@ const Upgrade = () => {
     },
   ];
 
-  const businessPlans = [
+  const corporatePlans = [
     {
       title: "Basic",
       price: "79.90",
@@ -295,27 +296,51 @@ const Upgrade = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {plans.map((plan) => (
-              <PricingCard
-                key={plan.title}
-                {...plan}
-                isCurrentPlan={currentPlan === plan.title.toUpperCase()}
-                buttonText={
-                  currentPlan === plan.title.toUpperCase()
-                    ? t("userDashboard.upgradePage.currentPlan")
-                    : t("userDashboard.upgradePage.getStarted")
-                }
-                onUpgrade={() =>
-                  handleUpgrade(
-                    plan.title.toLowerCase() === "pro"
-                      ? "PREMIUM"
-                      : plan.title.toUpperCase()
-                  )
-                }
-              />
-            ))}
-          </div>
+          {userType === "INDIVIDUAL" ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {plans.map((plan) => (
+                <PricingCard
+                  key={plan.title}
+                  {...plan}
+                  isCurrentPlan={currentPlan === plan.title.toUpperCase()}
+                  buttonText={
+                    currentPlan === plan.title.toUpperCase()
+                      ? t("userDashboard.upgradePage.currentPlan")
+                      : t("userDashboard.upgradePage.getStarted")
+                  }
+                  onUpgrade={() =>
+                    handleUpgrade(
+                      plan.title.toLowerCase() === "pro"
+                        ? "PREMIUM"
+                        : plan.title.toUpperCase()
+                    )
+                  }
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {corporatePlans.map((plan) => (
+                <PricingCard
+                  key={plan.title}
+                  {...plan}
+                  isCurrentPlan={currentPlan === plan.title.toUpperCase()}
+                  buttonText={
+                    currentPlan === plan.title.toUpperCase()
+                      ? t("userDashboard.upgradePage.currentPlan")
+                      : t("userDashboard.upgradePage.getStarted")
+                  }
+                  onUpgrade={() =>
+                    handleUpgrade(
+                      plan.title.toLowerCase() === "pro"
+                        ? "PREMIUM"
+                        : plan.title.toUpperCase()
+                    )
+                  }
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </MainLayout>
