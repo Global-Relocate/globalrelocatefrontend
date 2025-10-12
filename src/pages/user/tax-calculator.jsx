@@ -356,13 +356,13 @@ export default function TaxCalculator() {
                               2024 (12/24)
                             </SelectItem>
                             <SelectItem value="2024 (until 11/24)">
-                              2024 (until 11/24)
+                              {t("userDashboard.tax.2024-until-11/24")}
                             </SelectItem>
                             <SelectItem value="2023 (from 7/23)">
-                              2023 (from 7/23)
+                              {t("userDashboard.tax.2023-from-7/23")}
                             </SelectItem>
                             <SelectItem value="2023 (until 6/23)">
-                              2023 (until 6/23)
+                              {t("userDashboard.tax.2023-until-6/23")}
                             </SelectItem>
                             <SelectItem value="2022">2022</SelectItem>
                           </SelectContent>
