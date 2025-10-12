@@ -642,6 +642,7 @@
       "employerContributions": "Arbeitgeberbeiträge",
       "benefits": "Leistungen",
       "total": "Gesamt",
+      "noTaxData": "Für das ausgewählte Land sind keine Steuerdaten verfügbar.",
       "taxIncomeInCountry": "Steuereinkommen in ${1}: Allgemeine Informationen & Tipps",
       "taxClassAndBrackets": "Deutsche Steuerklasse und -stufen",
       "taxClassBracketsDesc": "Das deutsche Einkommensteuersystem verwendet progressive Steuersätze, d. h. der Satz steigt mit steigendem Einkommen. Beginnend bei 14 % für die niedrigeren zu versteuernden Einkommen und bis zu 45 % für die Spitzenverdiener zielt dieses System darauf ab, Fairness bei der Besteuerung zu gewährleisten.",
@@ -879,6 +880,7 @@
       }
     },
     "compareCountries": {
+      "compare": "Vergleichen",
       "comparison": "Vergleich",
       "overview": "Überblick",
       "internetSpeed": "Internetgeschwindigkeit",

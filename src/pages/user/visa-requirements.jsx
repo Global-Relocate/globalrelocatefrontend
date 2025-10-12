@@ -17,6 +17,18 @@ export default function VisaRequirements() {
   const { t } = useTranslation();
   const { selectedLanguage } = useLanguage();
 
+  const scrollIntoView = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const [loading, setLoading] = useState(false);
   const [visaRequirements, setVisaRequirements] = useState(null);
 
@@ -39,6 +51,14 @@ export default function VisaRequirements() {
   useEffect(() => {
     fetchRequirements();
   }, []);
+
+  useEffect(() => {
+    if (visaRequirements) {
+      setTimeout(() => {
+        scrollIntoView();
+      }, 100);
+    }
+  }, [visaRequirements]);
 
   if (loading) {
     return <PageLoader />;
@@ -64,6 +84,7 @@ export default function VisaRequirements() {
           {t("userDashboard.visaIndex.backToVisaIndex")}
         </Link>
       </div>
+
       <section className="grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-y-6 gap-x-10 items-center">
         <div className="rounded-lg h-[341px] w-[230px] mx-auto">
           <img
@@ -84,7 +105,7 @@ export default function VisaRequirements() {
         </div>
       </section>
 
-      <section className="mt-10">
+      <section className="mt-10" id="visa-free">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">
           {t("userDashboard.visaRequirements.visaFree.desc2")}{" "}
           {getCountryName(visaRequirements?.code, selectedLanguage.code)}{" "}
@@ -122,7 +143,7 @@ export default function VisaRequirements() {
         </div>
       </section>
 
-      <section className="mt-10">
+      <section className="mt-10" id="visa-on-arrival">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">
           {t("userDashboard.visaRequirements.visaOnArrival.title", {
             country: getCountryName(
@@ -162,7 +183,7 @@ export default function VisaRequirements() {
         </div>
       </section>
 
-      <section className="mt-10">
+      <section className="mt-10" id="eta">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">
           {t("userDashboard.visaRequirements.eTA.title", {
             country: getCountryName(
@@ -203,7 +224,7 @@ export default function VisaRequirements() {
         </div>
       </section>
 
-      <section className="mt-10">
+      <section className="mt-10" id="e-visa">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">
           {t("userDashboard.visaRequirements.eVisa.title", {
             country: getCountryName(
@@ -243,7 +264,7 @@ export default function VisaRequirements() {
         </div>
       </section>
 
-      <section className="mt-10">
+      <section className="mt-10" id="visa-required">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">
           {t("userDashboard.visaRequirements.visaRequired.title", {
             country: getCountryName(

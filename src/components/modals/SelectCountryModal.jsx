@@ -38,9 +38,10 @@ const SelectCountryModal = ({ isOpen, onClose, onChange }) => {
       });
       setDisplayedCountries(filtered);
     } else {
-      // Show 20 random countries when no search query
-      const shuffled = [...countryList].sort(() => 0.5 - Math.random());
-      setDisplayedCountries(shuffled.slice(0, 16));
+      // // Show 20 random countries when no search query
+      // const shuffled = [...countryList].sort(() => 0.5 - Math.random());
+      // setDisplayedCountries(shuffled.slice(0, 16));
+      setDisplayedCountries(countryList);
     }
   }, [searchQuery, countryList]);
 
@@ -77,7 +78,7 @@ const SelectCountryModal = ({ isOpen, onClose, onChange }) => {
             : t("userDashboard.countries.aiSuggestedCountries")}
         </h1>
 
-        <div className="flex w-full flex-wrap gap-x-4 gap-y-7 justify-between h-[350px] mt-5 overflow-y-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 h-[350px] mt-5 overflow-y-auto">
           {displayedCountries.map((country) => (
             <div
               key={country.id}

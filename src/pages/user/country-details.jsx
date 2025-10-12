@@ -445,14 +445,14 @@ function CountryDetails() {
                           <i className="far fa-signal mr-2" />{" "}
                           {t("userDashboard.country.internetSpeed")}
                         </h3>
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <p>
                             {countryData.CountryAdditionalInfo.internetSpeed ??
                               t("userDashboard.country.noDataAvailable")}
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-train mr-2" />{" "}
                             {t(
@@ -468,7 +468,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-school mr-2" />{" "}
                             {t("userDashboard.country.compulsorySchooling")}
@@ -484,7 +484,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-school mr-2" />{" "}
                             {t("userDashboard.country.homeSchooling")}
@@ -498,7 +498,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-cat mr-2" />{" "}
                             {t("userDashboard.country.animalTransport")}
@@ -514,7 +514,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-star-of-life mr-2" />{" "}
                             {t("userDashboard.country.quarantine")}
@@ -528,7 +528,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-syringe mr-2" />{" "}
                             {t("userDashboard.country.vaccinationRequirements")}
@@ -544,7 +544,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-files mr-2" />{" "}
                             {t("userDashboard.country.necessaryDocuments")}
@@ -560,7 +560,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-train mr-2" />{" "}
                             {t("userDashboard.country.transportCosts")}
@@ -574,7 +574,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-graduation-cap mr-2" />{" "}
                             {t("userDashboard.country.education")}
@@ -588,7 +588,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-soccer-ball mr-2" />{" "}
                             {t("userDashboard.country.sport")}
@@ -602,7 +602,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-music mr-2" />{" "}
                             {t("userDashboard.country.music")}
@@ -616,7 +616,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-spa mr-2" />{" "}
                             {t("userDashboard.country.adaptation")}
@@ -630,7 +630,7 @@ function CountryDetails() {
                           </p>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-8">
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-user mr-2" />{" "}
                             {t("userDashboard.country.racism")}
@@ -696,7 +696,7 @@ function CountryDetails() {
                         <i className="far fa-user-tie mr-2" />{" "}
                         {t("userDashboard.country.costOfLiving")}
                       </h2>
-                      <div className="mt-4">
+                      <div className="mt-8">
                         <h3 className="text-md font-semibold mb-3">
                           {t("userDashboard.country.averageCost")}
                         </h3>
@@ -706,7 +706,7 @@ function CountryDetails() {
                         </p>
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-8">
                         <h3 className="text-md font-semibold mb-3">
                           {t("userDashboard.country.mostExpensiveCity")}
                         </h3>
@@ -716,7 +716,7 @@ function CountryDetails() {
                         </p>
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-8">
                         <h3 className="text-md font-semibold mb-3">
                           {t("userDashboard.country.cheapestCity")}
                         </h3>
@@ -726,7 +726,7 @@ function CountryDetails() {
                         </p>
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-8">
                         <h3 className="text-md font-semibold mb-3">
                           {t("userDashboard.country.mostExpensiveStates")}
                         </h3>
@@ -751,7 +751,7 @@ function CountryDetails() {
                         </p>
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-8">
                         <h3 className="text-md font-semibold mb-3">
                           {t("userDashboard.country.rentPerMonth")}
                         </h3>
@@ -761,7 +761,7 @@ function CountryDetails() {
                         </p>
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-8">
                         <h3 className="text-md font-semibold mb-3">
                           {t("userDashboard.country.howToFindApartment")}
                         </h3>
@@ -771,7 +771,7 @@ function CountryDetails() {
                         </p>
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-8">
                         <h3 className="text-md font-semibold mb-3">
                           {t("userDashboard.country.food")}
                         </h3>
@@ -781,7 +781,7 @@ function CountryDetails() {
                         </p>
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-8">
                         <h3 className="text-md font-semibold mb-3">
                           {t("userDashboard.country.mobilePhonePlan")}
                         </h3>
@@ -791,7 +791,7 @@ function CountryDetails() {
                         </p>
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-8">
                         <h3 className="text-md font-semibold mb-3">
                           {t("userDashboard.country.childCare")}
                         </h3>
@@ -902,7 +902,7 @@ function CountryDetails() {
                                   </span>{" "}
                                   (
                                   <Link
-                                    to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                    to={`/visa-requirements/${countryCode.toLowerCase()}#visa-free`}
                                     className="hover:underline hover:underline-offset-4"
                                   >
                                     {t("userDashboard.countries.view")}
@@ -920,7 +920,7 @@ function CountryDetails() {
                                   </span>{" "}
                                   (
                                   <Link
-                                    to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                    to={`/visa-requirements/${countryCode.toLowerCase()}#visa-required`}
                                     className="hover:underline hover:underline-offset-4"
                                   >
                                     {t("userDashboard.countries.view")}
@@ -938,7 +938,7 @@ function CountryDetails() {
                                   </span>{" "}
                                   (
                                   <Link
-                                    to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                    to={`/visa-requirements/${countryCode.toLowerCase()}#visa-on-arrival`}
                                     className="hover:underline hover:underline-offset-4"
                                   >
                                     {t("userDashboard.countries.view")}
@@ -954,7 +954,7 @@ function CountryDetails() {
                                   </span>{" "}
                                   (
                                   <Link
-                                    to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                    to={`/visa-requirements/${countryCode.toLowerCase()}#eta`}
                                     className="hover:underline hover:underline-offset-4"
                                   >
                                     {t("userDashboard.countries.view")}
@@ -972,7 +972,7 @@ function CountryDetails() {
                                   </span>{" "}
                                   (
                                   <Link
-                                    to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                    to={`/visa-requirements/${countryCode.toLowerCase()}#e-visa`}
                                     className="hover:underline hover:underline-offset-4"
                                   >
                                     {t("userDashboard.countries.view")}

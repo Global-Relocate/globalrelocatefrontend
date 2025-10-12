@@ -24,15 +24,15 @@ export default function TaxSummary({
   const { t } = useTranslation();
   const { selectedLanguage } = useLanguage();
 
-  const countryName = getCountryName(countryCode);
-  const isYear = viewMode === "year";
+  const countryName = getCountryName(countryCode, selectedLanguage.code);
+  const isYear = viewMode === t("userDashboard.tax.year").toLowerCase();
   const fmt = (n) =>
-    Number(n || 0).toLocaleString(undefined, { maximumFractionDigits: 2 });
+    Number(n || 0).toLocaleString("en-US", { maximumFractionDigits: 2 });
 
   if (!taxData) {
     return (
       <div className="text-center text-gray-500 p-8">
-        No tax data available.
+        {t("userDashboard.tax.noTaxData")}
       </div>
     );
   }
@@ -85,7 +85,7 @@ export default function TaxSummary({
           ))}
           {totalValue && (
             <li className="flex justify-between font-bold pt-2">
-              <span>Total</span>
+              <span>{t("userDashboard.tax.total")}</span>
               <span className="text-[#5762D5]">
                 € {fmt(totalValue)} / {viewMode}
               </span>
@@ -124,7 +124,9 @@ export default function TaxSummary({
                       ? "bg-[#5762D5] text-white"
                       : "bg-white text-gray-600"
                   }`}
-                  onClick={() => setViewMode("year")}
+                  onClick={() =>
+                    setViewMode(t("userDashboard.tax.year").toLowerCase())
+                  }
                 >
                   {t(`userDashboard.tax.year`)}
                 </button>
@@ -134,7 +136,9 @@ export default function TaxSummary({
                       ? "bg-[#5762D5] text-white"
                       : "bg-white text-gray-600"
                   }`}
-                  onClick={() => setViewMode("month")}
+                  onClick={() =>
+                    setViewMode(t("userDashboard.tax.month").toLowerCase())
+                  }
                 >
                   {t(`userDashboard.tax.month`)}
                 </button>
@@ -245,16 +249,20 @@ export default function TaxSummary({
             {faqsData.tips?.title}
           </h3>
           <Accordion type="single" collapsible className="w-full">
-            {Object.entries(faqsData.tips || {}).map(([key, tip], index) => (
-              <AccordionItem value={`item-${index}`} key={index}>
-                <AccordionTrigger className="text-md font-semibold">
-                  {tip.title}
-                </AccordionTrigger>
-                <AccordionContent className="flex flex-col gap-4 text-balance">
-                  <Markdown remarkPlugins={[remarkGfm]}>{tip.content}</Markdown>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
+            {Object.entries(faqsData.tips || {}).map(([key, tip], index) =>
+              tip.title && tip.content ? (
+                <AccordionItem value={`item-${index}`} key={index}>
+                  <AccordionTrigger className="text-md font-semibold">
+                    {tip.title}
+                  </AccordionTrigger>
+                  <AccordionContent className="flex flex-col gap-4 text-balance">
+                    <Markdown remarkPlugins={[remarkGfm]}>
+                      {tip.content}
+                    </Markdown>
+                  </AccordionContent>
+                </AccordionItem>
+              ) : null
+            )}
           </Accordion>
         </div>
       )}

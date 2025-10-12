@@ -8,8 +8,6 @@ import Spinner from "@/components/loaders/Spinner";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/context/LanguageContext";
 import ComparisonTable from "@/components/common/comparison-table";
-// import ReactMarkdown from "react-markdown";
-// import remarkGfm from "remark-gfm";
 
 function CompareCountries() {
   const [openCountryModal, setOpenCountryModal] = useState(false);
@@ -255,7 +253,11 @@ function CompareCountries() {
                 : "bg-gray-400 text-white hover:bg-gray-500"
             }`}
           >
-            {compareLoader ? <Spinner size="w-6 h-6" /> : "Compare"}
+            {compareLoader ? (
+              <Spinner size="w-6 h-6" />
+            ) : (
+              t("userDashboard.compareCountries.compare")
+            )}
           </Button>
         </div>
 

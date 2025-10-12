@@ -644,6 +644,7 @@
       "employerContributions": "Employer Contributions",
       "benefits": "Benefits",
       "total": "Total",
+      "noTaxData": "No tax data available for the selected country.",
       "taxIncomeInCountry": "Tax income in ${1}: General Information & Tips",
       "taxClassAndBrackets": "German Tax Class and Brackets",
       "taxClassBracketsDesc": "The German income tax system employs progressive tax rates, meaning the rate increases as income rises. Starting at 14% for the lower taxable income levels and reaching up to 45% for the highest earners, this system aims to ensure fairness in taxation.",
@@ -880,6 +881,7 @@
       }
     },
     "compareCountries": {
+      "compare": "Compare",
       "comparison": "Comparison",
       "overview": "Overview",
       "internetSpeed": "Internet Speed",

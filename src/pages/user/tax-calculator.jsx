@@ -558,34 +558,39 @@ export default function TaxCalculator() {
                         </div>
                       </div>
 
-                      <div className="space-y-3">
-                        <label className="block text-sm font-medium mb-1">
-                          {t("userDashboard.tax.childrenU25Count")}
-                        </label>
-                        <Input
-                          type="number"
-                          className="h-12"
-                          {...register("familyAndTaxStatus.childrenU25Count")}
-                          min={0}
-                          max={6}
-                        />
-                        <FieldErr path="familyAndTaxStatus.childrenU25Count" />
-                      </div>
-
-                      <div className="space-y-3">
-                        <label className="block text-sm font-medium mb-1">
-                          {t("userDashboard.tax.childAllowanceFactor")}
-                        </label>
-                        <Input
-                          type="number"
-                          className="h-12"
-                          step="0.5"
-                          {...register(
-                            "familyAndTaxStatus.childAllowanceFactor"
-                          )}
-                        />
-                        <FieldErr path="familyAndTaxStatus.childAllowanceFactor" />
-                      </div>
+                      {watched.familyAndTaxStatus?.hasChildren && (
+                        <>
+                          <div className="space-y-3">
+                            <label className="block text-sm font-medium mb-1">
+                              {t("userDashboard.tax.childrenU25Count")}
+                            </label>
+                            <Input
+                              type="number"
+                              className="h-12"
+                              {...register(
+                                "familyAndTaxStatus.childrenU25Count"
+                              )}
+                              min={0}
+                              max={6}
+                            />
+                            <FieldErr path="familyAndTaxStatus.childrenU25Count" />
+                          </div>
+                          <div className="space-y-3">
+                            <label className="block text-sm font-medium mb-1">
+                              {t("userDashboard.tax.childAllowanceFactor")}
+                            </label>
+                            <Input
+                              type="number"
+                              className="h-12"
+                              step="0.5"
+                              {...register(
+                                "familyAndTaxStatus.childAllowanceFactor"
+                              )}
+                            />
+                            <FieldErr path="familyAndTaxStatus.childAllowanceFactor" />
+                          </div>
+                        </>
+                      )}
                     </div>
 
                     {/* Additional marital-specific fields */}
