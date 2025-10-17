@@ -1,6 +1,5 @@
 import { ArrowUp } from "lucide-react";
 import { useState, useRef } from "react";
-import { BiMicrophone, BiMicrophoneOff } from "react-icons/bi";
 import { MdAdd } from "react-icons/md";
 import { IoStop } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -141,13 +140,13 @@ export default function AiChatInput({ onSendMessage }) {
   };
 
   // Toggle speech recognition
-  const toggleSpeechRecognition = () => {
-    if (isRecording) {
-      stopSpeechToText();
-    } else {
-      startSpeechToText();
-    }
-  };
+  // const toggleSpeechRecognition = () => {
+  //   if (isRecording) {
+  //     stopSpeechToText();
+  //   } else {
+  //     startSpeechToText();
+  //   }
+  // };
 
   return (
     <>

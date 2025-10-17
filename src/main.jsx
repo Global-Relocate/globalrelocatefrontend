@@ -15,7 +15,6 @@ import "@/i18n/i18n";
 import { AiChatProvider } from "./context/AiChatContext";
 import { toast } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import MyCookieModal from "./components/modals/CookieModal";
 
 // Override the default toast error method to suppress certain errors
 const originalErrorToast = toast.error;
@@ -67,7 +66,6 @@ createRoot(document.getElementById("root")).render(
                   <AiChatProvider>
                     <TooltipProvider>
                       <Toaster />
-                      <MyCookieModal />
                       <App />
                     </TooltipProvider>
                   </AiChatProvider>

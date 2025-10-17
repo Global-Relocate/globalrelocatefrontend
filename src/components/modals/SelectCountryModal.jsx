@@ -75,10 +75,10 @@ const SelectCountryModal = ({ isOpen, onClose, onChange }) => {
         <h1 className="mt-6 mb-3 text-xl font-medium">
           {searchQuery
             ? t("userDashboard.countries.searchResults")
-            : t("userDashboard.countries.aiSuggestedCountries")}
+            : t("userDashboard.countries.title")}
         </h1>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 h-[350px] mt-5 overflow-y-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 h-[350px] mt-5 overflow-y-auto overflow-x-hidden">
           {displayedCountries.map((country) => (
             <div
               key={country.id}

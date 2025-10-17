@@ -22,6 +22,8 @@ import { useLanguage } from "@/context/LanguageContext";
 import { getCountryName, getCountryCode } from "@/data/country-translations";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
+import { CountryAiChatProvider } from "@/context/CountryAIChatContext";
+import CountriesAIAssistant from "@/components/common/countries-ai-assistant";
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -346,7 +348,7 @@ function CountryDetails() {
                     {t("userDashboard.country.taxes")}
                   </TabsTrigger>
                   <TabsTrigger
-                    value="ai"
+                    value="ai-assistant"
                     className="rounded-3xl data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border border-black shadow-none flex-shrink-0"
                   >
                     {t("userDashboard.ai.title")}
@@ -887,10 +889,19 @@ function CountryDetails() {
                               </div>
 
                               <div>
-                                <h3 className="font-medium text-lg">
-                                  {t("userDashboard.visaIndex.rank")} -{" "}
-                                  {getOrdinalSuffix(passportRanking?.rank)}
-                                </h3>
+                                <p>
+                                  <h3 className="font-medium text-lg">
+                                    {t("userDashboard.visaIndex.rank")} -{" "}
+                                    {getOrdinalSuffix(passportRanking?.rank)} (
+                                    <Link
+                                      to={`/visa-requirements/${countryCode.toLowerCase()}`}
+                                      className="hover:underline hover:underline-offset-4"
+                                    >
+                                      {t("userDashboard.countries.view")}
+                                    </Link>
+                                    )
+                                  </h3>
+                                </p>
                                 <p>
                                   {t(
                                     "userDashboard.visaIndex.visaFreeDestinations"
@@ -1139,7 +1150,7 @@ function CountryDetails() {
                         <div>
                           <h3 className="font-semibold text-lg mb-3 flex items-center gap-x-3">
                             <i className="far fa-plane-departure"></i>{" "}
-                            {t("userDashboard.country.top10embassies")}
+                            {t("userDashboard.country.embassies")}
                           </h3>
                           {countryData.visaAndImmigration.embassies.length ===
                           0 ? (
@@ -1236,11 +1247,20 @@ function CountryDetails() {
                   </div>
                 </TabsContent>
 
-                <TabsContent value="ai">
-                  <h2 className="font-medium text-2xl my-7">
-                    {t("userDashboard.ai.title")}
-                  </h2>
-                  <div className="space-y-4 mb-4">Work in progress...</div>
+                <TabsContent value="ai-assistant">
+                  <div className="flex flex-col">
+                    <h2 className="font-medium text-2xl my-2">
+                      {t("userDashboard.ai.title")}
+                    </h2>
+                    <p>{t("userDashboard.ai.description")}</p>
+                  </div>
+
+                  <CountryAiChatProvider countrySlug={countryData?.slug}>
+                    <CountriesAIAssistant
+                      countryName={countryData?.name}
+                      countrySlug={countryData?.slug}
+                    />
+                  </CountryAiChatProvider>
                 </TabsContent>
               </Tabs>
             )}
