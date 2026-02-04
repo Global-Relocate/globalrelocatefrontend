@@ -37,6 +37,7 @@ import { AiChatProvider } from "@/context/AiChatContext";
 import ContactUs from "./pages/unauthenticated/contact-us";
 import VisaIndex from "./pages/user/visa-index";
 import VisaRequirements from "./pages/user/visa-requirements";
+import SubscriptionThankYou from "./pages/user/subscription-thank-you";
 import { CookieConsentModal } from "./components/modals/CookieConsentModal";
 
 // eslint-disable-next-line react/prop-types
@@ -93,6 +94,7 @@ const AppContent = () => {
 
           {/* User routes */}
           <Route path="/upgrade" element={<Upgrade />} />
+          <Route path="/upgrade/thank-you" element={<SubscriptionThankYou />} />
           <Route path="/user/countries" element={<Countries />} />
           <Route path="/user/countries/:id" element={<CountryDetails />} />
           <Route path="/user/ai-assistant" element={<AiAssistant />} />

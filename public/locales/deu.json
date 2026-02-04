@@ -388,7 +388,7 @@
     "enterYourFullName": "Geben Sie Ihren vollständigen Namen ein",
     "confirmPassword": "Passwort bestätigen",
     "country": "Land",
-    "viewPricing":"Preise Anzeigen"
+    "viewPricing": "Preise Anzeigen"
   },
   "welcomePage": {
     "welcomeAboard": "Willkommen an Bord",
@@ -451,15 +451,15 @@
     },
     "country": {
       "countryIn": "Land in",
-      "embassiesAndConsulates":"Botschaften und Konsulate",
-      "address":"Adresse",
+      "embassiesAndConsulates": "Botschaften und Konsulate",
+      "address": "Adresse",
       "addFavorite": "Zu Favoriten hinzufügen",
       "removeFavorite": "Aus Favoriten entfernen",
       "share": "Teilen",
       "overview": "Übersicht",
       "summary": "Zusammenfassung",
-      "category":"Kategorie",
-      "value":"kosten",
+      "category": "Kategorie",
+      "value": "kosten",
       "map": "Karte",
       "keyFacts": "Wichtige Fakten",
       "visaMigration": "Visa & Einwanderung",
@@ -865,7 +865,6 @@
         "answer6": "Ein biometrischer Reisepass oder elektronischer Reisepass ähnelt einem gewöhnlichen Reisepass. Der Unterschied besteht darin, dass er einen Smartchip in seinem Umschlag oder auf einer seiner Seiten enthält, der die Daten des Passinhabers enthält. Biometrische Pässe wurden als Reaktion auf die wachsende Bedrohung durch Identitätsdiebstahl und Bedrohungen der nationalen Sicherheit geschaffen."
       }
     },
-
     "visaRequirements": {
       "title": "Visabestimmungen",
       "desc": "Informieren Sie sich über die Visabestimmungen für Ihr Zielland.",
@@ -1020,5 +1019,27 @@
     "usernameRequired": "Benutzername ist erforderlich",
     "minUsername": "Der Benutzername muss mindestens 3 Zeichen lang sein",
     "cpasswordRequired": "Passwortbestätigung ist erforderlich"
+  },
+  "subscriptionThankYou": {
+    "title": "Willkommen bei Premium!",
+    "subtitle": "Ihr Abonnement wurde erfolgreich aktiviert. Vielen Dank, dass Sie sich für uns entschieden haben!",
+    "planDetails": "Ihre Plandetails",
+    "planType": "Plan",
+    "price": "Monatlicher Preis",
+    "nextBilling": "Nächstes Abrechungsdatum",
+    "autoRenewal": "Ihr Abonnement wird am nächsten Abrechungsdatum automatisch erneuert. Sie können Ihr Abonnement jederzeit in Ihren Kontoeinstellungen verwalten.",
+    "unlockedFeatures": "Sie haben jetzt Zugriff auf:",
+    "features": {
+      "feature1": "Erweiterter Ländervergleich",
+      "feature2": "KI-gestützte Erkenntnisse",
+      "feature3": "Steuercalculator-Tools",
+      "feature4": "Premium-Visumressourcen",
+      "feature5": "Prioritätssupport",
+      "feature6": "Datenexportfunktionen"
+    },
+    "startExploring": "Jetzt erkunden",
+    "viewFeatures": "Alle Funktionen anzeigen",
+    "needHelp": "Benötigen Sie Hilfe beim Einstieg?",
+    "contactSupport": "Support kontaktieren"
   }
 }

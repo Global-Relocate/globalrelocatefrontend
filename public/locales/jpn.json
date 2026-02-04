@@ -560,5 +560,27 @@
     "usernameRequired": "ユーザー名は必須です",
     "minUsername": "ユーザー名は3文字以上である必要があります",
     "cpasswordRequired": "パスワードの確認は必須です"
+  },
+  "subscriptionThankYou": {
+    "title": "Welcome to Premium!",
+    "subtitle": "Your subscription has been successfully activated. Thank you for choosing us!",
+    "planDetails": "Your Plan Details",
+    "planType": "Plan",
+    "price": "Monthly Price",
+    "nextBilling": "Next Billing Date",
+    "autoRenewal": "Your subscription will automatically renew on your next billing date. You can manage your subscription anytime in your account settings.",
+    "unlockedFeatures": "You Now Have Access To:",
+    "features": {
+      "feature1": "Advanced country comparison",
+      "feature2": "AI-powered insights",
+      "feature3": "Tax calculator tools",
+      "feature4": "Premium visa resources",
+      "feature5": "Priority support",
+      "feature6": "Data export features"
+    },
+    "startExploring": "Start Exploring",
+    "viewFeatures": "View All Features",
+    "needHelp": "Need help getting started?",
+    "contactSupport": "Contact Support"
   }
 }

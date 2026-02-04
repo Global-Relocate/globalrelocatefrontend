@@ -11,6 +11,7 @@ import MainLayout from "@/components/layouts/MainLayout";
 import { useTranslation } from "react-i18next";
 import DashNav from "@/components/navigation/DashNav";
 import { AuthContext } from "@/context/AuthContextExport";
+import { useCheckoutRedirect } from "@/hooks/useCheckoutRedirect";
 import axios from "axios";
 import countryList from "react-select-country-list";
 import countryToCurrency from "country-to-currency";
@@ -29,6 +30,9 @@ const Upgrade = () => {
   const { t } = useTranslation();
   const { user } = useContext(AuthContext);
   const [exchangeRate, setExchangeRate] = useState(null);
+
+  // Handle checkout redirect from Stripe success/cancel
+  useCheckoutRedirect();
 
   const userCountry = user?.country || "DE";
   const userType = user?.userType;
