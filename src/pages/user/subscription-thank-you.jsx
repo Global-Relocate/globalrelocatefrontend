@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
@@ -7,13 +7,21 @@ import { Button } from "@/components/ui/button";
 import MainLayout from "@/components/layouts/MainLayout";
 import DashNav from "@/components/navigation/DashNav";
 import { getSubscriptionDetails } from "@/services/api";
+import { useLanguage } from "@/context/LanguageContext";
+import { formatGermanNumber } from "@/utils/formatGermanNumber";
 
 const SubscriptionThankYou = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { selectedLanguage } = useLanguage();
+  const [searchParams] = useSearchParams();
   const [subscriptionData, setSubscriptionData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [navState, setNavState] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
+
+  // Get plan from URL params (passed from checkout redirect) or from API
+  const planFromUrl = searchParams.get("plan");
 
   useEffect(() => {
     // Fetch subscription details to show user their plan
@@ -22,16 +30,30 @@ const SubscriptionThankYou = () => {
         const response = await getSubscriptionDetails();
         if (response?.data) {
           setSubscriptionData(response.data);
+        } else if (planFromUrl && retryCount < 3) {
+          // If API didn't return data but we have plan from URL, retry after a short delay
+          // This handles timing issues where subscription isn't updated yet
+          setTimeout(() => {
+            setRetryCount((prev) => prev + 1);
+          }, 1500);
+          return;
         }
       } catch (error) {
         console.error("Error fetching subscription details:", error);
+        if (retryCount < 3 && planFromUrl) {
+          // Retry up to 3 times if we have plan info from URL
+          setTimeout(() => {
+            setRetryCount((prev) => prev + 1);
+          }, 1500);
+          return;
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchSubscriptionData();
-  }, []);
+  }, [retryCount, planFromUrl]);
 
   const handleExploreFeatures = () => {
     navigate("/user/countries");
@@ -73,7 +95,7 @@ const SubscriptionThankYou = () => {
     );
   }
 
-  const planName = subscriptionData?.plan || "Premium";
+  const planName = subscriptionData?.plan || planFromUrl || "Premium";
   const planPrice = subscriptionData?.monthlyPrice || "0";
   const renewalDate =
     subscriptionData?.nextBillingDate || new Date().toLocaleDateString();
@@ -150,7 +172,7 @@ const SubscriptionThankYou = () => {
                     {t("subscriptionThankYou.price") || "Monthly Price"}
                   </p>
                   <p className="text-2xl font-bold text-gray-900">
-                    €{planPrice}
+                    €{formatGermanNumber(planPrice, selectedLanguage)}
                   </p>
                 </div>
 

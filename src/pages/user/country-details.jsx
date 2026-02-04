@@ -38,6 +38,7 @@ import { loadCountryImages } from "@/lib/country-images";
 import { formatTextToParagraphs } from "@/utils/formatText";
 import { countriesQidFlags } from "@/data/countries-qid-flags";
 import { getCountryCostOfLivingData } from "@/services/api";
+import { formatGermanNumber } from "@/utils/formatGermanNumber";
 
 const apiURL = import.meta.env.VITE_API_URL;
 
@@ -98,7 +99,7 @@ function CountryDetails() {
       const [response, visaFreeAccess] = await Promise.all([
         axios.get(`https://api.henleypassportindex.com/api/v2/hpp`),
         axios.get(
-          `https://api.henleypassportindex.com/api/v3/visa-single/${countryCode.toLowerCase()}`
+          `https://api.henleypassportindex.com/api/v3/visa-single/${countryCode.toLowerCase()}`,
         ),
       ]);
 
@@ -216,46 +217,6 @@ function CountryDetails() {
     "South America": t("userDashboard.continents.southAmerica"),
   };
 
-  // Format number based on selected language (German uses comma as decimal separator and . for thousands)
-  const formatGermanNumber = (value) => {
-    if (!value) return value;
-
-    // Check if language is German
-    const isGerman =
-      selectedLanguage?.code?.toLowerCase() === "deu" ||
-      selectedLanguage?.code?.toLowerCase()?.startsWith("de");
-
-    if (!isGerman) {
-      // Convert to string if it's a number
-      const stringValue = typeof value === "number" ? value.toString() : value;
-
-      // Split into integer and decimal parts
-      const parts = stringValue.split(",");
-      let integerPart = parts[0];
-      const decimalPart = parts[1] || "";
-
-      // Add thousands separator (.) to integer part
-      integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-      // Combine with German decimal separator (,)
-      return decimalPart ? `${integerPart}.${decimalPart}` : integerPart;
-    }
-
-    // Convert to string if it's a number
-    const stringValue = typeof value === "number" ? value.toString() : value;
-
-    // Split into integer and decimal parts
-    const parts = stringValue.split(".");
-    let integerPart = parts[0];
-    const decimalPart = parts[1] || "";
-
-    // Add thousands separator (.) to integer part
-    integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-    // Combine with German decimal separator (,)
-    return decimalPart ? `${integerPart},${decimalPart}` : integerPart;
-  };
-
   return (
     <DashboardLayout>
       <button
@@ -299,7 +260,7 @@ function CountryDetails() {
                 <h2 className="text-3xl font-medium">
                   {getCountryName(
                     countryData?.slug,
-                    selectedLanguage?.code || "deu"
+                    selectedLanguage?.code || "deu",
                   )}
                 </h2>
                 <span>
@@ -373,7 +334,7 @@ function CountryDetails() {
                           className="w-full h-full mt-5 rounded-2xl object-cover"
                         />
                       </CarouselItem>
-                    )
+                    ),
                   )}
                 </CarouselContent>
                 <div className="absolute top-0 bottom-0 left-0 right-0 overflow-hidden">
@@ -501,7 +462,7 @@ function CountryDetails() {
                           <p className="text-md">
                             {countryData.keyFacts?.population?.inNumbers
                               ? parseInt(
-                                  countryData.keyFacts.population.inNumbers
+                                  countryData.keyFacts.population.inNumbers,
                                 ).toLocaleString()
                               : "N/A"}
                           </p>
@@ -526,7 +487,7 @@ function CountryDetails() {
                         <div className="mt-8">
                           <p>
                             {formatTextToParagraphs(
-                              countryData.CountryAdditionalInfo.internetSpeed
+                              countryData.CountryAdditionalInfo.internetSpeed,
                             ) ?? t("userDashboard.country.noDataAvailable")}
                           </p>
                         </div>
@@ -535,7 +496,7 @@ function CountryDetails() {
                           <h3 className="text-md font-semibold mb-3">
                             <i className="far fa-train mr-2" />{" "}
                             {t(
-                              "userDashboard.country.publicTransportEfficiency"
+                              "userDashboard.country.publicTransportEfficiency",
                             )}
                           </h3>
                           <p>
@@ -543,7 +504,7 @@ function CountryDetails() {
                               .publicTransportEfficiency
                               ? formatTextToParagraphs(
                                   countryData.CountryAdditionalInfo
-                                    .publicTransportEfficiency
+                                    .publicTransportEfficiency,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -561,7 +522,7 @@ function CountryDetails() {
                               .compulsorySchooling !== "Unknown"
                               ? formatTextToParagraphs(
                                   countryData.CountryAdditionalInfo
-                                    .compulsorySchooling
+                                    .compulsorySchooling,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -578,7 +539,7 @@ function CountryDetails() {
                               "Unknown"
                               ? formatTextToParagraphs(
                                   countryData.CountryAdditionalInfo
-                                    .homeschooling
+                                    .homeschooling,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -596,7 +557,7 @@ function CountryDetails() {
                               .animalTransport !== "Unknown"
                               ? formatTextToParagraphs(
                                   countryData.CountryAdditionalInfo
-                                    .animalTransport
+                                    .animalTransport,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -612,7 +573,7 @@ function CountryDetails() {
                             countryData.CountryAdditionalInfo.quarantine !==
                               "Unknown"
                               ? formatTextToParagraphs(
-                                  countryData.CountryAdditionalInfo.quarantine
+                                  countryData.CountryAdditionalInfo.quarantine,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -630,7 +591,7 @@ function CountryDetails() {
                               .vaccinationRequirements !== "Unknown"
                               ? formatTextToParagraphs(
                                   countryData.CountryAdditionalInfo
-                                    .vaccinationRequirements
+                                    .vaccinationRequirements,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -648,7 +609,7 @@ function CountryDetails() {
                               .necessaryDocuments !== "Unknown"
                               ? formatTextToParagraphs(
                                   countryData.CountryAdditionalInfo
-                                    .necessaryDocuments
+                                    .necessaryDocuments,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -665,7 +626,7 @@ function CountryDetails() {
                               "Unknown"
                               ? formatTextToParagraphs(
                                   countryData.CountryAdditionalInfo
-                                    .transportCosts
+                                    .transportCosts,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -681,7 +642,7 @@ function CountryDetails() {
                             countryData.CountryAdditionalInfo.education !==
                               "Unknown"
                               ? formatTextToParagraphs(
-                                  countryData.CountryAdditionalInfo.education
+                                  countryData.CountryAdditionalInfo.education,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -697,7 +658,7 @@ function CountryDetails() {
                             countryData.CountryAdditionalInfo.sport !==
                               "Unknown"
                               ? formatTextToParagraphs(
-                                  countryData.CountryAdditionalInfo.sport
+                                  countryData.CountryAdditionalInfo.sport,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -713,7 +674,7 @@ function CountryDetails() {
                             countryData.CountryAdditionalInfo.music !==
                               "Unknown"
                               ? formatTextToParagraphs(
-                                  countryData.CountryAdditionalInfo.music
+                                  countryData.CountryAdditionalInfo.music,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -729,7 +690,7 @@ function CountryDetails() {
                             countryData.CountryAdditionalInfo.adaptation !==
                               "Unknown"
                               ? formatTextToParagraphs(
-                                  countryData.CountryAdditionalInfo.adaptation
+                                  countryData.CountryAdditionalInfo.adaptation,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -745,7 +706,7 @@ function CountryDetails() {
                             countryData.CountryAdditionalInfo.racism !==
                               "Unknown"
                               ? formatTextToParagraphs(
-                                  countryData.CountryAdditionalInfo.racism
+                                  countryData.CountryAdditionalInfo.racism,
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -852,7 +813,7 @@ function CountryDetails() {
                                       </p>
                                     )}
                                   </div>
-                                )
+                                ),
                               )
                             : t("userDashboard.country.noDataAvailable")}
                         </p>
@@ -882,7 +843,7 @@ function CountryDetails() {
                                       "country",
                                       "data_quality",
                                       "Unnamed: 0",
-                                    ].includes(key)
+                                    ].includes(key),
                                 )
                                 .map(([key, value], index) => (
                                   <TableRow key={index}>
@@ -892,7 +853,8 @@ function CountryDetails() {
                                     <TableCell>
                                       {value &&
                                         `€${formatGermanNumber(
-                                          (value * 0.87).toFixed(2)
+                                          (value * 0.87).toFixed(2),
+                                          selectedLanguage,
                                         )}`}
                                     </TableCell>
                                   </TableRow>
@@ -1055,7 +1017,7 @@ function CountryDetails() {
                                 </p>
                                 <p>
                                   {t(
-                                    "userDashboard.visaIndex.visaFreeDestinations"
+                                    "userDashboard.visaIndex.visaFreeDestinations",
                                   )}{" "}
                                   -{" "}
                                   <span className="font-semibold">
@@ -1073,7 +1035,7 @@ function CountryDetails() {
                                 </p>
                                 <p>
                                   {t(
-                                    "userDashboard.visaIndex.visaRequiredDestinations"
+                                    "userDashboard.visaIndex.visaRequiredDestinations",
                                   )}{" "}
                                   -{" "}
                                   <span className="font-semibold">
@@ -1091,7 +1053,7 @@ function CountryDetails() {
                                 </p>
                                 <p>
                                   {t(
-                                    "userDashboard.visaIndex.visaOnArrivalDestinations"
+                                    "userDashboard.visaIndex.visaOnArrivalDestinations",
                                   )}{" "}
                                   -{" "}
                                   <span className="font-semibold">
@@ -1125,7 +1087,7 @@ function CountryDetails() {
                                 </p>
                                 <p>
                                   {t(
-                                    "userDashboard.visaIndex.visaOnlineDestinations"
+                                    "userDashboard.visaIndex.visaOnlineDestinations",
                                   )}{" "}
                                   -{" "}
                                   <span className="font-semibold">
@@ -1182,7 +1144,7 @@ function CountryDetails() {
                                       </span>
                                     </div>
                                   </div>
-                                )
+                                ),
                               )}
                             </div>
                           )}
@@ -1212,7 +1174,7 @@ function CountryDetails() {
                                         {item.description}
                                       </p>
                                     </div>
-                                  )
+                                  ),
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -1242,7 +1204,7 @@ function CountryDetails() {
                                         {item.description}
                                       </p>
                                     </div>
-                                  )
+                                  ),
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
@@ -1291,7 +1253,7 @@ function CountryDetails() {
                                         {item.description}
                                       </p>
                                     </div>
-                                  )
+                                  ),
                                 )
                               : t("userDashboard.country.noDataAvailable")}
                           </p>
