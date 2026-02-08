@@ -129,6 +129,7 @@ const Upgrade = () => {
     {
       title: "Basic",
       price: "15.90",
+      type: "BASIC",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.basicPlan.item1"),
@@ -141,6 +142,7 @@ const Upgrade = () => {
     {
       title: "Pro",
       price: "24.90",
+      type: "PRO",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.premiumPlan.item1"),
@@ -159,6 +161,7 @@ const Upgrade = () => {
     {
       title: "Basic",
       price: "79.90",
+      type: "CORPORATE-BASIC",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.basicPlan.item1"),
@@ -171,6 +174,7 @@ const Upgrade = () => {
     {
       title: "Pro",
       price: "99.90",
+      type: "CORPORATE-PREMIUM",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.premiumPlan.item1"),
@@ -327,13 +331,7 @@ const Upgrade = () => {
                         ? t("userDashboard.upgradePage.currentPlan")
                         : t("userDashboard.upgradePage.getStarted")
                     }
-                    onUpgrade={() =>
-                      handleUpgrade(
-                        plan.title.toLowerCase() === "pro"
-                          ? "PREMIUM"
-                          : plan.title.toUpperCase(),
-                      )
-                    }
+                    onUpgrade={() => handleUpgrade(plan.type)}
                   />
                 ))}
               </div>
@@ -351,13 +349,7 @@ const Upgrade = () => {
                         ? t("userDashboard.upgradePage.currentPlan")
                         : t("userDashboard.upgradePage.getStarted")
                     }
-                    onUpgrade={() =>
-                      handleUpgrade(
-                        plan.title.toLowerCase() === "pro"
-                          ? "PREMIUM"
-                          : plan.title.toUpperCase(),
-                      )
-                    }
+                    onUpgrade={() => handleUpgrade(plan.type)}
                   />
                 ))}
               </div>
