@@ -11,7 +11,6 @@ import MainLayout from "@/components/layouts/MainLayout";
 import { useTranslation } from "react-i18next";
 import DashNav from "@/components/navigation/DashNav";
 import { AuthContext } from "@/context/AuthContextExport";
-import { useCheckoutRedirect } from "@/hooks/useCheckoutRedirect";
 import axios from "axios";
 import countryList from "react-select-country-list";
 import countryToCurrency from "country-to-currency";
@@ -31,9 +30,6 @@ const Upgrade = () => {
   const { user } = useContext(AuthContext);
   const [exchangeRate, setExchangeRate] = useState(null);
 
-  // Handle checkout redirect from Stripe success/cancel
-  useCheckoutRedirect();
-
   const userCountry = user?.country || "DE";
   const userType = user?.userType;
   const country = countryList().getValue(userCountry);
@@ -43,7 +39,7 @@ const Upgrade = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activePricingTab, setActivePricingTab] = useState(
-    userType === "INDIVIDUAL" ? "individual" : "corporate"
+    userType === "INDIVIDUAL" ? "individual" : "corporate",
   );
 
   // Redirect to login if user is not authenticated
@@ -67,10 +63,10 @@ const Upgrade = () => {
         }
 
         const response = await axios.get(
-          "https://latest.currency-api.pages.dev/v1/currencies/eur.json"
+          "https://latest.currency-api.pages.dev/v1/currencies/eur.json",
         );
         setExchangeRate(
-          response.data.eur[userCountryCurrency.toLowerCase()] || 1
+          response.data.eur[userCountryCurrency.toLowerCase()] || 1,
         );
       } catch (err) {
         console.error("Error fetching exchange rate:", err);
@@ -335,7 +331,7 @@ const Upgrade = () => {
                       handleUpgrade(
                         plan.title.toLowerCase() === "pro"
                           ? "PREMIUM"
-                          : plan.title.toUpperCase()
+                          : plan.title.toUpperCase(),
                       )
                     }
                   />
@@ -359,7 +355,7 @@ const Upgrade = () => {
                       handleUpgrade(
                         plan.title.toLowerCase() === "pro"
                           ? "PREMIUM"
-                          : plan.title.toUpperCase()
+                          : plan.title.toUpperCase(),
                       )
                     }
                   />
