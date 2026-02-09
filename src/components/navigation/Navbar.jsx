@@ -31,16 +31,28 @@ const Navbar = () => {
   const displayName = user?.username || user?.name || "User";
   const drawerRef = useRef(null);
 
-  const navLinks = [
-    { href: "/", label: t("landingPage.navbar.home") },
-    { href: "/user/countries", label: t("landingPage.navbar.countriesData") },
-    // { href: "/user/community", label: t("landingPage.navbar.community") }, // Comment out community
-    {
-      href: "/user/tax-calculator",
-      label: t("userDashboard.sidebar.taxCalculator"),
-    },
-    { href: "/upgrade", label: t("landingPage.navbar.pricing") },
-  ];
+  const navLinks = isAuthenticated
+    ? [
+        { href: "/", label: t("landingPage.navbar.home") },
+        {
+          href: "/user/countries",
+          label: t("landingPage.navbar.countriesData"),
+        },
+        {
+          href: "/user/tax-calculator",
+          label: t("userDashboard.sidebar.taxCalculator"),
+        },
+        { href: "/upgrade", label: t("landingPage.navbar.pricing") },
+      ]
+    : [
+        { href: "/#", label: t("landingPage.navbar.home") },
+        {
+          href: "/#features",
+          label: t("landingPage.features.title"),
+        },
+        { href: "/#countries", label: t("landingPage.navbar.countriesData") },
+        { href: "/#pricing", label: t("landingPage.navbar.pricing") },
+      ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -154,19 +166,33 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center flex-1 justify-center">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`transition-colors duration-200 px-4 ${
-                    location.pathname === link.href
-                      ? "text-black"
-                      : "text-[#404040] hover:text-black"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.href?.startsWith("/#") ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`transition-colors duration-200 px-4 ${
+                      location.pathname === link.href
+                        ? "text-black"
+                        : "text-[#404040] hover:text-black"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`transition-colors duration-200 px-4 ${
+                      location.pathname === link.href
+                        ? "text-black"
+                        : "text-[#404040] hover:text-black"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </div>
 
             {/* Desktop Right Section */}
@@ -301,20 +327,34 @@ const Navbar = () => {
             <div className="flex-1 overflow-y-auto bg-white">
               <div className="px-6 py-8">
                 <div className="flex flex-col space-y-6">
-                  {navLinks.map(({ href, label }) => (
-                    <Link
-                      key={href}
-                      to={href}
-                      className={`text-base ${
-                        isActivePath(href)
-                          ? "text-black font-medium"
-                          : "text-gray-700"
-                      }`}
-                      onClick={() => setIsDrawerOpen(false)}
-                    >
-                      {label}
-                    </Link>
-                  ))}
+                  {navLinks.map(({ href, label }) =>
+                    href?.startsWith("/#") ? (
+                      <a
+                        key={href}
+                        href={href}
+                        className={`transition-colors duration-200 px-4 ${
+                          location.pathname === href
+                            ? "text-black"
+                            : "text-[#404040] hover:text-black"
+                        }`}
+                      >
+                        {label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={href}
+                        to={href}
+                        className={`text-base ${
+                          isActivePath(href)
+                            ? "text-black font-medium"
+                            : "text-gray-700"
+                        }`}
+                        onClick={() => setIsDrawerOpen(false)}
+                      >
+                        {label}
+                      </Link>
+                    )
+                  )}
                 </div>
               </div>
             </div>

@@ -25,3 +25,9 @@ dist-ssr
 
 # Environment variables
 .env
+.env.*
+
+# Markdown optional files
+CODE_CHANGES_REFERENCE.md
+IMPLEMENTATION_SUMMARY.md
+SUBSCRIPTION_THANK_YOU_IMPLEMENTATION.md

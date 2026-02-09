@@ -9,6 +9,10 @@
   font-family: "Inter", serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

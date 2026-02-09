@@ -49,7 +49,7 @@ const isPublicRoute = () => {
 
   // Check for partial matches (like /help/some-article)
   return publicRoutes.some(
-    (route) => route !== "/" && currentPath.startsWith(route)
+    (route) => route !== "/" && currentPath.startsWith(route),
   );
 };
 
@@ -68,7 +68,7 @@ api.interceptors.response.use(
     if (!error.response) {
       throw new CustomAPIError(
         "Network error. Please check your connection.",
-        0
+        0,
       );
     }
 
@@ -108,7 +108,7 @@ api.interceptors.response.use(
       getErrorMessage(response.status, response.data?.error);
 
     throw new CustomAPIError(errorMessage, response.status, response.data);
-  }
+  },
 );
 
 export const registerNewUser = async (userData) => {
@@ -132,7 +132,7 @@ export const registerNewUser = async (userData) => {
     if (missingFields.length > 0) {
       throw new CustomAPIError(
         `Missing required fields: ${missingFields.join(", ")}`,
-        400
+        400,
       );
     }
 
@@ -148,7 +148,7 @@ export const registerNewUser = async (userData) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -183,7 +183,7 @@ export const loginUser = async (email, password) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -250,7 +250,7 @@ export const initiateGoogleAuth = async (accountType) => {
   try {
     // Redirect to the Google auth endpoint
     window.location.href = `${VITE_API_URL}/auth/google?&state=${encodeURIComponent(
-      param
+      param,
     )}`;
     return true;
   } catch (error) {
@@ -267,7 +267,7 @@ export const initiateMicrosoftAuth = async () => {
 
     // Redirect to the Microsoft auth endpoint
     window.location.href = `${VITE_API_URL}/auth/microsoft?redirect_uri=${encodeURIComponent(
-      redirectUri
+      redirectUri,
     )}`;
     return true;
   } catch (error) {
@@ -296,7 +296,7 @@ export const verifyEmail = async (email, otp) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -334,7 +334,7 @@ export const forgotPassword = async (email) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -349,7 +349,7 @@ export const forgotPassword = async (email) => {
     throw new CustomAPIError(
       "Failed to request password reset. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -378,7 +378,7 @@ export const resetPassword = async (email, password, otp) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -426,7 +426,7 @@ export const resendOTP = async (email) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -475,7 +475,7 @@ export const getUserProfile = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -490,7 +490,7 @@ export const getUserProfile = async () => {
     throw new CustomAPIError(
       "Failed to fetch user profile. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -533,7 +533,7 @@ export const updateUserProfile = async (profileData) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -548,7 +548,7 @@ export const updateUserProfile = async (profileData) => {
     throw new CustomAPIError(
       "Failed to update user profile. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -570,7 +570,7 @@ export const getUserPosts = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -585,7 +585,7 @@ export const getUserPosts = async () => {
     throw new CustomAPIError(
       "Failed to fetch user posts. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -607,7 +607,7 @@ export const getUserComments = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -622,7 +622,7 @@ export const getUserComments = async () => {
     throw new CustomAPIError(
       "Failed to fetch user comments. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -644,7 +644,7 @@ export const getUserBookmarks = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -659,7 +659,7 @@ export const getUserBookmarks = async () => {
     throw new CustomAPIError(
       "Failed to fetch user bookmarks. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -682,7 +682,7 @@ export const getUserPreferences = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -697,7 +697,7 @@ export const getUserPreferences = async () => {
     throw new CustomAPIError(
       "Failed to fetch user preferences. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -719,7 +719,7 @@ export const updateUserPreferences = async (preferences) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -734,7 +734,7 @@ export const updateUserPreferences = async (preferences) => {
     throw new CustomAPIError(
       "Failed to update user preferences. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -757,7 +757,7 @@ export const getAccountDetails = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -772,7 +772,7 @@ export const getAccountDetails = async () => {
     throw new CustomAPIError(
       "Failed to fetch account details. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -794,7 +794,7 @@ export const deleteAccount = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -818,11 +818,12 @@ export const createCheckoutSession = async (plan) => {
   // console.log("Creating checkout session at:", `${VITE_API_URL}${endpoint}`);
 
   try {
-    if (!["BASIC", "PREMIUM"].includes(plan)) {
-      throw new CustomAPIError(
-        "Invalid plan type. Must be either BASIC or PREMIUM",
-        400
-      );
+    if (
+      !["BASIC", "PREMIUM", "CORPORATE-BASIC", "CORPORATE-PREMIUM"].includes(
+        plan,
+      )
+    ) {
+      throw new CustomAPIError("Invalid request.", 400);
     }
 
     const response = await api.post(endpoint, { plan });
@@ -845,7 +846,7 @@ export const createCheckoutSession = async (plan) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -860,7 +861,7 @@ export const createCheckoutSession = async (plan) => {
     throw new CustomAPIError(
       "Failed to create checkout session. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -885,7 +886,7 @@ export const createBillingPortalSession = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -900,7 +901,7 @@ export const createBillingPortalSession = async () => {
     throw new CustomAPIError(
       "Failed to create billing portal session. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -932,7 +933,7 @@ export const getSubscriptionDetails = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -947,7 +948,7 @@ export const getSubscriptionDetails = async () => {
     throw new CustomAPIError(
       "Failed to fetch subscription details. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -969,7 +970,7 @@ export const cancelSubscription = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -984,7 +985,7 @@ export const cancelSubscription = async () => {
     throw new CustomAPIError(
       "Failed to cancel subscription. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -1006,7 +1007,7 @@ export const reactivateSubscription = async () => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -1021,7 +1022,7 @@ export const reactivateSubscription = async () => {
     throw new CustomAPIError(
       "Failed to reactivate subscription. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -1053,7 +1054,7 @@ export const submitFeedback = async (content, type) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -1068,7 +1069,7 @@ export const submitFeedback = async (content, type) => {
     throw new CustomAPIError(
       "Failed to submit feedback. Please try again.",
       0,
-      { originalError: error.message }
+      { originalError: error.message },
     );
   }
 };
@@ -1394,7 +1395,7 @@ export const calculateTaxAPI = async (country, data) => {
       if (!error.response) {
         throw new CustomAPIError(
           "Network error. Please check your connection.",
-          0
+          0,
         );
       }
 
@@ -1412,6 +1413,48 @@ export const calculateTaxAPI = async (country, data) => {
   }
 };
 
+// Country Cost Of Living Data Endpoints
+export const getCountryCostOfLivingData = async (data) => {
+  const endpoint = `/countries/cost-of-living?city=${data.city}&country=${data.country}&language=${data.lang}`;
+
+  try {
+    if (!data) {
+      throw new CustomAPIError("Country and city are required", 400);
+    }
+
+    const response = await api.get(endpoint);
+    return response;
+  } catch (error) {
+    if (error instanceof CustomAPIError) {
+      throw error;
+    }
+
+    if (axios.isAxiosError(error)) {
+      if (!error.response) {
+        throw new CustomAPIError(
+          "Network error. Please check your connection.",
+          0,
+        );
+      }
+
+      const status = error.response?.status || 0;
+      const message =
+        error.response?.data?.message ||
+        getErrorMessage(status, error.response?.data?.error);
+
+      throw new CustomAPIError(message, status, error.response?.data);
+    }
+
+    throw new CustomAPIError(
+      "Failed to get country cost of living data. Please try again.",
+      0,
+      {
+        originalError: error.message,
+      },
+    );
+  }
+};
+
 // Helper function for error handling
 const handleApiError = (error, defaultMessage) => {
   if (error instanceof CustomAPIError) {
@@ -1422,7 +1465,7 @@ const handleApiError = (error, defaultMessage) => {
     if (!error.response) {
       throw new CustomAPIError(
         "Network error. Please check your connection.",
-        0
+        0,
       );
     }
 

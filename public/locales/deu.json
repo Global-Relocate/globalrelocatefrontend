@@ -105,6 +105,8 @@
       "yearly": "Jährlich",
       "billedYearly": "Jährlich abgerechnet",
       "getStarted": "Loslegen",
+      "individual": "Einzelperson",
+      "corporate": "Unternehmen",
       "freePlan": {
         "title": "Kostenloser Plan",
         "para": "Perfekt für Einzelpersonen, die mit grundlegenden Funktionen Umzugsoptionen erkunden.",
@@ -120,6 +122,8 @@
       },
       "basicPlan": {
         "title": "Basis Plan",
+        "para": "Ideal für Personen, die umfassende Umzugsinstrumente und -ressourcen suchen.",
+        "corporatePara": "Perfekt für Unternehmen, die umfass ende Umzugstools und -ressourcen suchen.",
         "price": "15.90",
         "perMonth": "/Monat",
         "features": {
@@ -133,6 +137,8 @@
       },
       "premiumPlan": {
         "title": "Pro Plan",
+        "para": "Ideal für alle, die häufig umziehen und erweiterte Funktionen sowie persönlichen Support benötigen.",
+        "corporatePara": "Ideal für Unternehmen mit häufigen Umzügen und dem Bedarf an erweiterten Funktionen und personalisierter Unterstützung.",
         "price": "24.90",
         "perMonth": "/Monat",
         "features": {
@@ -370,7 +376,9 @@
     "letsCreateAccount": "Lassen Sie uns Ihr Konto erstellen",
     "chooseAccountType": "Wählen Sie einen Kontotyp",
     "createPersonalAccount": "Ich erstelle ein persönliches Konto",
+    "createPersonalAccountDesc": "Für Personen, die ins Ausland auswandern möchten.",
     "createCorporateAccount": "Ich erstelle ein Unternehmenskonto",
+    "createCorporateAccountDesc": "Für Organisationen, die in ein anderes Land migrieren oder dort eine neue Niederlassung gründen möchten",
     "continue": "Weiter",
     "chooseSignMethod": "Wählen Sie die Anmeldemethode",
     "continueWithEmail": "Mit E-Mail fortfahren",
@@ -379,7 +387,8 @@
     "chooseUsername": "Wählen Sie einen Benutzernamen",
     "enterYourFullName": "Geben Sie Ihren vollständigen Namen ein",
     "confirmPassword": "Passwort bestätigen",
-    "country": "Land"
+    "country": "Land",
+    "viewPricing": "Preise Anzeigen"
   },
   "welcomePage": {
     "welcomeAboard": "Willkommen an Bord",
@@ -442,11 +451,15 @@
     },
     "country": {
       "countryIn": "Land in",
+      "embassiesAndConsulates": "Botschaften und Konsulate",
+      "address": "Adresse",
       "addFavorite": "Zu Favoriten hinzufügen",
       "removeFavorite": "Aus Favoriten entfernen",
       "share": "Teilen",
       "overview": "Übersicht",
       "summary": "Zusammenfassung",
+      "category": "Kategorie",
+      "value": "kosten",
       "map": "Karte",
       "keyFacts": "Wichtige Fakten",
       "visaMigration": "Visa & Einwanderung",
@@ -609,7 +622,7 @@
       "childAllowanceFactor": "Kinderfreibetrag",
       "familyAndTaxStatus": "Familien- und Steuerstatus",
       "insuranceAndSurcharges": "Versicherungen und Zuschläge",
-      "state": "Bundesland",
+      "state": "Bundesstaat",
       "occupationalPensionMonthly": "Monatliche betriebliche Altersvorsorge",
       "churchTaxLiability": "Kirchensteuerpflicht",
       "healthInsuranceType": "Art der Krankenversicherung",
@@ -852,7 +865,6 @@
         "answer6": "Ein biometrischer Reisepass oder elektronischer Reisepass ähnelt einem gewöhnlichen Reisepass. Der Unterschied besteht darin, dass er einen Smartchip in seinem Umschlag oder auf einer seiner Seiten enthält, der die Daten des Passinhabers enthält. Biometrische Pässe wurden als Reaktion auf die wachsende Bedrohung durch Identitätsdiebstahl und Bedrohungen der nationalen Sicherheit geschaffen."
       }
     },
-
     "visaRequirements": {
       "title": "Visabestimmungen",
       "desc": "Informieren Sie sich über die Visabestimmungen für Ihr Zielland.",
@@ -1007,5 +1019,27 @@
     "usernameRequired": "Benutzername ist erforderlich",
     "minUsername": "Der Benutzername muss mindestens 3 Zeichen lang sein",
     "cpasswordRequired": "Passwortbestätigung ist erforderlich"
+  },
+  "subscriptionThankYou": {
+    "title": "Willkommen bei Premium!",
+    "subtitle": "Ihr Abonnement wurde erfolgreich aktiviert. Vielen Dank, dass Sie sich für uns entschieden haben!",
+    "planDetails": "Ihre Plandetails",
+    "planType": "Plan",
+    "price": "Monatlicher Preis",
+    "nextBilling": "Nächstes Abrechungsdatum",
+    "autoRenewal": "Ihr Abonnement wird am nächsten Abrechungsdatum automatisch erneuert. Sie können Ihr Abonnement jederzeit in Ihren Kontoeinstellungen verwalten.",
+    "unlockedFeatures": "Sie haben jetzt Zugriff auf:",
+    "features": {
+      "feature1": "Erweiterter Ländervergleich",
+      "feature2": "KI-gestützte Erkenntnisse",
+      "feature3": "Steuercalculator-Tools",
+      "feature4": "Premium-Visumressourcen",
+      "feature5": "Prioritätssupport",
+      "feature6": "Datenexportfunktionen"
+    },
+    "startExploring": "Jetzt erkunden",
+    "viewFeatures": "Alle Funktionen anzeigen",
+    "needHelp": "Benötigen Sie Hilfe beim Einstieg?",
+    "contactSupport": "Support kontaktieren"
   }
 }

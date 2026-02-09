@@ -18,10 +18,10 @@ import { ChevronDown, ChevronsUpDown, CheckIcon, Globe } from "lucide-react";
 import { CircleFlag } from "react-circle-flags";
 
 const languageMap = {
-  eng: { name: "English", country: "US" },
+  eng: { name: "English", country: "US", lang: "en" },
   // fra: { name: "French", country: "FR" },
   // spa: { name: "Spanish", country: "ES" },
-  deu: { name: "German", country: "DE" },
+  deu: { name: "German", country: "DE", lang: "de" },
   // ita: { name: "Italian", country: "IT" },
   // por: { name: "Portuguese", country: "PT" },
   // rus: { name: "Russian", country: "RU" },
@@ -54,6 +54,7 @@ const uniqueLanguages = Object.entries(languageMap).map(([code, data]) => ({
   code,
   name: data.name,
   country: data.country,
+  lang: data.lang,
 }));
 
 const LanguageDropdownComponent = forwardRef(
@@ -100,6 +101,7 @@ const LanguageDropdownComponent = forwardRef(
           code: language.code,
           name: language.name,
           country: language.country,
+          lang: language.lang,
         });
         setOpen(false);
       },

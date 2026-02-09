@@ -7,6 +7,7 @@ import VisaIndexCard from "@/components/cards/features/visa-index";
 import CompareCountriesCard from "@/components/cards/features/compare-countries";
 import CountriesCard from "@/components/cards/LandingCountriesCard";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "react-router-dom";
 
 // countries imports
 import nigeria from "../../assets/images/nigeria.png";
@@ -24,6 +25,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { getCountryCode } from "@/data/country-translations";
 import { loadCountryImages } from "@/lib/country-images";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const api = import.meta.env.VITE_API_URL;
 
@@ -32,8 +34,10 @@ export default function Landing() {
   const [randomCountries, setRandomCountries] = useState([]);
   const [countryImages, setCountryImages] = useState({});
   const [selectedPlan, setSelectedPlan] = useState("basicPlan");
+  const [activePricingTab, setActivePricingTab] = useState("individual");
   const planOverview = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const cardVariants = {
     offscreen: {
@@ -50,6 +54,19 @@ export default function Landing() {
       },
     },
   };
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.substring(1);
+    // small timeout to allow layout to settle/render
+    const t = setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 80);
+    return () => clearTimeout(t);
+  }, [location.hash]);
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -112,6 +129,38 @@ export default function Landing() {
     },
   ];
 
+  const corporatePlans = [
+    {
+      slug: "basicPlan",
+      title: "Basic",
+      para: t("landingPage.pricing.basicPlan.corporatePara"),
+      price: "79.90",
+      features: [
+        t("userDashboard.upgradePage.basicPlan.item1"),
+        t("userDashboard.upgradePage.basicPlan.item2"),
+        t("userDashboard.upgradePage.basicPlan.item3"),
+        t("userDashboard.upgradePage.basicPlan.item4"),
+        t("userDashboard.upgradePage.basicPlan.item5"),
+      ],
+    },
+    {
+      slug: "premiumPlan",
+      title: "Pro",
+      para: t("landingPage.pricing.premiumPlan.corporatePara"),
+      price: "99.90",
+      features: [
+        t("userDashboard.upgradePage.premiumPlan.item1"),
+        t("userDashboard.upgradePage.premiumPlan.item2"),
+        t("userDashboard.upgradePage.premiumPlan.item3"),
+        t("userDashboard.upgradePage.premiumPlan.item4"),
+        t("userDashboard.upgradePage.premiumPlan.item5"),
+        t("userDashboard.upgradePage.premiumPlan.item6"),
+        t("userDashboard.upgradePage.premiumPlan.item7"),
+        t("userDashboard.upgradePage.premiumPlan.item8"),
+      ],
+    },
+  ];
+
   return (
     <MainLayout>
       <div className="flex flex-col items-center justify-center bg-[#F5F5F7] min-w-[320px]">
@@ -130,7 +179,8 @@ export default function Landing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-xl sm:text-2xl md:text-4xl my-3 font-medium px-4 text-center"
+          className="scroll-mt-24 text-xl sm:text-2xl md:text-4xl my-3 font-medium px-4 text-center"
+          id="features"
         >
           {t("landingPage.features.title")}
         </motion.h2>
@@ -157,7 +207,8 @@ export default function Landing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-3xl md:text-4xl font-medium mt-10 sm:mt-20 text-center px-4"
+          className="scroll-mt-24 text-2xl sm:text-3xl md:text-4xl font-medium mt-10 sm:mt-20 text-center px-4"
+          id="countries"
         >
           {t("landingPage.countries.title")}
         </motion.h2>
@@ -291,58 +342,63 @@ export default function Landing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-3xl md:text-4xl my-3 sm:my-4 font-medium text-center px-4"
+          className="scroll-mt-24 text-2xl sm:text-3xl md:text-4xl my-3 sm:my-4 font-medium text-center px-4"
+          id="pricing"
         >
           {t("landingPage.pricing.title")}
         </motion.h2>
-        <p className="mt-3 sm:mt-4 text-center px-5 text-sm sm:text-base">
-          {t("landingPage.pricing.para")}
-        </p>
-        <motion.div
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-x-12 py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
+        <Tabs
+          defaultValue="individual"
+          value={activePricingTab}
+          onValueChange={setActivePricingTab}
+          className="w-full flex flex-col items-center justify-center"
         >
-          {[
-            {
-              title: t("landingPage.pricing.freePlan.title"),
-              para: t("landingPage.pricing.freePlan.para"),
-              slug: "freePlan",
-            },
-            {
-              title: t("landingPage.pricing.basicPlan.title"),
-              para: t("landingPage.pricing.basicPlan.para"),
-              slug: "basicPlan",
-            },
-            {
-              title: t("landingPage.pricing.premiumPlan.title"),
-              para: t("landingPage.pricing.premiumPlan.para"),
-              slug: "premiumPlan",
-            },
-          ].map((card, index) => (
+          <TabsList className="bg-slate-100 rounded-full border border-black p-1 flex items-center justify-center gap-1 sm:gap-2 mb-2">
+            <TabsTrigger value={"individual"} className="rounded-full">
+              {t("landingPage.pricing.individual") || "Individual"}
+            </TabsTrigger>
+            <TabsTrigger value={"corporate"} className="rounded-full">
+              {t("landingPage.pricing.corporate") || "Corporate"}
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent
+            value={"individual"}
+            className="w-full flex flex-col items-center justify-center"
+          >
+            {/* Individual Plans Content */}
+            <p className="mt-0.5 sm:mt-4 text-center px-5 text-sm sm:text-base">
+              {t("landingPage.pricing.para")}
+            </p>
             <motion.div
-              key={index}
-              variants={cardVariants}
-              custom={index}
-              className={`flex flex-col justify-between w-full p-10 text-center rounded-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-pointer ${
-                selectedPlan === card.slug && "border-2 border-black"
-              }`}
-              onClick={() => {
-                setSelectedPlan(card.slug);
-                planOverview.current.scrollIntoView({
-                  behavior: "smooth",
-                });
-              }}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.3 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-x-12 py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
             >
-              <h2 className="text-xl font-semibold mb-2 text-center w-full">
-                {card.title}
-              </h2>
-              <p className="text-lg">{card.para}</p>
-
-              <div className="w-full mt-8">
-                <Button
-                  className="bg-black text-white px-5 py-2 rounded-md w-full h-12"
+              {[
+                {
+                  title: t("landingPage.pricing.freePlan.title"),
+                  para: t("landingPage.pricing.freePlan.para"),
+                  slug: "freePlan",
+                },
+                {
+                  title: t("landingPage.pricing.basicPlan.title"),
+                  para: t("landingPage.pricing.basicPlan.para"),
+                  slug: "basicPlan",
+                },
+                {
+                  title: t("landingPage.pricing.premiumPlan.title"),
+                  para: t("landingPage.pricing.premiumPlan.para"),
+                  slug: "premiumPlan",
+                },
+              ].map((card, index) => (
+                <motion.div
+                  key={index}
+                  variants={cardVariants}
+                  custom={index}
+                  className={`flex flex-col justify-between w-full p-10 text-center rounded-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-pointer ${
+                    selectedPlan === card.slug && "border-2 border-black"
+                  }`}
                   onClick={() => {
                     setSelectedPlan(card.slug);
                     planOverview.current.scrollIntoView({
@@ -350,65 +406,211 @@ export default function Landing() {
                     });
                   }}
                 >
-                  {t("landingPage.pricing.getStarted")}
-                </Button>
+                  <h2 className="text-xl font-semibold mb-2 text-center w-full">
+                    {card.title}
+                  </h2>
+                  <p className="text-lg">{card.para}</p>
 
-                <Button
-                  className="bg-transparent text-primary rounded-md mt-5 w-full shadow-none hover:bg-transparent hover:shadow-none cursor-pointer"
-                  onClick={() => {
-                    setSelectedPlan(card.slug);
-                    planOverview.current.scrollIntoView({
-                      behavior: "smooth",
-                    });
-                  }}
-                >
-                  <i className="fas fa-chevron-down text-2xl"></i>
-                </Button>
+                  <div className="w-full mt-8">
+                    <Button
+                      className="bg-black text-white px-5 py-2 rounded-md w-full h-12"
+                      onClick={() => {
+                        setSelectedPlan(card.slug);
+                        planOverview.current.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
+                      {t("landingPage.pricing.getStarted")}
+                    </Button>
+
+                    <Button
+                      className="bg-transparent text-primary rounded-md mt-5 w-full shadow-none hover:bg-transparent hover:shadow-none cursor-pointer"
+                      onClick={() => {
+                        setSelectedPlan(card.slug);
+                        planOverview.current.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
+                      <i className="fas fa-chevron-down text-2xl"></i>
+                    </Button>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.3 }}
+              className="py-10 sm:py-20 mx-10 md:w-[85%] px-2 sm:px-0 border-2 border-black rounded-md mb-10"
+              ref={planOverview}
+            >
+              <div className="flex flex-col md:flex-row items-center justify-between mb-5 gap-8 px-10">
+                <div className="flex flex-col gap-2">
+                  <div className="font-medium">
+                    {t("landingPage.pricing.plan")}
+                  </div>
+                  <div className="text-2xl font-semibold">
+                    {t(`landingPage.pricing.${selectedPlan}.title`)}
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    {(activePricingTab === "individual"
+                      ? plans
+                      : corporatePlans
+                    )
+                      .find((plan) => plan.slug === selectedPlan)
+                      ?.features.map((feature, index) => (
+                        <div key={index} className="flex items-center gap-x-4">
+                          <FaCheckCircle className="text-[#7981DD] flex-shrink-0 text-xl" />
+                          <span className="text-gray-600 text-xl">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                  </div>
+
+                  <Button
+                    className="bg-black text-white px-5 py-2 rounded-md w-full h-12 mt-8"
+                    onClick={() => navigate("/signup")}
+                  >
+                    {t("landingPage.pricing.getStarted")}
+                  </Button>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                  <h3 className="text-7xl font-bold">
+                    €
+                    {
+                      (activePricingTab === "individual"
+                        ? plans
+                        : corporatePlans
+                      ).find((plan) => plan.slug === selectedPlan)?.price
+                    }
+                  </h3>{" "}
+                  / {t("userDashboard.upgradePage.perMonth")}
+                </div>
               </div>
             </motion.div>
-          ))}
-        </motion.div>
+          </TabsContent>
+          <TabsContent
+            value={"corporate"}
+            className="w-full flex flex-col items-center justify-center"
+          >
+            {/* Corporate Plans Content */}
+            <p className="mt-0.5 sm:mt-4 text-center px-5 text-sm sm:text-base">
+              {t("landingPage.pricing.para")}
+            </p>
+            <motion.div
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.3 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-x-12 py-10 sm:py-20 w-[95%] sm:w-[90%] px-2 sm:px-0"
+            >
+              {corporatePlans.map((card, index) => (
+                <motion.div
+                  key={index}
+                  variants={cardVariants}
+                  custom={index}
+                  className={`flex flex-col justify-between w-full p-10 text-center rounded-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-pointer ${
+                    selectedPlan === card.slug && "border-2 border-black"
+                  }`}
+                  onClick={() => {
+                    setSelectedPlan(card.slug);
+                    planOverview.current.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  <h2 className="text-xl font-semibold mb-2 text-center w-full">
+                    {card.title}
+                  </h2>
+                  <p className="text-lg">{card.para}</p>
 
-        <motion.div
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.3 }}
-          className="py-10 sm:py-20 mx-10 md:w-[85%] px-2 sm:px-0 border-2 border-black rounded-md mb-10"
-          ref={planOverview}
-        >
-          <div className="flex flex-col md:flex-row items-center justify-between mb-5 gap-8 px-10">
-            <div className="flex flex-col gap-2">
-              <div className="font-medium">{t("landingPage.pricing.plan")}</div>
-              <div className="text-2xl font-semibold">
-                {t(`landingPage.pricing.${selectedPlan}.title`)}
+                  <div className="w-full mt-8">
+                    <Button
+                      className="bg-black text-white px-5 py-2 rounded-md w-full h-12"
+                      onClick={() => {
+                        setSelectedPlan(card.slug);
+                        planOverview.current.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
+                      {t("landingPage.pricing.getStarted")}
+                    </Button>
+
+                    <Button
+                      className="bg-transparent text-primary rounded-md mt-5 w-full shadow-none hover:bg-transparent hover:shadow-none cursor-pointer"
+                      onClick={() => {
+                        setSelectedPlan(card.slug);
+                        planOverview.current.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
+                      <i className="fas fa-chevron-down text-2xl"></i>
+                    </Button>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+            <motion.div
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.3 }}
+              className="py-10 sm:py-20 mx-10 md:w-[85%] px-2 sm:px-0 border-2 border-black rounded-md mb-10"
+              ref={planOverview}
+            >
+              <div className="flex flex-col md:flex-row items-center justify-between mb-5 gap-8 px-10">
+                <div className="flex flex-col gap-2">
+                  <div className="font-medium">
+                    {t("landingPage.pricing.plan")}
+                  </div>
+                  <div className="text-2xl font-semibold">
+                    {t(`landingPage.pricing.${selectedPlan}.title`)}
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    {(activePricingTab === "individual"
+                      ? plans
+                      : corporatePlans
+                    )
+                      .find((plan) => plan.slug === selectedPlan)
+                      ?.features.map((feature, index) => (
+                        <div key={index} className="flex items-center gap-x-4">
+                          <FaCheckCircle className="text-[#7981DD] flex-shrink-0 text-xl" />
+                          <span className="text-gray-600 text-xl">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                  </div>
+
+                  <Button
+                    className="bg-black text-white px-5 py-2 rounded-md w-full h-12 mt-8"
+                    onClick={() => navigate("/signup")}
+                  >
+                    {t("landingPage.pricing.getStarted")}
+                  </Button>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                  <h3 className="text-7xl font-bold">
+                    €
+                    {
+                      (activePricingTab === "individual"
+                        ? plans
+                        : corporatePlans
+                      ).find((plan) => plan.slug === selectedPlan)?.price
+                    }
+                  </h3>{" "}
+                  / {t("userDashboard.upgradePage.perMonth")}
+                </div>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                {plans
-                  .find((plan) => plan.slug === selectedPlan)
-                  ?.features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-x-4">
-                      <FaCheckCircle className="text-[#7981DD] flex-shrink-0 text-xl" />
-                      <span className="text-gray-600 text-xl">{feature}</span>
-                    </div>
-                  ))}
-              </div>
-
-              <Button
-                className="bg-black text-white px-5 py-2 rounded-md w-full h-12 mt-8"
-                onClick={() => navigate("/signup")}
-              >
-                {t("landingPage.pricing.getStarted")}
-              </Button>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <h3 className="text-7xl font-bold">
-                €{plans.find((plan) => plan.slug === selectedPlan)?.price}
-              </h3>{" "}
-              / {t("userDashboard.upgradePage.perMonth")}
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          </TabsContent>
+        </Tabs>
       </div>
     </MainLayout>
   );

@@ -149,59 +149,69 @@ export default function Signup() {
 
       <div className="space-y-4 px-6">
         <button
-          className={`w-[100%] flex items-center justify-between p-6 rounded-lg transition-all ${
+          className={`w-[100%] flex flex-col p-6 rounded-lg transition-all ${
             selectedAccountType === "personal"
               ? "border-[1px] border-black bg-[#F5F5F5]"
               : "bg-[#F5F5F5]"
           }`}
           onClick={() => handleAccountTypeSelect("personal")}
         >
-          <div className="flex items-center">
-            <GoPersonFill className="h-5 w-5 mr-3 text-gray-700" />
-            <span className="text-left text-gray-700 text-sm">
-              {t("signUpPage.createPersonalAccount")}
-            </span>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <GoPersonFill className="h-5 w-5 mr-3 text-gray-700" />
+              <span className="text-left text-gray-700 text-sm">
+                {t("signUpPage.createPersonalAccount")}
+              </span>
+            </div>
+            <div
+              className={`h-3 w-3 flex items-center justify-center rounded-full ${
+                selectedAccountType === "personal"
+                  ? "bg-green-600"
+                  : "bg-[#E5E5E5]"
+              }`}
+              style={{ minWidth: "1rem", minHeight: "1rem" }}
+            >
+              {selectedAccountType === "personal" && (
+                <BsCheck className="h-5 w-5 text-white" />
+              )}
+            </div>
           </div>
-          <div
-            className={`h-3 w-3 flex items-center justify-center rounded-full ${
-              selectedAccountType === "personal"
-                ? "bg-green-600"
-                : "bg-[#E5E5E5]"
-            }`}
-            style={{ minWidth: "1rem", minHeight: "1rem" }}
-          >
-            {selectedAccountType === "personal" && (
-              <BsCheck className="h-5 w-5 text-white" />
-            )}
-          </div>
+          <span className="text-left text-xs text-gray-500 pl-5">
+            * {t("signUpPage.createPersonalAccountDesc")}
+          </span>
         </button>
 
         <button
-          className={`w-[100%] flex items-center justify-between p-6 rounded-lg transition-all ${
+          className={`w-[100%] flex flex-col p-6 rounded-lg transition-all ${
             selectedAccountType === "corporate"
               ? "border-[1px] border-black bg-[#F5F5F5]"
               : "bg-[#F5F5F5]"
           }`}
           onClick={() => handleAccountTypeSelect("corporate")}
         >
-          <div className="flex items-center">
-            <PiBuildingsFill className="h-5 w-5 mr-3 text-gray-700" />
-            <span className="text-left text-gray-700 text-sm">
-              {t("signUpPage.createCorporateAccount")}
-            </span>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <PiBuildingsFill className="h-5 w-5 mr-3 text-gray-700" />
+              <span className="text-left text-gray-700 text-sm">
+                {t("signUpPage.createCorporateAccount")}
+              </span>
+            </div>
+            <div
+              className={`h-3 w-3 flex items-center justify-center rounded-full ${
+                selectedAccountType === "corporate"
+                  ? "bg-green-600"
+                  : "bg-[#E5E5E5]"
+              }`}
+              style={{ minWidth: "1rem", minHeight: "1rem" }}
+            >
+              {selectedAccountType === "corporate" && (
+                <BsCheck className="h-5 w-5 text-white" />
+              )}
+            </div>
           </div>
-          <div
-            className={`h-3 w-3 flex items-center justify-center rounded-full ${
-              selectedAccountType === "corporate"
-                ? "bg-green-600"
-                : "bg-[#E5E5E5]"
-            }`}
-            style={{ minWidth: "1rem", minHeight: "1rem" }}
-          >
-            {selectedAccountType === "corporate" && (
-              <BsCheck className="h-5 w-5 text-white" />
-            )}
-          </div>
+          <span className="text-left text-xs text-gray-500 pl-5">
+            * {t("signUpPage.createCorporateAccountDesc")}
+          </span>
         </button>
       </div>
 
@@ -305,7 +315,7 @@ export default function Signup() {
         </Link>
       </div>
 
-      <div className="max-w-xl mx-auto px-6 pt-8 md:pt-16">
+      <div className="max-w-xl mx-auto px-6 pt-8 md:pt-10">
         {(showSignupMethods || showEmailForm) && (
           <button
             className="h-8 w-8 flex items-center justify-center bg-gray-100 rounded-full mb-6"
@@ -320,6 +330,17 @@ export default function Signup() {
 
         {/* Signup Methods Section */}
         {showSignupMethods && !showEmailForm && <SignupMethods />}
+
+        {!showEmailForm && (
+          <div className="px-6">
+            <p className="mt-4 text-sm text-gray-600 text-left w-[100%]">
+              {t("signUpPage.viewPricing")}{" "}
+              <Link to="/#pricing" className="text-blue-600 font-medium">
+                {t("landingPage.pricing.title")}
+              </Link>
+            </p>
+          </div>
+        )}
 
         {/* Email Signup Form Section */}
         {showEmailForm && (
@@ -356,7 +377,7 @@ export default function Signup() {
         {/* Terms and Privacy Policy Section */}
         <p className="text-left mt-8 text-xs text-gray-500 px-6 w-[100%]">
           {t("loginPage.tosDesc")}{" "}
-          <Link to="/term" className="text-black underline">
+          <Link to="/terms" className="text-black underline">
             {t("loginPage.tos")}
           </Link>{" "}
           {t("loginPage.and")}{" "}

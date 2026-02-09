@@ -6,6 +6,7 @@ const defaultLanguage = {
   code: "eng",
   name: "English",
   country: "US",
+  lang: "en",
 };
 
 export const LanguageContext = createContext();

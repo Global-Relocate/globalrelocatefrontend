@@ -14,6 +14,7 @@ import { AuthContext } from "@/context/AuthContextExport";
 import axios from "axios";
 import countryList from "react-select-country-list";
 import countryToCurrency from "country-to-currency";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Loading component
 const LoadingScreen = () => (
@@ -24,10 +25,6 @@ const LoadingScreen = () => (
 );
 
 const Upgrade = () => {
-  const [currentPlan, setCurrentPlan] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { user } = useContext(AuthContext);
@@ -37,6 +34,13 @@ const Upgrade = () => {
   const userType = user?.userType;
   const country = countryList().getValue(userCountry);
   const userCountryCurrency = countryToCurrency[country] || "EUR";
+
+  const [currentPlan, setCurrentPlan] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [activePricingTab, setActivePricingTab] = useState(
+    userType === "INDIVIDUAL" ? "individual" : "corporate",
+  );
 
   // Redirect to login if user is not authenticated
   useEffect(() => {
@@ -59,10 +63,10 @@ const Upgrade = () => {
         }
 
         const response = await axios.get(
-          "https://latest.currency-api.pages.dev/v1/currencies/eur.json"
+          "https://latest.currency-api.pages.dev/v1/currencies/eur.json",
         );
         setExchangeRate(
-          response.data.eur[userCountryCurrency.toLowerCase()] || 1
+          response.data.eur[userCountryCurrency.toLowerCase()] || 1,
         );
       } catch (err) {
         console.error("Error fetching exchange rate:", err);
@@ -125,6 +129,7 @@ const Upgrade = () => {
     {
       title: "Basic",
       price: "15.90",
+      type: "BASIC",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.basicPlan.item1"),
@@ -137,6 +142,7 @@ const Upgrade = () => {
     {
       title: "Pro",
       price: "24.90",
+      type: "PRO",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.premiumPlan.item1"),
@@ -155,6 +161,7 @@ const Upgrade = () => {
     {
       title: "Basic",
       price: "79.90",
+      type: "CORPORATE-BASIC",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.basicPlan.item1"),
@@ -167,6 +174,7 @@ const Upgrade = () => {
     {
       title: "Pro",
       price: "99.90",
+      type: "CORPORATE-PREMIUM",
       rate: exchangeRate,
       features: [
         t("userDashboard.upgradePage.premiumPlan.item1"),
@@ -296,51 +304,57 @@ const Upgrade = () => {
             </p>
           </div>
 
-          {userType === "INDIVIDUAL" ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {plans.map((plan) => (
-                <PricingCard
-                  key={plan.title}
-                  {...plan}
-                  isCurrentPlan={currentPlan === plan.title.toUpperCase()}
-                  buttonText={
-                    currentPlan === plan.title.toUpperCase()
-                      ? t("userDashboard.upgradePage.currentPlan")
-                      : t("userDashboard.upgradePage.getStarted")
-                  }
-                  onUpgrade={() =>
-                    handleUpgrade(
-                      plan.title.toLowerCase() === "pro"
-                        ? "PREMIUM"
-                        : plan.title.toUpperCase()
-                    )
-                  }
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {corporatePlans.map((plan) => (
-                <PricingCard
-                  key={plan.title}
-                  {...plan}
-                  isCurrentPlan={currentPlan === plan.title.toUpperCase()}
-                  buttonText={
-                    currentPlan === plan.title.toUpperCase()
-                      ? t("userDashboard.upgradePage.currentPlan")
-                      : t("userDashboard.upgradePage.getStarted")
-                  }
-                  onUpgrade={() =>
-                    handleUpgrade(
-                      plan.title.toLowerCase() === "pro"
-                        ? "PREMIUM"
-                        : plan.title.toUpperCase()
-                    )
-                  }
-                />
-              ))}
-            </div>
-          )}
+          <Tabs
+            defaultValue={"individual"}
+            value={activePricingTab}
+            onValueChange={(val) => setActivePricingTab(val)}
+            className="w-full flex flex-col items-center justify-center"
+          >
+            <TabsList className="bg-slate-100 rounded-full border border-black p-1 items-center justify-center gap-1 sm:gap-2 mb-6">
+              <TabsTrigger value={"individual"} className="rounded-full">
+                {t("landingPage.pricing.individual") || "Individual"}
+              </TabsTrigger>
+              <TabsTrigger value={"corporate"} className="rounded-full">
+                {t("landingPage.pricing.corporate") || "Corporate"}
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value={"individual"} className="w-full">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {plans.map((plan) => (
+                  <PricingCard
+                    key={plan.title}
+                    {...plan}
+                    isCurrentPlan={currentPlan === plan.title.toUpperCase()}
+                    buttonText={
+                      currentPlan === plan.title.toUpperCase()
+                        ? t("userDashboard.upgradePage.currentPlan")
+                        : t("userDashboard.upgradePage.getStarted")
+                    }
+                    onUpgrade={() => handleUpgrade(plan.type)}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value={"corporate"} className="w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {corporatePlans.map((plan) => (
+                  <PricingCard
+                    key={plan.title}
+                    {...plan}
+                    isCurrentPlan={currentPlan === plan.title.toUpperCase()}
+                    buttonText={
+                      currentPlan === plan.title.toUpperCase()
+                        ? t("userDashboard.upgradePage.currentPlan")
+                        : t("userDashboard.upgradePage.getStarted")
+                    }
+                    onUpgrade={() => handleUpgrade(plan.type)}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
     </MainLayout>

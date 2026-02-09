@@ -105,6 +105,8 @@
       "yearly": "Yearly",
       "billedYearly": "Billed yearly",
       "getStarted": "Get Started",
+      "individual": "Individual",
+      "corporate": "Corporate",
       "freePlan": {
         "title": "Free Plan",
         "para": "Perfect for individuals exploring relocation options with basic features.",
@@ -121,6 +123,7 @@
       "basicPlan": {
         "title": "Basic Plan",
         "para": "Ideal for individuals seeking comprehensive relocation tools and resources.",
+        "corporatePara": "Perfect for businesses seeking comprehensive relocation tools and resources.",
         "price": "15.90",
         "perMonth": "/month",
         "features": {
@@ -135,6 +138,7 @@
       "premiumPlan": {
         "title": "Pro Plan",
         "para": "Best for frequent relocators and those needing advanced features and personalized support.",
+        "corporatePara": "Ideal for businesses with frequent relocations and a need for advanced features and personalized support.",
         "price": "24.90",
         "perMonth": "/month",
         "features": {
@@ -372,7 +376,9 @@
     "letsCreateAccount": "Let's create your account",
     "chooseAccountType": "Choose an account type",
     "createPersonalAccount": "I am creating a personal account",
+    "createPersonalAccountDesc": "For individuals who wants to migrate abroad",
     "createCorporateAccount": "I am creating a corporate account",
+    "createCorporateAccountDesc": "For organizations who want to migrate or create a new branch in a new country",
     "continue": "Continue",
     "chooseSignMethod": "Choose signup method",
     "continueWithEmail": "Continue with e-mail",
@@ -381,7 +387,8 @@
     "chooseUsername": "Choose a username",
     "enterYourFullName": "Enter your full name",
     "confirmPassword": "Confirm password",
-    "country": "Country"
+    "country": "Country",
+"viewPricing":"View Pricing"
   },
   "welcomePage": {
     "welcomeAboard": "Welcome on board",
@@ -457,11 +464,15 @@
     },
     "country": {
       "countryIn": "Country in",
+      "embassiesAndConsulates":"Embassies and Consulates",
+      "address": "Address",
       "addFavorite": "Add to favorites",
       "removeFavorite": "Remove from favorites",
       "share": "Share",
       "overview": "Overview",
       "summary": "Summary",
+      "category":"Category",
+      "value":"Cost",
       "map": "Map",
       "keyFacts": "Key facts",
       "visaMigration": "Visa & Immigration",
@@ -1008,5 +1019,27 @@
     "usernameRequired": "Username is required",
     "minUsername": "Username must be at least 3 characters",
     "cpasswordRequired": "Confirm password is required"
+  },
+  "subscriptionThankYou": {
+    "title": "Welcome to Premium!",
+    "subtitle": "Your subscription has been successfully activated. Thank you for choosing us!",
+    "planDetails": "Your Plan Details",
+    "planType": "Plan",
+    "price": "Monthly Price",
+    "nextBilling": "Next Billing Date",
+    "autoRenewal": "Your subscription will automatically renew on your next billing date. You can manage your subscription anytime in your account settings.",
+    "unlockedFeatures": "You Now Have Access To:",
+    "features": {
+      "feature1": "Advanced country comparison",
+      "feature2": "AI-powered insights",
+      "feature3": "Tax calculator tools",
+      "feature4": "Premium visa resources",
+      "feature5": "Priority support",
+      "feature6": "Data export features"
+    },
+    "startExploring": "Start Exploring",
+    "viewFeatures": "View All Features",
+    "needHelp": "Need help getting started?",
+    "contactSupport": "Contact Support"
   }
 }
